@@ -1,0 +1,850 @@
+{
+ "nav.seminar": "Seminar 1",
+ "nav.series": "The series",
+ "nav.dates": "Dates",
+ "nav.faq": "FAQ",
+ "cta.book": "Book my seat",
+ "hero.kicker": "Seminar 1 · AI Foundations",
+ "hero.title": "AI won't wait. [Neither will your competitors.]",
+ "hero.sub": "Knowing about AI isn't enough. If it isn't in your business and your daily work yet, you're losing time, money and ground. Seminar 1 shows you how to start, now.",
+ "hero.countdown": "Next seminar starts in",
+ "units": [
+  "days",
+  "hrs",
+  "min",
+  "sec"
+ ],
+ "seats": "{n} of {total} seats left",
+ "early.until": "Early bird ends {date}",
+ "regular": "Regular",
+ "s1.kicker": "Seminar 1 · AI Foundations",
+ "s1.title": "What you'll find out",
+ "pillars": [
+  [
+   "What AI is",
+   "How AI computing works, and the basics of programming it. No jargon."
+  ],
+  [
+   "How to get started",
+   "Your first real wins, live, on your phone."
+  ],
+  [
+   "What it can do for your business",
+   "See how AI works in every department, and what it can save."
+  ]
+ ],
+ "strip": [
+  "3 hours",
+  "Hands-on",
+  "Up to 25 people",
+  "Bring your phone"
+ ],
+ "nav.work": "Our work",
+ "nav.ind": "Industries",
+ "out.title": "What's in it for you",
+ "outs": [
+  [
+   "Understand AI computing & programming",
+   "How AI works under the hood, and the basics of programming it."
+  ],
+  [
+   "Generate new revenue",
+   "Use AI to find customers, sell faster, and launch new services."
+  ],
+  [
+   "Increase your team's productivity",
+   "Hours back every week, for every person on your team."
+  ],
+  [
+   "Cut your operating expenses",
+   "Do more with the team and budget you already have."
+  ]
+ ],
+ "cs.kicker": "Our work",
+ "cs.title": "We do this every day",
+ "cs.sub": "These are the kinds of jobs AI now does in our own businesses. In the seminar, you see them live.",
+ "cs.big": "pages analyzed in just one of our projects",
+ "cases": [
+  [
+   "Senior living: financial turnaround",
+   "Monthly statements, census and staffing data pulled into one view. AI found where the money was going and tracked the turnaround quarter by quarter.",
+   "NOI: loss → $212K a quarter"
+  ],
+  [
+   "Payroll and staffing",
+   "Payroll by department, overtime flagged, and savings found, in minutes instead of days.",
+   "$50,700 a year in overtime"
+  ],
+  [
+   "Opportunity analysis",
+   "Numbers from a deal, project or new location turned into a clear model: costs, profit, payback and return.",
+   "Payback in 1.8 years"
+  ],
+  [
+   "Contract summaries",
+   "Long contracts cut to one page: terms, price, renewal and risks, with page references.",
+   "62 pages → 1 page"
+  ],
+  [
+   "Budget vs actual",
+   "Every line compared to budget, with the overage traced to its cause.",
+   "Overage traced to 3 lines"
+  ],
+  [
+   "Billing and collections",
+   "Receivables sorted by age, problem accounts flagged, and follow-up letters drafted.",
+   "62% of late balance in 3 accounts"
+  ],
+  [
+   "Vendor spend review",
+   "A year of invoices checked for duplicates, overlap and price gaps.",
+   "$48,400 a year found"
+  ],
+  [
+   "Marketing campaign",
+   "Channels, budget, copy and calendar planned in a day, without an agency.",
+   "401 leads from a $10,000 plan"
+  ],
+  [
+   "Lender: multi-billion-dollar loan portfolios",
+   "Senior asset and portfolio management across multi-billion-dollar loan portfolios nationwide: multifamily, senior debt, mezzanine, preferred equity and ground-up development. Every loan tracked for coverage, maturities and early warning signs.",
+   "Every loan tracked, early warnings flagged"
+  ],
+  [
+   "Investors vs. operator: forensic review",
+   "On behalf of partners and investors, we checked the operator's statements, bank records and agreements line by line against what the operator was allowed to charge.",
+   "Every charge checked, with page references"
+  ],
+  [
+   "Senior care: payroll stats automated",
+   "Payroll exports turned into a weekly labor report automatically: hours per resident day, overtime and agency use by department.",
+   "Built automatically, every week"
+  ],
+  [
+   "Healthcare: census and payer mix",
+   "Census, payer mix and revenue per resident day in one view, with the moves that raise revenue.",
+   "+$31K a month in revenue"
+  ],
+  [
+   "Websites built and launched with AI",
+   "This website is an example: design, four languages plus AI translation, booking, checkout, a chat agent and automatic publishing, built in days.",
+   "Built in days, not months"
+  ]
+ ],
+ "cs.note": "Snapshots show sample data. Client names and real figures are kept private.",
+ "ind.kicker": "Industries",
+ "ind.title": "Industries we help",
+ "ind.sub": "If your business runs on people, paperwork, or customers, AI can help.",
+ "inds": [
+  "Real estate & property management",
+  "Healthcare & senior care",
+  "Legal & law firms",
+  "Finance, accounting & insurance",
+  "Retail & e-commerce",
+  "Restaurants & food",
+  "Construction & trades",
+  "Nonprofits & schools",
+  "Wholesale & distribution",
+  "Professional services"
+ ],
+ "nav.depts": "Departments",
+ "nav.save": "Savings",
+ "dept.kicker": "The big picture",
+ "dept.title": "Find out how AI can run every department",
+ "dept.sub": "Seminar 1 shows you what's possible for each one. The series teaches the setup, step by step.",
+ "depts": [
+  [
+   "CMO",
+   "Marketing",
+   "Ads, social posts, flyers, and campaigns in minutes."
+  ],
+  [
+   "CFO",
+   "Finance",
+   "Budgets, cash flow, invoices, and reports in plain words."
+  ],
+  [
+   "COO",
+   "Operations",
+   "Checklists, schedules, procedures, and vendor follow-up."
+  ],
+  [
+   "CTO",
+   "Technology",
+   "Pick the right tools, connect them, keep data safe."
+  ],
+  [
+   "HR",
+   "Human resources",
+   "Job posts, interviews, onboarding, and policies."
+  ],
+  [
+   "Sales",
+   "Sales",
+   "Proposals, quotes, and follow-ups out the same day."
+  ],
+  [
+   "CS",
+   "Customer service",
+   "Fast, friendly answers in every language."
+  ],
+  [
+   "Admin",
+   "Office",
+   "Email, letters, scheduling, and document summaries."
+  ]
+ ],
+ "save.kicker": "The return",
+ "save.title": "How much could AI save your business?",
+ "save.sub": "For a team of 15, a few hours a week adds up to six figures a year. Try your numbers.",
+ "save.people": "People on your team",
+ "save.hours": "Hours saved per person, per week",
+ "save.rate": "Cost per hour (pay + overhead)",
+ "save.result": "Estimated savings per year",
+ "save.hoursYr": "{h} hours back every year",
+ "save.note": "An estimate based on 50 working weeks. Your results depend on your business and how you use AI.",
+ "series.kicker": "The series",
+ "series.title": "This is just the beginning",
+ "series.sub": "Seminar 1 opens the door. The next seminars teach the setup, one department at a time.",
+ "road": [
+  [
+   "AI Foundations",
+   "Find out what AI is, how to start, and what it can do for you."
+  ],
+  [
+   "AI for Every Department",
+   "Step-by-step setup: CMO, CFO, COO, CTO, HR."
+  ],
+  [
+   "Train Your AI",
+   "Teach AI your business. Custom assistants and team training."
+  ],
+  [
+   "Automate",
+   "AI handles the repeat work. You run the business."
+  ]
+ ],
+ "now": "Booking now",
+ "soon": "Coming soon",
+ "dates.kicker": "Dates",
+ "dates.title": "Pick your night",
+ "dates.sub": "All seminars are taught in English for now.",
+ "tent": "Tentative",
+ "full": "Sold out",
+ "pres.kicker": "Your presenter",
+ "pres.title": "Learn from someone who does it",
+ "pres.body": "A Brooklyn entrepreneur who has spent nearly 20 years building, financing, and turning around real businesses. Today he runs his companies with AI every single day. Now he's showing you exactly how.",
+ "stats": [
+  [
+   "20",
+   "years in business"
+  ],
+  [
+   "$B+",
+   "portfolios managed"
+  ],
+  [
+   "Daily",
+   "AI in his companies"
+  ]
+ ],
+ "faq.kicker": "FAQ",
+ "faq.title": "Quick answers",
+ "faqs": [
+  [
+   "Do I need to know computers?",
+   "No. If you can use WhatsApp, you're ready."
+  ],
+  [
+   "Will I learn everything in one night?",
+   "No. Seminar 1 shows you what's possible and gets you started. The next seminars go deep, one department at a time."
+  ],
+  [
+   "Is there an online option?",
+   "Yes. Seminar 1 also runs live on Zoom on a different night, for half the price."
+  ],
+  [
+   "What do I bring?",
+   "Your phone. A laptop if you have one."
+  ],
+  [
+   "Can I bring my team?",
+   "Yes. Choose the number of seats at checkout."
+  ],
+  [
+   "What if I can't make it?",
+   "Full refund up to 7 days before. After that, switch to another date."
+  ],
+  [
+   "Can you come to my business?",
+   "Yes. Private seminars for teams, schools, and men's or women's groups."
+  ],
+  [
+   "I don't have a company yet. Is this for me?",
+   "Yes. You'll find out how to use AI to plan, build, and launch a company in days."
+  ]
+ ],
+ "final.title": "Don't get left behind.",
+ "final.sub": "Book a free consultation, or save a seat at a seminar.",
+ "sheet.title": "Book your seat",
+ "sheet.pick": "1 · Pick your night",
+ "sheet.pay": "2 · Checkout",
+ "sheet.checkout": "Checkout · {price}",
+ "sheet.save": "Early bird: you save {save}",
+ "sheet.secure": "Secure payment by Stripe. Choose seats and enter your details on the next screen.",
+ "sheet.details": "2 · Your details",
+ "f.name": "Name",
+ "f.phone": "Phone (WhatsApp)",
+ "f.email": "Email",
+ "sheet.reserve": "Reserve my seat",
+ "sheet.door": "Pay at the door. We confirm by WhatsApp.",
+ "f.required": "Please enter your name and phone.",
+ "f.error": "That didn't go through. Please try again.",
+ "sending": "Sending…",
+ "done.title": "You're in!",
+ "done.paid": "Your receipt is on its way to your email. We'll send the address and a reminder before the seminar.",
+ "done.reserved": "Thank you, {name}! Your seat is reserved. We'll confirm on WhatsApp within one business day.",
+ "done.share": "Bring a friend",
+ "close": "Close",
+ "footer": "AI services, agents and education for real businesses.",
+ "hero.go": "Get started",
+ "hero.ring": "GET STARTED · BOOK YOUR SEAT · ",
+ "price.line": "{inperson} in person · {online} online",
+ "price.early": "Early bird pricing until {date}",
+ "fmt.inperson": "In person",
+ "fmt.online": "Online · Zoom",
+ "online.kicker": "Online",
+ "online.big": "Half price",
+ "online.title": "Can't make it in person?",
+ "online.sub": "Join Seminar 1 live on Zoom on a different night. Same seminar, half the price.",
+ "online.cta": "Book an online seat",
+ "dates.tabIn": "In person",
+ "dates.tabOn": "Online · half price",
+ "out.ask": "Tap to ask",
+ "lang.more": "More languages",
+ "lang.title": "Choose your language",
+ "lang.other": "Or type any language",
+ "lang.go": "Translate",
+ "lang.busy": "Translating the site…",
+ "lang.note": "Translated automatically by AI.",
+ "lang.fail": "Translation isn't available right now. Please try again later.",
+ "chat.open": "Ask us anything",
+ "chat.sub": "Ask about our services, agents, seminars or prices.",
+ "chat.ph": "Type your question…",
+ "chat.send": "Send",
+ "chat.hello": "Hi! I can answer questions about our AI agents, automation, seminars, prices and dates, in any language. What would you like to know?",
+ "chat.chips": [
+  "What will I learn?",
+  "How much is it?",
+  "When is it?",
+  "Is there an online option?",
+  "Book my seat"
+ ],
+ "chat.price": "In person: {early} per seat with early bird pricing, then {regular}. Online on Zoom: {oearly}, then {oregular}. You choose the number of seats at checkout.",
+ "chat.dates": "Here are the upcoming seminars:",
+ "chat.where": "In-person seminars are in Brooklyn. The exact address is sent after you book. Online seminars run live on Zoom.",
+ "chat.learn": "Seminar 1 is your first step. You'll find out:",
+ "chat.fallback": "Good question. I don't have that answer here. Book a seat and ask the presenter, or message us on WhatsApp.",
+ "chat.err": "Something went wrong. Please try again.",
+ "chat.typing": "Typing…",
+ "stop.kicker": "Stop overpaying",
+ "stop.title": "Do it yourself with AI",
+ "stop": [
+  [
+   "$25,000 websites",
+   "Build your website with AI."
+  ],
+  [
+   "$10,000s to marketing agencies",
+   "Build your own marketing campaigns."
+  ],
+  [
+   "Weeks of analysis",
+   "Analyze opportunities in minutes."
+  ],
+  [
+   "",
+   "Organize your back office."
+  ],
+  [
+   "",
+   "Build and automate your processes."
+  ],
+  [
+   "",
+   "Simplify billing."
+  ],
+  [
+   "",
+   "Any industry. Any company."
+  ]
+ ],
+ "stop.ans": "Seminar 1 shows you what's possible and how to get started. The series teaches the full setup, step by step.",
+ "launch.kicker": "No company yet?",
+ "launch.title": "Launch a company with AI in days",
+ "launch.sub": "Don't have a business yet? Find out how to use AI to plan it, name it, build the website, and start selling in days, not months.",
+ "any.title": "Any department. Any industry.",
+ "from": "from {price}",
+ "panel.chat": "Real answers, any language.",
+ "scroll": "Scroll to explore",
+ "ind.lines": [
+  "Underwriting, rent rolls, leases and tenant letters.",
+  "Financial packages, staffing, census and billing.",
+  "Contract abstracts, document review and intake summaries.",
+  "Reconciliations, variance reports and claims summaries.",
+  "Product listings, inventory plans and customer replies.",
+  "Menu costing, schedules, supplier orders and reviews.",
+  "Bids, change orders, schedules and subcontractor tracking.",
+  "Grant writing, donor letters and reports.",
+  "Order entry, price sheets and supplier follow-up.",
+  "Proposals, client reports and meeting notes."
+ ],
+ "nav.cases": "Case Studies",
+ "nav.home": "Home",
+ "cases.sub": "Financial statements, payroll, contracts and more, analyzed in minutes.",
+ "cases.see": "See the work",
+ "ind.see": "Explore",
+ "cv.title": "See what AI does in a real business",
+ "cv.sub": "Real deals and real operations across industries. Tap any one to see it up close.",
+ "cases.all": "See all case studies",
+ "ind.more": "Don't see your industry? Ask us.",
+ "urg.kicker": "The cost of waiting",
+ "urg.title": "Knowing about AI isn't enough.",
+ "urg.sub": "If you're not using it in your business every day, here's what it's costing you.",
+ "urg.lines": [
+  [
+   "Wasting time.",
+   "Hours a week on work AI does in minutes."
+  ],
+  [
+   "Leaving money on the table.",
+   "Deals, savings and customers you never see."
+  ],
+  [
+   "Running inefficient.",
+   "Paying people and agencies for work a tool can do."
+  ],
+  [
+   "Falling behind.",
+   "Your competitors already use it. Every month you wait, the gap grows."
+  ]
+ ],
+ "urg.cta": "Start now",
+ "nav.services": "Services",
+ "nav.agents": "Agents",
+ "nav.edu": "Education",
+ "cta.call": "Book a call",
+ "mo.kicker": "AI services · Agents · Education",
+ "mo.title": "Agents that carry the work. [Faithfully.]",
+ "mo.sub": "We build AI agents and automation for your business, and we teach you and your team to use AI. Less busywork. More done. Faster.",
+ "mo.go": "Book a free consultation",
+ "edu.pk": "Chocham AI · Education",
+ "edu.pt": "Learn AI with Chocham AI",
+ "edu.ps": "Our education company: hands-on seminars, team workshops and one-on-one training.",
+ "edu.go": "See seminars",
+ "why.kicker": "Why Moses",
+ "why.title": "The ultimate agent.",
+ "why.p1": "When HaShem chose an agent to carry the most precious thing in existence, the Torah, He chose Moses. Moses delivered it faithfully, exactly as it was given, to an entire nation.",
+ "why.p2": "That is the standard we build to. Every agent we make carries your work the way you would: exactly, reliably, and with you always in charge.",
+ "why.pr": [
+  [
+   "Faithful",
+   "Your agent follows your rules, your voice and your process. Nothing made up."
+  ],
+  [
+   "Reliable",
+   "Every agent is tested on your real work before it goes live, and checked after."
+  ],
+  [
+   "In your hands",
+   "You approve what matters. The agent does the rest and reports back."
+  ]
+ ],
+ "svc.kicker": "Services",
+ "svc.title": "What we do",
+ "svc.sub": "One partner for every place AI fits in your business: we build it, run it and teach it.",
+ "svc.list": [
+  [
+   "AI agents",
+   "Customer service, sales follow-up, intake, scheduling and inbox agents that work around the clock."
+  ],
+  [
+   "Back-office automation",
+   "Billing, collections, payables, payroll prep and month-end reports on autopilot."
+  ],
+  [
+   "Financial analysis",
+   "Operating statements, budgets, underwriting and variance reports in minutes, not weeks."
+  ],
+  [
+   "Marketing systems",
+   "Campaigns, content, email and ads built and run in-house, without $10,000 agency retainers."
+  ],
+  [
+   "Document AI",
+   "Contracts, leases and long files summarized and checked."
+  ],
+  [
+   "Websites and apps",
+   "Fast, modern websites and internal tools, without the $25,000 price tag."
+  ]
+ ],
+ "ag.kicker": "Agents",
+ "ag.title": "Agents we build",
+ "ag.sub": "Tap an agent to see how it works.",
+ "ag.cta": "Build this agent",
+ "ag.list": [
+  [
+   "Inbox agent",
+   "Reads, sorts and answers routine email. Flags what needs you.",
+   [
+    "A new email arrives",
+    "The agent reads it and checks your rules",
+    "Routine? It drafts or sends the reply",
+    "Important? It flags it for you with a short summary"
+   ]
+  ],
+  [
+   "Sales follow-up agent",
+   "Every lead gets a fast answer and a steady follow-up.",
+   [
+    "A lead fills out your form",
+    "The agent replies within minutes, in their language",
+    "It follows up on day 2, 5 and 10",
+    "It books the call on your calendar"
+   ]
+  ],
+  [
+   "Billing agent",
+   "Invoices out, payments tracked, reminders sent.",
+   [
+    "Invoices go out on schedule",
+    "The agent tracks who paid",
+    "It sends polite reminders when a payment is late",
+    "Every Monday it reports what's outstanding"
+   ]
+  ],
+  [
+   "Intake agent",
+   "New clients, tenants or residents, fully onboarded.",
+   [
+    "Someone new applies",
+    "The agent collects every document",
+    "It checks for anything missing",
+    "You get one complete file, ready to approve"
+   ]
+  ],
+  [
+   "Reporting agent",
+   "Your numbers, in one report, on time, every week.",
+   [
+    "It pulls numbers from your systems",
+    "It builds the weekly report",
+    "It flags anything unusual",
+    "It sends it to your team every Monday at 8"
+   ]
+  ],
+  [
+   "Customer service agent",
+   "Answers customers any time, from your own policies.",
+   [
+    "A customer asks a question, day or night",
+    "The agent answers from your policies",
+    "It hands off to a person when needed",
+    "Every conversation is logged for you"
+   ]
+  ]
+ ],
+ "proc.kicker": "How it works",
+ "proc.title": "From first call to live agent",
+ "proc.list": [
+  [
+   "Free consultation",
+   "30 minutes. We learn your business and where time and money leak."
+  ],
+  [
+   "Map the work",
+   "We pick the tasks with the biggest payoff and write the rules with you."
+  ],
+  [
+   "Build and test",
+   "We build your agent and test it on your real work until it's right."
+  ],
+  [
+   "Launch and support",
+   "It goes live with you in charge. We monitor, improve and train your team."
+  ]
+ ],
+ "eduh.kicker": "Chocham AI · Our education company",
+ "eduh.title": "We teach it, too.",
+ "eduh.sub": "Knowing about AI isn't enough. Through Chocham AI, our education company, we show you and your team exactly how to use it in your business.",
+ "eduh.list": [
+  [
+   "Seminars",
+   "Hands-on public seminars on what AI is and how to use it in business. Live in Brooklyn and online."
+  ],
+  [
+   "Team workshops",
+   "Private, on-site training for your staff, built around your own work and tools."
+  ],
+  [
+   "Leadership training",
+   "One-on-one sessions for owners and executives: AI for marketing, finance, operations, tech and HR."
+  ],
+  [
+   "Training on every agent",
+   "Every agent we build comes with training, so your team runs it with confidence."
+  ]
+ ],
+ "eduh.book": "Book training",
+ "eduh.dates": "See seminar dates",
+ "eduh.msg": "Training for my team",
+ "ev.kicker": "Chocham AI · The education company of Moses Agentic",
+ "mofaq.title": "Questions about our services",
+ "mofaq.list": [
+  [
+   "Is my business data safe?",
+   "Yes. We use business-grade AI accounts, keep your data in your own systems where possible, and set clear rules on what each agent can see and do."
+  ],
+  [
+   "Do I need a tech team?",
+   "No. We build it, run it and support it. Your team just uses it."
+  ],
+  [
+   "How long does it take?",
+   "Most first agents go live in a few weeks, depending on the work. You see it working on your real tasks before it launches."
+  ],
+  [
+   "What does it cost?",
+   "Every project is quoted after the free consultation, based on the work. You know the price before we start. Seminars start at $29 online."
+  ],
+  [
+   "Will AI replace my staff?",
+   "Agents take the busywork, so your people can do the work that needs a person."
+  ],
+  [
+   "Do you offer training?",
+   "Yes. Our education company, Chocham AI, runs public seminars, on-site workshops for your team, and one-on-one training for owners and leaders. Every agent we build also comes with training."
+  ]
+ ],
+ "con.kicker": "Contact",
+ "con.title": "Book a free consultation",
+ "con.sub": "Tell us what eats your team's time, or what you want them to learn. We'll show you what AI can do for you.",
+ "con.name": "Name",
+ "con.company": "Company",
+ "con.phone": "Phone",
+ "con.email": "Email",
+ "con.msg": "What do you need? An agent, automation or training?",
+ "con.ph": "For example: answering customer emails, billing reminders, or AI training for my team",
+ "con.send": "Book my free consultation",
+ "con.err": "Please add your name and a phone number or email.",
+ "con.done": "Thank you!",
+ "con.doneSub": "We'll be in touch within one business day.",
+ "mo.chat": "We build AI agents and automation, and we teach AI. Here's what we do:",
+ "ev.footer": "Chocham AI is the education company of Moses Agentic.",
+ "cs.inds": [
+  [
+   "all",
+   "All"
+  ],
+  [
+   "cre",
+   "Commercial real estate"
+  ],
+  [
+   "hc",
+   "Healthcare"
+  ],
+  [
+   "fin",
+   "Finance"
+  ],
+  [
+   "ops",
+   "Back office"
+  ],
+  [
+   "web",
+   "Web development"
+  ],
+  [
+   "mkt",
+   "Marketing"
+  ]
+ ],
+ "cs.count": "{n} case studies",
+ "mp.kicker": "Our sister company",
+ "mp.title": "Want it built for you?",
+ "mp.sub": "Moses Agentic builds AI agents and automation for your business, and runs them for you.",
+ "mp.go": "Visit Moses Agentic",
+ "disc.title": "Disclosures",
+ "disc.note": "These disclosures are written in English. The English version governs.",
+ "cs.count1": "1 case study",
+ "pr.lines": [
+  [
+   "cre",
+   "Acquisitions, asset management, investor reporting and operator oversight."
+  ],
+  [
+   "hc",
+   "Senior living and healthcare operations: census, staffing, payroll and turnarounds."
+  ],
+  [
+   "fin",
+   "Lending, loan portfolios, underwriting, budgets and deal analysis."
+  ],
+  [
+   "ops",
+   "Payroll, billing, collections, vendors and contracts, organized and automated."
+  ],
+  [
+   "web",
+   "Websites, apps and automation, built in days."
+  ],
+  [
+   "mkt",
+   "Campaigns, content and leads, without agency fees."
+  ]
+ ],
+ "pr.kicker": "Our practices",
+ "pr.title": "See our work",
+ "pr.sub": "Pick an industry.",
+ "pr.see": "See our work in {x}",
+ "pr.hero": "Our work in {x}",
+ "pr.cta": "Talk to us about {x}",
+ "pr.eyebrow": "Practice",
+ "num.kicker": "By the numbers",
+ "num.title": "What we've done with AI",
+ "num.sub": "Real work on our own deals and businesses.",
+ "stat.re": "of real estate analyzed",
+ "stat.pages": "pages analyzed in one project",
+ "stat.deals": "deals analyzed",
+ "stat.fin": "financial statements processed",
+ "stat.loi": "LOIs drafted and reviewed",
+ "stat.payroll": "payrolls analyzed",
+ "stat.contracts": "contracts and leases abstracted",
+ "stat.hours": "hours saved",
+ "num.time": "Time, before and with AI",
+ "num.before": "Before",
+ "num.after": "With AI",
+ "am.kicker": "Asset management",
+ "am.title": "From compiling to reviewing.",
+ "am.before.h": "Before",
+ "am.before.p": "An asset manager can cost up to $200,000 a year, and much of the week goes to compiling reports and chasing numbers.",
+ "am.after.h": "With an AI agent",
+ "am.after.p": "The agent compiles the reports and tracks the numbers. The asset manager reviews, decides, and manages the property and the investment.",
+ "am.list": [
+  "Monthly operating statements",
+  "Rent rolls and occupancy",
+  "Budget vs. actual",
+  "Loan covenants and DSCR",
+  "Investor reports"
+ ],
+ "am.compile": "Compiling",
+ "am.review": "Reviewing and managing",
+ "am.cta": "Put an agent on your portfolio",
+ "uc.kicker": "Use cases",
+ "uc.title": "What we use AI for",
+ "uc.sub": "Real work we do with AI, by practice.",
+ "uc.list": [
+  [
+   "cre",
+   [
+    "Underwriting models",
+    "Operating statement analysis",
+    "Rent rolls and occupancy tracking",
+    "Forensic reviews for partners and investors",
+    "LOIs drafted and reviewed",
+    "Lease and legal abstracts"
+   ]
+  ],
+  [
+   "hc",
+   [
+    "Senior living financial turnaround",
+    "Payroll and staffing analysis",
+    "Weekly payroll stats, automated",
+    "Census and occupancy tracking",
+    "Vendor management"
+   ]
+  ],
+  [
+   "fin",
+   [
+    "Loan portfolio tracking",
+    "Deal and opportunity analysis",
+    "Budget vs. actual",
+    "Financial statements",
+    "Investor reporting"
+   ]
+  ],
+  [
+   "ops",
+   [
+    "Billing and collections",
+    "Contract summaries",
+    "Large document reviews",
+    "Payroll prep",
+    "Vendor spend reviews"
+   ]
+  ],
+  [
+   "web",
+   [
+    "Websites in four languages",
+    "AI translation into 50+ languages",
+    "Booking and checkout",
+    "Chat agents",
+    "Automatic publishing"
+   ]
+  ],
+  [
+   "mkt",
+   [
+    "Marketing campaigns",
+    "WhatsApp and email outreach in four languages",
+    "Flyers with QR codes",
+    "Brand and logo direction"
+   ]
+  ]
+ ],
+ "op.kicker": "How we work with you",
+ "op.title": "Three ways to get it done.",
+ "op.sub": "Pick how hands-on you want to be.",
+ "op.list": [
+  [
+   "Teach me",
+   "Learn it. Do it yourself.",
+   "We teach you and your team AI, step by step. You build and run it yourself.",
+   [
+    "Seminars and workshops",
+    "Training by department",
+    "You own every step"
+   ],
+   "See seminars"
+  ],
+  [
+   "Build it, I run it",
+   "We build it. You operate it.",
+   "We build your agents and systems, then train your team to run them with confidence.",
+   [
+    "Built for your business",
+    "Hands-on training",
+    "Support when you need it"
+   ],
+   "Talk to us"
+  ],
+  [
+   "Do it for me",
+   "We build it. We run it.",
+   "We build it, run it and keep improving it. You review the results and make the decisions.",
+   [
+    "Fully managed",
+    "Weekly reports to you",
+    "You stay in charge"
+   ],
+   "Talk to us"
+  ]
+ ],
+ "op.badge": "Most popular"
+}

@@ -943,7 +943,14 @@ footer a { color: #1A73E8; font-weight: 600; }
   .branches { grid-template-columns: minmax(0, 1fr); }
   .branch { min-height: 0; grid-template-rows: auto auto auto auto; }
   .hero2 .pt { font-size: clamp(2.8rem, 13vw, 4.4rem); }
+  .branch { border-radius: 50% 50% 24px 24px / 70px 70px 24px 24px; padding-top: 3rem; }
 }
+/* tablets of the law: arched tops with a carved inner line */
+.branch { border-radius: 50% 50% 26px 26px / clamp(90px, 9vw, 130px) clamp(90px, 9vw, 130px) 26px 26px; padding-top: clamp(3.2rem, 5.4vw, 4.6rem); text-align: center; justify-items: center; }
+.branch::before { content: ""; position: absolute; inset: 12px; border: 2px solid currentColor; opacity: .28; border-radius: inherit; pointer-events: none; }
+.branch .bgo { width: 100%; }
+.branch p { max-width: 30ch; }
+@media (max-width: 960px) { .branch { border-radius: 50% 50% 24px 24px / 64px 64px 24px 24px; padding-top: 2.6rem; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -2527,7 +2534,7 @@ const T = {
    ],
    [
     "Education · Chocham AI",
-    "You do it. We teach you.",
+    "We teach you. You do it.",
     "Learn to build, deploy and operate AI yourself in our hands-on seminars.",
     "Learn at Chocham AI"
    ]
@@ -3495,7 +3502,7 @@ const T = {
    ],
    [
     "לימוד · חכם AI",
-    "איר טוט עס. מיר לערנען אייך.",
+    "מיר לערנען אייך. איר טוט עס.",
     "לערנט זיך בויען, איינשטעלן און פירן AI אליין אין אונזערע פראקטישע סעמינארן.",
     "לערנט ביי חכם AI"
    ]
@@ -4463,7 +4470,7 @@ const T = {
    ],
    [
     "הדרכה · חכם AI",
-    "אתם עושים. אנחנו מלמדים.",
+    "אנחנו מלמדים. אתם עושים.",
     "למדו לבנות, להטמיע ולהפעיל AI בעצמכם בסמינרים מעשיים.",
     "ללמוד בחכם AI"
    ]
@@ -5431,7 +5438,7 @@ const T = {
    ],
    [
     "Formación · Chocham AI",
-    "Usted lo hace. Nosotros le enseñamos.",
+    "Nosotros le enseñamos. Usted lo hace.",
     "Aprenda a crear, implementar y operar IA por su cuenta en nuestros seminarios prácticos.",
     "Aprenda en Chocham AI"
    ]

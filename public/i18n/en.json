@@ -490,69 +490,152 @@
   ]
  ],
  "ag.kicker": "Agents",
- "ag.title": "Agents we build",
- "ag.sub": "Tap an agent to see how it works.",
+ "ag.title": "An AI agent for every role",
+ "ag.sub": "From the C-suite to the front desk. Pick a level, then tap a role to see what the agent does.",
  "ag.cta": "Build this agent",
  "ag.list": [
   [
-   "Inbox agent",
-   "Reads, sorts and answers routine email. Flags what needs you.",
+   "AI CFO",
+   "Your numbers, every day: cash, forecasts, budgets and the monthly close.",
    [
-    "A new email arrives",
-    "The agent reads it and checks your rules",
-    "Routine? It drafts or sends the reply",
-    "Important? It flags it for you with a short summary"
-   ]
+    "Pulls bank, billing and payroll data every morning",
+    "Updates cash flow and the 13-week forecast",
+    "Flags overspending and late payers",
+    "Sends you the monthly P&L with a short summary"
+   ],
+   "exec"
   ],
   [
-   "Sales follow-up agent",
-   "Every lead gets a fast answer and a steady follow-up.",
+   "AI CMO",
+   "Runs your marketing plan: campaigns, ads, content and leads.",
    [
-    "A lead fills out your form",
-    "The agent replies within minutes, in their language",
-    "It follows up on day 2, 5 and 10",
-    "It books the call on your calendar"
-   ]
+    "Plans the month's campaigns and content",
+    "Writes posts, emails and ads in your voice",
+    "Watches ad spend and cuts what doesn't work",
+    "Reports leads and cost per lead every Monday"
+   ],
+   "exec"
   ],
   [
-   "Billing agent",
+   "AI COO",
+   "Keeps operations on track: schedules, staffing, vendors and checklists.",
+   [
+    "Builds schedules against your budget",
+    "Tracks open tasks and vendor follow-ups",
+    "Spots bottlenecks before they cost money",
+    "Sends a daily operations brief"
+   ],
+   "exec"
+  ],
+  [
+   "AI CTO",
+   "Runs your systems: websites, tools, data and security.",
+   [
+    "Keeps your website and tools running",
+    "Connects your systems so data flows",
+    "Watches access and security settings",
+    "Recommends upgrades with the cost and payoff"
+   ],
+   "exec"
+  ],
+  [
+   "AI HR manager",
+   "Hiring, onboarding, policies and payroll checks.",
+   [
+    "Writes job posts and screens applicants",
+    "Schedules interviews",
+    "Sends onboarding paperwork and tracks it",
+    "Checks timecards for overtime and missed punches"
+   ],
+   "mgmt"
+  ],
+  [
+   "AI Controller",
+   "Clean books, reconciled accounts and no missing invoices.",
+   [
+    "Matches invoices to bills and statements",
+    "Reconciles bank and vendor accounts",
+    "Finds missing or duplicate charges",
+    "Prepares month-end for your accountant"
+   ],
+   "mgmt"
+  ],
+  [
+   "AI Asset manager",
+   "Tracks every property and loan, so you review instead of compile.",
+   [
+    "Collects operating statements and rent rolls",
+    "Compares results to budget and loan covenants",
+    "Flags early warning signs",
+    "Drafts the investor report for your review"
+   ],
+   "mgmt"
+  ],
+  [
+   "AI Sales manager",
+   "Every lead answered, followed up and booked.",
+   [
+    "Replies to new leads within minutes",
+    "Follows up on day 2, 5 and 10",
+    "Books calls and tours on your calendar",
+    "Reports the pipeline every week"
+   ],
+   "mgmt"
+  ],
+  [
+   "AI Receptionist",
+   "Answers calls, texts and website chats, day and night.",
+   [
+    "Greets callers and answers common questions",
+    "Takes messages and routes urgent calls",
+    "Books appointments and tours",
+    "Sends you a summary of every conversation"
+   ],
+   "staff"
+  ],
+  [
+   "AI Executive assistant",
+   "Your inbox, calendar and follow-ups, handled.",
+   [
+    "Sorts your inbox and drafts replies",
+    "Schedules meetings and sends reminders",
+    "Prepares a brief before each meeting",
+    "Tracks every promise and follow-up"
+   ],
+   "staff"
+  ],
+  [
+   "AI Bookkeeper",
+   "Bills entered, receipts matched, books up to date.",
+   [
+    "Captures bills and receipts from email",
+    "Categorizes every transaction",
+    "Matches payments to invoices",
+    "Keeps the books ready for review"
+   ],
+   "staff"
+  ],
+  [
+   "AI Billing clerk",
    "Invoices out, payments tracked, reminders sent.",
    [
-    "Invoices go out on schedule",
-    "The agent tracks who paid",
-    "It sends polite reminders when a payment is late",
-    "Every Monday it reports what's outstanding"
-   ]
+    "Sends invoices on schedule",
+    "Tracks who paid and who didn't",
+    "Sends polite reminders when payments are late",
+    "Reports what's outstanding every Monday"
+   ],
+   "staff"
   ],
   [
-   "Intake agent",
-   "New clients, tenants or residents, fully onboarded.",
+   "AI Customer service rep",
+   "Answers customers from your own policies, any time.",
    [
-    "Someone new applies",
-    "The agent collects every document",
-    "It checks for anything missing",
-    "You get one complete file, ready to approve"
-   ]
-  ],
-  [
-   "Reporting agent",
-   "Your numbers, in one report, on time, every week.",
-   [
-    "It pulls numbers from your systems",
-    "It builds the weekly report",
-    "It flags anything unusual",
-    "It sends it to your team every Monday at 8"
-   ]
-  ],
-  [
-   "Customer service agent",
-   "Answers customers any time, from your own policies.",
-   [
-    "A customer asks a question, day or night",
-    "The agent answers from your policies",
-    "It hands off to a person when needed",
-    "Every conversation is logged for you"
-   ]
+    "Answers questions by chat, text or email",
+    "Uses only your policies and prices",
+    "Hands off to a person when needed",
+    "Logs every conversation for you"
+   ],
+   "staff"
   ]
  ],
  "proc.kicker": "How it works",
@@ -846,5 +929,19 @@
    "Talk to us"
   ]
  ],
- "op.badge": "Most popular"
+ "op.badge": "Most popular",
+ "ag.tiers": [
+  [
+   "exec",
+   "Executive"
+  ],
+  [
+   "mgmt",
+   "Management"
+  ],
+  [
+   "staff",
+   "Team & admin"
+  ]
+ ]
 }

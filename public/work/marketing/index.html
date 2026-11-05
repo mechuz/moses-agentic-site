@@ -5504,7 +5504,7 @@ function render() {
   $("#chat-in").placeholder = t("chat.ph");
   $("#chat-send").setAttribute("aria-label", t("chat.send"));
 
-  const base = ["en", "es", "yi"];
+  const base = CONFIG.site === "moses" ? ["en"] : ["en", "es", "yi"];
   let pills = base.map(k => `<button type="button" lang="${k}" data-lang="${k}" aria-pressed="${k === lang && !gtl}">${esc(LANGS[k].label)}</button>`).join("");
   const extra = !base.includes(lang), machine = !["en", "yi", "he", "es"].includes(lang);
   const gtLabel = gtl ? ((MORE_LANGS.find(([c]) => (GT_CODES[c] || c) === gtl) || [0, gtl])[1]).slice(0, 14) : "";

@@ -943,26 +943,5 @@
    "staff",
    "Team & admin"
   ]
- ],
- "br.sub": "Pick how you want it done:",
- "br.list": [
-  [
-   "Fully managed",
-   "We do it for you.",
-   "We build, deploy and manage AI agents for your business. You review the results.",
-   "Book a free consultation"
-  ],
-  [
-   "Built for your team",
-   "We build it. You run it.",
-   "We build and deploy your AI agents, then train your team to run them.",
-   "Talk to us"
-  ],
-  [
-   "Education · Chocham AI",
-   "We teach you. You do it.",
-   "Learn to build, deploy and operate AI yourself in our hands-on seminars.",
-   "Learn at Chocham AI"
-  ]
  ]
 }

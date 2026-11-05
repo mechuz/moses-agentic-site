@@ -909,10 +909,64 @@ footer a { color: #1A73E8; font-weight: 600; }
 #why .principle { border-top-color: #1A73E8; }
 #why .principle h3 { color: var(--ink); }
 #why .principle p { color: var(--mute); }
+
+/* ===== first screen: what we do + three branches ===== */
+.site-moses .panels, .site-moses #ways { display: none; }
+.hero2 { padding: clamp(1.6rem, 4vw, 3rem) 0 clamp(1.4rem, 3vw, 2.4rem); min-height: calc(100svh - var(--hdr)); display: flex; align-items: center; }
+.hero2 .wrap { max-width: 1320px; width: 100%; }
+.h2top { max-width: 1100px; }
+.pk2 { display: inline-flex; align-items: center; gap: .5rem; font: 800 clamp(1rem, 1.6vw, 1.25rem) var(--f-body); color: #1A73E8; background: #EAF5FF; padding: .45rem .9rem; border-radius: 999px; }
+.hero2 .pt { font: 800 clamp(2.8rem, 5.6vw, 5.6rem)/.96 var(--f-display); letter-spacing: -.05em; color: var(--ink); margin-top: 1rem; }
+.hero2 .pt .hl { display: block; color: #1A73E8; -webkit-text-fill-color: #1A73E8; background: none; }
+.h2sub { font: 700 clamp(1.15rem, 2vw, 1.5rem) var(--f-body); color: var(--mute); margin-top: 1.1rem; }
+.branches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.branch { position: relative; display: grid; grid-template-rows: auto auto 1fr auto; gap: .7rem; min-height: clamp(250px, 32svh, 360px); padding: clamp(1.4rem, 2.6vw, 2.2rem); border-radius: 30px; cursor: pointer; overflow: hidden; transition: transform .35s cubic-bezier(.2,1.4,.4,1), box-shadow .35s; -webkit-tap-highlight-color: transparent; }
+.branch:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 40px 70px -40px rgba(11,37,69,.6); }
+.branch:active { transform: scale(.98); }
+.branch.b1 { background: #1A73E8; color: #FFFFFF; }
+.branch.b2 { background: #4DB8FF; color: #0B2545; }
+.branch.b3 { background: #C6F432; color: #0B2545; }
+.btag { display: inline-flex; align-items: center; gap: .55rem; font: 700 .95rem var(--f-body); opacity: .9; }
+.btag b { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,.22); font: 800 .95rem var(--f-display); }
+.b2 .btag b, .b3 .btag b { background: rgba(11,37,69,.12); }
+.branch h2 { font: 800 clamp(1.9rem, 3.2vw, 2.9rem)/1.02 var(--f-display); letter-spacing: -.04em; }
+.branch p { font-size: clamp(1.02rem, 1.4vw, 1.18rem); font-weight: 500; opacity: .92; align-self: start; }
+.bgo { display: flex; align-items: center; justify-content: space-between; gap: 1rem; font: 800 clamp(1.1rem, 1.6vw, 1.3rem) var(--f-display); letter-spacing: -.02em; }
+.bgo .circ { flex: none; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; transition: transform .35s cubic-bezier(.2,1.4,.4,1); }
+.branch:hover .bgo .circ { transform: translateX(6px) rotate(-8deg); }
+.bgo .circ svg { width: 26px; height: 26px; }
+.b1 .bgo .circ { background: #C6F432; color: #0B2545; }
+.b2 .bgo .circ { background: #0B2545; color: #C6F432; }
+.b3 .bgo .circ { background: #0B2545; color: #C6F432; }
+@media (max-width: 960px) {
+  .hero2 { min-height: 0; padding-top: 1.4rem; }
+  .branches { grid-template-columns: minmax(0, 1fr); }
+  .branch { min-height: 0; grid-template-rows: auto auto auto auto; }
+  .hero2 .pt { font-size: clamp(2.8rem, 13vw, 4.4rem); }
+}
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
 @media (max-width: 860px) { .panels .p-main .ps { display: block; max-height: none; opacity: .92; margin-top: .9rem; font-size: 1.08rem; } }
+
+/* ===== palette H: lime accent ===== */
+.top .btn, .btn.aqua { background: #C6F432 !important; color: #0B2545 !important; box-shadow: 0 12px 30px -14px rgba(120,160,0,.6) !important; }
+.top .btn:hover, .btn.aqua:hover { background: #D6FA66 !important; }
+.p-main .pt .hl, .final .pt .hl, .urgency .h2 .hl, .ulines li:last-child b, .result .big, .cdone h3 { color: #C6F432 !important; -webkit-text-fill-color: #C6F432 !important; }
+.why .card:hover, .way2 .btn.aqua { background: #C6F432 !important; color: #0B2545 !important; }
+.atiers button[aria-pressed="true"], .cfilters button[aria-pressed="true"] { background: #C6F432 !important; color: #0B2545 !important; }
+.steps li::before { background: #C6F432 !important; color: #0B2545 !important; }
+.alist button[aria-pressed="true"] .dot { background: #C6F432 !important; }
+.process li:first-child::before { color: #C6F432 !important; }
+.p-main .pgo .circ, .final .p-main .pgo .circ { background: #C6F432 !important; } .p-main .pgo .circ svg, .final .p-main .pgo .circ svg { color: #0B2545 !important; }
+.vhero { background: #C6F432 !important; color: #0B2545 !important; }
+.chipcloud span:nth-child(3n+1), .chipres.blue { background: #C6F432 !important; border-color: #C6F432 !important; color: #0B2545 !important; }
+.pk2 { background: #F2FCD2 !important; color: #0B2545 !important; }
+.pk2::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #9BC70A; }
+.tabstrip button.ask, .tabstrip .tlink { background: #C6F432 !important; color: #0B2545 !important; }
+.edu-head .btn.aqua { background: #C6F432 !important; color: #0B2545 !important; }
+.edu-head .h2 .hl { color: #1A73E8 !important; }
+@media (max-width: 860px) { .p-main .pgo { background: #C6F432 !important; color: #0B2545 !important; } .p-main .pgo .circ { background: #0B2545 !important; } .p-main .pgo .circ svg { color: #C6F432 !important; } }
 </style>
 </head>
 <body>
@@ -937,10 +991,20 @@ body { top: 0 !important; }
 
 <main data-page="home">
   <!-- First screen: four screen-sized buttons -->
+  <section class="hero2" id="hero">
+    <div class="wrap">
+      <div class="h2top">
+        <span class="pk2" data-i18n="mo.kicker">We build, run and teach AI agents for businesses</span>
+        <h1 class="pt" id="h1m">Your next hire is AI. <span class="hl">From CFO to front desk.</span></h1>
+        <p class="h2sub" data-i18n="br.sub">Pick how you want it done:</p>
+      </div>
+      <div class="branches" id="branches"></div>
+    </div>
+  </section>
   <div class="panels" id="panels">
     <div class="panel p-main" role="button" tabindex="0" data-contact data-fx>
-      <span class="pk"><span class="pulse"></span><span data-i18n="mo.kicker">AI systems for business</span></span>
-      <h1 class="pt" id="h1m">Your next hire is AI. <span class="hl">From CFO to front desk.</span></h1>
+      <span class="pk"><span class="pulse"></span><span data-i18n="mo.kicker">We build, run and teach AI agents for businesses</span></span>
+      <div class="pt" id="h1m-old"></div>
       <p class="ps" data-i18n="mo.sub">Do more with less. AI agents for every role in your business.</p>
       <div class="pgo"><span data-i18n="mo.go">Book a free consultation</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </div>
@@ -1937,7 +2001,7 @@ const T = {
   "nav.agents": "Agents",
   "nav.edu": "Education",
   "cta.call": "Book a call",
-  "mo.kicker": "AI systems for business",
+  "mo.kicker": "We build, run and teach AI agents for businesses",
   "mo.title": "Your next hire is AI. [From CFO to front desk.]",
   "mo.sub": "Do more with less. AI agents for every role in your business.",
   "mo.go": "Book a free consultation",
@@ -2446,6 +2510,27 @@ const T = {
     "staff",
     "Team & admin"
    ]
+  ],
+  "br.sub": "Pick how you want it done:",
+  "br.list": [
+   [
+    "Fully managed",
+    "We do it for you.",
+    "We build, deploy and manage AI agents for your business. You review the results.",
+    "Book a free consultation"
+   ],
+   [
+    "Built for your team",
+    "We build it. You run it.",
+    "We build and deploy your AI agents, then train your team to run them.",
+    "Talk to us"
+   ],
+   [
+    "Education · Chocham AI",
+    "You do it. We teach you.",
+    "Learn to build, deploy and operate AI yourself in our hands-on seminars.",
+    "Learn at Chocham AI"
+   ]
   ]
  },
  "yi": {
@@ -2884,7 +2969,7 @@ const T = {
   "nav.agents": "אגענטן",
   "nav.edu": "לימוד",
   "cta.call": "באשטעלט א שמועס",
-  "mo.kicker": "AI סיסטעמען פאר ביזנעסער",
+  "mo.kicker": "מיר בויען, פירן און לערנען AI אגענטן פאר ביזנעסער",
   "mo.title": "אייער נעקסטער ארבעטער איז AI. [פון CFO ביז דער פראנט דעסק.]",
   "mo.sub": "טוט מער מיט ווייניגער. AI אגענטן פאר יעדע פאזיציע אין אייער ביזנעס.",
   "mo.go": "באשטעלט א פרייע קאנסולטאציע",
@@ -3393,6 +3478,27 @@ const T = {
     "staff",
     "טיעם און אדמין"
    ]
+  ],
+  "br.sub": "קלייבט ווי איר ווילט אז עס זאל געטון ווערן:",
+  "br.list": [
+   [
+    "אינגאנצן געפירט",
+    "מיר טוען עס פאר אייך.",
+    "מיר בויען, שטעלן איין און פירן AI אגענטן פאר אייער ביזנעס. איר קוקט איבער די רעזולטאטן.",
+    "באשטעלט א פרייע קאנסולטאציע"
+   ],
+   [
+    "געבויט פאר אייער טיעם",
+    "מיר בויען. איר פירט.",
+    "מיר בויען און שטעלן איין אייערע AI אגענטן, און טריינירן אייער טיעם זיי צו פירן.",
+    "רעדט מיט אונז"
+   ],
+   [
+    "לימוד · חכם AI",
+    "איר טוט עס. מיר לערנען אייך.",
+    "לערנט זיך בויען, איינשטעלן און פירן AI אליין אין אונזערע פראקטישע סעמינארן.",
+    "לערנט ביי חכם AI"
+   ]
   ]
  },
  "he": {
@@ -3831,7 +3937,7 @@ const T = {
   "nav.agents": "סוכנים",
   "nav.edu": "הדרכה",
   "cta.call": "קבעו שיחה",
-  "mo.kicker": "מערכות AI לעסקים",
+  "mo.kicker": "אנחנו בונים, מפעילים ומלמדים סוכני AI לעסקים",
   "mo.title": "העובד הבא שלכם הוא AI. [מה-CFO ועד הקבלה.]",
   "mo.sub": "עשו יותר עם פחות. סוכני AI לכל תפקיד בעסק שלכם.",
   "mo.go": "קבעו ייעוץ חינם",
@@ -4340,6 +4446,27 @@ const T = {
     "staff",
     "צוות ואדמיניסטרציה"
    ]
+  ],
+  "br.sub": "בחרו איך אתם רוצים שזה ייעשה:",
+  "br.list": [
+   [
+    "ניהול מלא",
+    "אנחנו עושים את זה בשבילכם.",
+    "אנחנו בונים, מטמיעים ומנהלים סוכני AI לעסק שלכם. אתם בודקים את התוצאות.",
+    "קבעו ייעוץ חינם"
+   ],
+   [
+    "נבנה לצוות שלכם",
+    "אנחנו בונים. אתם מפעילים.",
+    "אנחנו בונים ומטמיעים את סוכני ה-AI, ומדריכים את הצוות להפעיל אותם.",
+    "דברו איתנו"
+   ],
+   [
+    "הדרכה · חכם AI",
+    "אתם עושים. אנחנו מלמדים.",
+    "למדו לבנות, להטמיע ולהפעיל AI בעצמכם בסמינרים מעשיים.",
+    "ללמוד בחכם AI"
+   ]
   ]
  },
  "es": {
@@ -4778,7 +4905,7 @@ const T = {
   "nav.agents": "Agentes",
   "nav.edu": "Formación",
   "cta.call": "Agende una llamada",
-  "mo.kicker": "Sistemas de IA para empresas",
+  "mo.kicker": "Creamos, operamos y enseñamos agentes de IA para empresas",
   "mo.title": "Su próxima contratación es IA. [Del CFO a la recepción.]",
   "mo.sub": "Haga más con menos. Agentes de IA para cada puesto de su negocio.",
   "mo.go": "Agende una consulta gratis",
@@ -5287,6 +5414,27 @@ const T = {
     "staff",
     "Equipo y administración"
    ]
+  ],
+  "br.sub": "Elija cómo quiere hacerlo:",
+  "br.list": [
+   [
+    "Totalmente gestionado",
+    "Lo hacemos por usted.",
+    "Creamos, implementamos y gestionamos agentes de IA para su negocio. Usted revisa los resultados.",
+    "Agende una consulta gratis"
+   ],
+   [
+    "Hecho para su equipo",
+    "Nosotros lo creamos. Usted lo opera.",
+    "Creamos e implementamos sus agentes de IA y capacitamos a su equipo para operarlos.",
+    "Hable con nosotros"
+   ],
+   [
+    "Formación · Chocham AI",
+    "Usted lo hace. Nosotros le enseñamos.",
+    "Aprenda a crear, implementar y operar IA por su cuenta en nuestros seminarios prácticos.",
+    "Aprenda en Chocham AI"
+   ]
   ]
  }
 };
@@ -5398,6 +5546,8 @@ function renderMoses() {
   $("#process").innerHTML = t("proc.list").map(([h, p]) => `<li><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join("");
   $("#mp-svc").innerHTML = t("svc.list").slice(0, 3).map(([h, p], i) => `<div class="card rise"><span class="ic">${MO_ICONS[i]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
   $("#mp-go").href = CONFIG.mosesUrl + "#" + lang;
+  const ARW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  $("#branches").innerHTML = t("br.list").map(([tag, title, body, cta], i) => `<div class="branch b${i + 1}" role="button" tabindex="0" ${i < 2 ? `data-contact data-msgtext="${esc(title)}"` : "data-book"} data-fx><span class="btag"><b>${i + 1}</b>${esc(tag)}</span><h2>${esc(title)}</h2><p>${esc(body)}</p><span class="bgo"><span>${esc(cta)}</span><span class="circ">${ARW}</span></span></div>`).join("");
   $("#mofaqs").innerHTML = t("mofaq.list").map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
   drawAgents(); if (!$(".cdone")) drawConsult();
 }
@@ -6006,7 +6156,7 @@ function setLang(k, save = true, name, code) {
 $(".p-cases").insertAdjacentHTML("afterbegin", MINI);
 /* The floating chat bubble stays out of the way while the first-screen buttons are on screen */
 if ("IntersectionObserver" in window) {
-  new IntersectionObserver(([en]) => { $("#fab").classList.toggle("off", en.isIntersecting); $("#sticky").classList.toggle("off", en.isIntersecting); }, { threshold: .3 }).observe($(".panels .p-main"));
+  new IntersectionObserver(([en]) => { $("#fab").classList.toggle("off", en.isIntersecting); $("#sticky").classList.toggle("off", en.isIntersecting); }, { threshold: .3 }).observe($(".hero2"));
 }
 
 

@@ -909,6 +909,9 @@ footer a { color: #1A73E8; font-weight: 600; }
 #why .principle { border-top-color: #1A73E8; }
 #why .principle h3 { color: var(--ink); }
 #why .principle p { color: var(--mute); }
+.goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+body { top: 0 !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
 </style>
 </head>
 <body>
@@ -1259,6 +1262,7 @@ footer a { color: #1A73E8; font-weight: 600; }
    ============================================================ */
 const CONFIG = {
   brand: "Moses Agentic",
+  translateVia: "google",                  // "api" = our translate function; "google" = Google Translate in the browser (static hosting)
   prettyUrls: true,                    // true on the published sites: real page URLs instead of #hashes
   ga4Id: "",                            // Google Analytics 4 measurement ID, e.g. "G-XXXXXXX"; empty = no analytics
   /* BY THE NUMBERS: totals of our work. Only filled-in numbers are shown. Use real, defensible totals. */
@@ -1312,7 +1316,7 @@ const MORE_LANGS = [
   ["kk", "Қазақша", "Kazakh"], ["tg", "Тоҷикӣ", "Tajik"], ["bg", "Български", "Bulgarian"], ["sr", "Српски", "Serbian"],
   ["pa", "ਪੰਜਾਬੀ", "Punjabi"], ["gu", "ગુજરાતી", "Gujarati"], ["ta", "தமிழ்", "Tamil"], ["ne", "नेपाली", "Nepali"],
   ["am", "አማርኛ", "Amharic"], ["sw", "Kiswahili", "Swahili"], ["yo", "Yorùbá", "Yoruba"], ["so", "Soomaali", "Somali"],
-  ["ps", "پښتو", "Pashto"], ["ku", "Kurdî", "Kurdish"], ["lad", "Ladino", "Ladino"], ["zh-TW", "繁體中文", "Chinese (Traditional)"]
+  ["ps", "پښتو", "Pashto"], ["ku", "Kurdî", "Kurdish"], ["zh-TW", "繁體中文", "Chinese (Traditional)"]
 ];
 const RTL = ["ar", "fa", "ur", "he", "yi", "ps", "ku", "sd", "ug", "dv"];
 const LANG_NAMES = {
@@ -5488,6 +5492,7 @@ function render() {
   const L = LANGS[lang] || LANGS.en;
   document.documentElement.lang = lang;
   document.documentElement.dir = L.dir;
+  const gtl = gtActive(); if (gtl && RTL.includes(gtl.split("-")[0])) document.documentElement.dir = "rtl";
   $$("[data-i18n]").forEach(el => el.textContent = t(el.dataset.i18n));
   $$("[data-brand]").forEach(el => el.textContent = CONFIG.brand);
   renderMoses();
@@ -5499,9 +5504,10 @@ function render() {
   $("#chat-send").setAttribute("aria-label", t("chat.send"));
 
   const base = ["en", "es", "yi"];
-  let pills = base.map(k => `<button type="button" lang="${k}" data-lang="${k}" aria-pressed="${k === lang}">${esc(LANGS[k].label)}</button>`).join("");
+  let pills = base.map(k => `<button type="button" lang="${k}" data-lang="${k}" aria-pressed="${k === lang && !gtl}">${esc(LANGS[k].label)}</button>`).join("");
   const extra = !base.includes(lang), machine = !["en", "yi", "he", "es"].includes(lang);
-  pills += `<button type="button" class="globe" data-langs aria-pressed="${extra}" aria-label="${esc(t("lang.more"))}">${GLOBE}${extra ? esc(LANGS[lang].label) : ""}</button>`;
+  const gtLabel = gtl ? ((MORE_LANGS.find(([c]) => (GT_CODES[c] || c) === gtl) || [0, gtl])[1]).slice(0, 14) : "";
+  pills += `<button type="button" class="globe" data-langs aria-pressed="${extra || !!gtl}" aria-label="${esc(t("lang.more"))}">${GLOBE}${extra ? esc(LANGS[lang].label) : esc(gtLabel)}</button>`;
   $("#langs").innerHTML = pills;
   $("#trnote").hidden = !machine;
   $("#trnote").textContent = machine ? t("lang.note") : "";
@@ -5824,7 +5830,30 @@ async function translateTo(name, code) {
   store.set(key, JSON.stringify(dict));
   return dict;
 }
+function gtActive() { const m = /(?:^|; )googtrans=\/en\/([\w-]+)/.exec(document.cookie); return CONFIG.translateVia === "google" && m ? m[1] : ""; }
+function gtSet(code) {
+  const v = code ? "/en/" + code : "", exp = code ? "" : ";expires=Thu, 01 Jan 1970 00:00:00 GMT", host = location.hostname.replace(/^www\./, "");
+  document.cookie = "googtrans=" + v + ";path=/" + exp;
+  if (host.includes(".")) document.cookie = "googtrans=" + v + ";path=/;domain=." + host + exp;
+}
+const GT_CODES = { zh: "zh-CN", "zh-TW": "zh-TW" };
+function gtCode(name, code) {
+  if (!code) { const n = (name || "").trim().toLowerCase(); const f = MORE_LANGS.find(([c, nat, en]) => en.toLowerCase() === n || nat.toLowerCase() === n || c === n); code = f ? f[0] : ""; }
+  return code ? (GT_CODES[code] || code) : "";
+}
+(function gtBoot() {
+  const g = gtActive(); if (!g) return;
+  const d = document.createElement("div"); d.id = "gt"; d.hidden = true; document.body.appendChild(d);
+  window.googleTranslateElementInit = () => { try { new google.translate.TranslateElement({ pageLanguage: "en", autoDisplay: false }, "gt"); } catch (e) {} };
+  const sc = document.createElement("script"); sc.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"; sc.async = true; document.body.appendChild(sc);
+})();
 async function useLanguage(name, code) {
+  if (CONFIG.translateVia === "google") {
+    const g = gtCode(name, code);
+    if (!g) { drawSheet("langs", t("lang.fail")); return; }
+    store.set("seminar-lang", JSON.stringify({ k: "en" })); gtSet(g); track("change_language", { language: g });
+    location.hash = "en"; location.reload(); return;
+  }
   drawSheet("busy");
   const dict = await translateTo(name, code);
   if (!dict) { drawSheet("langs", t("lang.fail")); return; }
@@ -5919,10 +5948,10 @@ document.addEventListener("submit", async e => {
 });
 document.addEventListener("click", e => {
   const fx = e.target.closest("[data-fx]"); if (fx && !fx.disabled) shake();
-  const l = e.target.closest("[data-lang]"); if (l) { setLang(l.dataset.lang); return; }
+  const l = e.target.closest("[data-lang]"); if (l) { if (gtActive()) { gtSet(""); store.set("seminar-lang", JSON.stringify({ k: l.dataset.lang })); location.hash = l.dataset.lang; location.reload(); return; } setLang(l.dataset.lang); return; }
   if (e.target.closest("[data-langs]")) { openLangs(); return; }
   const pl = e.target.closest("[data-pick-lang]");
-  if (pl) { const c = pl.dataset.pickLang; if (["en", "yi", "he", "es"].includes(c)) { closeSheet(); setLang(c); shake(); } else useLanguage(pl.dataset.name, c); return; }
+  if (pl) { const c = pl.dataset.pickLang; if (["en", "yi", "he", "es"].includes(c)) { if (gtActive()) { gtSet(""); store.set("seminar-lang", JSON.stringify({ k: c })); location.hash = c; location.reload(); return; } closeSheet(); setLang(c); shake(); } else useLanguage(pl.dataset.name, c); return; }
   if (CONFIG.site === "moses" && e.target.closest("[data-book], [data-book-online]")) { e.preventDefault(); location.href = CONFIG.chochamUrl + "#" + lang; return; }
   if (CONFIG.site === "chocham" && e.target.closest("[data-contact]")) { e.preventDefault(); location.href = CONFIG.mosesUrl + "#consult"; return; }
   const cf = e.target.closest("[data-cf]"); if (cf) { openPractice(cf.dataset.cf); shake(); return; }

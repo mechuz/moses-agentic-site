@@ -951,7 +951,10 @@ footer a { color: #1A73E8; font-weight: 600; }
 }
 
 /* ===== campaign: STOP WORKING! ===== */
-.camp { background: #0B2545; color: #FFFFFF; padding: clamp(3rem, 8vw, 7rem) 0; margin-top: 10px; overflow: hidden; cursor: pointer; }
+.camp { background: #0B2545; color: #FFFFFF; padding: clamp(3rem, 8vw, 7rem) 0; overflow: hidden; cursor: pointer; }
+#campaign { min-height: calc(100svh - var(--hdr) - env(safe-area-inset-top, 0px)); display: flex; align-items: center; }
+#campaign .wrap { width: 100%; }
+.camp2 + .panels { padding-top: 10px !important; }
 .camp .wrap { max-width: 1400px; }
 .camp-k { display: inline-block; font: 800 clamp(.95rem, 1.4vw, 1.15rem) var(--f-body); color: #0B2545; background: #C6F432; padding: .4rem .9rem; border-radius: 999px; letter-spacing: .02em; }
 .camp-h { font: 900 clamp(3.2rem, 10.5vw, 12rem)/.88 var(--f-display); letter-spacing: -.06em; text-transform: uppercase; margin: clamp(1rem, 2.4vw, 1.8rem) 0 0; color: #FFFFFF; }
@@ -1050,6 +1053,22 @@ body { top: 0 !important; }
 
 <main data-page="home">
   <!-- First screen: four screen-sized buttons -->
+  <section class="camp" id="campaign" role="button" tabindex="0" data-contact data-msgtext="Let my people go: train my team">
+    <div class="wrap">
+      <div class="camp-k" data-i18n="camp.k">Our campaign</div>
+      <h2 class="camp-h"><span data-i18n="camp.a">LET MY PEOPLE</span> <span class="camp-b" data-i18n="camp.b">GO!</span></h2>
+      <p class="camp-h2" data-i18n="camp.h2">…for a higher purpose.</p>
+      <div class="camp-row"><p data-i18n="camp.s">Let AI agents do the busywork. You do what matters.</p><span class="camp-go"><span data-i18n="camp.go">Show me how</span> <span class="arrow">→</span></span></div>
+    </div>
+  </section>
+  <section class="camp camp2" id="campaign2" role="button" tabindex="0" data-book>
+    <div class="wrap">
+      <div class="camp-k" data-i18n="camp2.k">People first</div>
+      <h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2>
+      <p class="camp-h2" data-i18n="camp2.h2">…the old way. Learn to run AI.</p>
+      <div class="camp-row"><p data-i18n="camp2.s">Don&#x27;t get left behind, and don&#x27;t let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.</p><span class="camp-go"><span data-i18n="camp2.go">Show me how</span> <span class="arrow">→</span></span></div>
+    </div>
+  </section>
   <div class="panels" id="panels">
     <div class="panel p-main" role="button" tabindex="0" data-contact data-fx>
       <span class="pk"><span class="pulse"></span><span data-i18n="aud.bizk">For businesses</span></span>
@@ -1089,22 +1108,6 @@ body { top: 0 !important; }
     </div>
   </div>
 
-  <section class="camp" id="campaign" role="button" tabindex="0" data-contact data-msgtext="Let my people go: train my team">
-    <div class="wrap">
-      <div class="camp-k" data-i18n="camp.k">Our campaign</div>
-      <h2 class="camp-h"><span data-i18n="camp.a">LET MY PEOPLE</span> <span class="camp-b" data-i18n="camp.b">GO!</span></h2>
-      <p class="camp-h2" data-i18n="camp.h2">…for a higher purpose.</p>
-      <div class="camp-row"><p data-i18n="camp.s">Let AI agents do the busywork. You do what matters.</p><span class="camp-go"><span data-i18n="camp.go">Show me how</span> <span class="arrow">→</span></span></div>
-    </div>
-  </section>
-  <section class="camp camp2" id="campaign2" role="button" tabindex="0" data-book>
-    <div class="wrap">
-      <div class="camp-k" data-i18n="camp2.k">People first</div>
-      <h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2>
-      <p class="camp-h2" data-i18n="camp2.h2">…the old way. Learn to run AI.</p>
-      <div class="camp-row"><p data-i18n="camp2.s">Don&#x27;t get left behind, and don&#x27;t let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.</p><span class="camp-go"><span data-i18n="camp2.go">Show me how</span> <span class="arrow">→</span></span></div>
-    </div>
-  </section>
   <section class="why" id="why">
     <div class="wrap">
       <div class="eyebrow rise" data-i18n="why.kicker">Why Moses</div>

@@ -932,6 +932,26 @@ body { top: 0 !important; }
 .edu-head .btn.aqua { background: #C6F432 !important; color: #0B2545 !important; }
 .edu-head .h2 .hl { color: #1A73E8 !important; }
 @media (max-width: 860px) { .p-main .pgo { background: #C6F432 !important; color: #0B2545 !important; } .p-main .pgo .circ { background: #0B2545 !important; } .p-main .pgo .circ svg { color: #C6F432 !important; } }
+
+/* ===== Moses: panels as a menu row ===== */
+.site-moses .panels { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto minmax(0, 1fr); gap: 10px; padding: 10px 10px 0; height: calc(100svh - var(--hdr) - env(safe-area-inset-top, 0px)); min-height: 560px; }
+.site-moses .panels .panel { transform: none !important; }
+.site-moses .panels .panel:not(.p-main) { grid-row: 1; min-height: 0 !important; height: auto; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; text-align: start !important; gap: 1rem; padding: clamp(.9rem, 1.6vw, 1.3rem) clamp(1.1rem, 2vw, 1.6rem) !important; border-radius: 22px; }
+.site-moses .panels .panel:not(.p-main) .snap, .site-moses .panels .panel:not(.p-main) .tablets, .site-moses .panels .panel:not(.p-main) .chipcloud, .site-moses .panels .panel:not(.p-main) .ps, .site-moses .panels .panel:not(.p-main) .pmeta, .site-moses .panels .panel:not(.p-main) .pk, .site-moses .panels .panel:not(.p-main) .pgo > span:first-child { display: none !important; }
+.site-moses .panels .panel:not(.p-main) .pt { font-size: clamp(1.25rem, 2.2vw, 1.9rem) !important; line-height: 1.05; margin: 0 !important; }
+.site-moses .panels .panel:not(.p-main) .pgo { margin: 0 !important; padding: 0 !important; background: none !important; flex: none; }
+.site-moses .panels .panel:not(.p-main) .pgo .circ { width: 48px !important; height: 48px !important; }
+.site-moses .panels .panel:not(.p-main):hover .pgo .circ { transform: translateX(5px); }
+.site-moses .panels .p-main { grid-column: 1 / -1; grid-row: 2; min-height: 0 !important; }
+.site-moses .panels:hover .p-main .ps { opacity: .82 !important; max-height: 420px !important; margin-top: 1rem !important; overflow: visible !important; }
+@media (max-width: 860px) {
+  .site-moses .panels { height: auto; min-height: 0; padding: 10px; gap: 8px; }
+  .site-moses .panels .panel:not(.p-main) { flex-direction: column !important; align-items: flex-start !important; justify-content: space-between !important; gap: .6rem; padding: .85rem !important; border-radius: 18px; min-height: 104px !important; }
+  .site-moses .panels .panel:not(.p-main) .pt { font-size: 1.02rem !important; }
+  .site-moses .panels .panel:not(.p-main) .pgo .circ { width: 34px !important; height: 34px !important; }
+  .site-moses .panels .panel:not(.p-main) .pgo .circ svg { width: 18px; height: 18px; }
+  .site-moses .panels .p-main { min-height: 66svh !important; }
+}
 </style>
 </head>
 <body>

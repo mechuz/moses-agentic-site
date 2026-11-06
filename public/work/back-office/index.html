@@ -909,6 +909,46 @@ footer a { color: #1A73E8; font-weight: 600; }
 #why .principle { border-top-color: #1A73E8; }
 #why .principle h3 { color: var(--ink); }
 #why .principle p { color: var(--mute); }
+
+/* ===== audience split: businesses and individuals ===== */
+.panel.p-pers, .panel.p-seat { background: #C6F432; color: #0B2545; }
+.panel.p-team { background: #1A73E8; color: #FFFFFF; }
+.p-pers .pt .hl, .p-seat .pt .hl { display: block; color: #1A73E8; -webkit-text-fill-color: #1A73E8; background: none; }
+.p-team .pt .hl { display: block; color: #C6F432; -webkit-text-fill-color: #C6F432; background: none; }
+.p-pers .pk, .p-seat .pk { color: #0B2545; } .p-pers .pulse, .p-seat .pulse { background: #1A73E8; }
+.p-team .pk { color: #FFFFFF; } .p-team .pulse { background: #C6F432; }
+.p-pers .pgo .circ, .p-seat .pgo .circ { background: #0B2545 !important; } .p-pers .pgo .circ svg, .p-seat .pgo .circ svg { color: #C6F432 !important; }
+.p-team .pgo .circ { background: #C6F432 !important; } .p-team .pgo .circ svg { color: #0B2545 !important; }
+.p-pers .ps, .aud-panels .ps, .panels:hover .p-pers .ps, .panels:hover .aud-panels .ps { display: block; opacity: .92 !important; max-height: none !important; margin-top: 1rem !important; overflow: visible !important; }
+.site-moses .panels .p-main { grid-column: 1 / 3; }
+.site-moses .panels .p-pers { grid-column: 3 / 5; grid-row: 2; min-height: 0 !important; }
+.aud-panels { height: calc(100svh - var(--hdr) - env(safe-area-inset-top, 0px)); min-height: 520px; padding: 10px 10px 0; }
+.aud-panels .panel { justify-content: flex-end; text-align: start; align-items: stretch; }
+.aud-panels .pt, .p-pers .pt { font: 800 clamp(2.2rem, 4.2vw, 4.4rem)/1 var(--f-display); letter-spacing: -.045em; }
+.site-moses .panels .p-main .pt { font-size: clamp(2.2rem, 4.2vw, 4.4rem) !important; line-height: 1 !important; }
+#personal { background: #F7FDE6; }
+.pgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 2.2rem; text-align: start; }
+.pcard { background: #FFFFFF; border: 1px solid var(--line); border-radius: 24px; padding: 1.6rem; display: grid; gap: .6rem; align-content: start; }
+.pcard .n { width: 40px; height: 40px; border-radius: 50%; background: #C6F432; color: #0B2545; display: grid; place-items: center; font: 800 1.05rem var(--f-display); }
+.pcard h3 { font-size: clamp(1.2rem, 1.7vw, 1.45rem); }
+.pcard p { color: var(--mute); }
+.pmore { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; justify-content: center; align-items: center; margin-top: 2.2rem; }
+.plearn { font-weight: 700; color: #1A73E8 !important; text-decoration: underline; text-underline-offset: 4px; white-space: normal !important; max-width: 100%; text-align: center; }
+@media (max-width: 960px) { .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .pgrid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 860px) {
+  .site-moses .panels .p-main { grid-column: 1 / -1; grid-row: 3; }
+  .site-moses .panels .p-pers { grid-column: 1 / -1; grid-row: 4; }
+  .p-pers, .aud-panels .panel { min-height: 0 !important; justify-content: flex-end !important; align-items: stretch !important; text-align: start !important; padding: 1.6rem !important; }
+  .aud-panels { height: auto; min-height: 0; padding: 10px; }
+  .aud-panels .panel { min-height: 44svh !important; }
+  .aud-panels .pt, .p-pers .pt { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .site-moses .panels .p-main .pt { font-size: clamp(2.4rem, 11vw, 3.4rem) !important; }
+  .site-moses .panels .p-main { min-height: 0 !important; padding-bottom: 1.4rem !important; }
+  .site-moses .panels .p-main .pgo { min-height: 0 !important; margin: 1.4rem 0 0 !important; padding: 1rem 1rem 1rem 1.3rem !important; border-radius: 20px !important; font-size: 1.25rem !important; background: #FFFFFF !important; color: #0B2545 !important; }
+  .site-moses .panels .p-main .pgo .circ { width: 52px !important; height: 52px !important; background: #0B2545 !important; }
+  .site-moses .panels .p-main .pgo .circ svg { color: #C6F432 !important; width: 24px; height: 24px; }
+}
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -936,20 +976,20 @@ body { top: 0 !important; }
 /* ===== Moses: panels as a menu row ===== */
 .site-moses .panels { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto minmax(0, 1fr); gap: 10px; padding: 10px 10px 0; height: calc(100svh - var(--hdr) - env(safe-area-inset-top, 0px)); min-height: 560px; }
 .site-moses .panels .panel { transform: none !important; }
-.site-moses .panels .panel:not(.p-main) { grid-row: 1; min-height: 0 !important; height: auto; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; text-align: start !important; gap: 1rem; padding: clamp(.9rem, 1.6vw, 1.3rem) clamp(1.1rem, 2vw, 1.6rem) !important; border-radius: 22px; }
-.site-moses .panels .panel:not(.p-main) .snap, .site-moses .panels .panel:not(.p-main) .tablets, .site-moses .panels .panel:not(.p-main) .chipcloud, .site-moses .panels .panel:not(.p-main) .ps, .site-moses .panels .panel:not(.p-main) .pmeta, .site-moses .panels .panel:not(.p-main) .pk, .site-moses .panels .panel:not(.p-main) .pgo > span:first-child { display: none !important; }
-.site-moses .panels .panel:not(.p-main) .pt { font-size: clamp(1.25rem, 2.2vw, 1.9rem) !important; line-height: 1.05; margin: 0 !important; }
-.site-moses .panels .panel:not(.p-main) .pgo { margin: 0 !important; padding: 0 !important; background: none !important; flex: none; }
-.site-moses .panels .panel:not(.p-main) .pgo .circ { width: 48px !important; height: 48px !important; }
-.site-moses .panels .panel:not(.p-main):hover .pgo .circ { transform: translateX(5px); }
+.site-moses .panels .panel:not(.p-main):not(.p-pers) { grid-row: 1; min-height: 0 !important; height: auto; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; text-align: start !important; gap: 1rem; padding: clamp(.9rem, 1.6vw, 1.3rem) clamp(1.1rem, 2vw, 1.6rem) !important; border-radius: 22px; }
+.site-moses .panels .panel:not(.p-main):not(.p-pers) .snap, .site-moses .panels .panel:not(.p-main):not(.p-pers) .tablets, .site-moses .panels .panel:not(.p-main):not(.p-pers) .chipcloud, .site-moses .panels .panel:not(.p-main):not(.p-pers) .ps, .site-moses .panels .panel:not(.p-main):not(.p-pers) .pmeta, .site-moses .panels .panel:not(.p-main):not(.p-pers) .pk, .site-moses .panels .panel:not(.p-main):not(.p-pers) .pgo > span:first-child { display: none !important; }
+.site-moses .panels .panel:not(.p-main):not(.p-pers) .pt { font-size: clamp(1.25rem, 2.2vw, 1.9rem) !important; line-height: 1.05; margin: 0 !important; }
+.site-moses .panels .panel:not(.p-main):not(.p-pers) .pgo { margin: 0 !important; padding: 0 !important; background: none !important; flex: none; }
+.site-moses .panels .panel:not(.p-main):not(.p-pers) .pgo .circ { width: 48px !important; height: 48px !important; }
+.site-moses .panels .panel:not(.p-main):not(.p-pers):hover .pgo .circ { transform: translateX(5px); }
 .site-moses .panels .p-main { grid-column: 1 / -1; grid-row: 2; min-height: 0 !important; }
 .site-moses .panels:hover .p-main .ps { opacity: .82 !important; max-height: 420px !important; margin-top: 1rem !important; overflow: visible !important; }
 @media (max-width: 860px) {
   .site-moses .panels { height: auto; min-height: 0; padding: 10px; gap: 8px; }
-  .site-moses .panels .panel:not(.p-main) { flex-direction: column !important; align-items: flex-start !important; justify-content: space-between !important; gap: .6rem; padding: .85rem !important; border-radius: 18px; min-height: 104px !important; }
-  .site-moses .panels .panel:not(.p-main) .pt { font-size: 1.02rem !important; }
-  .site-moses .panels .panel:not(.p-main) .pgo .circ { width: 34px !important; height: 34px !important; }
-  .site-moses .panels .panel:not(.p-main) .pgo .circ svg { width: 18px; height: 18px; }
+  .site-moses .panels .panel:not(.p-main):not(.p-pers) { flex-direction: column !important; align-items: flex-start !important; justify-content: space-between !important; gap: .6rem; padding: .85rem !important; border-radius: 18px; min-height: 104px !important; }
+  .site-moses .panels .panel:not(.p-main):not(.p-pers) .pt { font-size: 1.02rem !important; }
+  .site-moses .panels .panel:not(.p-main):not(.p-pers) .pgo .circ { width: 34px !important; height: 34px !important; }
+  .site-moses .panels .panel:not(.p-main):not(.p-pers) .pgo .circ svg { width: 18px; height: 18px; }
   .site-moses .panels .p-main { min-height: 66svh !important; }
 }
 
@@ -961,7 +1001,7 @@ body { top: 0 !important; }
 .site-moses .panel.p-svc .pgo .circ svg { width: 22px; height: 22px; }
 @media (max-width: 860px) {
   .site-moses .panels { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto auto; }
-  .site-moses .panels .panel:not(.p-main) { grid-row: auto; min-height: 92px !important; }
+  .site-moses .panels .panel:not(.p-main):not(.p-pers) { grid-row: auto; min-height: 92px !important; }
   .site-moses .panels .p-main { grid-row: 3; }
 }
 </style>
@@ -990,10 +1030,16 @@ body { top: 0 !important; }
   <!-- First screen: four screen-sized buttons -->
   <div class="panels" id="panels">
     <div class="panel p-main" role="button" tabindex="0" data-contact data-fx>
-      <span class="pk"><span class="pulse"></span><span data-i18n="mo.kicker">We build, run and teach AI agents for businesses</span></span>
+      <span class="pk"><span class="pulse"></span><span data-i18n="aud.bizk">For businesses</span></span>
       <h1 class="pt" id="h1m">Your next hire is AI. <span class="hl">From CFO to front desk.</span></h1>
       <p class="ps" data-i18n="mo.sub">Do more with less. AI agents for every role in your business.</p>
       <div class="pgo"><span data-i18n="mo.go">Book a free consultation</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </div>
+    <div class="panel p-pers" role="button" tabindex="0" data-go="personal">
+      <span class="pk"><span class="pulse"></span><span data-i18n="aud.indk">For individuals</span></span>
+      <div class="pt"><span data-i18n="aud.indt1">Your own AI team.</span> <span class="hl" data-i18n="aud.indt2">Working just for you.</span></div>
+      <p class="ps" data-i18n="aud.inds">We set up and run AI for one person: your email, calendar, documents and money.</p>
+      <div class="pgo"><span data-i18n="aud.indgo">See personal plans</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </div>
     <div class="panel p-svc" role="button" tabindex="0" data-go="services">
       <div class="pt" data-i18n="nav.services">Services</div>
@@ -1034,6 +1080,14 @@ body { top: 0 !important; }
     <div class="wrap center">
       <div class="head rise"><div class="eyebrow" data-i18n="svc.kicker">Services</div><h2 class="h2" data-i18n="svc.title">What we do</h2><p class="lead" data-i18n="svc.sub">One partner for every place AI fits in your business: we build it, run it and teach it.</p></div>
       <div class="svc" id="svc"></div>
+    </div>
+  </section>
+
+  <section id="personal" class="center">
+    <div class="wrap">
+      <div class="head"><div class="eyebrow" data-i18n="aud.indk">For individuals</div><h2 class="h2" data-i18n="pers.t">AI for you, not just for companies.</h2><p class="lead" data-i18n="pers.s">The same AI we build for businesses, set up for one person.</p></div>
+      <div class="pgrid" id="pgrid"></div>
+      <div class="pmore"><button type="button" class="btn aqua big" data-contact data-msgtext="Personal AI"><span data-i18n="pers.cta">Talk to us about personal AI</span> <span class="arrow">→</span></button><a class="navlink plearn" href="https://chochamai.com/" data-i18n="pers.learn">Prefer to learn it yourself? Seminars at Chocham AI</a></div>
     </div>
   </section>
 
@@ -1184,6 +1238,21 @@ body { top: 0 !important; }
 </main>
 
 <main data-page="education" hidden>
+  <div class="panels aud-panels">
+    <div class="panel p-team" role="button" tabindex="0" data-contact data-msgtext="Team workshop">
+      <span class="pk"><span class="pulse"></span><span data-i18n="ch.teamk">For businesses · Teams</span></span>
+      <div class="pt"><span data-i18n="ch.teamt1">Train your whole team on AI.</span> <span class="hl" data-i18n="ch.teamt2">On-site or online.</span></div>
+      <p class="ps" data-i18n="ch.teams">Private workshops and training built for your company's staff.</p>
+      <div class="pgo"><span data-i18n="ch.teamgo">Plan a team workshop</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </div>
+    <div class="panel p-seat" role="button" tabindex="0" data-go="seats">
+      <span class="pk"><span class="pulse"></span><span data-i18n="aud.indk">For individuals</span></span>
+      <div class="pt"><span data-i18n="ch.indt1">Learn AI yourself.</span> <span class="hl" data-i18n="ch.indt2">Book your seat.</span></div>
+      <p class="ps" data-i18n="ch.inds">Public seminars in person and online, plus one-on-one training.</p>
+      <div class="pgo"><span data-i18n="ch.indgo">See seminars and prices</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </div>
+  </div>
+  <div id="seats"></div>
   <section class="view-head center edu-head"><div class="wrap">
     <div class="eyebrow" data-i18n="ev.kicker">Chocham AI · The education company of Moses Agentic</div>
     <h2 class="h2" id="h1">AI won&#x27;t wait. <span class="hl">Neither will your competitors.</span></h2>
@@ -2501,7 +2570,44 @@ const T = {
     "staff",
     "Team & admin"
    ]
-  ]
+  ],
+  "aud.bizk": "For businesses",
+  "aud.indk": "For individuals",
+  "aud.indt1": "Your own AI team.",
+  "aud.indt2": "Working just for you.",
+  "aud.inds": "We set up and run AI for one person: your email, calendar, documents and money.",
+  "aud.indgo": "See personal plans",
+  "pers.t": "AI for you, not just for companies.",
+  "pers.s": "The same AI we build for businesses, set up for one person.",
+  "pers.list": [
+   [
+    "Personal AI assistant",
+    "We set up AI agents for your email, calendar, documents, research and personal finances."
+   ],
+   [
+    "AI for solo professionals",
+    "Freelancers, agents, brokers and consultants: we build and run AI for your one-person business."
+   ],
+   [
+    "One-on-one coaching",
+    "Private sessions to help you use AI in your own work and life."
+   ],
+   [
+    "Monthly support plan",
+    "We keep your AI tools set up, updated and working, month after month."
+   ]
+  ],
+  "pers.cta": "Talk to us about personal AI",
+  "pers.learn": "Prefer to learn it yourself? Seminars at Chocham AI",
+  "ch.teamk": "For businesses · Teams",
+  "ch.teamt1": "Train your whole team on AI.",
+  "ch.teamt2": "On-site or online.",
+  "ch.teams": "Private workshops and training built for your company's staff.",
+  "ch.teamgo": "Plan a team workshop",
+  "ch.indt1": "Learn AI yourself.",
+  "ch.indt2": "Book your seat.",
+  "ch.inds": "Public seminars in person and online, plus one-on-one training.",
+  "ch.indgo": "See seminars and prices"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -3448,7 +3554,44 @@ const T = {
     "staff",
     "טיעם און אדמין"
    ]
-  ]
+  ],
+  "aud.bizk": "פאר ביזנעסער",
+  "aud.indk": "פאר יחידים",
+  "aud.indt1": "אייער אייגענער AI טיעם.",
+  "aud.indt2": "ארבעט נאר פאר אייך.",
+  "aud.inds": "מיר שטעלן איין און פירן AI פאר איין מענטש: אייער אימעיל, קאלענדאר, דאקומענטן און געלט.",
+  "aud.indgo": "זעט פערזענלעכע פלענער",
+  "pers.t": "AI פאר אייך, נישט נאר פאר פירמעס.",
+  "pers.s": "די זעלבע AI וואס מיר בויען פאר ביזנעסער, איינגעשטעלט פאר איין מענטש.",
+  "pers.list": [
+   [
+    "פערזענלעכער AI אסיסטענט",
+    "מיר שטעלן איין AI אגענטן פאר אייער אימעיל, קאלענדאר, דאקומענטן, ריסוירטש און פערזענלעכע פינאנצן."
+   ],
+   [
+    "AI פאר זעלבסטשטענדיגע",
+    "פרילאנסערס, אגענטן, ברוקערס און קאנסולטאנטן: מיר בויען און פירן AI פאר אייער איין-מענטש ביזנעס."
+   ],
+   [
+    "פריוואטע קאוטשינג",
+    "פריוואטע סעסיעס צו העלפן אייך נוצן AI אין אייער אייגענער ארבעט און לעבן."
+   ],
+   [
+    "מאנאטליכער סופּאָרט פלאן",
+    "מיר האלטן אייערע AI געצייג איינגעשטעלט, דערהיינטיגט און ארבעטנדיג, יעדן מאנאט."
+   ]
+  ],
+  "pers.cta": "רעדט מיט אונז וועגן פערזענלעכע AI",
+  "pers.learn": "ווילט איר זיך עס אליין אויסלערנען? סעמינארן ביי חכם AI",
+  "ch.teamk": "פאר ביזנעסער · טיעמס",
+  "ch.teamt1": "טריינירט אייער גאנצן טיעם אויף AI.",
+  "ch.teamt2": "ביי אייך אדער אנליין.",
+  "ch.teams": "פריוואטע וואָרקשאַפּס און טריינינג געבויט פאר אייער פירמע'ס שטאב.",
+  "ch.teamgo": "פלאנירט א טיעם וואָרקשאָפּ",
+  "ch.indt1": "לערנט זיך AI אליין.",
+  "ch.indt2": "באשטעלט אייער פלאץ.",
+  "ch.inds": "עפנטלעכע סעמינארן פערזענלעך און אנליין, און פריוואטע טריינינג.",
+  "ch.indgo": "זעט סעמינארן און פרייזן"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -4395,7 +4538,44 @@ const T = {
     "staff",
     "צוות ואדמיניסטרציה"
    ]
-  ]
+  ],
+  "aud.bizk": "לעסקים",
+  "aud.indk": "ליחידים",
+  "aud.indt1": "צוות AI משלכם.",
+  "aud.indt2": "שעובד רק בשבילכם.",
+  "aud.inds": "אנחנו מקימים ומפעילים AI לאדם אחד: המייל, היומן, המסמכים והכסף שלכם.",
+  "aud.indgo": "לתוכניות האישיות",
+  "pers.t": "AI בשבילכם, לא רק בשביל חברות.",
+  "pers.s": "אותו AI שאנחנו בונים לעסקים, מותאם לאדם אחד.",
+  "pers.list": [
+   [
+    "עוזר AI אישי",
+    "אנחנו מקימים סוכני AI למייל, ליומן, למסמכים, למחקר ולכספים האישיים שלכם."
+   ],
+   [
+    "AI לעצמאים",
+    "פרילנסרים, סוכנים, מתווכים ויועצים: אנחנו בונים ומפעילים AI לעסק של אדם אחד."
+   ],
+   [
+    "ליווי אישי",
+    "מפגשים פרטיים שיעזרו לכם להשתמש ב-AI בעבודה ובחיים."
+   ],
+   [
+    "תוכנית תמיכה חודשית",
+    "אנחנו שומרים על כלי ה-AI שלכם מוגדרים, מעודכנים ועובדים, חודש אחרי חודש."
+   ]
+  ],
+  "pers.cta": "דברו איתנו על AI אישי",
+  "pers.learn": "מעדיפים ללמוד בעצמכם? סמינרים בחכם AI",
+  "ch.teamk": "לעסקים · צוותים",
+  "ch.teamt1": "הכשירו את כל הצוות ב-AI.",
+  "ch.teamt2": "אצלכם או אונליין.",
+  "ch.teams": "סדנאות והדרכות פרטיות שנבנו לצוות של החברה שלכם.",
+  "ch.teamgo": "תכננו סדנה לצוות",
+  "ch.indt1": "למדו AI בעצמכם.",
+  "ch.indt2": "שריינו מקום.",
+  "ch.inds": "סמינרים פתוחים פרונטליים ואונליין, וגם הדרכה אישית.",
+  "ch.indgo": "לסמינרים ולמחירים"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -5342,7 +5522,44 @@ const T = {
     "staff",
     "Equipo y administración"
    ]
-  ]
+  ],
+  "aud.bizk": "Para empresas",
+  "aud.indk": "Para particulares",
+  "aud.indt1": "Su propio equipo de IA.",
+  "aud.indt2": "Trabajando solo para usted.",
+  "aud.inds": "Configuramos y gestionamos IA para una persona: su correo, calendario, documentos y dinero.",
+  "aud.indgo": "Ver planes personales",
+  "pers.t": "IA para usted, no solo para empresas.",
+  "pers.s": "La misma IA que creamos para empresas, configurada para una persona.",
+  "pers.list": [
+   [
+    "Asistente personal de IA",
+    "Configuramos agentes de IA para su correo, calendario, documentos, investigación y finanzas personales."
+   ],
+   [
+    "IA para profesionales independientes",
+    "Freelancers, agentes, corredores y consultores: creamos y gestionamos IA para su negocio de una persona."
+   ],
+   [
+    "Asesoría individual",
+    "Sesiones privadas para ayudarle a usar la IA en su trabajo y su vida."
+   ],
+   [
+    "Plan de soporte mensual",
+    "Mantenemos sus herramientas de IA configuradas, actualizadas y funcionando, mes tras mes."
+   ]
+  ],
+  "pers.cta": "Hable con nosotros sobre IA personal",
+  "pers.learn": "¿Prefiere aprender por su cuenta? Seminarios en Chocham AI",
+  "ch.teamk": "Para empresas · Equipos",
+  "ch.teamt1": "Capacite a todo su equipo en IA.",
+  "ch.teamt2": "En su empresa o en línea.",
+  "ch.teams": "Talleres y capacitación privados para el personal de su empresa.",
+  "ch.teamgo": "Planee un taller para su equipo",
+  "ch.indt1": "Aprenda IA por su cuenta.",
+  "ch.indt2": "Reserve su lugar.",
+  "ch.inds": "Seminarios abiertos presenciales y en línea, además de capacitación individual.",
+  "ch.indgo": "Ver seminarios y precios"
  }
 };
 
@@ -5453,6 +5670,7 @@ function renderMoses() {
   $("#process").innerHTML = t("proc.list").map(([h, p]) => `<li><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join("");
   $("#mp-svc").innerHTML = t("svc.list").slice(0, 3).map(([h, p], i) => `<div class="card rise"><span class="ic">${MO_ICONS[i]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
   $("#mp-go").href = CONFIG.mosesUrl + "#" + lang;
+  $("#pgrid").innerHTML = t("pers.list").map(([h, d], i) => `<div class="pcard"><span class="n">${i + 1}</span><h3>${esc(h)}</h3><p>${esc(d)}</p></div>`).join("");
   $("#mofaqs").innerHTML = t("mofaq.list").map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
   drawAgents(); if (!$(".cdone")) drawConsult();
 }
@@ -5472,7 +5690,7 @@ function goConsult(msg) {
   if (!$("#chat").hidden) closeChat();
   if (!$("#overlay").hidden) closeSheet();
   const go = () => { document.getElementById("consult").scrollIntoView({ block: "start" }); const m = $("#c-msg"); if (m && msg && !m.value.trim()) m.value = msg; setTimeout(() => { const n = $("#c-name"); if (n) n.focus({ preventScroll: true }); }, 450); };
-  if (view !== "home") { setView("home"); setTimeout(go, 40); } else go();
+  const cpg = document.getElementById("consult").closest("main[data-page]").dataset.page; if (view !== cpg) { setView(cpg); setTimeout(go, 40); } else go();
 }
 document.addEventListener("submit", async e => {
   if (e.target.id !== "cform") return;
@@ -6009,7 +6227,7 @@ document.addEventListener("click", e => {
   const pl = e.target.closest("[data-pick-lang]");
   if (pl) { const c = pl.dataset.pickLang; if (["en", "yi", "he", "es"].includes(c)) { if (gtActive()) { gtSet(""); store.set("seminar-lang", JSON.stringify({ k: c })); location.hash = c; location.reload(); return; } closeSheet(); setLang(c); shake(); } else useLanguage(pl.dataset.name, c); return; }
   if (CONFIG.site === "moses" && e.target.closest("[data-book], [data-book-online]")) { e.preventDefault(); location.href = CONFIG.chochamUrl + "#" + lang; return; }
-  if (CONFIG.site === "chocham" && e.target.closest("[data-contact]")) { e.preventDefault(); location.href = CONFIG.mosesUrl + "#consult"; return; }
+  /* Chocham contact buttons use the form on the Chocham page */
   const cf = e.target.closest("[data-cf]"); if (cf) { openPractice(cf.dataset.cf); shake(); return; }
   const pt = e.target.closest("[data-practice]"); if (pt) { openPractice(pt.dataset.practice); return; }
   const tr = e.target.closest("[data-tier]"); if (tr) { agTier = tr.dataset.tier; agent = -1; drawAgents(); shake(); return; }
@@ -6061,7 +6279,7 @@ function setLang(k, save = true, name, code) {
 $(".p-cases").insertAdjacentHTML("afterbegin", MINI);
 /* The floating chat bubble stays out of the way while the first-screen buttons are on screen */
 if ("IntersectionObserver" in window) {
-  new IntersectionObserver(([en]) => { $("#fab").classList.toggle("off", en.isIntersecting); $("#sticky").classList.toggle("off", en.isIntersecting); }, { threshold: .3 }).observe($(".panels .p-main"));
+  new IntersectionObserver(([en]) => { $("#fab").classList.toggle("off", en.isIntersecting); $("#sticky").classList.toggle("off", en.isIntersecting); }, { threshold: .3 }).observe($(CONFIG.site === "chocham" ? ".aud-panels" : ".panels .p-main"));
 }
 
 
@@ -6073,6 +6291,7 @@ if ("IntersectionObserver" in window) {
     const edu = $('main[data-page="education"]');
     ["urgency", "stop"].forEach(id => edu.insertBefore(document.getElementById(id), $("#seminar")));
     ["departments", "savings"].forEach(id => edu.insertBefore(document.getElementById(id), $("#dates")));
+    edu.appendChild(document.getElementById("consult"));
     nav.innerHTML = `<button type="button" data-go="seminar" data-i18n="nav.seminar">Seminar 1</button><button type="button" data-go="dates" data-i18n="nav.dates">Dates</button><button type="button" data-go="series" data-i18n="nav.series">The series</button><button type="button" data-go="semfaq" data-i18n="faq.kicker">FAQ</button><a class="navlink" href="${CONFIG.mosesUrl}">Moses Agentic ↗</a>`;
     const cta = $(".top .btn[data-contact]"); cta.removeAttribute("data-contact"); cta.setAttribute("data-book", ""); cta.dataset.i18n = "cta.book";
     $(".brand[data-home]").href = "#";

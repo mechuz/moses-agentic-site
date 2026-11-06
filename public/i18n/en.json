@@ -943,5 +943,42 @@
    "staff",
    "Team & admin"
   ]
- ]
+ ],
+ "aud.bizk": "For businesses",
+ "aud.indk": "For individuals",
+ "aud.indt1": "Your own AI team.",
+ "aud.indt2": "Working just for you.",
+ "aud.inds": "We set up and run AI for one person: your email, calendar, documents and money.",
+ "aud.indgo": "See personal plans",
+ "pers.t": "AI for you, not just for companies.",
+ "pers.s": "The same AI we build for businesses, set up for one person.",
+ "pers.list": [
+  [
+   "Personal AI assistant",
+   "We set up AI agents for your email, calendar, documents, research and personal finances."
+  ],
+  [
+   "AI for solo professionals",
+   "Freelancers, agents, brokers and consultants: we build and run AI for your one-person business."
+  ],
+  [
+   "One-on-one coaching",
+   "Private sessions to help you use AI in your own work and life."
+  ],
+  [
+   "Monthly support plan",
+   "We keep your AI tools set up, updated and working, month after month."
+  ]
+ ],
+ "pers.cta": "Talk to us about personal AI",
+ "pers.learn": "Prefer to learn it yourself? Seminars at Chocham AI",
+ "ch.teamk": "For businesses · Teams",
+ "ch.teamt1": "Train your whole team on AI.",
+ "ch.teamt2": "On-site or online.",
+ "ch.teams": "Private workshops and training built for your company's staff.",
+ "ch.teamgo": "Plan a team workshop",
+ "ch.indt1": "Learn AI yourself.",
+ "ch.indt2": "Book your seat.",
+ "ch.inds": "Public seminars in person and online, plus one-on-one training.",
+ "ch.indgo": "See seminars and prices"
 }

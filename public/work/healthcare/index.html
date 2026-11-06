@@ -32,7 +32,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&family=Instrument+Serif:ital@1&display=swap">
 <style>
 /* Layout:the first screen is four full-height buttons (an expanding accordion on desktop, stacked on phones).
    Below it, a short Apple-style story: centered headlines, generous space, one idea per section. */
@@ -974,6 +974,87 @@ footer a { color: #1A73E8; font-weight: 600; }
 .camp-h2 { font: 800 clamp(1.6rem, 3.4vw, 3rem)/1.1 var(--f-display); letter-spacing: -.03em; margin-top: clamp(1rem, 2.2vw, 1.8rem); color: #FFFFFF; }
 .camp2 .camp-h2 { color: #0B2545; }
 .camp2 .camp-go { background: #0B2545; color: #C6F432; }
+
+/* ===== Moses home: LET MY PEOPLE GO! + file cabinet ===== */
+.hero3, .cabinet { display: none; }
+.site-moses main[data-page="home"] > :not(#hero3):not(#cabinet) { display: none !important; }
+.site-moses .hero3 { display: flex; align-items: center; background: #0B2545; color: #FFFFFF; min-height: calc(100svh - var(--hdr) - env(safe-area-inset-top, 0px)); padding: clamp(2.4rem, 6vw, 5rem) 0; overflow: hidden; }
+.hero3 .wrap { width: 100%; max-width: 1400px; }
+.h3t { font: 900 clamp(3.4rem, 11.5vw, 13rem)/.86 var(--f-display); letter-spacing: -.06em; text-transform: uppercase; color: #FFFFFF; }
+.h3t .b { display: block; color: #C6F432; }
+.h3head { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: end; column-gap: clamp(1rem, 3vw, 2.6rem); font: 900 clamp(3.4rem, 11.5vw, 13rem)/.86 var(--f-display); }
+.h3head .h3t { display: contents; }
+.h3head .h3t .a { grid-column: 1 / -1; display: block; }
+.h3head .h3t .b { grid-column: 1; }
+.h3aside { grid-column: 2; align-self: end; max-width: 30ch; margin-bottom: .22em; font: italic 400 clamp(1.6rem, 3.4vw, 3.4rem)/1.1 "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif; letter-spacing: 0; text-transform: none; color: #D6E7FB; }
+@media (max-width: 760px) { .h3head { grid-template-columns: minmax(0, 1fr); font-size: 15vw; } .h3aside { grid-column: 1; margin: .6rem 0 0; font-size: clamp(1.6rem, 8vw, 2.2rem); } }
+.h3l { font: 800 clamp(1.4rem, 3vw, 2.6rem)/1.15 var(--f-display); letter-spacing: -.02em; margin-top: clamp(1rem, 2.4vw, 1.8rem); max-width: 28ch; }
+.h3btn { margin-top: clamp(2rem, 4vw, 3.2rem); display: inline-flex; align-items: center; gap: 1.2rem; max-width: 100%; background: #C6F432; color: #0B2545; border: 0; border-radius: 999px; padding: clamp(.8rem, 1.6vw, 1.1rem) clamp(.8rem, 1.6vw, 1.1rem) clamp(.8rem, 1.6vw, 1.1rem) clamp(1.5rem, 3vw, 2.4rem); font: 900 clamp(1.25rem, 2.6vw, 2.2rem)/1.1 var(--f-display); letter-spacing: -.02em; text-align: start; cursor: pointer; box-shadow: 0 24px 60px -24px rgba(198,244,50,.65); transition: transform .3s cubic-bezier(.2,1.4,.4,1); }
+.h3btn:hover { transform: translateY(-4px) scale(1.02); }
+.h3btn .circ { flex: none; width: clamp(52px, 5vw, 76px); height: clamp(52px, 5vw, 76px); border-radius: 50%; background: #0B2545; color: #C6F432; display: grid; place-items: center; transition: transform .3s; }
+.h3btn:hover .circ { transform: rotate(90deg); }
+.h3btn .circ svg, .folder .farrow svg { width: 55%; height: 55%; }
+[dir="rtl"] .h3btn .circ svg, [dir="rtl"] .folder .farrow svg { transform: scaleX(-1); }
+.h3p { margin-top: clamp(1.8rem, 3.6vw, 2.8rem); max-width: 46ch; }
+.h3pk { display: block; font: 800 .95rem var(--f-body); color: #C6F432; letter-spacing: .04em; text-transform: uppercase; margin-bottom: .4rem; }
+.h3p p { font: 700 clamp(1.2rem, 2vw, 1.75rem)/1.4 var(--f-body); color: #D6E7FB; }
+.site-moses .cabinet { display: block; background: #F7F9FC; padding: clamp(3rem, 7vw, 6rem) 0 clamp(3rem, 6vw, 5rem); }
+.cabinet .wrap { max-width: 1400px; }
+.cab-head h2 { font: 900 clamp(2.6rem, 6vw, 5.4rem)/.95 var(--f-display); letter-spacing: -.05em; color: #0B2545; }
+.cab-head p { font: 600 clamp(1.1rem, 1.8vw, 1.4rem) var(--f-body); color: var(--mute); margin-top: .7rem; }
+.drawer { display: flex; align-items: flex-end; height: clamp(440px, 64svh, 660px); padding-top: 64px; margin-top: clamp(1.4rem, 3vw, 2.4rem); }
+.folder { --tx: 0%; position: relative; flex: 1 1 0; min-width: 0; height: 100%; margin-inline-start: -16px; border-radius: 6px 18px 18px 18px; background: var(--fc); color: var(--fi); box-shadow: -14px 0 30px -18px rgba(11,37,69,.55), inset 0 1px 0 rgba(255,255,255,.25); cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; padding: 1.3rem 1.1rem 1.2rem; transition: transform .4s cubic-bezier(.2,1.3,.4,1), box-shadow .4s; -webkit-tap-highlight-color: transparent; }
+.folder:first-child { margin-inline-start: 0; }
+.folder:nth-child(3n+2) { --tx: 20%; } .folder:nth-child(3n) { --tx: 40%; }
+.folder .ftab { position: absolute; bottom: calc(100% - 1px); inset-inline-start: var(--tx); width: 56%; height: 46px; background: inherit; border-radius: 14px 14px 0 0; display: flex; align-items: center; padding: 0 .9rem; font: 800 .95rem var(--f-display); letter-spacing: .04em; }
+.folder:hover, .folder:focus-visible { transform: translateY(-28px); z-index: 3; box-shadow: 0 40px 60px -30px rgba(11,37,69,.6); }
+.folder .flabel { writing-mode: vertical-rl; transform: rotate(180deg); align-self: flex-start; font: 900 clamp(2rem, 3.3vw, 3.6rem)/1 var(--f-display); letter-spacing: -.03em; white-space: nowrap; }
+[dir="rtl"] .folder .flabel { transform: none; }
+.folder .ffoot { display: flex; align-items: flex-end; justify-content: space-between; gap: .6rem; }
+.folder .fdesc { font: 600 clamp(.85rem, 1vw, .98rem)/1.3 var(--f-body); opacity: .9; }
+.folder .farrow { flex: none; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--fi); color: var(--fc); transition: transform .3s; }
+.folder:hover .farrow { transform: translateX(4px); }
+.f-ent, .s-ent { --fc: #1A73E8; --fi: #FFFFFF; }
+.f-ind, .s-ind { --fc: #C6F432; --fi: #0B2545; }
+.f-svc, .s-svc { --fc: #0B2545; --fi: #FFFFFF; }
+.f-cs, .s-cs { --fc: #4DB8FF; --fi: #0B2545; }
+.f-inds { --fc: #FFFFFF; --fi: #0B2545; }
+.f-inds { box-shadow: -14px 0 30px -18px rgba(11,37,69,.55), inset 0 0 0 2px #D3E8FB; }
+.f-learn, .s-learn { --fc: #0F4FB0; --fi: #FFFFFF; }
+.f-con, .s-con { --fc: #E9FBA8; --fi: #0B2545; }
+.fsheet { position: fixed; inset: 0; z-index: 1000; display: flex; justify-content: center; padding: clamp(0px, 2vw, 24px); background: rgba(11,37,69,.55); opacity: 0; transition: opacity .35s; }
+.fsheet[hidden] { display: none; }
+.fsheet.open { opacity: 1; }
+.fsheet .fscroll { position: relative; width: 100%; max-width: 1500px; overflow: auto; overscroll-behavior: contain; border-radius: clamp(0px, 2vw, 22px); background: #FBF9F3 repeating-linear-gradient(to bottom, transparent 0 39px, rgba(26,115,232,.07) 39px 40px); box-shadow: 0 40px 120px -30px rgba(0,0,0,.65); transform-origin: left center; transform: perspective(2400px) rotateY(-80deg); opacity: .2; transition: transform .62s cubic-bezier(.2,.85,.25,1), opacity .45s; }
+[dir="rtl"] .fsheet .fscroll { transform-origin: right center; transform: perspective(2400px) rotateY(80deg); }
+.fsheet.open .fscroll, [dir="rtl"] .fsheet.open .fscroll { transform: none; opacity: 1; }
+.fsheet.closing .fscroll { transform-origin: right center; transform: perspective(2400px) rotateY(80deg); opacity: 0; transition-duration: .42s; }
+[dir="rtl"] .fsheet.closing .fscroll { transform-origin: left center; transform: perspective(2400px) rotateY(-80deg); }
+.fbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem clamp(1rem, 3vw, 2.4rem); background: var(--fc); color: var(--fi); }
+.fname { font: 900 clamp(1.6rem, 3.4vw, 3rem)/1 var(--f-display); letter-spacing: -.04em; }
+.fclose { flex: none; border: 0; border-radius: 999px; background: var(--fi); color: var(--fc); padding: .75rem 1.2rem; font: 800 1rem var(--f-body); cursor: pointer; }
+.fintro { max-width: 1240px; margin: 0 auto; padding: clamp(1.8rem, 4vw, 3.4rem) clamp(1rem, 3vw, 2.4rem) 0; }
+.fintro .fh { font: 900 clamp(2.4rem, 5.6vw, 5rem)/.95 var(--f-display); letter-spacing: -.05em; color: #0B2545; }
+.fintro .fp { font: 600 clamp(1.1rem, 1.8vw, 1.45rem)/1.45 var(--f-body); color: #24405F; max-width: 52ch; margin: 1rem 0 1.6rem; }
+.fintro .camp-h { color: #0B2545; } .fintro .camp-h .camp-b { color: #1A73E8; } .fintro .camp-h2 { color: #0B2545; }
+.fbody > section { background-color: transparent; }
+.fbody > section.agents, .fbody > section.why { background-color: revert; }
+html.filing { overflow: hidden; }
+@media (max-width: 760px) {
+  .drawer { flex-direction: column; align-items: stretch; height: auto; padding-top: 38px; }
+  .folder { flex: none; height: auto; min-height: 150px; margin-inline-start: 0; margin-top: -18px; padding: 1rem 1.1rem 4.2rem; display: grid; grid-template-columns: 1fr auto; align-items: start; gap: .3rem 1rem; box-shadow: 0 -12px 26px -16px rgba(11,37,69,.55); border-radius: 6px 18px 18px 18px; }
+  .folder:first-child { margin-top: 0; }
+  .folder .ftab { height: 34px; width: 46%; }
+  .folder:last-child { padding-bottom: 1.4rem; }
+  .folder .flabel, [dir="rtl"] .folder .flabel { writing-mode: horizontal-tb; transform: none; font-size: clamp(1.9rem, 9vw, 2.6rem); white-space: normal; }
+  .folder .ffoot { display: contents; }
+  .folder .fdesc { grid-column: 1; grid-row: 2; }
+  .folder .farrow { grid-column: 2; grid-row: 1 / 3; align-self: center; }
+  .folder:hover, .folder:focus-visible { transform: translateY(-8px); }
+  .fsheet { padding: 0; }
+  .h3t { font-size: 15vw; }
+}
+@media (prefers-reduced-motion: reduce) { .fsheet .fscroll, .fsheet.closing .fscroll { transform: none !important; transition: opacity .2s; } .folder, .h3btn { transition: none; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1053,6 +1134,20 @@ body { top: 0 !important; }
 
 <main data-page="home">
   <!-- First screen: four screen-sized buttons -->
+  <section class="hero3" id="hero3">
+    <div class="wrap">
+      <div class="h3head"><h1 class="h3t"><span class="a" data-i18n="camp.a">LET MY PEOPLE</span> <span class="b" data-i18n="camp.b">GO!</span></h1><p class="h3aside" data-i18n="h3.aside">(from the burden of tedious labor)</p></div>
+      <button type="button" class="h3btn" data-go="cabinet"><span data-i18n="h3.b">Click here to let my people go</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+      <div class="h3p"><p data-i18n="h3.p">In a world afraid that AI will take people's jobs, we teach, build, deploy and operate AI for enterprises and individuals.</p></div>
+    </div>
+  </section>
+  <section class="cabinet" id="cabinet">
+    <div class="wrap">
+      <div class="cab-head"><h2 data-i18n="cab.t">Open a folder.</h2><p data-i18n="cab.s">Everything we do, filed in one place.</p></div>
+      <div class="drawer"><div class="folder f-ent" role="button" tabindex="0" data-folder="ent"><span class="ftab"><b>01</b></span><span class="flabel" data-i18n="fo.ent">Enterprise</span><span class="ffoot"><span class="fdesc" data-i18n="fo.entd">AI agents and training for your whole company</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ind" role="button" tabindex="0" data-folder="ind"><span class="ftab"><b>02</b></span><span class="flabel" data-i18n="fo.ind">Individuals</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indd">Your own AI team, and how to run it</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-svc" role="button" tabindex="0" data-folder="svc"><span class="ftab"><b>03</b></span><span class="flabel" data-i18n="fo.svc">Services</span><span class="ffoot"><span class="fdesc" data-i18n="fo.svcd">What we build, run and teach</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-cs" role="button" tabindex="0" data-folder="cs"><span class="ftab"><b>04</b></span><span class="flabel" data-i18n="fo.cs">Case Studies</span><span class="ffoot"><span class="fdesc" data-i18n="fo.csd">Work we've done</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-inds" role="button" tabindex="0" data-view="industries"><span class="ftab"><b>05</b></span><span class="flabel" data-i18n="fo.inds">Industries</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indsd">Where AI fits your business</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-learn" role="button" tabindex="0" data-folder="learn"><span class="ftab"><b>06</b></span><span class="flabel" data-i18n="fo.learn">Learn AI</span><span class="ffoot"><span class="fdesc" data-i18n="fo.learnd">Seminars at Chocham AI</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-con" role="button" tabindex="0" data-folder="con"><span class="ftab"><b>07</b></span><span class="flabel" data-i18n="fo.con">Contact</span><span class="ffoot"><span class="fdesc" data-i18n="fo.cond">Book a free consultation</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div></div>
+    </div>
+<div class="fsheet s-ent" data-f="ent" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ent">Enterprise</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="fh" data-i18n="ent.h">Your people, running AI.</h2><p class="fp" data-i18n="ent.s">We build AI agents for every role, from CFO to front desk, and train your team to run them.</p><button type="button" class="btn aqua big" data-contact data-msgtext="Enterprise"><span data-i18n="mo.go">Book a free consultation</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-ind" data-f="ind" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ind">Individuals</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2><p class="camp-h2" data-i18n="camp2.h2">…the old way. Learn to run AI.</p><p class="fp" data-i18n="camp2.s">Don't get left behind, and don't let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.</p><button type="button" class="btn big" data-book><span data-i18n="camp2.go">Learn AI at Chocham AI</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-svc" data-f="svc" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.svc">Services</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-cs" data-f="cs" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.cs">Case Studies</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><p class="fp" data-i18n="fo.csd">Work we've done</p><button type="button" class="btn aqua big" data-view="cases"><span data-i18n="fo.allcs">See all case studies</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-learn" data-f="learn" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.learn">Learn AI</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-con" data-f="con" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.con">Contact</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div>
+  </section>
   <section class="camp" id="campaign" role="button" tabindex="0" data-contact data-msgtext="Let my people go: train my team">
     <div class="wrap">
       <div class="camp-k" data-i18n="camp.k">Our campaign</div>
@@ -2661,7 +2756,32 @@ const T = {
   "camp2.s": "Don't get left behind, and don't let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.",
   "camp2.go": "Learn AI at Chocham AI",
   "camp.h2": "…for a higher purpose.",
-  "camp2.h2": "…the old way. Learn to run AI."
+  "camp2.h2": "…the old way. Learn to run AI.",
+  "h3.l": "We build it. We deploy it. We teach your people to operate it.",
+  "h3.b": "Click here to let my people go",
+  "h3.pk": "Our philosophy",
+  "h3.p": "In a world afraid that AI will take people's jobs, we teach, build, deploy and operate AI for enterprises and individuals.",
+  "cab.t": "Open a folder.",
+  "cab.s": "Everything we do, filed in one place.",
+  "fo.close": "Back to the cabinet",
+  "fo.ent": "Enterprise",
+  "fo.entd": "AI agents and training for your whole company",
+  "fo.ind": "Individuals",
+  "fo.indd": "Your own AI team, and how to run it",
+  "fo.svc": "Services",
+  "fo.svcd": "What we build, run and teach",
+  "fo.cs": "Case Studies",
+  "fo.csd": "Work we've done",
+  "fo.inds": "Industries",
+  "fo.indsd": "Where AI fits your business",
+  "fo.learn": "Learn AI",
+  "fo.learnd": "Seminars at Chocham AI",
+  "fo.con": "Contact",
+  "fo.cond": "Book a free consultation",
+  "ent.h": "Your people, running AI.",
+  "ent.s": "We build AI agents for every role, from CFO to front desk, and train your team to run them.",
+  "fo.allcs": "See all case studies",
+  "h3.aside": "(from the burden of tedious labor)"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -3657,7 +3777,32 @@ const T = {
   "camp2.s": "בלייבט נישט הינטערשטעליג, און לאזט נישט AI אייך פארביטן. AI דארף אייך, און איר דארפט AI. לערנט זיך עס פירן און טוט אויף מער.",
   "camp2.go": "לערנט AI ביי חכם AI",
   "camp.h2": "…צו א העכערן ציל.",
-  "camp2.h2": "…אויפן אלטן אופן. לערנט זיך פירן AI."
+  "camp2.h2": "…אויפן אלטן אופן. לערנט זיך פירן AI.",
+  "h3.l": "מיר בויען עס. מיר שטעלן עס איין. מיר לערנען אייערע מענטשן עס צו פירן.",
+  "h3.b": "קליקט דא – שלח את עמי!",
+  "h3.pk": "אונזער פילאזאפיע",
+  "h3.p": "אין א וועלט וואו מען האט מורא אז AI וועט צונעמען מענטשנס ארבעט, לערנען, בויען, שטעלן איין און פירן מיר AI פאר פירמעס און יחידים.",
+  "cab.t": "עפנט א טעקע.",
+  "cab.s": "אלעס וואס מיר טוען, אויף איין ארט.",
+  "fo.close": "צוריק צום שאפע",
+  "fo.ent": "פירמעס",
+  "fo.entd": "AI אגענטן און טריינינג פאר אייער גאנצער פירמע",
+  "fo.ind": "יחידים",
+  "fo.indd": "אייער אייגענער AI טיעם, און ווי אזוי עס צו פירן",
+  "fo.svc": "סערוויסעס",
+  "fo.svcd": "וואס מיר בויען, פירן און לערנען",
+  "fo.cs": "קעיס סטאדיס",
+  "fo.csd": "ארבעט וואס מיר האבן געטון",
+  "fo.inds": "אינדוסטריעס",
+  "fo.indsd": "וואו AI פאסט אריין אין אייער ביזנעס",
+  "fo.learn": "לערנט AI",
+  "fo.learnd": "סעמינארן ביי חכם AI",
+  "fo.con": "קאנטאקט",
+  "fo.cond": "באשטעלט א פרייע קאנסולטאציע",
+  "ent.h": "אייערע מענטשן, פירנדיג AI.",
+  "ent.s": "מיר בויען AI אגענטן פאר יעדע ראלע, פון CFO ביז דער פראנט דעסק, און טריינירן אייער טיעם זיי צו פירן.",
+  "fo.allcs": "זעט אלע קעיס סטאדיס",
+  "h3.aside": "(מעבודה קשה)"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -4653,7 +4798,32 @@ const T = {
   "camp2.s": "אל תישארו מאחור, ואל תתנו ל-AI להחליף אתכם. ה-AI צריך אתכם, ואתם צריכים AI. למדו להפעיל אותו והספיקו יותר.",
   "camp2.go": "ללמוד AI בחכם AI",
   "camp.h2": "…למען ייעוד גבוה יותר.",
-  "camp2.h2": "…בדרך הישנה. למדו להפעיל AI."
+  "camp2.h2": "…בדרך הישנה. למדו להפעיל AI.",
+  "h3.l": "אנחנו בונים. אנחנו מטמיעים. אנחנו מלמדים את האנשים שלכם להפעיל.",
+  "h3.b": "לחצו כאן – שלח את עמי!",
+  "h3.pk": "הפילוסופיה שלנו",
+  "h3.p": "בעולם שחושש ש-AI ייקח לאנשים את העבודה, אנחנו מלמדים, בונים, מטמיעים ומפעילים AI לארגונים וליחידים.",
+  "cab.t": "פתחו תיקייה.",
+  "cab.s": "כל מה שאנחנו עושים, במקום אחד.",
+  "fo.close": "חזרה לארון",
+  "fo.ent": "ארגונים",
+  "fo.entd": "סוכני AI והדרכה לכל החברה",
+  "fo.ind": "יחידים",
+  "fo.indd": "צוות AI משלכם, ואיך להפעיל אותו",
+  "fo.svc": "שירותים",
+  "fo.svcd": "מה אנחנו בונים, מפעילים ומלמדים",
+  "fo.cs": "מקרי בוחן",
+  "fo.csd": "עבודות שעשינו",
+  "fo.inds": "תעשיות",
+  "fo.indsd": "איפה AI משתלב בעסק שלכם",
+  "fo.learn": "ללמוד AI",
+  "fo.learnd": "סמינרים בחכם AI",
+  "fo.con": "צור קשר",
+  "fo.cond": "קבעו ייעוץ חינם",
+  "ent.h": "האנשים שלכם, מפעילים AI.",
+  "ent.s": "אנחנו בונים סוכני AI לכל תפקיד, מסמנכ״ל כספים ועד הקבלה, ומדריכים את הצוות שלכם להפעיל אותם.",
+  "fo.allcs": "לכל מקרי הבוחן",
+  "h3.aside": "(מֵעֲבֹדָה קָשָׁה)"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -5649,7 +5819,32 @@ const T = {
   "camp2.s": "No se quede atrás, y no deje que la IA lo reemplace. La IA lo necesita a usted, y usted necesita la IA. Aprenda a manejarla y logre más.",
   "camp2.go": "Aprenda IA en Chocham AI",
   "camp.h2": "…hacia un propósito más alto.",
-  "camp2.h2": "…a la antigua. Aprenda a manejar la IA."
+  "camp2.h2": "…a la antigua. Aprenda a manejar la IA.",
+  "h3.l": "Lo creamos. Lo implementamos. Enseñamos a su gente a operarlo.",
+  "h3.b": "Haga clic aquí: ¡deja ir a mi pueblo!",
+  "h3.pk": "Nuestra filosofía",
+  "h3.p": "En un mundo que teme que la IA quite empleos, enseñamos, creamos, implementamos y operamos IA para empresas y particulares.",
+  "cab.t": "Abra una carpeta.",
+  "cab.s": "Todo lo que hacemos, en un solo lugar.",
+  "fo.close": "Volver al archivero",
+  "fo.ent": "Empresas",
+  "fo.entd": "Agentes de IA y capacitación para toda su empresa",
+  "fo.ind": "Particulares",
+  "fo.indd": "Su propio equipo de IA y cómo manejarlo",
+  "fo.svc": "Servicios",
+  "fo.svcd": "Lo que creamos, gestionamos y enseñamos",
+  "fo.cs": "Casos de estudio",
+  "fo.csd": "Trabajo que hemos hecho",
+  "fo.inds": "Industrias",
+  "fo.indsd": "Dónde encaja la IA en su negocio",
+  "fo.learn": "Aprenda IA",
+  "fo.learnd": "Seminarios en Chocham AI",
+  "fo.con": "Contacto",
+  "fo.cond": "Agende una consulta gratis",
+  "ent.h": "Su gente, manejando la IA.",
+  "ent.s": "Creamos agentes de IA para cada puesto, del director financiero a la recepción, y capacitamos a su equipo para manejarlos.",
+  "fo.allcs": "Ver todos los casos",
+  "h3.aside": "(de la carga del trabajo tedioso)"
  }
 };
 
@@ -5779,7 +5974,7 @@ function brandSync() {
 function goConsult(msg) {
   if (!$("#chat").hidden) closeChat();
   if (!$("#overlay").hidden) closeSheet();
-  const go = () => { document.getElementById("consult").scrollIntoView({ block: "start" }); const m = $("#c-msg"); if (m && msg && !m.value.trim()) m.value = msg; setTimeout(() => { const n = $("#c-name"); if (n) n.focus({ preventScroll: true }); }, 450); };
+  const go = () => { window.openFor(document.getElementById("consult")); const m = $("#c-msg"); if (m && msg && !m.value.trim()) m.value = msg; setTimeout(() => { const n = $("#c-name"); if (n) n.focus({ preventScroll: true }); }, 450); };
   const cpg = document.getElementById("consult").closest("main[data-page]").dataset.page; if (view !== cpg) { setView(cpg); setTimeout(go, 40); } else go();
 }
 document.addEventListener("submit", async e => {
@@ -6341,7 +6536,7 @@ document.addEventListener("click", e => {
   if (e.target.closest("[data-close]") || e.target.id === "overlay") { closeSheet(); return; }
   const tab = e.target.closest("[data-tab]"); if (tab) { datesTab = tab.dataset.tab; render(); return; }
   const g = e.target.closest("[data-go]");
-  if (g) { const el = document.getElementById(g.dataset.go); if (!el) return; const pg = el.closest("main[data-page]").dataset.page; const go = () => el.scrollIntoView({ block: "start" }); if (view !== pg) { setView(pg); setTimeout(go, 40); } else go(); return; }
+  if (g) { const el = document.getElementById(g.dataset.go); if (!el) return; const pg = el.closest("main[data-page]").dataset.page; const go = () => window.openFor(el); if (view !== pg) { setView(pg); setTimeout(go, 40); } else go(); return; }
   if (e.target.closest("[data-home]")) { e.preventDefault(); setView("home"); }
 });
 document.addEventListener("keydown", e => { if (e.key === "Escape") { if (!$("#overlay").hidden) closeSheet(); else if (!$("#chat").hidden) closeChat(); } });
@@ -6453,6 +6648,45 @@ document.addEventListener("click", e => {
   }
 })();
 
+</script>
+<script>
+/* Moses home: file cabinet. Sections are filed into folders; a folder opens like a page turning. */
+window.openFor = el => el.scrollIntoView({ block: "start" });
+(function cabinet() {
+  if (CONFIG.site !== "moses") return;
+  const FILES = { ent: ["agents", "departments", "savings", "process", "usecases"], ind: ["personal"], svc: ["services"], cs: ["work", "practices", "assetmgmt"], learn: ["education-home"], con: ["consult", "faq"] };
+  Object.entries(FILES).forEach(([k, ids]) => { const body = document.querySelector('.fsheet[data-f="' + k + '"] .fbody'); ids.forEach(id => { const el = document.getElementById(id); if (el && body) body.appendChild(el); }); });
+  let open = null, last = null;
+  function openFolder(k, then) {
+    const sh = document.querySelector('.fsheet[data-f="' + k + '"]'); if (!sh) return;
+    if (open && open !== sh) { open.classList.remove("open"); open.hidden = true; }
+    if (open !== sh) { last = document.activeElement; sh.hidden = false; sh.querySelector(".fscroll").scrollTop = 0; requestAnimationFrame(() => requestAnimationFrame(() => sh.classList.add("open"))); }
+    open = sh; document.documentElement.classList.add("filing");
+    setTimeout(() => { const c = sh.querySelector(".fclose"); if (c) c.focus({ preventScroll: true }); if (then) then(); }, 620);
+    try { track("open_folder", { folder: k }); } catch (e) {}
+  }
+  function closeFolder() {
+    if (!open) return; const sh = open; open = null;
+    sh.classList.remove("open"); sh.classList.add("closing");
+    setTimeout(() => { sh.classList.remove("closing"); sh.hidden = true; document.documentElement.classList.remove("filing"); if (last && last.focus) last.focus({ preventScroll: true }); }, 420);
+  }
+  window.openFor = el => {
+    const sh = el.closest(".fsheet");
+    if (!sh) { if (open) closeFolder(); el.scrollIntoView({ block: "start" }); return; }
+    const sc = sh.querySelector(".fscroll");
+    const go = () => { const y = el.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop - 70; sc.scrollTo({ top: Math.max(0, y), behavior: "smooth" }); };
+    if (open === sh) go(); else openFolder(sh.dataset.f, go);
+  };
+  document.addEventListener("click", e => {
+    const f = e.target.closest("[data-folder]"); if (f) { e.preventDefault(); openFolder(f.dataset.folder); return; }
+    if (e.target.closest(".fclose")) { closeFolder(); return; }
+    if (open && e.target === open) { closeFolder(); return; }
+    if (open && e.target.closest("[data-view], [data-book], a[href]")) closeFolder();
+    setTimeout(() => { if (open && !open.getClientRects().length) { const sh = open; open = null; sh.classList.remove("open"); sh.hidden = true; document.documentElement.classList.remove("filing"); } }, 60);
+  });
+  addEventListener("popstate", () => setTimeout(() => { if (open && !open.getClientRects().length) { open.classList.remove("open"); open.hidden = true; open = null; document.documentElement.classList.remove("filing"); } }, 60));
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && open) closeFolder(); });
+})();
 </script>
 </body>
 </html>

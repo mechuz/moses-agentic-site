@@ -32,7 +32,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&family=Instrument+Serif:ital@1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&family=Instrument+Serif:ital@1&family=Caveat:wght@600&family=Amatic+SC:wght@700&display=swap">
 <style>
 /* Layout:the first screen is four full-height buttons (an expanding accordion on desktop, stacked on phones).
    Below it, a short Apple-style story: centered headlines, generous space, one idea per section. */
@@ -1159,7 +1159,30 @@ html.filing { overflow: hidden; }
 .ssoon h3 { font: 800 1.5rem/1.1 var(--f-display); color: #0B2545; }
 .ssoon p { color: var(--mute); }
 @media (max-width: 860px) { .fourg { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sextra { grid-template-columns: minmax(0, 1fr); } }
+.sgrid.exec { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 760px) { .sgrid.exec { grid-template-columns: minmax(0, 1fr); } }
+.scard.exec h4 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); letter-spacing: -.03em; }
+.scard .sline { color: var(--mute); }
+.slayers { display: grid; gap: .45rem; }
+.slayer { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: .6rem; align-items: start; padding: .65rem .8rem; border-radius: 14px; background: #F7F9FC; border: 1px solid var(--line); }
+.slayer span { font: 800 .74rem/1.5 var(--f-body); text-transform: uppercase; letter-spacing: .05em; color: #1A73E8; }
+.slayer p { margin: 0; font-size: .95rem; color: var(--ink); }
+.slayer:first-child { background: #0B2545; border-color: #0B2545; } .slayer:first-child span { color: #C6F432; } .slayer:first-child p { color: #FFFFFF; }
+.slayer:nth-child(2) { margin-inline-start: .6rem; } .slayer:nth-child(3) { margin-inline-start: 1.2rem; }
+.stier-s { color: var(--mute); margin: -.3rem 0 .9rem; }
+@media (max-width: 520px) { .slayer { grid-template-columns: minmax(0, 1fr); gap: .15rem; } .slayer:nth-child(2), .slayer:nth-child(3) { margin-inline-start: 0; } }
+
 @media (max-width: 520px) { .fourg { grid-template-columns: minmax(0, 1fr); } }
+
+.custom { margin-top: clamp(2rem, 4vw, 3rem); background: #0B2545; color: #FFFFFF; border-radius: 24px; padding: clamp(1.6rem, 4vw, 3rem); display: grid; gap: .9rem; justify-items: start; }
+.custom > * { margin: 0; }
+.custom-k { font: 800 .85rem var(--f-body); letter-spacing: .07em; text-transform: uppercase; color: #C6F432; }
+.custom h3 { font: 900 clamp(2rem, 4.6vw, 3.8rem)/.98 var(--f-display); letter-spacing: -.045em; }
+.custom p { font: 500 clamp(1.05rem, 1.6vw, 1.3rem)/1.5 var(--f-body); color: #CFE3FA; max-width: 52ch; }
+.custom .btn { margin-top: .4rem; font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
+.h3aside { font: 600 clamp(2rem, 3.8vw, 3.6rem)/1.05 "Caveat", "Amatic SC", cursive; color: #C6F432; letter-spacing: 0; transform: rotate(-3deg); transform-origin: left bottom; }
+[dir="rtl"] .h3aside { font-family: "Amatic SC", "Caveat", cursive; font-weight: 700; transform: rotate(3deg); transform-origin: right bottom; }
+@media (max-width: 760px) { .h3aside { font-size: clamp(2rem, 9vw, 2.7rem); } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1252,7 +1275,7 @@ body { top: 0 !important; }
       <div class="cab-head"><h2 data-i18n="cab.t">Choose your path.</h2><p data-i18n="cab.s">Everything we do, filed in one place.</p></div>
       <div class="drawer"><div class="folder f-ent" role="button" tabindex="0" data-folder="ent"><span class="ftab"><b>01</b></span><span class="flabel" data-i18n="fo.ent">Enterprise</span><span class="ffoot"><span class="fdesc" data-i18n="fo.entd">AI agents and training for your whole company</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ind" role="button" tabindex="0" data-folder="ind"><span class="ftab"><b>02</b></span><span class="flabel" data-i18n="fo.ind">Individuals</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indd">Your own AI team, and how to run it</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-store" role="button" tabindex="0" data-folder="store"><span class="ftab"><b>03</b></span><span class="flabel" data-i18n="fo.store">Agent Store</span><span class="ffoot"><span class="fdesc" data-i18n="fo.stored">Ready-made agents you can buy</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-cs" role="button" tabindex="0" data-folder="cs"><span class="ftab"><b>04</b></span><span class="flabel" data-i18n="fo.cs">Case Studies</span><span class="ffoot"><span class="fdesc" data-i18n="fo.csd">Work we've done</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-inds" role="button" tabindex="0" data-view="industries"><span class="ftab"><b>05</b></span><span class="flabel" data-i18n="fo.inds">Industries</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indsd">Where AI fits your business</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-learn" role="button" tabindex="0" data-folder="learn"><span class="ftab"><b>06</b></span><span class="flabel" data-i18n="fo.learn">Learn AI</span><span class="ffoot"><span class="fdesc" data-i18n="fo.learnd">Seminars at Chocham AI</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-con" role="button" tabindex="0" data-folder="con"><span class="ftab"><b>07</b></span><span class="flabel" data-i18n="fo.con">Contact</span><span class="ffoot"><span class="fdesc" data-i18n="fo.cond">Book a free consultation</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div></div>
     </div>
-<div class="fsheet s-ent" data-f="ent" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ent">Enterprise</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="fh" data-i18n="ent.h">Your people, running AI.</h2><p class="fp" data-i18n="ent.s">We build AI agents for every role, from front desk to CFO, and train your team to run them.</p><div class="fctas"><button type="button" class="btn aqua big" data-contact data-msgtext="Enterprise"><span data-i18n="mo.go">Book a free consultation</span> <span class="arrow">→</span></button><button type="button" class="btn big seminar-btn" data-book><span data-i18n="cta.seminar">Learn AI: book a seminar</span> <span class="arrow">→</span></button></div><div class="four"><div class="fourh"><h3 data-i18n="ent.svc_h">Our services</h3><p data-i18n="ent.svc_s">We work with you, start to finish.</p></div><div class="fourg" id="fourg"></div><button type="button" class="btn big shop-btn" data-folder="store"><span data-i18n="ent.shop">Or shop ready-made agents</span> <span class="arrow">→</span></button></div></div><div class="fbody"></div></div></div><div class="fsheet s-ind" data-f="ind" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ind">Individuals</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2><p class="camp-h2" data-i18n="camp2.h2">…the old way. Learn to run AI.</p><p class="fp" data-i18n="camp2.s">Don't get left behind, and don't let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.</p><button type="button" class="btn big" data-book><span data-i18n="camp2.go">Learn AI at Chocham AI</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-store" data-f="store" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.store">Agent Store</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><p class="eyebrow" data-i18n="store.k">Agent Store · For enterprises</p><h2 class="fh" data-i18n="store.t">Ready-made AI agents for your business.</h2><p class="fp" data-i18n="store.s">Pre-built agents for common roles, from front desk to CFO. Check out online, and add a monthly plan so we keep them running.</p><div class="store" id="store"></div></div><div class="fbody"></div></div></div><div class="fsheet s-cs" data-f="cs" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.cs">Case Studies</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><p class="fp" data-i18n="fo.csd">Work we've done</p><button type="button" class="btn aqua big" data-view="cases"><span data-i18n="fo.allcs">See all case studies</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-learn" data-f="learn" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.learn">Learn AI</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-con" data-f="con" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.con">Contact</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div>
+<div class="fsheet s-ent" data-f="ent" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ent">Enterprise</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="fh" data-i18n="ent.h">Your people, running AI.</h2><p class="fp" data-i18n="ent.s">We build AI agents for every role, from front desk to CFO, and train your team to run them.</p><div class="fctas"><button type="button" class="btn aqua big" data-contact data-msgtext="Enterprise"><span data-i18n="mo.go">Book a free consultation</span> <span class="arrow">→</span></button><button type="button" class="btn big seminar-btn" data-book><span data-i18n="cta.seminar">Learn AI: book a seminar</span> <span class="arrow">→</span></button></div><div class="four"><div class="fourh"><h3 data-i18n="ent.svc_h">Our services</h3><p data-i18n="ent.svc_s">We work with you, start to finish.</p></div><div class="fourg" id="fourg"></div><button type="button" class="btn big shop-btn" data-folder="store"><span data-i18n="ent.shop">Or shop ready-made agents</span> <span class="arrow">→</span></button></div><div class="custom" id="agents"><span class="custom-k">Custom agents</span><h3 data-i18n="cust.t">Custom agents available.</h3><p data-i18n="cust.s">Need an agent built around how your business works? We design it with you, build it and run it.</p><button type="button" class="btn aqua big" data-contact data-msgtext="Custom agent"><span data-i18n="cust.go">Customize now!</span> <span class="arrow">→</span></button></div></div><div class="fbody"></div></div></div><div class="fsheet s-ind" data-f="ind" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ind">Individuals</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2><p class="camp-h2" data-i18n="camp2.h2">…the old way. Learn to run AI.</p><p class="fp" data-i18n="camp2.s">Don't get left behind, and don't let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.</p><button type="button" class="btn big" data-book><span data-i18n="camp2.go">Learn AI at Chocham AI</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-store" data-f="store" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.store">Agent Store</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><p class="eyebrow" data-i18n="store.k">Agent Store · For enterprises</p><h2 class="fh" data-i18n="store.t">Hire an AI executive.</h2><p class="fp" data-i18n="store.s">Each executive agent takes over its whole function: the executive level, the middle office and the back office. Hire one, or build your full AI leadership team.</p><div class="store" id="store"></div></div><div class="fbody"></div></div></div><div class="fsheet s-cs" data-f="cs" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.cs">Case Studies</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><p class="fp" data-i18n="fo.csd">Work we've done</p><button type="button" class="btn aqua big" data-view="cases"><span data-i18n="fo.allcs">See all case studies</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-learn" data-f="learn" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.learn">Learn AI</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-con" data-f="con" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.con">Contact</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div>
   </section>
   <section class="camp" id="campaign" role="button" tabindex="0" data-contact data-msgtext="Let my people go: train my team">
     <div class="wrap">
@@ -1340,7 +1363,7 @@ body { top: 0 !important; }
     </div>
   </section>
 
-  <section class="agents" id="agents">
+  <section class="agents" id="agents-old">
     <div class="wrap center">
       <div class="head rise"><div class="eyebrow" data-i18n="ag.kicker">Agents</div><h2 class="h2" data-i18n="ag.title">An AI agent for every role</h2><p class="lead" data-i18n="ag.sub">From the front desk to the C-suite. Pick a level, then tap a role to see what the agent does.</p></div>
       <div class="atiers" id="atiers" role="group"></div>
@@ -1653,7 +1676,7 @@ const CONFIG = {
   contactEndpoint: "",                  // Formspree (or similar) URL for consultation requests; they POST here as JSON
   web3formsKey: "",                     // Web3Forms access key (public by design); each request is emailed to the owner
   /* Agent Store. For each agent you sell, add its Stripe Payment Link and prices, e.g. cfo: { setup: "1,500", monthly: "300", link: "https://buy.stripe.com/..." }.
-     Agents without a link show "Request this agent", which opens the contact questionnaire. Slugs: reception, assistant, bookkeeper, billing, service, payroll, hr, controller, asset, sales, cfo, cmo, coo, cto. */
+     Agents without a link show "Request this agent", which opens the contact questionnaire. Slugs: coo, cmo, cfo, cio (executives); cre, staff, broker, acq, analyst, research (specialists). */
   store: { currency: "$", plan: { monthly: "", link: "" }, agents: {} },
   pagesExample: "",              // pages analyzed in one project, shown as an example
   whatsapp: "",                         // digits with country code, e.g. "17185551234"
@@ -3126,19 +3149,19 @@ const T = {
   "fo.store": "Agent Store",
   "fo.stored": "Ready-made agents you can buy",
   "store.k": "Agent Store · For enterprises",
-  "store.t": "Ready-made AI agents for your business.",
-  "store.s": "Pre-built agents for common roles, from front desk to CFO. Check out online, and add a monthly plan so we keep them running.",
-  "store.buy": "Buy now",
-  "store.ask": "Request this agent",
+  "store.t": "Hire an AI executive.",
+  "store.s": "Each executive agent takes over its whole function: the executive level, the middle office and the back office. Hire one, or build your full AI leadership team.",
+  "store.buy": "Hire now",
+  "store.ask": "Hire this agent",
   "store.price": "Pricing on request",
   "store.mo": "/month",
   "store.setup": "setup",
   "store.plan_t": "Managed plan",
   "store.plan_s": "We watch, update and support your agents every month, so they keep doing the job.",
   "store.plan_go": "Ask about the plan",
-  "store.soon_t": "More agents coming soon",
-  "store.soon_s": "Tell us which role you need next.",
-  "store.soon_go": "Suggest an agent",
+  "store.soon_t": "More specialists coming soon",
+  "store.soon_s": "Tell us the role your industry needs.",
+  "store.soon_go": "Suggest a specialist",
   "ent.svc_h": "Our services",
   "ent.svc_s": "We work with you, start to finish.",
   "ent.four": [
@@ -3159,7 +3182,123 @@ const T = {
     "We run, monitor and improve them every month."
    ]
   ],
-  "ent.shop": "Or shop ready-made agents"
+  "ent.shop": "Or shop ready-made agents",
+  "store.exec_h": "Executive agents",
+  "store.spec_h": "Specialist agents",
+  "store.spec_s": "Built for one specific job in your industry.",
+  "store.l": [
+   "Executive",
+   "Middle office",
+   "Back office"
+  ],
+  "store.exec": [
+   [
+    "coo",
+    "AI COO",
+    "Takes over operations, from the back office to the executive level.",
+    [
+     "Operating plan, KPIs and a weekly report to you",
+     "Scheduling, vendors, compliance and project tracking",
+     "Admin, paperwork, purchasing and filing"
+    ]
+   ],
+   [
+    "cmo",
+    "AI CMO",
+    "Takes over marketing, from the back office to the executive level.",
+    [
+     "Strategy, budget and brand",
+     "Campaigns, ad spend and results",
+     "Content, social posts, email and lead lists"
+    ]
+   ],
+   [
+    "cfo",
+    "AI CFO",
+    "Takes over finance, from the back office to the executive level.",
+    [
+     "Forecasts, budgets, cash strategy and board reports",
+     "Financial planning, controls, reconciliations and approvals",
+     "Payables, receivables, billing, payroll prep and bookkeeping"
+    ]
+   ],
+   [
+    "cio",
+    "AI CIO",
+    "Takes over information and technology, from the back office to the executive level.",
+    [
+     "Technology and data strategy, security and vendor choices",
+     "Systems, integrations, reporting and access",
+     "IT requests, updates, records and website upkeep"
+    ]
+   ]
+  ],
+  "store.spec": [
+   [
+    "cre",
+    "AI Commercial real estate asset manager",
+    "Runs your portfolio's numbers and reporting.",
+    [
+     "Rent rolls, leases and tenant tracking",
+     "Budgets vs. actuals and loan covenants",
+     "Monthly investor and lender reports"
+    ]
+   ],
+   [
+    "staff",
+    "AI Staffing and payroll manager",
+    "Keeps every shift covered and every paycheck right.",
+    [
+     "Builds schedules and fills open shifts",
+     "Tracks hours, overtime and time off",
+     "Prepares payroll for your approval"
+    ]
+   ],
+   [
+    "broker",
+    "AI Commercial mortgage broker",
+    "Packages your deals and finds the right lenders.",
+    [
+     "Builds loan packages and executive summaries",
+     "Matches deals to lenders and loan programs",
+     "Tracks term sheets, conditions and closing"
+    ]
+   ],
+   [
+    "acq",
+    "AI Acquisitions director",
+    "Finds, screens and underwrites deals for you.",
+    [
+     "Sources and screens new opportunities",
+     "Builds first-pass underwriting and offers",
+     "Runs due-diligence checklists to closing"
+    ]
+   ],
+   [
+    "analyst",
+    "AI CRE analyst",
+    "Your underwriting and financial models, fast.",
+    [
+     "Underwrites deals and builds pro formas",
+     "Reads rent rolls, T-12s and leases",
+     "Writes investment memos and sensitivity tables"
+    ]
+   ],
+   [
+    "research",
+    "AI CRE data and research",
+    "Market data and comps, gathered and organized.",
+    [
+     "Pulls sales and lease comps",
+     "Tracks market rents, cap rates and new supply",
+     "Builds market and submarket reports"
+    ]
+   ]
+  ],
+  "cust.k": "Custom agents",
+  "cust.t": "Custom agents available.",
+  "cust.s": "Need an agent built around how your business works? We design it with you, build it and run it.",
+  "cust.go": "Customize now!"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -4415,19 +4554,19 @@ const T = {
   "fo.store": "אגענט סטאר",
   "fo.stored": "גרייטע אגענטן וואס מ'קען קויפן",
   "store.k": "אגענט סטאר · פאר פירמעס",
-  "store.t": "גרייטע AI אגענטן פאר אייער ביזנעס.",
-  "store.s": "פארטיגע אגענטן פאר געוויינטליכע פאזישאנס, פון דער פראנט דעסק ביז דער CFO. טשעקט אויס אנליין, און לייגט צו א מאנאטליכן פלאן כדי מיר זאלן זיי האלטן לויפן.",
-  "store.buy": "קויפט יעצט",
-  "store.ask": "פרעגט וועגן דעם אגענט",
+  "store.t": "דינגט אן AI עקזעקיוטיוו.",
+  "store.s": "יעדער עקזעקיוטיוו אגענט נעמט איבער זיין גאנצע דעפארטמענט: דעם עקזעקיוטיוו לעוועל, דעם מידל אפיס און דעם בעק אפיס. דינגט איינעם, אדער בויט אייער גאנצע AI הנהלה.",
+  "store.buy": "דינגט יעצט",
+  "store.ask": "דינגט דעם אגענט",
   "store.price": "פרייז אויף פארלאנג",
   "store.mo": "/חודש",
   "store.setup": "סעטאפ",
   "store.plan_t": "מענעדזשד פלאן",
   "store.plan_s": "מיר היטן, אפדעיטן און שטיצן אייערע אגענטן יעדן חודש, כדי זיי זאלן ווייטער טון די ארבעט.",
   "store.plan_go": "פרעגט וועגן דעם פלאן",
-  "store.soon_t": "נאך אגענטן קומען באלד",
-  "store.soon_s": "זאגט אונז וועלכע פאזישאן איר דארפט נעקסט.",
-  "store.soon_go": "שלאגט פאר אן אגענט",
+  "store.soon_t": "נאך ספעציאליסטן קומען באלד",
+  "store.soon_s": "זאגט אונז וועלכע פאזישאן אייער אינדוסטרי דארף.",
+  "store.soon_go": "שלאגט פאר א ספעציאליסט",
   "ent.svc_h": "אונזערע סערוויסעס",
   "ent.svc_s": "מיר ארבעטן מיט אייך פון אנהייב ביזן סוף.",
   "ent.four": [
@@ -4448,7 +4587,123 @@ const T = {
     "מיר פירן, היטן און פארבעסערן זיי יעדן חודש."
    ]
   ],
-  "ent.shop": "אדער קויפט גרייטע אגענטן"
+  "ent.shop": "אדער קויפט גרייטע אגענטן",
+  "store.exec_h": "עקזעקיוטיוו אגענטן",
+  "store.spec_h": "ספעציאליסט אגענטן",
+  "store.spec_s": "געבויט פאר איין ספעציפישע ארבעט אין אייער אינדוסטרי.",
+  "store.l": [
+   "עקזעקיוטיוו",
+   "מידל אפיס",
+   "בעק אפיס"
+  ],
+  "store.exec": [
+   [
+    "coo",
+    "AI COO",
+    "נעמט איבער די אפעראציעס, פון בעק אפיס ביז דעם עקזעקיוטיוו לעוועל.",
+    [
+     "אפערעיטינג פלאן, KPIs און א וועכנטליכער רעפארט פאר אייך",
+     "סקעדזשולינג, ווענדארס, קאמפלייענס און פראדזשעקט טרעקינג",
+     "אדמין, פאפירן, איינקויפן און פיילינג"
+    ]
+   ],
+   [
+    "cmo",
+    "AI CMO",
+    "נעמט איבער מארקעטינג, פון בעק אפיס ביז דעם עקזעקיוטיוו לעוועל.",
+    [
+     "סטראטעגיע, בודזשעט און בראנד",
+     "קאמפעינס, אד ספענד און רעזולטאטן",
+     "קאנטענט, סאשעל פאוסטס, אימעילס און ליד ליסטס"
+    ]
+   ],
+   [
+    "cfo",
+    "AI CFO",
+    "נעמט איבער די פינאנצן, פון בעק אפיס ביז דעם עקזעקיוטיוו לעוועל.",
+    [
+     "פארקעסטס, בודזשעטס, קעש סטראטעגיע און באורד רעפארטס",
+     "פינאנציעלע פלאנירונג, קאנטראלס, רעקאנסיליעישאנס און אפרוווס",
+     "פעיעבלס, רעסיוועבלס, בילינג, פעיראל און בוקקיפינג"
+    ]
+   ],
+   [
+    "cio",
+    "AI CIO",
+    "נעמט איבער אינפארמאציע און טעכנאלאגיע, פון בעק אפיס ביז דעם עקזעקיוטיוו לעוועל.",
+    [
+     "טעכנאלאגיע און דאטא סטראטעגיע, סעקיוריטי און ווענדאר באשלוסן",
+     "סיסטעמס, אינטעגראציעס, רעפארטינג און עקסעס",
+     "IT ריקוועסטס, אפדעיטס, רעקארדס און וועבסייט אנהאלטן"
+    ]
+   ]
+  ],
+  "store.spec": [
+   [
+    "cre",
+    "AI קאמערשל ריעל עסטעיט עסעט מענעדזשער",
+    "פירט די נומערן און רעפארטס פון אייער פארטפאליא.",
+    [
+     "רענט ראלס, ליסעס און טענאנט טרעקינג",
+     "בודזשעט קעגן אקטשועלס און לאון קאווענאנטס",
+     "מאנאטליכע רעפארטס פאר אינוועסטארס און לענדערס"
+    ]
+   ],
+   [
+    "staff",
+    "AI סטאפינג און פעיראל מענעדזשער",
+    "יעדע שיפט פארדעקט און יעדער פעיטשעק ריכטיג.",
+    [
+     "מאכט סקעדזשולס און פילט אפענע שיפטס",
+     "טרעקט שעות, אווערטיים און פריי-טעג",
+     "גרייט צו פעיראל פאר אייער אפרוווען"
+    ]
+   ],
+   [
+    "broker",
+    "AI קאמערשל מארגעדזש ברוקער",
+    "פעקט אייערע דילס און געפינט די ריכטיגע לענדערס.",
+    [
+     "מאכט לאון פעקעדזשעס און עקזעקיוטיוו סאמעריס",
+     "פאסט צו דילס מיט לענדערס און לאון פראגראמען",
+     "טרעקט טערם שיטס, קאנדישאנס און קלאוזינג"
+    ]
+   ],
+   [
+    "acq",
+    "AI אקוויזישאנס דירעקטאר",
+    "געפינט, סקרינט און אנדעררייט דילס פאר אייך.",
+    [
+     "זוכט און סקרינט נייע אפארטוניטיס",
+     "מאכט ערשטע אנדעררייטינג און אפערס",
+     "פירט דיו-דיליגענס טשעקליסטס ביז קלאוזינג"
+    ]
+   ],
+   [
+    "analyst",
+    "AI CRE אנאליסט",
+    "אייער אנדעררייטינג און פינאנציעלע מאדעלס, שנעל.",
+    [
+     "אנדעררייט דילס און מאכט פרא פארמעס",
+     "לייענט רענט ראלס, T-12s און ליסעס",
+     "שרייבט אינוועסטמענט מעמאס און סענסיטיוויטי טעבלס"
+    ]
+   ],
+   [
+    "research",
+    "AI CRE דאטא און ריסוירטש",
+    "מארקעט דאטא און קאמפס, צוזאמגענומען און ארגאניזירט.",
+    [
+     "נעמט ארויס סעילס און ליס קאמפס",
+     "טרעקט מארקעט רענטס, קעפ רעיטס און נייע סופליי",
+     "מאכט מארקעט און סאבמארקעט רעפארטס"
+    ]
+   ]
+  ],
+  "cust.k": "קאסטעם אגענטן",
+  "cust.t": "קאסטעם אגענטן צו באקומען.",
+  "cust.s": "דארפט איר אן אגענט וואס איז געבויט פונקט ווי אייער ביזנעס ארבעט? מיר פלאנירן עס מיט אייך, בויען עס און פירן עס.",
+  "cust.go": "קאסטעמייזט יעצט!"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -5704,19 +5959,19 @@ const T = {
   "fo.store": "חנות הסוכנים",
   "fo.stored": "סוכנים מוכנים לרכישה",
   "store.k": "חנות הסוכנים · לארגונים",
-  "store.t": "סוכני AI מוכנים לעסק שלכם.",
-  "store.s": "סוכנים בנויים מראש לתפקידים נפוצים, מהקבלה ועד ה-CFO. רוכשים אונליין, ומוסיפים תוכנית חודשית כדי שנשמור שהם עובדים.",
-  "store.buy": "לקנייה",
-  "store.ask": "בקשו את הסוכן הזה",
+  "store.t": "גייסו מנהל AI בכיר.",
+  "store.s": "כל סוכן בכיר לוקח על עצמו את כל התחום: הדרג הבכיר, המידל אופיס והבק אופיס. גייסו אחד, או בנו צוות הנהלת AI שלם.",
+  "store.buy": "גייסו עכשיו",
+  "store.ask": "גייסו את הסוכן",
   "store.price": "מחיר לפי בקשה",
   "store.mo": "/חודש",
   "store.setup": "הקמה",
   "store.plan_t": "תוכנית מנוהלת",
   "store.plan_s": "אנחנו עוקבים, מעדכנים ותומכים בסוכנים שלכם כל חודש, כדי שימשיכו לעשות את העבודה.",
   "store.plan_go": "שאלו על התוכנית",
-  "store.soon_t": "עוד סוכנים בקרוב",
-  "store.soon_s": "ספרו לנו איזה תפקיד אתם צריכים בהמשך.",
-  "store.soon_go": "הציעו סוכן",
+  "store.soon_t": "עוד מומחים בקרוב",
+  "store.soon_s": "ספרו לנו איזה תפקיד התחום שלכם צריך.",
+  "store.soon_go": "הציעו מומחה",
   "ent.svc_h": "השירותים שלנו",
   "ent.svc_s": "אנחנו עובדים איתכם מההתחלה ועד הסוף.",
   "ent.four": [
@@ -5737,7 +5992,123 @@ const T = {
     "אנחנו מפעילים, מנטרים ומשפרים אותם כל חודש."
    ]
   ],
-  "ent.shop": "או קנו סוכנים מוכנים"
+  "ent.shop": "או קנו סוכנים מוכנים",
+  "store.exec_h": "סוכנים בכירים",
+  "store.spec_h": "סוכנים מומחים",
+  "store.spec_s": "נבנו לתפקיד מסוים אחד בתחום שלכם.",
+  "store.l": [
+   "הנהלה",
+   "מידל אופיס",
+   "בק אופיס"
+  ],
+  "store.exec": [
+   [
+    "coo",
+    "AI COO",
+    "לוקח על עצמו את התפעול, מהבק אופיס ועד ההנהלה.",
+    [
+     "תוכנית עבודה, מדדים ודוח שבועי אליכם",
+     "תיאום, ספקים, רגולציה ומעקב פרויקטים",
+     "אדמיניסטרציה, ניירת, רכש ותיוק"
+    ]
+   ],
+   [
+    "cmo",
+    "AI CMO",
+    "לוקח על עצמו את השיווק, מהבק אופיס ועד ההנהלה.",
+    [
+     "אסטרטגיה, תקציב ומותג",
+     "קמפיינים, תקציב פרסום ותוצאות",
+     "תוכן, פוסטים, מיילים ורשימות לידים"
+    ]
+   ],
+   [
+    "cfo",
+    "AI CFO",
+    "לוקח על עצמו את הכספים, מהבק אופיס ועד ההנהלה.",
+    [
+     "תחזיות, תקציבים, אסטרטגיית מזומנים ודוחות לדירקטוריון",
+     "תכנון פיננסי, בקרות, התאמות ואישורים",
+     "ספקים, לקוחות, חיובים, הכנת שכר והנהלת חשבונות"
+    ]
+   ],
+   [
+    "cio",
+    "AI CIO",
+    "לוקח על עצמו את המידע והטכנולוגיה, מהבק אופיס ועד ההנהלה.",
+    [
+     "אסטרטגיית טכנולוגיה ונתונים, אבטחה ובחירת ספקים",
+     "מערכות, אינטגרציות, דיווח והרשאות",
+     "פניות IT, עדכונים, רשומות ותחזוקת האתר"
+    ]
+   ]
+  ],
+  "store.spec": [
+   [
+    "cre",
+    "AI מנהל נכסי נדל״ן מסחרי",
+    "מנהל את המספרים והדיווח של תיק הנכסים שלכם.",
+    [
+     "רשימות שכירות, חוזים ומעקב שוכרים",
+     "תקציב מול ביצוע ותנאי הלוואות",
+     "דוחות חודשיים למשקיעים ולמלווים"
+    ]
+   ],
+   [
+    "staff",
+    "AI מנהל כוח אדם ושכר",
+    "כל משמרת מאוישת וכל תלוש מדויק.",
+    [
+     "בונה סידורי עבודה וממלא משמרות פתוחות",
+     "עוקב אחרי שעות, שעות נוספות וחופשות",
+     "מכין את השכר לאישורכם"
+    ]
+   ],
+   [
+    "broker",
+    "AI מתווך משכנתאות מסחריות",
+    "מכין את העסקאות שלכם ומוצא את המלווים הנכונים.",
+    [
+     "בונה תיקי הלוואה ותקצירי מנהלים",
+     "מתאים עסקאות למלווים ולתוכניות הלוואה",
+     "עוקב אחר מזכרי תנאים, תנאים וסגירה"
+    ]
+   ],
+   [
+    "acq",
+    "AI מנהל רכישות",
+    "מוצא, מסנן ומבצע חיתום לעסקאות בשבילכם.",
+    [
+     "מאתר ומסנן הזדמנויות חדשות",
+     "בונה חיתום ראשוני והצעות",
+     "מנהל רשימות בדיקת נאותות עד הסגירה"
+    ]
+   ],
+   [
+    "analyst",
+    "AI אנליסט נדל״ן מסחרי",
+    "החיתום והמודלים הפיננסיים שלכם, מהר.",
+    [
+     "מבצע חיתום לעסקאות ובונה פרו-פורמה",
+     "קורא רשימות שכירות, T-12 וחוזים",
+     "כותב מזכרי השקעה וטבלאות רגישות"
+    ]
+   ],
+   [
+    "research",
+    "AI נתונים ומחקר נדל״ן מסחרי",
+    "נתוני שוק ועסקאות השוואה, מרוכזים ומסודרים.",
+    [
+     "אוסף עסקאות מכר ושכירות להשוואה",
+     "עוקב אחרי שכר דירה בשוק, שיעורי היוון והיצע חדש",
+     "בונה דוחות שוק ותת-שוק"
+    ]
+   ]
+  ],
+  "cust.k": "סוכנים בהתאמה אישית",
+  "cust.t": "סוכנים בהתאמה אישית זמינים.",
+  "cust.s": "צריכים סוכן שנבנה בדיוק לפי איך שהעסק שלכם עובד? אנחנו מתכננים אותו איתכם, בונים ומפעילים.",
+  "cust.go": "התאימו עכשיו!"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -6993,19 +7364,19 @@ const T = {
   "fo.store": "Tienda de agentes",
   "fo.stored": "Agentes listos para comprar",
   "store.k": "Tienda de agentes · Para empresas",
-  "store.t": "Agentes de IA listos para su negocio.",
-  "store.s": "Agentes ya creados para puestos comunes, de la recepción al CFO. Compre en línea y agregue un plan mensual para que los mantengamos funcionando.",
-  "store.buy": "Comprar ahora",
-  "store.ask": "Solicitar este agente",
+  "store.t": "Contrate un ejecutivo de IA.",
+  "store.s": "Cada agente ejecutivo asume toda su función: el nivel ejecutivo, el middle office y el back office. Contrate uno o arme todo su equipo directivo de IA.",
+  "store.buy": "Contratar ahora",
+  "store.ask": "Contratar este agente",
   "store.price": "Precio a consultar",
   "store.mo": "/mes",
   "store.setup": "instalación",
   "store.plan_t": "Plan gestionado",
   "store.plan_s": "Supervisamos, actualizamos y damos soporte a sus agentes cada mes, para que sigan haciendo el trabajo.",
   "store.plan_go": "Preguntar por el plan",
-  "store.soon_t": "Más agentes muy pronto",
-  "store.soon_s": "Díganos qué puesto necesita después.",
-  "store.soon_go": "Sugerir un agente",
+  "store.soon_t": "Más especialistas muy pronto",
+  "store.soon_s": "Díganos qué puesto necesita su industria.",
+  "store.soon_go": "Sugerir un especialista",
   "ent.svc_h": "Nuestros servicios",
   "ent.svc_s": "Trabajamos con usted de principio a fin.",
   "ent.four": [
@@ -7026,7 +7397,123 @@ const T = {
     "Los operamos, supervisamos y mejoramos cada mes."
    ]
   ],
-  "ent.shop": "O compre agentes listos"
+  "ent.shop": "O compre agentes listos",
+  "store.exec_h": "Agentes ejecutivos",
+  "store.spec_h": "Agentes especialistas",
+  "store.spec_s": "Creados para un trabajo específico de su industria.",
+  "store.l": [
+   "Ejecutivo",
+   "Middle office",
+   "Back office"
+  ],
+  "store.exec": [
+   [
+    "coo",
+    "AI COO",
+    "Asume las operaciones, del back office al nivel ejecutivo.",
+    [
+     "Plan operativo, KPIs y un informe semanal para usted",
+     "Agenda, proveedores, cumplimiento y seguimiento de proyectos",
+     "Administración, papeleo, compras y archivo"
+    ]
+   ],
+   [
+    "cmo",
+    "AI CMO",
+    "Asume el marketing, del back office al nivel ejecutivo.",
+    [
+     "Estrategia, presupuesto y marca",
+     "Campañas, inversión publicitaria y resultados",
+     "Contenido, redes sociales, correos y listas de prospectos"
+    ]
+   ],
+   [
+    "cfo",
+    "AI CFO",
+    "Asume las finanzas, del back office al nivel ejecutivo.",
+    [
+     "Pronósticos, presupuestos, estrategia de caja e informes para la junta",
+     "Planificación financiera, controles, conciliaciones y aprobaciones",
+     "Cuentas por pagar y cobrar, facturación, nómina y contabilidad"
+    ]
+   ],
+   [
+    "cio",
+    "AI CIO",
+    "Asume la información y la tecnología, del back office al nivel ejecutivo.",
+    [
+     "Estrategia de tecnología y datos, seguridad y elección de proveedores",
+     "Sistemas, integraciones, reportes y accesos",
+     "Solicitudes de TI, actualizaciones, registros y mantenimiento del sitio web"
+    ]
+   ]
+  ],
+  "store.spec": [
+   [
+    "cre",
+    "AI Gestor de activos inmobiliarios comerciales",
+    "Lleva los números y los informes de su cartera.",
+    [
+     "Rent rolls, contratos y seguimiento de inquilinos",
+     "Presupuesto vs. real y condiciones de préstamos",
+     "Informes mensuales para inversionistas y prestamistas"
+    ]
+   ],
+   [
+    "staff",
+    "AI Gerente de personal y nómina",
+    "Cada turno cubierto y cada pago correcto.",
+    [
+     "Arma horarios y cubre turnos vacantes",
+     "Controla horas, horas extra y ausencias",
+     "Prepara la nómina para su aprobación"
+    ]
+   ],
+   [
+    "broker",
+    "AI Corredor de hipotecas comerciales",
+    "Prepara sus operaciones y encuentra los prestamistas adecuados.",
+    [
+     "Arma paquetes de préstamo y resúmenes ejecutivos",
+     "Relaciona operaciones con prestamistas y programas",
+     "Da seguimiento a term sheets, condiciones y cierre"
+    ]
+   ],
+   [
+    "acq",
+    "AI Director de adquisiciones",
+    "Encuentra, filtra y suscribe operaciones por usted.",
+    [
+     "Busca y filtra nuevas oportunidades",
+     "Hace la suscripción inicial y prepara ofertas",
+     "Lleva las listas de due diligence hasta el cierre"
+    ]
+   ],
+   [
+    "analyst",
+    "AI Analista de bienes raíces comerciales",
+    "Su suscripción y modelos financieros, rápido.",
+    [
+     "Suscribe operaciones y arma pro formas",
+     "Lee rent rolls, T-12 y contratos",
+     "Redacta memos de inversión y tablas de sensibilidad"
+    ]
+   ],
+   [
+    "research",
+    "AI Datos e investigación inmobiliaria comercial",
+    "Datos de mercado y comparables, reunidos y ordenados.",
+    [
+     "Reúne comparables de venta y alquiler",
+     "Sigue rentas de mercado, cap rates y nueva oferta",
+     "Prepara informes de mercado y submercado"
+    ]
+   ]
+  ],
+  "cust.k": "Agentes a medida",
+  "cust.t": "Agentes personalizados disponibles.",
+  "cust.s": "¿Necesita un agente hecho a la medida de su negocio? Lo diseñamos con usted, lo creamos y lo operamos.",
+  "cust.go": "¡Personalícelo ahora!"
  }
 };
 
@@ -7836,7 +8323,7 @@ document.addEventListener("click", e => {
 window.openFor = el => el.scrollIntoView({ block: "start" });
 (function cabinet() {
   if (CONFIG.site !== "moses") return;
-  const FILES = { ent: ["services", "agents", "departments", "savings", "process", "usecases"], ind: ["personal"], cs: ["work", "practices", "assetmgmt"], learn: ["education-home"], con: ["consult", "faq"] };
+  const FILES = { ent: ["services", "departments", "savings", "process", "usecases"], ind: ["personal"], cs: ["work", "practices", "assetmgmt"], learn: ["education-home"], con: ["consult", "faq"] };
   Object.entries(FILES).forEach(([k, ids]) => { const body = document.querySelector('.fsheet[data-f="' + k + '"] .fbody'); ids.forEach(id => { const el = document.getElementById(id); if (el && body) body.appendChild(el); }); });
   let open = null, last = null;
   function openFolder(k, then) {
@@ -8007,20 +8494,20 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     return safe(c.link) ? `<a class="btn aqua" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(t("store.buy"))} <span class="arrow">→</span></a>`
       : `<button type="button" class="btn aqua" data-contact data-msgtext="${esc("Agent Store: " + name)}">${esc(t("store.ask"))} <span class="arrow">→</span></button>`;
   }
+  function card(x, kind) {
+    const c = ((S().agents) || {})[x[0]] || {};
+    const en = (T.en["store." + kind] || []).find(v => v[0] === x[0]);
+    const lab = t("store.l");
+    const body = kind === "exec" ? `<div class="slayers">${x[3].map((v, j) => `<div class="slayer"><span>${esc(lab[j])}</span><p>${esc(v)}</p></div>`).join("")}</div>` : `<ul>${x[3].map(v => `<li>${esc(v)}</li>`).join("")}</ul>`;
+    return `<article class="scard ${kind}"><h4>${esc(x[1])}</h4><p class="sline">${esc(x[2])}</p>${body}<div class="sprice">${price(c)}</div>${action(c, en ? en[1] : x[1])}</article>`;
+  }
   function renderStore() {
     const el = document.getElementById("store"); if (!el) return;
-    const A = t("ag.list"), EN = T.en["ag.list"], tiers = t("ag.tiers"), st = S();
-    const tierHtml = ["staff", "mgmt", "exec"].map(tk => {
-      const name = (tiers.find(x => x[0] === tk) || [0, tk])[1];
-      const cards = A.map((x, i) => [x, i]).filter(([x]) => x[3] === tk).map(([x, i]) => {
-        const c = (st.agents || {})[SLUG[i]] || {};
-        return `<article class="scard"><h4>${esc(x[0])}</h4><p>${esc(x[1])}</p><ul>${x[2].slice(0, 3).map(v => `<li>${esc(v)}</li>`).join("")}</ul><div class="sprice">${price(c)}</div>${action(c, EN[i] ? EN[i][0] : x[0])}</article>`;
-      }).join("");
-      return `<div class="stier"><h3 class="stier-h">${esc(name)}</h3><div class="sgrid">${cards}</div></div>`;
-    }).join("");
-    const plan = st.plan || {};
+    const st = S(), plan = st.plan || {};
     const planBtn = safe(plan.link) ? `<a class="btn aqua" href="${esc(plan.link)}" target="_blank" rel="noopener">${esc(t("store.buy"))} <span class="arrow">→</span></a>` : `<button type="button" class="btn aqua" data-contact data-msgtext="Agent Store: Managed plan">${esc(t("store.plan_go"))} <span class="arrow">→</span></button>`;
-    el.innerHTML = tierHtml + `<div class="sextra"><div class="splan"><h3>${esc(t("store.plan_t"))}</h3><p>${esc(t("store.plan_s"))}</p><div class="sprice">${price({ monthly: plan.monthly })}</div>${planBtn}</div><div class="ssoon"><h3>${esc(t("store.soon_t"))}</h3><p>${esc(t("store.soon_s"))}</p><button type="button" class="btn" data-contact data-msgtext="Agent Store: suggest an agent">${esc(t("store.soon_go"))} <span class="arrow">→</span></button></div></div>`;
+    el.innerHTML = `<div class="stier"><h3 class="stier-h">${esc(t("store.exec_h"))}</h3><div class="sgrid exec">${t("store.exec").map(x => card(x, "exec")).join("")}</div></div>`
+      + `<div class="stier"><h3 class="stier-h">${esc(t("store.spec_h"))}</h3><p class="stier-s">${esc(t("store.spec_s"))}</p><div class="sgrid">${t("store.spec").map(x => card(x, "spec")).join("")}<div class="ssoon"><h3>${esc(t("store.soon_t"))}</h3><p>${esc(t("store.soon_s"))}</p><button type="button" class="btn" data-contact data-msgtext="Agent Store: suggest a specialist">${esc(t("store.soon_go"))} <span class="arrow">→</span></button></div></div></div>`
+      + `<div class="splan"><h3>${esc(t("store.plan_t"))}</h3><p>${esc(t("store.plan_s"))}</p><div class="sprice">${price({ monthly: plan.monthly })}</div>${planBtn}</div>`;
   }
   function renderFour() { const el = document.getElementById("fourg"); if (el) el.innerHTML = t("ent.four").map(([h, d], i) => `<div class="fourc"><span class="n">${i + 1}</span><h4>${esc(h)}</h4><p>${esc(d)}</p></div>`).join(""); }
   const orig = renderMoses;

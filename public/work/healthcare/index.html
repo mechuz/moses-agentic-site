@@ -1446,6 +1446,7 @@ const CONFIG = {
   mosesUrl: "https://mosesagentic.com/",
   chochamUrl: "https://chochamai.com/",
   contactEndpoint: "",                  // Formspree (or similar) URL for consultation requests; they POST here as JSON
+  web3formsKey: "",                     // Web3Forms access key (public by design); each request is emailed to the owner
   pagesExample: "",              // pages analyzed in one project, shown as an example
   whatsapp: "",                         // digits with country code, e.g. "17185551234"
   email: "",
@@ -5741,10 +5742,10 @@ function drawAgents() {
   $("#adetail").innerHTML = `<h3>${esc(n)}</h3><p>${esc(d)}</p><ol class="steps">${steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol><button type="button" class="btn aqua big" data-contact data-agentname="${esc(n)}" data-fx>${esc(t("ag.cta"))} <span class="arrow">→</span></button>`;
 }
 function drawConsult(done) {
-  if (done) { $("#cbox").innerHTML = `<div class="cdone"><h3>${esc(t("con.done"))}</h3><p>${esc(t("con.doneSub"))}</p>${CONFIG.contactEndpoint ? "" : '<p class="owner">Site owner: add a Formspree URL as CONFIG.contactEndpoint to receive these requests.</p>'}</div>`; return; }
+  if (done) { $("#cbox").innerHTML = `<div class="cdone"><h3>${esc(t("con.done"))}</h3><p>${esc(t("con.doneSub"))}</p>${CONFIG.contactEndpoint || CONFIG.web3formsKey ? "" : '<p class="owner">Site owner: add your Web3Forms access key as CONFIG.web3formsKey to receive these requests.</p>'}</div>`; return; }
   if ($("#cform")) { ["name", "company", "phone", "email"].forEach(k => $("#l-" + k).textContent = t("con." + k)); $("#l-msg").textContent = t("con.msg"); $("#c-msg").placeholder = t("con.ph"); $("#csend").innerHTML = esc(t("con.send")) + ' <span class="arrow">→</span>'; return; }
   const f = (k, type, ac) => `<label><span id="l-${k}"></span><input id="c-${k}" name="${k}" type="${type}" autocomplete="${ac}"></label>`;
-  $("#cbox").innerHTML = `<form id="cform" novalidate><div class="fields">${f("name", "text", "name")}${f("company", "text", "organization")}${f("phone", "tel", "tel")}${f("email", "email", "email")}<label class="full"><span id="l-msg"></span><textarea id="c-msg" name="message"></textarea></label></div><p class="err" id="cerr" hidden></p><button type="submit" class="btn aqua big block" id="csend" data-fx></button></form>`;
+  $("#cbox").innerHTML = `<form id="cform" novalidate><input type="checkbox" id="c-bot" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><div class="fields">${f("name", "text", "name")}${f("company", "text", "organization")}${f("phone", "tel", "tel")}${f("email", "email", "email")}<label class="full"><span id="l-msg"></span><textarea id="c-msg" name="message"></textarea></label></div><p class="err" id="cerr" hidden></p><button type="submit" class="btn aqua big block" id="csend" data-fx></button></form>`;
   drawConsult();
 }
 function renderMoses() {
@@ -5782,11 +5783,14 @@ document.addEventListener("submit", async e => {
   if (e.target.id !== "cform") return;
   e.preventDefault();
   const v = id => $(id).value.trim();
-  const data = { name: v("#c-name"), company: v("#c-company"), phone: v("#c-phone"), email: v("#c-email"), message: v("#c-msg"), language: lang, source: "mosesagentic.com", sentAt: new Date().toISOString() };
+  const data = { name: v("#c-name"), company: v("#c-company"), phone: v("#c-phone"), email: v("#c-email"), message: v("#c-msg"), language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
   const err = $("#cerr");
   if (!data.name || (!data.phone && !data.email)) { err.textContent = t("con.err"); err.hidden = false; return; }
   err.hidden = true;
-  if (CONFIG.contactEndpoint) { try { const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0; } catch (x) { err.textContent = t("chat.err"); err.hidden = false; return; } }
+  if (CONFIG.web3formsKey) {
+    const site = CONFIG.site === "chocham" ? "Chocham AI" : "Moses Agentic";
+    try { const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: site + ": new request from " + data.name, from_name: site + " website", botcheck: $("#c-bot") && $("#c-bot").checked }, data.email ? { replyto: data.email } : {}, data)) }); const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0; } catch (x) { err.textContent = t("chat.err"); err.hidden = false; return; }
+  } else if (CONFIG.contactEndpoint) { try { const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0; } catch (x) { err.textContent = t("chat.err"); err.hidden = false; return; } }
   drawConsult(true); shake(); track("generate_lead", { form: "consultation" });
 });
 

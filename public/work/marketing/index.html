@@ -952,6 +952,18 @@ body { top: 0 !important; }
   .site-moses .panels .panel:not(.p-main) .pgo .circ svg { width: 18px; height: 18px; }
   .site-moses .panels .p-main { min-height: 66svh !important; }
 }
+
+/* ===== Moses: Services panel in the menu row ===== */
+.panel.p-svc { display: none; }
+.site-moses .panels { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.site-moses .panel.p-svc { display: flex; background: #0B2545; color: #FFFFFF; }
+.site-moses .panel.p-svc .pgo .circ { background: #C6F432; color: #0B2545; display: grid; place-items: center; border-radius: 50%; }
+.site-moses .panel.p-svc .pgo .circ svg { width: 22px; height: 22px; }
+@media (max-width: 860px) {
+  .site-moses .panels { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto auto; }
+  .site-moses .panels .panel:not(.p-main) { grid-row: auto; min-height: 92px !important; }
+  .site-moses .panels .p-main { grid-row: 3; }
+}
 </style>
 </head>
 <body>
@@ -982,6 +994,10 @@ body { top: 0 !important; }
       <h1 class="pt" id="h1m">Your next hire is AI. <span class="hl">From CFO to front desk.</span></h1>
       <p class="ps" data-i18n="mo.sub">Do more with less. AI agents for every role in your business.</p>
       <div class="pgo"><span data-i18n="mo.go">Book a free consultation</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </div>
+    <div class="panel p-svc" role="button" tabindex="0" data-go="services">
+      <div class="pt" data-i18n="nav.services">Services</div>
+      <div class="pgo"><span></span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </div>
     <div class="panel p-cases" role="button" tabindex="0" data-view="cases" data-fx>
       <span class="pk" data-i18n="cs.kicker">Our work</span>

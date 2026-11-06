@@ -984,6 +984,11 @@
  "camp.k": "Our campaign",
  "camp.a": "LET MY PEOPLE",
  "camp.b": "GO!",
- "camp.s": "Free your people from busywork. AI agents take the repetitive tasks, so your team does what matters.",
- "camp.go": "Set my team free"
+ "camp.s": "Free your people from busywork. AI handles the repetitive tasks, and your people run it and get more done.",
+ "camp.go": "Set my team free",
+ "camp2.k": "People first",
+ "camp2.a": "STOP",
+ "camp2.b": "WORKING!",
+ "camp2.s": "Start accomplishing. AI isn't here to replace your people. It makes them faster and lets them get more done, and it always needs people to run it.",
+ "camp2.go": "Show me how"
 }

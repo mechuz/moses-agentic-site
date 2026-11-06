@@ -963,6 +963,12 @@ footer a { color: #1A73E8; font-weight: 600; }
 .camp:hover .camp-go { transform: translateX(6px); }
 [dir="rtl"] .camp:hover .camp-go { transform: translateX(-6px); }
 [dir="rtl"] .camp-go .arrow { display: inline-block; transform: scaleX(-1); }
+.camp2 { background: #C6F432; color: #0B2545; margin-top: 0; }
+.camp2 .camp-k { background: #0B2545; color: #C6F432; }
+.camp2 .camp-h { color: #0B2545; }
+.camp2 .camp-h .camp-b { color: #1A73E8; }
+.camp2 .camp-row p { color: #0B2545; }
+.camp2 .camp-go { background: #0B2545; color: #C6F432; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1086,6 +1092,13 @@ body { top: 0 !important; }
       <div class="camp-k" data-i18n="camp.k">Our campaign</div>
       <h2 class="camp-h"><span data-i18n="camp.a">LET MY PEOPLE</span> <span class="camp-b" data-i18n="camp.b">GO!</span></h2>
       <div class="camp-row"><p data-i18n="camp.s">Let AI agents do the busywork. You do what matters.</p><span class="camp-go"><span data-i18n="camp.go">Show me how</span> <span class="arrow">→</span></span></div>
+    </div>
+  </section>
+  <section class="camp camp2" id="campaign2" role="button" tabindex="0" data-contact data-msgtext="Stop working">
+    <div class="wrap">
+      <div class="camp-k" data-i18n="camp2.k">People first</div>
+      <h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2>
+      <div class="camp-row"><p data-i18n="camp2.s">Start accomplishing. AI isn&#x27;t here to replace your people. It makes them faster and lets them get more done, and it always needs people to run it.</p><span class="camp-go"><span data-i18n="camp2.go">Show me how</span> <span class="arrow">→</span></span></div>
     </div>
   </section>
   <section class="why" id="why">
@@ -2632,8 +2645,13 @@ const T = {
   "camp.k": "Our campaign",
   "camp.a": "LET MY PEOPLE",
   "camp.b": "GO!",
-  "camp.s": "Free your people from busywork. AI agents take the repetitive tasks, so your team does what matters.",
-  "camp.go": "Set my team free"
+  "camp.s": "Free your people from busywork. AI handles the repetitive tasks, and your people run it and get more done.",
+  "camp.go": "Set my team free",
+  "camp2.k": "People first",
+  "camp2.a": "STOP",
+  "camp2.b": "WORKING!",
+  "camp2.s": "Start accomplishing. AI isn't here to replace your people. It makes them faster and lets them get more done, and it always needs people to run it.",
+  "camp2.go": "Show me how"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -3621,8 +3639,13 @@ const T = {
   "camp.k": "אונזער קאמפיין",
   "camp.a": "שלח",
   "camp.b": "את עמי!",
-  "camp.s": "באפרייט אייערע מענטשן פון דער טאג-טעגליכער שלעפעריי. AI אגענטן טוען די ארבעט, און אייער טיעם טוט וואס איז וויכטיג.",
-  "camp.go": "באפרייט מיין טיעם"
+  "camp.s": "באפרייט אייערע מענטשן פון דער טאג-טעגליכער שלעפעריי. AI טוט די איבערגע'חזר'טע ארבעט, און אייערע מענטשן פירן עס און טוען אויף מער.",
+  "camp.go": "באפרייט מיין טיעם",
+  "camp2.k": "מענטשן ערשט",
+  "camp2.a": "הערט אויף",
+  "camp2.b": "צו ארבעטן!",
+  "camp2.s": "הייבט אן אויפטון. AI קומט נישט צו פארביטן אייערע מענטשן. עס מאכט זיי שנעלער און לאזט זיי אויפטון מער, און עס דארף שטענדיג מענטשן וואס זאלן עס פירן.",
+  "camp2.go": "ווייזט מיר ווי"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -4610,8 +4633,13 @@ const T = {
   "camp.k": "הקמפיין שלנו",
   "camp.a": "שלח",
   "camp.b": "את עמי!",
-  "camp.s": "שחררו את האנשים שלכם מהעבודה השחורה. סוכני AI עושים את המשימות החוזרות, והצוות שלכם עושה את מה שחשוב.",
-  "camp.go": "שחררו את הצוות שלי"
+  "camp.s": "שחררו את האנשים שלכם מהעבודה השחורה. ה-AI עושה את המשימות החוזרות, והאנשים שלכם מפעילים אותו ומספיקים יותר.",
+  "camp.go": "שחררו את הצוות שלי",
+  "camp2.k": "אנשים קודם",
+  "camp2.a": "תפסיקו",
+  "camp2.b": "לעבוד!",
+  "camp2.s": "תתחילו להספיק. ה-AI לא בא להחליף את האנשים שלכם. הוא הופך אותם למהירים יותר ומאפשר להם להספיק יותר, ותמיד צריך אנשים שיפעילו אותו.",
+  "camp2.go": "הראו לי איך"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -5599,8 +5627,13 @@ const T = {
   "camp.k": "Nuestra campaña",
   "camp.a": "¡DEJA IR",
   "camp.b": "A MI PUEBLO!",
-  "camp.s": "Libere a su gente del trabajo pesado. Los agentes de IA hacen las tareas repetitivas y su equipo hace lo que importa.",
-  "camp.go": "Libere a mi equipo"
+  "camp.s": "Libere a su gente del trabajo pesado. La IA hace las tareas repetitivas y su gente la maneja y logra más.",
+  "camp.go": "Libere a mi equipo",
+  "camp2.k": "Las personas primero",
+  "camp2.a": "¡DEJE DE",
+  "camp2.b": "TRABAJAR!",
+  "camp2.s": "Empiece a lograr más. La IA no viene a reemplazar a su gente. La hace más rápida y le permite lograr más, y siempre necesita personas que la manejen.",
+  "camp2.go": "Muéstreme cómo"
  }
 };
 

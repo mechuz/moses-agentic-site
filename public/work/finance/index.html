@@ -949,6 +949,20 @@ footer a { color: #1A73E8; font-weight: 600; }
   .site-moses .panels .p-main .pgo .circ { width: 52px !important; height: 52px !important; background: #0B2545 !important; }
   .site-moses .panels .p-main .pgo .circ svg { color: #C6F432 !important; width: 24px; height: 24px; }
 }
+
+/* ===== campaign: STOP WORKING! ===== */
+.camp { background: #0B2545; color: #FFFFFF; padding: clamp(3rem, 8vw, 7rem) 0; margin-top: 10px; overflow: hidden; cursor: pointer; }
+.camp .wrap { max-width: 1400px; }
+.camp-k { display: inline-block; font: 800 clamp(.95rem, 1.4vw, 1.15rem) var(--f-body); color: #0B2545; background: #C6F432; padding: .4rem .9rem; border-radius: 999px; letter-spacing: .02em; }
+.camp-h { font: 900 clamp(4.2rem, 16vw, 15.5rem)/.84 var(--f-display); letter-spacing: -.06em; text-transform: uppercase; margin: clamp(1rem, 2.4vw, 1.8rem) 0 0; color: #FFFFFF; }
+@media (max-width: 600px) { .camp-h { font-size: 13.5vw; } }
+.camp-h .camp-b { display: block; color: #C6F432; }
+.camp-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem 2rem; margin-top: clamp(1.6rem, 3.4vw, 2.6rem); }
+.camp-row p { font: 700 clamp(1.2rem, 2.2vw, 1.8rem)/1.3 var(--f-body); max-width: 34ch; color: #EAF5FF; }
+.camp-go { display: inline-flex; align-items: center; gap: .6rem; background: #C6F432; color: #0B2545; font: 800 clamp(1.1rem, 1.8vw, 1.4rem) var(--f-display); padding: 1.05rem 1.7rem; border-radius: 999px; transition: transform .3s cubic-bezier(.2,1.4,.4,1); }
+.camp:hover .camp-go { transform: translateX(6px); }
+[dir="rtl"] .camp:hover .camp-go { transform: translateX(-6px); }
+[dir="rtl"] .camp-go .arrow { display: inline-block; transform: scaleX(-1); }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1067,6 +1081,13 @@ body { top: 0 !important; }
     </div>
   </div>
 
+  <section class="camp" id="campaign" role="button" tabindex="0" data-contact data-msgtext="Stop working">
+    <div class="wrap">
+      <div class="camp-k" data-i18n="camp.k">Our campaign</div>
+      <h2 class="camp-h"><span data-i18n="camp.a">STOP</span> <span class="camp-b" data-i18n="camp.b">WORKING!</span></h2>
+      <div class="camp-row"><p data-i18n="camp.s">Let AI agents do the busywork. You do what matters.</p><span class="camp-go"><span data-i18n="camp.go">Show me how</span> <span class="arrow">→</span></span></div>
+    </div>
+  </section>
   <section class="why" id="why">
     <div class="wrap">
       <div class="eyebrow rise" data-i18n="why.kicker">Why Moses</div>
@@ -2607,7 +2628,12 @@ const T = {
   "ch.indt1": "Learn AI yourself.",
   "ch.indt2": "Book your seat.",
   "ch.inds": "Public seminars in person and online, plus one-on-one training.",
-  "ch.indgo": "See seminars and prices"
+  "ch.indgo": "See seminars and prices",
+  "camp.k": "Our campaign",
+  "camp.a": "STOP",
+  "camp.b": "WORKING!",
+  "camp.s": "Let AI agents do the busywork. You do what matters.",
+  "camp.go": "Show me how"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -3591,7 +3617,12 @@ const T = {
   "ch.indt1": "לערנט זיך AI אליין.",
   "ch.indt2": "באשטעלט אייער פלאץ.",
   "ch.inds": "עפנטלעכע סעמינארן פערזענלעך און אנליין, און פריוואטע טריינינג.",
-  "ch.indgo": "זעט סעמינארן און פרייזן"
+  "ch.indgo": "זעט סעמינארן און פרייזן",
+  "camp.k": "אונזער קאמפיין",
+  "camp.a": "הערט אויף",
+  "camp.b": "צו ארבעטן!",
+  "camp.s": "לאזט AI אגענטן טון די שווערע ארבעט. איר טוט וואס איז וויכטיג.",
+  "camp.go": "ווייזט מיר ווי"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -4575,7 +4606,12 @@ const T = {
   "ch.indt1": "למדו AI בעצמכם.",
   "ch.indt2": "שריינו מקום.",
   "ch.inds": "סמינרים פתוחים פרונטליים ואונליין, וגם הדרכה אישית.",
-  "ch.indgo": "לסמינרים ולמחירים"
+  "ch.indgo": "לסמינרים ולמחירים",
+  "camp.k": "הקמפיין שלנו",
+  "camp.a": "תפסיקו",
+  "camp.b": "לעבוד!",
+  "camp.s": "תנו לסוכני AI לעשות את העבודה השחורה. אתם עושים את מה שחשוב.",
+  "camp.go": "הראו לי איך"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -5559,7 +5595,12 @@ const T = {
   "ch.indt1": "Aprenda IA por su cuenta.",
   "ch.indt2": "Reserve su lugar.",
   "ch.inds": "Seminarios abiertos presenciales y en línea, además de capacitación individual.",
-  "ch.indgo": "Ver seminarios y precios"
+  "ch.indgo": "Ver seminarios y precios",
+  "camp.k": "Nuestra campaña",
+  "camp.a": "¡DEJE DE",
+  "camp.b": "TRABAJAR!",
+  "camp.s": "Deje que los agentes de IA hagan el trabajo pesado. Usted haga lo que importa.",
+  "camp.go": "Muéstreme cómo"
  }
 };
 

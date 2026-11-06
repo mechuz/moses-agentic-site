@@ -980,5 +980,10 @@
  "ch.indt1": "Learn AI yourself.",
  "ch.indt2": "Book your seat.",
  "ch.inds": "Public seminars in person and online, plus one-on-one training.",
- "ch.indgo": "See seminars and prices"
+ "ch.indgo": "See seminars and prices",
+ "camp.k": "Our campaign",
+ "camp.a": "STOP",
+ "camp.b": "WORKING!",
+ "camp.s": "Let AI agents do the busywork. You do what matters.",
+ "camp.go": "Show me how"
 }

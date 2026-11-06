@@ -954,11 +954,11 @@ footer a { color: #1A73E8; font-weight: 600; }
 .camp { background: #0B2545; color: #FFFFFF; padding: clamp(3rem, 8vw, 7rem) 0; margin-top: 10px; overflow: hidden; cursor: pointer; }
 .camp .wrap { max-width: 1400px; }
 .camp-k { display: inline-block; font: 800 clamp(.95rem, 1.4vw, 1.15rem) var(--f-body); color: #0B2545; background: #C6F432; padding: .4rem .9rem; border-radius: 999px; letter-spacing: .02em; }
-.camp-h { font: 900 clamp(3rem, 8.4vw, 9.4rem)/.9 var(--f-display); letter-spacing: -.06em; text-transform: uppercase; margin: clamp(1rem, 2.4vw, 1.8rem) 0 0; color: #FFFFFF; }
-@media (max-width: 600px) { .camp-h { font-size: 12.5vw; } }
+.camp-h { font: 900 clamp(3.2rem, 10.5vw, 12rem)/.88 var(--f-display); letter-spacing: -.06em; text-transform: uppercase; margin: clamp(1rem, 2.4vw, 1.8rem) 0 0; color: #FFFFFF; }
+@media (max-width: 600px) { .camp-h { font-size: 14vw; } }
 .camp-h .camp-b { display: block; color: #C6F432; }
 .camp-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem 2rem; margin-top: clamp(1.6rem, 3.4vw, 2.6rem); }
-.camp-row p { font: 700 clamp(1.2rem, 2.2vw, 1.8rem)/1.3 var(--f-body); max-width: 34ch; color: #EAF5FF; }
+.camp-row p { font: 700 clamp(1.2rem, 2.2vw, 1.8rem)/1.3 var(--f-body); max-width: 44ch; color: #EAF5FF; }
 .camp-go { display: inline-flex; align-items: center; gap: .6rem; background: #C6F432; color: #0B2545; font: 800 clamp(1.1rem, 1.8vw, 1.4rem) var(--f-display); padding: 1.05rem 1.7rem; border-radius: 999px; transition: transform .3s cubic-bezier(.2,1.4,.4,1); }
 .camp:hover .camp-go { transform: translateX(6px); }
 [dir="rtl"] .camp:hover .camp-go { transform: translateX(-6px); }
@@ -1081,10 +1081,10 @@ body { top: 0 !important; }
     </div>
   </div>
 
-  <section class="camp" id="campaign" role="button" tabindex="0" data-contact data-msgtext="Let my people go home early">
+  <section class="camp" id="campaign" role="button" tabindex="0" data-contact data-msgtext="Let my people go">
     <div class="wrap">
       <div class="camp-k" data-i18n="camp.k">Our campaign</div>
-      <h2 class="camp-h"><span data-i18n="camp.a">LET MY PEOPLE GO…</span> <span class="camp-b" data-i18n="camp.b">HOME EARLY.</span></h2>
+      <h2 class="camp-h"><span data-i18n="camp.a">LET MY PEOPLE</span> <span class="camp-b" data-i18n="camp.b">GO!</span></h2>
       <div class="camp-row"><p data-i18n="camp.s">Let AI agents do the busywork. You do what matters.</p><span class="camp-go"><span data-i18n="camp.go">Show me how</span> <span class="arrow">→</span></span></div>
     </div>
   </section>
@@ -2630,10 +2630,10 @@ const T = {
   "ch.inds": "Public seminars in person and online, plus one-on-one training.",
   "ch.indgo": "See seminars and prices",
   "camp.k": "Our campaign",
-  "camp.a": "LET MY PEOPLE GO…",
-  "camp.b": "HOME EARLY.",
-  "camp.s": "AI agents do the work. Your people get their time back.",
-  "camp.go": "Show me how"
+  "camp.a": "LET MY PEOPLE",
+  "camp.b": "GO!",
+  "camp.s": "Free your people from busywork. AI agents take the repetitive tasks, so your team does what matters.",
+  "camp.go": "Set my team free"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -3619,10 +3619,10 @@ const T = {
   "ch.inds": "עפנטלעכע סעמינארן פערזענלעך און אנליין, און פריוואטע טריינינג.",
   "ch.indgo": "זעט סעמינארן און פרייזן",
   "camp.k": "אונזער קאמפיין",
-  "camp.a": "שלח את עמי…",
-  "camp.b": "אהיים פריער!",
-  "camp.s": "AI אגענטן טוען די ארבעט. אייערע מענטשן באקומען צוריק זייער צייט.",
-  "camp.go": "ווייזט מיר ווי"
+  "camp.a": "שלח",
+  "camp.b": "את עמי!",
+  "camp.s": "באפרייט אייערע מענטשן פון דער טאג-טעגליכער שלעפעריי. AI אגענטן טוען די ארבעט, און אייער טיעם טוט וואס איז וויכטיג.",
+  "camp.go": "באפרייט מיין טיעם"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -4608,10 +4608,10 @@ const T = {
   "ch.inds": "סמינרים פתוחים פרונטליים ואונליין, וגם הדרכה אישית.",
   "ch.indgo": "לסמינרים ולמחירים",
   "camp.k": "הקמפיין שלנו",
-  "camp.a": "שלח את עמי…",
-  "camp.b": "הביתה מוקדם.",
-  "camp.s": "סוכני AI עושים את העבודה. האנשים שלכם מקבלים בחזרה את הזמן שלהם.",
-  "camp.go": "הראו לי איך"
+  "camp.a": "שלח",
+  "camp.b": "את עמי!",
+  "camp.s": "שחררו את האנשים שלכם מהעבודה השחורה. סוכני AI עושים את המשימות החוזרות, והצוות שלכם עושה את מה שחשוב.",
+  "camp.go": "שחררו את הצוות שלי"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -5597,10 +5597,10 @@ const T = {
   "ch.inds": "Seminarios abiertos presenciales y en línea, además de capacitación individual.",
   "ch.indgo": "Ver seminarios y precios",
   "camp.k": "Nuestra campaña",
-  "camp.a": "¡DEJA IR A MI PUEBLO…",
-  "camp.b": "A CASA TEMPRANO!",
-  "camp.s": "Los agentes de IA hacen el trabajo. Su gente recupera su tiempo.",
-  "camp.go": "Muéstreme cómo"
+  "camp.a": "¡DEJA IR",
+  "camp.b": "A MI PUEBLO!",
+  "camp.s": "Libere a su gente del trabajo pesado. Los agentes de IA hacen las tareas repetitivas y su equipo hace lo que importa.",
+  "camp.go": "Libere a mi equipo"
  }
 };
 

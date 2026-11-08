@@ -1250,6 +1250,18 @@ html.filing { overflow: hidden; }
 .qfile:focus-within { outline: 3px solid #1A73E8; outline-offset: 2px; }
 .qjd-ok { font-weight: 700; color: #1A7F37; }
 .qskip { justify-self: start; border: 0; background: none; color: #1A73E8; font: 800 1rem var(--f-body); cursor: pointer; padding: .3rem 0; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ===== lean: less text ===== */
+.site-moses .h4w2 { display: none; }
+.scard ul, .slayer p, .s-ent .seminar-btn, .shop-btn, .con-alt, .s-ent .fourh p, .s-ent #personal .eyebrow { display: none !important; }
+.sprice:empty { display: none; }
+.site-moses .tabstrip .tlink { background: #EAF5FF !important; color: #4A6384 !important; }
+.slayers { display: flex; flex-wrap: wrap; gap: .4rem; }
+.slayer { display: inline-flex !important; grid-template-columns: none !important; padding: .35rem .7rem !important; border-radius: 999px !important; margin: 0 !important; }
+.slayer:first-child { background: #0B2545; }
+.scard .sline { font-size: 1.08rem; }
+.scard.exec h4 { font-size: clamp(1.35rem, 1.9vw, 1.7rem) !important; }
+.sgrid.exec { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1321,12 +1333,11 @@ body { top: 0 !important; }
   <div class="wrap">
     <a class="brand" href="#" data-home><img class="brand-logo" src="/logo-full.png" alt="Moses Agentic" width="933" height="126"><img class="brand-mark" src="/logo-mark.svg" alt="Moses Agentic" width="600" height="402"><span class="mark">M</span><span class="name" data-brand></span></a>
     <nav class="nav" aria-label="Sections">
-      <button type="button" class="nav-hire" data-folder="store" data-i18n="nav.hire">Hire an agent</button>
-      <button type="button" data-custom data-i18n="nav.custom">Custom agent</button>
+      <button type="button" class="nav-hire" data-folder="store" data-i18n="nav.staff">AI Staff</button>
       <button type="button" data-folder="ent" data-i18n="nav.services">Services</button>
       <button type="button" data-view="education" data-i18n="nav.edu">Education</button>
       <button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button>
-      <button type="button" data-view="industries" data-i18n="nav.ind">Industries</button>
+      <button type="button" data-folder="con" data-i18n="fo.con">Contact</button>
     </nav>
     <div class="langs" role="group" aria-label="Language" id="langs"></div>
     <button type="button" class="askbtn" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg><span data-i18n="chat.open">Ask us anything</span></button>
@@ -1340,7 +1351,7 @@ body { top: 0 !important; }
   <section class="hero3" id="hero3" role="button" tabindex="0" aria-label="Let my people go">
     <div class="sea-half l" aria-hidden="true"><div class="sea"></div></div><div class="sea-half r" aria-hidden="true"><div class="sea"></div></div>
     <div class="wrap">
-      <p class="h4w1" data-i18n="h4.w1">AI agents for enterprises and individuals.</p>
+      <p class="h4w1" data-i18n="h4.w1">The AI staffing firm for enterprises and individuals.</p>
       <h1 class="h4t"><span class="a" data-i18n="camp.a">LET MY PEOPLE</span> <span class="b" data-i18n="camp.b">GO!</span></h1>
       <p class="h5msg" data-i18n="h5.msg">AI won&#x27;t take your job. It will take your busywork.</p>
       <p class="h4w2" data-i18n="h4.w2">We build, deploy and operate AI agents, and teach your people to run them.</p>
@@ -1349,16 +1360,16 @@ body { top: 0 !important; }
   </section>
   <section class="showcase" id="agents">
     <div class="wrap sc-grid">
-      <div class="sc-main"><p class="eyebrow" data-i18n="sc.k">Our agents</p><h2 class="fh" data-i18n="sc.t">Hire an AI agent.</h2><p class="fp" data-i18n="sc.s">Ready-made agents, cloned and set up for your business. Or build your own.</p><div class="store" id="store"></div></div>
-      <aside class="sc-side"><div class="sc-learn"><span class="sc-lk" data-i18n="sc.learn_k">Chocham AI</span><h3 data-i18n="sc.learn_t">Learn AI yourself.</h3><p data-i18n="sc.learn_s">Hands-on AI seminars and training for you and your team.</p><button type="button" class="btn aqua" data-book><span data-i18n="sc.learn_go">See seminars</span> <span class="arrow">→</span></button></div></aside>
+      <div class="sc-main"><p class="eyebrow" data-i18n="sc.k">AI Staff</p><h2 class="fh" data-i18n="sc.t">Staff your company with AI.</h2><p class="fp" data-i18n="sc.s">Hire a ready role, or have us recruit a new one.</p><div class="store" id="store"></div></div>
+      <aside class="sc-side"><div class="sc-learn"><span class="sc-lk" data-i18n="sc.learn_k">Chocham AI</span><h3 data-i18n="sc.learn_t">Learn AI yourself.</h3><p data-i18n="sc.learn_s">Hands-on seminars.</p><button type="button" class="btn aqua" data-book><span data-i18n="sc.learn_go">See seminars</span> <span class="arrow">→</span></button></div></aside>
     </div>
   </section>
   <section class="cabinet" id="cabinet">
     <div class="wrap">
       <div class="cab-head"><h2 data-i18n="cab.t">Choose your path.</h2><p data-i18n="cab.s">Everything we do, filed in one place.</p></div>
-      <div class="drawer"><div class="folder f-ent" role="button" tabindex="0" data-folder="ent"><span class="ftab"><b>01</b></span><span class="flabel" data-i18n="fo.ent">Enterprise</span><span class="ffoot"><span class="fdesc" data-i18n="fo.entd">AI agents and training for your whole company</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ind" role="button" tabindex="0" data-folder="ind"><span class="ftab"><b>02</b></span><span class="flabel" data-i18n="fo.ind">Individuals</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indd">Your own AI team, and how to run it</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-cs" role="button" tabindex="0" data-folder="cs"><span class="ftab"><b>03</b></span><span class="flabel" data-i18n="fo.cs">Case Studies</span><span class="ffoot"><span class="fdesc" data-i18n="fo.csd">Work we've done</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-inds" role="button" tabindex="0" data-view="industries"><span class="ftab"><b>04</b></span><span class="flabel" data-i18n="fo.inds">Industries</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indsd">Where AI fits your business</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-con" role="button" tabindex="0" data-folder="con"><span class="ftab"><b>05</b></span><span class="flabel" data-i18n="fo.con">Contact</span><span class="ffoot"><span class="fdesc" data-i18n="fo.cond">Book a free consultation</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div></div>
+      <div class="drawer"><div class="folder f-store" role="button" tabindex="0" data-folder="store"><span class="ftab"><b>01</b></span><span class="flabel" data-i18n="fo.store">AI Staff</span><span class="ffoot"><span class="fdesc" data-i18n="fo.stored">Ready to hire</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ent" role="button" tabindex="0" data-folder="ent"><span class="ftab"><b>02</b></span><span class="flabel" data-i18n="fo.ent">Enterprise</span><span class="ffoot"><span class="fdesc" data-i18n="fo.entd">AI agents and training for your whole company</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-learn" role="button" tabindex="0" data-book><span class="ftab"><b>03</b></span><span class="flabel" data-i18n="fo.learn">Learn AI</span><span class="ffoot"><span class="fdesc" data-i18n="fo.learnd">Seminars at Chocham AI</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-cs" role="button" tabindex="0" data-view="cases"><span class="ftab"><b>04</b></span><span class="flabel" data-i18n="fo.cs">Case Studies</span><span class="ffoot"><span class="fdesc" data-i18n="fo.csd">Work we've done</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-con" role="button" tabindex="0" data-folder="con"><span class="ftab"><b>05</b></span><span class="flabel" data-i18n="fo.con">Contact</span><span class="ffoot"><span class="fdesc" data-i18n="fo.cond">Book a free consultation</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div></div>
     </div>
-<div class="fsheet s-ent" data-f="ent" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ent">Enterprise</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="fh" data-i18n="ent.h">Your people, running AI.</h2><p class="fp" data-i18n="ent.s">We build AI agents for every role, from front desk to CFO, and train your team to run them.</p><div class="fctas"><button type="button" class="btn aqua big" data-contact data-msgtext="Enterprise"><span data-i18n="mo.go">Book a free consultation</span> <span class="arrow">→</span></button><button type="button" class="btn big seminar-btn" data-book><span data-i18n="cta.seminar">Learn AI: book a seminar</span> <span class="arrow">→</span></button></div><div class="four"><div class="fourh"><h3 data-i18n="ent.svc_h">Our services</h3><p data-i18n="ent.svc_s">We work with you, start to finish.</p></div><div class="fourg" id="fourg"></div><button type="button" class="btn big shop-btn" data-folder="store"><span data-i18n="ent.shop">Or shop ready-made agents</span> <span class="arrow">→</span></button></div></div><div class="fbody"></div></div></div><div class="fsheet s-ind" data-f="ind" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ind">Individuals</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2><p class="camp-h2" data-i18n="camp2.h2">…the old way. Learn to run AI.</p><p class="fp" data-i18n="camp2.s">Don't get left behind, and don't let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.</p><button type="button" class="btn big" data-book><span data-i18n="camp2.go">Learn AI at Chocham AI</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-cs" data-f="cs" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.cs">Case Studies</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><p class="fp" data-i18n="fo.csd">Work we've done</p><button type="button" class="btn aqua big" data-view="cases"><span data-i18n="fo.allcs">See all case studies</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-con" data-f="con" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.con">Contact</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div>
+<div class="fsheet s-ent" data-f="ent" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ent">Enterprise</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="fh" data-i18n="ent.h">Your people, running AI.</h2><p class="fp" data-i18n="ent.s">We build AI agents for every role, from front desk to CFO, and train your team to run them.</p><div class="fctas"><button type="button" class="btn aqua big" data-contact data-msgtext="Enterprise"><span data-i18n="mo.go">Book a free consultation</span> <span class="arrow">→</span></button><button type="button" class="btn big seminar-btn" data-book><span data-i18n="cta.seminar">Learn AI: book a seminar</span> <span class="arrow">→</span></button></div><div class="four"><div class="fourh"><h3 data-i18n="ent.svc_h">Our services</h3><p data-i18n="ent.svc_s">We work with you, start to finish.</p></div><div class="fourg" id="fourg"></div><button type="button" class="btn big shop-btn" data-folder="store"><span data-i18n="ent.shop">Or shop ready-made agents</span> <span class="arrow">→</span></button></div></div><div class="fbody"></div></div></div><div class="fsheet s-con" data-f="con" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.con">Contact</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div>
   </section>
   <section class="camp" id="campaign" role="button" tabindex="0" data-contact data-msgtext="Let my people go: train my team">
     <div class="wrap">
@@ -1577,7 +1588,7 @@ body { top: 0 !important; }
       <div class="rise">
         <div class="eyebrow" data-i18n="con.kicker">Contact</div>
         <h2 class="h2" data-i18n="con.title">Tell us what you need</h2>
-        <p class="lead" data-i18n="con.sub">Tell us what eats your team&#x27;s time, or what you want them to learn. We&#x27;ll show you what AI can do for you.</p>
+        <p class="lead" data-i18n="con.sub">A few taps and you&#x27;re done.</p>
         <p class="con-alt"><span data-i18n="con.alt">Rather learn it yourself?</span> <button type="button" class="btn big seminar-btn" data-book><span data-i18n="cta.seminar">Learn AI: book a seminar</span> <span class="arrow">→</span></button></p>
       </div>
       <div id="cbox"></div>
@@ -2703,7 +2714,7 @@ const T = {
   ],
   "con.kicker": "Contact",
   "con.title": "Tell us what you need",
-  "con.sub": "Tell us what eats your team's time, or what you want them to learn. We'll show you what AI can do for you.",
+  "con.sub": "A few taps and you're done.",
   "con.name": "Name",
   "con.company": "Company",
   "con.phone": "Phone",
@@ -2991,14 +3002,14 @@ const T = {
   "cab.t": "Choose your path.",
   "cab.s": "Everything we do, filed in one place.",
   "fo.close": "Back to the cabinet",
-  "fo.ent": "Enterprise",
-  "fo.entd": "AI agents and training for your whole company",
+  "fo.ent": "Services",
+  "fo.entd": "Teach, build, deploy, operate",
   "fo.ind": "Individuals",
   "fo.indd": "Your own AI team, and how to run it",
   "fo.svc": "Services",
   "fo.svcd": "What we build, run and teach",
   "fo.cs": "Case Studies",
-  "fo.csd": "Work we've done",
+  "fo.csd": "Our work",
   "fo.inds": "Industries",
   "fo.indsd": "Where AI fits your business",
   "fo.learn": "Learn AI",
@@ -3006,7 +3017,7 @@ const T = {
   "fo.con": "Contact",
   "fo.cond": "Send a request",
   "ent.h": "Your people, running AI.",
-  "ent.s": "We build AI agents for every role, from the front desk to the chief financial officer (CFO), and train your team to run them.",
+  "ent.s": "We teach, build, deploy and operate AI for you.",
   "fo.allcs": "See all case studies",
   "h3.aside": "(from the burden of tedious labor)",
   "cta.seminar": "Learn AI: book a seminar",
@@ -3400,8 +3411,8 @@ const T = {
    "jd_err_read": "We couldn't read that file. Please paste the text instead.",
    "jd_err_none": "Please upload or paste a job description first."
   },
-  "fo.store": "Agent Store",
-  "fo.stored": "Ready-made agents you can buy",
+  "fo.store": "AI Staff",
+  "fo.stored": "Ready to hire",
   "store.k": "Agent Store · For enterprises",
   "store.t": "Hire an AI executive.",
   "store.s": "Each executive agent takes over its whole function: the executive level, the middle office and the back office. Hire one, or build your full AI leadership team.",
@@ -3411,7 +3422,7 @@ const T = {
   "store.mo": "/month",
   "store.setup": "setup",
   "store.plan_t": "Managed plan",
-  "store.plan_s": "We watch, update and support your agents every month, so they keep doing the job.",
+  "store.plan_s": "We run and update your AI staff every month.",
   "store.plan_go": "Ask about the plan",
   "store.soon_t": "More specialists coming soon",
   "store.soon_s": "Tell us the role your industry needs.",
@@ -3437,8 +3448,8 @@ const T = {
    ]
   ],
   "ent.shop": "Or shop ready-made agents",
-  "store.exec_h": "Executive agents",
-  "store.spec_h": "Specialist agents",
+  "store.exec_h": "Executives",
+  "store.spec_h": "Specialists",
   "store.spec_s": "Built for one specific job in your industry.",
   "store.l": [
    "Executive",
@@ -3553,7 +3564,7 @@ const T = {
   "cust.t": "Custom agents available.",
   "cust.s": "Need an agent built around how your business works? We design it with you, build it and run it.",
   "cust.go": "Customize now!",
-  "h4.w1": "AI agents for enterprises and individuals.",
+  "h4.w1": "The AI staffing firm for enterprises and individuals.",
   "h4.w2": "We build, deploy and operate AI agents, and teach your people to run them.",
   "h4.why": "AI shouldn't replace your people. It should free them from tedious work.",
   "h5.msg": "AI won't take your job. It will take your busywork.",
@@ -3562,18 +3573,38 @@ const T = {
   "nav.hire": "Hire an agent",
   "nav.custom": "Custom agent",
   "nav.learn": "Learn AI",
-  "sc.k": "Our agents",
-  "sc.t": "Hire an AI agent.",
-  "sc.s": "Ready-made agents, cloned and set up for your business. Or build your own.",
-  "sc.build_t": "Build your own agent.",
-  "sc.build_s": "Tell us the problem. We design the agent around your business, build it and run it.",
-  "sc.build_go": "Start building",
+  "sc.k": "AI Staff",
+  "sc.t": "Staff your company with AI.",
+  "sc.s": "Hire a ready role, or have us recruit a new one.",
+  "sc.build_t": "Need a role we don't list?",
+  "sc.build_s": "Send the job description. We'll recruit it.",
+  "sc.build_go": "Recruit this role",
   "sc.learn_k": "Chocham AI",
   "sc.learn_t": "Learn AI yourself.",
-  "sc.learn_s": "Hands-on AI seminars and training for you and your team.",
+  "sc.learn_s": "Hands-on seminars.",
   "sc.learn_go": "See seminars",
   "con.k": "Request",
-  "ask.ai": "Ask our AI"
+  "ask.ai": "Ask our AI",
+  "nav.staff": "AI Staff",
+  "store.hire_x": "Hire this {x}",
+  "store.short": {
+   "coo": "COO",
+   "cmo": "CMO",
+   "cfo": "CFO",
+   "cio": "CIO",
+   "cre": "asset manager",
+   "staff": "payroll manager",
+   "broker": "mortgage broker",
+   "acq": "acquisitions director",
+   "analyst": "analyst",
+   "research": "researcher"
+  },
+  "store.line": {
+   "coo": "Runs your operations.",
+   "cmo": "Runs your marketing.",
+   "cfo": "Runs your finances.",
+   "cio": "Runs your systems and data."
+  }
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -4300,7 +4331,7 @@ const T = {
   ],
   "con.kicker": "קאנטאקט",
   "con.title": "זאגט אונז וואס איר דארפט",
-  "con.sub": "זאגט אונז וואס עסט אויף אייער טיעם'ס צייט, אדער וואס איר ווילט אז זיי זאלן לערנען. מיר וועלן אייך ווייזן וואס AI קען טון פאר אייך.",
+  "con.sub": "א פאר קליקס און פארטיג.",
   "con.name": "נאמען",
   "con.company": "פירמע",
   "con.phone": "פאון",
@@ -4588,14 +4619,14 @@ const T = {
   "cab.t": "עפנט א פייל.",
   "cab.s": "אלעס וואס מיר טוען, אויף איין פלאץ.",
   "fo.close": "צוריק צום קאבינעט",
-  "fo.ent": "פירמעס",
-  "fo.entd": "AI אגענטן און טרעינינג פאר אייער גאנצע פירמע",
+  "fo.ent": "סערוויסעס",
+  "fo.entd": "לערנען, בויען, איינשטעלן, פירן",
   "fo.ind": "יחידים",
   "fo.indd": "אייער אייגענער AI טיעם, און ווי אזוי אים צו פירן",
   "fo.svc": "סערוויסעס",
   "fo.svcd": "וואס מיר בויען, פירן און לערנען",
   "fo.cs": "קעיס סטאדיס",
-  "fo.csd": "ארבעט וואס מיר האבן שוין געטון",
+  "fo.csd": "אונזער ארבעט",
   "fo.inds": "אינדוסטריעס",
   "fo.indsd": "וואו AI פאסט אריין אין אייער ביזנעס",
   "fo.learn": "לערנט AI",
@@ -4603,7 +4634,7 @@ const T = {
   "fo.con": "קאנטאקט",
   "fo.cond": "שיקט א בקשה",
   "ent.h": "אייערע מענטשן פירן די AI.",
-  "ent.s": "מיר בויען AI אגענטן פאר יעדע פאזיציע, פון דער פראנט דעסק ביז דעם טשיף פינענשל אפיסער (CFO), און טריינען אייער טיעם זיי צו פירן.",
+  "ent.s": "מיר לערנען, בויען, שטעלן איין און פירן AI פאר אייך.",
   "fo.allcs": "זעט אלע קעיס סטאדיס",
   "h3.aside": "(מעבודה קשה)",
   "cta.seminar": "לערנט AI: באשטעלט א סעמינאר",
@@ -4997,8 +5028,8 @@ const T = {
    "jd_err_read": "מיר האבן נישט געקענט לייענען די פייל. ביטע קלעבט אריין דעם טעקסט.",
    "jd_err_none": "ביטע לאדט ארויף אדער קלעבט אריין א דזשאב דיסקריפשן."
   },
-  "fo.store": "אגענט סטאר",
-  "fo.stored": "גרייטע אגענטן וואס מ'קען קויפן",
+  "fo.store": "AI שטאב",
+  "fo.stored": "גרייט צו דינגען",
   "store.k": "אגענט סטאר · פאר פירמעס",
   "store.t": "דינגט אן AI עקזעקיוטיוו.",
   "store.s": "יעדער עקזעקיוטיוו אגענט נעמט איבער זיין גאנצע דעפארטמענט: דעם עקזעקיוטיוו לעוועל, דעם מידל אפיס און דעם בעק אפיס. דינגט איינעם, אדער בויט אייער גאנצע AI הנהלה.",
@@ -5008,7 +5039,7 @@ const T = {
   "store.mo": "/חודש",
   "store.setup": "סעטאפ",
   "store.plan_t": "מענעדזשד פלאן",
-  "store.plan_s": "מיר היטן, אפדעיטן און שטיצן אייערע אגענטן יעדן חודש, כדי זיי זאלן ווייטער טון די ארבעט.",
+  "store.plan_s": "מיר פירן און אפדעיטן אייער AI שטאב יעדן חודש.",
   "store.plan_go": "פרעגט וועגן דעם פלאן",
   "store.soon_t": "נאך ספעציאליסטן קומען באלד",
   "store.soon_s": "זאגט אונז וועלכע פאזישאן אייער אינדוסטרי דארף.",
@@ -5034,8 +5065,8 @@ const T = {
    ]
   ],
   "ent.shop": "אדער קויפט גרייטע אגענטן",
-  "store.exec_h": "עקזעקיוטיוו אגענטן",
-  "store.spec_h": "ספעציאליסט אגענטן",
+  "store.exec_h": "עקזעקיוטיווס",
+  "store.spec_h": "ספעציאליסטן",
   "store.spec_s": "געבויט פאר איין ספעציפישע ארבעט אין אייער אינדוסטרי.",
   "store.l": [
    "עקזעקיוטיוו",
@@ -5150,7 +5181,7 @@ const T = {
   "cust.t": "קאסטעם אגענטן צו באקומען.",
   "cust.s": "דארפט איר אן אגענט וואס איז געבויט פונקט ווי אייער ביזנעס ארבעט? מיר פלאנירן עס מיט אייך, בויען עס און פירן עס.",
   "cust.go": "קאסטעמייזט יעצט!",
-  "h4.w1": "AI אגענטן פאר פירמעס און יחידים.",
+  "h4.w1": "די AI סטאפינג פירמע פאר פירמעס און יחידים.",
   "h4.w2": "מיר בויען, שטעלן איין און פירן AI אגענטן, און לערנען אייערע מענטשן זיי צו נוצן.",
   "h4.why": "AI דארף נישט פארביטן אייערע מענטשן. עס דארף זיי באפרייען פון שווערע, נודנע ארבעט.",
   "h5.msg": "AI וועט נישט צונעמען אייער דזשאב. עס וועט צונעמען די נודנע ארבעט.",
@@ -5159,18 +5190,38 @@ const T = {
   "nav.hire": "דינגט אן אגענט",
   "nav.custom": "קאסטעם אגענט",
   "nav.learn": "לערנט AI",
-  "sc.k": "אונזערע אגענטן",
-  "sc.t": "דינגט אן AI אגענט.",
-  "sc.s": "גרייטע אגענטן, קאפירט און איינגעשטעלט פאר אייער ביזנעס. אדער בויט אייער אייגענעם.",
-  "sc.build_t": "בויט אייער אייגענעם אגענט.",
-  "sc.build_s": "זאגט אונז די פראבלעם. מיר פלאנירן דעם אגענט ארום אייער ביזנעס, בויען און פירן אים.",
-  "sc.build_go": "הייבט אן בויען",
+  "sc.k": "AI שטאב",
+  "sc.t": "שטעלט אן אייער פירמע מיט AI.",
+  "sc.s": "דינגט א גרייטע פאזישאן, אדער לאזט אונז רעקרוטירן א נייע.",
+  "sc.build_t": "דארפט איר א פאזישאן וואס מיר האבן נישט?",
+  "sc.build_s": "שיקט די דזשאב דיסקריפשן. מיר רעקרוטירן עס.",
+  "sc.build_go": "רעקרוטירט די פאזישאן",
   "sc.learn_k": "חכם AI",
   "sc.learn_t": "לערנט זיך AI אליין.",
-  "sc.learn_s": "פראקטישע AI סעמינארן און טריינינג פאר אייך און אייער טיעם.",
+  "sc.learn_s": "פראקטישע סעמינארן.",
   "sc.learn_go": "זעט סעמינארן",
   "con.k": "בקשה",
-  "ask.ai": "פרעגט אונזער AI"
+  "ask.ai": "פרעגט אונזער AI",
+  "nav.staff": "AI שטאב",
+  "store.hire_x": "דינגט דעם {x}",
+  "store.short": {
+   "coo": "COO",
+   "cmo": "CMO",
+   "cfo": "CFO",
+   "cio": "CIO",
+   "cre": "עסעט מענעדזשער",
+   "staff": "פעיראל מענעדזשער",
+   "broker": "מארגעדזש ברוקער",
+   "acq": "אקוויזישאנס דירעקטאר",
+   "analyst": "אנאליסט",
+   "research": "ריסוירטשער"
+  },
+  "store.line": {
+   "coo": "פירט אייערע אפעראציעס.",
+   "cmo": "פירט אייער מארקעטינג.",
+   "cfo": "פירט אייערע פינאנצן.",
+   "cio": "פירט אייערע סיסטעמס און דאטא."
+  }
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -5897,7 +5948,7 @@ const T = {
   ],
   "con.kicker": "צרו קשר",
   "con.title": "ספרו לנו מה אתם צריכים",
-  "con.sub": "ספרו לנו מה אוכל את הזמן של הצוות, או מה אתם רוצים שילמדו. נראה לכם מה AI יכול לעשות בשבילכם.",
+  "con.sub": "כמה לחיצות וסיימתם.",
   "con.name": "שם",
   "con.company": "חברה",
   "con.phone": "טלפון",
@@ -6185,14 +6236,14 @@ const T = {
   "cab.t": "בחרו את הדרך שלכם.",
   "cab.s": "כל מה שאנחנו עושים, במקום אחד.",
   "fo.close": "חזרה לארון",
-  "fo.ent": "ארגונים",
-  "fo.entd": "סוכני AI והדרכה לכל החברה",
+  "fo.ent": "שירותים",
+  "fo.entd": "מלמדים, בונים, מטמיעים, מפעילים",
   "fo.ind": "יחידים",
   "fo.indd": "צוות AI משלכם, ואיך להפעיל אותו",
   "fo.svc": "שירותים",
   "fo.svcd": "מה אנחנו בונים, מפעילים ומלמדים",
   "fo.cs": "מקרי בוחן",
-  "fo.csd": "עבודות שעשינו",
+  "fo.csd": "העבודות שלנו",
   "fo.inds": "תעשיות",
   "fo.indsd": "איפה AI משתלב בעסק שלכם",
   "fo.learn": "ללמוד AI",
@@ -6200,7 +6251,7 @@ const T = {
   "fo.con": "צור קשר",
   "fo.cond": "שלחו בקשה",
   "ent.h": "האנשים שלכם, מפעילים AI.",
-  "ent.s": "אנחנו בונים סוכני AI לכל תפקיד, מהקבלה ועד סמנכ״ל הכספים, ומדריכים את הצוות שלכם להפעיל אותם.",
+  "ent.s": "אנחנו מלמדים, בונים, מטמיעים ומפעילים AI בשבילכם.",
   "fo.allcs": "לכל מקרי הבוחן",
   "h3.aside": "(מֵעֲבֹדָה קָשָׁה)",
   "cta.seminar": "ללמוד AI: הזמינו סמינר",
@@ -6594,8 +6645,8 @@ const T = {
    "jd_err_read": "לא הצלחנו לקרוא את הקובץ. הדביקו את הטקסט במקום.",
    "jd_err_none": "העלו או הדביקו קודם תיאור משרה."
   },
-  "fo.store": "חנות הסוכנים",
-  "fo.stored": "סוכנים מוכנים לרכישה",
+  "fo.store": "צוות AI",
+  "fo.stored": "מוכנים לגיוס",
   "store.k": "חנות הסוכנים · לארגונים",
   "store.t": "גייסו מנהל AI בכיר.",
   "store.s": "כל סוכן בכיר לוקח על עצמו את כל התחום: הדרג הבכיר, המידל אופיס והבק אופיס. גייסו אחד, או בנו צוות הנהלת AI שלם.",
@@ -6605,7 +6656,7 @@ const T = {
   "store.mo": "/חודש",
   "store.setup": "הקמה",
   "store.plan_t": "תוכנית מנוהלת",
-  "store.plan_s": "אנחנו עוקבים, מעדכנים ותומכים בסוכנים שלכם כל חודש, כדי שימשיכו לעשות את העבודה.",
+  "store.plan_s": "אנחנו מפעילים ומעדכנים את צוות ה-AI שלכם כל חודש.",
   "store.plan_go": "שאלו על התוכנית",
   "store.soon_t": "עוד מומחים בקרוב",
   "store.soon_s": "ספרו לנו איזה תפקיד התחום שלכם צריך.",
@@ -6631,8 +6682,8 @@ const T = {
    ]
   ],
   "ent.shop": "או קנו סוכנים מוכנים",
-  "store.exec_h": "סוכנים בכירים",
-  "store.spec_h": "סוכנים מומחים",
+  "store.exec_h": "הנהלה בכירה",
+  "store.spec_h": "מומחים",
   "store.spec_s": "נבנו לתפקיד מסוים אחד בתחום שלכם.",
   "store.l": [
    "הנהלה",
@@ -6747,7 +6798,7 @@ const T = {
   "cust.t": "סוכנים בהתאמה אישית זמינים.",
   "cust.s": "צריכים סוכן שנבנה בדיוק לפי איך שהעסק שלכם עובד? אנחנו מתכננים אותו איתכם, בונים ומפעילים.",
   "cust.go": "התאימו עכשיו!",
-  "h4.w1": "סוכני AI לארגונים וליחידים.",
+  "h4.w1": "חברת ההשמה של AI, לארגונים וליחידים.",
   "h4.w2": "אנחנו בונים, מטמיעים ומפעילים סוכני AI, ומלמדים את האנשים שלכם להפעיל אותם.",
   "h4.why": "ה-AI לא צריך להחליף את האנשים שלכם. הוא צריך לשחרר אותם מעבודה מייגעת.",
   "h5.msg": "ה-AI לא ייקח לכם את העבודה. הוא ייקח לכם את העבודה השחורה.",
@@ -6756,18 +6807,38 @@ const T = {
   "nav.hire": "גיוס סוכן",
   "nav.custom": "סוכן מותאם",
   "nav.learn": "ללמוד AI",
-  "sc.k": "הסוכנים שלנו",
-  "sc.t": "גייסו סוכן AI.",
-  "sc.s": "סוכנים מוכנים, משוכפלים ומותאמים לעסק שלכם. או בנו סוכן משלכם.",
-  "sc.build_t": "בנו סוכן משלכם.",
-  "sc.build_s": "ספרו לנו מה הבעיה. אנחנו מתכננים את הסוכן סביב העסק שלכם, בונים ומפעילים אותו.",
-  "sc.build_go": "להתחיל לבנות",
+  "sc.k": "צוות AI",
+  "sc.t": "אַיְּשׁוּ את החברה שלכם ב-AI.",
+  "sc.s": "גייסו תפקיד מוכן, או שנגייס עבורכם תפקיד חדש.",
+  "sc.build_t": "צריכים תפקיד שאין ברשימה?",
+  "sc.build_s": "שלחו את תיאור המשרה. אנחנו נגייס אותו.",
+  "sc.build_go": "גייסו את התפקיד",
   "sc.learn_k": "חכם AI",
   "sc.learn_t": "למדו AI בעצמכם.",
-  "sc.learn_s": "סמינרים והדרכות AI מעשיות לכם ולצוות שלכם.",
+  "sc.learn_s": "סמינרים מעשיים.",
   "sc.learn_go": "לסמינרים",
   "con.k": "בקשה",
-  "ask.ai": "שאלו את ה-AI שלנו"
+  "ask.ai": "שאלו את ה-AI שלנו",
+  "nav.staff": "צוות AI",
+  "store.hire_x": "לגייס {x}",
+  "store.short": {
+   "coo": "סמנכ״ל תפעול",
+   "cmo": "סמנכ״ל שיווק",
+   "cfo": "סמנכ״ל כספים",
+   "cio": "סמנכ״ל מערכות מידע",
+   "cre": "מנהל נכסים",
+   "staff": "מנהל שכר",
+   "broker": "מתווך משכנתאות",
+   "acq": "מנהל רכישות",
+   "analyst": "אנליסט",
+   "research": "חוקר נתונים"
+  },
+  "store.line": {
+   "coo": "מנהל את התפעול שלכם.",
+   "cmo": "מנהל את השיווק שלכם.",
+   "cfo": "מנהל את הכספים שלכם.",
+   "cio": "מנהל את המערכות והנתונים שלכם."
+  }
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -7494,7 +7565,7 @@ const T = {
   ],
   "con.kicker": "Contacto",
   "con.title": "Cuéntenos qué necesita",
-  "con.sub": "Cuéntenos qué le quita tiempo a su equipo, o qué quiere que aprendan. Le mostraremos lo que la IA puede hacer por usted.",
+  "con.sub": "Unos toques y listo.",
   "con.name": "Nombre",
   "con.company": "Empresa",
   "con.phone": "Teléfono",
@@ -7782,14 +7853,14 @@ const T = {
   "cab.t": "Elija su camino.",
   "cab.s": "Todo lo que hacemos, en un solo lugar.",
   "fo.close": "Volver al archivero",
-  "fo.ent": "Empresas",
-  "fo.entd": "Agentes de IA y capacitación para toda su empresa",
+  "fo.ent": "Servicios",
+  "fo.entd": "Enseñar, crear, implementar, operar",
   "fo.ind": "Particulares",
   "fo.indd": "Su propio equipo de IA y cómo manejarlo",
   "fo.svc": "Servicios",
   "fo.svcd": "Lo que creamos, gestionamos y enseñamos",
   "fo.cs": "Casos de estudio",
-  "fo.csd": "Trabajo que hemos hecho",
+  "fo.csd": "Nuestro trabajo",
   "fo.inds": "Industrias",
   "fo.indsd": "Dónde encaja la IA en su negocio",
   "fo.learn": "Aprenda IA",
@@ -7797,7 +7868,7 @@ const T = {
   "fo.con": "Contacto",
   "fo.cond": "Envíe una solicitud",
   "ent.h": "Su gente, manejando la IA.",
-  "ent.s": "Creamos agentes de IA para cada puesto, de la recepción al director financiero, y capacitamos a su equipo para manejarlos.",
+  "ent.s": "Enseñamos, creamos, implementamos y operamos IA para usted.",
   "fo.allcs": "Ver todos los casos",
   "h3.aside": "(de la carga del trabajo tedioso)",
   "cta.seminar": "Aprenda IA: reserve un seminario",
@@ -8191,8 +8262,8 @@ const T = {
    "jd_err_read": "No pudimos leer el archivo. Pegue el texto en su lugar.",
    "jd_err_none": "Primero suba o pegue una descripción del puesto."
   },
-  "fo.store": "Tienda de agentes",
-  "fo.stored": "Agentes listos para comprar",
+  "fo.store": "Personal IA",
+  "fo.stored": "Listo para contratar",
   "store.k": "Tienda de agentes · Para empresas",
   "store.t": "Contrate un ejecutivo de IA.",
   "store.s": "Cada agente ejecutivo asume toda su función: el nivel ejecutivo, el middle office y el back office. Contrate uno o arme todo su equipo directivo de IA.",
@@ -8202,7 +8273,7 @@ const T = {
   "store.mo": "/mes",
   "store.setup": "instalación",
   "store.plan_t": "Plan gestionado",
-  "store.plan_s": "Supervisamos, actualizamos y damos soporte a sus agentes cada mes, para que sigan haciendo el trabajo.",
+  "store.plan_s": "Operamos y actualizamos su personal de IA cada mes.",
   "store.plan_go": "Preguntar por el plan",
   "store.soon_t": "Más especialistas muy pronto",
   "store.soon_s": "Díganos qué puesto necesita su industria.",
@@ -8228,8 +8299,8 @@ const T = {
    ]
   ],
   "ent.shop": "O compre agentes listos",
-  "store.exec_h": "Agentes ejecutivos",
-  "store.spec_h": "Agentes especialistas",
+  "store.exec_h": "Ejecutivos",
+  "store.spec_h": "Especialistas",
   "store.spec_s": "Creados para un trabajo específico de su industria.",
   "store.l": [
    "Ejecutivo",
@@ -8344,7 +8415,7 @@ const T = {
   "cust.t": "Agentes personalizados disponibles.",
   "cust.s": "¿Necesita un agente hecho a la medida de su negocio? Lo diseñamos con usted, lo creamos y lo operamos.",
   "cust.go": "¡Personalícelo ahora!",
-  "h4.w1": "Agentes de IA para empresas y particulares.",
+  "h4.w1": "La firma de personal de IA para empresas y particulares.",
   "h4.w2": "Creamos, implementamos y operamos agentes de IA, y enseñamos a su gente a manejarlos.",
   "h4.why": "La IA no debería reemplazar a su gente. Debería liberarla del trabajo tedioso.",
   "h5.msg": "La IA no le quitará su empleo. Le quitará el trabajo pesado.",
@@ -8353,18 +8424,38 @@ const T = {
   "nav.hire": "Contratar un agente",
   "nav.custom": "Agente a medida",
   "nav.learn": "Aprenda IA",
-  "sc.k": "Nuestros agentes",
-  "sc.t": "Contrate un agente de IA.",
-  "sc.s": "Agentes listos, clonados y configurados para su negocio. O cree el suyo.",
-  "sc.build_t": "Cree su propio agente.",
-  "sc.build_s": "Cuéntenos el problema. Diseñamos el agente según su negocio, lo creamos y lo operamos.",
-  "sc.build_go": "Empezar a crear",
+  "sc.k": "Personal IA",
+  "sc.t": "Contrate personal de IA para su empresa.",
+  "sc.s": "Contrate un puesto listo, o deje que reclutemos uno nuevo.",
+  "sc.build_t": "¿Necesita un puesto que no ofrecemos?",
+  "sc.build_s": "Envíe la descripción del puesto. Lo reclutamos.",
+  "sc.build_go": "Reclutar este puesto",
   "sc.learn_k": "Chocham AI",
   "sc.learn_t": "Aprenda IA por su cuenta.",
-  "sc.learn_s": "Seminarios y capacitación práctica de IA para usted y su equipo.",
+  "sc.learn_s": "Seminarios prácticos.",
   "sc.learn_go": "Ver seminarios",
   "con.k": "Solicitud",
-  "ask.ai": "Pregunte a nuestra IA"
+  "ask.ai": "Pregunte a nuestra IA",
+  "nav.staff": "Personal IA",
+  "store.hire_x": "Contratar {x}",
+  "store.short": {
+   "coo": "COO",
+   "cmo": "CMO",
+   "cfo": "CFO",
+   "cio": "CIO",
+   "cre": "gestor de activos",
+   "staff": "gerente de nómina",
+   "broker": "corredor hipotecario",
+   "acq": "director de adquisiciones",
+   "analyst": "analista",
+   "research": "investigador"
+  },
+  "store.line": {
+   "coo": "Dirige sus operaciones.",
+   "cmo": "Dirige su marketing.",
+   "cfo": "Dirige sus finanzas.",
+   "cio": "Dirige sus sistemas y datos."
+  }
  }
 };
 
@@ -8618,10 +8709,10 @@ function render() {
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);
   $$(".bigstat, .bigstat-l, .bigline").forEach(el => el.hidden = !CONFIG.pagesExample);
   $("#tabstrip").innerHTML = (CONFIG.site === "chocham" ? [["education", "nav.home"]] : []).map(([v, k]) => `<button type="button" data-view="${v}" aria-current="${view === v ? "page" : "false"}">${esc(t(k))}</button>`).join("")
-    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="ask" data-folder="store">${esc(t("nav.hire"))}</button><button type="button" data-custom>${esc(t("nav.custom"))}</button><button type="button" data-folder="ent">${esc(t("nav.services"))}</button><button type="button" data-view="cases">${esc(t("nav.cases"))}</button><button type="button" data-view="industries">${esc(t("nav.ind"))}</button>`)
+    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="ask" data-folder="store">${esc(t("nav.staff"))}</button><button type="button" data-folder="ent">${esc(t("nav.services"))}</button><a class="tlink" href="${CONFIG.chochamUrl}#${lang}">${esc(t("nav.learn"))}</a><button type="button" data-view="cases">${esc(t("nav.cases"))}</button><button type="button" data-folder="con">${esc(t("fo.con"))}</button>`)
     + (CONFIG.site === "chocham" ? [["seminar", "nav.seminar"], ["dates", "nav.dates"], ["series", "nav.series"], ["semfaq", "faq.kicker"]] : []).map(([g, k]) => `<button type="button" data-go="${g}">${esc(t(k))}</button>`).join("")
     + `<button type="button" class="ask" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>${esc(t("chat.open"))}</button>`;
-  $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : `<a class="tlink" href="${CONFIG.chochamUrl}#${lang}">Chocham AI ↗</a>`);
+  $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : "");
   $$(".navlink").forEach(a => a.href = (CONFIG.site === "chocham" ? CONFIG.mosesUrl : CONFIG.chochamUrl) + "#" + lang);
   $$(".nav [data-view]").forEach(b => b.setAttribute("aria-current", b.dataset.view === view ? "page" : "false"));
   $("#depts").innerHTML = t("depts").map(([c, h, p]) => `<div class="dept"><span class="code">${esc(c)}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
@@ -9175,7 +9266,7 @@ document.addEventListener("click", e => {
 window.openFor = el => el.scrollIntoView({ block: "start" });
 (function cabinet() {
   if (CONFIG.site !== "moses") return;
-  const FILES = { ent: ["services", "departments", "savings", "process", "usecases"], ind: ["personal"], cs: ["work", "practices", "assetmgmt"], con: ["consult", "faq"] };
+  const FILES = { ent: ["personal"], cs: ["work", "practices", "assetmgmt"], con: ["consult", "faq"] };
   Object.entries(FILES).forEach(([k, ids]) => { const body = document.querySelector('.fsheet[data-f="' + k + '"] .fbody'); ids.forEach(id => { const el = document.getElementById(id); if (el && body) body.appendChild(el); }); });
   let open = null, last = null;
   function openFolder(k, then) {
@@ -9417,18 +9508,19 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     const cur = S().currency || "$", parts = [];
     if (c.setup) parts.push(`<b>${esc(cur + c.setup)}</b> ${esc(t("store.setup"))}`);
     if (c.monthly) parts.push(`<b>${esc(cur + c.monthly)}</b>${esc(t("store.mo"))}`);
-    return parts.length ? parts.join(" · ") : esc(t("store.price"));
+    return parts.length ? parts.join(" · ") : "";
   }
-  function action(c, name) {
+  function action(c, name, slug) {
+    const sh = (t("store.short") || {})[slug];
     return safe(c.link) ? `<a class="btn aqua" href="${esc(c.link)}" target="_blank" rel="noopener">${esc(t("store.buy"))} <span class="arrow">→</span></a>`
-      : `<button type="button" class="btn aqua" data-contact data-msgtext="${esc("Agent Store: " + name)}">${esc(t("store.ask"))} <span class="arrow">→</span></button>`;
+      : `<button type="button" class="btn aqua" data-contact data-msgtext="${esc("Agent Store: " + name)}">${esc(sh ? t("store.hire_x", { x: sh }) : t("store.ask"))} <span class="arrow">→</span></button>`;
   }
   function card(x, kind) {
     const c = ((S().agents) || {})[x[0]] || {};
     const en = (T.en["store." + kind] || []).find(v => v[0] === x[0]);
     const lab = t("store.l");
     const body = kind === "exec" ? `<div class="slayers">${x[3].map((v, j) => `<div class="slayer"><span>${esc(lab[j])}</span><p>${esc(v)}</p></div>`).join("")}</div>` : `<ul>${x[3].map(v => `<li>${esc(v)}</li>`).join("")}</ul>`;
-    return `<article class="scard ${kind}"><h4>${esc(x[1])}</h4><p class="sline">${esc(x[2])}</p>${body}<div class="sprice">${price(c)}</div>${action(c, en ? en[1] : x[1])}</article>`;
+    return `<article class="scard ${kind}"><h4>${esc(x[1])}</h4><p class="sline">${esc(((t("store.line") || {})[x[0]]) || x[2])}</p>${body}<div class="sprice">${price(c)}</div>${action(c, en ? en[1] : x[1], x[0])}</article>`;
   }
   function renderStore() {
     const el = document.getElementById("store"); if (!el) return;

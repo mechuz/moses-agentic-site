@@ -1241,6 +1241,15 @@ html.filing { overflow: hidden; }
 .site-moses .top .wrap > .btn[data-contact] { display: none !important; }
 .site-moses .top .askbtn { background: #C6F432; color: #0B2545; border-color: #C6F432; font-weight: 800; }
 @media (max-width: 1100px) { .sc-grid { grid-template-columns: minmax(0, 1fr); } .sc-side { position: static; } }
+
+.qjd { display: grid; gap: .55rem; margin-top: .6rem; padding: 1rem; border: 2px dashed var(--line); border-radius: 18px; background: #F7F9FC; }
+.qjd > * { margin: 0; }
+.qfile { position: relative; display: inline-flex !important; align-items: center; gap: .55rem; justify-self: start; background: #0B2545; color: #FFFFFF !important; border-radius: 999px; padding: .75rem 1.2rem; font: 700 1rem var(--f-body) !important; cursor: pointer; }
+.qfile svg { width: 20px; height: 20px; flex: none; }
+.qfile input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; min-height: 0 !important; }
+.qfile:focus-within { outline: 3px solid #1A73E8; outline-offset: 2px; }
+.qjd-ok { font-weight: 700; color: #1A7F37; }
+.qskip { justify-self: start; border: 0; background: none; color: #1A73E8; font: 800 1rem var(--f-body); cursor: pointer; padding: .3rem 0; text-decoration: underline; text-underline-offset: 3px; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -3379,7 +3388,17 @@ const T = {
      "Report and recommend only"
     ]
    ],
-   "err_issue": "Please pick a problem or describe it."
+   "err_issue": "Please pick a problem or describe it.",
+   "jd_q": "Have a job description?",
+   "jd_hint": "Upload the job description of the role you want to fill, or paste it below. We read it to build your agent.",
+   "jd_btn": "Upload job description (PDF, Word or text)",
+   "jd_ph": "…or paste the job description here",
+   "jd_skip": "Skip ahead with this job description",
+   "jd_reading": "Reading…",
+   "jd_err_type": "Please upload a PDF, Word (.docx) or text file.",
+   "jd_err_size": "That file is over 5 MB. Please upload a smaller one or paste the text.",
+   "jd_err_read": "We couldn't read that file. Please paste the text instead.",
+   "jd_err_none": "Please upload or paste a job description first."
   },
   "fo.store": "Agent Store",
   "fo.stored": "Ready-made agents you can buy",
@@ -4966,7 +4985,17 @@ const T = {
      "נאר רעפארטן און רעקאמענדירן"
     ]
    ],
-   "err_issue": "ביטע קלייבט א פראבלעם אדער באשרייבט עס."
+   "err_issue": "ביטע קלייבט א פראבלעם אדער באשרייבט עס.",
+   "jd_q": "האט איר א דזשאב דיסקריפשן?",
+   "jd_hint": "לאדט ארויף די דזשאב דיסקריפשן פון די פאזישאן וואס איר ווילט אנפילן, אדער קלעבט עס אריין אונטן. מיר לייענען עס כדי צו בויען אייער אגענט.",
+   "jd_btn": "לאדט ארויף דזשאב דיסקריפשן (PDF, Word אדער טעקסט)",
+   "jd_ph": "…אדער קלעבט אריין די דזשאב דיסקריפשן דא",
+   "jd_skip": "גייט ווייטער מיט די דזשאב דיסקריפשן",
+   "jd_reading": "לייענט…",
+   "jd_err_type": "ביטע לאדט ארויף א PDF, Word (.docx) אדער טעקסט פייל.",
+   "jd_err_size": "די פייל איז איבער 5 MB. ביטע לאדט ארויף א קלענערע אדער קלעבט אריין דעם טעקסט.",
+   "jd_err_read": "מיר האבן נישט געקענט לייענען די פייל. ביטע קלעבט אריין דעם טעקסט.",
+   "jd_err_none": "ביטע לאדט ארויף אדער קלעבט אריין א דזשאב דיסקריפשן."
   },
   "fo.store": "אגענט סטאר",
   "fo.stored": "גרייטע אגענטן וואס מ'קען קויפן",
@@ -6553,7 +6582,17 @@ const T = {
      "ידווח וימליץ בלבד"
     ]
    ],
-   "err_issue": "בחרו בעיה או תארו אותה."
+   "err_issue": "בחרו בעיה או תארו אותה.",
+   "jd_q": "יש לכם תיאור משרה?",
+   "jd_hint": "העלו את תיאור המשרה של התפקיד שאתם רוצים לאייש, או הדביקו אותו למטה. אנחנו קוראים אותו כדי לבנות את הסוכן שלכם.",
+   "jd_btn": "העלאת תיאור משרה (PDF, Word או טקסט)",
+   "jd_ph": "…או הדביקו כאן את תיאור המשרה",
+   "jd_skip": "דלגו קדימה עם תיאור המשרה",
+   "jd_reading": "קורא…",
+   "jd_err_type": "העלו קובץ PDF, Word (.docx) או טקסט.",
+   "jd_err_size": "הקובץ גדול מ-5MB. העלו קובץ קטן יותר או הדביקו את הטקסט.",
+   "jd_err_read": "לא הצלחנו לקרוא את הקובץ. הדביקו את הטקסט במקום.",
+   "jd_err_none": "העלו או הדביקו קודם תיאור משרה."
   },
   "fo.store": "חנות הסוכנים",
   "fo.stored": "סוכנים מוכנים לרכישה",
@@ -8140,7 +8179,17 @@ const T = {
      "Solo informar y recomendar"
     ]
    ],
-   "err_issue": "Elija un problema o descríbalo."
+   "err_issue": "Elija un problema o descríbalo.",
+   "jd_q": "¿Tiene una descripción del puesto?",
+   "jd_hint": "Suba la descripción del puesto que quiere cubrir, o péguela abajo. La leemos para crear su agente.",
+   "jd_btn": "Subir descripción del puesto (PDF, Word o texto)",
+   "jd_ph": "…o pegue aquí la descripción del puesto",
+   "jd_skip": "Avanzar con esta descripción",
+   "jd_reading": "Leyendo…",
+   "jd_err_type": "Suba un archivo PDF, Word (.docx) o de texto.",
+   "jd_err_size": "El archivo supera 5 MB. Suba uno más pequeño o pegue el texto.",
+   "jd_err_read": "No pudimos leer el archivo. Pegue el texto en su lugar.",
+   "jd_err_none": "Primero suba o pegue una descripción del puesto."
   },
   "fo.store": "Tienda de agentes",
   "fo.stored": "Agentes listos para comprar",
@@ -9188,7 +9237,11 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
   const inp = (key, title, type, max, ac) => `<label><span>${esc(title)}</span><input data-qi="${key}" type="${type}" maxlength="${max}" autocomplete="${ac}" value="${esc(st[key])}"></label>`;
   const AG = () => [...(t("store.exec") || []), ...(t("store.spec") || [])];
   function cbody(q) {
-    if (st.step === 1) return `<h3 class="qh">${esc(q.c_base_q)}</h3><div class="qchips">${AG().map(x => chip("base", x[0], x[1], st.base === x[0])).join("")}${chip("base", "new", q.c_new, st.base === "new")}</div>`;
+    if (st.step === 1) return `<div class="qjd"><div class="qsub">${esc(q.jd_q)}</div><p class="qhint">${esc(q.jd_hint)}</p>
+      <label class="qfile"><input type="file" id="q-jd" accept=".pdf,.docx,.txt,.md,.rtf,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg><span>${esc(q.jd_btn)}</span></label>${st.jdName ? `<span class="qjd-ok">✓ ${esc(st.jdName)}</span>` : ""}
+      <textarea data-qi="jd" maxlength="12000" rows="4" placeholder="${esc(q.jd_ph)}">${esc(st.jd || "")}</textarea>
+      <button type="button" class="qskip" id="qskip">${esc(q.jd_skip)} →</button></div>
+      <h3 class="qh">${esc(q.c_base_q)}</h3><div class="qchips">${AG().map(x => chip("base", x[0], x[1], st.base === x[0])).join("")}${chip("base", "new", q.c_new, st.base === "new")}</div>`;
     if (st.step === 2) return `<h3 class="qh">${esc(q.c_co_q)}</h3><div class="qgrid">${[sel("industry", q.industry, q.industries), sel("size", q.size, q.sizes), sel("dept", q.dept, q.depts)].join("")}</div>`;
     if (st.step === 3) return `<h3 class="qh">${esc(q.c_issue_q)}</h3><div class="qchips">${q.issues.map(([c, tx]) => chip("issues", c, tx, (st.issues || []).includes(c))).join("")}</div><label class="qnote"><span>${esc(q.c_issue_txt)}</span><textarea data-qi="issue" maxlength="800" rows="3">${esc(st.issue || "")}</textarea></label>`;
     if (st.step === 4) return `<h3 class="qh">${esc(q.c_do_q)}</h3><div class="qchips">${q.needs_biz.map(([c, tx]) => chip("needs", c, tx, st.needs.includes(c))).join("")}</div><div class="qsub">${esc(q.c_goal)}</div><div class="qchips">${q.goals.map(([c, tx]) => chip("goals", c, tx, (st.goals || []).includes(c))).join("")}</div>`;
@@ -9246,13 +9299,36 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     const f = all.find(x => x[2] === st.hire); if (!f) return st.hire;
     const loc = t("store." + f[0]); return (loc && loc[f[1]]) ? loc[f[1]][1] : st.hire;
   }
+  const loadJS = src => new Promise((ok, no) => { const sc = document.createElement("script"); sc.src = src; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); });
+  async function readJD(f) {
+    if (!f) return;
+    if (f.size > 5 * 1024 * 1024) return fail("jd_err_size");
+    const n = f.name.toLowerCase(), keep = st.jd;
+    st.jdName = f.name + " · " + Q().jd_reading; st.err = ""; draw();
+    try {
+      let text = "";
+      if (/\.(txt|md|rtf)$/.test(n)) text = await f.text();
+      else if (/\.pdf$/.test(n)) {
+        if (!window.pdfjsLib) { await loadJS("/vendor/pdf.min.js"); pdfjsLib.GlobalWorkerOptions.workerSrc = "/vendor/pdf.worker.min.js"; }
+        const doc = await pdfjsLib.getDocument({ data: new Uint8Array(await f.arrayBuffer()), isEvalSupported: false }).promise;
+        for (let i = 1; i <= Math.min(doc.numPages, 20); i++) { const c = await (await doc.getPage(i)).getTextContent(); text += c.items.map(x => x.str).join(" ") + "\n"; }
+      } else if (/\.docx$/.test(n)) {
+        if (!window.mammoth) await loadJS("/vendor/mammoth.browser.min.js");
+        text = (await mammoth.extractRawText({ arrayBuffer: await f.arrayBuffer() })).value;
+      } else { st.jdName = ""; return fail("jd_err_type"); }
+      text = text.replace(/[ \t]+/g, " ").replace(/\n\s*\n+/g, "\n").trim().slice(0, 12000);
+      if (!text) { st.jdName = ""; st.jd = keep; return fail("jd_err_read"); }
+      st.jd = text; st.jdName = f.name; st.err = ""; draw();
+    } catch (e) { st.jdName = ""; st.jd = keep; fail("jd_err_read"); }
+  }
   function fail(k) { st.err = Q()[k]; draw(); const e = $("#qerr"); if (e) e.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
   function next() {
     const q = Q();
     if (st.mode === "custom") {
-      if (st.step === 1 && !st.base) return fail("err_pick");
-      if (st.step === 3 && !(st.issues || []).length && !(st.issue || "").trim()) return fail("err_issue");
-      if (st.step === 4 && !st.needs.length) return fail("err_pick");
+      const hasJD = !!(st.jd || "").trim();
+      if (st.step === 1 && !st.base && !hasJD) return fail("err_pick");
+      if (st.step === 3 && !hasJD && !(st.issues || []).length && !(st.issue || "").trim()) return fail("err_issue");
+      if (st.step === 4 && !hasJD && !st.needs.length) return fail("err_pick");
       if (st.step < 6) { st.step++; st.err = ""; draw(); const w = $("#qwrap"); if (w) w.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
       return submit();
     }
@@ -9283,15 +9359,17 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
       buildPrompt = ["AGENT BUILD PROMPT",
         "Build an AI agent for " + (st.company.trim() || "a new client") + (ind ? ", a business in " + ind.toLowerCase() : "") + (size ? ", team size " + size : "") + ".",
         base ? "Start from our " + base + " agent and tailor it to this client." : "This is a new role, built from scratch.",
+        (st.jd || "").trim() ? "The client sent a job description for this role (below). Treat it as the role definition: duties, responsibilities and standards." : "",
         dept ? "It works in: " + dept + "." : "",
-        "The problem to fix: " + (L2(en.issues, st.issues) || "see the client's words") + "." + ((st.issue || "").trim() ? " In the client's words: “" + st.issue.trim() + "”" : ""),
-        "The agent must handle: " + L2(en.needs_biz, st.needs) + ".",
+        ((st.issues || []).length || (st.issue || "").trim()) ? "The problem to fix: " + (L2(en.issues, st.issues) || "see the client's words") + "." + ((st.issue || "").trim() ? " In the client's words: “" + st.issue.trim() + "”" : "") : "",
+        st.needs.length ? "The agent must handle: " + L2(en.needs_biz, st.needs) + "." : "",
         (st.goals || []).length ? "Success means: " + L2(en.goals, st.goals) + "." : "",
         (st.tools || []).length ? "Connect it to: " + L2(en.tools, st.tools) + "." : "",
         st.appr ? "Autonomy: " + label(en.apprs, st.appr) + "." : "",
         st.when ? "Start: " + en.whens[+st.when] + "." : "",
         "Follow the client's rules and voice, never invent facts, keep a log of what it does, and flag anything uncertain for a person to review."
       ].filter(Boolean).join("\n");
+      if ((st.jd || "").trim()) buildPrompt += "\n\nJOB DESCRIPTION" + (st.jdName ? " (" + st.jdName + ")" : " (pasted)") + "\n" + st.jd.trim();
     }
     const rows = [["Path", st.mode === "hire" ? "Hire: " + st.hire : st.mode === "custom" ? "Custom agent" : ""], ["Systems", (st.tools || []).map(c => label(en.tools, c)).join(", ")], ["For", label(en.who, st.who)], ["Needs", needsEn.join(", ")], ["Industry", label(en.industries, st.industry)], ["Team size", st.size ? en.sizes[+st.size] : ""], ["How", st.how ? en.hows[+st.how] : ""], ["Start", st.when ? en.whens[+st.when] : ""], ["Reach by", label(en.prefs, st.pref)], ["Best time", st.time ? en.times[+st.time] : ""], ["Came from", st.src], ["Note", st.note.trim()]].filter(r => r[1]);
     const data = { name: st.name, company: st.company.trim(), phone: st.phone, email: st.email, message: rows.map(r => r[0] + ": " + r[1]).join("\n") + (buildPrompt ? "\n\n" + buildPrompt : ""), language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
@@ -9320,9 +9398,10 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
       else st[g] = v;
       st.err = ""; draw(); return;
     }
+    if (e.target.closest("#qskip")) { if (!(st.jd || "").trim()) return fail("jd_err_none"); st.step = 6; st.err = ""; draw(); return; }
     if (e.target.closest("#qback")) { st.step = Math.max(1, st.step - 1); st.err = ""; draw(); }
   });
-  document.addEventListener("change", e => { const s2 = e.target.closest("[data-qs]"); if (s2) st[s2.dataset.qs] = s2.value; });
+  document.addEventListener("change", e => { if (e.target.id === "q-jd") { readJD(e.target.files[0]); return; } const s2 = e.target.closest("[data-qs]"); if (s2) st[s2.dataset.qs] = s2.value; });
   document.addEventListener("input", e => { const i = e.target.closest("[data-qi]"); if (i) st[i.dataset.qi] = i.value; });
   document.addEventListener("submit", e => { if (e.target.id !== "qform") return; e.preventDefault(); next(); });
   if ($("#cbox") && !$(".cdone")) draw();

@@ -1238,6 +1238,12 @@ body { top: 0 !important; }
   .site-moses .panels .panel:not(.p-main):not(.p-pers) { grid-row: auto; min-height: 92px !important; }
   .site-moses .panels .p-main { grid-row: 3; }
 }
+
+/* ===== Moses Agentic logo ===== */
+.brand-logo, .brand-mark { display: none; }
+.site-moses .brand .mark, .site-moses .brand .name { display: none !important; }
+.site-moses .brand-logo { display: block; height: 34px; width: auto; }
+@media (max-width: 860px) { .site-moses .brand-logo { display: none; } .site-moses .brand-mark { display: block; height: 30px; width: auto; } }
 </style>
 </head>
 <body>
@@ -1245,7 +1251,7 @@ body { top: 0 !important; }
 <div class="trnote" id="trnote" hidden></div>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#" data-home><span class="mark">M</span><span class="name" data-brand></span></a>
+    <a class="brand" href="#" data-home><img class="brand-logo" src="/logo-full.png" alt="Moses Agentic" width="933" height="126"><img class="brand-mark" src="/logo-mark.svg" alt="Moses Agentic" width="600" height="402"><span class="mark">M</span><span class="name" data-brand></span></a>
     <nav class="nav" aria-label="Sections">
       <button type="button" data-go="services" data-i18n="nav.services">Services</button>
       <button type="button" data-go="agents" data-i18n="nav.agents">Agents</button>

@@ -1262,6 +1262,16 @@ html.filing { overflow: hidden; }
 .scard .sline { font-size: 1.08rem; }
 .scard.exec h4 { font-size: clamp(1.35rem, 1.9vw, 1.7rem) !important; }
 .sgrid.exec { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important; }
+
+/* ===== simple: no cabinet, minimal words ===== */
+.site-moses #cabinet .cab-head, .site-moses #cabinet .drawer { display: none !important; }
+.site-moses #cabinet { padding: 0 !important; min-height: 0 !important; }
+.site-moses .showcase .eyebrow, .site-moses .showcase .fp, .slayers, .scard .sline, .sc-learn p, .sc-lk, .sbuild p, .splan p, .ssoon p, .stier-s,
+.s-ent .fourc p, .s-ent #personal .lead, .s-ent #personal .pcard p, .s-con .consult .lead, .s-con .consult .eyebrow, .s-con #faq, .s-ent .fintro .fp { display: none !important; }
+.scard { gap: 1rem !important; }
+.scard .btn { margin-top: auto; }
+.sc-learn { gap: 1rem !important; }
+.s-ent .fctas { margin-top: 1.4rem; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -3001,7 +3011,7 @@ const T = {
   "h3.p": "In a world afraid that AI will take people's jobs, we teach, build, deploy and operate AI for enterprises and individuals.",
   "cab.t": "Choose your path.",
   "cab.s": "Everything we do, filed in one place.",
-  "fo.close": "Back to the cabinet",
+  "fo.close": "Close",
   "fo.ent": "Services",
   "fo.entd": "Teach, build, deploy, operate",
   "fo.ind": "Individuals",
@@ -4618,7 +4628,7 @@ const T = {
   "h3.p": "אין א וועלט וואו מ'האט מורא אז AI וועט צונעמען מענטשן'ס דזשאבס, לערנען מיר, בויען, שטעלן אויף און פירן AI פאר פירמעס און פאר יחידים.",
   "cab.t": "עפנט א פייל.",
   "cab.s": "אלעס וואס מיר טוען, אויף איין פלאץ.",
-  "fo.close": "צוריק צום קאבינעט",
+  "fo.close": "פארמאכן",
   "fo.ent": "סערוויסעס",
   "fo.entd": "לערנען, בויען, איינשטעלן, פירן",
   "fo.ind": "יחידים",
@@ -6235,7 +6245,7 @@ const T = {
   "h3.p": "בעולם שחושש ש-AI ייקח לאנשים את העבודה, אנחנו מלמדים, בונים, מטמיעים ומפעילים AI לארגונים וליחידים.",
   "cab.t": "בחרו את הדרך שלכם.",
   "cab.s": "כל מה שאנחנו עושים, במקום אחד.",
-  "fo.close": "חזרה לארון",
+  "fo.close": "סגירה",
   "fo.ent": "שירותים",
   "fo.entd": "מלמדים, בונים, מטמיעים, מפעילים",
   "fo.ind": "יחידים",
@@ -7852,7 +7862,7 @@ const T = {
   "h3.p": "En un mundo que teme que la IA quite empleos, enseñamos, creamos, implementamos y operamos IA para empresas y particulares.",
   "cab.t": "Elija su camino.",
   "cab.s": "Todo lo que hacemos, en un solo lugar.",
-  "fo.close": "Volver al archivero",
+  "fo.close": "Cerrar",
   "fo.ent": "Servicios",
   "fo.entd": "Enseñar, crear, implementar, operar",
   "fo.ind": "Particulares",

@@ -1183,6 +1183,19 @@ html.filing { overflow: hidden; }
 .h3aside { font: 600 clamp(2rem, 3.8vw, 3.6rem)/1.05 "Caveat", "Amatic SC", cursive; color: #C6F432; letter-spacing: 0; transform: rotate(-3deg); transform-origin: left bottom; }
 [dir="rtl"] .h3aside { font-family: "Amatic SC", "Caveat", cursive; font-weight: 700; transform: rotate(3deg); transform-origin: right bottom; }
 @media (max-width: 760px) { .h3aside { font-size: clamp(2rem, 9vw, 2.7rem); } }
+
+/* ===== first screen v4 ===== */
+.site-moses .hero3 .wrap { text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 1240px; }
+.h4what { max-width: none; width: 100%; }
+.h4w1 { font: 800 clamp(1.6rem, 3.4vw, 3rem)/1.08 var(--f-display); letter-spacing: -.035em; color: #FFFFFF; margin: 0 auto; max-width: 24ch; }
+.h4w2 { font: 500 clamp(1.02rem, 1.6vw, 1.35rem)/1.45 var(--f-body); color: #BFD9F5; margin: .7rem auto 0; max-width: 48ch; }
+.h4t { margin: clamp(1.2rem, 2.8vw, 2.2rem) 0 0; font: 900 clamp(3rem, min(8.2vw, 14vh), 9rem)/.88 var(--f-display); letter-spacing: -.055em; text-transform: uppercase; color: #FFFFFF; }
+.h4t .a, .h4t .b { display: inline; }
+.h4t .b { color: #C6F432; }
+.h4why { margin: clamp(1rem, 2.2vw, 1.5rem) auto 0; max-width: 40ch; font: 700 clamp(1.15rem, 2vw, 1.65rem)/1.35 var(--f-body); color: #FFFFFF; }
+.site-moses .hero3 .h3btn { margin-top: clamp(1.3rem, 2.8vw, 2.1rem); }
+.site-moses .hero3 { padding-block: clamp(1.6rem, 4vh, 3rem); }
+@media (max-width: 760px) { .h4t { font-size: 14.5vw; } .h4t .b { display: block; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1243,7 +1256,8 @@ body { top: 0 !important; }
 .brand-logo, .brand-mark { display: none; }
 .site-moses .brand .mark, .site-moses .brand .name { display: none !important; }
 .site-moses .brand-logo { display: block; height: 34px; width: auto; }
-@media (max-width: 860px) { .site-moses .brand-logo { display: none; } .site-moses .brand-mark { display: block; height: 30px; width: auto; } }
+@media (max-width: 860px) { .site-moses .brand-logo { height: 28px; } }
+@media (max-width: 360px) { .site-moses .brand-logo { height: 24px; } }
 </style>
 </head>
 <body>
@@ -1271,9 +1285,10 @@ body { top: 0 !important; }
   <section class="hero3" id="hero3" role="button" tabindex="0" aria-label="Let my people go: open the cabinet">
     <div class="sea-half l" aria-hidden="true"><div class="sea"></div></div><div class="sea-half r" aria-hidden="true"><div class="sea"></div></div>
     <div class="wrap">
-      <div class="h3head"><h1 class="h3t"><span class="a" data-i18n="camp.a">LET MY PEOPLE</span> <span class="b" data-i18n="camp.b">GO!</span></h1><p class="h3aside" data-i18n="h3.aside">(from the burden of tedious labor)</p></div>
+      <div class="h4what"><p class="h4w1" data-i18n="h4.w1">AI agents for enterprises and individuals.</p><p class="h4w2" data-i18n="h4.w2">We build them, deploy them, run them, and teach your people to operate them.</p></div>
+      <h1 class="h4t"><span class="a" data-i18n="camp.a">LET MY PEOPLE</span> <span class="b" data-i18n="camp.b">GO!</span></h1>
+      <p class="h4why" data-i18n="h4.why">AI shouldn&#x27;t replace your people. It should free them from tedious work.</p>
       <span class="h3btn"><span data-i18n="h3.b">Click here to let my people go</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
-      <div class="h3p"><p data-i18n="h3.p">In a world afraid that AI will take people's jobs, we teach, build, deploy and operate AI for enterprises and individuals.</p></div>
     </div>
   </section>
   <section class="cabinet" id="cabinet">
@@ -3304,7 +3319,10 @@ const T = {
   "cust.k": "Custom agents",
   "cust.t": "Custom agents available.",
   "cust.s": "Need an agent built around how your business works? We design it with you, build it and run it.",
-  "cust.go": "Customize now!"
+  "cust.go": "Customize now!",
+  "h4.w1": "AI agents for enterprises and individuals.",
+  "h4.w2": "We build them, deploy them, run them, and teach your people to operate them.",
+  "h4.why": "AI shouldn't replace your people. It should free them from tedious work."
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -4709,7 +4727,10 @@ const T = {
   "cust.k": "קאסטעם אגענטן",
   "cust.t": "קאסטעם אגענטן צו באקומען.",
   "cust.s": "דארפט איר אן אגענט וואס איז געבויט פונקט ווי אייער ביזנעס ארבעט? מיר פלאנירן עס מיט אייך, בויען עס און פירן עס.",
-  "cust.go": "קאסטעמייזט יעצט!"
+  "cust.go": "קאסטעמייזט יעצט!",
+  "h4.w1": "AI אגענטן פאר פירמעס און יחידים.",
+  "h4.w2": "מיר בויען זיי, שטעלן זיי איין, פירן זיי, און לערנען אייערע מענטשן זיי צו נוצן.",
+  "h4.why": "AI דארף נישט פארביטן אייערע מענטשן. עס דארף זיי באפרייען פון שווערע, נודנע ארבעט."
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -6114,7 +6135,10 @@ const T = {
   "cust.k": "סוכנים בהתאמה אישית",
   "cust.t": "סוכנים בהתאמה אישית זמינים.",
   "cust.s": "צריכים סוכן שנבנה בדיוק לפי איך שהעסק שלכם עובד? אנחנו מתכננים אותו איתכם, בונים ומפעילים.",
-  "cust.go": "התאימו עכשיו!"
+  "cust.go": "התאימו עכשיו!",
+  "h4.w1": "סוכני AI לארגונים וליחידים.",
+  "h4.w2": "אנחנו בונים, מטמיעים ומפעילים אותם, ומלמדים את האנשים שלכם להפעיל אותם.",
+  "h4.why": "ה-AI לא צריך להחליף את האנשים שלכם. הוא צריך לשחרר אותם מעבודה מייגעת."
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -7519,7 +7543,10 @@ const T = {
   "cust.k": "Agentes a medida",
   "cust.t": "Agentes personalizados disponibles.",
   "cust.s": "¿Necesita un agente hecho a la medida de su negocio? Lo diseñamos con usted, lo creamos y lo operamos.",
-  "cust.go": "¡Personalícelo ahora!"
+  "cust.go": "¡Personalícelo ahora!",
+  "h4.w1": "Agentes de IA para empresas y particulares.",
+  "h4.w2": "Los creamos, los implementamos, los operamos y enseñamos a su gente a manejarlos.",
+  "h4.why": "La IA no debería reemplazar a su gente. Debería liberarla del trabajo tedioso."
  }
 };
 

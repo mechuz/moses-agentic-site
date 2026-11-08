@@ -1250,6 +1250,9 @@ html.filing { overflow: hidden; }
 .qfile:focus-within { outline: 3px solid #1A73E8; outline-offset: 2px; }
 .qjd-ok { font-weight: 700; color: #1A7F37; }
 .qskip { justify-self: start; border: 0; background: none; color: #1A73E8; font: 800 1rem var(--f-body); cursor: pointer; padding: .3rem 0; text-decoration: underline; text-underline-offset: 3px; }
+
+.site-moses .h4w2 { display: none; }
+.site-moses .h5msg { max-width: 30ch; font-size: clamp(1.6rem, min(3.4vw, 6vh), 3.2rem); line-height: 1.12; letter-spacing: -.03em; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1321,12 +1324,11 @@ body { top: 0 !important; }
   <div class="wrap">
     <a class="brand" href="#" data-home><img class="brand-logo" src="/logo-full.png" alt="Moses Agentic" width="933" height="126"><img class="brand-mark" src="/logo-mark.svg" alt="Moses Agentic" width="600" height="402"><span class="mark">M</span><span class="name" data-brand></span></a>
     <nav class="nav" aria-label="Sections">
-      <button type="button" class="nav-hire" data-folder="store" data-i18n="nav.hire">Hire an agent</button>
-      <button type="button" data-custom data-i18n="nav.custom">Custom agent</button>
+      <button type="button" class="nav-hire" data-folder="store" data-i18n="nav.hire">Our Agents</button>
       <button type="button" data-folder="ent" data-i18n="nav.services">Services</button>
       <button type="button" data-view="education" data-i18n="nav.edu">Education</button>
-      <button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button>
       <button type="button" data-view="industries" data-i18n="nav.ind">Industries</button>
+      <button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button>
     </nav>
     <div class="langs" role="group" aria-label="Language" id="langs"></div>
     <button type="button" class="askbtn" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg><span data-i18n="chat.open">Ask us anything</span></button>
@@ -1342,7 +1344,7 @@ body { top: 0 !important; }
     <div class="wrap">
       <p class="h4w1" data-i18n="h4.w1">AI agents for enterprises and individuals.</p>
       <h1 class="h4t"><span class="a" data-i18n="camp.a">LET MY PEOPLE</span> <span class="b" data-i18n="camp.b">GO!</span></h1>
-      <p class="h5msg" data-i18n="h5.msg">AI won&#x27;t take your job. It will take your busywork.</p>
+      <p class="h5msg" data-i18n="h5.msg">We build, deploy and operate AI agents, and teach your people to run them.</p>
       <p class="h4w2" data-i18n="h4.w2">We build, deploy and operate AI agents, and teach your people to run them.</p>
       <span class="h5cue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
     </div>
@@ -3556,10 +3558,10 @@ const T = {
   "h4.w1": "AI agents for enterprises and individuals.",
   "h4.w2": "We build, deploy and operate AI agents, and teach your people to run them.",
   "h4.why": "AI shouldn't replace your people. It should free them from tedious work.",
-  "h5.msg": "AI won't take your job. It will take your busywork.",
+  "h5.msg": "We build, deploy and operate AI agents, and teach your people to run them.",
   "h5.hire": "Hire an AI agent",
   "h5.custom": "Build your custom agent",
-  "nav.hire": "Hire an agent",
+  "nav.hire": "Our Agents",
   "nav.custom": "Custom agent",
   "nav.learn": "Learn AI",
   "sc.k": "Our agents",
@@ -5153,10 +5155,10 @@ const T = {
   "h4.w1": "AI אגענטן פאר פירמעס און יחידים.",
   "h4.w2": "מיר בויען, שטעלן איין און פירן AI אגענטן, און לערנען אייערע מענטשן זיי צו נוצן.",
   "h4.why": "AI דארף נישט פארביטן אייערע מענטשן. עס דארף זיי באפרייען פון שווערע, נודנע ארבעט.",
-  "h5.msg": "AI וועט נישט צונעמען אייער דזשאב. עס וועט צונעמען די נודנע ארבעט.",
+  "h5.msg": "מיר בויען, שטעלן איין און פירן AI אגענטן, און לערנען אייערע מענטשן זיי צו נוצן.",
   "h5.hire": "דינגט אן AI אגענט",
   "h5.custom": "בויט אייער אייגענעם אגענט",
-  "nav.hire": "דינגט אן אגענט",
+  "nav.hire": "אונזערע אגענטן",
   "nav.custom": "קאסטעם אגענט",
   "nav.learn": "לערנט AI",
   "sc.k": "אונזערע אגענטן",
@@ -6750,10 +6752,10 @@ const T = {
   "h4.w1": "סוכני AI לארגונים וליחידים.",
   "h4.w2": "אנחנו בונים, מטמיעים ומפעילים סוכני AI, ומלמדים את האנשים שלכם להפעיל אותם.",
   "h4.why": "ה-AI לא צריך להחליף את האנשים שלכם. הוא צריך לשחרר אותם מעבודה מייגעת.",
-  "h5.msg": "ה-AI לא ייקח לכם את העבודה. הוא ייקח לכם את העבודה השחורה.",
+  "h5.msg": "אנחנו בונים, מטמיעים ומפעילים סוכני AI, ומלמדים את האנשים שלכם להפעיל אותם.",
   "h5.hire": "גייסו סוכן AI",
   "h5.custom": "בנו סוכן משלכם",
-  "nav.hire": "גיוס סוכן",
+  "nav.hire": "הסוכנים שלנו",
   "nav.custom": "סוכן מותאם",
   "nav.learn": "ללמוד AI",
   "sc.k": "הסוכנים שלנו",
@@ -8347,10 +8349,10 @@ const T = {
   "h4.w1": "Agentes de IA para empresas y particulares.",
   "h4.w2": "Creamos, implementamos y operamos agentes de IA, y enseñamos a su gente a manejarlos.",
   "h4.why": "La IA no debería reemplazar a su gente. Debería liberarla del trabajo tedioso.",
-  "h5.msg": "La IA no le quitará su empleo. Le quitará el trabajo pesado.",
+  "h5.msg": "Creamos, implementamos y operamos agentes de IA, y enseñamos a su gente a manejarlos.",
   "h5.hire": "Contrate un agente de IA",
   "h5.custom": "Cree su agente a medida",
-  "nav.hire": "Contratar un agente",
+  "nav.hire": "Nuestros agentes",
   "nav.custom": "Agente a medida",
   "nav.learn": "Aprenda IA",
   "sc.k": "Nuestros agentes",
@@ -8618,10 +8620,10 @@ function render() {
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);
   $$(".bigstat, .bigstat-l, .bigline").forEach(el => el.hidden = !CONFIG.pagesExample);
   $("#tabstrip").innerHTML = (CONFIG.site === "chocham" ? [["education", "nav.home"]] : []).map(([v, k]) => `<button type="button" data-view="${v}" aria-current="${view === v ? "page" : "false"}">${esc(t(k))}</button>`).join("")
-    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="ask" data-folder="store">${esc(t("nav.hire"))}</button><button type="button" data-custom>${esc(t("nav.custom"))}</button><button type="button" data-folder="ent">${esc(t("nav.services"))}</button><button type="button" data-view="cases">${esc(t("nav.cases"))}</button><button type="button" data-view="industries">${esc(t("nav.ind"))}</button>`)
+    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="ask" data-folder="store">${esc(t("nav.hire"))}</button><button type="button" data-folder="ent">${esc(t("nav.services"))}</button><button type="button" data-view="industries">${esc(t("nav.ind"))}</button><button type="button" data-view="cases">${esc(t("nav.cases"))}</button>`)
     + (CONFIG.site === "chocham" ? [["seminar", "nav.seminar"], ["dates", "nav.dates"], ["series", "nav.series"], ["semfaq", "faq.kicker"]] : []).map(([g, k]) => `<button type="button" data-go="${g}">${esc(t(k))}</button>`).join("")
     + `<button type="button" class="ask" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>${esc(t("chat.open"))}</button>`;
-  $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : `<a class="tlink" href="${CONFIG.chochamUrl}#${lang}">Chocham AI ↗</a>`);
+  $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : "");
   $$(".navlink").forEach(a => a.href = (CONFIG.site === "chocham" ? CONFIG.mosesUrl : CONFIG.chochamUrl) + "#" + lang);
   $$(".nav [data-view]").forEach(b => b.setAttribute("aria-current", b.dataset.view === view ? "page" : "false"));
   $("#depts").innerHTML = t("depts").map(([c, h, p]) => `<div class="dept"><span class="code">${esc(c)}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
@@ -9106,7 +9108,7 @@ if ("IntersectionObserver" in window) {
     $(".brand[data-home]").href = "#";
   } else {
     const eb = nav.querySelector('[data-view="education"]');
-    eb.outerHTML = `<a class="navlink" href="${CONFIG.chochamUrl}" data-i18n="nav.learn">Learn AI</a>`;
+    eb.remove();
     const sb = $("#savings [data-book]"); sb.removeAttribute("data-book"); sb.setAttribute("data-contact", ""); sb.querySelector("[data-i18n]").dataset.i18n = "mo.go";
   }
 })();

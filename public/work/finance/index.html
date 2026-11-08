@@ -1196,6 +1196,21 @@ html.filing { overflow: hidden; }
 .site-moses .hero3 .h3btn { margin-top: clamp(1.3rem, 2.8vw, 2.1rem); }
 .site-moses .hero3 { padding-block: clamp(1.6rem, 4vh, 3rem); }
 @media (max-width: 760px) { .h4t { font-size: 14.5vw; } .h4t .b { display: block; } }
+
+/* ===== first screen v5 + priority menu ===== */
+.site-moses .hero3 { cursor: default; }
+.h5msg { margin: clamp(1.1rem, 2.6vw, 1.8rem) auto 0; max-width: 22ch; font: 900 clamp(2rem, min(4.6vw, 7.4vh), 4.6rem)/1.02 var(--f-display); letter-spacing: -.04em; color: #FFFFFF; }
+.site-moses .h4w1 { font: 800 clamp(1.15rem, 2vw, 1.6rem)/1.2 var(--f-body); color: #C6F432; letter-spacing: -.01em; max-width: none; }
+.site-moses .h4w2 { margin-top: clamp(.8rem, 1.6vw, 1.1rem); }
+.h5ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem 1rem; margin-top: clamp(1.4rem, 3vw, 2.2rem); }
+.site-moses .hero3 .h3btn { margin-top: 0; font-size: clamp(1.15rem, 2vw, 1.6rem); }
+.h5alt { display: inline-flex; align-items: center; gap: .5rem; border: 2px solid rgba(255,255,255,.75); background: transparent; color: #FFFFFF; border-radius: 999px; padding: 0 clamp(1.3rem, 2.4vw, 2rem); min-height: clamp(56px, 6vw, 76px); font: 800 clamp(1.05rem, 1.8vw, 1.4rem) var(--f-display); cursor: pointer; transition: background .2s, color .2s; }
+.h5alt:hover { background: #FFFFFF; color: #0B2545; }
+.h5link { margin-top: 1rem; border: 0; background: none; color: #BFD9F5; font: 700 1.05rem var(--f-body); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.h5link:hover { color: #FFFFFF; }
+.site-moses .nav .nav-hire { color: #0B2545; background: #EAF5FF; border-radius: 999px; padding-inline: .9rem; font-weight: 800; }
+.site-moses .tabstrip .ask { background: #C6F432 !important; color: #0B2545 !important; }
+@media (max-width: 760px) { .h5ctas { flex-direction: column; align-items: stretch; width: 100%; } .h5alt { justify-content: center; } .site-moses .hero3 .h3btn { justify-content: space-between; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1267,8 +1282,9 @@ body { top: 0 !important; }
   <div class="wrap">
     <a class="brand" href="#" data-home><img class="brand-logo" src="/logo-full.png" alt="Moses Agentic" width="933" height="126"><img class="brand-mark" src="/logo-mark.svg" alt="Moses Agentic" width="600" height="402"><span class="mark">M</span><span class="name" data-brand></span></a>
     <nav class="nav" aria-label="Sections">
-      <button type="button" data-go="services" data-i18n="nav.services">Services</button>
-      <button type="button" data-go="agents" data-i18n="nav.agents">Agents</button>
+      <button type="button" class="nav-hire" data-folder="store" data-i18n="nav.hire">Hire an agent</button>
+      <button type="button" data-custom data-i18n="nav.custom">Custom agent</button>
+      <button type="button" data-folder="ent" data-i18n="nav.services">Services</button>
       <button type="button" data-view="education" data-i18n="nav.edu">Education</button>
       <button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button>
       <button type="button" data-view="industries" data-i18n="nav.ind">Industries</button>
@@ -1282,13 +1298,15 @@ body { top: 0 !important; }
 
 <main data-page="home">
   <!-- First screen: four screen-sized buttons -->
-  <section class="hero3" id="hero3" role="button" tabindex="0" aria-label="Let my people go: open the cabinet">
+  <section class="hero3" id="hero3">
     <div class="sea-half l" aria-hidden="true"><div class="sea"></div></div><div class="sea-half r" aria-hidden="true"><div class="sea"></div></div>
     <div class="wrap">
-      <div class="h4what"><p class="h4w1" data-i18n="h4.w1">AI agents for enterprises and individuals.</p><p class="h4w2" data-i18n="h4.w2">We build them, deploy them, run them, and teach your people to operate them.</p></div>
+      <p class="h4w1" data-i18n="h4.w1">AI agents for enterprises and individuals.</p>
       <h1 class="h4t"><span class="a" data-i18n="camp.a">LET MY PEOPLE</span> <span class="b" data-i18n="camp.b">GO!</span></h1>
-      <p class="h4why" data-i18n="h4.why">AI shouldn&#x27;t replace your people. It should free them from tedious work.</p>
-      <span class="h3btn"><span data-i18n="h3.b">Click here to let my people go</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      <p class="h5msg" data-i18n="h5.msg">AI won&#x27;t take your job. It will take your busywork.</p>
+      <p class="h4w2" data-i18n="h4.w2">We build, deploy and operate AI agents, and teach your people to run them.</p>
+      <div class="h5ctas"><button type="button" class="h3btn" data-folder="store"><span data-i18n="h5.hire">Hire an AI agent</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="h5alt" data-custom><span data-i18n="h5.custom">Build your custom agent</span> <span class="arrow">→</span></button></div>
+      <button type="button" class="h5link" data-contact><span data-i18n="mo.go">Book a free consultation</span> →</button>
     </div>
   </section>
   <section class="cabinet" id="cabinet">
@@ -3165,7 +3183,45 @@ const T = {
    "err_fast": "Please take a moment and try again.",
    "err_wait": "We got your request. Please wait a minute before sending another.",
    "err_captcha": "Please confirm you're human.",
-   "secure": "Protected against spam. We never share your details."
+   "secure": "Protected against spam. We never share your details.",
+   "cust_q": "What should your custom agent do?",
+   "tools_q": "Which systems should it work with?",
+   "tools": [
+    [
+     "email",
+     "Email (Gmail, Outlook)"
+    ],
+    [
+     "qb",
+     "QuickBooks"
+    ],
+    [
+     "sheets",
+     "Excel or Google Sheets"
+    ],
+    [
+     "crm",
+     "CRM"
+    ],
+    [
+     "pm",
+     "Property management (Yardi, AppFolio)"
+    ],
+    [
+     "pay",
+     "Payroll system"
+    ],
+    [
+     "docs",
+     "Documents and file storage"
+    ],
+    [
+     "other",
+     "Something else"
+    ]
+   ],
+   "hire_q": "Hire {name}: how do we reach you?",
+   "last": "Last step"
   },
   "fo.store": "Agent Store",
   "fo.stored": "Ready-made agents you can buy",
@@ -3321,8 +3377,14 @@ const T = {
   "cust.s": "Need an agent built around how your business works? We design it with you, build it and run it.",
   "cust.go": "Customize now!",
   "h4.w1": "AI agents for enterprises and individuals.",
-  "h4.w2": "We build them, deploy them, run them, and teach your people to operate them.",
-  "h4.why": "AI shouldn't replace your people. It should free them from tedious work."
+  "h4.w2": "We build, deploy and operate AI agents, and teach your people to run them.",
+  "h4.why": "AI shouldn't replace your people. It should free them from tedious work.",
+  "h5.msg": "AI won't take your job. It will take your busywork.",
+  "h5.hire": "Hire an AI agent",
+  "h5.custom": "Build your custom agent",
+  "nav.hire": "Hire an agent",
+  "nav.custom": "Custom agent",
+  "nav.learn": "Learn AI"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -4573,7 +4635,45 @@ const T = {
    "err_fast": "ביטע נעמט א מינוט און פרובירט נאכאמאל.",
    "err_wait": "מיר האבן עס באקומען. ביטע ווארט א מינוט פאר איר שיקט נאכאמאל.",
    "err_captcha": "ביטע באשטעטיגט אז איר זענט א מענטש.",
-   "secure": "באשיצט פון ספאם. מיר טיילן קיינמאל נישט אייערע פרטים."
+   "secure": "באשיצט פון ספאם. מיר טיילן קיינמאל נישט אייערע פרטים.",
+   "cust_q": "וואס זאל אייער קאסטעם אגענט טון?",
+   "tools_q": "מיט וועלכע סיסטעמס זאל ער ארבעטן?",
+   "tools": [
+    [
+     "email",
+     "אימעיל (Gmail, Outlook)"
+    ],
+    [
+     "qb",
+     "QuickBooks"
+    ],
+    [
+     "sheets",
+     "Excel אדער Google Sheets"
+    ],
+    [
+     "crm",
+     "CRM"
+    ],
+    [
+     "pm",
+     "פראפערטי מענעדזשמענט (Yardi, AppFolio)"
+    ],
+    [
+     "pay",
+     "פעיראל סיסטעם"
+    ],
+    [
+     "docs",
+     "דאקומענטן און פיילס"
+    ],
+    [
+     "other",
+     "עפעס אנדערש"
+    ]
+   ],
+   "hire_q": "דינגט {name}: ווי אזוי כאפן מיר אייך?",
+   "last": "לעצטער שטאפל"
   },
   "fo.store": "אגענט סטאר",
   "fo.stored": "גרייטע אגענטן וואס מ'קען קויפן",
@@ -4729,8 +4829,14 @@ const T = {
   "cust.s": "דארפט איר אן אגענט וואס איז געבויט פונקט ווי אייער ביזנעס ארבעט? מיר פלאנירן עס מיט אייך, בויען עס און פירן עס.",
   "cust.go": "קאסטעמייזט יעצט!",
   "h4.w1": "AI אגענטן פאר פירמעס און יחידים.",
-  "h4.w2": "מיר בויען זיי, שטעלן זיי איין, פירן זיי, און לערנען אייערע מענטשן זיי צו נוצן.",
-  "h4.why": "AI דארף נישט פארביטן אייערע מענטשן. עס דארף זיי באפרייען פון שווערע, נודנע ארבעט."
+  "h4.w2": "מיר בויען, שטעלן איין און פירן AI אגענטן, און לערנען אייערע מענטשן זיי צו נוצן.",
+  "h4.why": "AI דארף נישט פארביטן אייערע מענטשן. עס דארף זיי באפרייען פון שווערע, נודנע ארבעט.",
+  "h5.msg": "AI וועט נישט צונעמען אייער דזשאב. עס וועט צונעמען די נודנע ארבעט.",
+  "h5.hire": "דינגט אן AI אגענט",
+  "h5.custom": "בויט אייער אייגענעם אגענט",
+  "nav.hire": "דינגט אן אגענט",
+  "nav.custom": "קאסטעם אגענט",
+  "nav.learn": "לערנט AI"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -5981,7 +6087,45 @@ const T = {
    "err_fast": "קחו רגע ונסו שוב.",
    "err_wait": "קיבלנו את הבקשה. המתינו דקה לפני ששולחים שוב.",
    "err_captcha": "אשרו שאתם בני אדם.",
-   "secure": "מוגן מפני ספאם. לעולם לא נשתף את הפרטים שלכם."
+   "secure": "מוגן מפני ספאם. לעולם לא נשתף את הפרטים שלכם.",
+   "cust_q": "מה הסוכן שלכם צריך לעשות?",
+   "tools_q": "עם אילו מערכות הוא צריך לעבוד?",
+   "tools": [
+    [
+     "email",
+     "אימייל (Gmail, Outlook)"
+    ],
+    [
+     "qb",
+     "QuickBooks"
+    ],
+    [
+     "sheets",
+     "Excel או Google Sheets"
+    ],
+    [
+     "crm",
+     "CRM"
+    ],
+    [
+     "pm",
+     "ניהול נכסים (Yardi, AppFolio)"
+    ],
+    [
+     "pay",
+     "מערכת שכר"
+    ],
+    [
+     "docs",
+     "מסמכים ואחסון קבצים"
+    ],
+    [
+     "other",
+     "משהו אחר"
+    ]
+   ],
+   "hire_q": "גיוס {name}: איך ניצור איתכם קשר?",
+   "last": "שלב אחרון"
   },
   "fo.store": "חנות הסוכנים",
   "fo.stored": "סוכנים מוכנים לרכישה",
@@ -6137,8 +6281,14 @@ const T = {
   "cust.s": "צריכים סוכן שנבנה בדיוק לפי איך שהעסק שלכם עובד? אנחנו מתכננים אותו איתכם, בונים ומפעילים.",
   "cust.go": "התאימו עכשיו!",
   "h4.w1": "סוכני AI לארגונים וליחידים.",
-  "h4.w2": "אנחנו בונים, מטמיעים ומפעילים אותם, ומלמדים את האנשים שלכם להפעיל אותם.",
-  "h4.why": "ה-AI לא צריך להחליף את האנשים שלכם. הוא צריך לשחרר אותם מעבודה מייגעת."
+  "h4.w2": "אנחנו בונים, מטמיעים ומפעילים סוכני AI, ומלמדים את האנשים שלכם להפעיל אותם.",
+  "h4.why": "ה-AI לא צריך להחליף את האנשים שלכם. הוא צריך לשחרר אותם מעבודה מייגעת.",
+  "h5.msg": "ה-AI לא ייקח לכם את העבודה. הוא ייקח לכם את העבודה השחורה.",
+  "h5.hire": "גייסו סוכן AI",
+  "h5.custom": "בנו סוכן משלכם",
+  "nav.hire": "גיוס סוכן",
+  "nav.custom": "סוכן מותאם",
+  "nav.learn": "ללמוד AI"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -7389,7 +7539,45 @@ const T = {
    "err_fast": "Tómese un momento e inténtelo de nuevo.",
    "err_wait": "Recibimos su solicitud. Espere un minuto antes de enviar otra.",
    "err_captcha": "Confirme que es una persona.",
-   "secure": "Protegido contra spam. Nunca compartimos sus datos."
+   "secure": "Protegido contra spam. Nunca compartimos sus datos.",
+   "cust_q": "¿Qué debe hacer su agente a medida?",
+   "tools_q": "¿Con qué sistemas debe trabajar?",
+   "tools": [
+    [
+     "email",
+     "Correo (Gmail, Outlook)"
+    ],
+    [
+     "qb",
+     "QuickBooks"
+    ],
+    [
+     "sheets",
+     "Excel o Google Sheets"
+    ],
+    [
+     "crm",
+     "CRM"
+    ],
+    [
+     "pm",
+     "Gestión de propiedades (Yardi, AppFolio)"
+    ],
+    [
+     "pay",
+     "Sistema de nómina"
+    ],
+    [
+     "docs",
+     "Documentos y archivos"
+    ],
+    [
+     "other",
+     "Otra cosa"
+    ]
+   ],
+   "hire_q": "Contratar {name}: ¿cómo lo contactamos?",
+   "last": "Último paso"
   },
   "fo.store": "Tienda de agentes",
   "fo.stored": "Agentes listos para comprar",
@@ -7545,8 +7733,14 @@ const T = {
   "cust.s": "¿Necesita un agente hecho a la medida de su negocio? Lo diseñamos con usted, lo creamos y lo operamos.",
   "cust.go": "¡Personalícelo ahora!",
   "h4.w1": "Agentes de IA para empresas y particulares.",
-  "h4.w2": "Los creamos, los implementamos, los operamos y enseñamos a su gente a manejarlos.",
-  "h4.why": "La IA no debería reemplazar a su gente. Debería liberarla del trabajo tedioso."
+  "h4.w2": "Creamos, implementamos y operamos agentes de IA, y enseñamos a su gente a manejarlos.",
+  "h4.why": "La IA no debería reemplazar a su gente. Debería liberarla del trabajo tedioso.",
+  "h5.msg": "La IA no le quitará su empleo. Le quitará el trabajo pesado.",
+  "h5.hire": "Contrate un agente de IA",
+  "h5.custom": "Cree su agente a medida",
+  "nav.hire": "Contratar un agente",
+  "nav.custom": "Agente a medida",
+  "nav.learn": "Aprenda IA"
  }
 };
 
@@ -7799,8 +7993,9 @@ function render() {
   $("#chipcloud").innerHTML = t("inds").slice(0, 7).map(n => `<span>${esc(n)}</span>`).join("");
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);
   $$(".bigstat, .bigstat-l, .bigline").forEach(el => el.hidden = !CONFIG.pagesExample);
-  $("#tabstrip").innerHTML = (CONFIG.site === "chocham" ? [["education", "nav.home"]] : [["home", "nav.home"], ["cases", "nav.cases"], ["industries", "nav.ind"]]).map(([v, k]) => `<button type="button" data-view="${v}" aria-current="${view === v ? "page" : "false"}">${esc(t(k))}</button>`).join("")
-    + (CONFIG.site === "chocham" ? [["seminar", "nav.seminar"], ["dates", "nav.dates"], ["series", "nav.series"], ["semfaq", "faq.kicker"]] : [["services", "nav.services"], ["agents", "nav.agents"]]).map(([g, k]) => `<button type="button" data-go="${g}">${esc(t(k))}</button>`).join("")
+  $("#tabstrip").innerHTML = (CONFIG.site === "chocham" ? [["education", "nav.home"]] : []).map(([v, k]) => `<button type="button" data-view="${v}" aria-current="${view === v ? "page" : "false"}">${esc(t(k))}</button>`).join("")
+    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="ask" data-folder="store">${esc(t("nav.hire"))}</button><button type="button" data-custom>${esc(t("nav.custom"))}</button><button type="button" data-folder="ent">${esc(t("nav.services"))}</button><button type="button" data-view="cases">${esc(t("nav.cases"))}</button><button type="button" data-view="industries">${esc(t("nav.ind"))}</button>`)
+    + (CONFIG.site === "chocham" ? [["seminar", "nav.seminar"], ["dates", "nav.dates"], ["series", "nav.series"], ["semfaq", "faq.kicker"]] : []).map(([g, k]) => `<button type="button" data-go="${g}">${esc(t(k))}</button>`).join("")
     + `<button type="button" class="ask" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>${esc(t("chat.open"))}</button>`;
   $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : `<a class="tlink" href="${CONFIG.chochamUrl}#${lang}">Chocham AI ↗</a>`);
   $$(".navlink").forEach(a => a.href = (CONFIG.site === "chocham" ? CONFIG.mosesUrl : CONFIG.chochamUrl) + "#" + lang);
@@ -8287,7 +8482,7 @@ if ("IntersectionObserver" in window) {
     $(".brand[data-home]").href = "#";
   } else {
     const eb = nav.querySelector('[data-view="education"]');
-    eb.outerHTML = `<a class="navlink" href="${CONFIG.chochamUrl}">Chocham AI ↗</a>`;
+    eb.outerHTML = `<a class="navlink" href="${CONFIG.chochamUrl}" data-i18n="nav.learn">Learn AI</a>`;
     const sb = $("#savings [data-book]"); sb.removeAttribute("data-book"); sb.setAttribute("data-contact", ""); sb.querySelector("[data-i18n]").dataset.i18n = "mo.go";
   }
 })();
@@ -8400,7 +8595,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     setTimeout(() => { hero.classList.add("parted"); hero.classList.remove("parting"); hero.removeAttribute("style"); }, reduce ? 30 : 1300);
     try { track("part_the_sea"); } catch (e) {}
   }
-  if (hero) hero.addEventListener("click", partSea);
+  /* the sea no longer parts on click; the cabinet sits right below */
   document.addEventListener("click", e => { if (e.target.closest("[data-home]") && hero) hero.classList.remove("parted", "parting"); });
 })();
 </script>
@@ -8417,14 +8612,15 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
   const inp = (key, title, type, max, ac) => `<label><span>${esc(title)}</span><input data-qi="${key}" type="${type}" maxlength="${max}" autocomplete="${ac}" value="${esc(st[key])}"></label>`;
   function body(q) {
     if (st.step === 1) return `<h3 class="qh">${esc(q.who_q)}</h3><div class="qwho">${q.who.map(([c, tx]) => chip("who", c, tx, st.who === c)).join("")}</div>`;
-    if (st.step === 2) return `<h3 class="qh">${esc(q["need_q_" + (st.who || "biz")])}</h3><p class="qhint">${esc(q.need_hint)}</p><div class="qchips">${needList(q).map(([c, tx]) => chip("needs", c, tx, st.needs.includes(c))).join("")}</div>`;
+    if (st.step === 2) return `<h3 class="qh">${esc(st.mode === "custom" ? q.cust_q : q["need_q_" + (st.who || "biz")])}</h3><p class="qhint">${esc(q.need_hint)}</p><div class="qchips">${needList(q).map(([c, tx]) => chip("needs", c, tx, st.needs.includes(c))).join("")}</div>`;
     if (st.step === 3) {
       const f = st.who === "me" ? [sel("how", q.how, q.hows), sel("when", q.when, q.whens)]
         : st.who === "team" ? [sel("industry", q.industry, q.industries), sel("size", q.size, q.sizes), sel("when", q.when, q.whens)]
         : [sel("industry", q.industry, q.industries), sel("size", q.size, q.sizes), sel("how", q.how, q.hows), sel("when", q.when, q.whens)];
+      if (st.mode === "custom") return `<h3 class="qh">${esc(q.tools_q)}</h3><div class="qchips">${q.tools.map(([c, tx]) => chip("tools", c, tx, (st.tools || []).includes(c))).join("")}</div><div class="qgrid">${[sel("industry", q.industry, q.industries), sel("size", q.size, q.sizes), sel("when", q.when, q.whens)].join("")}</div>`;
       return `<h3 class="qh">${esc(q.about_q)}</h3><div class="qgrid">${f.join("")}</div>`;
     }
-    return `<h3 class="qh">${esc(q.contact_q)}</h3><div class="qgrid">${inp("name", q.name, "text", 80, "name")}${inp("company", q.company, "text", 100, "organization")}${inp("phone", q.phone, "tel", 25, "tel")}${inp("email", q.email, "email", 120, "email")}</div>
+    return `<h3 class="qh">${esc(st.mode === "hire" ? q.hire_q.replace("{name}", hireName()) : q.contact_q)}</h3><div class="qgrid">${inp("name", q.name, "text", 80, "name")}${inp("company", q.company, "text", 100, "organization")}${inp("phone", q.phone, "tel", 25, "tel")}${inp("email", q.email, "email", 120, "email")}</div>
       <div class="qsub">${esc(q.pref)}</div><div class="qchips">${q.prefs.map(([c, tx]) => chip("pref", c, tx, st.pref === c)).join("")}</div>
       <div class="qgrid one">${sel("time", q.time, q.times)}</div>
       <label class="qnote"><span>${esc(q.note)}</span><textarea data-qi="note" maxlength="1000" rows="3">${esc(st.note)}</textarea></label>`;
@@ -8439,8 +8635,8 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
       box.innerHTML = `<form id="qform" class="q" novalidate autocomplete="on"><div id="qwrap"></div><div class="qhp" aria-hidden="true"><label>Website<input type="text" name="website" id="q-hp" tabindex="-1" autocomplete="off"></label></div><textarea id="c-msg" hidden></textarea><div id="qcap" hidden><div class="h-captcha" data-captcha="true"></div></div><div class="qfoot"><p class="qerr" id="qerr" role="alert" hidden></p><div class="qnav"><button type="button" class="qback" id="qback"></button><button type="submit" class="btn aqua big" id="qnext"></button></div><p class="qsec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span id="qsec"></span></p></div></form>`;
       wrap = $("#qwrap");
     }
-    wrap.innerHTML = `<div class="qprog" aria-hidden="true">${[1, 2, 3, 4].map(n => `<i class="${n <= st.step ? "on" : ""}"></i>`).join("")}</div><div class="qstep">${esc(t("q").step.replace("{n}", st.step).replace("{total}", 4))}</div>${body(q)}`;
-    $("#qback").textContent = q.back; $("#qback").hidden = st.step === 1;
+    wrap.innerHTML = `<div class="qprog" aria-hidden="true">${[1, 2, 3, 4].map(n => `<i class="${n <= st.step ? "on" : ""}"></i>`).join("")}</div><div class="qstep">${esc(st.mode === "hire" ? t("q").last : t("q").step.replace("{n}", st.step).replace("{total}", 4))}</div>${body(q)}`;
+    $("#qback").textContent = q.back; $("#qback").hidden = st.step === 1 || st.mode === "hire" || (st.mode === "custom" && st.step === 2);
     $("#qnext").innerHTML = esc(st.step === 4 ? q.send : q.next) + ' <span class="arrow">→</span>';
     $("#qsec").textContent = q.secure;
     const cap = $("#qcap"); cap.hidden = !(st.step === 4 && CONFIG.web3formsKey);
@@ -8449,13 +8645,21 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
   }
   function prefill(msg) {
     const m = String(msg || "");
-    st.src = m;
+    st.src = m; st.mode = ""; st.hire = "";
+    const hm = m.match(/^Agent Store: (.+)$/);
+    if (hm && !/suggest/i.test(hm[1])) { st.mode = "hire"; st.hire = hm[1]; st.who = "biz"; st.step = 4; st.err = ""; draw(); return; }
+    if (/^Custom agent$/i.test(m)) { st.mode = "custom"; st.who = "biz"; st.step = 2; st.err = ""; draw(); return; }
     if (/personal/i.test(m)) st.who = "me";
     else if (/team workshop|train my team/i.test(m)) st.who = "team";
     else if (m) st.who = st.who || "biz";
     if (st.who && st.step === 1) st.step = 2;
     if (/agent/i.test(m) && !st.note) st.note = m;
     st.err = ""; draw();
+  }
+  function hireName() {
+    const all = ["exec", "spec"].flatMap(k => (T.en["store." + k] || []).map((x, i) => [k, i, x[1]]));
+    const f = all.find(x => x[2] === st.hire); if (!f) return st.hire;
+    const loc = t("store." + f[0]); return (loc && loc[f[1]]) ? loc[f[1]][1] : st.hire;
   }
   function fail(k) { st.err = Q()[k]; draw(); const e = $("#qerr"); if (e) e.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
   function next() {
@@ -8478,7 +8682,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     if (CONFIG.web3formsKey && window.hcaptcha) { const tk = $('#qcap [name="h-captcha-response"]'); token = tk ? tk.value : ""; if (!token) return fail("err_captcha"); }
     const site = CONFIG.site === "chocham" ? "Chocham AI" : "Moses Agentic";
     const needsEn = st.needs.map(c => label(st.who === "me" ? en.needs_me : st.who === "team" ? en.needs_team : en.needs_biz, c));
-    const rows = [["For", label(en.who, st.who)], ["Needs", needsEn.join(", ")], ["Industry", label(en.industries, st.industry)], ["Team size", st.size ? en.sizes[+st.size] : ""], ["How", st.how ? en.hows[+st.how] : ""], ["Start", st.when ? en.whens[+st.when] : ""], ["Reach by", label(en.prefs, st.pref)], ["Best time", st.time ? en.times[+st.time] : ""], ["Came from", st.src], ["Note", st.note.trim()]].filter(r => r[1]);
+    const rows = [["Path", st.mode === "hire" ? "Hire: " + st.hire : st.mode === "custom" ? "Custom agent" : ""], ["Systems", (st.tools || []).map(c => label(en.tools, c)).join(", ")], ["For", label(en.who, st.who)], ["Needs", needsEn.join(", ")], ["Industry", label(en.industries, st.industry)], ["Team size", st.size ? en.sizes[+st.size] : ""], ["How", st.how ? en.hows[+st.how] : ""], ["Start", st.when ? en.whens[+st.when] : ""], ["Reach by", label(en.prefs, st.pref)], ["Best time", st.time ? en.times[+st.time] : ""], ["Came from", st.src], ["Note", st.note.trim()]].filter(r => r[1]);
     const data = { name: st.name, company: st.company.trim(), phone: st.phone, email: st.email, message: rows.map(r => r[0] + ": " + r[1]).join("\n"), language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
     const btn = $("#qnext"); if (btn) btn.disabled = true;
     try {
@@ -8494,10 +8698,12 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     origDraw(true); try { shake(); } catch (e) {} track("generate_lead", { form: "questionnaire", who: st.who });
   }
   drawConsult = draw;
+  document.addEventListener("click", e => { if (e.target.closest("[data-custom]")) { e.preventDefault(); goConsult("Custom agent"); } }, true);
   goConsult = msg => { prefill(msg); origGo(""); };
   document.addEventListener("click", e => {
     const c = e.target.closest(".qchip"); if (c && c.closest("#qform")) {
       const g = c.dataset.q, v = c.dataset.v;
+      if (g === "tools") { st.tools = (st.tools || []).includes(v) ? st.tools.filter(x => x !== v) : (st.tools || []).concat(v); st.err = ""; draw(); return; }
       if (g === "needs") st.needs = st.needs.includes(v) ? st.needs.filter(x => x !== v) : st.needs.concat(v);
       else if (g === "who") { if (st.who !== v) st.needs = []; st.who = v; st.err = ""; draw(); setTimeout(next, 180); return; }
       else st[g] = v;

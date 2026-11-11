@@ -1517,6 +1517,17 @@ html.filing { overflow: hidden; }
 .tr-mods { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.14); }
 .mods { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .7rem; }
 .mods span { border: 1px solid rgba(255,255,255,.28); color: #FFFFFF; border-radius: 999px; padding: .4rem .8rem; font: 600 .92rem var(--f-body); }
+
+.gban { display: grid; gap: 8px; height: clamp(150px, 22vw, 260px); border-radius: 22px; overflow: hidden; margin-bottom: 1.2rem; }
+.gban img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+.gban:hover img { transform: scale(1.04); }
+@media (max-width: 640px) { .gban { grid-template-columns: 1fr 1fr !important; } .gban img:nth-child(n+3) { display: none; } }
+.pph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.ptile:hover .pph img { transform: scale(1.06); }
+.vph img { filter: saturate(1.05); }
+.vph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,37,69,0) 55%, rgba(11,37,69,.35) 100%); pointer-events: none; }
+.vhero { z-index: 1; }
+.phero { min-height: clamp(260px, 34vw, 400px); align-content: end; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -10205,7 +10216,7 @@ function render() {
   $("#stops").innerHTML = t("stop").map(([was, now], i) => `<button type="button" class="stoprow" data-stop="${i}" data-fx><span>${was ? `<s>${esc(was)}</s>` : ""}<b>${esc(now)}</b></span><span class="go2">${ARROW}</span></button>`).join("");
   document.querySelectorAll(".trstrip").forEach(el => { el.innerHTML = `<div class="tr-k">${esc(t("tr.k"))}</div><div class="tr-row">${(t("tr.list") || []).map(([n, l]) => `<div class="tr-i"><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join("")}</div>`; });
   document.querySelectorAll(".trstrip").forEach(el => el.insertAdjacentHTML("beforeend", `<div class="tr-mods"><div class="tr-k">${esc(t("mod.k"))}</div><div class="mods">${(t("mod.list") || []).map(m => `<span>${esc(m)}</span>`).join("")}</div></div>`));
-  { const cg = document.getElementById("chcgrid"); if (cg) cg.innerHTML = [["cre", [14, 15, 16, 8, 17]], ["hc", [18, 20, 21, 23, 22, 24, 0, 11]], ["fin", [13, 9, 2, 4]], ["ops", [1, 3, 6, 5]], ["mkt", [7]], ["web", [12]]].map(([k, ids]) => `<section class="cgroup"><div class="cgroup-h"><h2>${esc(prName(k))}</h2></div><div class="chcgrid">${ids.map(i => caseCard(i)).join("")}</div></section>`).join(""); const cm = document.getElementById("chcmore"); if (cm) cm.href = CONFIG.mosesUrl + "case-studies/#" + lang; }
+  { const cg = document.getElementById("chcgrid"); if (cg) cg.innerHTML = [["cre", [14, 15, 16, 8, 17]], ["hc", [18, 20, 21, 23, 22, 24, 0, 11]], ["fin", [13, 9, 2, 4]], ["ops", [1, 3, 6, 5]], ["mkt", [7]], ["web", [12]]].map(([k, ids]) => `<section class="cgroup">${gBanner(k)}<div class="cgroup-h"><h2>${esc(prName(k))}</h2></div><div class="chcgrid">${ids.map(i => caseCard(i)).join("")}</div></section>`).join(""); const cm = document.getElementById("chcmore"); if (cm) cm.href = CONFIG.mosesUrl + "case-studies/#" + lang; }
   { const vg = document.getElementById("valgrid"); if (vg) vg.innerHTML = (t("val.list") || []).map(([h, p], i) => `<div class="valc"><span class="valn">${String(i + 1).padStart(2, "0")}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join(""); }
   $("#pillars").innerHTML = t("ov").map(([h, pts], i) => `<details class="ovi"${i === 0 ? " open" : ""}><summary><span class="ovn">${i + 1}</span><span class="ovh">${esc(h)}</span><span class="ovp" aria-hidden="true"></span></summary><ul>${pts.map(x => `<li>${esc(x)}</li>`).join("")}</ul><button type="button" class="ovd" data-go="series">${esc(i === 0 ? t("deep1") : t("deep", { n: i + 1 }))} →</button></details>`).join("");
   $("#cases").innerHTML = [13, 15, 0].map(i => caseCard(i)).join("");
@@ -10284,7 +10295,16 @@ function chartFor(i, rows = 4) {
 }
 const HERO = ["+$254K", "$50.7K", "1.8 yrs", "62 → 1", "+$75K", "62%", "$48.4K", "401", "$B+", "Forensic", "Automated", "", "Days"];
 function sceneFor(k) { return SCENES[k] || SCENES[SCENES_ALIAS[k]] || SCENES.ops; }
+
+const PHOTO_MAP = {0:288149951,1:326751528,2:404512419,3:234092114,4:659218843,5:241614807,6:171284072,7:148012864,8:228081211,9:427907994,10:274379069,11:274060531,12:334664086,13:248739773,14:176932444,15:286096322,16:129778887,17:316758933,18:175820761,20:1033227534,21:1249441533,22:372856274,23:578107345,24:1249145931};
+const IND_PHOTOS = { cre: [128699161, 286096322, 665479953, 703456915], hc: [274379069, 1249441533, 175820761], fin: [248739773, 427907994, 659218843], ops: [326751528, 1033227534, 171284072], mkt: [148012864, 241614807], web: [372856274, 334664086] };
+const TILE_PHOTO = { cre: 128699161, hc: 274379069, fin: 248739773, ops: 326751528, mkt: 148012864, web: 372856274 };
+const HERO_PHOTO = { cre: 703456915, hc: 288149951, fin: 228081211, ops: 171284072, mkt: 241614807, web: 334664086 };
+const phSrc = id => "/photos/" + id + ".jpg";
+function gBanner(k) { const p = IND_PHOTOS[k]; return p ? `<div class="gban" style="grid-template-columns: 2fr repeat(${p.length - 1}, 1fr)">${p.map(id => `<img src="${phSrc(id)}" alt="" loading="lazy">`).join("")}</div>` : ""; }
+function pheroBg(k) { return HERO_PHOTO[k] ? `background-image: linear-gradient(100deg, rgba(11,37,69,.92) 0%, rgba(11,37,69,.72) 45%, rgba(26,115,232,.25) 100%), url(${phSrc(HERO_PHOTO[k])}); background-size: cover; background-position: center;` : ""; }
 function photoFor(i) {
+  if (!CASE_PHOTOS[i] && PHOTO_MAP[i]) CASE_PHOTOS[i] = phSrc(PHOTO_MAP[i]);
   return (CASE_PHOTOS[i] ? `<img src="${esc(CASE_PHOTOS[i])}" alt="" loading="lazy">` : `<span class="vscene${i % 2 ? " flip" : ""}">${sceneFor(CASE_IND[i][0])}</span>`) + `${HERO[i] ? `<span class="vhero">${esc(HERO[i])}</span>` : ""}`;
 }
 function indName(i) { return prName(CASE_IND[i][0]); }
@@ -10293,16 +10313,16 @@ function renderCases() {
   const inds = t("cs.inds"), all = csFilter === "all";
   $("#cfilters").innerHTML = inds.map(([k, n]) => `<button type="button" data-cf="${k}" aria-pressed="${k === csFilter}">${esc(n)}</button>`).join("");
   $("#cv-feature").innerHTML = all ? caseCard(8, true)
-    : `<div class="phero rise"><div class="eyebrow">${esc(t("pr.eyebrow"))}</div><h2>${esc(t("pr.hero", { x: prName(csFilter) }))}</h2><p>${esc(prLine(csFilter))}</p><button type="button" class="btn big" data-contact data-msgtext="${esc(t("pr.cta", { x: prName(csFilter) }))}" data-fx>${esc(t("pr.cta", { x: prName(csFilter) }))} <span class="arrow">→</span></button></div>`;
+    : `<div class="phero rise" style="${pheroBg(csFilter)}"><div class="eyebrow">${esc(t("pr.eyebrow"))}</div><h2>${esc(t("pr.hero", { x: prName(csFilter) }))}</h2><p>${esc(prLine(csFilter))}</p><button type="button" class="btn big" data-contact data-msgtext="${esc(t("pr.cta", { x: prName(csFilter) }))}" data-fx>${esc(t("pr.cta", { x: prName(csFilter) }))} <span class="arrow">→</span></button></div>`;
   const count = k => CASE_IND.filter(x => x.includes(k)).length;
   $("#cv-groups").innerHTML = inds.filter(([k]) => k !== "all" && (all || k === csFilter)).map(([k, n]) => {
     const ids = CASE_IND.map((x, i) => x.includes(k) ? i : -1).filter(i => i >= 0).sort((p, q) => (CASE_FIRST.indexOf(p) + 1 || 99) - (CASE_FIRST.indexOf(q) + 1 || 99));
-    return ids.length ? `<section class="cgroup"><div class="cgroup-h"><h2>${esc(n)}</h2><span>${esc(count(k) === 1 ? t("cs.count1") : t("cs.count", { n: count(k) }))}</span></div><div class="cgrid">${ids.map(i => caseCard(i)).join("")}</div></section>` : "";
+    return ids.length ? `<section class="cgroup">${gBanner(k)}<div class="cgroup-h"><h2>${esc(n)}</h2><span>${esc(count(k) === 1 ? t("cs.count1") : t("cs.count", { n: count(k) }))}</span></div><div class="cgrid">${ids.map(i => caseCard(i)).join("")}</div></section>` : "";
   }).join("");
 }
 function renderPractices() {
   const el = $("#ptiles"); if (!el) return;
-  el.innerHTML = Object.keys(PRACTICES).map(k => `<button type="button" class="ptile rise" data-practice="${k}" data-fx><span class="pph">${sceneFor(k)}</span><span class="pbody"><b>${esc(prName(k))}</b><span class="pl">${esc(prLine(k))}</span><span class="pgo2">${esc(t("pr.see", { x: prName(k) }))} →</span></span></button>`).join("");
+  el.innerHTML = Object.keys(PRACTICES).map(k => `<button type="button" class="ptile rise" data-practice="${k}" data-fx><span class="pph">${TILE_PHOTO[k] ? `<img src="${phSrc(TILE_PHOTO[k])}" alt="" loading="lazy">` : sceneFor(k)}</span><span class="pbody"><b>${esc(prName(k))}</b><span class="pl">${esc(prLine(k))}</span><span class="pgo2">${esc(t("pr.see", { x: prName(k) }))} →</span></span></button>`).join("");
 }
 function openPractice(k, write = true) {
   const P = PRACTICES[k];

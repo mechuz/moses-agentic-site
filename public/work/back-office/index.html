@@ -1455,6 +1455,14 @@ html.filing #overlay:not([hidden]) { z-index: 1100; }
 .site-moses .s-ind .fintro .camp-h, .site-moses .s-ind .fintro .camp-h span, .site-moses .s-ind .fintro .camp-h2, .site-moses .s-ind .fintro .fp { color: #FFFFFF !important; }
 .site-moses .s-ind .fintro .camp-h .camp-b { color: #C6F432 !important; }
 @media (max-width: 760px) { .site-moses .s-ent .fintro { background: linear-gradient(180deg, rgba(11,37,69,.78) 0%, rgba(11,37,69,.92) 100%), url(/photos/303492268.jpg) center / cover no-repeat !important; } }
+
+/* ===== Industries: photo cards ===== */
+.site-moses .icard { grid-template-columns: minmax(0, 1fr) auto !important; grid-template-rows: auto auto; padding: 0 0 1.3rem !important; align-items: center; background: #FFFFFF; box-shadow: 0 12px 30px -20px rgba(11,37,69,.45); }
+.site-moses .icard .iph { grid-column: 1 / -1; display: block; aspect-ratio: 16 / 7; overflow: hidden; margin-bottom: .2rem; }
+.site-moses .icard .iph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.site-moses .icard:hover .iph img { transform: scale(1.05); }
+.site-moses .icard > span:not(.iph):not(.go2) { padding-inline-start: 1.5rem; }
+.site-moses .icard .go2 { margin-inline-end: 1.3rem; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -10187,7 +10195,7 @@ function render() {
   $("#cases").innerHTML = [13, 15, 0].map(i => caseCard(i)).join("");
   renderCases();
   renderPractices();
-  $("#igrid").innerHTML = t("inds").map((n, i) => `<button type="button" class="icard" data-ind="${i}" data-fx><span><b>${esc(n)}</b><span class="l">${esc(t("ind.lines")[i])}</span></span><span class="go2">${ARROW}</span></button>`).join("");
+  $("#igrid").innerHTML = t("inds").map((n, i) => `<button type="button" class="icard" data-ind="${i}" data-fx>${CONFIG.site === "moses" ? `<span class="iph"><img src="/photos/${[286096322, 255623940, 112326694, 659218843, 703456915, 453762991, 320595902, 129778887, 326508468, 405695461][i]}.jpg" alt="" loading="lazy"></span>` : ""}<span><b>${esc(n)}</b><span class="l">${esc(t("ind.lines")[i])}</span></span><span class="go2">${ARROW}</span></button>`).join("");
   $("#ulines").innerHTML = t("urg.lines").map(([b, d]) => `<li class="rise"><b>${esc(b)}</b><span>${esc(d)}</span></li>`).join("");
   $("#chipcloud").innerHTML = t("inds").slice(0, 7).map(n => `<span>${esc(n)}</span>`).join("");
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Manager View · Woodmere Lanes</title>
+<meta name="description" content="Back-office preview for Woodmere Lanes: bookings, lane occupancy, ticket sales, party pipeline and lane orders.">
+<meta name="theme-color" content="#07070D">
+<meta name="robots" content="noindex,nofollow">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="topbar gutter">
+  <nav class="wrap nav" aria-label="Site">
+    <a class="brand" href="index.html" aria-label="Woodmere Lanes home"><span class="mark"><img src="img/logo.svg" alt="" width="22" height="22"></span><span class="name">WOODMERE LANES<small>FIVE TOWNS · NY</small></span></a>
+    <ul><li><a href="lanes.html">Lanes</a></li><li><a href="menu.html">Menu</a></li><li><a href="events.html">Events</a></li><li><a href="parties.html">Parties</a></li><li><a href="catering.html">Catering</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html">Gift cards</a></li><li><a href="visit.html">Visit</a></li></ul>
+    <div class="right"><span class="status"><i></i><span>Checking hours…</span></span><a class="btn btn-neon" href="lanes.html">Book a lane</a><button class="nav-menu-btn" type="button" id="mnavBtn" aria-expanded="false" aria-controls="mnav">Menu</button></div>
+    <div class="mnav" id="mnav" hidden><a href="index.html">Home</a><a href="lanes.html">Lanes</a><a href="menu.html">Menu</a><a href="events.html">Events</a><a href="parties.html">Parties</a><a href="catering.html">Catering</a><a href="leagues.html">Leagues</a><a href="gift-cards.html">Gift cards</a><a href="visit.html">Visit</a><a class="hot" href="lanes.html">Book a lane</a></div>
+  </nav>
+</header>
+<main>
+
+<section class="page-head gutter" style="--ph:rgba(34,240,255,.25)"><div class="wrap"><p class="eyebrow m">Manager view · preview</p><h1>Tonight, at a glance.</h1><p>This is the back office that comes with the site. Bookings, lane occupancy, ticket sales, party requests and lane orders in one screen, on any phone. Numbers below are sample data.</p></div></section>
+<section class="section gutter"><div class="wrap" style="display:grid;gap:18px">
+  <div class="kpis"><div class="kpi"><b>41</b><span>Lane bookings today</span><small>+12 vs last Sunday</small></div><div class="kpi"><b>$6,480</b><span>Online revenue today</span><small>Lanes, food, tickets</small></div><div class="kpi"><b>218</b><span>Tickets sold · Neon Nights</span><small>87% of capacity</small></div><div class="kpi"><b>7</b><span>Party requests this week</span><small>3 deposits taken</small></div></div>
+  <div class="grid2">
+    <div class="card"><span class="tag c">Lane occupancy · this week</span><h3>When the room fills.</h3><div class="heat" id="heat"></div><p class="fine">Each cell is lanes in use out of 16. Hours run from 11 AM to midnight.</p></div>
+    <div class="card"><span class="tag l">Ticket sales</span><h3>What's selling.</h3><div class="bars">
+      <div class="bar"><span>Neon Nights</span><i style="width:87%"></i><span>218</span></div><div class="bar c"><span>Live Thursday</span><i style="width:62%"></i><span>124</span></div><div class="bar l"><span>Eight Nights</span><i style="width:71%"></i><span>1,420</span></div><div class="bar c"><span>Comedy</span><i style="width:40%"></i><span>80</span></div><div class="bar"><span>Blackout NYE</span><i style="width:95%"></i><span>380</span></div></div>
+      <p class="fine">Lane bundles attached to 64% of tickets. Average ticket order $71.</p></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><span class="tag m">Party pipeline</span><h3>Requests and deposits.</h3><div class="scroll"><table class="t"><tr><th>Date</th><th>Type</th><th>Guests</th><th>Status</th></tr><tr><td>Sun Dec 14</td><td>Bar Mitzvah · Suite</td><td>90</td><td style="color:var(--lime)">Deposit paid</td></tr><tr><td>Mon Dec 15</td><td>Corporate · Lane Party</td><td>24</td><td style="color:var(--lime)">Deposit paid</td></tr><tr><td>Sun Dec 21</td><td>Birthday · Lane Party</td><td>14</td><td style="color:var(--cyan)">Quote sent</td></tr><tr><td>Thu Jan 8</td><td>Sheva Brachos · Suite</td><td>60</td><td style="color:var(--cyan)">Quote sent</td></tr><tr><td>Sun Jan 11</td><td>School trip · Lane Party</td><td>48</td><td style="color:var(--magenta)">New</td></tr><tr><td>Sat Jan 17</td><td>Fundraiser · Buyout</td><td>220</td><td style="color:var(--magenta)">New</td></tr></table></div></div>
+    <div class="card"><span class="tag c">Lane orders · live</span><h3>The kitchen feed.</h3><div class="feed">
+      <div><time>7:42 PM</time><span>Lane 7 · 2× Wings dozen, Pastrami fries</span><span class="amt">$60</span></div><div><time>7:41 PM</time><span>Lane 3 · Kids hot dog ×3, Slushie ×3</span><span class="amt">$51</span></div><div><time>7:39 PM</time><span>Pickup 8:00 · Party platter</span><span class="amt">$110</span></div><div><time>7:36 PM</time><span>Lane 12 · Smash burger ×2, Fries ×2, Soda ×2</span><span class="amt">$58</span></div><div><time>7:33 PM</time><span>Table S2 · Bucket of six, Nosh board</span><span class="amt">$80</span></div></div>
+      <p class="fine">Average lane order $54. Average kitchen time 11 minutes.</p></div>
+  </div>
+  <div class="preview-note">Preview only. In the real build this screen is behind a staff login and pulls live from the booking, ticketing and ordering systems. Managers get it on their phone; the kitchen gets the order feed on a screen at the pass.</div>
+</div></section>
+
+</main>
+<footer class="footer gutter">
+  <div class="wrap">
+    <div class="cols">
+      <div><p class="addr"><b>WOODMERE LANES</b><br>948 Broadway<br>Woodmere, NY 11598<br>Steps from the Woodmere LIRR station · free parking in the rear lot</p>
+        <p style="margin-top:14px"><span class="status"><i></i><span>Checking hours…</span></span></p></div>
+      <div><h4>Do</h4><ul><li><a href="lanes.html">Book a lane</a></li><li><a href="events.html">What's on</a></li><li><a href="parties.html">Parties &amp; events</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html">Gift cards</a></li></ul></div>
+      <div><h4>Eat</h4><ul><li><a href="menu.html">Menu &amp; lane ordering</a></li><li><a href="menu.html#pickup">Takeout</a></li><li><a href="catering.html">Catering</a></li><li><a href="visit.html#kashrus">Kashrus</a></li><li><a href="visit.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Get the lineup first</h4><form data-signup><label class="sr" for="fEmail">Email</label><input id="fEmail" type="email" placeholder="you@example.com" required><button class="btn btn-cyan" type="submit">Join the list</button></form><p class="fine" style="margin-top:8px">Live bands, Chanukah lineup, Motzei Shabbos specials. One email a week, never on Shabbos.</p></div>
+    </div>
+    <div class="legal"><span>© Woodmere Lanes · 948 Broadway, Woodmere NY</span><span>Strictly glatt kosher · Vaad Hakashrus of the Five Towns &amp; Far Rockaway</span><span>Instagram · TikTok · WhatsApp</span></div>
+    <p class="fine" style="margin-top:14px">Demo site. Prices, menus, events and availability shown are placeholders for review.</p>
+  </div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>

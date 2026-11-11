@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Menu · Order to Your Lane · Woodmere Lanes</title>
+<meta name="description" content="Strictly glatt kosher menu at Woodmere Lanes. Order from your lane or for pickup.">
+<meta name="theme-color" content="#07070D">
+<meta name="robots" content="noindex,nofollow">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="topbar gutter">
+  <nav class="wrap nav" aria-label="Site">
+    <a class="brand" href="index.html" aria-label="Woodmere Lanes home"><span class="mark"><img src="img/logo.svg" alt="" width="22" height="22"></span><span class="name">WOODMERE LANES<small>FIVE TOWNS · NY</small></span></a>
+    <ul><li><a href="lanes.html">Lanes</a></li><li><a href="menu.html" aria-current="page">Menu</a></li><li><a href="events.html">Events</a></li><li><a href="parties.html">Parties</a></li><li><a href="catering.html">Catering</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html">Gift cards</a></li><li><a href="visit.html">Visit</a></li></ul>
+    <div class="right"><span class="status"><i></i><span>Checking hours…</span></span><a class="btn btn-neon" href="lanes.html">Book a lane</a><button class="nav-menu-btn" type="button" id="mnavBtn" aria-expanded="false" aria-controls="mnav">Menu</button></div>
+    <div class="mnav" id="mnav" hidden><a href="index.html">Home</a><a href="lanes.html">Lanes</a><a href="menu.html">Menu</a><a href="events.html">Events</a><a href="parties.html">Parties</a><a href="catering.html">Catering</a><a href="leagues.html">Leagues</a><a href="gift-cards.html">Gift cards</a><a href="visit.html">Visit</a><a class="hot" href="lanes.html">Book a lane</a></div>
+  </nav>
+</header>
+<main>
+
+<section class="page-head gutter" style="--ph:rgba(34,240,255,.25)"><div class="wrap"><p class="eyebrow m">The kitchen · strictly glatt kosher</p><h1>Tap it. It comes to your lane.</h1><p>Scan the scoring screen, tap what you want, keep bowling. Or order ahead for pickup at the kitchen window. Under the Vaad Hakashrus of the Five Towns &amp; Far Rockaway. Fleishig kitchen, pas Yisroel.</p></div></section>
+<section class="section gutter"><div class="wrap">
+  <div class="menu-tabs" id="menuTabs" role="tablist"><button type="button" class="on" data-m="burgers">Burgers &amp; sandwiches</button><button type="button" data-m="wings">Wings &amp; sides</button><button type="button" data-m="platters">Lane platters</button><button type="button" data-m="kids">Kids</button><button type="button" data-m="desserts">Desserts</button><button type="button" data-m="drinks">Drinks &amp; bar</button></div>
+  <div class="menu-wrap">
+    <div class="menu-grid" id="menuGrid"></div>
+    <aside class="summary cart" aria-live="polite" id="pickup"><h3>Your order</h3>
+      <div class="mode-toggle" id="orderMode"><button type="button" class="on" data-mode="lane">To my lane</button><button type="button" data-mode="pickup">Pickup</button></div>
+      <div class="field" id="laneField"><label class="lbl" for="laneNo">Lane number</label><input type="number" id="laneNo" min="1" max="16" value="7"></div>
+      <div class="field" id="pickupField" hidden><label class="lbl" for="pickTime">Pickup time</label><input type="time" id="pickTime" value="19:30"></div>
+      <p class="fine" id="cartEmpty">Nothing yet. Tap <b>Add</b> on anything.</p><dl id="cartList"></dl>
+      <div class="total"><span id="cartTotal">$0</span><small>incl. tax</small></div>
+      <button class="btn btn-neon btn-block" type="button" id="cartSend">Send to my lane</button>
+      <div class="confirm" id="cartOk" hidden><b>Got it.</b><span id="cartOkText"></span></div></aside>
+  </div>
+</div></section>
+<section class="section alt gutter"><div class="wrap grid3">
+  <article class="card"><span class="tag c">Kashrus</span><h3>Strictly glatt. All of it.</h3><p>Kitchen, bar and catering under the Vaad Hakashrus of the Five Towns &amp; Far Rockaway. Fleishig kitchen, pas Yisroel, chalav Yisroel where dairy-style items appear they are pareve. Certificate posted at the kitchen window.</p><a class="btn btn-line" href="visit.html#kashrus">Read more</a></article>
+  <article class="card"><span class="tag l">Allergies</span><h3>Ask us.</h3><p>Every item lists its tags. Nut-free, gluten-aware and vegan options are marked. Tell your server or add a note to a pickup order and the kitchen will handle it.</p></article>
+  <article class="card"><span class="tag m">Big groups</span><h3>Platters and buffets.</h3><p>Lane platters feed 4 to 10. For 20 or more, the party and catering menus are a better deal.</p><a class="btn btn-line" href="catering.html">Catering menus</a></article>
+</div></section>
+
+</main>
+<footer class="footer gutter">
+  <div class="wrap">
+    <div class="cols">
+      <div><p class="addr"><b>WOODMERE LANES</b><br>948 Broadway<br>Woodmere, NY 11598<br>Steps from the Woodmere LIRR station · free parking in the rear lot</p>
+        <p style="margin-top:14px"><span class="status"><i></i><span>Checking hours…</span></span></p></div>
+      <div><h4>Do</h4><ul><li><a href="lanes.html">Book a lane</a></li><li><a href="events.html">What's on</a></li><li><a href="parties.html">Parties &amp; events</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html">Gift cards</a></li></ul></div>
+      <div><h4>Eat</h4><ul><li><a href="menu.html">Menu &amp; lane ordering</a></li><li><a href="menu.html#pickup">Takeout</a></li><li><a href="catering.html">Catering</a></li><li><a href="visit.html#kashrus">Kashrus</a></li><li><a href="visit.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Get the lineup first</h4><form data-signup><label class="sr" for="fEmail">Email</label><input id="fEmail" type="email" placeholder="you@example.com" required><button class="btn btn-cyan" type="submit">Join the list</button></form><p class="fine" style="margin-top:8px">Live bands, Chanukah lineup, Motzei Shabbos specials. One email a week, never on Shabbos.</p></div>
+    </div>
+    <div class="legal"><span>© Woodmere Lanes · 948 Broadway, Woodmere NY</span><span>Strictly glatt kosher · Vaad Hakashrus of the Five Towns &amp; Far Rockaway</span><span>Instagram · TikTok · WhatsApp</span></div>
+    <p class="fine" style="margin-top:14px">Demo site. Prices, menus, events and availability shown are placeholders for review.</p>
+  </div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>

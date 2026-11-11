@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Book a Lane · Woodmere Lanes</title>
+<meta name="description" content="Reserve bowling lanes at Woodmere Lanes. Pick a day, a time and a lighting mode. Shabbos and Yom Tov closed.">
+<meta name="theme-color" content="#07070D">
+<meta name="robots" content="noindex,nofollow">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="topbar gutter">
+  <nav class="wrap nav" aria-label="Site">
+    <a class="brand" href="index.html" aria-label="Woodmere Lanes home"><span class="mark"><img src="img/logo.svg" alt="" width="22" height="22"></span><span class="name">WOODMERE LANES<small>FIVE TOWNS · NY</small></span></a>
+    <ul><li><a href="lanes.html" aria-current="page">Lanes</a></li><li><a href="menu.html">Menu</a></li><li><a href="events.html">Events</a></li><li><a href="parties.html">Parties</a></li><li><a href="catering.html">Catering</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html">Gift cards</a></li><li><a href="visit.html">Visit</a></li></ul>
+    <div class="right"><span class="status"><i></i><span>Checking hours…</span></span><a class="btn btn-neon" href="lanes.html">Book a lane</a><button class="nav-menu-btn" type="button" id="mnavBtn" aria-expanded="false" aria-controls="mnav">Menu</button></div>
+    <div class="mnav" id="mnav" hidden><a href="index.html">Home</a><a href="lanes.html">Lanes</a><a href="menu.html">Menu</a><a href="events.html">Events</a><a href="parties.html">Parties</a><a href="catering.html">Catering</a><a href="leagues.html">Leagues</a><a href="gift-cards.html">Gift cards</a><a href="visit.html">Visit</a><a class="hot" href="lanes.html">Book a lane</a></div>
+  </nav>
+</header>
+<main>
+
+<section class="page-head gutter"><div class="wrap"><p class="eyebrow m">Lanes · live availability</p><h1>Pick a night. Book your lanes.</h1><p>Choose a day, a start time and how many are bowling. Pick your lanes on the map, choose the mood, add food. Friday is day-only and Saturday opens after Shabbos.</p></div></section>
+<section class="section gutter"><form class="wrap builder" onsubmit="event.preventDefault()">
+  <div style="display:grid;gap:14px;min-width:0">
+    <fieldset class="fs"><legend>1 · Day</legend><div class="days" id="days"></div></fieldset>
+    <fieldset class="fs"><legend>2 · Start time</legend><div class="slots" id="slots"></div><p class="fine" id="slotNote"></p></fieldset>
+    <fieldset class="fs"><legend>3 · Who's bowling</legend><div class="row2">
+      <div><span class="lbl">Bowlers</span><div class="stepper"><button type="button" id="bMinus" aria-label="Fewer bowlers">−</button><output id="bowlers">6</output><button type="button" id="bPlus" aria-label="More bowlers">+</button></div><p class="fine" id="laneCalc" style="margin-top:8px"></p></div>
+      <div><span class="lbl">How long</span><div class="seg" id="dur"><button type="button" data-h="1">1 hour</button><button type="button" data-h="2" class="on">2 hours</button><button type="button" data-h="3">3 hours</button></div></div></div></fieldset>
+    <fieldset class="fs m"><legend>4 · Pick your lanes</legend><div class="lanemap" id="lanemap"></div><div class="legend"><span><i style="background:var(--panel-2)"></i>Free</span><span><i style="background:var(--panel-2);opacity:.35"></i>Taken</span><span><i style="background:var(--magenta)"></i>Yours</span></div><p class="fine">Lanes 1 to 8 are closest to the stage. Lanes 13 to 16 sit by the arcade and are best for younger kids.</p></fieldset>
+    <fieldset class="fs m"><legend>5 · Lighting mode</legend><div class="seg" id="mode"><button type="button" class="on">Glow</button><button type="button">Lounge</button><button type="button">Blackout</button><button type="button">Daylight</button></div></fieldset>
+    <fieldset class="fs"><legend>6 · Add to the lane</legend><div class="addons" id="addons">
+      <label class="addon"><input type="checkbox" data-p="24" id="ad1"><span>Pastrami fries for the lane<small>Feeds four, pickled jalapeño</small></span><span>$24</span></label>
+      <label class="addon"><input type="checkbox" data-p="110" id="ad5"><span>Party platter<small>Feeds 10. Sliders, wings, fries, slaw</small></span><span>$110</span></label>
+      <label class="addon"><input type="checkbox" data-p="42" id="ad2"><span>Bucket of six<small>Bottles on ice, brought to the lane · 21+</small></span><span>$42</span></label>
+      <label class="addon"><input type="checkbox" data-p="30" id="ad3"><span>Arcade cards, 2 × $15<small>Loaded and waiting at the lane</small></span><span>$30</span></label>
+      <label class="addon"><input type="checkbox" data-p="20" id="ad4"><span>Strike strobe on<small>Every strike on your lane triggers the rig</small></span><span>$20</span></label>
+    </div></fieldset>
+  </div>
+  <aside class="summary" aria-live="polite"><h3>Your lanes</h3>
+    <dl><div><dt>When</dt><dd id="sWhen">Pick a day</dd></div><div><dt>Lanes</dt><dd id="sLanes">—</dd></div><div><dt>Lane rate</dt><dd id="sRate">$0</dd></div><div><dt>Shoes</dt><dd id="sShoes">$0</dd></div><div><dt>Add-ons</dt><dd id="sAdd">$0</dd></div><div><dt>Mode</dt><dd id="sMode">Glow</dd></div></dl>
+    <div class="total"><span id="sTotal">$0</span><small>incl. tax</small></div>
+    <button class="btn btn-neon btn-block" type="button" id="holdBtn">Hold these lanes</button>
+    <p class="fine">Nothing is charged until you confirm. Lanes are held for 10 minutes.</p>
+    <div class="confirm" id="bookOk" hidden><b>Lanes held.</b><span id="bookOkText"></span></div></aside>
+</form></section>
+<section class="section alt gutter"><div class="wrap grid3">
+  <div><p class="eyebrow">Walk-in rates</p><div class="scroll" style="margin-top:12px"><table class="t"><tr><th>Lane, per hour</th><th>Rate</th></tr><tr><td>Weeknights before 7 PM, Friday day</td><td>$34</td></tr><tr><td>Weeknights after 7 PM</td><td>$48</td></tr><tr><td>Sunday, Thursday, Motzei Shabbos</td><td>$48</td></tr><tr><td>Shoe rental</td><td>$5.50</td></tr><tr><td>Kids under 12, Sunday till 5 PM with a meal</td><td>Free</td></tr></table></div></div>
+  <div><p class="eyebrow m">Good to know</p><ul class="card" style="margin-top:12px;background:transparent;border:0;padding:0"><li>Up to 6 bowlers per lane. We size it for you.</li><li>Bumpers and ramps on request, at no charge.</li><li>Groups of 12 or more: see <a href="parties.html">parties</a> for better rates.</li><li>Cancel free up to 2 hours before your slot.</li><li>Outside food is not permitted. The kitchen is strictly glatt kosher.</li></ul></div>
+  <div><p class="eyebrow l">Lighting modes</p><div class="grid2" style="gap:8px;margin-top:12px"><span class="chip" style="color:var(--magenta);border-color:var(--magenta)">Glow</span><span class="chip" style="color:var(--vl);border-color:var(--vl)">Lounge</span><span class="chip">Blackout</span><span class="chip" style="color:var(--cyan);border-color:var(--cyan)">Daylight</span></div><p class="fine" style="margin-top:10px">Pick the mood for your lanes. Families usually go Daylight, Motzei Shabbos goes Glow, and Blackout is lights out with the lanes glowing.</p></div>
+</div></section>
+
+</main>
+<footer class="footer gutter">
+  <div class="wrap">
+    <div class="cols">
+      <div><p class="addr"><b>WOODMERE LANES</b><br>948 Broadway<br>Woodmere, NY 11598<br>Steps from the Woodmere LIRR station · free parking in the rear lot</p>
+        <p style="margin-top:14px"><span class="status"><i></i><span>Checking hours…</span></span></p></div>
+      <div><h4>Do</h4><ul><li><a href="lanes.html">Book a lane</a></li><li><a href="events.html">What's on</a></li><li><a href="parties.html">Parties &amp; events</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html">Gift cards</a></li></ul></div>
+      <div><h4>Eat</h4><ul><li><a href="menu.html">Menu &amp; lane ordering</a></li><li><a href="menu.html#pickup">Takeout</a></li><li><a href="catering.html">Catering</a></li><li><a href="visit.html#kashrus">Kashrus</a></li><li><a href="visit.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Get the lineup first</h4><form data-signup><label class="sr" for="fEmail">Email</label><input id="fEmail" type="email" placeholder="you@example.com" required><button class="btn btn-cyan" type="submit">Join the list</button></form><p class="fine" style="margin-top:8px">Live bands, Chanukah lineup, Motzei Shabbos specials. One email a week, never on Shabbos.</p></div>
+    </div>
+    <div class="legal"><span>© Woodmere Lanes · 948 Broadway, Woodmere NY</span><span>Strictly glatt kosher · Vaad Hakashrus of the Five Towns &amp; Far Rockaway</span><span>Instagram · TikTok · WhatsApp</span></div>
+    <p class="fine" style="margin-top:14px">Demo site. Prices, menus, events and availability shown are placeholders for review.</p>
+  </div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>

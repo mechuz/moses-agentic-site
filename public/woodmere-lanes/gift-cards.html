@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gift Cards · Woodmere Lanes</title>
+<meta name="description" content="Digital gift cards for Woodmere Lanes, delivered instantly by text or email.">
+<meta name="theme-color" content="#07070D">
+<meta name="robots" content="noindex,nofollow">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="topbar gutter">
+  <nav class="wrap nav" aria-label="Site">
+    <a class="brand" href="index.html" aria-label="Woodmere Lanes home"><span class="mark"><img src="img/logo.svg" alt="" width="22" height="22"></span><span class="name">WOODMERE LANES<small>FIVE TOWNS · NY</small></span></a>
+    <ul><li><a href="lanes.html">Lanes</a></li><li><a href="menu.html">Menu</a></li><li><a href="events.html">Events</a></li><li><a href="parties.html">Parties</a></li><li><a href="catering.html">Catering</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html" aria-current="page">Gift cards</a></li><li><a href="visit.html">Visit</a></li></ul>
+    <div class="right"><span class="status"><i></i><span>Checking hours…</span></span><a class="btn btn-neon" href="lanes.html">Book a lane</a><button class="nav-menu-btn" type="button" id="mnavBtn" aria-expanded="false" aria-controls="mnav">Menu</button></div>
+    <div class="mnav" id="mnav" hidden><a href="index.html">Home</a><a href="lanes.html">Lanes</a><a href="menu.html">Menu</a><a href="events.html">Events</a><a href="parties.html">Parties</a><a href="catering.html">Catering</a><a href="leagues.html">Leagues</a><a href="gift-cards.html">Gift cards</a><a href="visit.html">Visit</a><a class="hot" href="lanes.html">Book a lane</a></div>
+  </nav>
+</header>
+<main>
+
+<section class="page-head gutter" style="--ph:rgba(200,255,46,.22)"><div class="wrap"><p class="eyebrow m">Gift cards</p><h1>Give a night out.</h1><p>Delivered by text or email in seconds. Good for lanes, food, drinks, parties, leagues and tickets. Never expires.</p></div></section>
+<section class="section gutter"><div class="wrap builder">
+  <div style="display:grid;gap:14px;min-width:0">
+    <fieldset class="fs"><legend>1 · Amount</legend><div class="seg" id="gAmt"><button type="button" data-a="25">$25</button><button type="button" data-a="50" class="on">$50</button><button type="button" data-a="100">$100</button><button type="button" data-a="150">$150</button><button type="button" data-a="250">$250</button></div><div class="field" style="max-width:240px"><label class="lbl" for="gCustom">Or any amount</label><input type="number" id="gCustom" min="10" max="1000" placeholder="$"></div></fieldset>
+    <fieldset class="fs m"><legend>2 · Design</legend><div class="seg" id="gDesign"><button type="button" class="on" data-d="glow">Glow</button><button type="button" data-d="day">Daylight</button><button type="button" data-d="strike">Strike</button></div></fieldset>
+    <fieldset class="fs"><legend>3 · To and from</legend><div class="row2"><div class="field"><label class="lbl" for="gTo">To</label><input type="text" id="gTo" placeholder="Their name"></div><div class="field"><label class="lbl" for="gFrom">From</label><input type="text" id="gFrom" placeholder="Your name"></div></div><div class="field"><label class="lbl" for="gMsg">Message</label><textarea id="gMsg" placeholder="Happy birthday. First round of fries is on me."></textarea></div><div class="row2"><div class="field"><label class="lbl" for="gSend">Send by</label><select id="gSend"><option>Text message</option><option>Email</option><option>Print at home</option></select></div><div class="field"><label class="lbl" for="gWhen">When</label><select id="gWhen"><option>Right now</option><option>Pick a date</option></select></div></div></fieldset>
+  </div>
+  <aside class="summary"><h3>Preview</h3>
+    <div class="gift glow" id="giftCard"><span class="wm">Woodmere Lanes</span><div><span class="amt" id="gAmtOut">$50</span><p class="to" id="gToOut">For you</p></div></div>
+    <div class="total"><span id="gTotal">$50</span><small>no fees</small></div>
+    <button class="btn btn-lime btn-block" type="button" id="gBuy">Buy and send</button>
+    <div class="confirm" id="gOk" hidden><b>Sent.</b>They'll get it in a minute with a code to use at the desk or online.</div></aside>
+</div></section>
+
+</main>
+<footer class="footer gutter">
+  <div class="wrap">
+    <div class="cols">
+      <div><p class="addr"><b>WOODMERE LANES</b><br>948 Broadway<br>Woodmere, NY 11598<br>Steps from the Woodmere LIRR station · free parking in the rear lot</p>
+        <p style="margin-top:14px"><span class="status"><i></i><span>Checking hours…</span></span></p></div>
+      <div><h4>Do</h4><ul><li><a href="lanes.html">Book a lane</a></li><li><a href="events.html">What's on</a></li><li><a href="parties.html">Parties &amp; events</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html">Gift cards</a></li></ul></div>
+      <div><h4>Eat</h4><ul><li><a href="menu.html">Menu &amp; lane ordering</a></li><li><a href="menu.html#pickup">Takeout</a></li><li><a href="catering.html">Catering</a></li><li><a href="visit.html#kashrus">Kashrus</a></li><li><a href="visit.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Get the lineup first</h4><form data-signup><label class="sr" for="fEmail">Email</label><input id="fEmail" type="email" placeholder="you@example.com" required><button class="btn btn-cyan" type="submit">Join the list</button></form><p class="fine" style="margin-top:8px">Live bands, Chanukah lineup, Motzei Shabbos specials. One email a week, never on Shabbos.</p></div>
+    </div>
+    <div class="legal"><span>© Woodmere Lanes · 948 Broadway, Woodmere NY</span><span>Strictly glatt kosher · Vaad Hakashrus of the Five Towns &amp; Far Rockaway</span><span>Instagram · TikTok · WhatsApp</span></div>
+    <p class="fine" style="margin-top:14px">Demo site. Prices, menus, events and availability shown are placeholders for review.</p>
+  </div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>

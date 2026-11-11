@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Parties & Private Events · Woodmere Lanes</title>
+<meta name="description" content="Birthday parties, bar and bat mitzvahs, corporate events and full buyouts at Woodmere Lanes.">
+<meta name="theme-color" content="#07070D">
+<meta name="robots" content="noindex,nofollow">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="topbar gutter">
+  <nav class="wrap nav" aria-label="Site">
+    <a class="brand" href="index.html" aria-label="Woodmere Lanes home"><span class="mark"><img src="img/logo.svg" alt="" width="22" height="22"></span><span class="name">WOODMERE LANES<small>FIVE TOWNS · NY</small></span></a>
+    <ul><li><a href="lanes.html">Lanes</a></li><li><a href="menu.html">Menu</a></li><li><a href="events.html">Events</a></li><li><a href="parties.html" aria-current="page">Parties</a></li><li><a href="catering.html">Catering</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html">Gift cards</a></li><li><a href="visit.html">Visit</a></li></ul>
+    <div class="right"><span class="status"><i></i><span>Checking hours…</span></span><a class="btn btn-neon" href="lanes.html">Book a lane</a><button class="nav-menu-btn" type="button" id="mnavBtn" aria-expanded="false" aria-controls="mnav">Menu</button></div>
+    <div class="mnav" id="mnav" hidden><a href="index.html">Home</a><a href="lanes.html">Lanes</a><a href="menu.html">Menu</a><a href="events.html">Events</a><a href="parties.html">Parties</a><a href="catering.html">Catering</a><a href="leagues.html">Leagues</a><a href="gift-cards.html">Gift cards</a><a href="visit.html">Visit</a><a class="hot" href="lanes.html">Book a lane</a></div>
+  </nav>
+</header>
+<main>
+
+<section class="page-head gutter"><div class="wrap"><p class="eyebrow m">Parties &amp; private events</p><h1>Build the night. Get a number.</h1><p>Pick a tier, slide the headcount, add what you want. The estimate updates live and the request lands with the events team with everything filled in.</p></div></section>
+<section class="section gutter"><form class="wrap builder" onsubmit="event.preventDefault()">
+  <div style="display:grid;gap:14px;min-width:0">
+    <fieldset class="fs m"><legend>1 · Tier</legend><div class="tiers" id="tiers"><button type="button" class="tier-btn" data-tier="lane"><b>Lane Party</b><small>Reserved lanes, platters, host</small></button><button type="button" class="tier-btn on" data-tier="suite"><b>Private Suite</b><small>Own room, 4 lanes, buffet</small></button><button type="button" class="tier-btn" data-tier="buyout"><b>Full Buyout</b><small>Every lane, bar &amp; stage</small></button></div></fieldset>
+    <fieldset class="fs"><legend>2 · Headcount</legend><div class="range-row"><span>Guests</span><output id="guestsOut">40</output></div><input type="range" id="guests" min="8" max="400" step="2" value="40" aria-label="Guests"><p class="fine" id="guestNote"></p></fieldset>
+    <fieldset class="fs"><legend>3 · Occasion &amp; date</legend><div class="row2">
+      <div><span class="lbl">Occasion</span><div class="seg" id="occ"><button type="button" class="on">Birthday</button><button type="button">Bar / Bat Mitzvah</button><button type="button">Sheva Brachos</button><button type="button">Corporate</button><button type="button">School / Yeshiva</button><button type="button">Fundraiser</button><button type="button">Other</button></div></div>
+      <div><label class="lbl" for="pdate">Preferred date</label><input type="date" id="pdate"><p class="fine" id="pdateNote" style="margin-top:8px">Weeknights and Sundays book fastest.</p></div></div></fieldset>
+    <fieldset class="fs"><legend>4 · Add-ons</legend><div class="addons" id="paddons">
+      <label class="addon"><input type="checkbox" data-pp="12" id="pa1" checked><span>Bar package<small>Per guest, 2 hours, cocktails and kosher wine · 21+</small></span><span>$12 / guest</span></label>
+      <label class="addon"><input type="checkbox" data-flat="850" id="pa2"><span>House band<small>3 hours of live music</small></span><span>$850</span></label>
+      <label class="addon"><input type="checkbox" data-flat="600" id="pa3"><span>Custom lighting show<small>Your name on the lanes, strobe cues, blackout moment</small></span><span>$600</span></label>
+      <label class="addon"><input type="checkbox" data-pp="10" id="pa4"><span>Arcade cards<small>Per guest</small></span><span>$10 / guest</span></label>
+      <label class="addon"><input type="checkbox" data-flat="1200" id="pa5"><span>Headliner slot on the stage<small>45-minute set, pro sound, you book the act or we do</small></span><span>$1,200</span></label>
+      <label class="addon"><input type="checkbox" data-flat="350" id="pa6"><span>Photographer, 2 hours<small>Edited gallery within 48 hours</small></span><span>$350</span></label>
+    </div></fieldset>
+    <fieldset class="fs"><legend>5 · Your details</legend><div class="row2"><div class="field"><label class="lbl" for="pName">Name</label><input type="text" id="pName" placeholder="Your name"></div><div class="field"><label class="lbl" for="pPhone">Phone or WhatsApp</label><input type="tel" id="pPhone" placeholder="(516) 555-0100"></div></div><div class="field"><label class="lbl" for="pNotes">Anything else</label><textarea id="pNotes" placeholder="Theme, timing, kids' ages, dietary notes…"></textarea></div></fieldset>
+  </div>
+  <aside class="summary" aria-live="polite"><h3>Estimate</h3>
+    <dl><div><dt>Tier</dt><dd id="pTier">Private Suite</dd></div><div><dt>Guests</dt><dd id="pGuests">40</dd></div><div><dt>Base</dt><dd id="pBase">$0</dd></div><div><dt>Food</dt><dd id="pFood">$0</dd></div><div><dt>Add-ons</dt><dd id="pAdd">$0</dd></div><div><dt>Deposit to hold (25%)</dt><dd id="pDeposit">$0</dd></div></dl>
+    <div class="total"><span id="pTotal">$0</span><small>estimate</small></div>
+    <button class="btn btn-neon btn-block" type="button" id="pSend">Request this date</button>
+    <p class="fine">Events team replies within one business day. No events on Shabbos or Yom Tov.</p>
+    <div class="confirm" id="pOk" hidden><b>Request sent.</b><span id="pOkText"></span></div></aside>
+</form></section>
+<section class="section alt gutter"><div class="wrap">
+  <div class="head"><div><p class="eyebrow m">Compare</p><h2>What's in each package.</h2></div></div>
+  <div class="scroll"><table class="t"><tr><th></th><th>Lane Party</th><th>Private Suite</th><th>Full Buyout</th></tr>
+  <tr><td>Guests</td><td>8 to 60</td><td>20 to 120</td><td>150 to 400</td></tr><tr><td>Lanes</td><td>1 per 6 guests, 2 hrs</td><td>4 dedicated, 3 hrs</td><td>All 16, all night</td></tr><tr><td>Space</td><td>Reserved lane seating</td><td>Private room</td><td>The building</td></tr><tr><td>Food</td><td>Platters to the lane</td><td>Buffet or stations</td><td>Custom menu with the chef</td></tr><tr><td>Sound &amp; lights</td><td>House</td><td>Your own zone</td><td>Full rig, custom show</td></tr><tr><td>Host</td><td>1 host</td><td>Host team</td><td>Event manager</td></tr><tr><td>Stage</td><td>—</td><td>Add-on</td><td>Included</td></tr></table></div>
+</div></section>
+<section class="section gutter"><div class="wrap grid2" style="gap:40px;align-items:start">
+  <div><p class="eyebrow">Questions</p><h2 style="font-size:clamp(1.9rem,4.4vw,3rem);font-weight:900;margin-top:10px">Party FAQ.</h2></div>
+  <div class="acc">
+    <details><summary>How far ahead should we book?</summary><p class="a">Sundays and Motzei Shabbos go 4 to 6 weeks out. Bar and bat mitzvahs usually book 3 to 6 months ahead. Weeknights can often be done within the week.</p></details>
+    <details><summary>Can we bring our own cake?</summary><p class="a">Yes, with a hechsher the Vaad accepts. Everything else comes from our kitchen. Ask the events team and they'll confirm the list.</p></details>
+    <details><summary>What about separate seating or a mechitza?</summary><p class="a">The Private Suite can be split and we have a portable mechitza. Tell us when you request the date.</p></details>
+    <details><summary>Is the deposit refundable?</summary><p class="a">Fully refundable up to 14 days before. Within 14 days it transfers to a new date within 6 months.</p></details>
+    <details><summary>Do you do parties on Friday?</summary><p class="a">Daytime only, ending two hours before candle lighting. Great for school trips and camps.</p></details>
+  </div>
+</div></section>
+
+</main>
+<footer class="footer gutter">
+  <div class="wrap">
+    <div class="cols">
+      <div><p class="addr"><b>WOODMERE LANES</b><br>948 Broadway<br>Woodmere, NY 11598<br>Steps from the Woodmere LIRR station · free parking in the rear lot</p>
+        <p style="margin-top:14px"><span class="status"><i></i><span>Checking hours…</span></span></p></div>
+      <div><h4>Do</h4><ul><li><a href="lanes.html">Book a lane</a></li><li><a href="events.html">What's on</a></li><li><a href="parties.html">Parties &amp; events</a></li><li><a href="leagues.html">Leagues</a></li><li><a href="gift-cards.html">Gift cards</a></li></ul></div>
+      <div><h4>Eat</h4><ul><li><a href="menu.html">Menu &amp; lane ordering</a></li><li><a href="menu.html#pickup">Takeout</a></li><li><a href="catering.html">Catering</a></li><li><a href="visit.html#kashrus">Kashrus</a></li><li><a href="visit.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Get the lineup first</h4><form data-signup><label class="sr" for="fEmail">Email</label><input id="fEmail" type="email" placeholder="you@example.com" required><button class="btn btn-cyan" type="submit">Join the list</button></form><p class="fine" style="margin-top:8px">Live bands, Chanukah lineup, Motzei Shabbos specials. One email a week, never on Shabbos.</p></div>
+    </div>
+    <div class="legal"><span>© Woodmere Lanes · 948 Broadway, Woodmere NY</span><span>Strictly glatt kosher · Vaad Hakashrus of the Five Towns &amp; Far Rockaway</span><span>Instagram · TikTok · WhatsApp</span></div>
+    <p class="fine" style="margin-top:14px">Demo site. Prices, menus, events and availability shown are placeholders for review.</p>
+  </div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>

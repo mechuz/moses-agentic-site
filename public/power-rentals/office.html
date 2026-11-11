@@ -6,24 +6,24 @@
 <title>Power Rentals · Office View</title>
 <meta name="description" content="Concept back office for Power Rentals: yard board, availability timeline, billing brief, receivables watch and a live feed of tickets and invoices. Sample data.">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#121212">
+<meta name="theme-color" content="#ffffff">
 <script src="js/gate.js"></script>
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/pages/office.css">
 </head>
 <body>
 <div id="pr-shell-top"></div>
-<main class="office">
+<main class="office" id="main">
 
-<section class="of-hero dark">
-  <div class="wrap of-hero-in">
+<section class="of-head" aria-labelledby="of-h">
+  <div class="wrap of-head-in">
     <div>
-      <p class="eyebrow">Back office</p>
-      <h1>Office view <span class="badge sample">Sample data</span></h1>
-      <p class="lede">What the owner and the desk would see: every unit, every booking, every unbilled ticket and every late balance, in one place. It updates itself from the billing inbox and the accounting system.</p>
+      <p class="of-kicker">Back office · Sample data</p>
+      <h1 id="of-h">Office view.</h1>
+      <p class="lede">Every unit, booking, unbilled ticket and late balance, in one place.</p>
     </div>
     <p class="of-today" id="ofToday"></p>
   </div>
@@ -33,9 +33,9 @@
   <div class="wrap">
     <div class="of-tabs" role="tablist" aria-label="Office view sections">
       <button type="button" role="tab" id="tab-yard" aria-controls="panel-yard" aria-selected="true">Yard board</button>
-      <button type="button" role="tab" id="tab-timeline" aria-controls="panel-timeline" aria-selected="false" tabindex="-1">Availability timeline</button>
+      <button type="button" role="tab" id="tab-timeline" aria-controls="panel-timeline" aria-selected="false" tabindex="-1">Timeline</button>
       <button type="button" role="tab" id="tab-billing" aria-controls="panel-billing" aria-selected="false" tabindex="-1">Billing brief <span class="of-count" id="cntBilling"></span></button>
-      <button type="button" role="tab" id="tab-receivables" aria-controls="panel-receivables" aria-selected="false" tabindex="-1">Receivables watch <span class="of-count" id="cntAr"></span></button>
+      <button type="button" role="tab" id="tab-receivables" aria-controls="panel-receivables" aria-selected="false" tabindex="-1">Receivables <span class="of-count" id="cntAr"></span></button>
       <button type="button" role="tab" id="tab-feed" aria-controls="panel-feed" aria-selected="false" tabindex="-1">Live feed <span class="of-count" id="cntFeed"></span></button>
     </div>
   </div>
@@ -105,13 +105,15 @@
     <div class="of-phead">
       <div><h2>Live feed</h2><p class="mute small">Simulate the connections. In the real build these events arrive by themselves from the billing inbox, the accounting system and the booking desk.</p></div>
     </div>
-    <p class="of-tipbox"><b>Tip:</b> <a href="book.html" target="_blank" rel="noopener">Open the booking page in another tab</a>: everything you do here shows up there live. Bookings made there show up here.</p>
-    <div class="of-feedgrid">
-      <div class="of-sims" id="sims"></div>
-      <div class="of-feedcol">
-        <div class="of-feedhead"><h3>Events</h3><span class="mute small" id="feedNote"></span></div>
-        <ol class="of-feed" id="feed" aria-live="polite" aria-label="Events, newest first"></ol>
-      </div>
+    <p class="of-tipnote">Rent something on a <a class="more" href="product.html?model=g175" target="_blank" rel="noopener">product page in another tab</a>. The order shows up here at once, and what you do here shows up there.</p>
+    <div class="of-simbar">
+      <span class="of-simlabel" id="simLabel">Simulate</span>
+      <div class="of-simbtns" id="simBtns" role="group" aria-labelledby="simLabel"></div>
+    </div>
+    <div class="of-sims" id="sims"></div>
+    <div class="of-feedcol">
+      <div class="of-feedhead"><h3>Events</h3><span class="mute small" id="feedNote"></span></div>
+      <ol class="of-feed" id="feed" aria-live="polite" aria-label="Events, newest first"></ol>
     </div>
   </section>
 
@@ -146,6 +148,7 @@
 <script src="js/config.js"></script>
 <script src="js/data.js"></script>
 <script src="js/engine.js"></script>
+<script src="js/cart.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/office-lib.js"></script>
 <script src="js/pages/office.js"></script>

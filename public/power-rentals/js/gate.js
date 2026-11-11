@@ -10,17 +10,15 @@
   function unlock() { try { sessionStorage.setItem(KEY, '1'); } catch (e) {} var g = document.getElementById('prGate'); if (g) g.remove(); html.style.visibility = ''; }
   function show() {
     var g = document.createElement('div'); g.id = 'prGate';
-    g.innerHTML = '<style>#prGate{position:fixed;inset:0;z-index:9999;background:#0B0B0B;display:grid;place-items:center;padding:16px;font-family:Inter,Arial,sans-serif;color:#F2F2F2;visibility:visible}' +
-      '#prGate::before{content:"";position:absolute;inset:0 0 auto;height:10px;background:repeating-linear-gradient(-45deg,#FCB810 0 14px,#0B0B0B 14px 28px)}' +
-      '#prGate form{display:grid;gap:14px;width:min(400px,100%);padding:32px;border:1px solid #2A2A2A;border-radius:18px;background:#151515}' +
-      '#prGate img{width:200px;height:auto}#prGate h1{font-family:Poppins,Arial,sans-serif;font-size:1.15rem;margin:6px 0 0}#prGate p{margin:0;color:#B8B8B8;font-size:.92rem;line-height:1.45}' +
-      '#prGate label{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FCB810}' +
-      '#prGate input{padding:14px 16px;border:1px solid #333;border-radius:12px;background:#0B0B0B;color:#F2F2F2;font:inherit;font-size:1rem}' +
-      '#prGate input:focus,#prGate button:focus{outline:3px solid #FCB810;outline-offset:2px}' +
-      '#prGate button{padding:15px;border:0;border-radius:12px;background:#FCB810;color:#121212;font-weight:800;font-size:1rem;cursor:pointer}' +
-      '#prGate .err{color:#FFB4A8;font-weight:600;min-height:1.2em;font-size:.88rem}#prGate small{color:#8C8C8C;font-size:.78rem}</style>' +
-      '<form><img src="img/logo.png" alt="Power Rentals"><h1>Your new website: private preview</h1><p>Prepared for Power Rentals by Moses Agentic. Enter the passcode you were given.</p>' +
-      '<label for="prCode">Passcode</label><input type="password" id="prCode" autocomplete="off" autofocus><div class="err" id="prErr" role="alert"></div><button type="submit">Enter the preview</button>' +
+    g.innerHTML = '<style>#prGate{position:fixed;inset:0;z-index:9999;background:#fff;display:grid;place-items:center;padding:24px;font-family:Inter,-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;color:#1D1D1F;visibility:visible;letter-spacing:-.011em}' +
+      '#prGate form{display:grid;gap:16px;width:min(380px,100%);text-align:center;justify-items:center}' +
+      '#prGate img{width:180px;height:auto;margin-bottom:18px}#prGate h1{font-size:2rem;font-weight:600;letter-spacing:-.03em;line-height:1.1;margin:0}#prGate p{margin:0;color:#6E6E73;font-size:1rem;line-height:1.45}' +
+      '#prGate input{width:100%;box-sizing:border-box;padding:15px 18px;border:1px solid #D2D2D7;border-radius:12px;background:#fff;color:#1D1D1F;font:inherit;font-size:1.05rem;text-align:center;margin-top:8px}' +
+      '#prGate input:focus{outline:none;border-color:#0B57D0;box-shadow:0 0 0 4px rgba(11,87,208,.14)}' +
+      '#prGate button{width:100%;padding:15px;border:0;border-radius:980px;background:#1D1D1F;color:#fff;font-weight:500;font-size:1.05rem;cursor:pointer}#prGate button:focus-visible{outline:2px solid #C99206;outline-offset:3px}' +
+      '#prGate .err{color:#B42318;font-size:.9rem;min-height:1.2em}#prGate small{color:#86868B;font-size:.8rem}</style>' +
+      '<form><img src="img/logo.png" alt="Power Rentals"><h1>Your new website.</h1><p>A private preview prepared for Power Rentals by Moses Agentic.</p>' +
+      '<label class="sr" for="prCode" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Passcode</label><input type="password" id="prCode" placeholder="Passcode" autocomplete="off" autofocus><div class="err" id="prErr" role="alert"></div><button type="submit">Enter</button>' +
       '<small>Sample data throughout. Nothing you enter is sent anywhere.</small></form>';
     html.style.visibility = ''; document.body.appendChild(g);
     g.querySelector('form').addEventListener('submit', function (e) {

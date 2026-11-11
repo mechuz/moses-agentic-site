@@ -6,48 +6,53 @@
 <title>Service plans · Power Rentals</title>
 <meta name="description" content="Service plans for generators you own: scheduled maintenance, a reminder with two dates before every visit, a visit report, and a rental unit while yours is in the shop.">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#121212">
+<meta name="theme-color" content="#ffffff">
 <script src="js/gate.js"></script>
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/pages/service.css">
 </head>
 <body>
 <div id="pr-shell-top"></div>
-<main>
+<main id="main">
 
-<section class="phero dark">
-  <div class="wrap shero">
-    <div>
-      <p class="eyebrow">Service plans</p>
-      <h1>Own a generator? We keep it ready to start.</h1>
-      <p class="lede">A service plan puts your generator on our calendar. Before every visit you get two dates to pick from. After it you get a visit report. If your generator goes to the shop, a rental unit takes its place.</p>
-      <div class="ctas"><a class="btn btn-gold btn-lg" href="#book">Book a service visit</a><a class="btn btn-line btn-lg" href="#report">See a visit report</a></div>
-    </div>
-    <ul class="shero-list" aria-label="Every plan includes">
-      <li><span data-icon="clock"></span>Scheduled maintenance</li>
-      <li><span data-icon="chat"></span>A reminder with two dates before every visit</li>
-      <li><span data-icon="doc"></span>A visit report after every visit</li>
-      <li><span data-icon="gen"></span>A rental unit while yours is in the shop</li>
-    </ul>
+<section class="phero" aria-labelledby="svc-h">
+  <div class="wrap">
+    <h1 id="svc-h">Your generator, ready to start.</h1>
+    <p class="lede">A service plan for the generator you own, with a rental unit while yours is in the shop.</p>
+    <div class="s-ctas"><a class="btn btn-gold btn-lg" href="#book">Book a service visit</a><a class="more" href="#report">See a visit report</a></div>
   </div>
+</section>
+
+<section class="s-photo" aria-hidden="true">
+  <div class="wrap"><div class="shot photo s-hero-shot"><img src="img/fleet/yard-generator-hero.webp" alt="" fetchpriority="high"></div></div>
 </section>
 
 <section class="section" id="plans" aria-labelledby="plans-h">
   <div class="wrap">
-    <div class="head"><div><p class="eyebrow">Plans</p><h2 id="plans-h">Three plans, set by how hard the generator works.</h2>
-      <p class="lede">Proposed plans. Power Rentals sets the final visit count and price for each one.</p></div></div>
+    <div class="s-center">
+      <h2 id="plans-h">Which plan is right for you?</h2>
+      <p class="lede">Set by how hard the generator works. These are proposed plans: Power Rentals sets the final visit count and price.</p>
+    </div>
     <div class="plans" id="plans-grid"></div>
   </div>
 </section>
 
 <section class="section sand" id="book" aria-labelledby="book-h">
   <div class="wrap book-grid">
-    <div class="card pad-lg">
-      <p class="eyebrow">Book a service visit</p>
-      <h2 id="book-h">Tell us about the generator. Pick a date.</h2>
+    <div class="book-intro">
+      <h2 id="book-h">Book a visit.</h2>
+      <p class="lede">Tell us about the generator. We offer two dates. You pick one.</p>
+      <ol class="next-steps" aria-label="What happens next">
+        <li><b>Two dates, offered.</b><span>Two delivery days that fit the route.</span></li>
+        <li><b>You pick one.</b><span>One tap. No phone tag.</span></li>
+        <li><b>A reminder before every visit.</b><span>Your plan sends two dates before each one.</span></li>
+        <li><b>The visit report.</b><span>Checklist, hours meter, oil and filters, load test and the next due date.</span></li>
+      </ol>
+    </div>
+    <div class="book-card">
       <form id="svcForm" novalidate>
         <div class="field">
           <label for="sPlan">Plan</label>
@@ -57,7 +62,7 @@
         </div>
         <div class="field">
           <label for="sGen">Generator size or model</label>
-          <input id="sGen" name="generator" autocomplete="off" required placeholder="For example: 60 kilovolt-ampere diesel, or the model on the plate" aria-describedby="sGen-err">
+          <input id="sGen" name="generator" autocomplete="off" required placeholder="For example: 60 kilovolt-ampere diesel" aria-describedby="sGen-err">
           <p class="ferr" id="sGen-err"></p>
         </div>
         <div class="field">
@@ -70,33 +75,26 @@
           <span id="sBoroMount"></span>
           <p class="ferr" id="sBoro-err"></p>
         </div>
-        <button type="submit" class="btn btn-dark" id="sOffer">Show me two dates</button>
+        <button type="submit" class="btn btn-dark btn-lg btn-block" id="sOffer">Show me two dates</button>
 
         <fieldset class="offer" id="sDates" hidden tabindex="-1">
-          <legend>We can come on either of these days. Pick one.</legend>
+          <legend>We can come on either day. Pick one.</legend>
           <div class="offer-opts" id="sDateOpts"></div>
           <p class="ferr" id="sDate-err" role="alert"></p>
-          <button type="button" class="btn btn-gold btn-lg" id="sConfirm">Confirm visit</button>
+          <button type="button" class="btn btn-gold btn-lg btn-block" id="sConfirm">Confirm visit</button>
         </fieldset>
       </form>
       <div class="done" id="sDone" hidden tabindex="-1"></div>
     </div>
-    <aside class="next-steps" aria-labelledby="next-h">
-      <h3 id="next-h">What happens next</h3>
-      <ol>
-        <li><b>Two dates, offered.</b> We offer two delivery days that fit the route.</li>
-        <li><b>You pick one.</b> One tap. No phone tag.</li>
-        <li><b>A reminder before the visit.</b> Your plan sends two dates before every visit after this one, too.</li>
-        <li><b>The visit report.</b> Checklist, hours meter, oil and filters, load test and the next due date.</li>
-      </ol>
-    </aside>
   </div>
 </section>
 
 <section class="section" id="report" aria-labelledby="report-h">
   <div class="wrap">
-    <div class="head"><div><p class="eyebrow">After every visit</p><h2 id="report-h">A visit report you can actually read.</h2>
-      <p class="lede">The technician fills it in on site. It lands in your account the same day.</p></div></div>
+    <div class="s-center">
+      <h2 id="report-h">A visit report you can read.</h2>
+      <p class="lede">The technician fills it in on site. It lands in your account the same day.</p>
+    </div>
     <div id="reportMount"></div>
   </div>
 </section>
@@ -106,6 +104,7 @@
 <script src="js/config.js"></script>
 <script src="js/data.js"></script>
 <script src="js/engine.js"></script>
+<script src="js/cart.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/account-lib.js"></script>
 <script src="js/pages/service.js"></script>

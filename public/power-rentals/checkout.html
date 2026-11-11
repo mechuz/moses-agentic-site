@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Checkout · Power Rentals</title>
+<meta name="description" content="Review your rental and place the order.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ffffff">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages/checkout.css">
+</head>
+<body>
+<div id="pr-shell-top"></div>
+<main id="main">
+  <div class="wrap co-head"><h1>Checkout</h1><p class="mute" id="holdLine" aria-live="polite"></p></div>
+
+  <div class="wrap co" id="co">
+    <div class="co-main">
+      <section class="co-sec" aria-labelledby="s1"><div class="co-n">1</div><div class="co-body">
+        <div class="co-title"><h2 id="s1">Deliver to</h2><button class="linkish" type="button" id="chgAddr">Change</button></div>
+        <div id="addrView"></div>
+        <div class="addr-form" id="addrForm" hidden>
+          <div class="field"><label for="a1">Site address</label><input id="a1" autocomplete="street-address"></div>
+          <div class="row2"><div class="field"><label for="a2">Borough</label><select id="a2"></select></div><div class="field"><label for="a3">On-site contact mobile</label><input id="a3" inputmode="tel" autocomplete="tel"></div></div>
+          <button class="btn btn-gold btn-sm" type="button" id="saveAddr">Use this address</button>
+        </div>
+      </div></section>
+
+      <section class="co-sec" aria-labelledby="s2"><div class="co-n">2</div><div class="co-body">
+        <div class="co-title"><h2 id="s2">Payment</h2></div>
+        <div class="pay" id="pay" role="radiogroup" aria-labelledby="s2"></div>
+      </div></section>
+
+      <section class="co-sec" aria-labelledby="s3"><div class="co-n">3</div><div class="co-body">
+        <div class="co-title"><h2 id="s3">Review items and delivery</h2></div>
+        <div id="items"></div>
+        <p class="coi" id="coi"></p>
+      </div></section>
+    </div>
+
+    <aside class="co-side" aria-label="Order summary">
+      <div class="summary">
+        <button class="btn btn-gold btn-lg btn-block" type="button" id="place">Place your order</button>
+        <p class="small mute fine">By placing your order you agree to the Power Rentals rental agreement, sent by text to sign before delivery.</p>
+        <h3>Order summary</h3>
+        <dl id="sum"></dl>
+        <div class="total"><span>Order total</span><span>Priced from <span class="fill">your rate card</span></span></div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="wrap done" id="done" hidden tabindex="-1" aria-labelledby="doneH">
+    <div class="done-mark" aria-hidden="true">✓</div>
+    <h1 id="doneH">Order placed.</h1>
+    <p class="lede" id="doneText"></p>
+    <ul class="done-list" id="doneList"></ul>
+    <div class="done-actions"><a class="btn btn-gold" href="office.html">See it in the office view</a><a class="btn btn-line" href="account.html">Go to your account</a><a class="more" href="equipment.html">Keep renting</a></div>
+  </section>
+
+  <section class="wrap empty" id="empty" hidden>
+    <h1>Your order is empty.</h1>
+    <p class="lede">Pick a unit and a date, then come back here to place the order.</p>
+    <p><a class="btn btn-gold btn-lg" href="equipment.html">Browse equipment</a></p>
+  </section>
+</main>
+<div id="pr-shell-bottom"></div>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/checkout.js"></script>
+</body>
+</html>

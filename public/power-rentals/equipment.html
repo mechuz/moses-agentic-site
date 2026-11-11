@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Equipment and Live Availability · Power Rentals</title>
+<title>Equipment · Power Rentals</title>
 <meta name="description" content="Generators, heaters, cooling, light towers, power distribution and forklifts from Power Rentals, Brooklyn, with live availability for every numbered unit.">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#121212">
+<meta name="theme-color" content="#ffffff">
 <script src="js/gate.js"></script>
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/pages/equipment.css">
 </head>
@@ -18,58 +18,45 @@
 <div id="pr-shell-top"></div>
 <main id="main">
 
-<section class="phero dark">
-  <div class="wrap eq-hero">
-    <div>
-      <p class="eyebrow">Equipment and live availability</p>
-      <h1>Every unit in the fleet, live from the yard.</h1>
-      <p class="lede">Each unit has a number and one status: in the yard, on rent until a date, coming back today, or in service. Pick a date to see what is free then, and book the one you need.</p>
-    </div>
-    <dl class="eq-stats" id="eqStats" aria-live="polite">
-      <div><dt>In the yard today</dt><dd id="stYard">–</dd></div>
-      <div><dt>Coming back today</dt><dd id="stBack">–</dd></div>
-      <div><dt>Units in the fleet</dt><dd id="stTotal">–</dd></div>
-    </dl>
+<section class="phero eq-hero">
+  <div class="wrap">
+    <h1>Equipment.</h1>
+    <p class="lede" id="eqLede">Every numbered unit, live from the yard.</p>
   </div>
 </section>
 
-<form class="filterbar" id="filters" aria-label="Filter equipment">
-  <div class="wrap fb-inner">
-    <div class="chips fb-cats" id="catChips" role="group" aria-label="Category"></div>
-    <div class="fb-controls">
-      <div class="fb-date">
-        <label for="fDate">Available on</label>
-        <input type="date" id="fDate" name="date">
-      </div>
+<form class="eqbar" id="filters" aria-label="Filter equipment">
+  <div class="wrap eqbar-in">
+    <div class="seg" id="catSeg" role="group" aria-label="Category"></div>
+    <div class="eqbar-right">
+      <label class="eq-date" for="fDate"><span>Available on</span><input type="date" id="fDate" name="date"></label>
       <label class="switch" for="fOnly">
         <input type="checkbox" id="fOnly" name="only" role="switch">
         <span class="sw-track" aria-hidden="true"><span class="sw-knob"></span></span>
-        <span>Show only available</span>
+        <span>Available only</span>
       </label>
     </div>
   </div>
-  <div class="wrap"><p class="fb-count" id="fCount" role="status" aria-live="polite"></p></div>
 </form>
 
-<section class="section eq-body">
-  <div class="wrap">
-    <div id="catalog"></div>
-    <div class="card eq-empty" id="eqEmpty" hidden>
-      <h2>Nothing free on that date</h2>
-      <p class="mute">Every unit in this view is out that day. Try another date, or turn off "Show only available" to see when each one comes back.</p>
-      <button type="button" class="btn btn-dark" id="eqClear">Show everything</button>
-    </div>
-    <p class="small mute eq-foot">Sample fleet: unit counts, unit numbers and dates are sample data for this preview. A live build reads them from rental invoices, driver tickets and service holds.</p>
+<div class="wrap eq-body">
+  <p class="eq-count" id="fCount" role="status" aria-live="polite"></p>
+  <div id="catalog"></div>
+  <div class="eq-empty" id="eqEmpty" hidden>
+    <h2>Nothing free that day.</h2>
+    <p class="lede">Try another date, or show every unit to see when each one comes back.</p>
+    <p><button type="button" class="btn btn-dark" id="eqClear">Show everything</button></p>
   </div>
-</section>
+  <p class="small mute eq-foot">Sample fleet. Unit counts, unit numbers and dates are sample data for this preview. A live build reads them from rental invoices, driver tickets and service holds.</p>
+</div>
 
 </main>
 <div id="pr-shell-bottom"></div>
 <script src="js/config.js"></script>
 <script src="js/data.js"></script>
 <script src="js/engine.js"></script>
+<script src="js/cart.js"></script>
 <script src="js/ui.js"></script>
-<script src="js/booking-lib.js"></script>
 <script src="js/pages/equipment.js"></script>
 </body>
 </html>

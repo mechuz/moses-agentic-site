@@ -7,12 +7,12 @@ window.PR = window.PR || {};
   'use strict';
 
   const categories = [
-    { id: 'gen',   name: 'Generators',            icon: 'gen',   blurb: 'Towable diesel generators from 20 to 700 kilovolt-amperes, silent units and hybrid battery units. Diesel units come with fuel monitoring.' },
-    { id: 'heat',  name: 'Heaters',               icon: 'heat',  blurb: 'Campo and Val 6 diesel heaters, Heat Star, and L.B. White Volt and Campo Blaze electric heaters for pours, framing and buildings without heat.' },
-    { id: 'cool',  name: 'Cooling',               icon: 'cool',  blurb: 'Portable air conditioners from 1 to 12 ton, evaporative coolers, fans and dehumidifiers.' },
-    { id: 'light', name: 'Light towers',          icon: 'light', blurb: 'Electric and diesel light towers for night work and site security.' },
-    { id: 'dist',  name: 'Power distribution',    icon: 'dist',  blurb: 'Spider boxes and 100 to 400 amp distribution boxes.' },
-    { id: 'lift',  name: 'Forklifts and telehandlers', icon: 'lift', blurb: 'Dual-fuel and diesel forklifts from 5,000 to 10,000 pounds, telehandlers, and manual and electric pallet jacks.' }
+    { id: 'gen',   name: 'Generators',            icon: 'gen', tagline: 'Towable diesel, 20 to 700 kilovolt-amperes.',   blurb: 'Towable diesel generators from 20 to 700 kilovolt-amperes, silent units and hybrid battery units. Diesel units come with fuel monitoring.' },
+    { id: 'heat',  name: 'Heaters',               icon: 'heat', tagline: 'Diesel and electric heat for pours and framing.',  blurb: 'Campo and Val 6 diesel heaters, Heat Star, and L.B. White Volt and Campo Blaze electric heaters for pours, framing and buildings without heat.' },
+    { id: 'cool',  name: 'Cooling',               icon: 'cool', tagline: 'Portable air conditioners, coolers and fans.',  blurb: 'Portable air conditioners from 1 to 12 ton, evaporative coolers, fans and dehumidifiers.' },
+    { id: 'light', name: 'Light towers',          icon: 'light', tagline: 'Light for night work and site security.', blurb: 'Electric and diesel light towers for night work and site security.' },
+    { id: 'dist',  name: 'Power distribution',    icon: 'dist', tagline: 'Spider boxes and 100 to 400 amp boxes.',  blurb: 'Spider boxes and 100 to 400 amp distribution boxes.' },
+    { id: 'lift',  name: 'Forklifts and telehandlers', icon: 'lift', tagline: 'Forklifts, telehandlers and pallet jacks.', blurb: 'Dual-fuel and diesel forklifts from 5,000 to 10,000 pounds, telehandlers, and manual and electric pallet jacks.' }
   ];
 
   /* fuel: 'diesel' units get fuel monitoring and diesel delivery; 'fueled' heaters need Fire Department supervision on construction sites */
@@ -90,6 +90,17 @@ window.PR = window.PR || {};
     [U('ac12',0),  -2, 1,  'Compressor check'],
     [U('fl10',0),   0, 3,  'Brake service']
   ];
+
+  /* Photos: Power Rentals' own product photos from powerrentals.com.
+     kind 'photo' = a real photo in the yard (fills its frame); 'cutout' = product on a transparent background. */
+  const IMG = f => 'img/fleet/' + f;
+  const catImg = { gen: ['yard-generator-2.webp', 'photo'], heat: ['heater.webp', 'cutout'], cool: ['cooling-2.webp', 'cutout'], light: ['light-tower.webp', 'cutout'], dist: ['distribution.webp', 'cutout'], lift: ['forklift.webp', 'cutout'] };
+  categories.forEach(c => { c.img = catImg[c.id][0] && IMG(catImg[c.id][0]); c.imgKind = catImg[c.id][1]; });
+  const modelImg = { g20: ['yard-generator-3.webp', 'photo'], g115: ['yard-generator-hero.webp', 'photo'], hyb70: ['hybrid.webp', 'cutout'],
+    c200: ['heater-3.webp', 'cutout'], c400: ['heater.webp', 'cutout'], volt18: ['heater-electric.webp', 'cutout'],
+    ac5: ['cooling-2.webp', 'cutout'], ac12: ['cooling.webp', 'cutout'], lte: ['light-tower.webp', 'cutout'], fl10: ['forklift.webp', 'cutout'], fl5: ['forklift-2.webp', 'cutout'],
+    db400: ['distribution.webp', 'cutout'], spider: ['spider-box.webp', 'cutout'] };
+  models.forEach(m => { const own = modelImg[m.id], cat = categories.find(c => c.id === m.cat); m.img = own ? IMG(own[0]) : cat.img; m.imgKind = own ? own[1] : cat.imgKind; });
 
   PR.data = { categories, models, customers, units, sample: { rentals, service } };
 })();

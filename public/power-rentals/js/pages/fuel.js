@@ -8,7 +8,7 @@
      3. A diesel delivery order form that respects the posted hours (at least a day ahead, on a delivery day). */
 (function () {
   'use strict';
-  const { h, icon, toast } = PR.ui, E = PR.engine, A = PR.acct, D = PR.data;
+  const { h, toast } = PR.ui, E = PR.engine, A = PR.acct, D = PR.data;
   const { fmt, key, fromKey, addDays, diffDays, today } = E;
   const $ = id => document.getElementById(id);
   const LINE = 0.30;                                   // book a top-up below this level
@@ -37,22 +37,25 @@
   /* The open top-up for a unit, if any (from this page, the account page or the office). */
   const openOrder = unit => E.events().filter(e => e.type === 'fuelOrder' && e.unit === unit && !e.filled).sort((a, b) => (a.day < b.day ? -1 : 1))[0] || null;
 
+  /* One instrument on the board: the unit's photo, a big percentage, a thin gauge with the 30% tick,
+     a few hairline rows of figures, and the top-up status in plain text. */
   function tankCard(t, i) {
     const order = openOrder(t.unit), pct = Math.round(t.level * 100), low = t.level < LINE;
     const gal = t.level * t.tank, hoursLeft = Math.floor(gal / t.burn);
-    return h('article.card.tank-card' + (order ? '.booked' : '') + (low ? '.low' : ''), { 'aria-labelledby': 'tk-' + i },
-      h('div.tk-head', h('div', h('h3#tk-' + i, 'Unit ' + t.unit), h('p.small.mute', t.model.short + ' generator')),
-        h('span.badge.' + (order ? 'warn' : 'ok'), order ? 'Top-up booked' : 'OK')),
-      h('div.tk-body',
-        h('div.gauge', { role: 'meter', 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(pct), 'aria-label': 'Unit ' + t.unit + ' tank level', 'aria-valuetext': pct + ' percent' },
-          h('div.gauge-fill', { style: 'height:' + pct + '%' }, h('span.gauge-wave')),
-          h('div.gauge-line', { title: 'Top-up line, 30 percent' }), h('span.gauge-pct', pct + '%')),
-        h('dl.tk-stats',
-          h('div', h('dt', 'In the tank'), h('dd', Math.round(gal) + ' of ' + t.tank + ' gallons')),
-          h('div', h('dt', 'Time left'), h('dd', 'About ' + hoursLeft + ' hours')),
-          h('div', h('dt', 'Burn'), h('dd', t.burn + ' gallons an hour, ' + t.hoursPerDay + ' hours a day')),
-          h('div', h('dt', 'Site'), h('dd', t.borough + ' · ' + t.customer)))),
-      h('p.tk-foot', order ? [icon('truck'), 'Truck booked for ' + fmt.long(fromKey(order.day))] : [icon('check'), 'Above the top-up line for the next delivery day']));
+    const m = t.model;
+    return h('article.tank' + (order ? '.booked' : '') + (low ? '.low' : ''), { 'aria-labelledby': 'tk-' + i },
+      h('div.shot.' + (m.imgKind || 'photo'), m.img ? h('img', { src: m.img, alt: m.name, loading: 'lazy' }) : h('span', 'Photo to come')),
+      h('div.tk-name', h('h3#tk-' + i, 'Unit ' + t.unit), h('p', m.short + ' generator')),
+      h('p.tk-pct', { 'aria-hidden': 'true' }, String(pct), h('small', '%')),
+      h('div.gauge', { role: 'meter', 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(pct), 'aria-label': 'Unit ' + t.unit + ' tank level', 'aria-valuetext': pct + ' percent' },
+        h('div.gauge-fill', { style: 'width:' + pct + '%' }),
+        h('div.gauge-line', { title: 'Top-up line, 30 percent' })),
+      h('dl.tk-stats',
+        h('div', h('dt', 'In the tank'), h('dd', Math.round(gal) + ' of ' + t.tank + ' gal')),
+        h('div', h('dt', 'Time left'), h('dd', 'About ' + hoursLeft + ' hours')),
+        h('div', h('dt', 'Burn'), h('dd', t.burn + ' gal an hour')),
+        h('div', h('dt', 'Site'), h('dd', t.borough))),
+      h('p.tk-foot', order ? 'Top-up booked for ' + fmt.long(fromKey(order.day)) : 'Above the line for the next delivery day'));
   }
 
   function paintBoard() {
@@ -63,15 +66,15 @@
     paintTexts();
   }
 
-  /* Animate the gauges to their new heights (the CSS transition does the motion; reduced motion skips it). */
+  /* Animate the gauges to their new widths (the CSS transition does the motion; reduced motion skips it). */
   function animateTo(before) {
     paintBoard();
     if (reduceMotion()) return;
     document.querySelectorAll('#tanks .gauge-fill').forEach((el, i) => {
       if (before[i] == null) return;
-      const target = el.style.height; el.style.transition = 'none'; el.style.height = Math.round(before[i] * 100) + '%';
-      void el.offsetHeight;                              // commit the old height so the transition runs
-      el.style.transition = ''; el.style.height = target;
+      const target = el.style.width; el.style.transition = 'none'; el.style.width = Math.round(before[i] * 100) + '%';
+      void el.offsetWidth;                               // commit the old width so the transition runs
+      el.style.transition = ''; el.style.width = target;
     });
   }
 
@@ -111,7 +114,7 @@
   function paintTexts() {
     const ul = $('texts'); ul.textContent = '';
     if (!board.texts.length) { ul.append(h('li.texts-empty', 'No texts yet. Simulate a day.')); return; }
-    board.texts.forEach(m => ul.append(h('li.sms', h('p.sms-to', 'To ' + m.to + ' · ' + fmt.short(m.day)), h('p.sms-body', m.body))));
+    board.texts.forEach(m => ul.append(h('li.sms', h('p.sms-to', 'To ' + m.to + ' · ' + fmt.short(m.day) + ' · sample'), h('p.sms-body', m.body))));
   }
 
   /* Back to today: starting levels, and the orders and tickets the simulation made are removed. */
@@ -186,15 +189,14 @@
   function showDone(ev) {
     const done = $('fDone'); done.textContent = '';
     done.append(
-      h('p.done-ico', icon('check')),
-      h('h3', 'Diesel order received'),
+      h('h3', 'Diesel order received.'),
       h('dl.done-dl',
         h('div', h('dt', 'Amount'), h('dd', ev.gallons === 'fill the tank' ? 'Fill the tank' : ev.gallons + ' gallons')),
         h('div', h('dt', 'Delivery day'), h('dd', fmt.long(fromKey(ev.day)))),
         h('div', h('dt', 'Site'), h('dd', ev.address + ', ' + ev.borough)),
         h('div', h('dt', 'Delivery'), h('dd', 'Free'))),
       h('p.mute', 'It is on the route for that day. You get a text when the truck is on the way, and the gallons and a gauge photo after.'),
-      h('button.btn.btn-line.btn-sm', { type: 'button', onclick: () => { done.hidden = true; $('fuelForm').hidden = false; $('fuelForm').reset(); wireDefaults(); $('fAddr').focus(); } }, 'Order more diesel'));
+      h('button.btn.btn-line', { type: 'button', onclick: () => { done.hidden = true; $('fuelForm').hidden = false; $('fuelForm').reset(); wireDefaults(); $('fAddr').focus(); } }, 'Order more diesel'));
     $('fuelForm').hidden = true; done.hidden = false; done.focus();
     toast('Diesel ordered for ' + fmt.long(fromKey(ev.day)));
   }
@@ -202,7 +204,6 @@
 
   /* ---------- start ---------- */
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-icon]').forEach(el => el.appendChild(icon(el.dataset.icon)));
     board.tanks = pickUnits();
     paintBoard();
     $('simBtn').addEventListener('click', simulateDay);

@@ -3,7 +3,7 @@
    Every panel repaints whenever the event log changes, in this tab or in another open tab. */
 (function () {
   'use strict';
-  const { $, h, icon, toast } = PR.ui, E = PR.engine, D = PR.data, O = PR.office, C = PR.config;
+  const { $, h, toast } = PR.ui, E = PR.engine, D = PR.data, O = PR.office, C = PR.config;
   const money = E.fmt.money;
 
   /* View state that is not part of the event log. */
@@ -80,8 +80,9 @@
   function paintYard(ev) {
     const rows = yardRows(ev);
     const tiles = $('#yardTiles'); tiles.textContent = '';
+    /* Apple-style figures: a big number over a small label with a status dot, split by hairlines. */
     TILES.forEach(([s, label]) => tiles.appendChild(h('div.of-tile.t-' + s,
-      h('b', String(rows.filter(r => r.st.state === s).length)), h('span', label))));
+      h('b', String(rows.filter(r => r.st.state === s).length)), h('span', h('i', { 'aria-hidden': 'true' }), label))));
     const held = rows.filter(r => r.st.state === 'held').length;
     tiles.appendChild(h('p.of-tilenote.small.mute', plural(rows.length, 'unit') + ' in the fleet' + (held ? ' · ' + held + ' held online right now' : '')));
 
@@ -188,7 +189,7 @@
       h('div.of-gfoot',
         h('span.small.mute', last ? 'Last approved ' + clockOf(new Date(last.at)) + ': ' + plural((last.keys || []).length, opts.unit) + '.' : 'Not approved yet today.'),
         h('button.btn.btn-dark.btn-sm', { type: 'button', disabled: !opts.keys.length, onclick: () => approve(opts.id, opts.unit, opts.keys) },
-          icon('check'), opts.keys.length ? 'Approve and post ' + plural(opts.keys.length, opts.unit) : 'Nothing to post')));
+          opts.keys.length ? 'Approve and post ' + plural(opts.keys.length, opts.unit) : 'Nothing to post')));
   }
 
   function paintBilling(ev) {
@@ -199,7 +200,7 @@
     const fuelRow = f => h('tr', { class: f.fresh && !f.billed ? 'flash' : null },
       h('td.nowrap', f.ticket), h('td.nowrap', E.fmt.short(f.day)), h('td', O.unitLabel(f.unit)), h('td', O.customerName(f.customer)),
       h('td.r.nowrap', E.fmt.gal(f.gallons)),
-      h('td.nowrap', f.photo ? h('span.of-ok', icon('check', 'ico sm'), 'Photo matched') : h('span.of-warn', 'Check the photo')),
+      h('td.nowrap', f.photo ? badge('ok', 'Photo matched') : badge('warn', 'Check the photo')),
       h('td', f.billed ? badge('ok', 'Billed') : badge('warn', 'Not billed')));
     const fuelHeads = ['Ticket', 'Date', 'Unit', 'Customer', ['Gallons', 'r'], 'Photo', 'Status'];
     const billed = fuel.filter(f => f.billed);
@@ -252,7 +253,7 @@
       sub: 'Customers reply to a delivery confirmation asking for more. The agent reads the reply and drafts the lines.',
       badge: aoReady.length ? badge('warn', aoReady.length + ' to add') : badge('ok', 'All added'),
       body: h('ul.of-addons', ao.map(a => h('li',
-        h('div.of-aohead', icon('chat'), h('span', h('b', a.name), ' replied to the delivery confirmation for ' + (a.unit ? O.unitLabel(a.unit) : 'a delivery'))),
+        h('div.of-aohead', h('span', h('b', a.name), ' replied to the delivery confirmation for ' + (a.unit ? O.unitLabel(a.unit) : 'a delivery'))),
         h('blockquote', a.reply),
         h('div.of-aolines', a.lines.map(l => h('span.of-line', l.qty + ' × ' + l.item + (l.free !== undefined ? ' · ' + l.free + ' free in the yard' : '')))),
         a.posted ? badge('ok', 'Added to the invoice') : badge('warn', 'Not on an invoice yet'))))
@@ -342,11 +343,27 @@
   const onRent = ev => D.units.map(u => ({ u, r: O.currentRental(u.no, ev) })).filter(x => x.r);
   const rentOpt = x => ({ value: String(x.u.no), text: O.unitLabel(x.u.no) + ' · ' + O.customerName(x.r.customer) });
 
+  /* One simulator: a small form shown under the "Simulate" button bar. Only the chosen one is visible. */
   function simCard(id, title, from, fields, button, run) {
-    const form = h('form.of-sim', { id: 'sim-' + id, 'aria-labelledby': 'simh-' + id }, h('h3', { id: 'simh-' + id }, title), h('p.of-from', from),
-      h('div.of-simfields', fields), h('button.btn.btn-gold.btn-sm', { type: 'submit' }, button));
+    const form = h('form.of-sim', { id: 'sim-' + id, 'aria-labelledby': 'simh-' + id },
+      h('div.of-simtitle', h('h3', { id: 'simh-' + id }, title), h('p.of-from', 'From: ' + from)),
+      h('div.of-simfields', fields, h('button.btn.btn-dark', { type: 'submit' }, button)));
     form.addEventListener('submit', e => { e.preventDefault(); run(form); });
     return form;
+  }
+  /* The button bar above the simulators: pressing one shows its form and hides the others. */
+  const SIM_TABS = [['pickup', 'Pick-up ticket'], ['dropoff', 'Drop-off ticket'], ['fuel', 'Fuel ticket'], ['phone', 'Phone booking'], ['service', 'Service hold'], ['final', 'Final invoice']];
+  function showSim(id) {
+    SIM_TABS.forEach(([k]) => {
+      const on = k === id;
+      $('#sim-' + k).hidden = !on;
+      $('#simBtns [data-sim="' + k + '"]').setAttribute('aria-pressed', String(on));
+    });
+  }
+  function initSimBar() {
+    const bar = $('#simBtns');
+    SIM_TABS.forEach(([k, label]) => bar.appendChild(h('button.of-simbtn', { type: 'button', 'data-sim': k, 'aria-pressed': 'false', 'aria-controls': 'sim-' + k, onclick: () => showSim(k) }, label)));
+    showSim('pickup');
   }
   const field = (id, label, control) => h('div.field', h('label', { for: id }, label), control);
   const unitNo = id => +sel[id].value;
@@ -411,6 +428,7 @@
     fillSelect(sel.phModel, D.categories.map(c => ({ group: c.name, items: D.models.filter(m => m.cat === c.id).map(m => ({ value: m.id, text: m.name })) })));
     fillSelect(sel.phCust, D.customers.map(c => ({ value: c.id, text: c.name })));
     fillSelect(sel.phBoro, C.business.boroughs.map(b => ({ value: b, text: b })));
+    initSimBar();
   }
 
   function paintFeed(ev) {

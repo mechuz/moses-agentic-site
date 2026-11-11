@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rent · Power Rentals</title>
+<meta name="description" content="Pick a size, a date and a borough, and rent it. Live availability from the Power Rentals yard.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ffffff">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages/product.css">
+</head>
+<body>
+<div id="pr-shell-top"></div>
+<main id="main">
+  <div class="wrap crumbs"><a href="equipment.html">Equipment</a> <span aria-hidden="true">›</span> <a id="crumbCat" href="equipment.html"></a></div>
+  <section class="wrap pdp">
+    <div class="gallery"><div class="shot" id="shot"></div><p class="small mute photo-note">Photo from the Power Rentals yard.</p></div>
+    <form class="buybox" id="buy" novalidate>
+      <p class="cat" id="catName"></p>
+      <h1 id="name"></h1>
+      <p id="availNow" class="avail-now"></p>
+      <p class="price">Rate <span class="fill">from your rate card</span></p>
+
+      <fieldset class="opt"><legend>Size</legend><div class="sizes" id="sizes"></div></fieldset>
+
+      <fieldset class="opt"><legend>Start</legend>
+        <div class="quick" id="quick"></div>
+        <label class="sr" for="start">Start date</label><input type="date" id="start" required>
+      </fieldset>
+
+      <fieldset class="opt"><legend>How long</legend><div class="seg" id="len" role="radiogroup" aria-label="How long"></div></fieldset>
+
+      <div class="field"><label for="boro">Deliver to</label><select id="boro"></select></div>
+
+      <div class="check" id="check" role="status" aria-live="polite"></div>
+
+      <label class="addon" id="fuelRow" hidden><input type="checkbox" id="fuel" checked> <span><b>Fuel monitoring and diesel delivery</b><small>We watch the tank and top it up before it runs low. Diesel delivery is free.</small></span></label>
+      <p class="note" id="heatNote" hidden>Fueled heaters on construction sites must be supervised by a Fire Department certificate holder. We send the requirements with your order.</p>
+
+      <div class="actions">
+        <button class="btn btn-gold btn-lg btn-block" type="submit" id="rentNow">Rent now</button>
+        <button class="btn btn-line btn-lg btn-block" type="button" id="addOrder">Add to order</button>
+      </div>
+      <ul class="assure">
+        <li>Order by 10am for same-day delivery</li>
+        <li>The unit is held while you check out</li>
+        <li>Pay by card or on your account</li>
+      </ul>
+    </form>
+  </section>
+
+  <section class="section sand">
+    <div class="wrap detail">
+      <div><h2>Units of this size.</h2><p class="lede">Each unit has a number and one status. This is what the yard looks like right now.</p></div>
+      <ul class="units" id="units"></ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="also-h">Often rented with it.</h2>
+      <div class="also" id="also"></div>
+    </div>
+  </section>
+</main>
+<div id="pr-shell-bottom"></div>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/product.js"></script>
+</body>
+</html>

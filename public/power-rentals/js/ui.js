@@ -8,11 +8,9 @@ window.PR = window.PR || {};
 
   const NAV = [
     ['equipment.html', 'Equipment'],
-    ['book.html', 'Book online'],
     ['fuel.html', 'Fuel'],
     ['service.html', 'Service plans'],
-    ['account.html', 'My account'],
-    ['office.html', 'Office view']
+    ['account.html', 'Account']
   ];
 
   /* ---------- tiny DOM helpers ---------- */
@@ -54,7 +52,8 @@ window.PR = window.PR || {};
     wrench: '<path d="M14.7 6.3a4 4 0 0 0 5 5L13 18l-3 3-3-3 3-3 6.7-6.7a4 4 0 0 0-2-3z"/>',
     chat: '<path d="M4 5h16v11H8l-4 4z"/>',
     menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
-    arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>'
+    arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    bag: '<path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>'
   };
   const icon = (name, cls = 'ico') => { const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('aria-hidden', 'true'); s.setAttribute('class', cls); s.innerHTML = ICON[name] || ''; return s; };
 
@@ -82,17 +81,23 @@ window.PR = window.PR || {};
     const bar = h('div.previewbar', h('div.wrap',
       h('span', h('b', 'Private preview'), ' · Prepared for Power Rentals by Moses Agentic · sample units and dates'),
       h('span.pb-actions',
-        h('a', { href: 'build.html' }, 'How this was built and what it costs'),
+        h('a', { href: 'office.html' }, 'Office view'),
+        h('a', { href: 'build.html' }, 'How it is built and what it costs'),
         h('button', { type: 'button', class: 'linkish', onclick: () => { PR.store.reset(); toast('Demo reset: sample data restored'); } }, 'Reset demo'))));
     const st = h('span.status', { 'aria-live': 'polite' });
+    /* the order (cart) link with a live count */
+    const orderLink = h('a.orderlink', { href: 'checkout.html', 'aria-current': here === 'checkout.html' ? 'page' : null });
+    const paintOrder = () => { const n = PR.cart ? PR.cart.count() : 0; orderLink.textContent = ''; orderLink.append(icon('bag'), h('span', 'Order')); if (n) orderLink.append(h('b.count', String(n))); orderLink.setAttribute('aria-label', 'Your order, ' + n + (n === 1 ? ' item' : ' items')); };
+    paintOrder(); if (PR.cart) PR.cart.subscribe(paintOrder);
     const menuBtn = h('button.menu-btn', { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'mnav' }, icon('menu'), h('span.sr', 'Menu'));
     const mnav = h('nav.mnav#mnav', { hidden: true, 'aria-label': 'Mobile' }, NAV.map(([href, t]) => h('a', { href, 'aria-current': href === here ? 'page' : null }, t)),
+      h('a', { href: 'checkout.html' }, 'Your order'), h('a', { href: 'office.html' }, 'Office view'),
       h('a.call', { href: C.business.phoneHref }, 'Call or WhatsApp ' + C.business.phone));
     menuBtn.addEventListener('click', () => { const open = mnav.hidden; mnav.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); });
     const header = h('header.site', h('div.wrap.nav',
       h('a.brand', { href: 'index.html', 'aria-label': 'Power Rentals home' }, h('img', { src: 'img/logo.png', alt: 'Power Rentals', width: 200, height: 55 })),
       h('nav.links', { 'aria-label': 'Site' }, NAV.map(([href, t]) => h('a', { href, 'aria-current': href === here ? 'page' : null }, t))),
-      h('div.right', st, h('a.btn.btn-gold', { href: 'book.html' }, 'Book a rental'), menuBtn)), mnav);
+      h('div.right', st, orderLink, h('a.btn.btn-gold', { href: 'equipment.html' }, 'Rent now'), menuBtn)), mnav);
     const emerg = h('div.emerg', h('div.wrap', h('span', 'Power out or heat down?'), h('a', { href: C.business.phoneHref }, 'Call or WhatsApp ' + C.business.phone)));
     mount.replaceWith(bar, emerg, header);
     const paint = () => { const s = E.hours.status(); st.className = 'status ' + (s.open ? 'open' : 'closed'); st.textContent = ''; st.append(h('i'), h('b', s.label), ' ' + s.detail); };
@@ -107,7 +112,7 @@ window.PR = window.PR || {};
         h('p', 'Generators, heat, cooling, light and lifts for New York job sites, buildings and events. Brooklyn, since ' + C.business.since + '.')),
       h('div', h('h4', 'Call or WhatsApp'), h('p', h('a', { href: C.business.phoneHref }, C.business.phone)), h('h4', 'Mailing address'), h('p', C.business.mailing)),
       h('div', h('h4', 'Hours'), h('p', 'Monday to Thursday, ' + E.clock(H[1][0]) + ' to ' + E.clock(H[1][1])), h('p', 'Friday, ' + E.clock(H[5][0]) + ' to ' + E.clock(H[5][1])), h('p', 'Saturday, closed'), h('p', 'Sunday, ', h('span.fill', 'confirm'))),
-      h('div', h('h4', 'Rent'), NAV.slice(0, 4).map(([href, t]) => h('p', h('a', { href }, t))))),
+      h('div', h('h4', 'Rent'), NAV.map(([href, t]) => h('p', h('a', { href }, t))), h('p', h('a', { href: 'office.html' }, 'Office view')))),
       h('div.wrap.legal', h('span', 'Concept website prepared by Moses Agentic for Power Rentals. Sample data; not a live store.'), h('a', { href: 'build.html' }, 'How this was built')));
     mount.replaceWith(footer);
   }

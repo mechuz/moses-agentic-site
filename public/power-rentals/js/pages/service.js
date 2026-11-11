@@ -26,17 +26,21 @@
       has: { visits: 'Four visits a year', reminder: true, report: true, loadtest: true, rental: 'Yes, first in line' } }
   ];
 
+  /* Three comparison columns: name, one line, the price as a dashed fill, a button, then one row per feature.
+     Every column lists the features in the same order, so the rows line up across the page. */
   function renderPlans() {
     const grid = $('plans-grid');
-    PLANS.forEach(p => grid.appendChild(h('article.card.plan' + (p.id === 'standard' ? '.plan-mid' : ''), { 'aria-labelledby': 'pl-' + p.id },
-      h('div.plan-top', h('span.plan-ico', icon('wrench')), h('h3#pl-' + p.id, p.name)),
-      h('p.mute', p.fit),
-      h('p.plan-price', h('span.small.mute', 'Price'), h('span.fill', 'From your rate card')),
+    PLANS.forEach(p => grid.appendChild(h('article.plan', { 'aria-labelledby': 'pl-' + p.id },
+      h('h3#pl-' + p.id, p.name),
+      h('p.plan-fit', p.fit),
+      h('p.plan-price', h('span.fill', 'From your rate card')),
+      h('button.btn' + (p.id === 'standard' ? '.btn-gold' : '.btn-line'), { type: 'button', 'aria-label': 'Book a visit on the ' + p.name + ' plan', onclick: () => choosePlan(p.id) }, 'Book a visit'),
       h('ul.plan-feats', FEATURES.map(([k, label]) => {
         const v = p.has[k];
-        return h('li' + (v ? '' : '.no'), icon(v ? 'check' : 'arrow'), h('span', h('b', label), typeof v === 'string' ? h('span.small.mute', v) : null, v ? null : h('span.small.mute', 'Not included')));
-      })),
-      h('button.btn' + (p.id === 'standard' ? '.btn-gold' : '.btn-line'), { type: 'button', onclick: () => choosePlan(p.id) }, 'Book a visit on ' + p.name))));
+        return v
+          ? h('li', icon('check'), h('b', label), typeof v === 'string' ? h('span.small.mute', v) : null)
+          : h('li.no', h('span.plan-dash', { 'aria-hidden': 'true' }), h('b', label), h('span.small', 'Not included'));
+      })))));
   }
 
   /* "Book a visit on Standard": preselect the plan and move to the form. */
@@ -98,6 +102,7 @@
     const fs = $('sDates'); fs.hidden = false;
     $('sOffer').textContent = 'Update details';
     $('sOffer').classList.replace('btn-dark', 'btn-line');
+    $('sOffer').classList.remove('btn-lg');
     fs.focus();
   }
 
@@ -109,8 +114,7 @@
     const date = fromKey(ev.date), plan = PLANS.find(p => p.id === d.plan);
     const done = $('sDone'); done.textContent = '';
     done.append(
-      h('p.done-ico', icon('check')),
-      h('h3', 'Service visit booked for ' + fmt.long(date)),
+      h('h3', 'Visit booked for ' + fmt.long(date) + '.'),
       h('dl.done-dl',
         h('div', h('dt', 'Generator'), h('dd', d.generator)),
         h('div', h('dt', 'Plan'), h('dd', plan ? plan.name : 'Not chosen yet')),
@@ -118,14 +122,14 @@
         h('div', h('dt', 'Price'), h('dd', h('span.fill', 'From your rate card')))),
       h('p.mute', 'You get a text the day before with the time window. After the visit, your report looks like this:'),
       report({ date, generator: d.generator, borough: d.borough, compact: true }),
-      h('button.btn.btn-line.btn-sm', { type: 'button', onclick: resetForm }, 'Book another visit'));
+      h('button.btn.btn-line', { type: 'button', onclick: resetForm }, 'Book another visit'));
     $('svcForm').hidden = true; done.hidden = false; done.focus();
     toast('Service visit booked for ' + fmt.long(date));
   }
 
   function resetForm() {
     $('svcForm').reset(); $('svcForm').hidden = false; $('sDone').hidden = true; $('sDates').hidden = true;
-    $('sOffer').textContent = 'Show me two dates'; $('sOffer').classList.replace('btn-line', 'btn-dark');
+    $('sOffer').textContent = 'Show me two dates'; $('sOffer').classList.replace('btn-line', 'btn-dark'); $('sOffer').classList.add('btn-lg');
     $('sGen').focus();
   }
 
@@ -146,7 +150,7 @@
     return h('article.report' + (compact ? '.compact' : ''), { 'aria-label': 'Sample visit report' },
       h('header.rp-head',
         h('div', h('p.rp-kicker', 'Visit report'), h('h3', generator), h('p.small', borough + ' · ' + fmt.long(date) + ' · Technician 1')),
-        h('span.badge.sample', 'Sample')),
+        h('span.rp-sample', 'Sample')),
       h('div.rp-grid',
         h('section.rp-box.rp-checks', h('h4', 'Checklist'), h('ul', CHECKS.map(([k, s, note]) =>
           h('li.' + s, h('span.rp-dot', { 'aria-hidden': 'true' }), h('span', h('b', k), h('span.small.mute', note)), h('span.sr', s === 'ok' ? 'passed' : 'needs attention'))))),
@@ -161,7 +165,6 @@
 
   /* ---------- start ---------- */
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-icon]').forEach(el => el.appendChild(icon(el.dataset.icon)));
     renderPlans();
     wireForm();
     let last = addDays(today(), -3);                    // the last visit fell on a delivery day

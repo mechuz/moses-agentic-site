@@ -5,22 +5,25 @@ Moses Agentic's pitch website for Power Rentals (Brooklyn): a new site where cus
 It is fully static: no build step, no server, no database. It works from any web host or straight from the folder.
 
 ## Pages
-- `index.html`: home. Live "in the yard today" card, the fleet with availability, booking steps, how availability stays live, fuel, service, who we serve and testimonials.
-- `equipment.html`: the catalog by category and model. It shows live availability and unit-level status, with filters by date.
-- `book.html`: the four-step booking flow:
-  1. equipment
-  2. dates on an availability calendar
-  3. site and delivery
-  4. review, with a 30-minute hold, then book
-- `account.html`: the customer portal for a sample account. It covers units on rent, pick-up requests, extensions, fuel orders, invoices, the fuel log and documents.
+- `index.html`: home. A full-bleed photo of their own generator, the fleet as product tiles with live availability, the live yard list, fuel, service and who they serve.
+- `equipment.html`: the catalog by category and model, with photos, live availability, unit-level status and a date filter.
+- `product.html?model=ID`: the product page and buy box. Choose a size, a start (quick picks: today, tomorrow, next Monday), the length and the borough, then **Rent now** (straight to checkout) or **Add to order**. Availability is checked live against the yard.
+- `checkout.html`: a one-page checkout.
+  - the delivery address, payment (account terms, card on file or pay on delivery) and insurance certificate are on file
+  - the units are held for 30 minutes
+  - **Place your order** creates the rentals, and the office view sees them at once
+- `book.html`: retired. It redirects to the product page or the catalog.
+- `account.html`: the customer's account and orders: recent orders, units on rent, pick-up requests, extensions, fuel orders, invoices, the fuel log and documents.
 - `fuel.html`: fuel monitoring with a live sample tank board, and diesel delivery orders.
 - `service.html`: service plans for generators customers own, and booking a service visit.
 - `office.html`: the back office.
   - yard board and 21-day availability timeline
-  - billing brief: fuel not yet billed, cycles ready or missing, rentals missing fuel
-  - receivables watch: final, event, behind schedule and broken promise
+  - billing brief: fuel not billed yet, cycles ready or missing, rentals missing fuel
+  - receivables watch: final, event, behind schedule, broken promise
   - live feed that simulates driver tickets and accounting events
-- `build.html`: how this was built, how it connects, and what it costs.
+- `build.html`: how it is built, how it connects, and what it costs.
+
+Photos are Power Rentals' own product photos from powerrentals.com (`img/fleet/`).
 
 ## Architecture
 | File | Role |
@@ -28,9 +31,10 @@ It is fully static: no build step, no server, no database. It works from any web
 | `js/config.js` | Business rules: hours, same-day cutoff, hold time, delivery windows, pricing. Change them here. |
 | `js/data.js` | The catalog and a **sample** fleet: categories, models, numbered units, customers as roles, and a sample history dated relative to today. |
 | `js/engine.js` | The **event log** (store) and the **availability engine**. |
+| `js/cart.js` | The order (cart), synced across tabs. |
 | `js/ui.js` | The shared shell (preview bar, header, footer), DOM helpers, icons and toasts. |
 | `js/pages/*.js`, `css/pages/*.css` | One script and one stylesheet per page. |
-| `css/site.css` | The design system: Power Rentals black and gold, Poppins and Inter. |
+| `css/site.css` | The design system (v2): white space, product photography, Inter, black actions, gold as an accent only. |
 | `js/gate.js` | The passcode gate. |
 
 **The event log.** Every fact about a unit is an event: a rental from an invoice, a website or phone booking, a service hold, a 30-minute hold, a pick-up, drop-off or fuel ticket, or an extension.

@@ -18,14 +18,24 @@
   };
   const AGENTS = { web: P.websiteAgent, rec: P.recommended.join(' + ') };
 
+  /* One half of a price, e.g. "$10,000 build": the figure in a .num span (styled large),
+     the words after it as plain text. The text content stays exactly the house format. */
+  function half(text) {
+    const s = document.createElement('span'); s.className = 'nb';
+    const i = text.indexOf(' ');
+    const num = document.createElement('span'); num.className = 'num'; num.textContent = i < 0 ? text : text.slice(0, i);
+    s.append(num);
+    if (i >= 0) s.append(text.slice(i));
+    return s;
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     /* Keep each half of a price together when it wraps: "$10,000 build" + "$1,000 / mo". */
     document.querySelectorAll('[data-price]').forEach(el => {
-      const parts = (PRICES[el.dataset.price] || '').split(' + ');
-      el.textContent = parts.length > 1 ? '' : parts[0];
-      if (parts.length > 1) parts.forEach((part, i) => {
+      el.textContent = '';
+      (PRICES[el.dataset.price] || '').split(' + ').forEach((part, i) => {
         if (i) el.append(' + ');
-        const s = document.createElement('span'); s.className = 'nb'; s.textContent = part; el.append(s);
+        el.append(half(part));
       });
     });
     document.querySelectorAll('[data-agent]').forEach(el => { el.textContent = AGENTS[el.dataset.agent] || ''; });

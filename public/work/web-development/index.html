@@ -1457,6 +1457,9 @@ html.filing { overflow: hidden; }
 @media (max-width: 760px) { .site-chocham .aud-panels { flex-direction: column; } .site-chocham .aud-panels .panel { min-height: 300px !important; } .site-chocham .aud-panels .panel + .panel { margin-top: 44px; } }
 /* launch: chat is not live yet; owner notes never show to visitors */
 [data-open-chat], .askbtn, .fab, .site-chocham .tabstrip .tlink, .owner { display: none !important; }
+
+.chip.sem { background: #0B2545 !important; color: #FFFFFF !important; }
+#road { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1819,7 +1822,7 @@ body { top: 0 !important; }
 
   <section id="dates" class="center">
     <div class="wrap">
-      <div class="head rise"><div class="eyebrow" data-i18n="dates.kicker">Dates</div><h2 class="h2" data-i18n="dates.title">Pick your night</h2><p class="lead" data-i18n="dates.sub">Brooklyn, Monsey, Lakewood, Five Towns and Miami. More dates coming soon. All seminars are taught in English for now.</p></div>
+      <div class="head rise"><div class="eyebrow" data-i18n="dates.kicker">Dates</div><h2 class="h2" data-i18n="dates.title">Pick your night</h2><p class="lead" data-i18n="dates.sub">Brooklyn, Lakewood, Monsey, Five Towns and Miami, plus online on Zoom. Every other week at each location. All seminars are taught in English for now.</p></div>
       <div class="tabs" role="group" id="tabs">
         <button type="button" data-tab="inperson" data-i18n="dates.tabIn">In person</button>
         <button type="button" data-tab="online" data-i18n="dates.tabOn">Online · half price</button>
@@ -1830,7 +1833,7 @@ body { top: 0 !important; }
 
   <section id="series" class="center" style="padding-top:0">
     <div class="wrap">
-      <div class="head rise"><div class="eyebrow" data-i18n="series.kicker">The series</div><h2 class="h2" data-i18n="series.title">This is just the beginning</h2><p class="lead" data-i18n="series.sub">Seminar 1 opens the door. The next seminars teach the setup, one department at a time.</p></div>
+      <div class="head rise"><div class="eyebrow" data-i18n="series.kicker">The program</div><h2 class="h2" data-i18n="series.title">Eight seminars. Eight hours.</h2><p class="lead" data-i18n="series.sub">One hour each, every other week at each location. Start with Seminar 1. By Seminar 8 you build your own AI agent and see how AI runs a business.</p></div>
       <ol class="road rise" id="road"></ol>
     </div>
   </section>
@@ -1971,12 +1974,23 @@ const CONFIG = {
   prices: { inperson: { early: 59, regular: 79 }, online: { early: 29, regular: 39 } },  // USD per seat
   earlyBirdDays: 21,
   sessions: [
-    { id: "s1-2026-12-13-en", date: "2026-12-13", time: "19:30", lang: "en", format: "inperson", place: "Boro Park", heb: "ג׳ טבת", seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
-    { id: "s1-2026-12-16-en-online", date: "2026-12-16", time: "20:00", lang: "en", format: "online", place: "Zoom", heb: "ו׳ טבת", seats: 100, taken: 0, confirmed: false, links: { early: "", regular: "" } },
-    { id: "s1-2026-12-27-en", date: "2026-12-27", time: "19:30", lang: "en", format: "inperson", place: "Flatbush / Midwood", heb: "י״ז טבת", seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
-    { id: "s1-2027-01-10-en", date: "2027-01-10", time: "19:30", lang: "en", format: "inperson", place: "Flatbush / Midwood", heb: "ב׳ שבט", seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
-    { id: "s1-2027-01-13-en-online", date: "2027-01-13", time: "20:00", lang: "en", format: "online", place: "Zoom", heb: "ה׳ שבט", seats: 100, taken: 0, confirmed: false, links: { early: "", regular: "" } },
-    { id: "s1-2027-01-17-en", date: "2027-01-17", time: "19:30", lang: "en", format: "inperson", place: "Brooklyn", heb: "ט׳ שבט", seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } }
+    { id: "s1-2026-12-13", date: "2026-12-13", time: "19:30", lang: "en", format: "inperson", place: "Brooklyn · Boro Park", heb: "ג׳ טבת", sem: 1, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s1-2026-12-14", date: "2026-12-14", time: "19:30", lang: "en", format: "inperson", place: "Lakewood, NJ", heb: "ד׳ טבת", sem: 1, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s1-2026-12-15", date: "2026-12-15", time: "19:30", lang: "en", format: "inperson", place: "Monsey, NY", heb: "ה׳ טבת", sem: 1, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s1-2026-12-16", date: "2026-12-16", time: "19:30", lang: "en", format: "inperson", place: "Five Towns, NY", heb: "ו׳ טבת", sem: 1, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s1-2026-12-17-online", date: "2026-12-17", time: "20:00", lang: "en", format: "online", place: "Zoom", heb: "ז׳ טבת", sem: 1, seats: 100, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s1-2026-12-21", date: "2026-12-21", time: "19:30", lang: "en", format: "inperson", place: "Miami, FL", heb: "י״א טבת", sem: 1, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s2-2026-12-22", date: "2026-12-22", time: "19:30", lang: "en", format: "inperson", place: "Miami, FL", heb: "י״ב טבת", sem: 2, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s2-2026-12-27", date: "2026-12-27", time: "19:30", lang: "en", format: "inperson", place: "Brooklyn · Boro Park", heb: "י״ז טבת", sem: 2, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s2-2026-12-28", date: "2026-12-28", time: "19:30", lang: "en", format: "inperson", place: "Lakewood, NJ", heb: "י״ח טבת", sem: 2, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s2-2026-12-29", date: "2026-12-29", time: "19:30", lang: "en", format: "inperson", place: "Monsey, NY", heb: "י״ט טבת", sem: 2, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s2-2026-12-30", date: "2026-12-30", time: "19:30", lang: "en", format: "inperson", place: "Five Towns, NY", heb: "כ׳ טבת", sem: 2, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s2-2027-01-07-online", date: "2027-01-07", time: "20:00", lang: "en", format: "online", place: "Zoom", heb: "כ״ח טבת", sem: 2, seats: 100, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s3-2027-01-10", date: "2027-01-10", time: "19:30", lang: "en", format: "inperson", place: "Brooklyn · Boro Park", heb: "ב׳ שבט", sem: 3, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s3-2027-01-11", date: "2027-01-11", time: "19:30", lang: "en", format: "inperson", place: "Lakewood, NJ", heb: "ג׳ שבט", sem: 3, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s3-2027-01-12", date: "2027-01-12", time: "19:30", lang: "en", format: "inperson", place: "Monsey, NY", heb: "ד׳ שבט", sem: 3, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s3-2027-01-13", date: "2027-01-13", time: "19:30", lang: "en", format: "inperson", place: "Five Towns, NY", heb: "ה׳ שבט", sem: 3, seats: 25, taken: 0, confirmed: false, links: { early: "", regular: "" } },
+    { id: "s3-2027-01-14-online", date: "2027-01-14", time: "20:00", lang: "en", format: "online", place: "Zoom", heb: "ו׳ שבט", sem: 3, seats: 100, taken: 0, confirmed: false, links: { early: "", regular: "" } }
   ]
 };
 
@@ -2203,15 +2217,23 @@ const T = {
   "pillars": [
    [
     "What AI is",
-    "How AI computing works, and the basics of programming it. No jargon."
+    "How it works, in plain words. No jargon."
    ],
    [
-    "How to get started",
-    "Your first real wins, live, on your phone."
+    "The right tools",
+    "ChatGPT, Claude and Gemini: which to use for what, and how to set them up."
+   ],
+   [
+    "Your first wins, live",
+    "Write an email, sum up a document, translate and plan your week, on your own phone."
    ],
    [
     "What it can do for your business",
-    "See how AI works in every department, and what it can save."
+    "Real examples from every department, and what it can save."
+   ],
+   [
+    "Your next step",
+    "A simple plan to use AI every day, starting tomorrow."
    ]
   ],
   "strip": [
@@ -2384,32 +2406,48 @@ const T = {
   "save.result": "Estimated savings per year",
   "save.hoursYr": "{h} hours back every year",
   "save.note": "An estimate based on 50 working weeks. Your results depend on your business and how you use AI.",
-  "series.kicker": "The series",
-  "series.title": "This is just the beginning",
-  "series.sub": "Seminar 1 opens the door. The next seminars teach the setup, one department at a time.",
+  "series.kicker": "The program",
+  "series.title": "Eight seminars. Eight hours.",
+  "series.sub": "One hour each, every other week at each location. Start with Seminar 1. By Seminar 8 you build your own AI agent and see how AI runs a business.",
   "road": [
    [
     "AI Foundations",
-    "Find out what AI is, how to start, and what it can do for you."
+    "What AI is, the right tools, and your first wins, live on your phone."
    ],
    [
-    "AI for Every Department",
-    "Step-by-step setup: CMO, CFO, COO, CTO, HR."
+    "Asking AI the right way",
+    "Prompts that get usable answers: give context, examples and rules, and check the result. Templates you keep."
    ],
    [
-    "Train Your AI",
-    "Teach AI your business. Custom assistants and team training."
+    "AI for your daily work",
+    "Email, documents, spreadsheets, research and meeting notes, with your own AI assistant set up."
    ],
    [
-    "Automate",
-    "AI handles the repeat work. You run the business."
+    "AI for every department",
+    "Real workflows for marketing, finance, operations, HR, sales and customer service."
+   ],
+   [
+    "Your files and your data",
+    "Put AI to work on your own documents, contracts and numbers, safely, and what never to share."
+   ],
+   [
+    "Automation",
+    "Connect email, spreadsheets, accounting and your CRM so routine work runs on its own, with no code."
+   ],
+   [
+    "Build your first AI agent",
+    "Plan, build and test an agent that does a real job for you, with tools, rules and your approval."
+   ],
+   [
+    "Running AI in a business",
+    "The higher-level operations: deploying agents across a company, quality checks, security, costs, and a 90-day plan."
    ]
   ],
   "now": "Booking now",
   "soon": "Coming soon",
   "dates.kicker": "Dates",
   "dates.title": "Pick your night",
-  "dates.sub": "Brooklyn, Monsey, Lakewood, Five Towns and Miami. More dates coming soon. All seminars are taught in English for now.",
+  "dates.sub": "Brooklyn, Lakewood, Monsey, Five Towns and Miami, plus online on Zoom. Every other week at each location. All seminars are taught in English for now.",
   "tent": "Tentative",
   "full": "Sold out",
   "pres.kicker": "Your presenter",
@@ -2438,11 +2476,11 @@ const T = {
    ],
    [
     "Will I learn everything in one night?",
-    "No. Seminar 1 shows you what's possible and gets you started. The next seminars go deep, one department at a time."
+    "No. It's eight one-hour seminars. Seminar 1 gets you started; by Seminar 8 you build your own AI agent."
    ],
    [
     "Is there an online option?",
-    "Yes. Seminar 1 also runs live on Zoom on a different night, for half the price."
+    "Yes. The seminars also run live on Zoom on Thursday nights, for half the price."
    ],
    [
     "What do I bring?",
@@ -3869,7 +3907,9 @@ const T = {
   "who.ent": "For enterprise",
   "who.ind": "For individuals",
   "nav.indiv": "Individuals",
-  "nav.entp": "Enterprises"
+  "nav.entp": "Enterprises",
+  "dated": "Dates set",
+  "semn": "Seminar {n}"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -3895,15 +3935,23 @@ const T = {
   "pillars": [
    [
     "וואס איז AI",
-    "ווי אזוי AI ארבעט, און די יסודות ווי מען פראגראמירט עס. אן קיין שווערע ווערטער."
+    "ווי אזוי עס ארבעט, אין פשוט'ע ווערטער. אן קיין שווערע ווערטער."
    ],
    [
-    "ווי אזוי אנהייבן",
-    "אייערע ערשטע הצלחות, דארט אויפן פלאץ, אויף אייער פאון."
+    "די ריכטיגע טולס",
+    "ChatGPT, Claude און Gemini: וועלכע צו ניצן פאר וואס, און ווי אזוי זיי אויפצושטעלן."
+   ],
+   [
+    "אייערע ערשטע הצלחות, דארט אויפן פלאץ",
+    "שרייבט אן אימעיל, פאסט צוזאם א דאקומענט, זעצט איבער און פלאנט די וואך, אויף אייער אייגענעם פאון."
    ],
    [
     "וואס עס קען טון פאר אייער ביזנעס",
-    "זעט ווי AI ארבעט אין יעדן דעפארטמענט, און וויפיל עס קען אייך שפארן."
+    "אמת'ע ביישפילן פון יעדן דעפארטמענט, און וויפיל עס קען שפארן."
+   ],
+   [
+    "אייער נעקסטער שריט",
+    "א פשוט'ער פלאן צו ניצן AI יעדן טאג, אנגעהויבן פון מארגן."
    ]
   ],
   "strip": [
@@ -4076,32 +4124,48 @@ const T = {
   "save.result": "בערך שפארונג א יאר",
   "save.hoursYr": "{h} שעות צוריק יעדעס יאר",
   "save.note": "בערך, גערעכנט אויף 50 ארבעטס-וואכן. אייערע רעזולטאטן הענגען אפ אין אייער ביזנעס און ווי אזוי איר ניצט AI.",
-  "series.kicker": "די סעריע",
-  "series.title": "דאס איז ערשט דער אנהייב",
-  "series.sub": "סעמינאר 1 עפנט די טיר. די נעקסטע סעמינארן לערנען ווי אזוי עס אויפצושטעלן, איין דעפארטמענט נאכן אנדערן.",
+  "series.kicker": "די פראגראם",
+  "series.title": "אכט סעמינארן. אכט שעה.",
+  "series.sub": "יעדע איינס א שעה, יעדע צווייטע וואך אין יעדן פלאץ. הייבט אן מיט סעמינאר 1. ביז סעמינאר 8 בויט איר אייער אייגענעם AI אגענט און זעט ווי AI פירט א ביזנעס.",
   "road": [
    [
     "AI פון אנהייב",
-    "געפינט אויס וואס AI איז, ווי אזוי אנצוהייבן, און וואס עס קען טון פאר אייך."
+    "וואס AI איז, די ריכטיגע טולס, און אייערע ערשטע הצלחות דארט אויפן פלאץ אויף אייער פאון."
+   ],
+   [
+    "ווי אזוי צו פרעגן AI",
+    "פראמפטס וואס ברענגען ענטפערס וואס מ'קען ניצן: גיט קאנטעקסט, ביישפילן און כללים, און טשעקט דעם רעזולטאט. טעמפלעיטס וואס בלייבן ביי אייך."
+   ],
+   [
+    "AI פאר אייער טאג-טעגליכע ארבעט",
+    "אימעילס, דאקומענטן, ספרעדשיטס, ריסוירטש און נאטיצן פון מיטינגס, מיט אייער אייגענעם AI אסיסטענט אויפגעשטעלט."
    ],
    [
     "AI פאר יעדן דעפארטמענט",
-    "אויפשטעלן שריט ביי שריט: CMO, CFO, COO, CTO, HR."
+    "אמת'ע ארבעט-פראצעסן פאר מארקעטינג, פינאנץ, אפערעישאנס, HR, סעילס און קאסטומער סערוויס."
    ],
    [
-    "טרעינט אייער AI",
-    "לערנט AI אייער ביזנעס. אייגענע אסיסטענטן און טרעינינג פאר'ן טיעם."
+    "אייערע פיילס און אייער דאטא",
+    "לאזט AI ארבעטן אויף אייערע אייגענע דאקומענטן, קאנטראקטן און נומערן, אויף א זיכערן אופן, און וואס מ'טאר קיינמאל נישט טיילן."
    ],
    [
-    "אויטאמאטיש",
-    "AI טוט די זעלבע ארבעט וואס חזר'ט זיך איבער. איר פירט דעם ביזנעס."
+    "אויטאמאציע",
+    "פארבינדט אימעיל, ספרעדשיטס, אקאונטינג און אייער CRM, אז די רוטין ארבעט זאל לויפן פון זיך אליין, אן קיין קאוד."
+   ],
+   [
+    "בויט אייער ערשטן AI אגענט",
+    "פלאנט, בויט און טעסט אן אגענט וואס טוט א ריכטיגע ארבעט פאר אייך, מיט טולס, כללים און אייער באשטעטיגונג."
+   ],
+   [
+    "פירן AI אין א ביזנעס",
+    "די העכערע אפערעישאנס: אגענטן איינשטעלן איבער א גאנצע פירמע, קוואליטעט טשעקס, סעקיוריטי, קאסטן, און א 90-טאג פלאן."
    ]
   ],
   "now": "מ'בוקט יעצט",
   "soon": "באלד",
   "dates.kicker": "דאטעס",
   "dates.title": "קלייבט אייער נאכט",
-  "dates.sub": "ברוקלין, מאנסי, לייקוואוד, פייוו טאונס און מייאמי. נאך דאטעס קומען באלד. אלע סעמינארן זענען דערווייל אויף ענגליש.",
+  "dates.sub": "ברוקלין, לייקוואוד, מאנסי, פייוו טאונס און מייאמי, און אנליין אויף זום. יעדע צווייטע וואך אין יעדן פלאץ. אלע סעמינארן זענען דערווייל אויף ענגליש.",
   "tent": "נאך נישט פיקסירט",
   "full": "סאלד אאוט",
   "pres.kicker": "דער רעדנער",
@@ -4130,11 +4194,11 @@ const T = {
    ],
    [
     "וועל איך אלעס לערנען אין איין נאכט?",
-    "ניין. סעמינאר 1 ווייזט וואס מ'קען טון און הייבט אייך אן. די נעקסטע סעמינארן גייען טיפער, איין דעפארטמענט יעדעס מאל."
+    "ניין. עס זענען אכט סעמינארן פון א שעה. סעמינאר 1 הייבט אייך אן; ביז סעמינאר 8 בויט איר אייער אייגענעם AI אגענט."
    ],
    [
     "איז דא אן אנליין אפשאן?",
-    "יא. סעמינאר 1 איז אויך לייוו אויף זום אויף אן אנדער נאכט, פאר האלבן פרייז."
+    "יא. די סעמינארן לויפן אויך לייוו אויף זום דאנערשטאג ביינאכט, פאר האלבע פרייז."
    ],
    [
     "וואס דארף איך ברענגען?",
@@ -5561,7 +5625,9 @@ const T = {
   "who.ent": "פאר ארגאניזאציעס",
   "who.ind": "פאר יחידים",
   "nav.indiv": "יחידים",
-  "nav.entp": "ארגאניזאציעס"
+  "nav.entp": "ארגאניזאציעס",
+  "dated": "דאטעס פיקסירט",
+  "semn": "סעמינאר {n}"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -5587,15 +5653,23 @@ const T = {
   "pillars": [
    [
     "מה זה AI",
-    "איך עובד מחשוב AI, ויסודות התכנות שלו. בלי ז׳רגון."
+    "איך זה עובד, במילים פשוטות. בלי ז׳רגון."
    ],
    [
-    "איך מתחילים",
-    "ההצלחות הראשונות שלכם, בזמן אמת, בטלפון."
+    "הכלים הנכונים",
+    "ChatGPT, Claude ו-Gemini: במה להשתמש ולמה, ואיך להגדיר אותם."
    ],
    [
-    "מה הוא יכול לעשות לעסק שלכם",
-    "רואים איך AI עובד בכל מחלקה, וכמה הוא יכול לחסוך."
+    "ההצלחות הראשונות, בזמן אמת",
+    "לכתוב מייל, לסכם מסמך, לתרגם ולתכנן את השבוע, בטלפון שלכם."
+   ],
+   [
+    "מה זה יכול לעשות לעסק שלכם",
+    "דוגמאות אמיתיות מכל מחלקה, וכמה זה יכול לחסוך."
+   ],
+   [
+    "הצעד הבא",
+    "תוכנית פשוטה להשתמש ב-AI כל יום, כבר ממחר."
    ]
   ],
   "strip": [
@@ -5768,32 +5842,48 @@ const T = {
   "save.result": "חיסכון שנתי משוער",
   "save.hoursYr": "{h} שעות חוזרות אליכם בכל שנה",
   "save.note": "הערכה לפי 50 שבועות עבודה. התוצאות תלויות בעסק שלכם ובאופן השימוש ב-AI.",
-  "series.kicker": "הסדרה",
-  "series.title": "וזו רק ההתחלה",
-  "series.sub": "סמינר 1 פותח את הדלת. הסמינרים הבאים מלמדים את ההגדרה, מחלקה אחר מחלקה.",
+  "series.kicker": "התוכנית",
+  "series.title": "שמונה סמינרים. שמונה שעות.",
+  "series.sub": "שעה כל אחד, פעם בשבועיים בכל מקום. מתחילים בסמינר 1. עד סמינר 8 תבנו סוכן AI משלכם ותראו איך AI מנהל עסק.",
   "road": [
    [
     "יסודות ה-AI",
-    "גלו מה זה AI, איך מתחילים ומה הוא יכול לעשות בשבילכם."
+    "מה זה AI, הכלים הנכונים, וההצלחות הראשונות בזמן אמת בטלפון שלכם."
+   ],
+   [
+    "לשאול את ה-AI נכון",
+    "פרומפטים שמביאים תשובות שימושיות: הקשר, דוגמאות וכללים, ובדיקת התוצאה. תבניות שנשארות אצלכם."
+   ],
+   [
+    "AI לעבודה היומיומית",
+    "מיילים, מסמכים, גיליונות, מחקר וסיכומי פגישות, עם עוזר AI אישי מוגדר."
    ],
    [
     "AI לכל מחלקה",
-    "הגדרה צעד אחר צעד: CMO, CFO, COO, CTO, משאבי אנוש."
+    "תהליכי עבודה אמיתיים לשיווק, כספים, תפעול, משאבי אנוש, מכירות ושירות לקוחות."
    ],
    [
-    "אמנו את ה-AI שלכם",
-    "למדו את ה-AI את העסק שלכם. עוזרים מותאמים והדרכת צוות."
+    "הקבצים והנתונים שלכם",
+    "להפעיל AI על המסמכים, החוזים והמספרים שלכם בבטחה, ומה אסור לשתף לעולם."
    ],
    [
     "אוטומציה",
-    "ה-AI עושה את העבודה החוזרת. אתם מנהלים את העסק."
+    "לחבר מייל, גיליונות, הנהלת חשבונות ו-CRM כך שעבודה שגרתית רצה לבד, בלי קוד."
+   ],
+   [
+    "בונים את סוכן ה-AI הראשון",
+    "לתכנן, לבנות ולבדוק סוכן שעושה עבודה אמיתית בשבילכם, עם כלים, כללים ואישור שלכם."
+   ],
+   [
+    "ניהול AI בעסק",
+    "התפעול ברמה הגבוהה: פריסת סוכנים בכל החברה, בקרת איכות, אבטחה, עלויות ותוכנית ל-90 יום."
    ]
   ],
   "now": "ההרשמה פתוחה",
   "soon": "בקרוב",
   "dates.kicker": "מועדים",
   "dates.title": "בחרו ערב",
-  "dates.sub": "ברוקלין, מונסי, לייקווד, פייב טאונס ומיאמי. תאריכים נוספים בקרוב. כל הסמינרים מועברים כרגע באנגלית.",
+  "dates.sub": "ברוקלין, לייקווד, מונסי, פייב טאונס ומיאמי, וגם אונליין בזום. פעם בשבועיים בכל מקום. כל הסמינרים מועברים כרגע באנגלית.",
   "tent": "טרם אושר",
   "full": "אזל",
   "pres.kicker": "המרצה",
@@ -5822,11 +5912,11 @@ const T = {
    ],
    [
     "אלמד הכול בערב אחד?",
-    "לא. סמינר 1 מראה מה אפשרי ומניע אתכם. הסמינרים הבאים מעמיקים, מחלקה אחת בכל פעם."
+    "לא. אלה שמונה סמינרים של שעה. סמינר 1 מתחיל את הדרך; עד סמינר 8 תבנו סוכן AI משלכם."
    ],
    [
     "יש אפשרות אונליין?",
-    "כן. סמינר 1 מתקיים גם בשידור חי בזום בערב אחר, בחצי מחיר."
+    "כן. הסמינרים מתקיימים גם בשידור חי בזום בימי חמישי בערב, בחצי מחיר."
    ],
    [
     "מה להביא?",
@@ -7253,7 +7343,9 @@ const T = {
   "who.ent": "לארגונים",
   "who.ind": "ליחידים",
   "nav.indiv": "יחידים",
-  "nav.entp": "ארגונים"
+  "nav.entp": "ארגונים",
+  "dated": "נקבעו תאריכים",
+  "semn": "סמינר {n}"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -7279,15 +7371,23 @@ const T = {
   "pillars": [
    [
     "Qué es la IA",
-    "Cómo funciona la computación de IA y las bases de su programación. Sin palabras difíciles."
+    "Cómo funciona, en palabras simples. Sin jerga."
    ],
    [
-    "Cómo empezar",
-    "Sus primeros resultados, en vivo, en su teléfono."
+    "Las herramientas correctas",
+    "ChatGPT, Claude y Gemini: cuál usar para qué y cómo configurarlas."
    ],
    [
-    "Qué puede hacer por su negocio",
-    "Vea cómo funciona la IA en cada departamento y cuánto puede ahorrar."
+    "Sus primeros logros, en vivo",
+    "Escriba un correo, resuma un documento, traduzca y planifique su semana, en su propio teléfono."
+   ],
+   [
+    "Lo que puede hacer por su negocio",
+    "Ejemplos reales de cada departamento, y cuánto puede ahorrar."
+   ],
+   [
+    "Su próximo paso",
+    "Un plan sencillo para usar la IA todos los días, desde mañana."
    ]
   ],
   "strip": [
@@ -7460,32 +7560,48 @@ const T = {
   "save.result": "Ahorro estimado por año",
   "save.hoursYr": "{h} horas recuperadas cada año",
   "save.note": "Estimación basada en 50 semanas laborales. Sus resultados dependen de su negocio y de cómo use la IA.",
-  "series.kicker": "La serie",
-  "series.title": "Esto es solo el comienzo",
-  "series.sub": "El Seminario 1 abre la puerta. Los siguientes enseñan la configuración, un departamento a la vez.",
+  "series.kicker": "El programa",
+  "series.title": "Ocho seminarios. Ocho horas.",
+  "series.sub": "Una hora cada uno, cada dos semanas en cada lugar. Empiece con el Seminario 1. Para el Seminario 8 creará su propio agente de IA y verá cómo la IA dirige una empresa.",
   "road": [
    [
     "Fundamentos de IA",
-    "Descubra qué es la IA, cómo empezar y qué puede hacer por usted."
+    "Qué es la IA, las herramientas correctas y sus primeros logros en vivo en su teléfono."
+   ],
+   [
+    "Cómo pedirle bien a la IA",
+    "Prompts que dan respuestas útiles: contexto, ejemplos y reglas, y cómo revisar el resultado. Plantillas para quedarse."
+   ],
+   [
+    "IA para su trabajo diario",
+    "Correos, documentos, hojas de cálculo, investigación y notas de reuniones, con su propio asistente de IA configurado."
    ],
    [
     "IA para cada departamento",
-    "Configuración paso a paso: CMO, CFO, COO, CTO, RR. HH."
+    "Flujos reales para marketing, finanzas, operaciones, RR. HH., ventas y atención al cliente."
    ],
    [
-    "Entrene su IA",
-    "Enséñele su negocio a la IA. Asistentes propios y capacitación del equipo."
+    "Sus archivos y sus datos",
+    "Ponga la IA a trabajar con sus propios documentos, contratos y números, de forma segura, y qué nunca compartir."
    ],
    [
-    "Automatice",
-    "La IA hace el trabajo repetitivo. Usted dirige el negocio."
+    "Automatización",
+    "Conecte correo, hojas de cálculo, contabilidad y su CRM para que el trabajo rutinario corra solo, sin código."
+   ],
+   [
+    "Cree su primer agente de IA",
+    "Planifique, cree y pruebe un agente que haga un trabajo real por usted, con herramientas, reglas y su aprobación."
+   ],
+   [
+    "La IA en la operación de una empresa",
+    "Las operaciones de alto nivel: desplegar agentes en toda la empresa, control de calidad, seguridad, costos y un plan de 90 días."
    ]
   ],
   "now": "Reservas abiertas",
   "soon": "Próximamente",
   "dates.kicker": "Fechas",
   "dates.title": "Elija su noche",
-  "dates.sub": "Brooklyn, Monsey, Lakewood, Five Towns y Miami. Pronto más fechas. Por ahora, todos los seminarios son en inglés.",
+  "dates.sub": "Brooklyn, Lakewood, Monsey, Five Towns y Miami, y en línea por Zoom. Cada dos semanas en cada lugar. Por ahora, todos los seminarios son en inglés.",
   "tent": "Por confirmar",
   "full": "Agotado",
   "pres.kicker": "Su presentador",
@@ -7514,11 +7630,11 @@ const T = {
    ],
    [
     "¿Aprenderé todo en una noche?",
-    "No. El Seminario 1 le muestra lo que es posible y le pone en marcha. Los siguientes seminarios profundizan, un departamento a la vez."
+    "No. Son ocho seminarios de una hora. El Seminario 1 lo pone en marcha; para el Seminario 8 creará su propio agente de IA."
    ],
    [
     "¿Hay opción en línea?",
-    "Sí. El Seminario 1 también se da en vivo por Zoom en otra noche, a mitad de precio."
+    "Sí. Los seminarios también se transmiten en vivo por Zoom los jueves por la noche, a mitad de precio."
    ],
    [
     "¿Qué debo traer?",
@@ -8945,7 +9061,9 @@ const T = {
   "who.ent": "Para organizaciones",
   "who.ind": "Para particulares",
   "nav.indiv": "Particulares",
-  "nav.entp": "Organizaciones"
+  "nav.entp": "Organizaciones",
+  "dated": "Con fechas",
+  "semn": "Seminario {n}"
  }
 };
 
@@ -9189,7 +9307,7 @@ function render() {
 
   const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   $("#stops").innerHTML = t("stop").map(([was, now], i) => `<button type="button" class="stoprow" data-stop="${i}" data-fx><span>${was ? `<s>${esc(was)}</s>` : ""}<b>${esc(now)}</b></span><span class="go2">${ARROW}</span></button>`).join("");
-  $("#pillars").innerHTML = t("pillars").map(([h, p], i) => `<div class="pillar"><span class="ic">${ICONS[i]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
+  $("#pillars").innerHTML = t("pillars").map(([h, p], i) => `<div class="pillar"><span class="ic">${ICONS[i % ICONS.length]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
   $("#cases").innerHTML = [8, 0, 12].map(i => caseCard(i)).join("");
   renderCases();
   renderPractices();
@@ -9207,12 +9325,12 @@ function render() {
   $$(".nav [data-view]").forEach(b => b.setAttribute("aria-current", b.dataset.view === view ? "page" : "false"));
   $("#depts").innerHTML = t("depts").map(([c, h, p]) => `<div class="dept"><span class="code">${esc(c)}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
   calc();
-  $("#road").innerHTML = t("road").map(([h, p], i) => `<li class="${i === 0 ? "now" : ""}"><span class="n">${i + 1}</span><h3>${esc(h)}</h3><p>${esc(p)}</p><span class="status">${esc(i === 0 ? t("now") : t("soon"))}</span></li>`).join("");
+  $("#road").innerHTML = t("road").map(([h, p], i) => `<li class="${i === 0 ? "now" : ""}"><span class="n">${i + 1}</span><h3>${esc(h)}</h3><p>${esc(p)}</p><span class="status">${esc(i === 0 ? t("now") : i < 3 ? t("dated") : t("soon"))}</span></li>`).join("");
   $$("#tabs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.tab === datesTab));
   $("#datelist").innerHTML = upcoming(datesTab).map(s => `<div class="date">
-      <div class="chips"><span class="chip f${s.format === "online" ? " on" : ""}">${esc(fmtLabel(s))}</span>${s.confirmed ? "" : `<span class="chip">${esc(t("tent"))}</span>`}</div>
+      <div class="chips"><span class="chip sem">${esc(t("semn", { n: s.sem || 1 }))}</span><span class="chip f${s.format === "online" ? " on" : ""}">${esc(fmtLabel(s))}</span>${s.confirmed ? "" : `<span class="chip">${esc(t("tent"))}</span>`}</div>
       <div class="d">${esc(fmtDate(pd(s.date)))}</div>
-      <div class="meta">${esc(fmtTime(s))} · <span class="heb">${esc(s.heb)}</span> · ${esc(s.place)}</div>
+      <div class="meta">${esc(fmtTime(s))}${(lang === "yi" || lang === "he") && s.heb ? ` · <span class="heb">${esc(s.heb)}</span>` : ""} · ${esc(s.place)}</div>
       <div class="meta">${left(s) ? esc(t("seats", { n: left(s), total: s.seats })) : esc(t("full"))}</div>
       <button type="button" class="btn block" data-book="${esc(s.id)}" data-fx ${left(s) ? "" : "disabled"}>${esc(t("cta.book"))} · ${money(priceOf(s))}</button>
     </div>`).join("");
@@ -9563,7 +9681,7 @@ function drawSheet(mode = "book", note = "") {
   }
   const ups = upcoming().filter(left);
   const opts = ups.map(s => `<label class="opt"><input type="radio" name="night" value="${esc(s.id)}" ${picked && picked.id === s.id ? "checked" : ""}>
-      <span><b>${esc(fmtDate(pd(s.date)))}</b><small>${esc(fmtTime(s))} · ${esc(langName(s.lang))} · ${esc(fmtLabel(s))}${s.format === "inperson" ? " · " + esc(s.place) : ""}</small></span>
+      <span><b>${esc(t("semn", { n: s.sem || 1 }))} · ${esc(fmtDate(pd(s.date)))}</b><small>${esc(fmtTime(s))} · ${esc(langName(s.lang))} · ${esc(fmtLabel(s))}${s.format === "inperson" ? " · " + esc(s.place) : ""}</small></span>
       <span class="p">${money(priceOf(s))}</span></label>`).join("");
   const s = picked, tier = s && tierFor(s), link = s && s.links[tier];
   const saving = s ? CONFIG.prices[s.format].regular - CONFIG.prices[s.format].early : 0;
@@ -9600,7 +9718,7 @@ document.addEventListener("submit", async e => {
   if (!name || !phone) { err.textContent = t("f.required"); err.hidden = false; return; }
   const btn = $("#rsubmit"); btn.disabled = true; btn.textContent = t("sending");
   let ok = true;
-  if (!CONFIG.formEndpoint && CONFIG.web3formsKey) { try { const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Chocham AI: seat reservation from " + name + " (" + picked.date + ")", from_name: "Chocham AI website", botcheck: false, name: name, phone: phone, message: ["Seat reservation", "Date: " + picked.date + " " + picked.time, "Format: " + picked.format + (picked.format === "inperson" ? " (" + picked.place + ")" : ""), "Price: $" + priceOf(picked) + " (pay at the door)", "Name: " + name, "Phone: " + phone, "Email: " + (email || "-"), "Site language: " + lang].join(String.fromCharCode(10)) }, email ? { email: email, replyto: email } : {})) }); const j = await r.json().catch(() => ({})); ok = r.ok && j.success !== false; } catch (x) { ok = false; } }
+  if (!CONFIG.formEndpoint && CONFIG.web3formsKey) { try { const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Chocham AI: seat reservation from " + name + " (" + picked.date + ")", from_name: "Chocham AI website", botcheck: false, name: name, phone: phone, message: ["Seat reservation: Seminar " + (picked.sem || 1), "Date: " + picked.date + " " + picked.time, "Format: " + picked.format + (picked.format === "inperson" ? " (" + picked.place + ")" : ""), "Price: $" + priceOf(picked) + " (pay at the door)", "Name: " + name, "Phone: " + phone, "Email: " + (email || "-"), "Site language: " + lang].join(String.fromCharCode(10)) }, email ? { email: email, replyto: email } : {})) }); const j = await r.json().catch(() => ({})); ok = r.ok && j.success !== false; } catch (x) { ok = false; } }
   if (CONFIG.formEndpoint) {
     try {
       const r = await fetch(CONFIG.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },

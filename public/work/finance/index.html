@@ -1501,6 +1501,10 @@ html.filing { overflow: hidden; }
 .chcgrid .rise { opacity: 1 !important; transform: none !important; }
 @media (max-width: 1000px) { .chcgrid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
 @media (max-width: 560px) { .chcgrid { grid-template-columns: 1fr !important; } }
+
+.chcgroups .cgroup { margin-top: clamp(1.8rem, 4vw, 2.6rem); text-align: start; }
+.chcgroups .cgroup-h h2 { font: 800 clamp(1.4rem, 2.4vw, 1.9rem)/1.1 var(--f-display); letter-spacing: -.03em; color: #0B2545; }
+.chcgroups .chcgrid { margin-top: 1rem !important; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1847,7 +1851,7 @@ body { top: 0 !important; }
     </div>
   </div>
   <section class="valsec" id="value"><div class="wrap"><div class="head center"><div class="eyebrow" data-i18n="val.k">The value</div><h2 class="h2" data-i18n="val.t">What you&#x27;ll be able to do</h2><p class="lead" data-i18n="val.s">Real skills you use the next day. Not theory.</p></div><div class="valgrid" id="valgrid"></div><div class="center" style="margin-top:2rem"><button type="button" class="btn big" data-book data-i18n="val.go">Book my seat</button></div></div></section>
-  <section class="chcsec" id="chcases"><div class="wrap"><div class="head center"><div class="eyebrow" data-i18n="chcs.k">Case studies</div><h2 class="h2" data-i18n="chcs.t">Real results from real businesses</h2><p class="lead" data-i18n="cs.sub">These are the kinds of jobs AI now does in our own businesses. In the seminar, you see them live.</p></div><div class="cases chcgrid" id="chcgrid"></div><p class="cs-note center" data-i18n="cs.note">Snapshots show sample data. Client names and real figures are kept private.</p><div class="center" style="margin-top:1.4rem"><a class="btn big" id="chcmore" href="https://mosesagentic.com/case-studies/" data-i18n="chcs.more">See all case studies</a></div></div></section>
+  <section class="chcsec" id="chcases"><div class="wrap"><div class="head center"><div class="eyebrow" data-i18n="chcs.k">Case studies</div><h2 class="h2" data-i18n="chcs.t">Real results from real businesses</h2><p class="lead" data-i18n="cs.sub">These are the kinds of jobs AI now does in our own businesses. In the seminar, you see them live.</p></div><div class="chcgroups" id="chcgrid"></div><p class="cs-note center" data-i18n="cs.note">Snapshots show sample data. Client names and real figures are kept private.</p><div class="center" style="margin-top:1.4rem"><a class="btn big" id="chcmore" href="https://mosesagentic.com/case-studies/" data-i18n="chcs.more">See all case studies</a></div></div></section>
   <div id="seats"></div>
   <section class="view-head center edu-head"><div class="wrap">
     <div class="eyebrow" data-i18n="ev.kicker">Chocham AI · The education company of Moses Agentic</div>
@@ -2375,6 +2379,41 @@ const T = {
     "Websites built and launched with AI",
     "This website is an example: design, four languages plus AI translation, booking, checkout, a chat agent and automatic publishing, built in days.",
     "Built in days, not months"
+   ],
+   [
+    "Forensic review for an investor group",
+    "Investors in a multi-state real-estate sponsor needed to know where their money actually sat. We worked through the full document production and the public record, and traced every investor dollar, property by property.",
+    "$78.2M reconciled to the cent"
+   ],
+   [
+    "Valuing a distressed Manhattan office package",
+    "With an auction and a foreclosure both under way, we built an independent opinion of value for a four-building package from recorded sales, and showed investors what they could realistically recover.",
+    "$79.5M valuation, before the auction"
+   ],
+   [
+    "Financing package for a senior-housing portfolio",
+    "A buyer was acquiring three independent-living communities from an exiting REIT. We reconciled the seller's financials, county tax records and the LOI, prepared two lender memos, and found about $285K a year of tax upside that wasn't in the seller's numbers.",
+    "$20.75M, 469 units underwritten"
+   ],
+   [
+    "Construction loan for a school campus",
+    "A developer was building a school campus under a 32-year absolute-net lease. We turned the lease and budget into a 5-page loan request and an 11-tab underwriting model, and found the full rent schedule buried in the lease.",
+    "$127M of lease rent underwritten"
+   ],
+   [
+    "Stopping an overpay at auction",
+    "A buyer was weighing a bid on a 75-unit apartment property at auction. We processed the whole diligence file in an afternoon, found the marketing numbers didn't hold, and solved for the price that met the buyer's target return.",
+    "Asking price was 39% too high"
+   ],
+   [
+    "AI demand engine for assisted living",
+    "For a 52-unit assisted living and memory care community, we built review replies, a lead inbox, referral follow-up and a daily payroll-and-census brief.",
+    "Rating 3.6 → 3.8 in a quarter"
+   ],
+   [
+    "Feasibility for an adult day program",
+    "We tested a 7-day licensed adult day program for up to 40 participants inside an existing building: pricing, breakeven, licensing timeline and competitor rates.",
+    "Breakeven cut from 32 to 25 participants"
    ]
   ],
   "cs.note": "Snapshots show sample data. Client names and real figures are kept private.",
@@ -4204,6 +4243,41 @@ const T = {
     "וועבסייטס געבויט און לאנטשט מיט AI",
     "די וועבסייט איז א ביישפיל: דיזיין, פיר שפראכן פלוס AI איבערזעצונג, בוקינג, טשעקאוט, א טשעט אגענט און אויטאמאטיש פאבלישן, געבויט אין טעג.",
     "געבויט אין טעג, נישט חדשים"
+   ],
+   [
+    "פארענזישע איבערקוק פאר א גרופע אינוועסטארס",
+    "אינוועסטארס אין א ריעל עסטעיט ספאנסאר אין עטליכע סטעיטס האבן געדארפט וויסן וואו זייער געלט ליגט באמת. מיר זענען דורכגעגאנגען אלע דאקומענטן און די פובליק רעקארדס, און נאכגעשפירט יעדן אינוועסטאר דאלאר, פראפערטי ביי פראפערטי.",
+    "$78.2M אויסגעגליכן ביזן סענט"
+   ],
+   [
+    "אפשאצונג פון אפיס געביידעס אין מאנהעטן",
+    "מיט אן אקשאן און א פארקלאוזשער אין גאנג, האבן מיר געמאכט אן אומאפהענגיגע אפשאצונג פון פיר געביידעס לויט רעקארדירטע פארקויפן, און געוויזן די אינוועסטארס וויפיל זיי קענען באמת צוריקבאקומען.",
+    "$79.5M אפשאצונג, פאר דער אקשאן"
+   ],
+   [
+    "פינאנסירונג פאקעט פאר א סיניאר האוזינג פארטפאליא",
+    "א קויפער האט געקויפט דריי אינדעפענדענט-לעבן קאמיוניטיס פון א REIT וואס גייט ארויס. מיר האבן אויסגעגליכן די פינאנצן פונעם פארקויפער, די קאונטי טעקס רעקארדס און דעם LOI, צוגעגרייט צוויי מעמאס פאר לענדערס, און געטראפן בערך $285K א יאר טעקס-ווערט וואס איז נישט געווען אין די נומערן.",
+    "$20.75M, 469 יוניטס אנדעררייטן"
+   ],
+   [
+    "קאנסטרוקשאן לאון פאר א שולע קעמפוס",
+    "א דעוועלאפער האט געבויט א שולע קעמפוס מיט א 32-יעריגע ליס. מיר האבן פארוואנדלט די ליס און דעם בודזשעט אין א 5-זייטיגע לאון בקשה און אן 11-טאב מאדעל, און געטראפן די גאנצע רענט טאבעלע באהאלטן אין דער ליס.",
+    "$127M ליס רענט אנדעררייטן"
+   ],
+   [
+    "אפגעהאלטן אן איבערצאלן ביי אן אקשאן",
+    "א קויפער האט געטראכט צו ביטן אויף א 75-יוניט אפארטמענט פראפערטי ביי אן אקשאן. מיר האבן דורכגעארבעט די גאנצע דיו דיליגענס פייל אין איין נאכמיטאג, געטראפן אז די מארקעטינג נומערן האלטן נישט, און אויסגערעכנט דעם פרייז וואס טרעפט דעם קויפער'ס ציל.",
+    "דער געבעטענער פרייז איז געווען 39% צו הויך"
+   ],
+   [
+    "AI סיסטעם פאר אסיסטעד לעבן",
+    "פאר א 52-יוניט אסיסטעד לעבן און מעמערי קעיר קאמיוניטי האבן מיר געבויט ענטפערס אויף רעוויוס, א לידס אינבאקס, נאכגיין רעפעראלס, און א טעגליכן פעיראל-און-סענסוס באריכט.",
+    "רעיטינג 3.6 → 3.8 אין א קווארטאל"
+   ],
+   [
+    "פיזיביליטי פאר אן אדאלט דעי פראגראם",
+    "מיר האבן געטעסט א לייסענסירטע אדאלט דעי פראגראם, 7 טעג א וואך, פאר ביז 40 מענטשן אין א געבייד וואס עקזיסטירט שוין: פרייזן, ברעיקאיוון, לייסענס צייט און קאנקורענץ רעיטס.",
+    "ברעיקאיוון אראפ פון 32 צו 25 מענטשן"
    ]
   ],
   "cs.note": "די בילדער ווייזן ביישפיל דאטא. קליענטן'ס נעמען און אמת'ע נומערן ווערן געהאלטן פריוואט.",
@@ -6033,6 +6107,41 @@ const T = {
     "אתרים שנבנו והושקו עם AI",
     "האתר הזה הוא דוגמה: עיצוב, ארבע שפות ועוד תרגום AI, הזמנות, תשלום, סוכן צ׳אט ופרסום אוטומטי, נבנו בתוך ימים.",
     "נבנה בימים, לא בחודשים"
+   ],
+   [
+    "ביקורת פורנזית עבור קבוצת משקיעים",
+    "משקיעים בחברת נדל״ן הפועלת בכמה מדינות היו צריכים לדעת איפה הכסף שלהם באמת נמצא. עברנו על כל המסמכים ועל הרשומות הציבוריות, ועקבנו אחרי כל דולר של משקיעים, נכס אחר נכס.",
+    "$78.2M הותאמו עד הסנט"
+   ],
+   [
+    "הערכת שווי לחבילת בנייני משרדים במנהטן",
+    "כשמכרז ועיקול התנהלו במקביל, בנינו הערכת שווי בלתי תלויה לארבעה בניינים על בסיס עסקאות רשומות, והראינו למשקיעים כמה הם יכולים באמת לקבל בחזרה.",
+    "הערכת שווי של $79.5M, לפני המכרז"
+   ],
+   [
+    "חבילת מימון לתיק דיור מוגן",
+    "קונה רכש שלושה מתחמי דיור עצמאי מקרן REIT שיצאה מהתחום. התאמנו את הדוחות של המוכר, רשומות המס של המחוז וה-LOI, הכנו שני מזכרים למלווים, ומצאנו כ-$285K בשנה של ערך מס שלא הופיע במספרים.",
+    "$20.75M, 469 יחידות בחיתום"
+   ],
+   [
+    "הלוואת בנייה לקמפוס בית ספר",
+    "יזם בנה קמפוס בית ספר בחוזה שכירות נטו ל-32 שנה. הפכנו את החוזה והתקציב לבקשת הלוואה של 5 עמודים ולמודל של 11 גיליונות, ומצאנו את טבלת השכירות המלאה שהייתה חבויה בחוזה.",
+    "$127M של שכירות בחיתום"
+   ],
+   [
+    "מניעת תשלום יתר במכירה פומבית",
+    "קונה שקל להציע על נכס של 75 דירות במכירה פומבית. עיבדנו את כל תיק הבדיקות אחר צהריים אחד, גילינו שהמספרים השיווקיים לא מחזיקים, וחישבנו את המחיר שעומד ביעד התשואה של הקונה.",
+    "המחיר המבוקש היה גבוה ב-39%"
+   ],
+   [
+    "מערכת AI לביקוש בדיור מוגן",
+    "עבור מתחם של 52 יחידות דיור מוגן וטיפול בזיכרון בנינו מענה לביקורות, תיבת לידים, מעקב אחר הפניות ודוח יומי של שכר ותפוסה.",
+    "דירוג 3.6 → 3.8 ברבעון"
+   ],
+   [
+    "בדיקת היתכנות למרכז יום",
+    "בדקנו מרכז יום מורשה, 7 ימים בשבוע, לעד 40 משתתפים במבנה קיים: תמחור, נקודת איזון, לוח זמנים לרישוי ותעריפי מתחרים.",
+    "נקודת האיזון ירדה מ-32 ל-25 משתתפים"
    ]
   ],
   "cs.note": "הצילומים מציגים נתונים לדוגמה. שמות לקוחות ומספרים אמיתיים נשמרים בפרטיות.",
@@ -7862,6 +7971,41 @@ const T = {
     "Sitios web creados y lanzados con IA",
     "Este sitio es un ejemplo: diseño, cuatro idiomas más traducción con IA, reservas, pagos, un agente de chat y publicación automática, creados en días.",
     "Creado en días, no en meses"
+   ],
+   [
+    "Revisión forense para un grupo de inversionistas",
+    "Los inversionistas de un patrocinador inmobiliario en varios estados necesitaban saber dónde estaba realmente su dinero. Revisamos toda la documentación y los registros públicos, y rastreamos cada dólar, propiedad por propiedad.",
+    "$78.2M conciliados al centavo"
+   ],
+   [
+    "Valuación de un paquete de oficinas en Manhattan",
+    "Con una subasta y una ejecución hipotecaria en curso, preparamos una valuación independiente de cuatro edificios con base en ventas registradas, y mostramos a los inversionistas cuánto podían recuperar en realidad.",
+    "Valuación de $79.5M, antes de la subasta"
+   ],
+   [
+    "Financiamiento para una cartera de vivienda para mayores",
+    "Un comprador adquiría tres comunidades de vida independiente de un REIT que salía del mercado. Conciliamos los estados del vendedor, los registros fiscales del condado y la LOI, preparamos dos memos para prestamistas y encontramos unos $285K al año de ventaja fiscal que no estaba en los números.",
+    "$20.75M, 469 unidades analizadas"
+   ],
+   [
+    "Préstamo de construcción para un campus escolar",
+    "Un desarrollador construía un campus escolar con un arrendamiento neto de 32 años. Convertimos el contrato y el presupuesto en una solicitud de préstamo de 5 páginas y un modelo de 11 pestañas, y encontramos el calendario completo de rentas escondido en el contrato.",
+    "$127M de rentas analizadas"
+   ],
+   [
+    "Cómo evitar pagar de más en una subasta",
+    "Un comprador evaluaba ofertar por una propiedad de 75 apartamentos en subasta. Procesamos todo el expediente en una tarde, vimos que los números de marketing no se sostenían y calculamos el precio que cumplía su rendimiento objetivo.",
+    "El precio pedido estaba 39% por encima"
+   ],
+   [
+    "Motor de demanda con IA para vivienda asistida",
+    "Para una comunidad de vivienda asistida y cuidado de memoria de 52 unidades, creamos respuestas a reseñas, una bandeja de prospectos, seguimiento de referidos y un informe diario de nómina y ocupación.",
+    "Calificación de 3.6 a 3.8 en un trimestre"
+   ],
+   [
+    "Viabilidad de un programa de día para adultos",
+    "Evaluamos un programa de día con licencia, 7 días a la semana y hasta 40 participantes, dentro de un edificio existente: precios, punto de equilibrio, plazos de licencia y tarifas de la competencia.",
+    "Punto de equilibrio de 32 a 25 participantes"
    ]
   ],
   "cs.note": "Las imágenes muestran datos de ejemplo. Los nombres de clientes y las cifras reales se mantienen privados.",
@@ -9794,10 +9938,10 @@ function render() {
 
   const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   $("#stops").innerHTML = t("stop").map(([was, now], i) => `<button type="button" class="stoprow" data-stop="${i}" data-fx><span>${was ? `<s>${esc(was)}</s>` : ""}<b>${esc(now)}</b></span><span class="go2">${ARROW}</span></button>`).join("");
-  { const cg = document.getElementById("chcgrid"); if (cg) cg.innerHTML = [0, 1, 11, 7, 3, 6, 10, 2].map(i => caseCard(i)).join(""); const cm = document.getElementById("chcmore"); if (cm) cm.href = CONFIG.mosesUrl + "case-studies/#" + lang; }
+  { const cg = document.getElementById("chcgrid"); if (cg) cg.innerHTML = [["cre", [13, 14, 15, 16, 8, 17]], ["hc", [0, 11, 18, 19]], ["ops", [1, 3, 6, 5]], ["mkt", [7]], ["web", [12]]].map(([k, ids]) => `<section class="cgroup"><div class="cgroup-h"><h2>${esc(prName(k))}</h2></div><div class="chcgrid">${ids.map(i => caseCard(i)).join("")}</div></section>`).join(""); const cm = document.getElementById("chcmore"); if (cm) cm.href = CONFIG.mosesUrl + "case-studies/#" + lang; }
   { const vg = document.getElementById("valgrid"); if (vg) vg.innerHTML = (t("val.list") || []).map(([h, p], i) => `<div class="valc"><span class="valn">${String(i + 1).padStart(2, "0")}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join(""); }
   $("#pillars").innerHTML = t("ov").map(([h, pts], i) => `<details class="ovi"${i === 0 ? " open" : ""}><summary><span class="ovn">${i + 1}</span><span class="ovh">${esc(h)}</span><span class="ovp" aria-hidden="true"></span></summary><ul>${pts.map(x => `<li>${esc(x)}</li>`).join("")}</ul><button type="button" class="ovd" data-go="series">${esc(i === 0 ? t("deep1") : t("deep", { n: i + 1 }))} →</button></details>`).join("");
-  $("#cases").innerHTML = [8, 0, 12].map(i => caseCard(i)).join("");
+  $("#cases").innerHTML = [13, 15, 0].map(i => caseCard(i)).join("");
   renderCases();
   renderPractices();
   $("#igrid").innerHTML = t("inds").map((n, i) => `<button type="button" class="icard" data-ind="${i}" data-fx><span><b>${esc(n)}</b><span class="l">${esc(t("ind.lines")[i])}</span></span><span class="go2">${ARROW}</span></button>`).join("");
@@ -9885,7 +10029,7 @@ function renderCases() {
     : `<div class="phero rise"><div class="eyebrow">${esc(t("pr.eyebrow"))}</div><h2>${esc(t("pr.hero", { x: prName(csFilter) }))}</h2><p>${esc(prLine(csFilter))}</p><button type="button" class="btn big" data-contact data-msgtext="${esc(t("pr.cta", { x: prName(csFilter) }))}" data-fx>${esc(t("pr.cta", { x: prName(csFilter) }))} <span class="arrow">→</span></button></div>`;
   const count = k => CASE_IND.filter(x => x.includes(k)).length;
   $("#cv-groups").innerHTML = inds.filter(([k]) => k !== "all" && (all || k === csFilter)).map(([k, n]) => {
-    const ids = CASE_IND.map((x, i) => x.includes(k) ? i : -1).filter(i => i >= 0);
+    const ids = CASE_IND.map((x, i) => x.includes(k) ? i : -1).filter(i => i >= 0).sort((p, q) => (CASE_FIRST.indexOf(p) + 1 || 99) - (CASE_FIRST.indexOf(q) + 1 || 99));
     return ids.length ? `<section class="cgroup"><div class="cgroup-h"><h2>${esc(n)}</h2><span>${esc(count(k) === 1 ? t("cs.count1") : t("cs.count", { n: count(k) }))}</span></div><div class="cgrid">${ids.map(i => caseCard(i)).join("")}</div></section>` : "";
   }).join("");
 }
@@ -9905,6 +10049,8 @@ function openPractice(k, write = true) {
 }
 const practiceFromHash = h => (Object.entries(PRACTICES).find(([, v]) => "work-" + v.slug === h) || [])[0];
 function snapFor(i, title) { return CASE_IMAGES[i] ? `<img src="${esc(CASE_IMAGES[i])}" alt="${esc(title)}" style="display:block;width:100%">` : SNAPS[i]; }
+CHARTS.push(...[{"check": ["3,871 documents, 11.5 GB", "56,576 PDF pages", "1M+ spreadsheet rows", "90 investors, 139 investment lines", "11 reports, 6 workbooks"]}, [["Low", 63.3, "$63.3M"], ["Opinion of value", 79.5, "$79.5M", 1], ["High", 93.5, "$93.5M"]], [["Purchase price", 20.75, "$20.75M", 1], ["Trailing revenue", 9.04, "$9.04M"], ["Loan request A", 6.3, "$6.3M"], ["Loan request B", 7.05, "$7.05M"], ["Tax upside / yr", 0.285, "$285K", 1]], [["Lease rent, 32 yrs", 127, "$127M", 1], ["Indicative loan", 22.51, "$22.5M"], ["Hard costs", 15.75, "$15.75M"]], [["Asking guidance", 2.81, "$2.81M"], ["Price that works", 1.7, "$1.70M", 1]], {"check": ["100% of reviews answered", "Referrals answered in minutes, 24/7", "Daily payroll and census brief", "Website: $200 a month → $0"]}, [["Breakeven before", 32, "32 people"], ["Breakeven after", 25, "25 people", 1]]]); CASE_IND.push(...[["cre", "fin"], ["cre", "fin"], ["cre", "hc", "fin"], ["cre", "fin"], ["cre"], ["hc", "mkt"], ["hc"]]); HERO.push(...["$78.2M", "$79.5M", "$20.75M", "$127M", "−39%", "3.8★", "32 → 25"]); CASE_PHOTOS.push(...["", "", "", "", "", "", ""]); CASE_IMAGES.push(...["", "", "", "", "", "", ""]); SNAPS.push(...["<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Forensic_Review_Summary.xlsx</div><div class=\"snap-body\"><h4>Investor capital reconciliation</h4><table><tr><td>Investor capital reconciled</td><td class=\"up\">$78,203,491.29</td></tr><tr><td>Investors / investment lines</td><td class=\"up\">90 / 139</td></tr><tr><td>Documents reviewed</td><td class=\"up\">3,871 (11.5 GB)</td></tr><tr><td>PDF pages</td><td class=\"up\">56,576</td></tr><tr><td>Spreadsheets / tabs / rows</td><td class=\"up\">63 / 307 / 1M+</td></tr><tr><td>Public-filing pages</td><td class=\"up\">2,693</td></tr><tr><td>Deliverables</td><td class=\"up\">11 reports, 6 workbooks</td></tr></table><div class=\"find\">Every investor dollar traced property by property and matched to the cent.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Valuation_Opinion.pdf</div><div class=\"snap-body\"><h4>Opinion of value · four-building office package</h4><table><tr><td>Low</td><td class=\"up\">$63.3M</td></tr><tr><td>Point opinion of value</td><td class=\"up\">$79.5M</td></tr><tr><td>High</td><td class=\"up\">$93.5M</td></tr><tr><td>Investor capital at risk</td><td class=\"up\">$9.76M (14 investors)</td></tr><tr><td>Sale price needed to return capital</td><td class=\"up\">$85.3M+</td></tr></table><div class=\"find\">Delivered 12 days before the auction, from recorded comparable sales.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Lender_Package.xlsx</div><div class=\"snap-body\"><h4>Senior-housing portfolio · 3 communities · 469 units</h4><table><tr><td>Purchase price</td><td class=\"up\">$20,750,000</td></tr><tr><td>Price per unit</td><td class=\"up\">$44,243</td></tr><tr><td>Trailing revenue</td><td class=\"up\">$9,037,135</td></tr><tr><td>Loan requests</td><td class=\"up\">$6.3M and $7.05M</td></tr><tr><td>Tax upside found</td><td class=\"up\">about $285,012 a year</td></tr></table><div class=\"find\">Financing package prepared: two lender memos and a target lender list.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Construction_Loan_Model.xlsx</div><div class=\"snap-body\"><h4>Build-to-suit school campus · absolute-net lease</h4><table><tr><td>Fixed rent, 32-year term</td><td class=\"up\">$127.0M</td></tr><tr><td>Indicative loan</td><td class=\"up\">$22.51M</td></tr><tr><td>Coverage</td><td class=\"up\">1.32x rising to 1.65x</td></tr><tr><td>Hard-cost budget</td><td class=\"up\">$15.75M</td></tr><tr><td>Deliverables</td><td class=\"up\">5-page request, 11-tab model</td></tr></table><div class=\"find\">Indicative sizing; final terms set by the lender.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Auction_Underwriting.xlsx</div><div class=\"snap-body\"><h4>75-unit apartment property · auction</h4><table><tr><td>Asking guidance</td><td class=\"up\">$2,812,518</td></tr><tr><td>Price that met the 9% target</td><td class=\"up\">$1,702,565</td></tr><tr><td>Gap</td><td class=\"up\">39% below guidance</td></tr><tr><td>Documents processed</td><td class=\"up\">17</td></tr><tr><td>Leases with concessions</td><td class=\"up\">44 of 66</td></tr></table><div class=\"find\">Found before a dollar was spent on inspections, legal or a deposit.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Community_Dashboard.pdf</div><div class=\"snap-body\"><h4>52-unit assisted living and memory care</h4><table><tr><td>Reviews answered</td><td class=\"up\">100%</td></tr><tr><td>Google rating</td><td class=\"up\">3.6 → 3.8 in a quarter</td></tr><tr><td>Referral first response</td><td class=\"up\">minutes, 24/7</td></tr><tr><td>Payroll and census brief</td><td class=\"up\">daily</td></tr><tr><td>Website cost</td><td class=\"up\">$200 a month → $0</td></tr></table><div class=\"find\">Built and run with AI agents.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Adult_Day_Feasibility.xlsx</div><div class=\"snap-body\"><h4>Licensed adult day program · up to 40 participants</h4><table><tr><td>Days a week</td><td class=\"up\">7</td></tr><tr><td>Fixed cost base</td><td class=\"up\">$280,160 a year</td></tr><tr><td>Breakeven</td><td class=\"up\">32 → 25 participants</td></tr><tr><td>Licensing path</td><td class=\"up\">about 10 weeks, or 18–20 weeks</td></tr></table><div class=\"find\">Pricing redesign before launch.</div></div>"]);
+const CASE_FIRST = [13, 14, 15, 16, 8, 9, 17, 0, 11, 18, 19, 10, 1, 3, 6, 5, 4, 2, 7, 12];
 function caseCard(i, feature) {
   const c = t("cases")[i];
   if (feature) return `<article class="vfeature rise" role="button" tabindex="0" data-case="${i}" data-fx><div class="vph">${photoFor(i)}<span class="vtag">${esc(indName(i))}</span></div><div class="vbody"><h3>${esc(c[0])}</h3><div class="vres">${esc(c[2])}</div>${chartFor(i, 5)}<span class="vmore">${esc(t("cases.see"))} →</span></div></article>`;

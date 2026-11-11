@@ -1445,6 +1445,35 @@ body { top: 0 !important; }
 @media (max-width: 860px) { .site-moses .brand-logo { height: 28px; } }
 @media (max-width: 360px) { .site-moses .brand-logo { height: 24px; } }
 </style>
+<script>
+/* back / forward / swipe: popups (case studies, booking) and form steps are history steps too */
+(function () {
+  var ign = false, tok = 0;
+  function copy(s) { var o = {}; s = s || {}; for (var k in s) o[k] = s[k]; delete o.ov; delete o.q; delete o.c; delete o.tk; return o; }
+  window.__ovBack = function () { ign = true; history.back(); };
+  window.__qPush = function (n) { var o = copy(history.state); o.q = n; history.pushState(o, ""); };
+  addEventListener("popstate", function (e) {
+    if (ign) { ign = false; e.stopImmediatePropagation(); return; }
+    var st = history.state || {}, ov = document.getElementById("overlay");
+    if (ov && !ov.hidden) { e.stopImmediatePropagation(); window.__ovNoPush = true; closeSheet(); setTimeout(function () { window.__ovNoPush = false; }, 0); return; }
+    if (st.ov && st.c != null && typeof openCase === "function") { e.stopImmediatePropagation(); window.__ovNoPush = true; openCase(st.c); setTimeout(function () { window.__ovNoPush = false; }, 0); return; }
+    var c = document.getElementById("consult"), fs = c && c.closest(".fsheet");
+    if (fs && fs.classList.contains("open") && window.__qSet && (st.q || st.mf === fs.dataset.f)) { e.stopImmediatePropagation(); window.__qSet(st.q || 1); return; }
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    var oc = window.openCase; if (typeof oc === "function") window.openCase = function (i) { window.__lastCase = i; return oc.apply(this, arguments); };
+    var ov = document.getElementById("overlay"); if (!ov) return; var was = ov.hidden;
+    new MutationObserver(function () {
+      var h = ov.hidden; if (h === was) return; was = h;
+      if (!h) {
+        if (window.__ovNoPush || (history.state && history.state.ov)) return;
+        var o = copy(history.state), sh = document.getElementById("sheet");
+        o.ov = 1; o.c = sh && sh.dataset.mode === "case" ? window.__lastCase : null; o.tk = ++tok; history.pushState(o, "");
+      } else if (!window.__ovNoPush && history.state && history.state.ov && history.state.tk === tok) window.__ovBack();
+    }).observe(ov, { attributes: true, attributeFilter: ["hidden"] });
+  });
+})();
+</script>
 </head>
 <body>
 
@@ -10837,6 +10866,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     return `<div class="qscan"><div class="qsub">${esc(q.jd_scan_t)}${r.role ? ": " + esc(r.role) : ""}</div><p class="qhint">${esc(q.jd_scan_s)}</p><div class="qags">${r.agents.map(a => { const x = A[a.k] || [a.k, ""]; return `<button type="button" class="qchip qag" data-q="jdag" data-v="${esc(a.k)}" aria-pressed="${(st.jdag || []).includes(a.k)}"><b>${esc(x[0])}</b><span>${esc(x[1])}</span></button>`; }).join("")}</div>${base ? `<p class="qhint qbase">${esc(q.jd_scan_base.replace("{x}", base))}</p>` : ""}</div>`;
   }
   function fail(k) { st.err = Q()[k]; draw(); const e = $("#qerr"); if (e) e.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+  window.__qSet = n => { n = Math.max(1, Math.min(n, TOT())); if (n !== st.step) { st.step = n; st.err = ""; draw(); } };
   function next() {
     const q = Q();
     if (st.mode === "custom") {
@@ -10848,13 +10878,13 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
       if (st.step === 4 && !(st.goals || []).length) return fail("err_goals");
       if (st.step === 5 && !(st.tools || []).length) return fail("err_tools");
       if (st.step === 5 && (!st.appr || !st.when)) return fail("err_fields");
-      if (st.step < 6) { st.step++; st.err = ""; draw(); const w = $("#qwrap"); if (w) w.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
+      if (st.step < 6) { st.step++; st.err = ""; draw(); if (window.__qPush) window.__qPush(st.step); const w = $("#qwrap"); if (w) w.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
       return submit();
     }
     if (st.step === 1 && !st.who) return fail("err_pick");
     if (st.step === 2 && !st.needs.length) return fail("err_pick");
     if (st.step === 3 && st.mode !== "custom") { const need = st.who === "me" ? ["how", "when"] : st.who === "team" ? ["industry", "size", "when"] : ["industry", "size", "how", "when"]; if (need.some(k => !st[k])) return fail("err_fields"); }
-    if (st.step < 4) { st.step++; st.err = ""; draw(); const w = $("#qwrap"); if (w) w.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
+    if (st.step < 4) { st.step++; st.err = ""; draw(); if (window.__qPush) window.__qPush(st.step); const w = $("#qwrap"); if (w) w.scrollIntoView({ block: "nearest", behavior: "smooth" }); return; }
     submit();
   }
   async function submit() {
@@ -10921,7 +10951,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
       st.err = ""; draw(); return;
     }
     if (e.target.closest("#qskip")) { if (!(st.jd || "").trim()) return fail("jd_err_none"); st.step = 6; st.err = ""; draw(); return; }
-    if (e.target.closest("#qback")) { st.step = Math.max(1, st.step - 1); st.err = ""; draw(); }
+    if (e.target.closest("#qback")) { if (history.state && history.state.q > 1) history.back(); else { st.step = Math.max(1, st.step - 1); st.err = ""; draw(); } }
   });
   document.addEventListener("paste", e => { const el = e.target.closest && e.target.closest('#qform [data-qi="jd"]'); if (el) setTimeout(() => { st.jd = el.value; scanJD(); draw(); }, 40); });
   document.addEventListener("change", e => { if (e.target.id === "q-jd") { readJD(e.target.files[0]); return; } if (e.target.dataset && e.target.dataset.qi === "jd" && e.target.closest("#qform")) { st.jd = e.target.value; scanJD(); draw(); return; } const s2 = e.target.closest("[data-qs]"); if (s2) st[s2.dataset.qs] = s2.value; });

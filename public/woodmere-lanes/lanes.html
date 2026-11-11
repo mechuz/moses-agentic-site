@@ -34,16 +34,20 @@
       <div><span class="lbl">How long</span><div class="seg" id="dur"><button type="button" data-h="1">1 hour</button><button type="button" data-h="2" class="on">2 hours</button><button type="button" data-h="3">3 hours</button></div></div></div></fieldset>
     <fieldset class="fs m"><legend>4 · Pick your lanes</legend><div class="lanemap" id="lanemap"></div><div class="legend"><span><i style="background:var(--panel-2)"></i>Free</span><span><i style="background:var(--panel-2);opacity:.35"></i>Taken</span><span><i style="background:var(--magenta)"></i>Yours</span></div><p class="fine">Lanes 1 to 8 are closest to the stage. Lanes 13 to 16 sit by the arcade and are best for younger kids.</p></fieldset>
     <fieldset class="fs m"><legend>5 · Lighting mode</legend><div class="seg" id="mode"><button type="button" class="on">Glow</button><button type="button">Lounge</button><button type="button">Blackout</button><button type="button">Daylight</button></div></fieldset>
-    <fieldset class="fs"><legend>6 · Add to the lane</legend><div class="addons" id="addons">
-      <label class="addon"><input type="checkbox" data-p="24" id="ad1"><span>Pastrami fries for the lane<small>Feeds four, pickled jalapeño</small></span><span>$24</span></label>
-      <label class="addon"><input type="checkbox" data-p="110" id="ad5"><span>Party platter<small>Feeds 10. Sliders, wings, fries, slaw</small></span><span>$110</span></label>
+    <fieldset class="fs" id="preorder"><legend>6 · Pre-order food</legend>
+      <p class="fine" style="margin-top:-4px">Order now and it's at your lane when you want it. No waiting, no line.</p>
+      <div class="menu-tabs" id="preTabs" style="margin-bottom:6px"><button type="button" class="on" data-m="burgers">Burgers</button><button type="button" data-m="wings">Wings &amp; sides</button><button type="button" data-m="platters">Platters</button><button type="button" data-m="kids">Kids</button><button type="button" data-m="desserts">Desserts</button><button type="button" data-m="drinks">Drinks</button></div>
+      <div class="menu-grid" id="preGrid"></div>
+      <div class="row2" style="align-items:end"><div><span class="lbl">Bring it to the lane</span><div class="seg" id="preWhen"><button type="button" class="on" data-w="0">When we arrive</button><button type="button" data-w="30">30 min in</button><button type="button" data-w="60">60 min in</button></div></div><div><label class="lbl" for="preNote">Kitchen note</label><input type="text" id="preNote" placeholder="Allergies, no onions, birthday candle…"></div></div>
+    </fieldset>
+    <fieldset class="fs"><legend>7 · Lane extras</legend><div class="addons" id="addons">
       <label class="addon"><input type="checkbox" data-p="42" id="ad2"><span>Bucket of six<small>Bottles on ice, brought to the lane · 21+</small></span><span>$42</span></label>
       <label class="addon"><input type="checkbox" data-p="30" id="ad3"><span>Arcade cards, 2 × $15<small>Loaded and waiting at the lane</small></span><span>$30</span></label>
       <label class="addon"><input type="checkbox" data-p="20" id="ad4"><span>Strike strobe on<small>Every strike on your lane triggers the rig</small></span><span>$20</span></label>
     </div></fieldset>
   </div>
   <aside class="summary" aria-live="polite"><h3>Your lanes</h3>
-    <dl><div><dt>When</dt><dd id="sWhen">Pick a day</dd></div><div><dt>Lanes</dt><dd id="sLanes">—</dd></div><div><dt>Lane rate</dt><dd id="sRate">$0</dd></div><div><dt>Shoes</dt><dd id="sShoes">$0</dd></div><div><dt>Add-ons</dt><dd id="sAdd">$0</dd></div><div><dt>Mode</dt><dd id="sMode">Glow</dd></div></dl>
+    <dl><div><dt>When</dt><dd id="sWhen">Pick a day</dd></div><div><dt>Lanes</dt><dd id="sLanes">—</dd></div><div><dt>Lane rate</dt><dd id="sRate">$0</dd></div><div><dt>Shoes</dt><dd id="sShoes">$0</dd></div><div><dt>Food, pre-ordered</dt><dd id="sFood">$0</dd></div><div><dt>Food timing</dt><dd id="sFoodWhen">—</dd></div><div><dt>Lane extras</dt><dd id="sAdd">$0</dd></div><div><dt>Mode</dt><dd id="sMode">Glow</dd></div></dl><dl id="sFoodList" style="font-size:.85rem;color:var(--muted)"></dl>
     <div class="total"><span id="sTotal">$0</span><small>incl. tax</small></div>
     <button class="btn btn-neon btn-block" type="button" id="holdBtn">Hold these lanes</button>
     <p class="fine">Nothing is charged until you confirm. Lanes are held for 10 minutes.</p>

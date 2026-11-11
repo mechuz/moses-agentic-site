@@ -102,11 +102,31 @@ $$('form[data-demo]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefaul
 
 function seg(id,cb){const el=document.getElementById(id);if(!el)return;el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',el).forEach(x=>x.classList.remove('on'));b.classList.add('on');cb&&cb(b);});}
 
+/* ---------- shared menu data + renderer ---------- */
+const MENU={
+    burgers:[['Double smash burger',18,'House pickles, grilled onion, special sauce',['Fleishig']],['Pastrami smash',21,'Double patty, hot pastrami, mustard',['Fleishig']],['Schnitzel sandwich',17,'Challah roll, slaw, garlic mayo',['Fleishig']],['Pulled brisket roll',19,'Slow-smoked, BBQ, crispy onions',['Fleishig']],['Grilled chicken club',16,'Facon, lettuce, tomato, pareve aioli',['Fleishig']],['Falafel pita',13,'Hummus, Israeli salad, amba',['Pareve','Vegan']]],
+    wings:[['Wings, dozen',22,'Buffalo, honey-chili or dry rub',['Fleishig']],['Wings, half dozen',12,'One sauce',['Fleishig']],['Hand-cut fries',7,'Sea salt',['Pareve','Vegan']],['Loaded pastrami fries',16,'Pastrami, pickled jalapeño, special sauce',['Fleishig']],['Onion rings',8,'Beer-battered',['Pareve']],['Mozzarella-style sticks',9,'Pareve, marinara',['Pareve']]],
+    platters:[['Pastrami fries for the lane',24,'Feeds four',['Fleishig']],['Wing tower',48,'Three dozen, three sauces',['Fleishig']],['Slider flight, 12',46,'Four smash, four schnitzel, four brisket',['Fleishig']],['Nosh board',38,'Pickles, olives, hummus, pita, crudité',['Pareve','Vegan']],['Party platter',110,'Feeds 10. Sliders, wings, fries, slaw',['Fleishig']]],
+    kids:[['Hot dog & fries',11,'Includes a drink',['Fleishig']],['Chicken nuggets & fries',12,'Six pieces',['Fleishig']],['Mini sliders, two',12,'Plain or cheese-style',['Fleishig']],['Mac & cheese-style',10,'Pareve',['Pareve']],['Kids flatbread',11,'Pareve cheese',['Pareve']]],
+    desserts:[['Churro bites',12,'Cinnamon sugar, chocolate dip',['Pareve']],['Pareve soft serve',7,'Chocolate, vanilla, swirl',['Pareve']],['Warm cookie skillet',11,'Pareve ice cream on top',['Pareve']],['Brownie sundae',12,'Fudge, whipped topping',['Pareve']],['Slushie, large',6,'Blue, red or glow',['Pareve','Vegan']]],
+    drinks:[['Fountain soda, bottomless',4,'Coke, Diet, Sprite',['Pareve']],['Glow Lemonade',9,'Zero-proof, butterfly pea, yuzu',['Pareve']],['Strike Zone, frozen',16,'Vodka, passion fruit, lime',['21+']],['Blackout Old Fashioned',18,'Kosher bourbon, smoked',['21+']],['Lane 7 Spritz',15,'Prosecco, grapefruit, rosemary',['21+']],['Bucket of six',42,'Bottles on ice, to the lane',['21+']]]
+  };
+
+function mountMenu(tabsEl,gridEl,cart,onChange){
+  function render(cat){gridEl.innerHTML='';MENU[cat].forEach(([n,p,d,tags])=>{const el=document.createElement('article');el.className='mi';const q=cart[n]?cart[n].q:0;
+    el.innerHTML=`<h4>${n}</h4><span class="pr">$${p}</span><p>${d}</p><div class="diet">${tags.map(t=>`<span>${t}</span>`).join('')}</div><button type="button" class="add${q?' n':''}" data-n="${n}" data-p="${p}">${q?'Added ×'+q+' · + more':'Add'}</button>`;gridEl.appendChild(el);});}
+  tabsEl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',tabsEl).forEach(x=>x.classList.remove('on'));b.classList.add('on');render(b.dataset.m);});
+  gridEl.addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;const n=b.dataset.n,p=+b.dataset.p;cart[n]=cart[n]||{p,q:0};cart[n].q++;b.classList.add('n');b.textContent='Added ×'+cart[n].q+' · + more';onChange&&onChange();});
+  render(tabsEl.querySelector('.on').dataset.m);
+  return {rerender:()=>render(tabsEl.querySelector('.on').dataset.m)};
+}
+
 /* ---------- LANE BOOKING ---------- */
 (function(){
   const daysEl=$('#days');if(!daysEl)return;
   const slotsEl=$('#slots'),mapEl=$('#lanemap');
-  const state={day:0,slot:null,slotIdx:0,bowlers:6,hours:2,mode:'Glow',picked:new Set()};
+  const state={day:0,slot:null,slotIdx:0,bowlers:6,hours:2,mode:'Glow',picked:new Set(),food:{},foodWhen:0};
+  const preTabs=$('#preTabs');if(preTabs){mountMenu(preTabs,$('#preGrid'),state.food,()=>update());seg('preWhen',b=>{state.foodWhen=+b.dataset.w;update();});}
   const today=new Date();today.setHours(0,0,0,0);const days=[];for(let i=0;i<7;i++){const d=new Date(today);d.setDate(today.getDate()+i);days.push(d);}
   const st=shabbosTimes();
   days.forEach((d,i)=>{const b=document.createElement('button');b.type='button';b.className='day';const dow=d.getDay();let sub=DAYS[dow];if(dow===6){sub='Motzei Shabbos';b.classList.add('closed');}if(dow===5)sub='Fri · day';
@@ -137,38 +157,27 @@ function seg(id,cb){const el=document.getElementById(id);if(!el)return;el.addEve
   $('#addons').addEventListener('change',update);
   function update(){const d=days[state.day],dow=d.getDay();const lanes=Math.ceil(state.bowlers/6);
     const peak=(dow===0||dow===4||dow===6)||(dow>=1&&dow<=3&&state.slotIdx>=6);const rate=peak?48:34;const laneCost=lanes*state.hours*rate,shoes=state.bowlers*5.5;let add=0;$$('#addons input:checked').forEach(i=>add+=+i.dataset.p);
-    const total=(laneCost+shoes+add)*TAX;
+    let food=0,foodCount=0;const fl=$('#sFoodList');if(fl)fl.innerHTML='';Object.entries(state.food).forEach(([n,{p,q}])=>{food+=p*q;foodCount+=q;if(fl){const d=document.createElement('div');d.innerHTML=`<dt>${q} × ${n}</dt><dd>$${p*q}</dd>`;fl.appendChild(d);}});
+    const total=(laneCost+shoes+add+food)*TAX;
     $('#bowlers').value=state.bowlers;$('#laneCalc').textContent=`${lanes} lane${lanes>1?'s':''} needed · up to 6 bowlers each`;
     $('#sWhen').textContent=state.slot?`${DAYS[dow]} ${d.toLocaleString('en-US',{month:'short',day:'numeric'})} · ${state.slot}`:'Pick a time';
     $('#sLanes').textContent=`${lanes} × ${state.hours} hr · lane${state.picked.size>1?'s':''} ${[...state.picked].sort((a,b)=>a-b).join(', ')||'—'}`;
-    $('#sRate').textContent=`${money(laneCost)} (${peak?'peak':'off-peak'} $${rate}/hr)`;$('#sShoes').textContent=money(shoes)+` · ${state.bowlers} pairs`;$('#sAdd').textContent=money(add);$('#sMode').textContent=state.mode;$('#sTotal').textContent=money(total);$('#bookOk').hidden=true;}
+    $('#sRate').textContent=`${money(laneCost)} (${peak?'peak':'off-peak'} $${rate}/hr)`;$('#sShoes').textContent=money(shoes)+` · ${state.bowlers} pairs`;$('#sAdd').textContent=money(add);$('#sMode').textContent=state.mode;const sf=$('#sFood');if(sf){sf.textContent=foodCount?`${money(food)} · ${foodCount} item${foodCount>1?'s':''}`:'$0';$('#sFoodWhen').textContent=foodCount?(state.foodWhen?`${state.foodWhen} min after start`:'Ready when you arrive'):'—';}$('#sTotal').textContent=money(total);$('#bookOk').hidden=true;}
   $('#holdBtn').addEventListener('click',()=>{const d=days[state.day];if(state.picked.size===0){toast('Pick a lane on the map first.');return;}
-    $('#bookOkText').textContent=`Lane${state.picked.size>1?'s':''} ${[...state.picked].sort((a,b)=>a-b).join(', ')} on ${DAYS[d.getDay()]} ${d.toLocaleString('en-US',{month:'short',day:'numeric'})} at ${state.slot}, ${state.mode} mode, ${state.hours} hr. Held for 10 minutes. Confirmation code WL-${Math.floor(1000+Math.random()*9000)}.`;$('#bookOk').hidden=false;toast('Lanes held for 10 minutes.');});
+    $('#bookOkText').textContent=`Lane${state.picked.size>1?'s':''} ${[...state.picked].sort((a,b)=>a-b).join(', ')} on ${DAYS[d.getDay()]} ${d.toLocaleString('en-US',{month:'short',day:'numeric'})} at ${state.slot}, ${state.mode} mode, ${state.hours} hr.${Object.keys(state.food).length?` Food pre-ordered, ${state.foodWhen?state.foodWhen+' minutes in':'ready at the lane when you arrive'}.`:''} Held for 10 minutes. Confirmation code WL-${Math.floor(1000+Math.random()*9000)}.`;$('#bookOk').hidden=false;toast('Lanes held for 10 minutes.');});
   daysEl.firstChild.click();
 })();
 
 /* ---------- MENU ---------- */
 (function(){
   const grid=$('#menuGrid');if(!grid)return;
-  const MENU={
-    burgers:[['Double smash burger',18,'House pickles, grilled onion, special sauce',['Fleishig']],['Pastrami smash',21,'Double patty, hot pastrami, mustard',['Fleishig']],['Schnitzel sandwich',17,'Challah roll, slaw, garlic mayo',['Fleishig']],['Pulled brisket roll',19,'Slow-smoked, BBQ, crispy onions',['Fleishig']],['Grilled chicken club',16,'Facon, lettuce, tomato, pareve aioli',['Fleishig']],['Falafel pita',13,'Hummus, Israeli salad, amba',['Pareve','Vegan']]],
-    wings:[['Wings, dozen',22,'Buffalo, honey-chili or dry rub',['Fleishig']],['Wings, half dozen',12,'One sauce',['Fleishig']],['Hand-cut fries',7,'Sea salt',['Pareve','Vegan']],['Loaded pastrami fries',16,'Pastrami, pickled jalapeño, special sauce',['Fleishig']],['Onion rings',8,'Beer-battered',['Pareve']],['Mozzarella-style sticks',9,'Pareve, marinara',['Pareve']]],
-    platters:[['Pastrami fries for the lane',24,'Feeds four',['Fleishig']],['Wing tower',48,'Three dozen, three sauces',['Fleishig']],['Slider flight, 12',46,'Four smash, four schnitzel, four brisket',['Fleishig']],['Nosh board',38,'Pickles, olives, hummus, pita, crudité',['Pareve','Vegan']],['Party platter',110,'Feeds 10. Sliders, wings, fries, slaw',['Fleishig']]],
-    kids:[['Hot dog & fries',11,'Includes a drink',['Fleishig']],['Chicken nuggets & fries',12,'Six pieces',['Fleishig']],['Mini sliders, two',12,'Plain or cheese-style',['Fleishig']],['Mac & cheese-style',10,'Pareve',['Pareve']],['Kids flatbread',11,'Pareve cheese',['Pareve']]],
-    desserts:[['Churro bites',12,'Cinnamon sugar, chocolate dip',['Pareve']],['Pareve soft serve',7,'Chocolate, vanilla, swirl',['Pareve']],['Warm cookie skillet',11,'Pareve ice cream on top',['Pareve']],['Brownie sundae',12,'Fudge, whipped topping',['Pareve']],['Slushie, large',6,'Blue, red or glow',['Pareve','Vegan']]],
-    drinks:[['Fountain soda, bottomless',4,'Coke, Diet, Sprite',['Pareve']],['Glow Lemonade',9,'Zero-proof, butterfly pea, yuzu',['Pareve']],['Strike Zone, frozen',16,'Vodka, passion fruit, lime',['21+']],['Blackout Old Fashioned',18,'Kosher bourbon, smoked',['21+']],['Lane 7 Spritz',15,'Prosecco, grapefruit, rosemary',['21+']],['Bucket of six',42,'Bottles on ice, to the lane',['21+']]]
-  };
   const cart={};let mode='lane';
-  function render(cat){grid.innerHTML='';MENU[cat].forEach(([n,p,d,tags])=>{const el=document.createElement('article');el.className='mi';const q=cart[n]?cart[n].q:0;
-    el.innerHTML=`<h4>${n}</h4><span class="pr">$${p}</span><p>${d}</p><div class="diet">${tags.map(t=>`<span>${t}</span>`).join('')}</div><button type="button" class="add${q?' n':''}" data-n="${n}" data-p="${p}">${q?'Added ×'+q+' · + more':'Add'}</button>`;grid.appendChild(el);});}
-  $('#menuTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',$('#menuTabs')).forEach(x=>x.classList.remove('on'));b.classList.add('on');render(b.dataset.m);});
-  grid.addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;const n=b.dataset.n,p=+b.dataset.p;cart[n]=cart[n]||{p,q:0};cart[n].q++;b.classList.add('n');b.textContent='Added ×'+cart[n].q+' · + more';draw();});
+  const mm=mountMenu($('#menuTabs'),grid,cart,draw);
   const modeT=$('#orderMode');if(modeT)modeT.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',modeT).forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.mode;$('#laneField').hidden=mode!=='lane';$('#pickupField').hidden=mode!=='pickup';$('#cartSend').textContent=mode==='lane'?'Send to my lane':'Place pickup order';});
   function draw(){const list=$('#cartList');list.innerHTML='';let t=0,c=0;Object.entries(cart).forEach(([n,{p,q}])=>{if(q<=0){delete cart[n];return;}t+=p*q;c+=q;const d=document.createElement('div');d.innerHTML=`<dt>${n}</dt><dd><button class="qty" data-n="${n}" data-d="-1" aria-label="Fewer">−</button>${q}<button class="qty" data-n="${n}" data-d="1" aria-label="More">+</button> $${p*q}</dd>`;list.appendChild(d);});
     $('#cartEmpty').hidden=c>0;$('#cartTotal').textContent=money(t*TAX);$('#cartOk').hidden=true;}
-  $('#cartList').addEventListener('click',e=>{const b=e.target.closest('.qty');if(!b)return;cart[b.dataset.n].q+=+b.dataset.d;draw();const on=$('#menuTabs .on');render(on.dataset.m);});
+  $('#cartList').addEventListener('click',e=>{const b=e.target.closest('.qty');if(!b)return;cart[b.dataset.n].q+=+b.dataset.d;draw();mm.rerender();});
   $('#cartSend').addEventListener('click',()=>{if(!Object.keys(cart).length){toast('Add something first.');return;}const lane=$('#laneNo')?.value||'7';$('#cartOkText').textContent=mode==='lane'?`Heading to lane ${lane}. About 12 minutes. Keep bowling.`:`Pickup in about 20 minutes at the kitchen window. Order WL-${Math.floor(1000+Math.random()*9000)}.`;$('#cartOk').hidden=false;toast(mode==='lane'?'Order sent to the lane.':'Pickup order placed.');});
-  render('burgers');
 })();
 
 /* ---------- EVENTS & TICKETS ---------- */

@@ -1479,6 +1479,20 @@ html.filing { overflow: hidden; }
 [dir="rtl"] .ovi ul { padding: 0 calc(1.2rem + 34px + .9rem) .4rem 1.2rem; }
 [dir="rtl"] .ovd { margin: .5rem calc(1.2rem + 34px + .9rem) 1.1rem 1.2rem; }
 @media (max-width: 760px) { #pillars { grid-template-columns: 1fr; } }
+
+/* ===== Chocham value section ===== */
+.site-moses .valsec { display: none !important; }
+.valsec { padding-block: clamp(3.5rem, 8vw, 6rem); background: #0B2545; color: #FFFFFF; }
+.valsec .eyebrow { color: #C6F432 !important; }
+.valsec .h2 { color: #FFFFFF !important; }
+.valsec .lead { color: rgba(255,255,255,.75) !important; }
+.valgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: clamp(1.8rem, 4vw, 2.8rem); }
+.valc { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 1.4rem 1.3rem; text-align: start; }
+.valn { display: inline-block; font: 800 .9rem var(--f-display); color: #0B2545; background: #C6F432; border-radius: 999px; padding: .25rem .6rem; }
+.valc h3 { margin-top: .9rem; font: 800 clamp(1.15rem, 1.6vw, 1.35rem)/1.2 var(--f-display); letter-spacing: -.02em; color: #FFFFFF; }
+.valc p { margin-top: .45rem; color: rgba(255,255,255,.75); line-height: 1.45; }
+@media (max-width: 1000px) { .valgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .valgrid { grid-template-columns: 1fr; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1824,6 +1838,7 @@ body { top: 0 !important; }
       <div class="pgo"><span data-i18n="ch.indgo">See seminars and prices</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </div>
   </div>
+  <section class="valsec" id="value"><div class="wrap"><div class="head center"><div class="eyebrow" data-i18n="val.k">The value</div><h2 class="h2" data-i18n="val.t">What you&#x27;ll be able to do</h2><p class="lead" data-i18n="val.s">Real skills you use the next day. Not theory.</p></div><div class="valgrid" id="valgrid"></div><div class="center" style="margin-top:2rem"><button type="button" class="btn big" data-book data-i18n="val.go">Book my seat</button></div></div></section>
   <div id="seats"></div>
   <section class="view-head center edu-head"><div class="wrap">
     <div class="eyebrow" data-i18n="ev.kicker">Chocham AI · The education company of Moses Agentic</div>
@@ -3998,6 +4013,44 @@ const T = {
      "A 90-day plan to put it in place"
     ]
    ]
+  ],
+  "val.k": "The value",
+  "val.t": "What you'll be able to do",
+  "val.s": "Real skills you use the next day. Not theory.",
+  "val.go": "Book my seat",
+  "val.list": [
+   [
+    "Build AI staff and agents",
+    "Set up AI that answers, follows up, schedules and handles work around the clock."
+   ],
+   [
+    "Multiply your productivity",
+    "Do in minutes what used to take hours, every day."
+   ],
+   [
+    "Drive sales and revenue",
+    "Find leads, follow up faster and write offers that close."
+   ],
+   [
+    "Create websites",
+    "Build a professional website for your business, without a developer."
+   ],
+   [
+    "Graphic design",
+    "Flyers, logos, social posts and ads, made in minutes."
+   ],
+   [
+    "Process heavy data",
+    "Sort, clean and analyze thousands of rows and long documents."
+   ],
+   [
+    "Complex math and financial analysis",
+    "Models, forecasts, underwriting and reports, checked step by step."
+   ],
+   [
+    "Marketing that runs",
+    "Campaigns, emails and content in every language you need."
+   ]
   ]
  },
  "yi": {
@@ -5785,6 +5838,44 @@ const T = {
      "קוואליטעט טשעקס, סעקיוריטי און קאסטן",
      "א 90-טאג פלאן עס איינצופירן"
     ]
+   ]
+  ],
+  "val.k": "די ווערט",
+  "val.t": "וואס איר וועט קענען טון",
+  "val.s": "אמת'ע סקילס וואס איר ניצט שוין דעם נעקסטן טאג. נישט קיין טעאריע.",
+  "val.go": "בוקט מיין פלאץ",
+  "val.list": [
+   [
+    "בויען AI סטאף און אגענטן",
+    "שטעלט איין AI וואס ענטפערט, גייט נאך, שעדזשולט און באהאנדלט ארבעט דורכאויס מעת לעת."
+   ],
+   [
+    "פילפאכיגן אייער פראדוקטיוויטעט",
+    "טוט אין מינוטן וואס פלעגט נעמען שעות, יעדן טאג."
+   ],
+   [
+    "ברענגען סעילס און רעוועניו",
+    "געפינט לידס, גייט שנעלער נאך, און שרייבט אפערס וואס מאכן דילס."
+   ],
+   [
+    "מאכן וועבסייטס",
+    "בויט א פראפעסיאנעלן וועבסייט פאר אייער ביזנעס, אן א דעוועלאפער."
+   ],
+   [
+    "גראפיק דיזיין",
+    "פלייערס, לאגאס, סאשעל מידיא פאוסטס און אדס, געמאכט אין מינוטן."
+   ],
+   [
+    "פראצעסירן שווערע דאטא",
+    "סארטירט, רייניגט און אנאליזירט טויזנטער שורות און לאנגע דאקומענטן."
+   ],
+   [
+    "שווערע חשבונות און פינאנץ אנאליז",
+    "מאדעלס, פארקעסטס, אנדעררייטינג און רעפארטס, געטשעקט שריט ביי שריט."
+   ],
+   [
+    "מארקעטינג וואס לויפט",
+    "קאמפעינס, אימעילס און קאנטענט אין יעדע שפראך וואס איר דארפט."
    ]
   ]
  },
@@ -7574,6 +7665,44 @@ const T = {
      "תוכנית של 90 יום להטמעה"
     ]
    ]
+  ],
+  "val.k": "הערך",
+  "val.t": "מה תדעו לעשות",
+  "val.s": "כישורים אמיתיים שתשתמשו בהם כבר למחרת. לא תיאוריה.",
+  "val.go": "שריינו מקום",
+  "val.list": [
+   [
+    "לבנות צוות AI וסוכנים",
+    "להקים AI שעונה, עוקב, קובע פגישות ומטפל בעבודה מסביב לשעון."
+   ],
+   [
+    "להכפיל את הפרודוקטיביות",
+    "לעשות בדקות מה שלקח שעות, כל יום."
+   ],
+   [
+    "להגדיל מכירות והכנסות",
+    "למצוא לידים, לחזור אליהם מהר יותר ולכתוב הצעות שסוגרות."
+   ],
+   [
+    "לבנות אתרים",
+    "אתר מקצועי לעסק, בלי מפתח."
+   ],
+   [
+    "עיצוב גרפי",
+    "פליירים, לוגואים, פוסטים ומודעות, בדקות."
+   ],
+   [
+    "לעבד נתונים כבדים",
+    "למיין, לנקות ולנתח אלפי שורות ומסמכים ארוכים."
+   ],
+   [
+    "חישובים מורכבים וניתוח פיננסי",
+    "מודלים, תחזיות, חיתום ודוחות, נבדקים צעד אחר צעד."
+   ],
+   [
+    "שיווק שרץ",
+    "קמפיינים, מיילים ותוכן בכל שפה שצריך."
+   ]
   ]
  },
  "es": {
@@ -9362,6 +9491,44 @@ const T = {
      "Un plan de 90 días para implementarla"
     ]
    ]
+  ],
+  "val.k": "El valor",
+  "val.t": "Lo que podrá hacer",
+  "val.s": "Habilidades reales que usará al día siguiente. Nada de teoría.",
+  "val.go": "Reservar mi lugar",
+  "val.list": [
+   [
+    "Crear personal y agentes de IA",
+    "Ponga IA que responde, da seguimiento, agenda y trabaja a toda hora."
+   ],
+   [
+    "Multiplicar su productividad",
+    "Haga en minutos lo que antes tomaba horas, todos los días."
+   ],
+   [
+    "Impulsar ventas e ingresos",
+    "Encuentre prospectos, dé seguimiento más rápido y escriba ofertas que cierran."
+   ],
+   [
+    "Crear sitios web",
+    "Un sitio web profesional para su negocio, sin programador."
+   ],
+   [
+    "Diseño gráfico",
+    "Volantes, logotipos, publicaciones y anuncios, en minutos."
+   ],
+   [
+    "Procesar muchos datos",
+    "Ordene, limpie y analice miles de filas y documentos largos."
+   ],
+   [
+    "Matemáticas complejas y análisis financiero",
+    "Modelos, pronósticos, análisis de inversiones e informes, revisados paso a paso."
+   ],
+   [
+    "Marketing que funciona solo",
+    "Campañas, correos y contenido en todos los idiomas que necesite."
+   ]
   ]
  }
 };
@@ -9606,6 +9773,7 @@ function render() {
 
   const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   $("#stops").innerHTML = t("stop").map(([was, now], i) => `<button type="button" class="stoprow" data-stop="${i}" data-fx><span>${was ? `<s>${esc(was)}</s>` : ""}<b>${esc(now)}</b></span><span class="go2">${ARROW}</span></button>`).join("");
+  { const vg = document.getElementById("valgrid"); if (vg) vg.innerHTML = (t("val.list") || []).map(([h, p], i) => `<div class="valc"><span class="valn">${String(i + 1).padStart(2, "0")}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join(""); }
   $("#pillars").innerHTML = t("ov").map(([h, pts], i) => `<details class="ovi"${i === 0 ? " open" : ""}><summary><span class="ovn">${i + 1}</span><span class="ovh">${esc(h)}</span><span class="ovp" aria-hidden="true"></span></summary><ul>${pts.map(x => `<li>${esc(x)}</li>`).join("")}</ul><button type="button" class="ovd" data-go="series">${esc(i === 0 ? t("deep1") : t("deep", { n: i + 1 }))} →</button></details>`).join("");
   $("#cases").innerHTML = [8, 0, 12].map(i => caseCard(i)).join("");
   renderCases();

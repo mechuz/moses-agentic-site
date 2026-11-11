@@ -1493,6 +1493,14 @@ html.filing { overflow: hidden; }
 .valc p { margin-top: .45rem; color: rgba(255,255,255,.75); line-height: 1.45; }
 @media (max-width: 1000px) { .valgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .valgrid { grid-template-columns: 1fr; } }
+
+/* ===== Chocham case studies ===== */
+.site-moses .chcsec { display: none !important; }
+.chcsec { padding-block: clamp(3.5rem, 8vw, 6rem); background: #F5F8FC; }
+.chcgrid { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 14px !important; margin-top: clamp(1.8rem, 4vw, 2.6rem); }
+.chcgrid .rise { opacity: 1 !important; transform: none !important; }
+@media (max-width: 1000px) { .chcgrid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+@media (max-width: 560px) { .chcgrid { grid-template-columns: 1fr !important; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1839,6 +1847,7 @@ body { top: 0 !important; }
     </div>
   </div>
   <section class="valsec" id="value"><div class="wrap"><div class="head center"><div class="eyebrow" data-i18n="val.k">The value</div><h2 class="h2" data-i18n="val.t">What you&#x27;ll be able to do</h2><p class="lead" data-i18n="val.s">Real skills you use the next day. Not theory.</p></div><div class="valgrid" id="valgrid"></div><div class="center" style="margin-top:2rem"><button type="button" class="btn big" data-book data-i18n="val.go">Book my seat</button></div></div></section>
+  <section class="chcsec" id="chcases"><div class="wrap"><div class="head center"><div class="eyebrow" data-i18n="chcs.k">Case studies</div><h2 class="h2" data-i18n="chcs.t">Real results from real businesses</h2><p class="lead" data-i18n="cs.sub">These are the kinds of jobs AI now does in our own businesses. In the seminar, you see them live.</p></div><div class="cases chcgrid" id="chcgrid"></div><p class="cs-note center" data-i18n="cs.note">Snapshots show sample data. Client names and real figures are kept private.</p><div class="center" style="margin-top:1.4rem"><a class="btn big" id="chcmore" href="https://mosesagentic.com/case-studies/" data-i18n="chcs.more">See all case studies</a></div></div></section>
   <div id="seats"></div>
   <section class="view-head center edu-head"><div class="wrap">
     <div class="eyebrow" data-i18n="ev.kicker">Chocham AI · The education company of Moses Agentic</div>
@@ -4051,7 +4060,10 @@ const T = {
     "Marketing that runs",
     "Campaigns, emails and content in every language you need."
    ]
-  ]
+  ],
+  "chcs.k": "Case studies",
+  "chcs.t": "Real results from real businesses",
+  "chcs.more": "See all case studies"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -5877,7 +5889,10 @@ const T = {
     "מארקעטינג וואס לויפט",
     "קאמפעינס, אימעילס און קאנטענט אין יעדע שפראך וואס איר דארפט."
    ]
-  ]
+  ],
+  "chcs.k": "קעיס סטאדיס",
+  "chcs.t": "אמת'ע רעזולטאטן פון אמת'ע ביזנעסער",
+  "chcs.more": "זעט אלע קעיס סטאדיס"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -7703,7 +7718,10 @@ const T = {
     "שיווק שרץ",
     "קמפיינים, מיילים ותוכן בכל שפה שצריך."
    ]
-  ]
+  ],
+  "chcs.k": "מקרי בוחן",
+  "chcs.t": "תוצאות אמיתיות מעסקים אמיתיים",
+  "chcs.more": "לכל מקרי הבוחן"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -9529,7 +9547,10 @@ const T = {
     "Marketing que funciona solo",
     "Campañas, correos y contenido en todos los idiomas que necesite."
    ]
-  ]
+  ],
+  "chcs.k": "Casos de estudio",
+  "chcs.t": "Resultados reales de negocios reales",
+  "chcs.more": "Ver todos los casos"
  }
 };
 
@@ -9773,6 +9794,7 @@ function render() {
 
   const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   $("#stops").innerHTML = t("stop").map(([was, now], i) => `<button type="button" class="stoprow" data-stop="${i}" data-fx><span>${was ? `<s>${esc(was)}</s>` : ""}<b>${esc(now)}</b></span><span class="go2">${ARROW}</span></button>`).join("");
+  { const cg = document.getElementById("chcgrid"); if (cg) cg.innerHTML = [0, 1, 11, 7, 3, 6, 10, 2].map(i => caseCard(i)).join(""); const cm = document.getElementById("chcmore"); if (cm) cm.href = CONFIG.mosesUrl + "case-studies/#" + lang; }
   { const vg = document.getElementById("valgrid"); if (vg) vg.innerHTML = (t("val.list") || []).map(([h, p], i) => `<div class="valc"><span class="valn">${String(i + 1).padStart(2, "0")}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join(""); }
   $("#pillars").innerHTML = t("ov").map(([h, pts], i) => `<details class="ovi"${i === 0 ? " open" : ""}><summary><span class="ovn">${i + 1}</span><span class="ovh">${esc(h)}</span><span class="ovp" aria-hidden="true"></span></summary><ul>${pts.map(x => `<li>${esc(x)}</li>`).join("")}</ul><button type="button" class="ovd" data-go="series">${esc(i === 0 ? t("deep1") : t("deep", { n: i + 1 }))} →</button></details>`).join("");
   $("#cases").innerHTML = [8, 0, 12].map(i => caseCard(i)).join("");

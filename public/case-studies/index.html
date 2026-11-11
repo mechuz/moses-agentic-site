@@ -1437,6 +1437,24 @@ html.filing #overlay:not([hidden]) { z-index: 1100; }
 #sheet[data-mode="agent"] ul { margin: .2rem 0 0; padding-inline-start: 1.2rem; display: grid; gap: .45rem; color: #0B2545; }
 #sheet[data-mode="agent"] .sprice { color: #5B6B82; font-weight: 700; }
 #sheet[data-mode="agent"] .btn { width: 100%; justify-content: center; }
+
+/* ===== Enterprise: calmer, with photos; repeats removed ===== */
+.site-moses #departments, .site-moses #usecases, .site-moses #practices, .site-moses #assetmgmt { display: none !important; }
+.site-moses .s-ent .four, .site-moses .s-ent .fctas .seminar-btn, .site-moses .con-alt, .site-moses .plearn, .site-moses #savings .result .btn { display: none !important; }
+.site-moses .s-ent .fintro { background: linear-gradient(100deg, rgba(11,37,69,.94) 0%, rgba(11,37,69,.82) 45%, rgba(11,37,69,.25) 100%), url(/photos/303492268.jpg) center / cover no-repeat !important; color: #FFFFFF !important; min-height: clamp(340px, 52vh, 520px); display: flex; flex-direction: column; justify-content: center; }
+.site-moses .s-ent .fintro .fh { color: #FFFFFF !important; max-width: 14ch; }
+.site-moses .s-ent .fintro .fp { color: rgba(255,255,255,.86) !important; max-width: 46ch; }
+.site-moses #svc .card { overflow: hidden; padding-top: 0 !important; }
+.site-moses #svc .cph { display: block; margin: 0 calc(-1 * var(--cpad, 1.6rem)) 1rem; aspect-ratio: 16 / 9; overflow: hidden; }
+.site-moses #svc .cph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.site-moses #svc .card:hover .cph img { transform: scale(1.05); }
+.site-moses #svc .card .ic { margin-top: -2.6rem; position: relative; box-shadow: 0 8px 20px -10px rgba(11,37,69,.5); }
+.site-moses #entmore { padding-block: clamp(2rem, 5vw, 3.5rem) !important; }
+.site-moses .entmore { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem 1rem; }
+.site-moses .s-ind .fintro { background: linear-gradient(180deg, rgba(11,37,69,.55) 0%, rgba(11,37,69,.9) 100%), url(/photos/466834864.jpg) center / cover no-repeat !important; color: #FFFFFF !important; }
+.site-moses .s-ind .fintro .camp-h, .site-moses .s-ind .fintro .camp-h span, .site-moses .s-ind .fintro .camp-h2, .site-moses .s-ind .fintro .fp { color: #FFFFFF !important; }
+.site-moses .s-ind .fintro .camp-h .camp-b { color: #C6F432 !important; }
+@media (max-width: 760px) { .site-moses .s-ent .fintro { background: linear-gradient(180deg, rgba(11,37,69,.78) 0%, rgba(11,37,69,.92) 100%), url(/photos/303492268.jpg) center / cover no-repeat !important; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1566,7 +1584,7 @@ body { top: 0 !important; }
   <section class="cabinet" id="cabinet">
     <div class="wrap">
       <div class="cab-head"><h2 data-i18n="cab.t">Choose your path.</h2><p data-i18n="cab.s">Everything we do, filed in one place.</p></div>
-      <div class="drawer"><div class="folder f-store" role="button" tabindex="0" data-folder="store"><span class="ftab"><b>01</b></span><span class="flabel" data-i18n="fo.store">Our Agents</span><span class="ffoot"><span class="fdesc" data-i18n="fo.stored">Ready-made AI agents, or build your own</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ent" role="button" tabindex="0" data-folder="ent"><span class="ftab"><b>02</b></span><span class="flabel" data-i18n="fo.ent">Enterprise</span><span class="ffoot"><span class="fdesc" data-i18n="fo.entd">AI agents and training for your whole company</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ind" role="button" tabindex="0" data-folder="ind"><span class="ftab"><b>03</b></span><span class="flabel" data-i18n="fo.ind">Individuals</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indd">Your own AI team, and how to run it</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-inds" role="button" tabindex="0" data-view="industries"><span class="ftab"><b>04</b></span><span class="flabel" data-i18n="fo.inds">Industries</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indsd">Where AI fits your business</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-cs" role="button" tabindex="0" data-folder="cs"><span class="ftab"><b>05</b></span><span class="flabel" data-i18n="fo.cs">Case Studies</span><span class="ffoot"><span class="fdesc" data-i18n="fo.csd">Work we've done</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-con" role="button" tabindex="0" data-folder="con"><span class="ftab"><b>06</b></span><span class="flabel" data-i18n="fo.con">Contact</span><span class="ffoot"><span class="fdesc" data-i18n="fo.cond">Book a free consultation</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div></div>
+      <div class="drawer"><div class="folder f-store" role="button" tabindex="0" data-folder="store"><span class="ftab"><b>01</b></span><span class="flabel" data-i18n="fo.store">Our Agents</span><span class="ffoot"><span class="fdesc" data-i18n="fo.stored">Ready-made AI agents, or build your own</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ent" role="button" tabindex="0" data-folder="ent"><span class="ftab"><b>02</b></span><span class="flabel" data-i18n="fo.ent">Enterprise</span><span class="ffoot"><span class="fdesc" data-i18n="fo.entd">AI agents and training for your whole company</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ind" role="button" tabindex="0" data-folder="ind"><span class="ftab"><b>03</b></span><span class="flabel" data-i18n="fo.ind">Individuals</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indd">Your own AI team, and how to run it</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-inds" role="button" tabindex="0" data-view="industries"><span class="ftab"><b>04</b></span><span class="flabel" data-i18n="fo.inds">Industries</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indsd">Where AI fits your business</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-cs" role="button" tabindex="0" data-view="cases"><span class="ftab"><b>05</b></span><span class="flabel" data-i18n="fo.cs">Case Studies</span><span class="ffoot"><span class="fdesc" data-i18n="fo.csd">Work we've done</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-con" role="button" tabindex="0" data-folder="con"><span class="ftab"><b>06</b></span><span class="flabel" data-i18n="fo.con">Contact</span><span class="ffoot"><span class="fdesc" data-i18n="fo.cond">Book a free consultation</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div></div>
     </div>
 <div class="fsheet s-store" data-f="store" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.store">Our Agents</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro sc-main"><div class="dir2"><button type="button" class="dirbtn d-pre" data-prebuilt><span class="dt" data-i18n="dir.pre">Prebuilt agents</span><span class="ds" data-i18n="dir.pre_s">Ready-made executives and specialists.</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="dirbtn d-cus" data-custom><span class="dt" data-i18n="dir.cus">Custom agent</span><span class="ds" data-i18n="dir.cus_s">Tell us the job. We build it for you.</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div><div class="store" id="store"></div></div><div class="fbody"></div></div></div><div class="fsheet s-ent" data-f="ent" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ent">Enterprise</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="fh" data-i18n="ent.h">Your people, running AI.</h2><p class="fp" data-i18n="ent.s">We build AI agents for every role, from front desk to CFO, and train your team to run them.</p><div class="fctas"><button type="button" class="btn aqua big" data-contact data-msgtext="Enterprise"><span data-i18n="mo.go">Book a free consultation</span> <span class="arrow">→</span></button><button type="button" class="btn big seminar-btn" data-book><span data-i18n="cta.seminar">Learn AI: book a seminar</span> <span class="arrow">→</span></button></div><div class="four"><div class="fourh"><h3 data-i18n="ent.svc_h">Our services</h3><p data-i18n="ent.svc_s">We work with you, start to finish.</p></div><div class="fourg" id="fourg"></div><button type="button" class="btn big shop-btn" data-folder="store"><span data-i18n="ent.shop">Or shop ready-made agents</span> <span class="arrow">→</span></button></div></div><div class="fbody"></div></div></div><div class="fsheet s-ind" data-f="ind" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ind">Individuals</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2><p class="camp-h2" data-i18n="camp2.h2">…the old way. Learn to run AI.</p><p class="fp" data-i18n="camp2.s">Don't get left behind, and don't let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.</p><button type="button" class="btn big" data-book><span data-i18n="camp2.go">Learn AI at Chocham AI</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-cs" data-f="cs" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.cs">Case Studies</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><p class="fp" data-i18n="fo.csd">Work we've done</p><button type="button" class="btn aqua big" data-view="cases"><span data-i18n="fo.allcs">See all case studies</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-con" data-f="con" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.con">Contact</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div>
   </section>
@@ -1737,6 +1755,7 @@ body { top: 0 !important; }
     </div>
   </section>
 
+  <section id="entmore" class="center"><div class="wrap"><div class="entmore"><button type="button" class="btn big" data-view="cases"><span data-i18n="ent.more_cs">See our work</span> <span class="arrow">→</span></button><button type="button" class="btn big ghost" data-folder="store"><span data-i18n="ent.more_ag">Shop ready-made agents</span> <span class="arrow">→</span></button></div></div></section>
   <section id="savings">
     <div class="wrap">
       <div class="head center rise"><div class="eyebrow" style="color:var(--aqua)" data-i18n="save.kicker">The return</div><h2 class="h2" data-i18n="save.title">How much could AI save your business?</h2><p class="lead" style="color:var(--mute-d)" data-i18n="save.sub">For a team of 15, a few hours a week adds up to six figures a year. Try your numbers.</p></div>
@@ -1760,7 +1779,7 @@ body { top: 0 !important; }
   <section id="process">
     <div class="wrap center">
       <div class="head rise"><div class="eyebrow" data-i18n="proc.kicker">How it works</div><h2 class="h2" data-i18n="proc.title">From first call to live agent</h2></div>
-      <ol class="process rise" id="process"></ol>
+      <ol class="process rise" id="proclist"></ol>
     </div>
   </section>
 
@@ -4127,7 +4146,9 @@ const T = {
    "Census and revenue",
    "Investor reporting",
    "Forensic document review"
-  ]
+  ],
+  "ent.more_cs": "See our work",
+  "ent.more_ag": "Shop ready-made agents"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6054,7 +6075,9 @@ const T = {
    "סענסוס און רעוועניו",
    "באריכטן פאר אינוועסטארס",
    "פארענזישע דאקומענט איבערקוק"
-  ]
+  ],
+  "ent.more_cs": "זעט אונזער ארבעט",
+  "ent.more_ag": "קויפט פארטיגע אגענטן"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -7981,7 +8004,9 @@ const T = {
    "תפוסה והכנסות",
    "דיווח למשקיעים",
    "ביקורת מסמכים פורנזית"
-  ]
+  ],
+  "ent.more_cs": "ראו את העבודה שלנו",
+  "ent.more_ag": "לסוכנים המוכנים"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -9908,7 +9933,9 @@ const T = {
    "Ocupación e ingresos",
    "Informes a inversionistas",
    "Revisión forense de documentos"
-  ]
+  ],
+  "ent.more_cs": "Vea nuestro trabajo",
+  "ent.more_ag": "Ver agentes listos"
  }
 };
 
@@ -10014,9 +10041,9 @@ function renderMoses() {
   $("#h1m").innerHTML = esc(t("mo.title")).replace(/\[(.+?)\]/, '<span class="hl">$1</span>');
   $("#h1").innerHTML = esc(t("hero.title")).replace(/\[(.+?)\]/, '<span class="hl">$1</span>');
   $("#principles").innerHTML = t("why.pr").map(([h, p]) => `<div class="principle rise"><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
-  $("#svc").innerHTML = t("svc.list").map(([h, p], i) => `<div class="card rise"><span class="ic">${MO_ICONS[i]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
+  $("#svc").innerHTML = t("svc.list").map(([h, p], i) => `<div class="card rise">${CONFIG.site === "moses" ? `<span class="cph"><img src="/photos/${[333864459, 478443815, 659218843, 134902605, 405695461, 372856274][i]}.jpg" alt="" loading="lazy"></span>` : ""}<span class="ic">${MO_ICONS[i]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
   $("#edu").innerHTML = t("eduh.list").map(([h, p], i) => `<div class="card rise"><span class="ic">${String(i + 1).padStart(2, "0")}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
-  $("#process").innerHTML = t("proc.list").map(([h, p]) => `<li><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join("");
+  $("#proclist").innerHTML = t("proc.list").map(([h, p]) => `<li><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join("");
   $("#mp-svc").innerHTML = t("svc.list").slice(0, 3).map(([h, p], i) => `<div class="card rise"><span class="ic">${MO_ICONS[i]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
   $("#mp-go").href = CONFIG.mosesUrl + "#" + lang;
   $("#pgrid").innerHTML = t("pers.list").map(([h, d], i) => `<div class="pcard"><span class="n">${i + 1}</span><h3>${esc(h)}</h3><p>${esc(d)}</p></div>`).join("");
@@ -10744,7 +10771,7 @@ document.addEventListener("click", e => {
 window.openFor = el => el.scrollIntoView({ block: "start" });
 (function cabinet() {
   if (CONFIG.site !== "moses") return;
-  const FILES = { ent: ["services", "departments", "savings", "process", "usecases"], ind: ["personal"], cs: ["work", "practices", "assetmgmt"], con: ["consult", "faq"] };
+  const FILES = { ent: ["services", "process", "savings", "entmore"], ind: ["personal"], cs: [], con: ["consult", "faq"] };
   Object.entries(FILES).forEach(([k, ids]) => { const body = document.querySelector('.fsheet[data-f="' + k + '"] .fbody'); ids.forEach(id => { const el = document.getElementById(id); if (el && body) body.appendChild(el); }); });
   let open = null, last = null;
   /* back and swipe: every folder (and the prebuilt list) is a step in the browser history */

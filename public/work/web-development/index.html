@@ -1460,6 +1460,25 @@ html.filing { overflow: hidden; }
 
 .chip.sem { background: #0B2545 !important; color: #FFFFFF !important; }
 #road { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important; }
+
+/* ===== Seminar 1 overview: tap-to-open topics ===== */
+#pillars { display: grid !important; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 1100px; margin-inline: auto; align-items: start; }
+.ovi { background: #FFFFFF; border-radius: 18px; box-shadow: 0 1px 0 rgba(11,37,69,.06), 0 12px 30px -24px rgba(11,37,69,.5); text-align: start; overflow: hidden; }
+.ovi summary { list-style: none; display: flex; align-items: center; gap: .9rem; padding: 1.05rem 1.2rem; cursor: pointer; }
+.ovi summary::-webkit-details-marker { display: none; }
+.ovn { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: #EAF2FF; color: #1A73E8; font: 800 .95rem var(--f-display); }
+.ovi[open] .ovn { background: #1A73E8; color: #FFFFFF; }
+.ovh { flex: 1; font: 700 clamp(1.05rem, 1.5vw, 1.2rem)/1.25 var(--f-display); color: #0B2545; }
+.ovp { flex: none; width: 22px; height: 22px; position: relative; }
+.ovp::before, .ovp::after { content: ""; position: absolute; inset: 50% 0 auto; height: 2px; background: #0B2545; border-radius: 2px; transition: transform .2s; }
+.ovp::after { transform: rotate(90deg); }
+.ovi[open] .ovp::after { transform: rotate(0); }
+.ovi ul { margin: 0; padding: 0 1.2rem .4rem calc(1.2rem + 34px + .9rem); display: grid; gap: .45rem; }
+.ovi li { color: #24405F; line-height: 1.45; }
+.ovd { margin: .5rem 1.2rem 1.1rem calc(1.2rem + 34px + .9rem); border: 0; background: #C6F432; color: #0B2545; border-radius: 999px; padding: .45rem .9rem; font: 700 .9rem var(--f-body); cursor: pointer; }
+[dir="rtl"] .ovi ul { padding: 0 calc(1.2rem + 34px + .9rem) .4rem 1.2rem; }
+[dir="rtl"] .ovd { margin: .5rem calc(1.2rem + 34px + .9rem) 1.1rem 1.2rem; }
+@media (max-width: 760px) { #pillars { grid-template-columns: 1fr; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1815,7 +1834,7 @@ body { top: 0 !important; }
   </div></section>
   <section class="learn" id="seminar">
     <div class="wrap">
-      <div class="head center rise"><div class="eyebrow" data-i18n="s1.kicker">Seminar 1 · AI Foundations</div><h2 class="h2" data-i18n="s1.title">What you&#x27;ll find out</h2><p class="lead" data-i18n="hero.sub">Knowing about AI isn&#x27;t enough. If it isn&#x27;t in your business and your daily work yet, you&#x27;re losing time, money and ground. Seminar 1 shows you how to start, now.</p></div>
+      <div class="head center rise"><div class="eyebrow" data-i18n="s1.kicker">Seminar 1 · The big picture</div><h2 class="h2" data-i18n="s1.title">A full overview, in one hour</h2><p class="lead" data-i18n="s1.lead">Seminar 1 walks you through everything AI can do for you and your business, at a high level. Tap a topic to see what&#x27;s inside. Each topic has its own seminar when you&#x27;re ready to go deeper.</p></div>
       <div class="pillars rise" id="pillars"></div>
     </div>
   </section>
@@ -2212,8 +2231,8 @@ const T = {
   "seats": "{n} of {total} seats left",
   "early.until": "Early bird ends {date}",
   "regular": "Regular",
-  "s1.kicker": "Seminar 1 · AI Foundations",
-  "s1.title": "What you'll find out",
+  "s1.kicker": "Seminar 1 · The big picture",
+  "s1.title": "A full overview, in one hour",
   "pillars": [
    [
     "What AI is",
@@ -2411,8 +2430,8 @@ const T = {
   "series.sub": "One hour each, every other week at each location. Start with Seminar 1. By Seminar 8 you build your own AI agent and see how AI runs a business.",
   "road": [
    [
-    "AI Foundations",
-    "What AI is, the right tools, and your first wins, live on your phone."
+    "The big picture",
+    "A high-level tour of everything AI can do: the tools, your first wins, and every topic in this program."
    ],
    [
     "Asking AI the right way",
@@ -3909,7 +3928,76 @@ const T = {
   "nav.indiv": "Individuals",
   "nav.entp": "Enterprises",
   "dated": "Dates set",
-  "semn": "Seminar {n}"
+  "semn": "Seminar {n}",
+  "s1.lead": "Seminar 1 walks you through everything AI can do for you and your business, at a high level. Tap a topic to see what's inside. Each topic has its own seminar when you're ready to go deeper.",
+  "deep": "Deep dive: Seminar {n}",
+  "deep1": "Covered in full in Seminar 1",
+  "ov": [
+   [
+    "What AI is, and the tools",
+    [
+     "How AI thinks, and where it goes wrong",
+     "ChatGPT, Claude and Gemini: which to use for what",
+     "Set up on your phone in minutes"
+    ]
+   ],
+   [
+    "Asking AI the right way",
+    [
+     "Give context, examples and rules",
+     "Get answers you can use the first time",
+     "Check AI's work before you rely on it"
+    ]
+   ],
+   [
+    "AI for your daily work",
+    [
+     "Write and answer emails in seconds",
+     "Sum up long documents and meetings",
+     "Research anything, with sources"
+    ]
+   ],
+   [
+    "AI for every department",
+    [
+     "Marketing: ads, posts and flyers",
+     "Finance: budgets, cash flow and reports",
+     "Operations, HR, sales and customer service"
+    ]
+   ],
+   [
+    "Your files and your data",
+    [
+     "Ask questions about your own PDFs and spreadsheets",
+     "Contracts, leases and financials, read in minutes",
+     "What is safe to share, and what never to share"
+    ]
+   ],
+   [
+    "Automation",
+    [
+     "Connect email, spreadsheets and accounting",
+     "Routine work that runs on its own",
+     "No code needed"
+    ]
+   ],
+   [
+    "Build your first AI agent",
+    [
+     "What an AI agent is",
+     "An agent that does a real job for you",
+     "Rules and your approval, built in"
+    ]
+   ],
+   [
+    "Running AI in a business",
+    [
+     "AI across a whole company",
+     "Quality checks, security and costs",
+     "A 90-day plan to put it in place"
+    ]
+   ]
+  ]
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -3930,8 +4018,8 @@ const T = {
   "seats": "נאך {n} פון {total} פלעצער",
   "early.until": "ערלי בירד ביז {date}",
   "regular": "רעגולער",
-  "s1.kicker": "סעמינאר 1 · AI פון אנהייב",
-  "s1.title": "וואס איר וועט זיך אויסלערנען",
+  "s1.kicker": "סעמינאר 1 · דאס גאנצע בילד",
+  "s1.title": "א פולער איבערבליק, אין איין שעה",
   "pillars": [
    [
     "וואס איז AI",
@@ -4129,8 +4217,8 @@ const T = {
   "series.sub": "יעדע איינס א שעה, יעדע צווייטע וואך אין יעדן פלאץ. הייבט אן מיט סעמינאר 1. ביז סעמינאר 8 בויט איר אייער אייגענעם AI אגענט און זעט ווי AI פירט א ביזנעס.",
   "road": [
    [
-    "AI פון אנהייב",
-    "וואס AI איז, די ריכטיגע טולס, און אייערע ערשטע הצלחות דארט אויפן פלאץ אויף אייער פאון."
+    "דאס גאנצע בילד",
+    "א הויכער איבערבליק פון אלעס וואס AI קען טון: די טולס, אייערע ערשטע הצלחות, און יעדע טעמע אין דעם פראגראם."
    ],
    [
     "ווי אזוי צו פרעגן AI",
@@ -5627,7 +5715,76 @@ const T = {
   "nav.indiv": "יחידים",
   "nav.entp": "ארגאניזאציעס",
   "dated": "דאטעס פיקסירט",
-  "semn": "סעמינאר {n}"
+  "semn": "סעמינאר {n}",
+  "s1.lead": "סעמינאר 1 גייט אייך דורך אלעס וואס AI קען טון פאר אייך און אייער ביזנעס, אויף א הויכן לעוועל. דריקט אויף א טעמע צו זען וואס איז דערין. יעדע טעמע האט איר אייגענעם סעמינאר ווען איר זענט גרייט צו גיין טיפער.",
+  "deep": "טיפער: סעמינאר {n}",
+  "deep1": "גאנץ דורכגענומען אין סעמינאר 1",
+  "ov": [
+   [
+    "וואס איז AI, און די טולס",
+    [
+     "ווי AI טראכט, און וואו עס טועט זיך",
+     "ChatGPT, Claude און Gemini: וועלכע פאר וואס",
+     "אויפגעשטעלט אויף אייער פאון אין עטליכע מינוט"
+    ]
+   ],
+   [
+    "ווי אזוי צו פרעגן AI",
+    [
+     "גיט קאנטעקסט, ביישפילן און כללים",
+     "באקומט ענטפערס וואס מ'קען ניצן גלייך",
+     "טשעקט וואס AI האט געמאכט איידער איר פארלאזט זיך"
+    ]
+   ],
+   [
+    "AI פאר אייער טאג-טעגליכע ארבעט",
+    [
+     "שרייבט און ענטפערט אימעילס אין סעקונדעס",
+     "פאסט צוזאם לאנגע דאקומענטן און מיטינגס",
+     "ריסוירטש אויף אלעס, מיט מקורות"
+    ]
+   ],
+   [
+    "AI פאר יעדן דעפארטמענט",
+    [
+     "מארקעטינג: אדס, פאוסטס און פלייערס",
+     "פינאנץ: בודזשעטס, קעש פלאו און רעפארטס",
+     "אפערעישאנס, HR, סעילס און קאסטומער סערוויס"
+    ]
+   ],
+   [
+    "אייערע פיילס און אייער דאטא",
+    [
+     "פרעגט שאלות אויף אייערע אייגענע PDFs און ספרעדשיטס",
+     "קאנטראקטן, ליסעס און פינאנצן, געלייענט אין מינוטן",
+     "וואס מ'מעג טיילן, און וואס קיינמאל נישט"
+    ]
+   ],
+   [
+    "אויטאמאציע",
+    [
+     "פארבינדט אימעיל, ספרעדשיטס און אקאונטינג",
+     "רוטין ארבעט וואס לויפט פון זיך אליין",
+     "מ'דארף נישט קיין קאוד"
+    ]
+   ],
+   [
+    "בויט אייער ערשטן AI אגענט",
+    [
+     "וואס איז אן AI אגענט",
+     "אן אגענט וואס טוט א ריכטיגע ארבעט פאר אייך",
+     "כללים און אייער באשטעטיגונג, אריינגעבויט"
+    ]
+   ],
+   [
+    "פירן AI אין א ביזנעס",
+    [
+     "AI איבער א גאנצע פירמע",
+     "קוואליטעט טשעקס, סעקיוריטי און קאסטן",
+     "א 90-טאג פלאן עס איינצופירן"
+    ]
+   ]
+  ]
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -5648,8 +5805,8 @@ const T = {
   "seats": "נותרו {n} מתוך {total} מקומות",
   "early.until": "הרשמה מוקדמת עד {date}",
   "regular": "רגיל",
-  "s1.kicker": "סמינר 1 · יסודות ה-AI",
-  "s1.title": "מה תגלו",
+  "s1.kicker": "סמינר 1 · התמונה המלאה",
+  "s1.title": "סקירה מלאה, בשעה אחת",
   "pillars": [
    [
     "מה זה AI",
@@ -5847,8 +6004,8 @@ const T = {
   "series.sub": "שעה כל אחד, פעם בשבועיים בכל מקום. מתחילים בסמינר 1. עד סמינר 8 תבנו סוכן AI משלכם ותראו איך AI מנהל עסק.",
   "road": [
    [
-    "יסודות ה-AI",
-    "מה זה AI, הכלים הנכונים, וההצלחות הראשונות בזמן אמת בטלפון שלכם."
+    "התמונה המלאה",
+    "סקירה ברמה גבוהה של כל מה ש-AI יכול לעשות: הכלים, ההצלחות הראשונות, וכל נושא בתוכנית."
    ],
    [
     "לשאול את ה-AI נכון",
@@ -7345,7 +7502,76 @@ const T = {
   "nav.indiv": "יחידים",
   "nav.entp": "ארגונים",
   "dated": "נקבעו תאריכים",
-  "semn": "סמינר {n}"
+  "semn": "סמינר {n}",
+  "s1.lead": "סמינר 1 עובר איתכם על כל מה ש-AI יכול לעשות בשבילכם ובשביל העסק, ברמה הגבוהה. הקישו על נושא כדי לראות מה בפנים. לכל נושא יש סמינר משלו כשתרצו להעמיק.",
+  "deep": "להעמקה: סמינר {n}",
+  "deep1": "נלמד במלואו בסמינר 1",
+  "ov": [
+   [
+    "מה זה AI, והכלים",
+    [
+     "איך AI חושב, ואיפה הוא טועה",
+     "ChatGPT, Claude ו-Gemini: מה למה",
+     "מוגדר בטלפון שלכם בכמה דקות"
+    ]
+   ],
+   [
+    "לשאול את ה-AI נכון",
+    [
+     "לתת הקשר, דוגמאות וכללים",
+     "לקבל תשובות שימושיות כבר בפעם הראשונה",
+     "לבדוק את עבודת ה-AI לפני שסומכים עליה"
+    ]
+   ],
+   [
+    "AI לעבודה היומיומית",
+    [
+     "לכתוב ולענות למיילים בשניות",
+     "לסכם מסמכים ופגישות ארוכים",
+     "מחקר על כל נושא, עם מקורות"
+    ]
+   ],
+   [
+    "AI לכל מחלקה",
+    [
+     "שיווק: מודעות, פוסטים ופליירים",
+     "כספים: תקציבים, תזרים ודוחות",
+     "תפעול, משאבי אנוש, מכירות ושירות לקוחות"
+    ]
+   ],
+   [
+    "הקבצים והנתונים שלכם",
+    [
+     "לשאול שאלות על קבצי ה-PDF והגיליונות שלכם",
+     "חוזים ודוחות כספיים, נקראים בדקות",
+     "מה בטוח לשתף, ומה לעולם לא"
+    ]
+   ],
+   [
+    "אוטומציה",
+    [
+     "לחבר מייל, גיליונות והנהלת חשבונות",
+     "עבודה שגרתית שרצה לבד",
+     "בלי קוד"
+    ]
+   ],
+   [
+    "בונים את סוכן ה-AI הראשון",
+    [
+     "מה זה סוכן AI",
+     "סוכן שעושה עבודה אמיתית בשבילכם",
+     "כללים ואישור שלכם, מובנים"
+    ]
+   ],
+   [
+    "ניהול AI בעסק",
+    [
+     "AI בכל החברה",
+     "בקרת איכות, אבטחה ועלויות",
+     "תוכנית של 90 יום להטמעה"
+    ]
+   ]
+  ]
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -7366,8 +7592,8 @@ const T = {
   "seats": "Quedan {n} de {total} lugares",
   "early.until": "Precio anticipado hasta el {date}",
   "regular": "Regular",
-  "s1.kicker": "Seminario 1 · Fundamentos de IA",
-  "s1.title": "Lo que descubrirá",
+  "s1.kicker": "Seminario 1 · El panorama completo",
+  "s1.title": "Un panorama completo, en una hora",
   "pillars": [
    [
     "Qué es la IA",
@@ -7565,8 +7791,8 @@ const T = {
   "series.sub": "Una hora cada uno, cada dos semanas en cada lugar. Empiece con el Seminario 1. Para el Seminario 8 creará su propio agente de IA y verá cómo la IA dirige una empresa.",
   "road": [
    [
-    "Fundamentos de IA",
-    "Qué es la IA, las herramientas correctas y sus primeros logros en vivo en su teléfono."
+    "El panorama completo",
+    "Un recorrido de alto nivel por todo lo que la IA puede hacer: las herramientas, sus primeros logros y cada tema del programa."
    ],
    [
     "Cómo pedirle bien a la IA",
@@ -9063,7 +9289,76 @@ const T = {
   "nav.indiv": "Particulares",
   "nav.entp": "Organizaciones",
   "dated": "Con fechas",
-  "semn": "Seminario {n}"
+  "semn": "Seminario {n}",
+  "s1.lead": "El Seminario 1 le muestra todo lo que la IA puede hacer por usted y su negocio, a alto nivel. Toque un tema para ver qué incluye. Cada tema tiene su propio seminario cuando quiera profundizar.",
+  "deep": "A fondo: Seminario {n}",
+  "deep1": "Se cubre completo en el Seminario 1",
+  "ov": [
+   [
+    "Qué es la IA, y las herramientas",
+    [
+     "Cómo piensa la IA y dónde se equivoca",
+     "ChatGPT, Claude y Gemini: cuál para qué",
+     "Configurada en su teléfono en minutos"
+    ]
+   ],
+   [
+    "Cómo pedirle bien a la IA",
+    [
+     "Dé contexto, ejemplos y reglas",
+     "Respuestas útiles desde la primera vez",
+     "Revise el trabajo de la IA antes de confiar en él"
+    ]
+   ],
+   [
+    "IA para su trabajo diario",
+    [
+     "Escriba y responda correos en segundos",
+     "Resuma documentos y reuniones largas",
+     "Investigue cualquier tema, con fuentes"
+    ]
+   ],
+   [
+    "IA para cada departamento",
+    [
+     "Marketing: anuncios, publicaciones y volantes",
+     "Finanzas: presupuestos, flujo de caja e informes",
+     "Operaciones, RR. HH., ventas y atención al cliente"
+    ]
+   ],
+   [
+    "Sus archivos y sus datos",
+    [
+     "Pregunte sobre sus propios PDF y hojas de cálculo",
+     "Contratos y estados financieros, leídos en minutos",
+     "Qué es seguro compartir y qué nunca"
+    ]
+   ],
+   [
+    "Automatización",
+    [
+     "Conecte correo, hojas de cálculo y contabilidad",
+     "Trabajo rutinario que corre solo",
+     "Sin código"
+    ]
+   ],
+   [
+    "Cree su primer agente de IA",
+    [
+     "Qué es un agente de IA",
+     "Un agente que hace un trabajo real por usted",
+     "Reglas y su aprobación, incluidas"
+    ]
+   ],
+   [
+    "La IA en la operación de una empresa",
+    [
+     "IA en toda la empresa",
+     "Control de calidad, seguridad y costos",
+     "Un plan de 90 días para implementarla"
+    ]
+   ]
+  ]
  }
 };
 
@@ -9307,7 +9602,7 @@ function render() {
 
   const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   $("#stops").innerHTML = t("stop").map(([was, now], i) => `<button type="button" class="stoprow" data-stop="${i}" data-fx><span>${was ? `<s>${esc(was)}</s>` : ""}<b>${esc(now)}</b></span><span class="go2">${ARROW}</span></button>`).join("");
-  $("#pillars").innerHTML = t("pillars").map(([h, p], i) => `<div class="pillar"><span class="ic">${ICONS[i % ICONS.length]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
+  $("#pillars").innerHTML = t("ov").map(([h, pts], i) => `<details class="ovi"${i === 0 ? " open" : ""}><summary><span class="ovn">${i + 1}</span><span class="ovh">${esc(h)}</span><span class="ovp" aria-hidden="true"></span></summary><ul>${pts.map(x => `<li>${esc(x)}</li>`).join("")}</ul><button type="button" class="ovd" data-go="series">${esc(i === 0 ? t("deep1") : t("deep", { n: i + 1 }))} →</button></details>`).join("");
   $("#cases").innerHTML = [8, 0, 12].map(i => caseCard(i)).join("");
   renderCases();
   renderPractices();

@@ -3,23 +3,18 @@
   'use strict';
   const { h, availLine } = PR.ui, E = PR.engine, D = PR.data;
 
-  function shot(src, kind, alt) {
-    if (!src) return h('div.shot.none', 'Photo to come');
-    return h('div.shot.' + (kind || 'photo'), h('img', { src, alt, loading: 'lazy' }));
-  }
-
   function paint() {
     const ev = E.events(), today = E.today();
     const grid = document.getElementById('catGrid'); grid.textContent = '';
     D.categories.forEach(c => {
       const first = D.models.find(m => m.cat === c.id);
       grid.appendChild(h('article.tile',
-        shot(c.img, c.imgKind, c.name),
+        h('img.tile-img', { src: c.scene, alt: '', loading: 'lazy' }),
         h('div.tile-body',
           h('h3', c.name),
-          h('p.mute', c.tagline),
+          h('p', c.tagline),
           availLine(E.categorySummary(c.id, today, ev)),
-          h('div.tile-links', h('a.more', { href: 'product.html?model=' + first.id }, 'Rent'), h('a.more', { href: 'equipment.html#' + c.id }, 'All sizes')))));
+          h('div.tile-links', h('a.btn.btn-gold.btn-sm', { href: 'product.html?model=' + first.id }, 'Rent'), h('a.tile-all', { href: 'equipment.html#' + c.id }, 'All sizes')))));
     });
     const list = document.getElementById('yardList'); list.textContent = '';
     D.categories.forEach(c => {

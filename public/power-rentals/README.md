@@ -5,7 +5,7 @@ Moses Agentic's pitch website for Power Rentals (Brooklyn): a new site where cus
 It is fully static: no build step, no server, no database. It works from any web host or straight from the folder.
 
 ## Pages
-- `index.html`: home. A full-bleed photo of their own generator, the fleet as product tiles with live availability, the live yard list, fuel, service and who they serve.
+- `index.html`: home. A full-bleed construction-site hero, the fleet as photo tiles with live availability, the live yard list, fuel, service, a customer quote band and who they serve.
 - `equipment.html`: the catalog by category and model, with photos, live availability, unit-level status and a date filter.
 - `product.html?model=ID`: the product page and buy box. Choose a size, a start (quick picks: today, tomorrow, next Monday), the length and the borough, then **Rent now** (straight to checkout) or **Add to order**. Availability is checked live against the yard.
 - `checkout.html`: a one-page checkout.
@@ -23,7 +23,7 @@ It is fully static: no build step, no server, no database. It works from any web
   - live feed that simulates driver tickets and accounting events
 - `build.html`: how it is built, how it connects, and what it costs.
 
-Photos are Power Rentals' own product photos from powerrentals.com (`img/fleet/`).
+Product photos are Power Rentals' own, from powerrentals.com (`img/fleet/`). Construction-site photography (`img/scenes/`) comes from Wikimedia Commons under CC0, CC BY and CC BY-SA licenses; the credits are in `img/scenes/credits.json` and on `credits.html`, linked from every footer.
 
 ## Architecture
 | File | Role |
@@ -34,7 +34,7 @@ Photos are Power Rentals' own product photos from powerrentals.com (`img/fleet/`
 | `js/cart.js` | The order (cart), synced across tabs. |
 | `js/ui.js` | The shared shell (preview bar, header, footer), DOM helpers, icons and toasts. |
 | `js/pages/*.js`, `css/pages/*.css` | One script and one stylesheet per page. |
-| `css/site.css` | The design system (v2): white space, product photography, Inter, black actions, gold as an accent only. |
+| `css/site.css` | The design system (v3): heavy, wide, uppercase Archivo headlines, Inter body text, gold primary actions, construction photography behind heroes, tiles and bands. |
 | `js/gate.js` | The passcode gate. |
 
 **The event log.** Every fact about a unit is an event: a rental from an invoice, a website or phone booking, a service hold, a 30-minute hold, a pick-up, drop-off or fuel ticket, or an extension.

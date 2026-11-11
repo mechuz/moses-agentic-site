@@ -91,16 +91,23 @@ window.PR = window.PR || {};
     [U('fl10',0),   0, 3,  'Brake service']
   ];
 
-  /* Photos: Power Rentals' own product photos from powerrentals.com.
-     kind 'photo' = a real photo in the yard (fills its frame); 'cutout' = product on a transparent background. */
-  const IMG = f => 'img/fleet/' + f;
-  const catImg = { gen: ['yard-generator-2.webp', 'photo'], heat: ['heater.webp', 'cutout'], cool: ['cooling-2.webp', 'cutout'], light: ['light-tower.webp', 'cutout'], dist: ['distribution.webp', 'cutout'], lift: ['forklift.webp', 'cutout'] };
-  categories.forEach(c => { c.img = catImg[c.id][0] && IMG(catImg[c.id][0]); c.imgKind = catImg[c.id][1]; });
-  const modelImg = { g20: ['yard-generator-3.webp', 'photo'], g115: ['yard-generator-hero.webp', 'photo'], hyb70: ['hybrid.webp', 'cutout'],
-    c200: ['heater-3.webp', 'cutout'], c400: ['heater.webp', 'cutout'], volt18: ['heater-electric.webp', 'cutout'],
-    ac5: ['cooling-2.webp', 'cutout'], ac12: ['cooling.webp', 'cutout'], lte: ['light-tower.webp', 'cutout'], fl10: ['forklift.webp', 'cutout'], fl5: ['forklift-2.webp', 'cutout'],
-    db400: ['distribution.webp', 'cutout'], spider: ['spider-box.webp', 'cutout'] };
-  models.forEach(m => { const own = modelImg[m.id], cat = categories.find(c => c.id === m.cat); m.img = own ? IMG(own[0]) : cat.img; m.imgKind = own ? own[1] : cat.imgKind; });
+  /* Images.
+     scene: a large construction-site photograph for the category (Wikimedia Commons; credits in img/scenes/credits.json and the footer).
+     img:   the product shot (a cutout from Power Rentals' own catalog), shown small on product and catalog pages. */
+  const SCENE = f => 'img/scenes/' + f, CUT = f => 'img/fleet/' + f;
+  const catImg = {
+    gen:   ['site-excavator.webp', 'generator-large.webp'],
+    heat:  ['rebar-crew.webp', 'heater.webp'],
+    cool:  ['brooklyn-bridge-tower.webp', 'cooling-2.webp'],
+    light: ['hero-night-site.webp', 'light-tower.webp'],
+    dist:  ['welding.webp', 'distribution.webp'],
+    lift:  ['drill-rig.webp', 'forklift.webp']
+  };
+  categories.forEach(c => { c.scene = SCENE(catImg[c.id][0]); c.img = CUT(catImg[c.id][1]); c.imgKind = 'cutout'; });
+  const modelImg = { hyb70: 'hybrid.webp', c200: 'heater-3.webp', c400: 'heater.webp', volt18: 'heater-electric.webp',
+    ac5: 'cooling-2.webp', ac12: 'cooling.webp', lte: 'light-tower.webp', fl10: 'forklift.webp', fl5: 'forklift-2.webp',
+    db400: 'distribution.webp', spider: 'spider-box.webp' };
+  models.forEach(m => { const cat = categories.find(c => c.id === m.cat); m.img = modelImg[m.id] ? CUT(modelImg[m.id]) : cat.img; m.imgKind = 'cutout'; m.scene = cat.scene; });
 
   PR.data = { categories, models, customers, units, sample: { rentals, service } };
 })();

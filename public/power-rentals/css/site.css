@@ -1,4 +1,6 @@
-/* Power Rentals · design system (v2: quiet, premium, product-first).
+/* Power Rentals · design system (v3: bold. v2 was quiet, premium, product-first; v3 keeps its layout and hairlines
+   but sets headlines in heavy, wide, uppercase Archivo, puts construction-site photography behind the big moments,
+   and makes gold the primary action again).
    Direction: white space, real product photography, big confident type, hairlines instead of boxes,
    black primary actions, gold only as a precise accent (the logo, focus, a few marks).
    Class names are stable so page stylesheets keep working; their look is set here. */
@@ -10,7 +12,7 @@
   --gold:#FCB810; --gold-deep:#C99206; --gold-ink:#7A5200; --amber:#FFAB41;
   --ok:#1E7A3C; --ok-bg:#E8F5EC; --warn:#8A5C00; --warn-bg:#FFF4D6; --bad:#B42318; --bad-bg:#FDECEA; --info:#0B57D0; --info-bg:#EAF1FD;
   --red:#B42318;
-  --display:"Inter",-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Helvetica,Arial,sans-serif;
+  --display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;
   --body:"Inter",-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Helvetica,Arial,sans-serif;
   --r:18px; --r-sm:12px; --shadow:0 2px 12px rgba(0,0,0,.06);
   --gutter:max(22px,env(safe-area-inset-left,0px));
@@ -177,3 +179,47 @@ table.data .r{text-align:right}
 .shot.none{color:var(--faint);font-size:.9rem}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* ================= v3 · bold =================
+   Headlines: Archivo, weight 900, wide, uppercase, tight. Primary action: gold with black type.
+   Photography: big construction sites behind heroes, tiles and bands, always under a dark scrim so white type holds contrast. */
+h1,h2{font-weight:900;font-stretch:118%;text-transform:uppercase;letter-spacing:-.012em;line-height:.92}
+h1{font-size:clamp(2.6rem,7.4vw,6.4rem)}
+h2{font-size:clamp(2rem,4.8vw,3.9rem)}
+h3,h4{font-weight:800;font-stretch:108%;letter-spacing:-.01em}
+h3{font-size:1.35rem}
+.kicker,.eyebrow{font:800 .8rem/1 var(--display);font-stretch:118%;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-ink);margin:0 0 14px}
+.dark .kicker,.dark .eyebrow,.phero-photo .kicker,.phero-photo .eyebrow{color:var(--gold)}
+.gold{color:var(--gold)}
+.btn{border-radius:4px;font:800 .92rem/1.1 var(--display);font-stretch:112%;text-transform:uppercase;letter-spacing:.04em}
+.btn-lg{padding:17px 30px;font-size:1rem}
+.btn-sm{padding:9px 16px;font-size:.8rem}
+.btn-gold,.dark .btn-gold{background:var(--gold);color:#000}
+.btn-gold:hover,.dark .btn-gold:hover{background:#FFC93C;color:#000}
+.btn-dark{background:#000;color:#fff}
+.btn-dark:hover{background:var(--ink-2)}
+.btn-line{border-width:2px}
+.lede{color:var(--ink-3)}
+.dark .lede{color:#C7C7CC}
+
+/* sub-page heroes over a construction photo */
+.phero-photo{position:relative;isolation:isolate;background:#000 center/cover no-repeat;color:#fff;padding-block:clamp(96px,14vw,180px) clamp(44px,6vw,72px)}
+.phero-photo::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.62) 55%,rgba(0,0,0,.35) 100%),linear-gradient(0deg,rgba(0,0,0,.55),transparent 45%)}
+.phero-photo h1{max-width:12em}
+.phero-photo p.lede,.phero-photo .lede,.phero-photo .mute{color:rgba(255,255,255,.86)}
+.phero-photo .more{color:var(--gold)}
+.phero-photo .btn-line{border-color:#fff;color:#fff}
+.phero-photo .btn-line:hover{background:#fff;color:#000}
+.phero-photo .badge{background:rgba(255,255,255,.14);color:#fff}
+
+/* header: heavier wordmark row and a gold "Rent now" */
+header.site .btn-gold{padding:9px 16px;font-size:.78rem}
+
+/* credits page */
+.credits{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:14px}
+.credits li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--sand-2)}
+.credits img{width:120px;height:80px;object-fit:cover;border-radius:4px}
+.credits b{display:block;font-weight:600;overflow-wrap:anywhere}
+.credits span{font-size:.88rem;color:var(--mute)}
+.credits a{color:var(--info)}
+footer.site .legal-links{display:flex;gap:18px;flex-wrap:wrap}

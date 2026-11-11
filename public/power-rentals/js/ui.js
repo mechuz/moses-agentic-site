@@ -113,7 +113,7 @@ window.PR = window.PR || {};
       h('div', h('h4', 'Call or WhatsApp'), h('p', h('a', { href: C.business.phoneHref }, C.business.phone)), h('h4', 'Mailing address'), h('p', C.business.mailing)),
       h('div', h('h4', 'Hours'), h('p', 'Monday to Thursday, ' + E.clock(H[1][0]) + ' to ' + E.clock(H[1][1])), h('p', 'Friday, ' + E.clock(H[5][0]) + ' to ' + E.clock(H[5][1])), h('p', 'Saturday, closed'), h('p', 'Sunday, ', h('span.fill', 'confirm'))),
       h('div', h('h4', 'Rent'), NAV.map(([href, t]) => h('p', h('a', { href }, t))), h('p', h('a', { href: 'office.html' }, 'Office view')))),
-      h('div.wrap.legal', h('span', 'Concept website prepared by Moses Agentic for Power Rentals. Sample data; not a live store.'), h('a', { href: 'build.html' }, 'How this was built')));
+      h('div.wrap.legal', h('span', 'Concept website prepared by Moses Agentic for Power Rentals. Sample data; not a live store.'), h('span.legal-links', h('a', { href: 'credits.html' }, 'Photo credits'), h('a', { href: 'build.html' }, 'How this was built'))));
     mount.replaceWith(footer);
   }
 

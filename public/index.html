@@ -1505,6 +1505,14 @@ html.filing { overflow: hidden; }
 .chcgroups .cgroup { margin-top: clamp(1.8rem, 4vw, 2.6rem); text-align: start; }
 .chcgroups .cgroup-h h2 { font: 800 clamp(1.4rem, 2.4vw, 1.9rem)/1.1 var(--f-display); letter-spacing: -.03em; color: #0B2545; }
 .chcgroups .chcgrid { margin-top: 1rem !important; }
+
+/* ===== by-the-numbers strip ===== */
+.trstrip { margin: clamp(1.6rem, 4vw, 2.4rem) 0 .4rem; background: #0B2545; color: #FFFFFF; border-radius: 22px; padding: clamp(1.2rem, 3vw, 1.8rem); text-align: start; }
+.tr-k { font: 700 .85rem var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: #C6F432; }
+.tr-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin-top: .8rem; }
+.tr-i b { display: block; font: 800 clamp(1.6rem, 3vw, 2.4rem)/1 var(--f-display); letter-spacing: -.03em; color: #FFFFFF; }
+.tr-i span { display: block; margin-top: .35rem; color: rgba(255,255,255,.75); line-height: 1.3; font-size: .95rem; }
+@media (max-width: 900px) { .tr-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1756,7 +1764,7 @@ body { top: 0 !important; }
       <div class="bigstat-l" data-i18n="cs.big">pages analyzed in just one of our projects</div>
       <p class="lead" data-i18n="cs.sub">These are the kinds of jobs AI now does in our own businesses. In the seminar, you see them live.</p>
       <div class="cases" id="cases"></div>
-      <p class="cs-note" data-i18n="cs.note">Snapshots show sample data. Client names and real figures are kept private.</p>
+      <p class="cs-note" data-i18n="cs.note">Client names are kept out for confidentiality. Some snapshots use sample data.</p>
       <div class="morebtns"><button type="button" class="btn big" data-view="cases" data-fx><span data-i18n="cases.all">See all case studies</span> <span class="arrow">→</span></button></div>
     </div>
   </section>
@@ -1851,7 +1859,7 @@ body { top: 0 !important; }
     </div>
   </div>
   <section class="valsec" id="value"><div class="wrap"><div class="head center"><div class="eyebrow" data-i18n="val.k">The value</div><h2 class="h2" data-i18n="val.t">What you&#x27;ll be able to do</h2><p class="lead" data-i18n="val.s">Real skills you use the next day. Not theory.</p></div><div class="valgrid" id="valgrid"></div><div class="center" style="margin-top:2rem"><button type="button" class="btn big" data-book data-i18n="val.go">Book my seat</button></div></div></section>
-  <section class="chcsec" id="chcases"><div class="wrap"><div class="head center"><div class="eyebrow" data-i18n="chcs.k">Case studies</div><h2 class="h2" data-i18n="chcs.t">Real results from real businesses</h2><p class="lead" data-i18n="cs.sub">These are the kinds of jobs AI now does in our own businesses. In the seminar, you see them live.</p></div><div class="chcgroups" id="chcgrid"></div><p class="cs-note center" data-i18n="cs.note">Snapshots show sample data. Client names and real figures are kept private.</p><div class="center" style="margin-top:1.4rem"><a class="btn big" id="chcmore" href="https://mosesagentic.com/case-studies/" data-i18n="chcs.more">See all case studies</a></div></div></section>
+  <section class="chcsec" id="chcases"><div class="wrap"><div class="head center"><div class="eyebrow" data-i18n="chcs.k">Case studies</div><h2 class="h2" data-i18n="chcs.t">Real results from real businesses</h2><p class="lead" data-i18n="cs.sub">These are the kinds of jobs AI now does in our own businesses. In the seminar, you see them live.</p></div><div class="trstrip"></div><div class="chcgroups" id="chcgrid"></div><p class="cs-note center" data-i18n="cs.note">Client names are kept out for confidentiality. Some snapshots use sample data.</p><div class="center" style="margin-top:1.4rem"><a class="btn big" id="chcmore" href="https://mosesagentic.com/case-studies/" data-i18n="chcs.more">See all case studies</a></div></div></section>
   <div id="seats"></div>
   <section class="view-head center edu-head"><div class="wrap">
     <div class="eyebrow" data-i18n="ev.kicker">Chocham AI · The education company of Moses Agentic</div>
@@ -1925,9 +1933,10 @@ body { top: 0 !important; }
   </div></section>
   <section style="padding-top:0"><div class="wrap">
     <div class="cfilters" id="cfilters" role="group"></div>
+    <div class="trstrip"></div>
     <div id="cv-feature"></div>
     <div id="cv-groups"></div>
-    <p class="cs-note center" data-i18n="cs.note">Snapshots show sample data. Client names and real figures are kept private.</p>
+    <p class="cs-note center" data-i18n="cs.note">Client names are kept out for confidentiality. Some snapshots use sample data.</p>
   </div></section>
 </main>
 
@@ -2406,17 +2415,42 @@ const T = {
     "Asking price was 39% too high"
    ],
    [
-    "AI demand engine for assisted living",
-    "For a 52-unit assisted living and memory care community, we built review replies, a lead inbox, referral follow-up and a daily payroll-and-census brief.",
-    "Rating 3.6 → 3.8 in a quarter"
+    "AI marketing department for assisted living",
+    "One agent runs a 60-unit assisted living community's ads, Google profile, website, blog and reviews. It cleaned up the ad keywords and found that Google was overstating conversions.",
+    "$4,292 of ads → 3 move-ins"
    ],
    [
     "Feasibility for an adult day program",
     "We tested a 7-day licensed adult day program for up to 40 participants inside an existing building: pricing, breakeven, licensing timeline and competitor rates.",
     "Breakeven cut from 32 to 25 participants"
+   ],
+   [
+    "AI bookkeeper and controller",
+    "Working inside the community's property-management and accounting software, the agent closes the month, reconciles vendors and rent, and builds the 12-month workbook and investor update.",
+    "Found a $108,320 error in the annual loss"
+   ],
+   [
+    "Referral and lead engine",
+    "The agent built and works a database of professional referral sources and drafts first replies to new leads. A person approves every email before it goes out.",
+    "1,170 referral sources in the CRM"
+   ],
+   [
+    "Website with live availability and reservations",
+    "The site reads the available units from the property-management software every morning and lets a family reserve a specific suite online.",
+    "Hosting $200 a month → $0, site owned"
+   ],
+   [
+    "Daily payroll and staffing brief",
+    "Every day the agent compares paid hours with the target and flags the gap. It then helped build a schedule at target with no overtime.",
+    "Found $5,200 over target per payroll"
+   ],
+   [
+    "Marketing agent for a second community",
+    "For a 48-apartment assisted living community, the agent built the website and ads, and runs a writer-and-editor pipeline that fact-checks every post before it goes live.",
+    "15-page site, 95 ad items, every post fact-checked"
    ]
   ],
-  "cs.note": "Snapshots show sample data. Client names and real figures are kept private.",
+  "cs.note": "Client names are kept out for confidentiality. Some snapshots use sample data.",
   "ind.kicker": "Industries",
   "ind.title": "Industries we help",
   "ind.sub": "If your business runs on people, paperwork, or customers, AI can help.",
@@ -4102,7 +4136,30 @@ const T = {
   ],
   "chcs.k": "Case studies",
   "chcs.t": "Real results from real businesses",
-  "chcs.more": "See all case studies"
+  "chcs.more": "See all case studies",
+  "tr.k": "By the numbers",
+  "tr.list": [
+   [
+    "10+",
+    "deals analyzed"
+   ],
+   [
+    "56,576",
+    "pages reviewed in one project"
+   ],
+   [
+    "24+",
+    "AI agents built and running"
+   ],
+   [
+    "557",
+    "automated agent runs in 3 months"
+   ],
+   [
+    "60+",
+    "reports, decks and memos"
+   ]
+  ]
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -4270,17 +4327,42 @@ const T = {
     "דער געבעטענער פרייז איז געווען 39% צו הויך"
    ],
    [
-    "AI סיסטעם פאר אסיסטעד לעבן",
-    "פאר א 52-יוניט אסיסטעד לעבן און מעמערי קעיר קאמיוניטי האבן מיר געבויט ענטפערס אויף רעוויוס, א לידס אינבאקס, נאכגיין רעפעראלס, און א טעגליכן פעיראל-און-סענסוס באריכט.",
-    "רעיטינג 3.6 → 3.8 אין א קווארטאל"
+    "AI מארקעטינג דעפארטמענט פאר אסיסטעד לעבן",
+    "איין אגענט פירט די אדס, דעם Google פראפיל, וועבסייט, בלאג און רעוויוס פאר א 60-יוניט אסיסטעד לעבן קאמיוניטי. ער האט אויסגעריינט די אד קיווערדס און געטראפן אז Google האט איבערגעטריבן די קאנווערזשאנס.",
+    "$4,292 אדס → 3 נייע איינוואוינער"
    ],
    [
     "פיזיביליטי פאר אן אדאלט דעי פראגראם",
     "מיר האבן געטעסט א לייסענסירטע אדאלט דעי פראגראם, 7 טעג א וואך, פאר ביז 40 מענטשן אין א געבייד וואס עקזיסטירט שוין: פרייזן, ברעיקאיוון, לייסענס צייט און קאנקורענץ רעיטס.",
     "ברעיקאיוון אראפ פון 32 צו 25 מענטשן"
+   ],
+   [
+    "AI בוקקיפער און קאנטראלער",
+    "ארבעטנדיג אינעם פראפערטי מענעדזשמענט און אקאונטינג סאפטוועיר, מאכט דער אגענט צו דעם חודש, גלייכט אויס ווענדארס און רענט, און בויט דעם 12-חודש'דיגן ווארקבוק און באריכט פאר אינוועסטארס.",
+    "געטראפן א $108,320 טעות אין דעם יערליכן לאס"
+   ],
+   [
+    "רעפעראל און לידס סיסטעם",
+    "דער אגענט האט געבויט און פירט א דאטאבעיס פון פראפעסיאנעלע רעפעראל מקורות, און שרייבט ערשטע ענטפערס פאר נייע לידס. א מענטש באשטעטיגט יעדן אימעיל איידער עס גייט ארויס.",
+    "1,170 רעפעראל מקורות אין CRM"
+   ],
+   [
+    "וועבסייט מיט לייוו אוועילעביליטי און רעזערוואציעס",
+    "דער סייט לייענט יעדן אינדערפרי די פרייע יוניטס פונעם פראפערטי מענעדזשמענט סאפטוועיר, און לאזט א פאמיליע רעזערווירן א ספעציפישע סוויט אנליין.",
+    "האוסטינג $200 א חודש → $0, דער סייט אייגן"
+   ],
+   [
+    "טעגליכער פעיראל און סטאפינג באריכט",
+    "יעדן טאג פארגלייכט דער אגענט די באצאלטע שעות מיטן ציל און ווייזט אן דעם חילוק. דערנאך האט ער געהאלפן בויען א שעדזשול אויפן ציל, אן אווערטיים.",
+    "געטראפן $5,200 איבערן ציל יעדן פעיראל"
+   ],
+   [
+    "מארקעטינג אגענט פאר א צווייטע קאמיוניטי",
+    "פאר א 48-אפארטמענט אסיסטעד לעבן קאמיוניטי האט דער אגענט געבויט דעם וועבסייט און די אדס, און פירט א שרייבער-און-רעדאקטאר סיסטעם וואס טשעקט יעדן פאוסט איידער ער גייט ארויף.",
+    "15-זייטיגער סייט, 95 אד שטיקלעך, יעדער פאוסט געטשעקט"
    ]
   ],
-  "cs.note": "די בילדער ווייזן ביישפיל דאטא. קליענטן'ס נעמען און אמת'ע נומערן ווערן געהאלטן פריוואט.",
+  "cs.note": "די נעמען פון קליענטן ווערן אפגעהאלטן צוליב קאנפידענשעליטי. טייל בילדער ניצן ביישפיל-דאטא.",
   "ind.kicker": "אינדוסטריעס",
   "ind.title": "אינדוסטריעס וואס מיר העלפן",
   "ind.sub": "אויב אייער ביזנעס לויפט מיט מענטשן, פאפירן אדער קאסטומערס, קען AI אייך העלפן.",
@@ -5966,7 +6048,30 @@ const T = {
   ],
   "chcs.k": "קעיס סטאדיס",
   "chcs.t": "אמת'ע רעזולטאטן פון אמת'ע ביזנעסער",
-  "chcs.more": "זעט אלע קעיס סטאדיס"
+  "chcs.more": "זעט אלע קעיס סטאדיס",
+  "tr.k": "די נומערן",
+  "tr.list": [
+   [
+    "10+",
+    "דילס אנאליזירט"
+   ],
+   [
+    "56,576",
+    "זייטן דורכגעקוקט אין איין פראיעקט"
+   ],
+   [
+    "24+",
+    "AI אגענטן געבויט און לויפן"
+   ],
+   [
+    "557",
+    "אויטאמאטישע לויפן אין 3 חדשים"
+   ],
+   [
+    "60+",
+    "רעפארטס, פרעזענטאציעס און מעמאס"
+   ]
+  ]
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -6134,17 +6239,42 @@ const T = {
     "המחיר המבוקש היה גבוה ב-39%"
    ],
    [
-    "מערכת AI לביקוש בדיור מוגן",
-    "עבור מתחם של 52 יחידות דיור מוגן וטיפול בזיכרון בנינו מענה לביקורות, תיבת לידים, מעקב אחר הפניות ודוח יומי של שכר ותפוסה.",
-    "דירוג 3.6 → 3.8 ברבעון"
+    "מחלקת שיווק AI לדיור מוגן",
+    "סוכן אחד מנהל את הפרסום, פרופיל Google, האתר, הבלוג והביקורות של מתחם דיור מוגן בן 60 יחידות. הוא ניקה את מילות המפתח וגילה ש-Google ניפחה את ההמרות.",
+    "$4,292 פרסום → 3 דיירים חדשים"
    ],
    [
     "בדיקת היתכנות למרכז יום",
     "בדקנו מרכז יום מורשה, 7 ימים בשבוע, לעד 40 משתתפים במבנה קיים: תמחור, נקודת איזון, לוח זמנים לרישוי ותעריפי מתחרים.",
     "נקודת האיזון ירדה מ-32 ל-25 משתתפים"
+   ],
+   [
+    "מנהל חשבונות וחשב AI",
+    "הסוכן עובד בתוך תוכנת ניהול הנכס והנהלת החשבונות: סוגר חודש, מתאים ספקים ושכר דירה, ובונה את חוברת 12 החודשים ואת העדכון למשקיעים.",
+    "מצא טעות של $108,320 בהפסד השנתי"
+   ],
+   [
+    "מנוע הפניות ולידים",
+    "הסוכן בנה ומפעיל מאגר של גורמי הפניה מקצועיים ומנסח תשובות ראשונות ללידים חדשים. אדם מאשר כל מייל לפני שהוא יוצא.",
+    "1,170 גורמי הפניה ב-CRM"
+   ],
+   [
+    "אתר עם זמינות חיה והזמנות",
+    "האתר קורא כל בוקר את היחידות הפנויות מתוכנת ניהול הנכס ומאפשר למשפחה לשריין סוויטה מסוימת אונליין.",
+    "אחסון $200 לחודש → $0, האתר בבעלות"
+   ],
+   [
+    "דוח יומי של שכר וכוח אדם",
+    "כל יום הסוכן משווה שעות בתשלום ליעד ומסמן את הפער. אחר כך עזר לבנות סידור עבודה ביעד, בלי שעות נוספות.",
+    "מצא $5,200 מעל היעד בכל משכורת"
+   ],
+   [
+    "סוכן שיווק למתחם שני",
+    "עבור מתחם דיור מוגן של 48 דירות, הסוכן בנה את האתר והפרסום, ומפעיל צמד כותב-עורך שבודק כל פוסט לפני שהוא עולה.",
+    "אתר של 15 עמודים, 95 פריטי פרסום, כל פוסט נבדק"
    ]
   ],
-  "cs.note": "הצילומים מציגים נתונים לדוגמה. שמות לקוחות ומספרים אמיתיים נשמרים בפרטיות.",
+  "cs.note": "שמות הלקוחות נשמרים בסוד מטעמי סודיות. חלק מהתצוגות משתמשות בנתוני דוגמה.",
   "ind.kicker": "תעשיות",
   "ind.title": "התעשיות שאנחנו עוזרים להן",
   "ind.sub": "אם העסק שלכם רץ על אנשים, ניירת או לקוחות, AI יכול לעזור.",
@@ -7830,7 +7960,30 @@ const T = {
   ],
   "chcs.k": "מקרי בוחן",
   "chcs.t": "תוצאות אמיתיות מעסקים אמיתיים",
-  "chcs.more": "לכל מקרי הבוחן"
+  "chcs.more": "לכל מקרי הבוחן",
+  "tr.k": "במספרים",
+  "tr.list": [
+   [
+    "10+",
+    "עסקאות נותחו"
+   ],
+   [
+    "56,576",
+    "עמודים נבדקו בפרויקט אחד"
+   ],
+   [
+    "24+",
+    "סוכני AI נבנו ופועלים"
+   ],
+   [
+    "557",
+    "הרצות אוטומטיות ב-3 חודשים"
+   ],
+   [
+    "60+",
+    "דוחות, מצגות ומזכרים"
+   ]
+  ]
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -7998,17 +8151,42 @@ const T = {
     "El precio pedido estaba 39% por encima"
    ],
    [
-    "Motor de demanda con IA para vivienda asistida",
-    "Para una comunidad de vivienda asistida y cuidado de memoria de 52 unidades, creamos respuestas a reseñas, una bandeja de prospectos, seguimiento de referidos y un informe diario de nómina y ocupación.",
-    "Calificación de 3.6 a 3.8 en un trimestre"
+    "Departamento de marketing con IA para vivienda asistida",
+    "Un agente maneja los anuncios, el perfil de Google, el sitio web, el blog y las reseñas de una comunidad de vivienda asistida de 60 unidades. Limpió las palabras clave y descubrió que Google inflaba las conversiones.",
+    "$4,292 en anuncios → 3 nuevos residentes"
    ],
    [
     "Viabilidad de un programa de día para adultos",
     "Evaluamos un programa de día con licencia, 7 días a la semana y hasta 40 participantes, dentro de un edificio existente: precios, punto de equilibrio, plazos de licencia y tarifas de la competencia.",
     "Punto de equilibrio de 32 a 25 participantes"
+   ],
+   [
+    "Contador y controller con IA",
+    "Trabajando dentro del software de administración de propiedades y contabilidad, el agente cierra el mes, concilia proveedores y rentas, y prepara el libro de 12 meses y el informe a inversionistas.",
+    "Encontró un error de $108,320 en la pérdida anual"
+   ],
+   [
+    "Motor de referidos y prospectos",
+    "El agente creó y trabaja una base de fuentes de referidos profesionales y redacta las primeras respuestas a nuevos prospectos. Una persona aprueba cada correo antes de enviarlo.",
+    "1,170 fuentes de referidos en el CRM"
+   ],
+   [
+    "Sitio web con disponibilidad en vivo y reservas",
+    "El sitio lee cada mañana las unidades disponibles del software de administración y permite a una familia reservar una suite específica en línea.",
+    "Hospedaje de $200 al mes → $0, sitio propio"
+   ],
+   [
+    "Informe diario de nómina y personal",
+    "Cada día el agente compara las horas pagadas con la meta y marca la diferencia. Luego ayudó a armar un horario en la meta, sin horas extra.",
+    "Encontró $5,200 sobre la meta por nómina"
+   ],
+   [
+    "Agente de marketing para una segunda comunidad",
+    "Para una comunidad de vivienda asistida de 48 apartamentos, el agente creó el sitio web y los anuncios, y opera un equipo escritor-editor que verifica cada publicación antes de salir.",
+    "Sitio de 15 páginas, 95 anuncios, cada publicación verificada"
    ]
   ],
-  "cs.note": "Las imágenes muestran datos de ejemplo. Los nombres de clientes y las cifras reales se mantienen privados.",
+  "cs.note": "Los nombres de los clientes se mantienen fuera por confidencialidad. Algunas vistas usan datos de ejemplo.",
   "ind.kicker": "Industrias",
   "ind.title": "Industrias que ayudamos",
   "ind.sub": "Si su negocio depende de personas, papeleo o clientes, la IA puede ayudar.",
@@ -9694,7 +9872,30 @@ const T = {
   ],
   "chcs.k": "Casos de estudio",
   "chcs.t": "Resultados reales de negocios reales",
-  "chcs.more": "Ver todos los casos"
+  "chcs.more": "Ver todos los casos",
+  "tr.k": "En números",
+  "tr.list": [
+   [
+    "10+",
+    "operaciones analizadas"
+   ],
+   [
+    "56,576",
+    "páginas revisadas en un proyecto"
+   ],
+   [
+    "24+",
+    "agentes de IA creados y en marcha"
+   ],
+   [
+    "557",
+    "ejecuciones automáticas en 3 meses"
+   ],
+   [
+    "60+",
+    "informes, presentaciones y memos"
+   ]
+  ]
  }
 };
 
@@ -9845,7 +10046,7 @@ document.addEventListener("submit", async e => {
 
 /* Disclosures shown at the bottom of every page (English governs) */
 const DISCLOSURES = [
-  ["Case studies and results", "Case studies describe the kinds of work we have done. Snapshots and charts show sample data; client names and real figures are kept private. Every business is different, and past results do not guarantee future results."],
+  ["Case studies and results", "Case studies describe work we have done. Client names are kept out for confidentiality. Some snapshots and charts use sample data. Every business is different, and past results do not guarantee future results."],
   ["Savings estimates", "The savings calculator gives a rough estimate from the numbers you enter. It is not a promise, a quote or a guarantee of savings."],
   ["Not professional advice", "Our website, chat, seminars and services are for general business and educational purposes. They are not legal, tax, accounting, financial, investment, real estate or medical advice. Talk to a licensed professional about your situation."],
   ["AI can make mistakes", "AI tools, including the chat on this site, can be wrong. Check important work, numbers and decisions before you rely on them. The chat cannot make commitments, quotes or bookings on our behalf."],
@@ -9938,7 +10139,8 @@ function render() {
 
   const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   $("#stops").innerHTML = t("stop").map(([was, now], i) => `<button type="button" class="stoprow" data-stop="${i}" data-fx><span>${was ? `<s>${esc(was)}</s>` : ""}<b>${esc(now)}</b></span><span class="go2">${ARROW}</span></button>`).join("");
-  { const cg = document.getElementById("chcgrid"); if (cg) cg.innerHTML = [["cre", [13, 14, 15, 16, 8, 17]], ["hc", [0, 11, 18, 19]], ["ops", [1, 3, 6, 5]], ["mkt", [7]], ["web", [12]]].map(([k, ids]) => `<section class="cgroup"><div class="cgroup-h"><h2>${esc(prName(k))}</h2></div><div class="chcgrid">${ids.map(i => caseCard(i)).join("")}</div></section>`).join(""); const cm = document.getElementById("chcmore"); if (cm) cm.href = CONFIG.mosesUrl + "case-studies/#" + lang; }
+  document.querySelectorAll(".trstrip").forEach(el => { el.innerHTML = `<div class="tr-k">${esc(t("tr.k"))}</div><div class="tr-row">${(t("tr.list") || []).map(([n, l]) => `<div class="tr-i"><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join("")}</div>`; });
+  { const cg = document.getElementById("chcgrid"); if (cg) cg.innerHTML = [["cre", [13, 14, 15, 16, 8, 17]], ["hc", [20, 18, 0, 23, 11, 19]], ["mkt", [21, 24, 7]], ["ops", [1, 3, 6, 5]], ["web", [22, 12]]].map(([k, ids]) => `<section class="cgroup"><div class="cgroup-h"><h2>${esc(prName(k))}</h2></div><div class="chcgrid">${ids.map(i => caseCard(i)).join("")}</div></section>`).join(""); const cm = document.getElementById("chcmore"); if (cm) cm.href = CONFIG.mosesUrl + "case-studies/#" + lang; }
   { const vg = document.getElementById("valgrid"); if (vg) vg.innerHTML = (t("val.list") || []).map(([h, p], i) => `<div class="valc"><span class="valn">${String(i + 1).padStart(2, "0")}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join(""); }
   $("#pillars").innerHTML = t("ov").map(([h, pts], i) => `<details class="ovi"${i === 0 ? " open" : ""}><summary><span class="ovn">${i + 1}</span><span class="ovh">${esc(h)}</span><span class="ovp" aria-hidden="true"></span></summary><ul>${pts.map(x => `<li>${esc(x)}</li>`).join("")}</ul><button type="button" class="ovd" data-go="series">${esc(i === 0 ? t("deep1") : t("deep", { n: i + 1 }))} →</button></details>`).join("");
   $("#cases").innerHTML = [13, 15, 0].map(i => caseCard(i)).join("");
@@ -10049,8 +10251,10 @@ function openPractice(k, write = true) {
 }
 const practiceFromHash = h => (Object.entries(PRACTICES).find(([, v]) => "work-" + v.slug === h) || [])[0];
 function snapFor(i, title) { return CASE_IMAGES[i] ? `<img src="${esc(CASE_IMAGES[i])}" alt="${esc(title)}" style="display:block;width:100%">` : SNAPS[i]; }
-CHARTS.push(...[{"check": ["3,871 documents, 11.5 GB", "56,576 PDF pages", "1M+ spreadsheet rows", "90 investors, 139 investment lines", "11 reports, 6 workbooks"]}, [["Low", 63.3, "$63.3M"], ["Opinion of value", 79.5, "$79.5M", 1], ["High", 93.5, "$93.5M"]], [["Purchase price", 20.75, "$20.75M", 1], ["Trailing revenue", 9.04, "$9.04M"], ["Loan request A", 6.3, "$6.3M"], ["Loan request B", 7.05, "$7.05M"], ["Tax upside / yr", 0.285, "$285K", 1]], [["Lease rent, 32 yrs", 127, "$127M", 1], ["Indicative loan", 22.51, "$22.5M"], ["Hard costs", 15.75, "$15.75M"]], [["Asking guidance", 2.81, "$2.81M"], ["Price that works", 1.7, "$1.70M", 1]], {"check": ["100% of reviews answered", "Referrals answered in minutes, 24/7", "Daily payroll and census brief", "Website: $200 a month → $0"]}, [["Breakeven before", 32, "32 people"], ["Breakeven after", 25, "25 people", 1]]]); CASE_IND.push(...[["cre", "fin"], ["cre", "fin"], ["cre", "hc", "fin"], ["cre", "fin"], ["cre"], ["hc", "mkt"], ["hc"]]); HERO.push(...["$78.2M", "$79.5M", "$20.75M", "$127M", "−39%", "3.8★", "32 → 25"]); CASE_PHOTOS.push(...["", "", "", "", "", "", ""]); CASE_IMAGES.push(...["", "", "", "", "", "", ""]); SNAPS.push(...["<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Forensic_Review_Summary.xlsx</div><div class=\"snap-body\"><h4>Investor capital reconciliation</h4><table><tr><td>Investor capital reconciled</td><td class=\"up\">$78,203,491.29</td></tr><tr><td>Investors / investment lines</td><td class=\"up\">90 / 139</td></tr><tr><td>Documents reviewed</td><td class=\"up\">3,871 (11.5 GB)</td></tr><tr><td>PDF pages</td><td class=\"up\">56,576</td></tr><tr><td>Spreadsheets / tabs / rows</td><td class=\"up\">63 / 307 / 1M+</td></tr><tr><td>Public-filing pages</td><td class=\"up\">2,693</td></tr><tr><td>Deliverables</td><td class=\"up\">11 reports, 6 workbooks</td></tr></table><div class=\"find\">Every investor dollar traced property by property and matched to the cent.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Valuation_Opinion.pdf</div><div class=\"snap-body\"><h4>Opinion of value · four-building office package</h4><table><tr><td>Low</td><td class=\"up\">$63.3M</td></tr><tr><td>Point opinion of value</td><td class=\"up\">$79.5M</td></tr><tr><td>High</td><td class=\"up\">$93.5M</td></tr><tr><td>Investor capital at risk</td><td class=\"up\">$9.76M (14 investors)</td></tr><tr><td>Sale price needed to return capital</td><td class=\"up\">$85.3M+</td></tr></table><div class=\"find\">Delivered 12 days before the auction, from recorded comparable sales.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Lender_Package.xlsx</div><div class=\"snap-body\"><h4>Senior-housing portfolio · 3 communities · 469 units</h4><table><tr><td>Purchase price</td><td class=\"up\">$20,750,000</td></tr><tr><td>Price per unit</td><td class=\"up\">$44,243</td></tr><tr><td>Trailing revenue</td><td class=\"up\">$9,037,135</td></tr><tr><td>Loan requests</td><td class=\"up\">$6.3M and $7.05M</td></tr><tr><td>Tax upside found</td><td class=\"up\">about $285,012 a year</td></tr></table><div class=\"find\">Financing package prepared: two lender memos and a target lender list.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Construction_Loan_Model.xlsx</div><div class=\"snap-body\"><h4>Build-to-suit school campus · absolute-net lease</h4><table><tr><td>Fixed rent, 32-year term</td><td class=\"up\">$127.0M</td></tr><tr><td>Indicative loan</td><td class=\"up\">$22.51M</td></tr><tr><td>Coverage</td><td class=\"up\">1.32x rising to 1.65x</td></tr><tr><td>Hard-cost budget</td><td class=\"up\">$15.75M</td></tr><tr><td>Deliverables</td><td class=\"up\">5-page request, 11-tab model</td></tr></table><div class=\"find\">Indicative sizing; final terms set by the lender.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Auction_Underwriting.xlsx</div><div class=\"snap-body\"><h4>75-unit apartment property · auction</h4><table><tr><td>Asking guidance</td><td class=\"up\">$2,812,518</td></tr><tr><td>Price that met the 9% target</td><td class=\"up\">$1,702,565</td></tr><tr><td>Gap</td><td class=\"up\">39% below guidance</td></tr><tr><td>Documents processed</td><td class=\"up\">17</td></tr><tr><td>Leases with concessions</td><td class=\"up\">44 of 66</td></tr></table><div class=\"find\">Found before a dollar was spent on inspections, legal or a deposit.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Community_Dashboard.pdf</div><div class=\"snap-body\"><h4>52-unit assisted living and memory care</h4><table><tr><td>Reviews answered</td><td class=\"up\">100%</td></tr><tr><td>Google rating</td><td class=\"up\">3.6 → 3.8 in a quarter</td></tr><tr><td>Referral first response</td><td class=\"up\">minutes, 24/7</td></tr><tr><td>Payroll and census brief</td><td class=\"up\">daily</td></tr><tr><td>Website cost</td><td class=\"up\">$200 a month → $0</td></tr></table><div class=\"find\">Built and run with AI agents.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Adult_Day_Feasibility.xlsx</div><div class=\"snap-body\"><h4>Licensed adult day program · up to 40 participants</h4><table><tr><td>Days a week</td><td class=\"up\">7</td></tr><tr><td>Fixed cost base</td><td class=\"up\">$280,160 a year</td></tr><tr><td>Breakeven</td><td class=\"up\">32 → 25 participants</td></tr><tr><td>Licensing path</td><td class=\"up\">about 10 weeks, or 18–20 weeks</td></tr></table><div class=\"find\">Pricing redesign before launch.</div></div>"]);
-const CASE_FIRST = [13, 14, 15, 16, 8, 9, 17, 0, 11, 18, 19, 10, 1, 3, 6, 5, 4, 2, 7, 12];
+CHARTS.push(...[{"check": ["3,871 documents, 11.5 GB", "56,576 PDF pages", "1M+ spreadsheet rows", "90 investors, 139 investment lines", "11 reports, 6 workbooks"]}, [["Low", 63.3, "$63.3M"], ["Opinion of value", 79.5, "$79.5M", 1], ["High", 93.5, "$93.5M"]], [["Purchase price", 20.75, "$20.75M", 1], ["Trailing revenue", 9.04, "$9.04M"], ["Loan request A", 6.3, "$6.3M"], ["Loan request B", 7.05, "$7.05M"], ["Tax upside / yr", 0.285, "$285K", 1]], [["Lease rent, 32 yrs", 127, "$127M", 1], ["Indicative loan", 22.51, "$22.5M"], ["Hard costs", 15.75, "$15.75M"]], [["Asking guidance", 2.81, "$2.81M"], ["Price that works", 1.7, "$1.70M", 1]], {"check": ["100% of reviews answered", "Referrals answered in minutes, 24/7", "Daily payroll and census brief", "Website: $200 a month → $0"]}, [["Breakeven before", 32, "32 people"], ["Breakeven after", 25, "25 people", 1]]]); CASE_IND.push(...[["cre", "fin"], ["cre", "fin"], ["cre", "hc", "fin"], ["cre", "fin"], ["cre"], ["hc", "mkt"], ["hc"]]); HERO.push(...["$78.2M", "$79.5M", "$20.75M", "$127M", "−39%", "3.8★", "32 → 25"]); CASE_PHOTOS.push(...["", "", "", "", "", "", ""]); CASE_IMAGES.push(...["", "", "", "", "", "", ""]); SNAPS.push(...["<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Forensic_Review_Summary.xlsx</div><div class=\"snap-body\"><h4>Investor capital reconciliation</h4><table><tr><td>Investor capital reconciled</td><td class=\"up\">$78,203,491.29</td></tr><tr><td>Investors / investment lines</td><td class=\"up\">90 / 139</td></tr><tr><td>Documents reviewed</td><td class=\"up\">3,871 (11.5 GB)</td></tr><tr><td>PDF pages</td><td class=\"up\">56,576</td></tr><tr><td>Spreadsheets / tabs / rows</td><td class=\"up\">63 / 307 / 1M+</td></tr><tr><td>Public-filing pages</td><td class=\"up\">2,693</td></tr><tr><td>Deliverables</td><td class=\"up\">11 reports, 6 workbooks</td></tr></table><div class=\"find\">Every investor dollar traced property by property and matched to the cent.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Valuation_Opinion.pdf</div><div class=\"snap-body\"><h4>Opinion of value · four-building office package</h4><table><tr><td>Low</td><td class=\"up\">$63.3M</td></tr><tr><td>Point opinion of value</td><td class=\"up\">$79.5M</td></tr><tr><td>High</td><td class=\"up\">$93.5M</td></tr><tr><td>Investor capital at risk</td><td class=\"up\">$9.76M (14 investors)</td></tr><tr><td>Sale price needed to return capital</td><td class=\"up\">$85.3M+</td></tr></table><div class=\"find\">Delivered 12 days before the auction, from recorded comparable sales.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Lender_Package.xlsx</div><div class=\"snap-body\"><h4>Senior-housing portfolio · 3 communities · 469 units</h4><table><tr><td>Purchase price</td><td class=\"up\">$20,750,000</td></tr><tr><td>Price per unit</td><td class=\"up\">$44,243</td></tr><tr><td>Trailing revenue</td><td class=\"up\">$9,037,135</td></tr><tr><td>Loan requests</td><td class=\"up\">$6.3M and $7.05M</td></tr><tr><td>Tax upside found</td><td class=\"up\">about $285,012 a year</td></tr></table><div class=\"find\">Financing package prepared: two lender memos and a target lender list.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Construction_Loan_Model.xlsx</div><div class=\"snap-body\"><h4>Build-to-suit school campus · absolute-net lease</h4><table><tr><td>Fixed rent, 32-year term</td><td class=\"up\">$127.0M</td></tr><tr><td>Indicative loan</td><td class=\"up\">$22.51M</td></tr><tr><td>Coverage</td><td class=\"up\">1.32x rising to 1.65x</td></tr><tr><td>Hard-cost budget</td><td class=\"up\">$15.75M</td></tr><tr><td>Deliverables</td><td class=\"up\">5-page request, 11-tab model</td></tr></table><div class=\"find\">Indicative sizing; final terms set by the lender.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Auction_Underwriting.xlsx</div><div class=\"snap-body\"><h4>75-unit apartment property · auction</h4><table><tr><td>Asking guidance</td><td class=\"up\">$2,812,518</td></tr><tr><td>Price that met the 9% target</td><td class=\"up\">$1,702,565</td></tr><tr><td>Gap</td><td class=\"up\">39% below guidance</td></tr><tr><td>Documents processed</td><td class=\"up\">17</td></tr><tr><td>Leases with concessions</td><td class=\"up\">44 of 66</td></tr></table><div class=\"find\">Found before a dollar was spent on inspections, legal or a deposit.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Community_Dashboard.pdf</div><div class=\"snap-body\"><h4>60-unit assisted living and memory care</h4><table><tr><td>Reviews answered</td><td class=\"up\">100%</td></tr><tr><td>Google rating</td><td class=\"up\">3.6 → 3.8 in a quarter</td></tr><tr><td>Referral first response</td><td class=\"up\">minutes, 24/7</td></tr><tr><td>Payroll and census brief</td><td class=\"up\">daily</td></tr><tr><td>Website cost</td><td class=\"up\">$200 a month → $0</td></tr></table><div class=\"find\">Built and run with AI agents.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Adult_Day_Feasibility.xlsx</div><div class=\"snap-body\"><h4>Licensed adult day program · up to 40 participants</h4><table><tr><td>Days a week</td><td class=\"up\">7</td></tr><tr><td>Fixed cost base</td><td class=\"up\">$280,160 a year</td></tr><tr><td>Breakeven</td><td class=\"up\">32 → 25 participants</td></tr><tr><td>Licensing path</td><td class=\"up\">about 10 weeks, or 18–20 weeks</td></tr></table><div class=\"find\">Pricing redesign before launch.</div></div>"]);
+CHARTS[18] = {"check": ["Rating 3.6★ → 3.8★", "40 of 40 reviews answered", "October: $4,292 spent, 3 move-ins", "$10,625 a month in new rent", "26 of 32 Google conversions were not real"]}; HERO[18] = "3 move-ins"; SNAPS[18] = "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Marketing_Dashboard.pdf</div><div class=\"snap-body\"><h4>60-unit assisted living · AI marketing department</h4><table><tr><td>Google rating</td><td class=\"up\">3.6★ → 3.8★</td></tr><tr><td>Reviews answered</td><td class=\"up\">40 of 40</td></tr><tr><td>October ad spend</td><td class=\"up\">$4,292</td></tr><tr><td>Move-ins from October</td><td class=\"up\">3, paying $10,625 a month</td></tr><tr><td>Broad keywords replaced</td><td class=\"up\">111 → phrase and exact match</td></tr><tr><td>Real cost per lead</td><td class=\"up\">about $106–$115</td></tr></table><div class=\"find\">Google had counted 26 of 32 conversions from one visitor reloading a page.</div></div>";
+CHARTS.push(...[{"check": ["$33,521 past-due found at 5 vendors", "13 vendors reconciled to the books", "80+ invoice threads verified", "1,841 formulas, zero errors", "2 residents underbilled $450 a month"]}, [["Sources in CRM", 1170, "1,170", 1], ["Emailed", 211, "211"], ["Engaged", 6, "6"], ["Meetings booked", 4, "4", 1]], {"check": ["Live units, updated every morning", "Leased units drop off automatically", "3-step online reservation", "Owned by the community"]}, [["Paid hours a day, actual", 131, "131"], ["Target", 113, "113", 1]], {"check": ["15-page website", "39 keywords, 95 ad items", "97 blocked searches", "Every post fact-checked"]}]); CASE_IND.push(...[["hc", "fin", "ops"], ["mkt", "hc"], ["web", "hc"], ["hc", "ops"], ["mkt", "hc"]]); HERO.push(...["$108K", "1,170", "$0", "−$5.2K", "95"]); CASE_PHOTOS.push(...["", "", "", "", ""]); CASE_IMAGES.push(...["", "", "", "", ""]); SNAPS.push(...["<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Month_End_Close.xlsx</div><div class=\"snap-body\"><h4>Assisted living · AI bookkeeper and controller</h4><table><tr><td>Error found in annual loss</td><td class=\"up\">$108,320</td></tr><tr><td>Past-due exposure found</td><td class=\"up\">$33,520.95 at 5 vendors</td></tr><tr><td>Vendors reconciled</td><td class=\"up\">13</td></tr><tr><td>Invoice threads verified</td><td class=\"up\">80+</td></tr><tr><td>Workbook</td><td class=\"up\">1,841 formulas, zero errors</td></tr><tr><td>Food vendor balance matched</td><td class=\"up\">$42,103.65</td></tr></table><div class=\"find\">Works inside the property-management and accounting software.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Referral_CRM.xlsx</div><div class=\"snap-body\"><h4>Referral sources · first-reply drafts</h4><table><tr><td>Referral sources built</td><td class=\"up\">1,170</td></tr><tr><td>Emailed</td><td class=\"up\">211</td></tr><tr><td>Engaged</td><td class=\"up\">6</td></tr><tr><td>Meetings booked</td><td class=\"up\">4</td></tr><tr><td>Auto-send</td><td class=\"up\">never: a person approves every email</td></tr></table><div class=\"find\">Built and worked by the agent.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Website_Availability.pdf</div><div class=\"snap-body\"><h4>Live availability and online reservations</h4><table><tr><td>Available units on launch day</td><td class=\"up\">17</td></tr><tr><td>Updates</td><td class=\"up\">every morning, automatically</td></tr><tr><td>Reservation flow</td><td class=\"up\">3 steps</td></tr><tr><td>Hosting</td><td class=\"up\">$200 a month → $0</td></tr><tr><td>Ownership</td><td class=\"up\">the community owns the site</td></tr></table><div class=\"find\">Leased units drop off the site on their own.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Payroll_Brief.xlsx</div><div class=\"snap-body\"><h4>Daily payroll and staffing brief</h4><table><tr><td>Target paid hours a day</td><td class=\"up\">113</td></tr><tr><td>Actual when the agent started</td><td class=\"up\">131</td></tr><tr><td>Over target per payroll</td><td class=\"up\">about $5,200</td></tr><tr><td>Next schedule</td><td class=\"up\">$46,901 per payroll, zero overtime</td></tr></table><div class=\"find\">Sent every day.</div></div>", "<div class=\"snap-bar\"><i></i><i></i><i></i>&nbsp;Second_Community_Marketing.pdf</div><div class=\"snap-body\"><h4>48-apartment assisted living · marketing agent</h4><table><tr><td>Website</td><td class=\"up\">15 pages</td></tr><tr><td>Keywords / ad items</td><td class=\"up\">39 / 95</td></tr><tr><td>Blocked searches</td><td class=\"up\">97</td></tr><tr><td>Wasted spend those searches had cost</td><td class=\"up\">$1,469.83 at the first community</td></tr><tr><td>Blog</td><td class=\"up\">every post fact-checked</td></tr></table><div class=\"find\">Writer and editor agents work as a team.</div></div>"]);
+const CASE_FIRST = [13, 14, 15, 16, 8, 9, 17, 20, 18, 0, 23, 11, 21, 22, 24, 19, 10, 1, 3, 6, 5, 4, 2, 7, 12];
 function caseCard(i, feature) {
   const c = t("cases")[i];
   if (feature) return `<article class="vfeature rise" role="button" tabindex="0" data-case="${i}" data-fx><div class="vph">${photoFor(i)}<span class="vtag">${esc(indName(i))}</span></div><div class="vbody"><h3>${esc(c[0])}</h3><div class="vres">${esc(c[2])}</div>${chartFor(i, 5)}<span class="vmore">${esc(t("cases.see"))} →</span></div></article>`;

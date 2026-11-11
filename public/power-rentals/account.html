@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>My account · Power Rentals</title>
+<meta name="description" content="Customer portal concept for Power Rentals: units on rent, pick-ups, extensions, fuel, invoices and documents in one place.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#121212">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages/account.css">
+</head>
+<body>
+<div id="pr-shell-top"></div>
+<main>
+
+<section class="phero dark acct-hero">
+  <div class="wrap acct-top">
+    <div>
+      <p class="eyebrow">My account</p>
+      <h1>Your rentals, in one place.</h1>
+      <p class="lede">See every unit on your sites, ask for a pick-up, extend a rental, order diesel, pay an invoice and keep your paperwork current. No phone call needed.</p>
+    </div>
+    <div class="acct-who" aria-label="Signed in account">
+      <span class="badge sample">Sample account</span>
+      <p class="acct-name" id="acctName">General contractor A</p>
+      <p class="small acct-terms" id="acctTerms"></p>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <h2 class="sr">Account summary</h2>
+    <ul class="sumstrip" id="sumStrip"></ul>
+
+    <div class="tabs" role="tablist" aria-label="Account sections" id="acctTabs">
+      <button type="button" role="tab" id="tab-rent" aria-controls="panel-rent" aria-selected="true">On rent <span class="tcount" id="cnt-rent"></span></button>
+      <button type="button" role="tab" id="tab-invoices" aria-controls="panel-invoices" aria-selected="false" tabindex="-1">Invoices <span class="tcount" id="cnt-invoices"></span></button>
+      <button type="button" role="tab" id="tab-fuel" aria-controls="panel-fuel" aria-selected="false" tabindex="-1">Fuel log <span class="tcount" id="cnt-fuel"></span></button>
+      <button type="button" role="tab" id="tab-docs" aria-controls="panel-docs" aria-selected="false" tabindex="-1">Documents <span class="tcount" id="cnt-docs"></span></button>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="panel-rent" aria-labelledby="tab-rent" tabindex="0"></div>
+    <div class="tabpanel" role="tabpanel" id="panel-invoices" aria-labelledby="tab-invoices" tabindex="0" hidden></div>
+    <div class="tabpanel" role="tabpanel" id="panel-fuel" aria-labelledby="tab-fuel" tabindex="0" hidden></div>
+    <div class="tabpanel" role="tabpanel" id="panel-docs" aria-labelledby="tab-docs" tabindex="0" hidden></div>
+  </div>
+</section>
+
+</main>
+<div id="pr-shell-bottom"></div>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/account-lib.js"></script>
+<script src="js/pages/account.js"></script>
+</body>
+</html>

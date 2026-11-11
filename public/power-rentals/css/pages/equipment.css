@@ -1,0 +1,103 @@
+/* Equipment catalog.
+   --hdr is the sticky site header height; --fbh (set by equipment.js) is the sticky filter bar height,
+   so category anchors land just below both. */
+:root{--hdr:73px}
+
+/* hero */
+.eq-hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:end}
+.eq-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0}
+.eq-stats div{border:1px solid var(--ink-3);background:var(--ink-2);border-radius:var(--r-sm);padding:14px;min-width:0}
+.eq-stats dt{font-size:.75rem;color:var(--on-dark-mute);font-weight:600;line-height:1.3}
+.eq-stats dd{margin:6px 0 0;font:800 1.9rem/1 var(--display);color:var(--gold);font-variant-numeric:tabular-nums}
+
+/* sticky filter bar */
+.filterbar{position:sticky;top:var(--hdr);z-index:40;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 6px 16px rgba(0,0,0,.05);padding-block:12px 8px}
+.fb-inner{display:flex;gap:12px 24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.fb-cats{flex:1 1 480px;min-width:0}
+.fb-cats .chip{padding:7px 13px;font-size:.86rem}
+.fb-controls{display:flex;gap:12px 18px;align-items:center;flex-wrap:wrap}
+.fb-date{display:flex;align-items:center;gap:8px}
+.fb-date label{font-size:.82rem;font-weight:700;white-space:nowrap}
+.fb-date input{width:auto;padding:7px 10px;font-size:.92rem}
+.fb-count{font-size:.8rem;color:var(--mute);margin-top:8px}
+
+/* on/off switch built on a real checkbox */
+.switch{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.9rem;cursor:pointer;position:relative;white-space:nowrap}
+.switch input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;padding:0;cursor:pointer}
+.sw-track{width:44px;height:26px;border-radius:999px;background:#CFC8B8;position:relative;flex:none;transition:background .15s}
+.sw-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .15s}
+.switch input:checked+.sw-track{background:var(--ok)}
+.switch input:checked+.sw-track .sw-knob{transform:translateX(18px)}
+.switch input:focus-visible+.sw-track{outline:3px solid var(--gold-deep);outline-offset:2px}
+
+/* category sections */
+.eq-body{padding-top:40px}
+.cat-sec{scroll-margin-top:calc(var(--hdr) + var(--fbh,110px) + 12px);padding-bottom:44px}
+.cat-sec:not([hidden])~.cat-sec:not([hidden]){border-top:1px solid var(--line);padding-top:40px}
+.cat-sec h2:focus{outline:none}
+.cat-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 28px;flex-wrap:wrap;margin-bottom:22px}
+.cat-title{display:flex;gap:14px;align-items:flex-start;max-width:46em;min-width:0}
+.cat-title p{margin-top:6px}
+.cat-ico{width:48px;height:48px;border-radius:12px;background:var(--ink);color:var(--gold);display:grid;place-items:center;flex:none}
+.cat-side{display:grid;gap:10px;justify-items:start}
+.cat-live{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:.85rem}
+.when{font-weight:700}
+
+/* model cards */
+.model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:18px;align-items:start}
+.model{display:flex;flex-direction:column;gap:14px;transition:border-color .15s}
+.model:hover{border-color:#CFC8B8}
+.model.is-out{background:var(--sand)}
+.m-top{display:flex;gap:12px;align-items:center}
+.m-top h3{font-size:1.05rem}
+.m-ico{width:40px;height:40px;border-radius:10px;background:var(--ink);color:var(--gold);display:grid;place-items:center;flex:none}
+.m-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;margin:0;font-size:.88rem}
+.m-specs dt{color:var(--mute);font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+.m-specs dd{margin:2px 0 0;font-weight:600}
+.m-live{border-top:1px solid var(--line);padding-top:12px}
+.m-when{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:3px}
+.m-price{font-size:.9rem}
+.m-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.chev{width:16px;height:16px;transform:rotate(90deg);transition:transform .15s}
+.m-toggle[aria-expanded="true"] .chev{transform:rotate(-90deg)}
+
+/* notes (same look as on the booking page) */
+.note{display:flex;gap:10px;align-items:flex-start;font-size:.84rem;padding:10px 12px;border-radius:var(--r-sm);line-height:1.45;margin:0}
+.note .ico{width:18px;height:18px;margin-top:1px}
+.note-warn{background:var(--warn-bg)} .note-warn .ico{color:var(--warn)}
+.note-info{background:var(--info-bg)} .note-info .ico{color:var(--info)}
+
+/* unit list */
+.m-units{border-top:1px dashed #CFC8B8;padding-top:12px}
+.u-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.78rem;font-weight:700;color:var(--mute);margin-bottom:8px}
+.u-head .badge{font-size:.66rem;padding:2px 8px}
+.u-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.u-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;align-items:center;padding:8px 10px;border-radius:8px;background:var(--sand);font-size:.86rem}
+.model.is-out .u-row{background:var(--paper)}
+.u-no{font-variant-numeric:tabular-nums;white-space:nowrap}
+.u-st{display:inline-flex;align-items:center;gap:7px;font-weight:600}
+.u-st i{width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none}
+.u-st.out i{background:var(--bad)}
+.u-st.returning i,.u-st.held i{background:var(--gold-deep)}
+.u-st.service i{background:var(--info)}
+.u-src{grid-column:2;font-size:.76rem;color:var(--mute)}
+
+.eq-empty{display:grid;gap:12px;justify-items:start;max-width:40em}
+.eq-foot{margin-top:8px}
+
+@media (max-width:900px){.eq-hero{grid-template-columns:1fr;gap:24px}}
+@media (max-width:620px){
+  .phero h1{font-size:2rem}
+  .eq-stats dd{font-size:1.5rem}
+  .eq-stats div{padding:12px}
+  .filterbar{padding-block:10px 6px}
+  .fb-cats{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;margin-inline:-2px;padding-inline:2px;scrollbar-width:thin}
+  .fb-cats .chip{flex:none}
+  .fb-controls{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 12px}
+  .fb-date{gap:6px;min-width:0}
+  .fb-date input{min-width:0;flex:1;padding:6px 8px}
+  .switch{white-space:normal;font-size:.84rem;line-height:1.2;max-width:9.5em;gap:8px}
+  .fb-count{margin-top:6px;font-size:.76rem}
+  .cat-sec:not([hidden])~.cat-sec:not([hidden]){padding-top:32px}
+}
+@media (max-width:370px){.fb-controls{grid-template-columns:1fr}.switch{max-width:none}}

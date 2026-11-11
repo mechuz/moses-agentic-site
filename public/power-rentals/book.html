@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Book a Rental Online · Power Rentals</title>
+<meta name="description" content="Book a generator, heater, air conditioner, light tower or forklift from Power Rentals, Brooklyn, from live availability. The unit is held while you finish.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#121212">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages/book.css">
+</head>
+<body>
+<div id="pr-shell-top"></div>
+<main id="main">
+
+<section class="phero dark">
+  <div class="wrap bk-hero">
+    <div>
+      <p class="eyebrow">Book online</p>
+      <h1>Book a rental in four steps.</h1>
+      <p class="lede">Pick the equipment, pick your dates from live availability, tell us where it goes, and book. The unit is held for you while you finish.</p>
+    </div>
+    <ul class="bk-points">
+      <li><span class="bp-ico" data-icon="check"></span>Live count from the yard</li>
+      <li><span class="bp-ico" data-icon="clock"></span>Unit held while you book</li>
+      <li><span class="bp-ico" data-icon="truck"></span>Order by 10am for same-day delivery</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section sand bk-section">
+  <div class="wrap bk-layout">
+
+    <div class="bk-main">
+      <!-- Step announcements for screen readers -->
+      <p class="sr" id="stepLive" aria-live="polite" aria-atomic="true"></p>
+
+      <nav class="stepper-wrap" aria-label="Booking steps">
+        <ol class="stepper" id="stepper"></ol>
+      </nav>
+
+      <form class="card bk-card" id="bookForm" novalidate>
+        <div class="err-summary" id="errSummary" role="alert" tabindex="-1" hidden></div>
+
+        <!-- Step 1 -->
+        <section class="step" id="step-1" data-step="1" aria-labelledby="s1-h">
+          <h2 id="s1-h" tabindex="-1"><span class="sn">1</span>Pick the equipment</h2>
+          <p class="mute step-lede">Free counts are live from the yard today.</p>
+          <div class="chips" id="catChips" role="group" aria-label="Category"></div>
+          <fieldset class="opts">
+            <legend class="label" id="modelLegend">Size and model</legend>
+            <div class="model-opts" id="modelOpts"></div>
+          </fieldset>
+          <div id="s1Note"></div>
+        </section>
+
+        <!-- Step 2 -->
+        <section class="step" id="step-2" data-step="2" aria-labelledby="s2-h" hidden>
+          <h2 id="s2-h" tabindex="-1"><span class="sn">2</span>Pick your dates</h2>
+          <fieldset class="opts">
+            <legend class="label">How long do you need it?</legend>
+            <div class="chips len-chips" id="lenChips"></div>
+          </fieldset>
+          <div class="cal-head">
+            <p class="label" id="calLabel">Start date</p>
+            <div class="cal-nav">
+              <button type="button" class="btn btn-line btn-sm" id="calPrev" aria-label="Previous month"><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+              <button type="button" class="btn btn-line btn-sm" id="calNext" aria-label="Next month"><svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <p class="small mute cal-help" id="calHelp">Use the arrow keys to move between days, Page Up and Page Down to change month, and Enter to choose.</p>
+          <div class="cal-months" id="calendar"></div>
+          <ul class="cal-legend" aria-label="Calendar key">
+            <li><i class="lg ok"></i>Free for your dates</li>
+            <li><i class="lg limited"></i>1 left</li>
+            <li><i class="lg out"></i>Booked out</li>
+            <li><i class="lg closed"></i>No delivery</li>
+          </ul>
+          <div class="range-box" id="rangeBox" aria-live="polite"></div>
+        </section>
+
+        <!-- Step 3 -->
+        <section class="step" id="step-3" data-step="3" aria-labelledby="s3-h" hidden>
+          <h2 id="s3-h" tabindex="-1"><span class="sn">3</span>Site and delivery</h2>
+          <p class="mute step-lede">Where it goes and who meets the truck. <button type="button" class="linkish" id="fillSample">Fill with sample details</button></p>
+          <div id="sameDay"></div>
+          <div class="fgrid">
+            <div class="field span2">
+              <label for="fAddr">Street address for delivery</label>
+              <input id="fAddr" name="address" autocomplete="street-address" aria-describedby="fAddr-err" required>
+              <p class="ferr" id="fAddr-err"></p>
+            </div>
+            <div class="field">
+              <label for="fBoro">Borough</label>
+              <select id="fBoro" name="borough" aria-describedby="fBoro-err"></select>
+              <p class="ferr" id="fBoro-err"></p>
+            </div>
+            <div class="field">
+              <label for="fCoi">Certificate of insurance</label>
+              <input type="file" id="fCoi" name="coi" accept=".pdf,image/*" aria-describedby="fCoi-hint">
+              <p class="hint" id="fCoi-hint">Optional now. This preview reads only the file name; nothing is uploaded.</p>
+            </div>
+            <fieldset class="field span2 opts" aria-describedby="fWin-err">
+              <legend class="label" id="fWin-legend">Delivery window</legend>
+              <div class="chips win-chips" id="winChips"></div>
+              <p class="ferr" id="fWin-err"></p>
+            </fieldset>
+            <div class="field">
+              <label for="fName">On-site contact name</label>
+              <input id="fName" name="contact" autocomplete="name" aria-describedby="fName-err" required>
+              <p class="ferr" id="fName-err"></p>
+            </div>
+            <div class="field">
+              <label for="fPhone">On-site contact mobile</label>
+              <input id="fPhone" name="mobile" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="fPhone-hint fPhone-err" required>
+              <p class="hint" id="fPhone-hint">The confirmation and the rental agreement go here by text.</p>
+              <p class="ferr" id="fPhone-err"></p>
+            </div>
+          </div>
+          <div id="fuelBox"></div>
+        </section>
+
+        <!-- Step 4 -->
+        <section class="step" id="step-4" data-step="4" aria-labelledby="s4-h" hidden>
+          <h2 id="s4-h" tabindex="-1"><span class="sn">4</span>Review and book</h2>
+          <div id="holdBox"></div>
+          <div id="review"></div>
+        </section>
+
+        <!-- Confirmation -->
+        <section class="confirm" id="confirm" aria-labelledby="c-h" hidden></section>
+
+        <div class="bk-actions" id="bkActions">
+          <button type="button" class="btn btn-line" id="btnBack">Back</button>
+          <span class="act-gap"></span>
+          <button type="submit" class="btn btn-gold btn-lg" id="btnNext">Next</button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="bk-side" aria-labelledby="side-h">
+      <div class="card side-card">
+        <div class="side-top"><h2 id="side-h">Your booking</h2><span class="badge sample">Sample data</span></div>
+        <div id="sideBody"></div>
+      </div>
+      <p class="small mute side-foot">Need it in the next few hours? <a href="tel:+17184007368">Call or WhatsApp (718) 400-7368</a>.</p>
+    </aside>
+
+  </div>
+</section>
+
+</main>
+<div id="pr-shell-bottom"></div>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/booking-lib.js"></script>
+<script src="js/pages/book.js"></script>
+</body>
+</html>

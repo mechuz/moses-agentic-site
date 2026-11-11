@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fuel delivery and monitoring · Power Rentals</title>
+<meta name="description" content="Diesel delivery across the five boroughs and fuel monitoring on every diesel generator Power Rentals rents. Order diesel online.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#121212">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages/fuel.css">
+</head>
+<body>
+<div id="pr-shell-top"></div>
+<main>
+
+<section class="phero dark">
+  <div class="wrap fhero">
+    <div>
+      <p class="eyebrow">Fuel delivery and monitoring</p>
+      <h1>We watch the tank so the job never goes dark.</h1>
+      <p class="lede">Every diesel generator we rent reports its fuel level to our office. The top-up is on the route before the tank runs low. Diesel delivery is free across the five boroughs, no minimum.</p>
+      <div class="ctas"><a class="btn btn-gold btn-lg" href="#order">Order diesel</a><a class="btn btn-line btn-lg" href="#board">See the live board</a></div>
+    </div>
+    <ul class="fhero-facts" aria-label="At a glance">
+      <li><b>Free</b><span>diesel delivery in all five boroughs</span></li>
+      <li><b>No minimum</b><span>a few gallons or a full tank</span></li>
+      <li><b>30%</b><span>the line where a top-up gets booked</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="head"><div><p class="eyebrow">How monitoring works</p><h2 id="how-h">Four steps, and none of them is a phone call.</h2></div></div>
+    <ol class="fsteps">
+      <li><span class="fs-n">1</span><span class="fs-ico" data-icon="truck"></span><h3>Delivered and connected</h3><p>The generator arrives with a fuel sensor on the tank. The driver connects it and checks the first reading before leaving.</p></li>
+      <li><span class="fs-n">2</span><span class="fs-ico" data-icon="clock"></span><h3>Watched</h3><p>The tank level reaches our office all day, next to how fast your load burns it.</p></li>
+      <li><span class="fs-n">3</span><span class="fs-ico" data-icon="fuel"></span><h3>Booked before it runs low</h3><p>When a tank would drop below 30 percent before the next delivery day, the top-up goes on the route.</p></li>
+      <li><span class="fs-n">4</span><span class="fs-ico" data-icon="chat"></span><h3>You get a text</h3><p>A text tells you the day the truck comes. After it leaves, you get the gallons and a photo of the gauge.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section sand" id="board" aria-labelledby="board-h">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">Live sample board</p><h2 id="board-h">Four generators on rent, watched right now.</h2>
+        <p class="lede">Sample units from the yard’s availability board. Press “Simulate a day” to burn a day of diesel and watch the top-ups book themselves.</p></div>
+      <div class="board-ctl">
+        <p class="simday" id="simDay" aria-live="polite"></p>
+        <div class="board-btns">
+          <button type="button" class="btn btn-dark" id="simBtn">Simulate a day</button>
+          <button type="button" class="btn btn-line btn-sm" id="simReset">Reset the board</button>
+        </div>
+      </div>
+    </div>
+    <div class="tanks" id="tanks"></div>
+    <div class="texts-wrap">
+      <h3 id="texts-h">Texts sent to customers <span class="badge sample">Sample</span></h3>
+      <ul class="texts" id="texts" aria-labelledby="texts-h" aria-live="polite"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="order" aria-labelledby="order-h">
+  <div class="wrap order-grid">
+    <div class="card pad-lg">
+      <p class="eyebrow">Diesel delivery</p>
+      <h2 id="order-h">Order diesel to your site</h2>
+      <p class="mute order-sub">Diesel delivery is free across the five boroughs, no minimum.</p>
+      <form id="fuelForm" novalidate>
+        <div class="field">
+          <label for="fAddr">Site address</label>
+          <input id="fAddr" name="address" autocomplete="street-address" required aria-describedby="fAddr-err">
+          <p class="ferr" id="fAddr-err"></p>
+        </div>
+        <div class="field">
+          <label for="fBoro">Borough</label>
+          <span id="fBoroMount"></span>
+          <p class="ferr" id="fBoro-err"></p>
+        </div>
+        <fieldset class="field amount">
+          <legend class="label">How much diesel</legend>
+          <div class="amount-opts">
+            <label class="opt"><input type="radio" name="amount" value="fill" id="fFill" checked> <span>Fill the tank</span></label>
+            <label class="opt"><input type="radio" name="amount" value="gallons" id="fGalOpt"> <span>A set number of gallons</span></label>
+          </div>
+          <div class="gal-row" id="galRow" hidden>
+            <label for="fGal">Gallons</label>
+            <input id="fGal" name="gallons" type="number" inputmode="numeric" min="1" max="5000" step="1" aria-describedby="fGal-err">
+            <p class="ferr" id="fGal-err"></p>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="fDate">Delivery date</label>
+          <input id="fDate" name="date" type="date" required aria-describedby="fDate-hint fDate-err">
+          <p class="hint" id="fDate-hint"></p>
+          <p class="ferr" id="fDate-err"></p>
+        </div>
+        <div class="field">
+          <label for="fNote">Where is the tank? <span class="mute">(optional)</span></label>
+          <input id="fNote" name="note" autocomplete="off" placeholder="For example: rear lot, gate code with the site office">
+        </div>
+        <button type="submit" class="btn btn-gold btn-lg" id="fSubmit">Order diesel</button>
+      </form>
+      <div class="done" id="fDone" hidden tabindex="-1"></div>
+    </div>
+    <aside class="card dark pad-lg order-aside" aria-labelledby="free-h">
+      <span class="aside-ico" data-icon="fuel"></span>
+      <h3 id="free-h">Diesel delivery is free across the five boroughs, no minimum.</h3>
+      <ul class="ticks">
+        <li>Order at least one day ahead, for any delivery day.</li>
+        <li>Fill the tank, or name the gallons.</li>
+        <li>The driver photographs the gauge after every delivery.</li>
+        <li>Renting a diesel generator from us? Monitoring books the top-ups for you.</li>
+      </ul>
+      <a class="btn btn-line btn-sm" href="account.html#fuel">See your fuel log</a>
+    </aside>
+  </div>
+</section>
+
+</main>
+<div id="pr-shell-bottom"></div>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/account-lib.js"></script>
+<script src="js/pages/fuel.js"></script>
+</body>
+</html>

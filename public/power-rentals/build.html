@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Power Rentals · How This Was Built and What It Costs</title>
+<meta name="description" content="From Moses Agentic: what this Power Rentals preview shows, how it connects to the billing inbox and the accounting system, the architecture, the price and the timeline.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#121212">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages/build.css">
+</head>
+<body>
+<div id="pr-shell-top"></div>
+<main class="build">
+
+<section class="phero">
+  <div class="wrap">
+    <p class="eyebrow">From Moses Agentic</p>
+    <h1>How this was built and what it costs</h1>
+    <p class="lede">This preview is a working concept of a new website and back office for Power Rentals. This page says what is real, how it would connect to the way your team already works, and what it costs.</p>
+    <nav class="bd-jump" aria-label="On this page">
+      <a href="#looking">What you are looking at</a><a href="#connects">How it connects</a><a href="#architecture">The architecture</a><a href="#cost">What it costs</a><a href="#timeline">Timeline</a><a href="#next">Next step</a>
+    </nav>
+  </div>
+</section>
+
+<!-- What you are looking at -->
+<section class="section" id="looking" aria-labelledby="looking-h">
+  <div class="wrap">
+    <div class="head"><div><p class="eyebrow">The tour</p><h2 id="looking-h">What you are looking at</h2><p class="lede">Seven pages. Open any of them, then come back here.</p></div></div>
+    <ol class="bd-tour">
+      <li><a href="index.html"><b>Home</b><span>What is in the yard today, by category, with one tap to book.</span></a></li>
+      <li><a href="equipment.html"><b>Equipment</b><span>Every category and size, with live counts and the next unit back.</span></a></li>
+      <li><a href="book.html"><b>Book online</b><span>Pick the equipment, the dates and a delivery window. The unit is held while you finish.</span></a></li>
+      <li><a href="account.html"><b>My account</b><span>What a customer sees when they come back: their rentals and their paperwork.</span></a></li>
+      <li><a href="fuel.html"><b>Fuel</b><span>Fuel delivery and fuel monitoring on diesel generators.</span></a></li>
+      <li><a href="service.html"><b>Service plans</b><span>Service plans for customers who own a generator.</span></a></li>
+      <li><a href="office.html"><b>Office view</b><span>The back office: yard board, timeline, billing brief, receivables watch and a live feed.</span></a></li>
+    </ol>
+    <div class="grid2 bd-realsample">
+      <div class="card">
+        <h3><span class="badge ok">Real behavior</span></h3>
+        <ul class="bd-list">
+          <li>Availability is worked out, not typed in. Every count comes from one list of events.</li>
+          <li>A booking holds the unit while the customer finishes, then takes it off the board.</li>
+          <li>Your posted hours are built into the booking calendar.</li>
+          <li>Open the booking page and the office view in two tabs. A booking in one shows up in the other at once.</li>
+          <li>In the office view, a driver's pick-up ticket puts a unit back in the yard, and the website shows it as free.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="badge sample">Sample data</span></h3>
+        <ul class="bd-list">
+          <li>Unit counts, unit numbers, dates and rental history.</li>
+          <li>Customers, shown as roles such as "General contractor A".</li>
+          <li>Invoices, amounts, fuel tickets, gallons and email replies.</li>
+          <li>Nothing you type is sent anywhere. It stays in this browser. "Reset demo" at the top puts the sample back.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it connects -->
+<section class="section sand" id="connects" aria-labelledby="connects-h">
+  <div class="wrap">
+    <div class="head"><div><p class="eyebrow">How it connects</p><h2 id="connects-h">It runs on the paperwork you already have.</h2><p class="lede">Drivers already email their tickets to the billing inbox. Invoices already live in your accounting system (for example QuickBooks Online). The agents read both, so nobody keeps a second list.</p></div></div>
+    <div class="bd-flow" role="img" aria-label="Four sources feed one availability board and event log. The billing inbox sends driver delivery, pick-up and fuel tickets. The accounting system sends rental invoices, final invoices and payments. The yard sends service holds. Phone and WhatsApp send bookings. The board feeds the website booking, the booking desk, the morning dispatch route, the billing brief and the receivables watch.">
+      <div class="bd-col">
+        <p class="bd-coltitle">Sources</p>
+        <div class="bd-node"><b>Billing inbox</b><span>Driver delivery, pick-up and fuel tickets</span></div>
+        <div class="bd-node"><b>Accounting system</b><span>Rental invoices, "final" invoices, payments</span></div>
+        <div class="bd-node"><b>Service holds</b><span>Units in the shop, until a date</span></div>
+        <div class="bd-node"><b>Phone and WhatsApp</b><span>Bookings taken by the desk</span></div>
+      </div>
+      <div class="bd-arrow" aria-hidden="true"></div>
+      <div class="bd-hub">
+        <b>One availability board and event log</b>
+        <span>Every unit: where it is, until when, and which document says so.</span>
+      </div>
+      <div class="bd-arrow" aria-hidden="true"></div>
+      <div class="bd-col out">
+        <p class="bd-coltitle">Used by</p>
+        <div class="bd-node"><b>Website booking</b><span>Customers book from live counts</span></div>
+        <div class="bd-node"><b>Booking desk</b><span>Same answer on the phone</span></div>
+        <div class="bd-node"><b>Morning dispatch route</b><span>Deliveries, pick-ups and fuel runs</span></div>
+        <div class="bd-node"><b>Billing brief</b><span>What is ready to bill at 7:00am</span></div>
+        <div class="bd-node"><b>Receivables watch</b><span>Late balances, sorted by why</span></div>
+      </div>
+    </div>
+    <p class="bd-nodouble"><span class="badge gold">No double entry</span> Each fact is entered once, where it already happens. Every screen reads it from the same place.</p>
+  </div>
+</section>
+
+<!-- The architecture -->
+<section class="section" id="architecture" aria-labelledby="arch-h">
+  <div class="wrap">
+    <div class="head"><div><p class="eyebrow">The architecture</p><h2 id="arch-h">Six parts, in plain English.</h2></div></div>
+    <div class="bd-arch">
+      <ol class="bd-parts">
+        <li><b>A fast, simple website.</b> Plain pages that load quickly on a phone at a job site. No heavy software to maintain.</li>
+        <li><b>One event log as the single source of truth.</b> Every fact is an event with a time and a source: a rental, a service hold, a pick-up, a drop-off, a fuel delivery, a payment promise. Nothing is overwritten.</li>
+        <li><b>An availability engine.</b> It reads the log and answers three questions: what is in the yard, what is free for these dates, and when the next unit comes back.</li>
+        <li><b>Connectors.</b> An email inbox reader for the billing inbox, a sync with the accounting system, and text or WhatsApp for bookings and confirmations.</li>
+        <li><b>AI agents that read and draft, and people who approve.</b> The agents read each ticket and invoice, match it to a unit and a rental, and draft the bill or the reminder. Billing approves before anything posts or sends.</li>
+        <li><b>Security.</b> Your data stays in your own accounts. The agents see only what the rules allow, and every action is logged.</li>
+      </ol>
+      <aside class="card dark bd-tech" aria-labelledby="tech-h">
+        <h3 id="tech-h">Technical panel</h3>
+        <dl>
+          <dt>Front end</dt><dd>Static pages and plain JavaScript. No framework.</dd>
+          <dt>Event log</dt><dd>Append-only events: rental, service, hold, pick-up, drop-off, fuel, promise. In this preview it lives in your browser and syncs across open tabs.</dd>
+          <dt>Engine</dt><dd>Small functions that turn events into answers. The same code runs the website, the desk and the office view.</dd>
+          <dt>Connectors</dt><dd>Inbox reader, accounting sync, text and WhatsApp messages.</dd>
+          <dt>Agents</dt><dd>Read, match and draft. A person approves every post and every send.</dd>
+          <dt>Access</dt><dd>Read-only by default. Each agent gets only the access its job needs.</dd>
+        </dl>
+      </aside>
+    </div>
+    <div class="card bd-adds">
+      <h3>What the production build adds to this preview</h3>
+      <ul class="bd-addlist">
+        <li><b>Your real fleet list</b><span>Every unit, by number</span></li>
+        <li><b>Your real rate card</b><span>Daily, weekly and monthly rates</span></li>
+        <li><b>Real connectors</b><span>The billing inbox and the accounting system</span></li>
+        <li><b>Payments and deposits</b><span>Taken when the customer books</span></li>
+        <li><b>Text confirmations</b><span>Booking, delivery and pick-up</span></li>
+        <li><b>Hosting on your domain</b><span>Your website address, not ours</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- What it costs -->
+<section class="section dark" id="cost" aria-labelledby="cost-h">
+  <div class="wrap">
+    <div class="head"><div><p class="eyebrow">What it costs</p><h2 id="cost-h">Priced per agent. No surprises.</h2><p class="lede">The website build-out, with online booking and live availability, is the <span data-agent="web"></span>: <b class="bd-inline" data-price="1"></b>.</p></div></div>
+    <div class="bd-prices">
+      <article class="bd-price">
+        <p class="bd-ptag">The website</p>
+        <h3 data-agent="web"></h3>
+        <p class="bd-amount" data-price="1"></p>
+        <p>Online booking with live availability, kept current from the billing inbox and the accounting system.</p>
+      </article>
+      <article class="bd-price rec">
+        <p class="bd-ptag">Recommended start</p>
+        <h3 data-agent="rec"></h3>
+        <p class="bd-amount" data-price="rec"></p>
+        <p>Booking plus the billing brief and the receivables watch: unbilled fuel, missing charges, and late balances sorted by why.</p>
+      </article>
+      <article class="bd-price">
+        <p class="bd-ptag">Build it, I run it</p>
+        <h3>You run it yourselves</h3>
+        <p class="bd-amount" data-price="own"></p>
+        <p>We build it and hand it over. Your team runs it.</p>
+      </article>
+      <article class="bd-price">
+        <p class="bd-ptag">The full proposal</p>
+        <h3>All six agents</h3>
+        <p class="bd-amount" data-price="6"></p>
+        <p>Every agent in the proposal, added one at a time or together.</p>
+      </article>
+    </div>
+    <p class="bd-covers"><b>The monthly fee covers</b> hosting, the connectors, the booking agent, monitoring, and improvements every month.</p>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section" id="timeline" aria-labelledby="time-h">
+  <div class="wrap">
+    <div class="head"><div><p class="eyebrow">Timeline</p><h2 id="time-h">Most first agents go live in a few weeks.</h2></div></div>
+    <ol class="bd-steps">
+      <li><span>Week 1</span><h3>Discovery</h3><p>We collect your fleet list and your rate card, and sit with the people who book and bill.</p></li>
+      <li><span>Weeks 2 to 3</span><h3>Connectors and booking</h3><p>We connect the billing inbox and the accounting system and build online booking.</p></li>
+      <li><span>Week 4</span><h3>Testing</h3><p>We run it on your real tickets and invoices, side by side with the way you work today.</p></li>
+      <li><span>Launch</span><h3>Live, team trained</h3><p>It goes live with your team trained on the booking desk and the billing brief.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Next step -->
+<section class="section sand" id="next" aria-labelledby="next-h">
+  <div class="wrap bd-next">
+    <div>
+      <p class="eyebrow">Next step</p>
+      <h2 id="next-h">A 30-minute call.</h2>
+      <p class="lede">We walk through this preview with you, answer questions, and agree on where to start.</p>
+      <div class="bd-ctas"><a class="btn btn-dark btn-lg" href="https://mosesagentic.com/">Book a call at mosesagentic.com</a></div>
+    </div>
+    <div class="card bd-by">
+      <p class="eyebrow">Prepared by</p>
+      <p><b>Max Echuz</b><span>Founder</span></p>
+      <p><b>Eddie Beylin</b><span>Chief Operating Officer</span></p>
+      <p class="mute small">Moses Agentic · AI agents and services · Brooklyn</p>
+    </div>
+  </div>
+  <div class="wrap"><p class="bd-disclose">Concept preview with sample data. Prices are Moses Agentic standard rates as of November 2026. Final scope in a written proposal.</p></div>
+</section>
+
+</main>
+<div id="pr-shell-bottom"></div>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pages/build.js"></script>
+</body>
+</html>

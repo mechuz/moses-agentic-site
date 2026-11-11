@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Power Rentals · Office View</title>
+<meta name="description" content="Concept back office for Power Rentals: yard board, availability timeline, billing brief, receivables watch and a live feed of tickets and invoices. Sample data.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#121212">
+<script src="js/gate.js"></script>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages/office.css">
+</head>
+<body>
+<div id="pr-shell-top"></div>
+<main class="office">
+
+<section class="of-hero dark">
+  <div class="wrap of-hero-in">
+    <div>
+      <p class="eyebrow">Back office</p>
+      <h1>Office view <span class="badge sample">Sample data</span></h1>
+      <p class="lede">What the owner and the desk would see: every unit, every booking, every unbilled ticket and every late balance, in one place. It updates itself from the billing inbox and the accounting system.</p>
+    </div>
+    <p class="of-today" id="ofToday"></p>
+  </div>
+</section>
+
+<div class="of-tabsbar">
+  <div class="wrap">
+    <div class="of-tabs" role="tablist" aria-label="Office view sections">
+      <button type="button" role="tab" id="tab-yard" aria-controls="panel-yard" aria-selected="true">Yard board</button>
+      <button type="button" role="tab" id="tab-timeline" aria-controls="panel-timeline" aria-selected="false" tabindex="-1">Availability timeline</button>
+      <button type="button" role="tab" id="tab-billing" aria-controls="panel-billing" aria-selected="false" tabindex="-1">Billing brief <span class="of-count" id="cntBilling"></span></button>
+      <button type="button" role="tab" id="tab-receivables" aria-controls="panel-receivables" aria-selected="false" tabindex="-1">Receivables watch <span class="of-count" id="cntAr"></span></button>
+      <button type="button" role="tab" id="tab-feed" aria-controls="panel-feed" aria-selected="false" tabindex="-1">Live feed <span class="of-count" id="cntFeed"></span></button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap of-panels">
+
+  <!-- a. Yard board -->
+  <section role="tabpanel" id="panel-yard" aria-labelledby="tab-yard" tabindex="0">
+    <div class="of-phead">
+      <div><h2>Yard board</h2><p class="mute small">Every unit, where it is, until when, and which document says so.</p></div>
+    </div>
+    <div class="of-tiles" id="yardTiles"></div>
+    <div class="of-tools">
+      <div class="chips" id="yardChips" role="group" aria-label="Filter by category"></div>
+      <div class="field of-search"><label for="yardSearch">Search units</label><input type="search" id="yardSearch" placeholder="Unit number, model, customer or borough" autocomplete="off"></div>
+    </div>
+    <p class="sr" id="yardCount" aria-live="polite"></p>
+    <div class="tablewrap">
+      <table class="data of-table" id="yardTable">
+        <caption class="sr">Every unit with its status today</caption>
+        <thead><tr><th scope="col">Unit</th><th scope="col">Model</th><th scope="col">Status</th><th scope="col">Where</th><th scope="col">Until</th><th scope="col">Customer</th><th scope="col">Source</th></tr></thead>
+        <tbody id="yardBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- b. Availability timeline -->
+  <section role="tabpanel" id="panel-timeline" aria-labelledby="tab-timeline" tabindex="0" hidden>
+    <div class="of-phead">
+      <div><h2>Availability timeline</h2><p class="mute small">The next 21 days, unit by unit. Hover over or tab to a bar for its details.</p></div>
+      <ul class="of-legend" aria-label="Legend">
+        <li><i class="lg k-invoice"></i>Rental invoice</li>
+        <li><i class="lg k-web"></i>Website booking</li>
+        <li><i class="lg k-phone"></i>Phone booking</li>
+        <li><i class="lg k-service"></i>Service hold</li>
+        <li><i class="lg k-hold"></i>Website hold</li>
+        <li><i class="lg k-closed"></i>Closed</li>
+      </ul>
+    </div>
+    <div class="of-tools"><div class="chips" id="tlChips" role="group" aria-label="Filter the timeline by category"></div></div>
+    <div class="tablewrap of-tlwrap" id="tlWrap">
+      <div class="of-tl" id="timeline"></div>
+      <div class="of-tip" id="tlTip" role="tooltip" hidden></div>
+    </div>
+  </section>
+
+  <!-- c. Billing brief -->
+  <section role="tabpanel" id="panel-billing" aria-labelledby="tab-billing" tabindex="0" hidden>
+    <div class="of-phead">
+      <div><h2>Billing brief</h2><p class="mute small"><b>Ready at 7:00am. Nothing posts until billing approves.</b> Built overnight from driver tickets in the billing inbox and invoices in the accounting system.</p></div>
+    </div>
+    <div class="of-groups" id="billing"></div>
+  </section>
+
+  <!-- d. Receivables watch -->
+  <section role="tabpanel" id="panel-receivables" aria-labelledby="tab-receivables" tabindex="0" hidden>
+    <div class="of-phead">
+      <div><h2>Receivables watch</h2><p class="mute small">Late balances sorted by why they are late, not only by how old they are.</p></div>
+    </div>
+    <div class="of-groups" id="flags"></div>
+    <div class="of-aging" id="aging"></div>
+  </section>
+
+  <!-- e. Live feed -->
+  <section role="tabpanel" id="panel-feed" aria-labelledby="tab-feed" tabindex="0" hidden>
+    <div class="of-phead">
+      <div><h2>Live feed</h2><p class="mute small">Simulate the connections. In the real build these events arrive by themselves from the billing inbox, the accounting system and the booking desk.</p></div>
+    </div>
+    <p class="of-tipbox"><b>Tip:</b> <a href="book.html" target="_blank" rel="noopener">Open the booking page in another tab</a>: everything you do here shows up there live. Bookings made there show up here.</p>
+    <div class="of-feedgrid">
+      <div class="of-sims" id="sims"></div>
+      <div class="of-feedcol">
+        <div class="of-feedhead"><h3>Events</h3><span class="mute small" id="feedNote"></span></div>
+        <ol class="of-feed" id="feed" aria-live="polite" aria-label="Events, newest first"></ol>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<dialog class="of-dialog" id="dlgDraft" aria-labelledby="dlgDraftH">
+  <form method="dialog" class="of-dform">
+    <h2 id="dlgDraftH">Draft reminder</h2>
+    <p class="mute small" id="dlgDraftFor"></p>
+    <div class="field"><label for="draftSubject">Subject</label><input id="draftSubject"></div>
+    <div class="field"><label for="draftBody">Message</label><textarea id="draftBody" rows="9"></textarea></div>
+    <p class="small mute">Edit freely. In the real build billing approves and it sends from your own email. Nothing is sent from this preview.</p>
+    <div class="of-dactions"><button class="btn btn-line btn-sm" value="cancel">Close</button><button class="btn btn-gold btn-sm" value="save" id="draftSave">Save draft</button></div>
+  </form>
+</dialog>
+
+<dialog class="of-dialog" id="dlgPromise" aria-labelledby="dlgPromiseH">
+  <form method="dialog" class="of-dform" id="promiseForm">
+    <h2 id="dlgPromiseH">Log a promise</h2>
+    <p class="mute small" id="dlgPromiseFor"></p>
+    <div class="of-drow">
+      <div class="field"><label for="promiseDate">Promised date</label><input type="date" id="promiseDate" required></div>
+      <div class="field"><label for="promiseAmount">Amount</label><input type="number" id="promiseAmount" min="1" step="1" inputmode="numeric" required></div>
+    </div>
+    <p class="small mute">If the date passes and the balance is still open, this moves to "Promise broken". Pick a past date to see it happen.</p>
+    <div class="of-dactions"><button class="btn btn-line btn-sm" value="cancel" formnovalidate>Cancel</button><button class="btn btn-gold btn-sm" value="save">Log promise</button></div>
+  </form>
+</dialog>
+
+</main>
+<div id="pr-shell-bottom"></div>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/office-lib.js"></script>
+<script src="js/pages/office.js"></script>
+</body>
+</html>

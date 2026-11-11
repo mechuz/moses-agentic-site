@@ -1,0 +1,96 @@
+/* How this was built and what it costs. Colors come from the tokens in css/site.css. */
+.bd-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.bd-jump a{color:#fff;text-decoration:none;font-size:.85rem;font-weight:600;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 12px}
+.bd-jump a:hover{border-color:var(--gold);color:var(--gold)}
+.build section[id]{scroll-margin-top:84px}
+.build .phero .lede{color:var(--on-dark-mute)}
+
+/* tour */
+.bd-tour{list-style:none;margin:0 0 24px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px;counter-reset:tour}
+.bd-tour li{counter-increment:tour;min-width:0}
+.bd-tour a{display:grid;gap:4px;height:100%;padding:16px 16px 16px 54px;position:relative;border:1.5px solid var(--line);border-radius:var(--r);text-decoration:none;background:#fff}
+.bd-tour a::before{content:counter(tour);position:absolute;left:14px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;font:800 .85rem var(--display)}
+.bd-tour a:hover{border-color:var(--ink)}
+.bd-tour b{font-family:var(--display)}
+.bd-tour span{font-size:.9rem;color:var(--mute)}
+.bd-realsample h3{margin-bottom:12px}
+.bd-list{margin:0;padding-left:1.1em;display:grid;gap:8px;color:var(--text)}
+.bd-list li::marker{color:var(--gold-deep)}
+
+/* connection diagram: sources, hub, outputs; stacks on narrow screens */
+.bd-flow{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr) 44px minmax(0,1fr);align-items:center;gap:0}
+.bd-col{display:grid;gap:10px;min-width:0}
+.bd-coltitle{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink)}
+.bd-node{background:#fff;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:11px 14px;display:grid;gap:2px;min-width:0}
+.bd-node b{font-size:.95rem}
+.bd-node span{font-size:.84rem;color:var(--mute)}
+.bd-col.out .bd-node{border-color:var(--ink);border-left:5px solid var(--gold)}
+.bd-hub{background:var(--ink);color:#fff;border-radius:var(--r);padding:26px 20px;display:grid;gap:8px;text-align:center;box-shadow:0 0 0 6px var(--gold)}
+.bd-hub b{font:800 1.2rem/1.2 var(--display);color:var(--gold)}
+.bd-hub span{font-size:.9rem;color:var(--on-dark-mute)}
+.bd-arrow{height:3px;background:var(--ink);position:relative;margin:0 6px}
+.bd-arrow::after{content:"";position:absolute;right:-2px;top:50%;width:10px;height:10px;border-top:3px solid var(--ink);border-right:3px solid var(--ink);transform:translateY(-50%) rotate(45deg)}
+.bd-nodouble{margin-top:24px;display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap;font-weight:600}
+
+/* architecture */
+.bd-arch{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:start}
+.bd-parts{margin:0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:part}
+.bd-parts li{counter-increment:part;position:relative;padding-left:46px;min-width:0}
+.bd-parts li::before{content:counter(part);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:9px;background:var(--gold);color:var(--ink);display:grid;place-items:center;font:800 .95rem var(--display)}
+.bd-parts b{display:block;font-family:var(--display);margin-bottom:2px}
+.bd-tech{background:var(--ink);color:var(--on-dark)}
+.bd-tech h3{color:var(--gold);margin-bottom:12px}
+.bd-tech dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 14px;font-size:.9rem}
+.bd-tech dt{font-weight:700;color:#fff;white-space:nowrap}
+.bd-tech dd{margin:0;color:var(--on-dark-mute)}
+.bd-adds{margin-top:24px}
+.bd-adds h3{margin-bottom:14px}
+.bd-addlist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.bd-addlist li{display:grid;gap:2px;padding:12px 14px;border-radius:var(--r-sm);background:var(--sand);min-width:0}
+.bd-addlist span{font-size:.86rem;color:var(--mute)}
+
+/* prices */
+.bd-inline{color:var(--gold)}
+.bd-prices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bd-price{border:1.5px solid var(--ink-3);border-radius:var(--r);padding:22px;background:var(--ink-2);display:grid;gap:10px;align-content:start;min-width:0}
+.bd-price.rec{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.bd-ptag{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.bd-price h3{color:#fff}
+.bd-amount{font:800 1.18rem/1.3 var(--display);color:#fff}
+.bd-amount .nb,.bd-inline .nb{white-space:nowrap}
+.bd-price p:last-child{color:var(--on-dark-mute);font-size:.92rem}
+.bd-covers{margin-top:22px;color:var(--on-dark-mute)}
+.bd-covers b{color:#fff}
+
+/* timeline */
+.bd-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;position:relative}
+.bd-steps li{border-top:5px solid var(--gold);background:var(--sand);border-radius:0 0 var(--r) var(--r);padding:18px;display:grid;gap:6px;align-content:start;min-width:0}
+.bd-steps li:last-child{border-top-color:var(--ink)}
+.bd-steps span{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink)}
+.bd-steps p{color:var(--mute);font-size:.93rem}
+
+/* next step */
+.bd-next{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:center}
+.bd-ctas{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+.bd-ctas .btn{white-space:normal;text-align:center}
+.bd-by{display:grid;gap:10px}
+.bd-by p:not(.eyebrow):not(.small){display:grid}
+.bd-by span{color:var(--mute);font-size:.9rem}
+.bd-disclose{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);font-size:.84rem;color:var(--mute)}
+
+@media (max-width:1000px){
+  .bd-prices{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bd-arch,.bd-next{grid-template-columns:1fr}
+  .bd-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:820px){
+  .bd-flow{grid-template-columns:1fr;gap:0}
+  .bd-arrow{width:3px;height:32px;margin:6px auto}
+  .bd-arrow::after{right:auto;left:50%;top:auto;bottom:-2px;transform:translateX(-50%) rotate(135deg)}
+  .bd-addlist{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .bd-prices,.bd-steps,.bd-addlist{grid-template-columns:1fr}
+  .bd-tech dl{grid-template-columns:1fr;gap:2px}
+  .bd-tech dd{margin-bottom:8px}
+}

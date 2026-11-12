@@ -1698,6 +1698,10 @@ footer .locs { margin: .2rem 0 .8rem; }
 .abk-cnt { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.6rem, 2vw, 1.4rem); width: 100%; }
 .abk-cnt div { display: grid; gap: .3rem; animation: svin .5s calc(.2s + var(--k) * .5s) both; }
 .abk-cnt b { font: 900 clamp(2.6rem, 7vw, 5rem)/.9 var(--f-display); color: #C6F432; letter-spacing: -.05em; }
+/* videos: no progress lines along the bottom, only the play and sound buttons */
+.mv-ch, .sv-track { visibility: hidden !important; }
+.mv-ctrl, .sv-ctrl { background: none !important; border: 0 !important; }
+.mv-ctrl { position: absolute !important; inset-inline: 0; bottom: 0; z-index: 2; }
 .abk-cnt span { font: 700 clamp(.9rem, 1.6vw, 1.15rem)/1.25 var(--f-body); }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }

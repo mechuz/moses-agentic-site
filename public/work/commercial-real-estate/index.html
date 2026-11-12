@@ -1516,6 +1516,76 @@ html.filing #overlay:not([hidden]) { z-index: 1100; }
 html, body { overflow-x: clip; }
 @media (max-width: 420px) { .site-moses .brand-logo { height: 19px !important; } .site-moses .top .wrap { gap: .5rem; } .site-moses .langs { flex: none; } }
 .tabstrip { max-width: 100vw; min-width: 0; }
+
+/* ===== front page video ===== */
+.mvid { display: none; }
+.site-moses main[data-page="home"] > #mvid:not(#hero3):not(#cabinet):not(#agents), .site-moses .mvid { display: block !important; padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(1rem, 3vw, 2rem); background: #FFFFFF; }
+.mv-head { text-align: center; margin-bottom: clamp(1.2rem, 3vw, 2rem); }
+.mv-head h2 { font: 900 clamp(2.2rem, 5vw, 3.8rem)/1.02 var(--f-display); letter-spacing: -.04em; color: #0B2545; margin-top: .3rem; }
+.mv { position: relative; max-width: 1060px; margin: 0 auto; border-radius: 28px; overflow: hidden; background: radial-gradient(120% 120% at 85% 0%, #1A73E8 0%, #0F3B7A 38%, #0B2545 72%); box-shadow: 0 40px 80px -40px rgba(11,37,69,.6); color: #FFFFFF; }
+.mv-stage { position: relative; aspect-ratio: 16 / 9; cursor: pointer; overflow: hidden; }
+.mv-stage::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 15% 85%, rgba(198,244,50,.16), transparent 40%); pointer-events: none; }
+.mvs { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(.8rem, 2vw, 1.4rem); padding: clamp(1.2rem, 4vw, 3rem); text-align: center; animation: mvin .6s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes mvin { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+.mv-h { font: 900 clamp(1.5rem, 3.6vw, 2.8rem)/1.08 var(--f-display); letter-spacing: -.035em; max-width: 22ch; }
+.mv-big { font: 900 clamp(2rem, 5.6vw, 4.4rem)/1 var(--f-display); letter-spacing: -.045em; max-width: 16ch; animation: mvin .7s .15s cubic-bezier(.2,.8,.2,1) both; }
+.mv-big span, .mv-brand span { color: #C6F432; }
+.mv-sub { font: 700 clamp(1.05rem, 2.2vw, 1.6rem)/1.25 var(--f-body); color: rgba(255,255,255,.85); animation: mvin .7s .5s both; }
+.mv-logo { width: clamp(64px, 9vw, 96px); height: clamp(64px, 9vw, 96px); border-radius: 24px; background: #FFFFFF; display: grid; place-items: center; animation: mvpop .7s cubic-bezier(.2,1.4,.4,1) both; box-shadow: 0 20px 40px -20px rgba(0,0,0,.5); }
+.mv-logo img { width: 70%; }
+@keyframes mvpop { from { opacity: 0; transform: scale(.4) rotate(-12deg); } to { opacity: 1; transform: none; } }
+.mv-brand { font: 800 clamp(1.1rem, 2.4vw, 1.6rem) var(--f-display); letter-spacing: -.02em; opacity: .9; animation: mvin .6s .1s both; }
+.mv-pile { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; max-width: 640px; }
+.mv-pile span { background: #FFFFFF; color: #0B2545; border-radius: 14px; padding: .8rem 1.1rem; font: 800 clamp(.95rem, 1.8vw, 1.2rem) var(--f-body); box-shadow: 0 16px 30px -18px rgba(0,0,0,.6); transform: rotate(var(--r)); animation: mvdrop .6s calc(.35s + var(--k) * .42s) cubic-bezier(.2,1.3,.4,1) both; position: relative; }
+.mv-pile span::after { content: ""; position: absolute; top: -6px; inset-inline-end: -6px; width: 14px; height: 14px; border-radius: 50%; background: #FF5A5F; box-shadow: 0 0 0 3px #0B2545; animation: mvin .3s calc(.7s + var(--k) * .42s) both; }
+@keyframes mvdrop { from { opacity: 0; transform: translateY(-60px) rotate(0); } to { opacity: 1; transform: rotate(var(--r)); } }
+.mv-roles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7rem; width: min(100%, 760px); }
+.mv-roles span { display: flex; align-items: center; gap: .55rem; justify-content: center; padding: .85rem .6rem; border-radius: 14px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); font: 800 clamp(.85rem, 1.6vw, 1.1rem) var(--f-body); animation: mvon .5s calc(.4s + var(--k) * .32s) both; }
+.mv-roles span i { width: 10px; height: 10px; border-radius: 50%; background: #C6F432; box-shadow: 0 0 0 4px rgba(198,244,50,.25); flex: none; }
+@keyframes mvon { 0% { opacity: 0; transform: scale(.85); } 60% { opacity: 1; transform: scale(1.05); background: #C6F432; color: #0B2545; } 100% { opacity: 1; transform: none; } }
+.mv-win { width: min(100%, 620px); background: rgba(6,24,46,.65); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: .9rem 1.1rem 1.1rem; display: grid; gap: .75rem; text-align: start; }
+.mv-wb { display: flex; align-items: center; gap: .35rem; }
+.mv-wb b { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.25); }
+.mv-clock { margin-inline-start: auto; width: 26px; height: 26px; border-radius: 50%; border: 2px solid #C6F432; position: relative; }
+.mv-clock i { position: absolute; left: 50%; top: 50%; width: 2px; height: 9px; background: #C6F432; transform-origin: 50% 0; transform: translateX(-50%) rotate(180deg); animation: mvclock 2.5s linear infinite; }
+@keyframes mvclock { to { transform: translateX(-50%) rotate(540deg); } }
+.mv-task { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: .3rem .7rem; align-items: center; font: 700 clamp(.9rem, 1.7vw, 1.15rem) var(--f-body); animation: mvin .4s calc(.3s + var(--k) * 1.05s) both; }
+.mv-ck { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,.3); position: relative; animation: mvck .01s calc(1.1s + var(--k) * 1.05s) forwards; }
+@keyframes mvck { to { background: #C6F432; border-color: #C6F432; } }
+.mv-ck::after { content: ""; position: absolute; left: 5px; top: 1.5px; width: 5px; height: 10px; border: solid #0B2545; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); opacity: 0; animation: mvin .2s calc(1.1s + var(--k) * 1.05s) forwards; }
+.mv-bar { grid-column: 2; height: 4px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }
+.mv-bar i { display: block; height: 100%; width: 0; background: #C6F432; animation: mvbar .8s calc(.35s + var(--k) * 1.05s) ease-out forwards; }
+@keyframes mvbar { to { width: 100%; } }
+.mv-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.6rem, 2vw, 1.4rem); width: min(100%, 860px); }
+.mv-stat { padding: clamp(.9rem, 2vw, 1.4rem) .6rem; border-radius: 18px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); display: grid; gap: .35rem; animation: mvin .5s calc(.3s + var(--k) * .25s) both; }
+.mv-stat b { font: 900 clamp(1.8rem, 4.8vw, 3.6rem)/1 var(--f-display); letter-spacing: -.04em; color: #C6F432; direction: ltr; }
+.mv-stat span { font: 700 clamp(.8rem, 1.5vw, 1.02rem)/1.3 var(--f-body); color: rgba(255,255,255,.85); }
+.mv-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; animation: mvin .6s .8s both; }
+.mv-cta button { border: 0; border-radius: 999px; min-height: 54px; padding: 0 1.5rem; font: 800 clamp(1rem, 1.8vw, 1.15rem) var(--f-body); cursor: pointer; }
+.mv-b1 { background: #C6F432; color: #0B2545; } .mv-b2 { background: #FFFFFF; color: #0B2545; }
+.mv-cta button:hover { transform: translateY(-2px); }
+.mv-ctrl { display: flex; align-items: center; gap: .8rem; padding: .7rem 1rem .9rem; background: rgba(6,24,46,.45); }
+.mv-pp { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; background: #C6F432; color: #0B2545; display: grid; place-items: center; cursor: pointer; }
+.mv-pp svg { width: 18px; height: 18px; }
+.mv-ch { flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+.mv-dot { height: 22px; border: 0; background: none; padding: 9px 0; cursor: pointer; }
+.mv-dot i { display: block; height: 4px; width: 0; border-radius: 4px; background: #C6F432; box-shadow: -1000px 0 0 1000px rgba(255,255,255,.18) inset; }
+.mv-dot { position: relative; } .mv-dot::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 4px; border-radius: 4px; background: rgba(255,255,255,.2); }
+.mv-dot i { position: relative; box-shadow: none; }
+[dir="rtl"] .mv-dot i { margin-inline-start: 0; }
+.mv-watch { margin-top: clamp(1rem, 2.4vw, 1.6rem); display: inline-flex; align-items: center; gap: .6rem; border: 0; background: rgba(255,255,255,.14); color: #FFFFFF; border-radius: 999px; padding: .5rem 1.1rem .5rem .5rem; font: 700 clamp(.95rem, 1.6vw, 1.08rem) var(--f-body); cursor: pointer; backdrop-filter: blur(8px); }
+[dir="rtl"] .mv-watch { padding: .5rem .5rem .5rem 1.1rem; }
+.mv-watch:hover { background: rgba(255,255,255,.24); }
+.mv-wi { width: 34px; height: 34px; border-radius: 50%; background: #C6F432; color: #0B2545; display: grid; place-items: center; }
+.mv-wi svg { width: 15px; height: 15px; margin-inline-start: 2px; }
+.site-chocham .mv-watch { display: none; }
+@media (max-width: 700px) {
+  .mv { border-radius: 22px; } .mv-stage { aspect-ratio: 4 / 5; }
+  .mv-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mv-stats { grid-template-columns: 1fr; }
+  .mv-stat { grid-template-columns: auto 1fr; align-items: center; text-align: start; gap: .8rem; }
+}
+@media (prefers-reduced-motion: reduce) { .mvs, .mvs * { animation-duration: .01s !important; animation-delay: 0s !important; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1639,7 +1709,13 @@ body { top: 0 !important; }
       <p class="h6lead" data-i18n="h6.lead">AI does the work. Your people lead.</p>
       <p class="h5msg" data-i18n="h5.msg">We build, deploy and operate AI agents, and teach your people to run them.</p>
       <p class="h4w2" data-i18n="h4.w2">We build, deploy and operate AI agents, and teach your people to run them.</p>
-      <div class="who2"><button type="button" class="whob w-ent" data-folder="ent"><span data-i18n="who.ent">For enterprise</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="whob w-ind" data-folder="ind"><span data-i18n="who.ind">For individuals</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div>
+      <div class="who2"><button type="button" class="whob w-ent" data-folder="ent"><span data-i18n="who.ent">For enterprise</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="whob w-ind" data-folder="ind"><span data-i18n="who.ind">For individuals</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div><button type="button" class="mv-watch"><span class="mv-wi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span data-i18n="mv.watch">Watch: what we do in 30 seconds</span></button>
+    </div>
+  </section>
+  <section class="mvid" id="mvid">
+    <div class="wrap">
+      <div class="mv-head"><div class="eyebrow" data-i18n="mv.k">Moses Agentic in 30 seconds</div><h2 data-i18n="mv.t">See what we do</h2></div>
+      <div class="mv" id="mv"><div class="mv-stage" aria-live="polite"></div><div class="mv-ctrl"><button type="button" class="mv-pp"></button><div class="mv-ch"></div></div></div>
     </div>
   </section>
   <section class="cabinet" id="cabinet">
@@ -4272,7 +4348,45 @@ const T = {
     "Meeting notes and action items",
     "Billing and time tracking"
    ]
-  ]
+  ],
+  "mv.k": "Moses Agentic in 30 seconds",
+  "mv.t": "See what we do",
+  "mv.watch": "Watch: what we do in 30 seconds",
+  "mv.s0a": "AI agents that do the work.",
+  "mv.s0b": "Your people lead.",
+  "mv.s1": "Your team is buried in busywork.",
+  "mv.s1i": [
+   "Invoices",
+   "Reports",
+   "Emails",
+   "Payroll",
+   "Follow-ups",
+   "Leases"
+  ],
+  "mv.s2": "We build an AI agent for every role.",
+  "mv.s2i": [
+   "Front desk",
+   "Marketing",
+   "Finance",
+   "Operations",
+   "Investments",
+   "Payroll",
+   "Bookkeeping",
+   "Sales"
+  ],
+  "mv.s3": "They work around the clock.",
+  "mv.s3i": [
+   "Invoices matched to payments",
+   "Weekly report sent to you",
+   "New leads answered",
+   "Payroll checked against target"
+  ],
+  "mv.s4": "Proven in real businesses.",
+  "mv.s5": "Tell us what you need. We'll build it.",
+  "mv.ag": "See our agents",
+  "mv.play": "Play",
+  "mv.pause": "Pause",
+  "mv.replay": "Replay"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6264,7 +6378,45 @@ const T = {
     "נאטיצן פון מיטינגס און וואס צו טון",
     "בילינג און צייט נאכקוקן"
    ]
-  ]
+  ],
+  "mv.k": "Moses Agentic אין 30 סעקונדעס",
+  "mv.t": "זעט וואס מיר טוען",
+  "mv.watch": "קוקט: וואס מיר טוען, אין 30 סעקונדעס",
+  "mv.s0a": "AI אגענטן וואס טוען די ארבעט.",
+  "mv.s0b": "אייערע מענטשן פירן.",
+  "mv.s1": "אייער טיעם ערטרינקט אין קליינע ארבעט.",
+  "mv.s1i": [
+   "אינווייסעס",
+   "רעפארטס",
+   "אימעילס",
+   "פעירואל",
+   "פאלאו-אפס",
+   "ליסעס"
+  ],
+  "mv.s2": "מיר בויען א AI אגענט פאר יעדע ראלע.",
+  "mv.s2i": [
+   "פראנט דעסק",
+   "מארקעטינג",
+   "פינאנץ",
+   "אפערעישאנס",
+   "אינוועסטמענטס",
+   "פעירואל",
+   "בוכהאלטעריי",
+   "סעילס"
+  ],
+  "mv.s3": "זיי ארבעטן טאג און נאכט.",
+  "mv.s3i": [
+   "אינווייסעס צוגעפאסט צו פעימענטס",
+   "וועכנטליכער באריכט געשיקט צו אייך",
+   "נייע לידס באקומען ענטפער",
+   "פעירואל נאכגעקוקט קעגן דעם ציל"
+  ],
+  "mv.s4": "באוויזן אין אמת'ע ביזנעסער.",
+  "mv.s5": "זאגט אונז וואס איר דארפט. מיר בויען עס.",
+  "mv.ag": "זעט אונזערע אגענטן",
+  "mv.play": "שפילט",
+  "mv.pause": "שטעלט אפ",
+  "mv.replay": "נאכאמאל"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8256,7 +8408,45 @@ const T = {
     "סיכומי פגישות ומשימות",
     "חיוב ומעקב שעות"
    ]
-  ]
+  ],
+  "mv.k": "Moses Agentic ב-30 שניות",
+  "mv.t": "ראו מה אנחנו עושים",
+  "mv.watch": "צפו: מה אנחנו עושים ב-30 שניות",
+  "mv.s0a": "סוכני AI שעושים את העבודה.",
+  "mv.s0b": "האנשים שלכם מובילים.",
+  "mv.s1": "הצוות שלכם טובע בעבודה שחורה.",
+  "mv.s1i": [
+   "חשבוניות",
+   "דוחות",
+   "מיילים",
+   "שכר",
+   "מעקבים",
+   "חוזים"
+  ],
+  "mv.s2": "אנחנו בונים סוכן AI לכל תפקיד.",
+  "mv.s2i": [
+   "קבלה",
+   "שיווק",
+   "כספים",
+   "תפעול",
+   "השקעות",
+   "שכר",
+   "הנהלת חשבונות",
+   "מכירות"
+  ],
+  "mv.s3": "הם עובדים מסביב לשעון.",
+  "mv.s3i": [
+   "חשבוניות הותאמו לתשלומים",
+   "דוח שבועי נשלח אליכם",
+   "מענה ללידים חדשים",
+   "השכר נבדק מול היעד"
+  ],
+  "mv.s4": "הוכח בעסקים אמיתיים.",
+  "mv.s5": "ספרו לנו מה אתם צריכים. אנחנו נבנה את זה.",
+  "mv.ag": "לסוכנים שלנו",
+  "mv.play": "הפעלה",
+  "mv.pause": "השהיה",
+  "mv.replay": "שוב"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -10248,7 +10438,45 @@ const T = {
     "Notas de reuniones y tareas",
     "Facturación y control de horas"
    ]
-  ]
+  ],
+  "mv.k": "Moses Agentic en 30 segundos",
+  "mv.t": "Vea lo que hacemos",
+  "mv.watch": "Vea: lo que hacemos en 30 segundos",
+  "mv.s0a": "Agentes de IA que hacen el trabajo.",
+  "mv.s0b": "Su gente lidera.",
+  "mv.s1": "Su equipo está enterrado en tareas repetitivas.",
+  "mv.s1i": [
+   "Facturas",
+   "Informes",
+   "Emails",
+   "Nómina",
+   "Seguimientos",
+   "Contratos"
+  ],
+  "mv.s2": "Creamos un agente de IA para cada puesto.",
+  "mv.s2i": [
+   "Recepción",
+   "Marketing",
+   "Finanzas",
+   "Operaciones",
+   "Inversiones",
+   "Nómina",
+   "Contabilidad",
+   "Ventas"
+  ],
+  "mv.s3": "Trabajan las 24 horas.",
+  "mv.s3i": [
+   "Facturas conciliadas con pagos",
+   "Informe semanal enviado",
+   "Nuevos clientes respondidos",
+   "Nómina revisada contra el objetivo"
+  ],
+  "mv.s4": "Probado en negocios reales.",
+  "mv.s5": "Díganos qué necesita. Nosotros lo construimos.",
+  "mv.ag": "Ver nuestros agentes",
+  "mv.play": "Reproducir",
+  "mv.pause": "Pausa",
+  "mv.replay": "Repetir"
  }
 };
 
@@ -11574,6 +11802,65 @@ document.addEventListener("DOMContentLoaded", () => {
     return sv.apply(this, arguments);
   };
 });
+</script>
+<script>
+/* Front page: "Moses Agentic in 30 seconds" - an interactive animated video (6 chapters, tap to jump, pause, replay) */
+(function () {
+  if (CONFIG.site !== "moses") return;
+  const DUR = 5200, N = 6;
+  const IC = { play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>' };
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let box, stage, dots, pp, cur = 0, t0 = 0, acc = 0, playing = false, raf = 0, done = false, seen = false;
+  const L = k => t(k);
+  function scene(i) {
+    if (i === 0) return `<div class="mvs s0"><div class="mv-logo"><img src="/logo-mark.svg" alt=""></div><div class="mv-brand">Moses <span>Agentic</span></div><div class="mv-big">${esc(L("mv.s0a"))}</div><div class="mv-sub">${esc(L("mv.s0b"))}</div></div>`;
+    if (i === 1) return `<div class="mvs s1"><div class="mv-h">${esc(L("mv.s1"))}</div><div class="mv-pile">${L("mv.s1i").map((x, k) => `<span style="--k:${k};--r:${[-8, 6, -3, 9, -6, 4][k]}deg">${esc(x)}</span>`).join("")}</div></div>`;
+    if (i === 2) return `<div class="mvs s2"><div class="mv-h">${esc(L("mv.s2"))}</div><div class="mv-roles">${L("mv.s2i").map((x, k) => `<span style="--k:${k}"><i></i>${esc(x)}</span>`).join("")}</div></div>`;
+    if (i === 3) return `<div class="mvs s3"><div class="mv-h">${esc(L("mv.s3"))}</div><div class="mv-win"><div class="mv-wb"><b></b><b></b><b></b><span class="mv-clock"><i></i></span></div>${L("mv.s3i").map((x, k) => `<div class="mv-task" style="--k:${k}"><span class="mv-ck"></span><span>${esc(x)}</span><span class="mv-bar"><i></i></span></div>`).join("")}</div></div>`;
+    if (i === 4) return `<div class="mvs s4"><div class="mv-h">${esc(L("mv.s4"))}</div><div class="mv-stats">${t("tr.list").slice(0, 3).map((x, k) => `<div class="mv-stat" style="--k:${k}"><b data-to="${esc(x[0])}">${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join("")}</div></div>`;
+    return `<div class="mvs s5"><div class="mv-big">${esc(t("camp.a"))} <span>${esc(t("camp.b"))}</span></div><div class="mv-sub">${esc(L("mv.s5"))}</div><div class="mv-cta"><button type="button" class="mv-b1" data-contact data-msgtext="Front page video">${esc(t("mo.go"))} <span class="arrow">→</span></button><button type="button" class="mv-b2" data-folder="store">${esc(L("mv.ag"))} <span class="arrow">→</span></button></div></div>`;
+  }
+  function count(el) {
+    const to = el.dataset.to, m = to.match(/^(\D*)([\d,.]+)(.*)$/); if (!m || calm) return;
+    const num = parseFloat(m[2].replace(/,/g, "")), dec = (m[2].split(".")[1] || "").length, comma = m[2].includes(",");
+    const st = performance.now(), D = 1500;
+    const step = now => { if (!el.isConnected) return; const p = Math.min(1, (now - st) / D), v = num * (1 - Math.pow(1 - p, 3));
+      let s = dec ? v.toFixed(dec) : String(Math.round(v)); if (comma) s = Math.round(v).toLocaleString("en-US");
+      el.textContent = m[1] + s + m[3]; if (p < 1) requestAnimationFrame(step); };
+    setTimeout(() => requestAnimationFrame(step), 500 + (+el.parentNode.style.getPropertyValue("--k") || 0) * 250);
+  }
+  function show(i) {
+    cur = i; acc = 0; t0 = performance.now(); done = false;
+    stage.innerHTML = scene(i); stage.dataset.s = i;
+    stage.querySelectorAll(".mv-stat b").forEach(count);
+    dots.forEach((d, k) => { d.classList.toggle("on", k === i); d.classList.toggle("past", k < i); d.querySelector("i").style.width = k < i ? "100%" : "0%"; });
+    setPP();
+  }
+  function setPP() { pp.innerHTML = done ? IC.replay : playing ? IC.pause : IC.play; pp.setAttribute("aria-label", t(done ? "mv.replay" : playing ? "mv.pause" : "mv.play")); box.classList.toggle("paused", !playing); }
+  function tick(now) {
+    if (!playing) return;
+    const el = acc + (now - t0), p = Math.min(1, el / DUR);
+    dots[cur].querySelector("i").style.width = (p * 100) + "%";
+    if (p >= 1) { if (cur < N - 1) { show(cur + 1); } else { playing = false; done = true; setPP(); return; } }
+    raf = requestAnimationFrame(tick);
+  }
+  function play() { if (done) { show(0); } playing = true; t0 = performance.now(); setPP(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); try { if (!seen) { seen = true; track("video_play"); } } catch (x) {} }
+  function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); }
+  window.mvPlayFromStart = () => { show(0); play(); };
+  document.addEventListener("DOMContentLoaded", () => {
+    box = document.getElementById("mv"); if (!box) return;
+    stage = box.querySelector(".mv-stage"); pp = box.querySelector(".mv-pp");
+    const ch = box.querySelector(".mv-ch"); ch.innerHTML = Array.from({ length: N }, (_, k) => `<button type="button" class="mv-dot" aria-label="${k + 1}"><i></i></button>`).join("");
+    dots = [...ch.children];
+    dots.forEach((d, k) => d.addEventListener("click", () => { show(k); play(); }));
+    pp.addEventListener("click", () => playing ? pause() : play());
+    stage.addEventListener("click", e => { if (e.target.closest("button")) return; playing ? pause() : play(); });
+    show(0);
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting && en.intersectionRatio > .45) { if (!playing && !done && !box.dataset.user) play(); } else pause(); }), { threshold: [0, .45, .8] }).observe(box);
+    pp.addEventListener("click", () => { box.dataset.user = playing ? "" : "1"; });
+    document.addEventListener("click", e => { const w = e.target.closest(".mv-watch"); if (!w) return; e.preventDefault(); e.stopPropagation(); document.getElementById("mvid").scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(() => window.mvPlayFromStart(), 450); }, true);
+  });
+})();
 </script>
 </body>
 </html>

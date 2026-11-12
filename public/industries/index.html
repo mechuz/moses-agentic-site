@@ -1567,6 +1567,10 @@ html, body { overflow-x: clip; }
 .mv-ctrl { display: flex; align-items: center; gap: .8rem; padding: .7rem 1rem .9rem; background: rgba(6,24,46,.45); }
 .mv-pp { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; background: #C6F432; color: #0B2545; display: grid; place-items: center; cursor: pointer; }
 .mv-pp svg { width: 18px; height: 18px; }
+.mv-snd { flex: none; height: 40px; min-width: 40px; border-radius: 999px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.08); color: #FFFFFF; display: grid; place-items: center; cursor: pointer; animation: sndp 2s 3; }
+.mv-snd.on { background: #FFFFFF; color: #0B2545; animation: none; }
+.mv-snd svg { width: 20px; height: 20px; }
+@keyframes sndp { 50% { box-shadow: 0 0 0 6px rgba(198,244,50,.35); } }
 .mv-ch { flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
 .mv-dot { height: 22px; border: 0; background: none; padding: 9px 0; cursor: pointer; }
 .mv-dot i { display: block; height: 4px; width: 0; border-radius: 4px; background: #C6F432; box-shadow: -1000px 0 0 1000px rgba(255,255,255,.18) inset; }
@@ -1722,7 +1726,7 @@ body { top: 0 !important; }
   <section class="mvid" id="mvid">
     <div class="wrap">
       <div class="mv-head"><div class="eyebrow" data-i18n="mv.k">Moses Agentic in 30 seconds</div><h2 data-i18n="mv.t">See what we do</h2></div>
-      <div class="mv" id="mv"><div class="mv-stage" aria-live="polite"></div><div class="mv-ctrl"><button type="button" class="mv-pp"></button><div class="mv-ch"></div></div></div>
+      <div class="mv" id="mv"><div class="mv-stage" aria-live="polite"></div><div class="mv-ctrl"><button type="button" class="mv-pp"></button><div class="mv-ch"></div><button type="button" class="mv-snd"></button></div></div>
     </div>
   </section>
   <section class="cabinet" id="cabinet">
@@ -4393,7 +4397,9 @@ const T = {
   "mv.ag": "See our agents",
   "mv.play": "Play",
   "mv.pause": "Pause",
-  "mv.replay": "Replay"
+  "mv.replay": "Replay",
+  "mv.sound": "Turn sound on",
+  "mv.mute": "Mute"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6423,7 +6429,9 @@ const T = {
   "mv.ag": "זעט אונזערע אגענטן",
   "mv.play": "שפילט",
   "mv.pause": "שטעלט אפ",
-  "mv.replay": "נאכאמאל"
+  "mv.replay": "נאכאמאל",
+  "mv.sound": "שטעלט אן דעם קול",
+  "mv.mute": "שטיל"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8453,7 +8461,9 @@ const T = {
   "mv.ag": "לסוכנים שלנו",
   "mv.play": "הפעלה",
   "mv.pause": "השהיה",
-  "mv.replay": "שוב"
+  "mv.replay": "שוב",
+  "mv.sound": "הפעלת קול",
+  "mv.mute": "השתקה"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -10483,7 +10493,9 @@ const T = {
   "mv.ag": "Ver nuestros agentes",
   "mv.play": "Reproducir",
   "mv.pause": "Pausa",
-  "mv.replay": "Repetir"
+  "mv.replay": "Repetir",
+  "mv.sound": "Activar sonido",
+  "mv.mute": "Silenciar"
  }
 };
 
@@ -11815,9 +11827,9 @@ document.addEventListener("DOMContentLoaded", () => {
 (function () {
   if (CONFIG.site !== "moses") return;
   const DUR = 5200, N = 6;
-  const IC = { play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>' };
+  const IC = { snd0: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>', snd1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>', play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>' };
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let box, stage, dots, pp, cur = 0, t0 = 0, acc = 0, playing = false, raf = 0, done = false, seen = false;
+  let snd, au = null, sound = false, box, stage, dots, pp, cur = 0, t0 = 0, acc = 0, playing = false, raf = 0, done = false, seen = false;
   const L = k => t(k);
   function scene(i) {
     if (i === 0) return `<div class="mvs s0"><div class="mv-logo"><img src="/logo-mark.svg" alt=""></div><div class="mv-brand">Moses <span>Agentic</span></div><div class="mv-big">${esc(L("mv.s0a"))}</div><div class="mv-sub">${esc(L("mv.s0b"))}</div></div>`;
@@ -11843,6 +11855,14 @@ document.addEventListener("DOMContentLoaded", () => {
     dots.forEach((d, k) => { d.classList.toggle("on", k === i); d.classList.toggle("past", k < i); d.querySelector("i").style.width = k < i ? "100%" : "0%"; });
     setPP();
   }
+  function src() { return "/media/moses-30s-" + ((typeof lang === "string" && lang === "en") || typeof lang !== "string" ? "en" : "music") + ".mp3"; }
+  function syncA() {
+    if (!sound) { if (au) au.pause(); return; }
+    if (!au || !au.src.endsWith(src())) { if (au) au.pause(); au = new Audio(src()); au.preload = "auto"; }
+    if (playing) { const at = cur * DUR / 1000 + (acc + (performance.now() - t0)) / 1000; if (Math.abs(au.currentTime - at) > .25) { try { au.currentTime = at; } catch (x) {} } const pr = au.play(); if (pr && pr.catch) pr.catch(() => {}); }
+    else if (!done) au.pause();
+  }
+  function setSnd() { snd.innerHTML = sound ? IC.snd1 : IC.snd0; snd.setAttribute("aria-label", t(sound ? "mv.mute" : "mv.sound")); snd.classList.toggle("on", sound); }
   function setPP() { pp.innerHTML = done ? IC.replay : playing ? IC.pause : IC.play; pp.setAttribute("aria-label", t(done ? "mv.replay" : playing ? "mv.pause" : "mv.play")); box.classList.toggle("paused", !playing); }
   function tick(now) {
     if (!playing) return;
@@ -11851,12 +11871,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (p >= 1) { if (cur < N - 1) { show(cur + 1); } else { playing = false; done = true; setPP(); return; } }
     raf = requestAnimationFrame(tick);
   }
-  function play() { if (done) { show(0); } playing = true; t0 = performance.now(); setPP(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); try { if (!seen) { seen = true; track("video_play"); } } catch (x) {} }
-  function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); }
+  function play() { if (done) { show(0); } playing = true; t0 = performance.now(); setPP(); syncA(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); try { if (!seen) { seen = true; track("video_play"); } } catch (x) {} }
+  function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); syncA(); }
   window.mvPlayFromStart = () => { show(0); play(); };
   document.addEventListener("DOMContentLoaded", () => {
     box = document.getElementById("mv"); if (!box) return;
-    stage = box.querySelector(".mv-stage"); pp = box.querySelector(".mv-pp");
+    stage = box.querySelector(".mv-stage"); pp = box.querySelector(".mv-pp"); snd = box.querySelector(".mv-snd");
+    snd.addEventListener("click", () => { sound = !sound; setSnd(); if (sound && !playing) { box.dataset.user = ""; play(); } else syncA(); });
+    setSnd();
     const ch = box.querySelector(".mv-ch"); ch.innerHTML = Array.from({ length: N }, (_, k) => `<button type="button" class="mv-dot" aria-label="${k + 1}"><i></i></button>`).join("");
     dots = [...ch.children];
     dots.forEach((d, k) => d.addEventListener("click", () => { show(k); play(); }));

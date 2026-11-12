@@ -10084,7 +10084,7 @@ function renderMoses() {
   $("#h1m").innerHTML = esc(t("mo.title")).replace(/\[(.+?)\]/, '<span class="hl">$1</span>');
   $("#h1").innerHTML = esc(t("hero.title")).replace(/\[(.+?)\]/, '<span class="hl">$1</span>');
   $("#principles").innerHTML = t("why.pr").map(([h, p]) => `<div class="principle rise"><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
-  $("#svc").innerHTML = t("svc.list").map(([h, p], i) => `<div class="card rise">${CONFIG.site === "moses" ? `<span class="cph"><img src="/photos/${[333864459, 478443815, 659218843, 134902605, 405695461, 372856274][i]}.jpg" alt="" loading="lazy"></span>` : ""}<span class="ic">${MO_ICONS[i]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
+  $("#svc").innerHTML = t("svc.list").map(([h, p], i) => `<div class="card rise">${CONFIG.site === "moses" ? `<span class="cph"><img src="/photos/${[662814058, 307933256, 659218843, 435290092, 365677003, 209605883][i]}.jpg" alt="" loading="lazy"></span>` : ""}<span class="ic">${MO_ICONS[i]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
   $("#edu").innerHTML = t("eduh.list").map(([h, p], i) => `<div class="card rise"><span class="ic">${String(i + 1).padStart(2, "0")}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");
   $("#proclist").innerHTML = t("proc.list").map(([h, p]) => `<li><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join("");
   $("#mp-svc").innerHTML = t("svc.list").slice(0, 3).map(([h, p], i) => `<div class="card rise"><span class="ic">${MO_ICONS[i]}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("");

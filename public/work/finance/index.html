@@ -1441,7 +1441,7 @@ html.filing #overlay:not([hidden]) { z-index: 1100; }
 /* ===== Enterprise: calmer, with photos; repeats removed ===== */
 .site-moses #departments, .site-moses #usecases, .site-moses #practices, .site-moses #assetmgmt { display: none !important; }
 .site-moses .s-ent .four, .site-moses .s-ent .fctas .seminar-btn, .site-moses .con-alt, .site-moses .plearn, .site-moses #savings .result .btn { display: none !important; }
-.site-moses .s-ent .fintro { background: linear-gradient(100deg, rgba(11,37,69,.94) 0%, rgba(11,37,69,.82) 45%, rgba(11,37,69,.25) 100%), url(/photos/303492268.jpg) center / cover no-repeat !important; color: #FFFFFF !important; min-height: clamp(340px, 52vh, 520px); display: flex; flex-direction: column; justify-content: center; }
+.site-moses .s-ent .fintro { background: linear-gradient(100deg, rgba(11,37,69,.94) 0%, rgba(11,37,69,.82) 45%, rgba(11,37,69,.25) 100%), url(/photos/128699161.jpg) center / cover no-repeat !important; color: #FFFFFF !important; min-height: clamp(340px, 52vh, 520px); display: flex; flex-direction: column; justify-content: center; }
 .site-moses .s-ent .fintro .fh { color: #FFFFFF !important; max-width: 14ch; }
 .site-moses .s-ent .fintro .fp { color: rgba(255,255,255,.86) !important; max-width: 46ch; }
 .site-moses #svc .card { overflow: hidden; padding-top: 0 !important; }
@@ -1454,7 +1454,7 @@ html.filing #overlay:not([hidden]) { z-index: 1100; }
 .site-moses .s-ind .fintro { background: linear-gradient(180deg, rgba(11,37,69,.55) 0%, rgba(11,37,69,.9) 100%), url(/photos/466834864.jpg) center / cover no-repeat !important; color: #FFFFFF !important; }
 .site-moses .s-ind .fintro .camp-h, .site-moses .s-ind .fintro .camp-h span, .site-moses .s-ind .fintro .camp-h2, .site-moses .s-ind .fintro .fp { color: #FFFFFF !important; }
 .site-moses .s-ind .fintro .camp-h .camp-b { color: #C6F432 !important; }
-@media (max-width: 760px) { .site-moses .s-ent .fintro { background: linear-gradient(180deg, rgba(11,37,69,.78) 0%, rgba(11,37,69,.92) 100%), url(/photos/303492268.jpg) center / cover no-repeat !important; } }
+@media (max-width: 760px) { .site-moses .s-ent .fintro { background: linear-gradient(180deg, rgba(11,37,69,.78) 0%, rgba(11,37,69,.92) 100%), url(/photos/128699161.jpg) center / cover no-repeat !important; } }
 
 /* ===== Industries: photo cards ===== */
 .site-moses .icard { grid-template-columns: minmax(0, 1fr) auto !important; grid-template-rows: auto auto; padding: 0 0 1.3rem !important; align-items: center; background: #FFFFFF; box-shadow: 0 12px 30px -20px rgba(11,37,69,.45); }
@@ -10500,7 +10500,7 @@ function render() {
   $("#cases").innerHTML = [13, 15, 0].map(i => caseCard(i)).join("");
   renderCases();
   renderPractices();
-  $("#igrid").innerHTML = t("inds").map((n, i) => `<button type="button" class="icard" data-ind="${i}" data-fx>${CONFIG.site === "moses" ? `<span class="iph"><img src="/photos/${[286096322, 255623940, 112326694, 659218843, 703456915, 453762991, 320595902, 129778887, 326508468, 405695461][i]}.jpg" alt="" loading="lazy"></span>` : ""}<span><b>${esc(n)}</b><span class="l">${esc(t("ind.lines")[i])}</span></span><span class="go2">${ARROW}</span></button>`).join("");
+  $("#igrid").innerHTML = t("inds").map((n, i) => `<button type="button" class="icard" data-ind="${i}" data-fx>${CONFIG.site === "moses" ? `<span class="iph"><img src="/photos/${[443674785, 267872215, 112326694, 269411598, 703456915, 453762991, 320595902, 336387902, 326508468, 452489573][i]}.jpg" alt="" loading="lazy"></span>` : ""}<span><b>${esc(n)}</b><span class="l">${esc(t("ind.lines")[i])}</span></span><span class="go2">${ARROW}</span></button>`).join("");
   $("#ulines").innerHTML = t("urg.lines").map(([b, d]) => `<li class="rise"><b>${esc(b)}</b><span>${esc(d)}</span></li>`).join("");
   $("#chipcloud").innerHTML = t("inds").slice(0, 7).map(n => `<span>${esc(n)}</span>`).join("");
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);
@@ -10574,10 +10574,10 @@ function chartFor(i, rows = 4) {
 const HERO = ["+$254K", "$50.7K", "1.8 yrs", "62 → 1", "+$75K", "62%", "$48.4K", "401", "$B+", "Forensic", "Automated", "", "Days"];
 function sceneFor(k) { return SCENES[k] || SCENES[SCENES_ALIAS[k]] || SCENES.ops; }
 
-const PHOTO_MAP = {0:255623940,1:478443815,2:404512419,3:212456835,4:659218843,5:367582870,6:303492268,7:134902605,8:228081211,9:405695461,10:450280697,11:450479339,12:466834864,13:248739773,14:176932444,15:286096322,16:129778887,17:316758933,18:446545876,20:222508543,21:333864459,22:372856274,23:570162129,24:418557570};
-const IND_PHOTOS = { cre: [128699161, 286096322, 326508468, 428194278, 703456915], hc: [255623940, 446545876, 450479339, 570162129], fin: [248739773, 228081211, 659218843], ops: [478443815, 568744152, 303492268], mkt: [134902605, 525195939, 367582870], web: [372856274, 466834864, 332276939] };
-const TILE_PHOTO = { cre: 128699161, hc: 255623940, fin: 248739773, ops: 478443815, mkt: 134902605, web: 372856274 };
-const HERO_PHOTO = { cre: 443674785, hc: 362189788, fin: 321696862, ops: 212456835, mkt: 525195939, web: 332276939 };
+const PHOTO_MAP = {0:255623940,1:478443815,2:404512419,3:212456835,4:368074217,5:531474408,6:303492268,7:132185326,8:228081211,9:405695461,10:450280697,11:450479339,12:372856274,13:248739773,14:176932444,15:286096322,16:129778887,17:316758933,18:446545876,20:222508543,21:333864459,22:178263350,23:570162129,24:418557570};
+const IND_PHOTOS = {};
+const TILE_PHOTO = {};
+const HERO_PHOTO = { cre: 428194278, hc: 362189788, fin: 321696862, ops: 568744152, mkt: 314059173, web: 332276939 };
 const phSrc = id => "/photos/" + id + ".jpg";
 function gBanner(k) { const p = IND_PHOTOS[k]; return p ? `<div class="gban" style="grid-template-columns: 2fr repeat(${p.length - 1}, 1fr)">${p.map(id => `<img src="${phSrc(id)}" alt="" loading="lazy">`).join("")}</div>` : ""; }
 function pheroBg(k) { return HERO_PHOTO[k] ? `background-image: linear-gradient(100deg, rgba(11,37,69,.92) 0%, rgba(11,37,69,.72) 45%, rgba(26,115,232,.25) 100%), url(${phSrc(HERO_PHOTO[k])}); background-size: cover; background-position: center;` : ""; }
@@ -10592,9 +10592,10 @@ function renderCases() {
   $("#cfilters").innerHTML = inds.map(([k, n]) => `<button type="button" data-cf="${k}" aria-pressed="${k === csFilter}">${esc(n)}</button>`).join("");
   $("#cv-feature").innerHTML = all ? caseCard(8, true)
     : `<div class="phero rise" style="${pheroBg(csFilter)}"><div class="eyebrow">${esc(t("pr.eyebrow"))}</div><h2>${esc(t("pr.hero", { x: prName(csFilter) }))}</h2><p>${esc(prLine(csFilter))}</p><button type="button" class="btn big" data-contact data-msgtext="${esc(t("pr.cta", { x: prName(csFilter) }))}" data-fx>${esc(t("pr.cta", { x: prName(csFilter) }))} <span class="arrow">→</span></button></div>`;
-  const count = k => CASE_IND.filter(x => x.includes(k)).length;
+  const inG = (x, i, k) => all ? (x[0] === k && i !== 8) : x.includes(k);
+  const count = k => CASE_IND.filter((x, i) => inG(x, i, k)).length;
   $("#cv-groups").innerHTML = inds.filter(([k]) => k !== "all" && (all || k === csFilter)).map(([k, n]) => {
-    const ids = CASE_IND.map((x, i) => x.includes(k) ? i : -1).filter(i => i >= 0).sort((p, q) => (CASE_FIRST.indexOf(p) + 1 || 99) - (CASE_FIRST.indexOf(q) + 1 || 99));
+    const ids = CASE_IND.map((x, i) => inG(x, i, k) ? i : -1).filter(i => i >= 0).sort((p, q) => (CASE_FIRST.indexOf(p) + 1 || 99) - (CASE_FIRST.indexOf(q) + 1 || 99));
     return ids.length ? `<section class="cgroup">${gBanner(k)}<div class="cgroup-h"><h2>${esc(n)}</h2><span>${esc(count(k) === 1 ? t("cs.count1") : t("cs.count", { n: count(k) }))}</span></div><div class="cgrid">${ids.map(i => caseCard(i)).join("")}</div></section>` : "";
   }).join("");
 }
@@ -11548,7 +11549,7 @@ document.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === 
 <script>
 /* Industries: each card opens its own page (photo, what AI does, our work, request) */
 window.openInd = function (i) {
-  const IP = [286096322, 255623940, 112326694, 659218843, 703456915, 453762991, 320595902, 129778887, 326508468, 405695461];
+  const IP = [443674785, 267872215, 112326694, 269411598, 703456915, 453762991, 320595902, 336387902, 326508468, 452489573];
   const PR = { 0: "cre", 1: "hc", 3: "fin" };
   const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
   const name = t("inds")[i], enName = (T.en.inds || [])[i] || name;

@@ -1692,6 +1692,20 @@ footer .locs { margin: .2rem 0 .8rem; }
 .mv-ctrl, .sv-ctrl { background: none !important; border: 0 !important; }
 .mv-ctrl { position: absolute !important; inset-inline: 0; bottom: 0; z-index: 2; }
 .abk-cnt span { font: 700 clamp(.9rem, 1.6vw, 1.15rem)/1.25 var(--f-body); }
+
+/* ===== front page: "click anywhere to part the sea" cue ===== */
+.h3hint { display: none; }
+.site-moses .hero3 .h3hint { display: inline-flex; align-items: center; gap: .7rem; margin: 1.1rem auto 0; padding: .55rem 1.1rem .55rem .6rem; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); color: #FFFFFF; font: 800 clamp(.95rem, 1.6vw, 1.1rem)/1.2 var(--f-display); letter-spacing: -.01em; animation: h3bob 2.4s ease-in-out infinite; pointer-events: none; }
+.site-moses .hero3.parted .h3hint, .site-moses .hero3.parting .h3hint { display: none; }
+.h3hint .ht { display: none; }
+@media (hover: none), (pointer: coarse) { .h3hint .hc { display: none; } .h3hint .ht { display: inline; } }
+.h3tap { position: relative; width: 30px; height: 30px; flex: none; border-radius: 50%; background: #C6F432; }
+.h3tap::before, .h3tap i { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #C6F432; animation: h3ring 1.8s ease-out infinite; }
+.h3tap i { animation-delay: .9s; }
+.h3tap::after { content: ""; position: absolute; inset: 10px; border-radius: 50%; background: #0B2545; }
+@keyframes h3ring { from { transform: scale(1); opacity: .9; } to { transform: scale(2.3); opacity: 0; } }
+@keyframes h3bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@media (prefers-reduced-motion: reduce) { .h3hint, .h3tap::before, .h3tap i { animation: none !important; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1822,7 +1836,7 @@ body { top: 0 !important; }
       <p class="h6lead" data-i18n="h6.lead">AI does the work. Your people lead.</p>
       <p class="h5msg" data-i18n="h5.msg">We build, deploy and operate AI agents, and teach your people to run them.</p>
       <p class="h4w2" data-i18n="h4.w2">We build, deploy and operate AI agents, and teach your people to run them.</p>
-      <div class="who2"><button type="button" class="whob w-ent" data-folder="ent"><span data-i18n="who.ent">For enterprise</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="whob w-ind" data-folder="ind"><span data-i18n="who.ind">For individuals</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div><button type="button" class="mv-watch"><span class="mv-wi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span data-i18n="mv.watch">Watch: what we do in 30 seconds</span></button>
+      <div class="who2"><button type="button" class="whob w-ent" data-folder="ent"><span data-i18n="who.ent">For enterprise</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="whob w-ind" data-folder="ind"><span data-i18n="who.ind">For individuals</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div><button type="button" class="mv-watch"><span class="mv-wi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span data-i18n="mv.watch">Watch: what we do in 30 seconds</span></button><p class="h3hint" aria-hidden="true"><span class="h3tap"><i></i></span><span class="hc" data-i18n="hint.click">Click anywhere to part the sea</span><span class="ht" data-i18n="hint.tap">Tap anywhere to part the sea</span></p>
     </div>
   </section>
   <section class="mvid" id="mvid">
@@ -4645,7 +4659,9 @@ const T = {
     "Writes a branded proposal with the savings against hiring",
     "Designs a website concept and a narrated video"
    ]
-  ]
+  ],
+  "hint.click": "Click anywhere to part the sea",
+  "hint.tap": "Tap anywhere to part the sea"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6814,7 +6830,9 @@ const T = {
     "שרייבט א פראפאזעל מיט אייער בראנד, מיט וויפיל מען שפארט קעגן אננעמען מענטשן",
     "דיזיינט א וועבסייט קאנצעפט און א ווידעא מיט א נערעיטער"
    ]
-  ]
+  ],
+  "hint.click": "קליקט ערגעץ וואו צו שפאלטן דעם ים",
+  "hint.tap": "דריקט ערגעץ וואו צו שפאלטן דעם ים"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8983,7 +9001,9 @@ const T = {
     "כותבת הצעה ממותגת עם החיסכון מול גיוס עובדים",
     "מעצבת קונספט לאתר וסרטון עם קריינות"
    ]
-  ]
+  ],
+  "hint.click": "לחצו בכל מקום כדי לבקוע את הים",
+  "hint.tap": "געו בכל מקום כדי לבקוע את הים"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -11152,7 +11172,9 @@ const T = {
     "Redacta una propuesta con su marca y el ahorro frente a contratar",
     "Diseña un concepto de sitio web y un video narrado"
    ]
-  ]
+  ],
+  "hint.click": "Haga clic en cualquier lugar para abrir el mar",
+  "hint.tap": "Toque en cualquier lugar para abrir el mar"
  }
 };
 

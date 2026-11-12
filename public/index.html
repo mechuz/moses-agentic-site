@@ -1695,6 +1695,8 @@ footer .locs { margin: .2rem 0 .8rem; }
 .abk-cnt { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.6rem, 2vw, 1.4rem); width: 100%; }
 .abk-cnt div { display: grid; gap: .3rem; animation: svin .5s calc(.2s + var(--k) * .5s) both; }
 .abk-cnt b { font: 900 clamp(2.4rem, 6vw, 4.4rem)/.9 var(--f-display); color: #C6F432; letter-spacing: -.05em; }
+/* teamlink phone tap target: 44px, visible outline so it reads as a button */
+@media (max-width: 900px) { .site-moses .teamlink { min-width: 44px; min-height: 44px; justify-content: center; padding: 0 !important; border: 1px solid rgba(11,37,69,.22) !important; border-radius: 12px; position: relative; z-index: 5; touch-action: manipulation; } .site-moses .teamlink svg { width: 20px; height: 20px; } }
 /* videos: no progress lines along the bottom, only the play and sound buttons */
 .mv-ch, .sv-track { visibility: hidden !important; }
 .mv-ctrl, .sv-ctrl { background: none !important; border: 0 !important; }

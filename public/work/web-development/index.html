@@ -1676,28 +1676,25 @@ footer .locs { margin: .2rem 0 .8rem; }
 .srv-prod { background: #C6F432 !important; color: #0B2545 !important; border-color: #C6F432 !important; cursor: default; }
 @media (prefers-reduced-motion: reduce) { .svs, .svs * { animation-duration: .01s !important; animation-delay: 0s !important; } }
 
-/* ===== AbraKadabra spotlight ===== */
+/* ===== AbraKadabra: compact strip; the demo opens on request ===== */
 .abk { display: none; }
-.site-moses main[data-page="home"] > #abk:not(#hero3):not(#cabinet):not(#agents), .site-moses .abk { display: block !important; background: #C6F432; color: #0B2545; padding: clamp(3rem, 7vw, 5.5rem) 0; overflow: hidden; }
+.site-moses main[data-page="home"] > #abk:not(#hero3):not(#cabinet):not(#agents), .site-moses .abk { display: block !important; background: #C6F432; color: #0B2545; padding: clamp(1.1rem, 2.4vw, 1.6rem) 0; }
 .site-chocham .abk { display: none !important; }
-.abk-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(1.6rem, 4vw, 3.4rem); align-items: center; }
-@media (max-width: 900px) { .abk-grid { grid-template-columns: minmax(0, 1fr); } }
-.abk .eyebrow { color: #0B2545; opacity: .75; }
-.abk-name { font: 900 clamp(2.6rem, 5.4vw, 5.4rem)/.95 var(--f-display); letter-spacing: -.055em; margin: .3rem 0 0; white-space: nowrap; }
-@media (max-width: 900px) { .abk-name { font-size: clamp(2.6rem, 13vw, 5rem); } }
-.abk-v .sv-big.sm { font-size: clamp(1.4rem, 3vw, 2.4rem); max-width: 20ch; }
-.abk-tag { font: 800 clamp(1.3rem, 2.8vw, 2.1rem)/1.15 var(--f-display); letter-spacing: -.025em; margin-top: .9rem; max-width: 24ch; }
-.abk-steps { list-style: none; counter-reset: ab; padding: 0; margin: 1.5rem 0 0; display: grid; gap: .6rem; }
-.abk-steps li { counter-increment: ab; display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); align-items: center; gap: .7rem; font: 700 clamp(1rem, 1.6vw, 1.15rem)/1.35 var(--f-body); }
-.abk-steps li::before { content: counter(ab); width: 2.1rem; height: 2.1rem; border-radius: 50%; background: #0B2545; color: #C6F432; display: grid; place-items: center; font: 900 1rem/1 var(--f-display); }
-.abk-btns { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 1.8rem; }
-.abk .btn.big { background: #0B2545; color: #FFFFFF; }
-.abk-watch { width: 58px; height: 58px; border-radius: 50%; border: 2px solid #0B2545; background: transparent; color: #0B2545; display: grid; place-items: center; cursor: pointer; }
-.abk-watch svg { width: 22px; height: 22px; }
-.abk-v { background: radial-gradient(120% 120% at 85% 0%, #1A73E8 0%, #0F3B7A 38%, #0B2545 72%); color: #FFFFFF; }
+.abk-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+.abk-copy { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.4rem; }
+.abk .eyebrow { display: none; }
+.abk-name { font: 900 clamp(1.6rem, 3vw, 2.3rem)/1 var(--f-display); letter-spacing: -.045em; margin: 0; white-space: nowrap; }
+.abk-tag { font: 700 clamp(.98rem, 1.5vw, 1.15rem)/1.3 var(--f-body); margin: 0; flex: 1 1 22rem; max-width: 46ch; }
+.abk-btns { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0; }
+.abk .abk-btns .btn.big { background: #0B2545; color: #FFFFFF; padding: .62rem 1.1rem !important; font-size: 1rem !important; min-height: 0 !important; box-shadow: none; }
+.abk-watch { display: inline-flex; align-items: center; gap: .45rem; border: 2px solid #0B2545; background: transparent; color: #0B2545; border-radius: 999px; padding: .6rem 1rem; font: 800 1rem/1 var(--f-display); cursor: pointer; }
+.abk-watch svg { width: 16px; height: 16px; }
+.abk-v { display: none; width: 100%; max-width: 760px; justify-self: center; background: radial-gradient(120% 120% at 85% 0%, #1A73E8 0%, #0F3B7A 38%, #0B2545 72%); color: #FFFFFF; }
+.abk.open .abk-v { display: block; }
+.abk-v .sv-big.sm { font-size: clamp(1.3rem, 2.8vw, 2.2rem); max-width: 20ch; }
 .abk-cnt { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.6rem, 2vw, 1.4rem); width: 100%; }
 .abk-cnt div { display: grid; gap: .3rem; animation: svin .5s calc(.2s + var(--k) * .5s) both; }
-.abk-cnt b { font: 900 clamp(2.6rem, 7vw, 5rem)/.9 var(--f-display); color: #C6F432; letter-spacing: -.05em; }
+.abk-cnt b { font: 900 clamp(2.4rem, 6vw, 4.4rem)/.9 var(--f-display); color: #C6F432; letter-spacing: -.05em; }
 /* videos: no progress lines along the bottom, only the play and sound buttons */
 .mv-ch, .sv-track { visibility: hidden !important; }
 .mv-ctrl, .sv-ctrl { background: none !important; border: 0 !important; }
@@ -1848,8 +1845,7 @@ body { top: 0 !important; }
         <div class="eyebrow" data-i18n="abk.k">Our proposal app</div>
         <h2 class="abk-name" data-i18n="abk.n">AbraKadabra</h2>
         <p class="abk-tag" data-i18n="abk.tag">From idea to proposal, with a full video presentation, in minutes.</p>
-        <ol class="abk-steps" id="abksteps"></ol>
-        <div class="abk-btns"><button type="button" class="btn big" data-contact data-msgtext="AbraKadabra demo"><span data-i18n="abk.cta">See it for your business</span> <span class="arrow">→</span></button><button type="button" class="abk-watch" data-abk-play aria-label="Play"><span class="mv-wi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div>
+                <div class="abk-btns"><button type="button" class="btn big" data-contact data-msgtext="AbraKadabra demo"><span data-i18n="abk.cta">See it for your business</span> <span class="arrow">→</span></button><button type="button" class="abk-watch" data-abk-play><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span data-i18n="abk.watch">Watch the demo</span></button></div>
       </div>
       <div class="sv abk-v" id="abkv"><div class="sv-stage" aria-live="polite"></div><div class="sv-ctrl"><button type="button" class="sv-pp"></button><div class="sv-track"><i></i></div><button type="button" class="sv-snd"></button></div></div>
     </div>
@@ -4647,7 +4643,8 @@ const T = {
     "commercials"
    ]
   ],
-  "abk.cta": "See it for your business"
+  "abk.cta": "See it for your business",
+  "abk.watch": "Watch the demo"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6795,7 +6792,8 @@ const T = {
     "קאמערשעלס"
    ]
   ],
-  "abk.cta": "זעט עס פאר אייער ביזנעס"
+  "abk.cta": "זעט עס פאר אייער ביזנעס",
+  "abk.watch": "קוקט די דעמא"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8943,7 +8941,8 @@ const T = {
     "פרסומות"
    ]
   ],
-  "abk.cta": "ראו את זה לעסק שלכם"
+  "abk.cta": "ראו את זה לעסק שלכם",
+  "abk.watch": "צפו בהדגמה"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -11091,7 +11090,8 @@ const T = {
     "comerciales"
    ]
   ],
-  "abk.cta": "Véalo para su negocio"
+  "abk.cta": "Véalo para su negocio",
+  "abk.watch": "Vea la demostración"
  }
 };
 
@@ -12626,7 +12626,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tog = () => { box.dataset.user = playing ? "1" : ""; playing ? pause() : play(); };
     pp.addEventListener("click", tog); stage.addEventListener("click", tog);
     snd.addEventListener("click", () => { sound = !sound; setSnd(); if (sound && !playing) { box.dataset.user = ""; play(); } else syncA(); });
-    document.addEventListener("click", e => { if (e.target.closest("[data-abk-play]")) { e.preventDefault(); sound = true; setSnd(); box.dataset.user = ""; box.scrollIntoView({ behavior: "smooth", block: "center" }); show(0); play(); } });
+    document.addEventListener("click", e => { if (e.target.closest("[data-abk-play]")) { e.preventDefault(); const sec = document.getElementById("abk"); if (sec) sec.classList.add("open"); sound = true; setSnd(); box.dataset.user = ""; box.scrollIntoView({ behavior: "smooth", block: "center" }); show(0); play(); } });
     show(0); setSnd();
     if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) pause(); else if (!playing && !done && !box.dataset.user) play(); }), { threshold: .45 }).observe(box);
   });

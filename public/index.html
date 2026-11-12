@@ -1736,9 +1736,32 @@ footer .locs { margin: .2rem 0 .8rem; }
 .cs2-len input:focus-visible + span { outline: 3px solid #C6F432; }
 .cs2-note { font: 500 .88rem/1.45 var(--f-body); color: #5A6B85; margin: 0; }
 .s-store .sprod .scard .cs2-p { display: block !important; margin-top: .6rem; font: 900 1.05rem/1.2 var(--f-display) !important; color: #1A73E8 !important; }
-.s-store .sprod .stier-s { display: block !important; }
-.s-store .sprod .scard { height: auto !important; max-height: none !important; aspect-ratio: auto !important; overflow: visible !important; }
-.s-store .sprod .sgrid { align-items: stretch; }
+.cs2-step { font: 800 .75rem var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: #5A6B85; margin: 0 0 -.4rem; }
+.cs2-len i { font: 800 .7rem var(--f-body); font-style: normal; letter-spacing: .06em; text-transform: uppercase; color: #0B2545; background: #C6F432; border-radius: 999px; padding: .15rem .5rem; justify-self: center; }
+.sp-feats { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .45rem .9rem; }
+.sp-feats legend { font: 700 .9rem var(--f-body); color: #0B2545; margin-bottom: .4rem; }
+.sp-feats .chk { display: flex; align-items: center; gap: .5rem; font: 600 .95rem var(--f-body); }
+.sp-feats .chk input { width: 18px; height: 18px; accent-color: #1A73E8; }
+@media (max-width: 560px) { .sp-feats { grid-template-columns: 1fr; } }
+.shop-cart { border: 1px solid #C9D6E8; border-radius: 16px; padding: .9rem 1rem; background: #F7FAFF; display: grid; gap: .45rem; }
+.shop-cart h3, .sp-h { font: 800 .8rem var(--f-body); letter-spacing: .1em; text-transform: uppercase; color: #5A6B85; margin: 0; }
+.sc-row { display: flex; justify-content: space-between; gap: 1rem; font: 600 .98rem/1.35 var(--f-body); color: #0B2545; }
+.sc-row b { white-space: nowrap; }
+.sc-tot { border-top: 1px solid #C9D6E8; padding-top: .55rem; margin-top: .2rem; font: 900 1.15rem var(--f-display); }
+.sc-tot b { color: #1A73E8; }
+.shop-nav { display: flex; gap: .7rem; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.shop-nav .btn.ghost { background: transparent; border: 2px solid #C9D6E8; color: #0B2545; }
+
+
+/* ===== top-menu dropdowns ===== */
+.site-moses [data-dd]::after { content: ""; display: inline-block; width: .42em; height: .42em; margin-inline-start: .45em; border: solid currentColor; border-width: 0 2px 2px 0; transform: translateY(-.15em) rotate(45deg); opacity: .7; transition: transform .2s; }
+.site-moses [data-dd][aria-expanded="true"]::after { transform: translateY(.05em) rotate(-135deg); }
+.ddm { position: fixed; z-index: 2000; min-width: 240px; max-width: min(360px, calc(100vw - 32px)); max-height: calc(100vh - 120px); overflow: auto; background: #FFFFFF; border-radius: 16px; box-shadow: 0 24px 60px -18px rgba(11,37,69,.45), 0 0 0 1px rgba(11,37,69,.08); padding: .45rem; display: grid; gap: 2px; animation: ddin .16s ease-out both; }
+.ddm.ph { left: 16px; right: 16px; max-width: none; }
+@keyframes ddin { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.ddm .dd-i { display: block; width: 100%; text-align: start; background: none; border: 0; border-radius: 10px; padding: .7rem .85rem; font: 700 .98rem/1.25 var(--f-body); color: #0B2545; cursor: pointer; text-decoration: none; }
+.ddm .dd-i:first-child { font-weight: 800; color: #1A73E8; }
+.ddm .dd-i:hover, .ddm .dd-i:focus-visible { background: #EAF3FF; outline: 0; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1845,11 +1868,11 @@ body { top: 0 !important; }
   <div class="wrap">
     <a class="brand" href="#" data-home><img class="brand-logo" src="/logo-full.png" alt="Moses Agentic" width="1009" height="114"><img class="brand-mark" src="/logo-mark.svg" alt="Moses Agentic" width="580" height="340"><span class="mark">M</span><span class="name" data-brand></span></a>
     <nav class="nav" aria-label="Sections">
-      <button type="button" class="nav-hire" data-folder="store" data-i18n="nav.hire">Our Agents</button>
-      <button type="button" data-folder="ent" data-i18n="nav.services">Services</button>
+      <button type="button" class="nav-hire" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false" data-i18n="nav.hire">Our Agents</button>
+      <button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false" data-i18n="nav.services">Services</button>
       <button type="button" data-view="education" data-i18n="nav.edu">Education</button>
-      <button type="button" data-view="industries" data-i18n="nav.ind">Industries</button>
-      <button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button>
+      <button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false" data-i18n="nav.ind">Industries</button>
+      <button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false" data-i18n="nav.cases">Case Studies</button>
     </nav>
     <div class="langs" role="group" aria-label="Language" id="langs"></div>
     <a class="teamlink" href="https://claude.ai/artifact/3XdfCAgPBe2vmtahkN69aK" target="_blank" rel="noopener" title="Team prospect tracker (Max and Eddie)" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
@@ -4778,28 +4801,48 @@ const T = {
   "wb.submit": "Send my order · $250 a month",
   "wb.note": "No payment now. We review your order, confirm the details, then send you the subscription link.",
   "wb.done_s": "Thank you. We'll review your order and send you the next steps.",
-  "prod.list": [
-   [
-    "consult",
-    "AI consulting",
-    "Book time with one of our advisors: our services, our products, or how to use AI.",
-    [
-     "Questions about our services and agents",
-     "Hands-on help using AI in your work",
-     "Advice on where AI fits your business"
-    ]
-   ],
-   [
-    "web",
-    "Your website, built for you",
-    "A fully designed and built website, up to 10 pages, for one monthly price.",
-    [
-     "Up to 10 pages, designed for your brand",
-     "Fully built and launched for you",
-     "One price: $250 a month"
-    ]
-   ]
-  ]
+  "dd.all_agents": "All agents",
+  "dd.exec": "Executive agents",
+  "dd.spec": "Specialist agents",
+  "dd.custom": "Build a custom agent",
+  "dd.all_serv": "All services",
+  "dd.web": "Websites",
+  "dd.consult": "AI consulting",
+  "dd.learn": "Learn AI: seminars",
+  "dd.all_ind": "All industries",
+  "dd.all_cs": "All case studies",
+  "shop.next": "Continue",
+  "shop.back": "Back",
+  "shop.cart": "Your order",
+  "shop.total": "Total",
+  "shop.checkout": "Checkout",
+  "shop.place": "Place my order",
+  "shop.month": "a month",
+  "shop.incl": "Included",
+  "shop.quote": "Custom quote",
+  "shop.step": "Step {n} of 3",
+  "shop.paynote": "No card needed now. We confirm your order and email you a secure payment link.",
+  "shop.contact": "Your details",
+  "cs2.s1": "What do you need help with?",
+  "cs2.s2": "Choose your session",
+  "cs2.rec": "Suggested",
+  "cs2.line": "AI consulting session",
+  "wb.s1": "Tell us about your website",
+  "wb.type": "What kind of business is it?",
+  "wb.feat": "What should the site do?",
+  "wb.feats": [
+   "Show your services and information",
+   "Online booking",
+   "Online store and payments",
+   "Lead and contact forms",
+   "Blog",
+   "More than one language"
+  ],
+  "wb.pagesn": "How many pages?",
+  "wb.more": "More than 10 pages",
+  "wb.line": "Website: designed, built and run for you",
+  "wb.pg": "{n} pages",
+  "wb.mq": "Sites over 10 pages are quoted after we review your request."
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -7054,28 +7097,48 @@ const T = {
   "wb.submit": "שיקט מיין באשטעלונג · $250 א חודש",
   "wb.note": "קיין צאלונג יעצט נישט. מיר קוקן איבער אייער באשטעלונג, באשטעטיגן די פרטים, און דאן שיקן מיר אייך דעם לינק פאר די סובסקריפשאן.",
   "wb.done_s": "א דאנק. מיר וועלן איבערקוקן אייער באשטעלונג און אייך שיקן די ווייטערדיגע טריט.",
-  "prod.list": [
-   [
-    "consult",
-    "AI קאנסאלטינג",
-    "בוקט צייט מיט איינעם פון אונזערע עדווייזערס: אונזערע סערוויסעס, אונזערע פראדוקטן, אדער ווי אזוי צו ניצן AI.",
-    [
-     "פראגעס וועגן אונזערע סערוויסעס און אגענטן",
-     "הילף צו ניצן AI אין אייער ארבעט",
-     "עצות וואו AI פאסט אריין אין אייער ביזנעס"
-    ]
-   ],
-   [
-    "web",
-    "אייער וועבסייט, געבויט פאר אייך",
-    "א פולשטענדיג דיזיינטער און געבויטער וועבסייט, ביז 10 זייטן, פאר איין חודש'ליכן פרייז.",
-    [
-     "ביז 10 זייטן, דיזיינט פאר אייער בראנד",
-     "אינגאנצן געבויט און ארויסגעלאזט פאר אייך",
-     "איין פרייז: $250 א חודש"
-    ]
-   ]
-  ]
+  "dd.all_agents": "אלע אגענטן",
+  "dd.exec": "עקזעקיוטיוו אגענטן",
+  "dd.spec": "ספעציאליסט אגענטן",
+  "dd.custom": "בויט א באזונדערן אגענט",
+  "dd.all_serv": "אלע סערוויסעס",
+  "dd.web": "וועבסייטס",
+  "dd.consult": "AI קאנסאלטינג",
+  "dd.learn": "לערנט AI: סעמינארן",
+  "dd.all_ind": "אלע אינדוסטריעס",
+  "dd.all_cs": "אלע קעיס סטאדיס",
+  "shop.next": "ווייטער",
+  "shop.back": "צוריק",
+  "shop.cart": "אייער באשטעלונג",
+  "shop.total": "סך הכל",
+  "shop.checkout": "צאלן",
+  "shop.place": "שיקט מיין באשטעלונג",
+  "shop.month": "א חודש",
+  "shop.incl": "אריינגערעכנט",
+  "shop.quote": "באזונדערע פרייז",
+  "shop.step": "שריט {n} פון 3",
+  "shop.paynote": "מען דארף נישט קיין קארטל יעצט. מיר באשטעטיגן אייער באשטעלונג און שיקן אייך א זיכערן לינק צו צאלן.",
+  "shop.contact": "אייערע פרטים",
+  "cs2.s1": "מיט וואס דארפט איר הילף?",
+  "cs2.s2": "קלייבט אייער סעסיע",
+  "cs2.rec": "פארגעשלאגן",
+  "cs2.line": "AI קאנסאלטינג סעסיע",
+  "wb.s1": "דערציילט אונז וועגן אייער וועבסייט",
+  "wb.type": "וואספארא ביזנעס איז עס?",
+  "wb.feat": "וואס זאל דער סייט טון?",
+  "wb.feats": [
+   "ווייזן אייערע סערוויסעס און אינפארמאציע",
+   "בוקן אנליין",
+   "אנליין געשעפט און צאלונגען",
+   "פארמס פאר לידס און קאנטאקט",
+   "בלאג",
+   "מער ווי איין שפראך"
+  ],
+  "wb.pagesn": "וויפיל זייטן?",
+  "wb.more": "מער ווי 10 זייטן",
+  "wb.line": "וועבסייט: דיזיינט, געבויט און געפירט פאר אייך",
+  "wb.pg": "{n} זייטן",
+  "wb.mq": "סייטס מיט מער ווי 10 זייטן באקומען א פרייז נאכדעם וואס מיר קוקן איבער אייער בקשה."
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -9330,28 +9393,48 @@ const T = {
   "wb.submit": "שלחו את ההזמנה · $250 לחודש",
   "wb.note": "אין תשלום עכשיו. נבדוק את ההזמנה, נאשר את הפרטים ונשלח לכם קישור למנוי.",
   "wb.done_s": "תודה. נבדוק את ההזמנה ונשלח לכם את הצעדים הבאים.",
-  "prod.list": [
-   [
-    "consult",
-    "ייעוץ AI",
-    "קבעו זמן עם אחד היועצים שלנו: השירותים שלנו, המוצרים שלנו, או איך להשתמש ב-AI.",
-    [
-     "שאלות על השירותים והסוכנים שלנו",
-     "עזרה מעשית בשימוש ב-AI בעבודה",
-     "ייעוץ היכן AI מתאים לעסק שלכם"
-    ]
-   ],
-   [
-    "web",
-    "האתר שלכם, בנוי בשבילכם",
-    "אתר מעוצב ובנוי במלואו, עד 10 עמודים, במחיר חודשי אחד.",
-    [
-     "עד 10 עמודים, מעוצבים למותג שלכם",
-     "בנוי ומושק במלואו בשבילכם",
-     "מחיר אחד: $250 לחודש"
-    ]
-   ]
-  ]
+  "dd.all_agents": "כל הסוכנים",
+  "dd.exec": "סוכנים בכירים",
+  "dd.spec": "סוכנים מומחים",
+  "dd.custom": "בנו סוכן מותאם",
+  "dd.all_serv": "כל השירותים",
+  "dd.web": "אתרים",
+  "dd.consult": "ייעוץ AI",
+  "dd.learn": "למדו AI: סמינרים",
+  "dd.all_ind": "כל התעשיות",
+  "dd.all_cs": "כל מקרי הבוחן",
+  "shop.next": "המשך",
+  "shop.back": "חזרה",
+  "shop.cart": "ההזמנה שלכם",
+  "shop.total": "סה״כ",
+  "shop.checkout": "לתשלום",
+  "shop.place": "שלחו את ההזמנה",
+  "shop.month": "לחודש",
+  "shop.incl": "כלול",
+  "shop.quote": "הצעת מחיר",
+  "shop.step": "שלב {n} מתוך 3",
+  "shop.paynote": "לא צריך כרטיס עכשיו. נאשר את ההזמנה ונשלח לכם קישור מאובטח לתשלום.",
+  "shop.contact": "הפרטים שלכם",
+  "cs2.s1": "במה אתם צריכים עזרה?",
+  "cs2.s2": "בחרו את הפגישה",
+  "cs2.rec": "מומלץ",
+  "cs2.line": "פגישת ייעוץ AI",
+  "wb.s1": "ספרו לנו על האתר",
+  "wb.type": "איזה סוג עסק?",
+  "wb.feat": "מה האתר צריך לעשות?",
+  "wb.feats": [
+   "להציג את השירותים והמידע",
+   "הזמנות אונליין",
+   "חנות ותשלומים אונליין",
+   "טפסי לידים ויצירת קשר",
+   "בלוג",
+   "יותר משפה אחת"
+  ],
+  "wb.pagesn": "כמה עמודים?",
+  "wb.more": "יותר מ-10 עמודים",
+  "wb.line": "אתר: מעוצב, נבנה ומנוהל בשבילכם",
+  "wb.pg": "{n} עמודים",
+  "wb.mq": "אתרים מעל 10 עמודים מתומחרים אחרי שנבדוק את הבקשה."
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -11606,28 +11689,48 @@ const T = {
   "wb.submit": "Enviar mi pedido · $250 al mes",
   "wb.note": "Sin pago ahora. Revisamos su pedido, confirmamos los detalles y le enviamos el enlace de suscripción.",
   "wb.done_s": "Gracias. Revisaremos su pedido y le enviaremos los próximos pasos.",
-  "prod.list": [
-   [
-    "consult",
-    "Consultoría de IA",
-    "Reserve tiempo con uno de nuestros asesores: nuestros servicios, nuestros productos o cómo usar la IA.",
-    [
-     "Preguntas sobre nuestros servicios y agentes",
-     "Ayuda práctica para usar la IA en su trabajo",
-     "Consejos sobre dónde encaja la IA en su negocio"
-    ]
-   ],
-   [
-    "web",
-    "Su sitio web, hecho para usted",
-    "Un sitio web completamente diseñado y construido, hasta 10 páginas, por un precio mensual.",
-    [
-     "Hasta 10 páginas, diseñadas para su marca",
-     "Construido y lanzado por nosotros",
-     "Un precio: $250 al mes"
-    ]
-   ]
-  ]
+  "dd.all_agents": "Todos los agentes",
+  "dd.exec": "Agentes ejecutivos",
+  "dd.spec": "Agentes especialistas",
+  "dd.custom": "Cree un agente a medida",
+  "dd.all_serv": "Todos los servicios",
+  "dd.web": "Sitios web",
+  "dd.consult": "Consultoría de IA",
+  "dd.learn": "Aprenda IA: seminarios",
+  "dd.all_ind": "Todas las industrias",
+  "dd.all_cs": "Todos los casos",
+  "shop.next": "Continuar",
+  "shop.back": "Atrás",
+  "shop.cart": "Su pedido",
+  "shop.total": "Total",
+  "shop.checkout": "Pagar",
+  "shop.place": "Enviar mi pedido",
+  "shop.month": "al mes",
+  "shop.incl": "Incluido",
+  "shop.quote": "Cotización",
+  "shop.step": "Paso {n} de 3",
+  "shop.paynote": "No necesita tarjeta ahora. Confirmamos su pedido y le enviamos un enlace de pago seguro.",
+  "shop.contact": "Sus datos",
+  "cs2.s1": "¿Con qué necesita ayuda?",
+  "cs2.s2": "Elija su sesión",
+  "cs2.rec": "Sugerido",
+  "cs2.line": "Sesión de consultoría de IA",
+  "wb.s1": "Cuéntenos sobre su sitio web",
+  "wb.type": "¿Qué tipo de negocio es?",
+  "wb.feat": "¿Qué debe hacer el sitio?",
+  "wb.feats": [
+   "Mostrar sus servicios e información",
+   "Reservas en línea",
+   "Tienda y pagos en línea",
+   "Formularios de contacto y clientes",
+   "Blog",
+   "Más de un idioma"
+  ],
+  "wb.pagesn": "¿Cuántas páginas?",
+  "wb.more": "Más de 10 páginas",
+  "wb.line": "Sitio web: diseñado, construido y gestionado para usted",
+  "wb.pg": "{n} páginas",
+  "wb.mq": "Los sitios de más de 10 páginas se cotizan después de revisar su solicitud."
  }
 };
 
@@ -11885,7 +11988,7 @@ function render() {
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);
   $$(".bigstat, .bigstat-l, .bigline").forEach(el => el.hidden = !CONFIG.pagesExample);
   $("#tabstrip").innerHTML = (CONFIG.site === "chocham" ? [["education", "nav.home"]] : []).map(([v, k]) => `<button type="button" data-view="${v}" aria-current="${view === v ? "page" : "false"}">${esc(t(k))}</button>`).join("")
-    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="ask" data-folder="store">${esc(t("nav.hire"))}</button><button type="button" data-folder="ent">${esc(t("nav.services"))}</button><button type="button" data-view="industries">${esc(t("nav.ind"))}</button><button type="button" data-view="cases">${esc(t("nav.cases"))}</button>`)
+    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="ask" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false">${esc(t("nav.hire"))}</button><button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false">${esc(t("nav.services"))}</button><button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false">${esc(t("nav.ind"))}</button><button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false">${esc(t("nav.cases"))}</button>`)
     + (CONFIG.site === "chocham" ? [["seats", "nav.indiv"], ["consult", "nav.entp"], ["dates", "nav.dates"], ["semfaq", "faq.kicker"]] : []).map(([g, k]) => `<button type="button" data-go="${g}">${esc(t(k))}</button>`).join("")
     + `<button type="button" class="ask" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>${esc(t("chat.open"))}</button>`;
   $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : "");
@@ -12783,7 +12886,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     const el = document.getElementById("store"); if (!el) return;
     const st = S(), plan = st.plan || {};
     const planBtn = safe(plan.link) ? `<a class="btn aqua" href="${esc(plan.link)}" target="_blank" rel="noopener">${esc(t("store.buy"))} <span class="arrow">→</span></a>` : `<button type="button" class="btn aqua" data-contact data-msgtext="Agent Store: Managed plan">${esc(t("store.plan_go"))} <span class="arrow">→</span></button>`;
-    el.innerHTML = `<div class="stier sprod"><h3 class="stier-h">${esc(t("prod.h"))}</h3><p class="stier-s">${esc(t("prod.s"))}</p><div class="sgrid">${(t("prod.list") || []).map(x => card(x, "spec")).join("")}</div></div><div class="stier"><h3 class="stier-h">${esc(t("store.exec_h"))}</h3><div class="sgrid exec">${t("store.exec").map(x => card(x, "exec")).join("")}</div></div>`
+    el.innerHTML = `<div class="stier"><h3 class="stier-h">${esc(t("store.exec_h"))}</h3><div class="sgrid exec">${t("store.exec").map(x => card(x, "exec")).join("")}</div></div>`
       + `<div class="stier"><h3 class="stier-h">${esc(t("store.spec_h"))}</h3><p class="stier-s">${esc(t("store.spec_s"))}</p><div class="sgrid">${t("store.spec").map(x => card(x, "spec")).join("")}<div class="ssoon"><span class="sico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><h3>${esc(t("store.soon_t"))}</h3><p>${esc(t("store.soon_s"))}</p><button type="button" class="btn" data-contact data-msgtext="Agent Store: suggest a specialist">${esc(t("store.soon_go"))} <span class="arrow">→</span></button></div></div></div>`
       + `<div class="sbuild"><div><h3>${esc(t("sc.build_t"))}</h3><p>${esc(t("sc.build_s"))}</p></div><button type="button" class="btn aqua big" data-custom>${esc(t("sc.build_go"))} <span class="arrow">→</span></button></div>`
       + `<div class="splan"><h3>${esc(t("store.plan_t"))}</h3><p>${esc(t("store.plan_s"))}</p><div class="sprice">${price({ monthly: plan.monthly })}</div>${planBtn}</div>`;
@@ -13182,106 +13285,144 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <script>(function () { const stop = () => ["mvPause", "srvPause", "abkPause"].forEach(f => { try { window[f] && window[f](); } catch (e) {} }); window.mediaStop = stop; document.addEventListener("click", e => { const x = e.target.closest("[data-view], [data-folder], [data-go], [data-contact], [data-book], [data-open-chat], [data-langs], [data-lang], .teamlink, .nav a, a[href]"); if (x && !x.closest(".srv-row, [data-abk-play], .mv-watch, #mv, .sv")) stop(); else if (x && x.closest(".srv-pan .srv-ag, .srv-pan .srv-cta")) stop(); }, true); addEventListener("popstate", stop); addEventListener("hashchange", stop); addEventListener("pagehide", stop); document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); }); })();</script>
 <script>
-/* AI consulting: book a session (request first; the team confirms advisor, time and price, then sends a payment link) */
+/* Shop: AI consulting and websites. Step 1: tell us what you need. Step 2: we customize it and show the cart. Step 3: checkout. */
 (function () {
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  function draw(state) {
+  const RATE = 150, okMail = v => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+  let P = null, st = {};
+  const money = n => "$" + Math.round(n).toLocaleString("en-US");
+  const val = id => { const el = document.getElementById(id); return el && el.value != null ? String(el.value).trim() : ""; };
+  function sheet(html) {
     const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
-    sh.dataset.mode = "consult"; sh.classList.remove("wide");
-    const x = `<button type="button" class="x" data-close aria-label="${E(t("close"))}">×</button>`;
-    if (state === "done") { sh.innerHTML = `${x}<div class="cs2"><h2 id="sheet-title">${E(t("cs2.done_t"))}</h2><p class="cs2-lead">${E(t("cs2.done_s"))}</p></div>`; return; }
-    const f = t("cs2.f"), lens = t("cs2.lens"), today = new Date().toISOString().slice(0, 10);
-    sh.innerHTML = `${x}<form class="cs2" id="cs2form" novalidate><h2 id="sheet-title">${E(t("cs2.title"))}</h2><p class="cs2-price">${E(t("cs2.price"))}</p>
-      <fieldset class="cs2-len"><legend>${E(t("cs2.len"))}</legend>${lens.map(([v, l, p], i) => `<label><input type="radio" name="cs2len" value="${v}"${i === 0 ? " checked" : ""}><span><b>${E(l)}</b><em>${E(p)}</em></span></label>`).join("")}</fieldset>
-      <label>${E(t("cs2.topic"))}<select id="cs2topic">${t("cs2.topics").map((o, i) => `<option value="${i}">${E(o)}</option>`).join("")}</select></label>
-      <div class="cs2-row"><label>${E(t("cs2.when"))}<input type="date" id="cs2date" min="${today}"></label><label>&nbsp;<input type="time" id="cs2time" value="10:00" step="900" aria-label="${E(t("cs2.when"))}"></label></div>
-      <label>${E(t("cs2.need"))}<textarea id="cs2need" rows="3" placeholder="${E(t("cs2.needph"))}"></textarea></label>
-      <div class="cs2-row"><label>${E(f[0])}<input id="cs2name" autocomplete="name"></label><label>${E(f[1])}<input id="cs2email" type="email" autocomplete="email"></label></div>
-      <div class="cs2-row"><label>${E(f[2])}<input id="cs2phone" type="tel" autocomplete="tel"></label><label>${E(f[3])}<input id="cs2co" autocomplete="organization"></label></div>
-      <p class="err" id="cs2err" hidden></p>
-      <button class="btn big aqua" type="submit" id="cs2go">${E(t("cs2.submit"))} · <span id="cs2amt">${E(lens[0][2])}</span></button>
-      <p class="cs2-note">${E(t("cs2.note"))}</p></form>`;
-    ov.hidden = false; document.body.style.overflow = "hidden";
+    sh.dataset.mode = "shop"; sh.classList.remove("wide");
+    sh.innerHTML = `<button type="button" class="x" data-close aria-label="${E(t("close"))}">×</button>${html}`;
+    ov.hidden = false; document.body.style.overflow = "hidden"; sh.scrollTop = 0;
   }
-  window.consultOpen = () => { draw("form"); try { track("consult_open"); } catch (x) {} };
-  document.addEventListener("change", e => { if (e.target.name === "cs2len") { const l = t("cs2.lens").find(r => r[0] === e.target.value); const a = document.getElementById("cs2amt"); if (a && l) a.textContent = l[2]; } });
+  const stepTag = n => `<p class="cs2-step">${E(t("shop.step", { n: n }))}</p>`;
+  function cartRows() {
+    if (P === "consult") { const l = t("cs2.lens").find(r => r[0] === st.len) || t("cs2.lens")[0]; return { rows: [[t("cs2.line") + " · " + l[1], money(RATE * (+l[0]) / 60)]], total: money(RATE * (+l[0]) / 60), per: "" }; }
+    const feats = t("wb.feats"), rows = [[t("wb.line"), st.pages === "more" ? t("shop.quote") : money(250) + " " + t("shop.month")], [t("wb.pg", { n: st.pages === "more" ? "10+" : st.pages }), st.pages === "more" ? t("shop.quote") : t("shop.incl")]];
+    (st.feats || []).forEach(i => rows.push([feats[i], t("shop.incl")]));
+    return { rows, total: st.pages === "more" ? t("shop.quote") : money(250), per: st.pages === "more" ? "" : " " + t("shop.month") };
+  }
+  function cartHTML() { const c = cartRows(); return `<div class="shop-cart"><h3>${E(t("shop.cart"))}</h3>${c.rows.map(([a, b]) => `<div class="sc-row"><span>${E(a)}</span><b>${E(b)}</b></div>`).join("")}<div class="sc-row sc-tot"><span>${E(t("shop.total"))}</span><b>${E(c.total)}${E(c.per)}</b></div></div>`; }
+  function step(n) {
+    st.n = n;
+    if (P === "consult") {
+      if (n === 1) sheet(`<form class="cs2" data-shop="1">${stepTag(1)}<h2 id="sheet-title">${E(t("cs2.s1"))}</h2>
+        <label>${E(t("cs2.topic"))}<select id="sp-topic">${t("cs2.topics").map((o, i) => `<option value="${i}"${+st.topic === i ? " selected" : ""}>${E(o)}</option>`).join("")}</select></label>
+        <label>${E(t("cs2.need"))}<textarea id="sp-need" rows="4" placeholder="${E(t("cs2.needph"))}">${E(st.need || "")}</textarea></label>
+        <p class="err" id="sp-err" hidden></p><button class="btn big aqua" type="submit">${E(t("shop.next"))} <span class="arrow">→</span></button></form>`);
+      if (n === 2) {
+        const rec = st.need && st.need.length > 280 ? "90" : (+st.topic === 2 || +st.topic === 1 || (st.need || "").length > 120) ? "60" : "30";
+        if (!st.len) st.len = rec;
+        const today = new Date().toISOString().slice(0, 10);
+        sheet(`<form class="cs2" data-shop="2">${stepTag(2)}<h2 id="sheet-title">${E(t("cs2.s2"))}</h2>
+          <fieldset class="cs2-len"><legend>${E(t("cs2.len"))}</legend>${t("cs2.lens").map(([v, l]) => `<label><input type="radio" name="sp-len" value="${v}"${st.len === v ? " checked" : ""}><span><b>${E(l)}</b><em>${money(RATE * (+v) / 60)}</em>${v === rec ? `<i>${E(t("cs2.rec"))}</i>` : ""}</span></label>`).join("")}</fieldset>
+          <div class="cs2-row"><label>${E(t("cs2.when"))}<input type="date" id="sp-date" min="${today}" value="${E(st.date || "")}"></label><label>&nbsp;<input type="time" id="sp-time" value="${E(st.time || "10:00")}" step="900" aria-label="${E(t("cs2.when"))}"></label></div>
+          <div id="sp-cart">${cartHTML()}</div>
+          <div class="shop-nav"><button type="button" class="btn ghost" data-shop-back>${E(t("shop.back"))}</button><button class="btn big aqua" type="submit">${E(t("shop.checkout"))} <span class="arrow">→</span></button></div></form>`);
+      }
+    } else {
+      if (n === 1) sheet(`<form class="cs2" data-shop="1">${stepTag(1)}<h2 id="sheet-title">${E(t("wb.s1"))}</h2>
+        <div class="cs2-row"><label>${E(t("wb.biz"))}<input id="sp-biz" value="${E(st.biz || "")}" autocomplete="organization"></label><label>${E(t("wb.type"))}<input id="sp-type" value="${E(st.type || "")}"></label></div>
+        <label>${E(t("wb.site"))}<input id="sp-site" type="url" placeholder="https://" value="${E(st.site || "")}"></label>
+        <fieldset class="sp-feats"><legend>${E(t("wb.feat"))}</legend>${t("wb.feats").map((f, i) => `<label class="chk"><input type="checkbox" name="sp-f" value="${i}"${(st.feats || []).includes(i) ? " checked" : ""}> ${E(f)}</label>`).join("")}</fieldset>
+        <label>${E(t("wb.pagesn"))}<select id="sp-pages">${["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(v => `<option value="${v}"${st.pages === v ? " selected" : ""}>${v}</option>`).join("")}<option value="more"${st.pages === "more" ? " selected" : ""}>${E(t("wb.more"))}</option></select></label>
+        <label>${E(t("wb.need"))}<textarea id="sp-need" rows="3" placeholder="${E(t("wb.needph"))}">${E(st.need || "")}</textarea></label>
+        <p class="err" id="sp-err" hidden></p><button class="btn big aqua" type="submit">${E(t("shop.next"))} <span class="arrow">→</span></button></form>`);
+      if (n === 2) sheet(`<form class="cs2" data-shop="2">${stepTag(2)}<h2 id="sheet-title">${E(t("shop.cart"))}</h2>${cartHTML()}${st.pages === "more" ? `<p class="cs2-note">${E(t("wb.mq"))}</p>` : ""}
+        <div class="shop-nav"><button type="button" class="btn ghost" data-shop-back>${E(t("shop.back"))}</button><button class="btn big aqua" type="submit">${E(t("shop.checkout"))} <span class="arrow">→</span></button></div></form>`);
+    }
+    if (n === 3) { const f = t("cs2.f");
+      sheet(`<form class="cs2" data-shop="3">${stepTag(3)}<h2 id="sheet-title">${E(t("shop.checkout"))}</h2>${cartHTML()}<h3 class="sp-h">${E(t("shop.contact"))}</h3>
+        <div class="cs2-row"><label>${E(f[0])}<input id="sp-name" autocomplete="name" value="${E(st.name || "")}"></label><label>${E(f[1])}<input id="sp-email" type="email" autocomplete="email" value="${E(st.email || "")}"></label></div>
+        <div class="cs2-row"><label>${E(f[2])}<input id="sp-phone" type="tel" autocomplete="tel" value="${E(st.phone || "")}"></label>${P === "consult" ? `<label>${E(f[3])}<input id="sp-co" autocomplete="organization" value="${E(st.co || "")}"></label>` : ""}</div>
+        <p class="err" id="sp-err" hidden></p>
+        <div class="shop-nav"><button type="button" class="btn ghost" data-shop-back>${E(t("shop.back"))}</button><button class="btn big aqua" type="submit" id="sp-go">${E(t("shop.place"))}</button></div>
+        <p class="cs2-note">${E(t("shop.paynote"))}</p></form>`); }
+    if (n === 4) sheet(`<div class="cs2"><h2 id="sheet-title">${E(t("cs2.done_t"))}</h2><p class="cs2-lead">${E(P === "consult" ? t("cs2.done_s") : t("wb.done_s"))}</p>${cartHTML()}</div>`);
+  }
+  function open(kind) { P = kind; st = {}; step(1); try { track(kind === "consult" ? "consult_open" : "web_order_open"); } catch (x) {} }
+  window.consultOpen = () => open("consult"); window.webOrderOpen = () => open("web");
+  function err(msg) { const e = document.getElementById("sp-err"); if (e) { e.textContent = msg; e.hidden = false; } }
   document.addEventListener("click", e => {
-    if (e.target.closest("[data-consult]") || (e.target.closest(".s-store .scard[data-ag=\"consult\"]") && !e.target.closest("a, button"))) { e.preventDefault(); e.stopPropagation(); window.consultOpen(); }
+    if (e.target.closest("[data-consult]")) { e.preventDefault(); e.stopPropagation(); open("consult"); return; }
+    if (e.target.closest("[data-weborder]")) { e.preventDefault(); e.stopPropagation(); open("web"); return; }
+    if (e.target.closest("[data-shop-back]")) { e.preventDefault(); collect(); step(Math.max(1, st.n - 1)); }
   }, true);
+  document.addEventListener("change", e => { if (e.target.name === "sp-len") { st.len = e.target.value; const c = document.getElementById("sp-cart"); if (c) c.innerHTML = cartHTML(); } });
+  function collect() {
+    if (st.n === 1) { st.need = val("sp-need"); if (P === "consult") st.topic = val("sp-topic"); else { st.biz = val("sp-biz"); st.type = val("sp-type"); st.site = val("sp-site"); st.pages = val("sp-pages") || "5"; st.feats = [...document.querySelectorAll('input[name="sp-f"]:checked')].map(x => +x.value); } }
+    if (st.n === 2 && P === "consult") { st.date = val("sp-date"); st.time = val("sp-time"); const r = document.querySelector('input[name="sp-len"]:checked'); if (r) st.len = r.value; }
+    if (st.n === 3) { st.name = val("sp-name"); st.email = val("sp-email"); st.phone = val("sp-phone"); st.co = val("sp-co"); }
+  }
   document.addEventListener("submit", async e => {
-    if (e.target.id !== "cs2form") return; e.preventDefault();
-    const v = id => (document.getElementById(id) || {}).value ? document.getElementById(id).value.trim() : "";
-    const err = document.getElementById("cs2err"), btn = document.getElementById("cs2go");
-    const name = v("cs2name"), email = v("cs2email"), need = v("cs2need");
-    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !need) { err.textContent = t("cs2.err"); err.hidden = false; return; }
-    err.hidden = true;
-    const len = (document.querySelector('input[name="cs2len"]:checked') || {}).value || "30";
-    const enL = (T.en["cs2.lens"].find(r => r[0] === len) || []);
-    const d = v("cs2date"), tm = v("cs2time");
-    let when = "";
-    if (d) { const dt = new Date(d + "T" + (tm || "10:00")); when = isNaN(dt) ? d + " " + tm : dt.toLocaleString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" }); }
+    const f = e.target.closest("[data-shop]"); if (!f) return; e.preventDefault(); collect();
+    if (st.n === 1) { if (!st.need) return err(t("cs2.err")); return step(2); }
+    if (st.n === 2) return step(3);
+    if (!st.name || !okMail(st.email)) return err(t("cs2.err"));
+    const c = cartRows(), en = k => T.en[k];
+    let when = ""; if (st.date) { const dt = new Date(st.date + "T" + (st.time || "10:00")); when = isNaN(dt) ? st.date + " " + st.time : dt.toLocaleString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" }); }
     let tz = ""; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (x) {}
-    const topic = T.en["cs2.topics"][+v("cs2topic") || 0];
-    const message = ["AI consulting session request", "Length: " + (enL[1] || len + " minutes") + " (" + (enL[2] || "") + " at $150 an hour)", "Topic: " + topic, "Preferred time: " + (when || "not given") + (tz ? " (" + tz + ")" : ""), "Looking for: " + need, "Name: " + name, "Email: " + email, "Phone: " + (v("cs2phone") || "-"), "Company: " + (v("cs2co") || "-"), "Site language: " + lang].join("\n");
-    const data = { name: name, email: email, phone: v("cs2phone"), company: v("cs2co"), message: message, language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
-    btn.disabled = true;
+    const lines = P === "consult"
+      ? ["AI consulting order", "Session: " + ((en("cs2.lens").find(r => r[0] === st.len) || [])[1] || st.len + " minutes") + " · " + c.total + " ($150 an hour)", "Topic: " + en("cs2.topics")[+st.topic || 0], "Preferred time: " + (when || "not given") + (tz ? " (" + tz + ")" : ""), "Needs: " + st.need]
+      : ["Website order", "Plan: " + (st.pages === "more" ? "more than 10 pages, custom quote" : st.pages + " pages · $250 a month"), "Business: " + (st.biz || "-") + (st.type ? " (" + st.type + ")" : ""), "Current site: " + (st.site || "-"), "Features: " + ((st.feats || []).map(i => en("wb.feats")[i]).join(", ") || "-"), "The site should: " + st.need];
+    lines.push("Name: " + st.name, "Email: " + st.email, "Phone: " + (st.phone || "-"), "Company: " + (st.co || st.biz || "-"), "Site language: " + lang);
+    const data = { name: st.name, email: st.email, phone: st.phone, company: st.co || st.biz || "", message: lines.join("\n"), language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
+    const btn = document.getElementById("sp-go"); if (btn) btn.disabled = true;
     try {
       if (CONFIG.web3formsKey) {
-        const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Moses Agentic: AI consulting request from " + name + " (" + (enL[1] || len) + ")", from_name: "Moses Agentic website", botcheck: false, replyto: email }, data)) });
+        const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Moses Agentic: " + (P === "consult" ? "AI consulting order" : "website order") + " from " + st.name, from_name: "Moses Agentic website", botcheck: false, replyto: st.email }, data)) });
         const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0;
       } else if (CONFIG.contactEndpoint) {
         const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
       } else throw 0;
-      draw("done"); try { track("generate_lead", { form: "consulting" }); } catch (x) {}
-    } catch (x) { err.textContent = t("cs2.fail"); err.hidden = false; btn.disabled = false; }
+      step(4); try { track("generate_lead", { form: P === "consult" ? "consulting" : "website_order" }); } catch (x) {}
+    } catch (x) { err(t("cs2.fail")); if (btn) btn.disabled = false; }
   });
 })();
 </script>
 <script>
-/* Website subscription ($250 a month, up to 10 pages): order online; the team confirms, then sends the subscription link */
+/* Top menus: every item opens a dropdown (desktop under the button, phones as a panel under the tabs) */
 (function () {
+  if (CONFIG.site !== "moses") return;
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  function draw(state) {
-    const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
-    sh.dataset.mode = "weborder"; sh.classList.remove("wide");
-    const x = `<button type="button" class="x" data-close aria-label="${E(t("close"))}">×</button>`;
-    if (state === "done") { sh.innerHTML = `${x}<div class="cs2"><h2 id="sheet-title">${E(t("cs2.done_t"))}</h2><p class="cs2-lead">${E(t("wb.done_s"))}</p></div>`; return; }
-    const f = t("cs2.f");
-    sh.innerHTML = `${x}<form class="cs2" id="wbform" novalidate><h2 id="sheet-title">${E(t("wb.title"))}</h2><p class="cs2-price">${E(t("wb.lead"))}</p>
-      <div class="cs2-row"><label>${E(t("wb.biz"))}<input id="wbbiz" autocomplete="organization"></label><label>${E(t("wb.site"))}<input id="wbsite" type="url" placeholder="https://"></label></div>
-      <label>${E(t("wb.pages"))}<select id="wbpages">${t("wb.pagesv").map((o, i) => `<option value="${i}">${E(o)}</option>`).join("")}</select></label>
-      <label>${E(t("wb.need"))}<textarea id="wbneed" rows="3" placeholder="${E(t("wb.needph"))}"></textarea></label>
-      <div class="cs2-row"><label>${E(f[0])}<input id="wbname" autocomplete="name"></label><label>${E(f[1])}<input id="wbemail" type="email" autocomplete="email"></label></div>
-      <label>${E(f[2])}<input id="wbphone" type="tel" autocomplete="tel"></label>
-      <p class="err" id="wberr" hidden></p>
-      <button class="btn big aqua" type="submit" id="wbgo">${E(t("wb.submit"))}</button>
-      <p class="cs2-note">${E(t("wb.note"))}</p></form>`;
-    ov.hidden = false; document.body.style.overflow = "hidden";
+  const item = (label, attrs) => `<button type="button" class="dd-i" ${attrs}>${E(label)}</button>`;
+  function items(k) {
+    if (k === "agents") return [item(t("dd.all_agents"), 'data-folder="store"'), item(t("dd.exec"), 'data-dd-store="0"'), item(t("dd.spec"), 'data-dd-store="1"'), item(((t("abk.card") || [])[1]) || "AbraKadabra", "data-abk-play"), item(t("dd.custom"), 'data-dd-custom')];
+    if (k === "services") return [item(t("dd.all_serv"), 'data-folder="ent"'), item(t("dd.web"), "data-weborder"), item(t("dd.consult"), "data-consult"), `<a class="dd-i" href="${E(CONFIG.chochamUrl || "https://chochamai.com/")}#${E(lang)}">${E(t("dd.learn"))}</a>`];
+    if (k === "industries") return [item(t("dd.all_ind"), 'data-view="industries"')].concat((t("inds") || []).map((n, i) => item(n, `data-dd-ind="${i}"`)));
+    if (k === "cases") return [item(t("dd.all_cs"), 'data-view="cases"')].concat((t("cs.inds") || []).filter(([c]) => c !== "all").map(([c, n]) => item(n, `data-pract="${c}"`)));
+    return [];
   }
-  window.webOrderOpen = () => { draw("form"); try { track("web_order_open"); } catch (x) {} };
+  let menu = null, owner = null;
+  function close() { if (menu) { menu.remove(); menu = null; } if (owner) owner.setAttribute("aria-expanded", "false"); owner = null; }
+  function openFor(btn) {
+    const k = btn.dataset.dd; if (owner === btn) return close(); close();
+    owner = btn; btn.setAttribute("aria-expanded", "true");
+    menu = document.createElement("div"); menu.className = "ddm"; menu.setAttribute("role", "menu"); menu.innerHTML = items(k).join("");
+    document.body.appendChild(menu);
+    const r = btn.getBoundingClientRect(), phone = innerWidth < 760;
+    if (phone) { menu.classList.add("ph"); menu.style.top = Math.round(r.bottom + 8) + "px"; }
+    else { const w = Math.max(240, menu.offsetWidth); let left = r.left; if (left + w > innerWidth - 16) left = innerWidth - 16 - w; menu.style.left = Math.max(16, Math.round(left)) + "px"; menu.style.top = Math.round(r.bottom + 8) + "px"; }
+    const f = menu.querySelector(".dd-i"); if (f) f.focus({ preventScroll: true });
+  }
   document.addEventListener("click", e => {
-    if (e.target.closest("[data-weborder]") || (e.target.closest(".s-store .scard[data-ag=\"web\"]") && !e.target.closest("a, button"))) { e.preventDefault(); e.stopPropagation(); window.webOrderOpen(); }
+    const b = e.target.closest("[data-dd]");
+    if (b) { e.preventDefault(); e.stopPropagation(); openFor(b); return; }
+    const it = e.target.closest(".ddm .dd-i");
+    if (it) {
+      close();
+      if (it.dataset.ddStore != null) { const n = +it.dataset.ddStore; e.stopPropagation(); e.preventDefault(); const go = document.querySelector('[data-folder="store"]'); if (go) go.click(); setTimeout(() => { const tiers = [...document.querySelectorAll(".s-store .stier")].filter(x => x.offsetParent); const el = tiers[n]; if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 650); return; }
+      if (it.dataset.ddCustom != null) { e.stopPropagation(); e.preventDefault(); const go = document.querySelector('[data-folder="store"]'); if (go) go.click(); setTimeout(() => { const c = [...document.querySelectorAll("[data-custom]")].find(x => x.offsetParent); if (c) c.click(); }, 650); return; }
+      if (it.dataset.ddInd != null) { e.stopPropagation(); e.preventDefault(); const i = it.dataset.ddInd; if (typeof setView === "function") setView("industries"); setTimeout(() => { const c = document.querySelector(`#igrid .icard[data-ind="${i}"]`); if (c) c.click(); }, 120); return; }
+      return; /* other items carry the site's own data attributes and are handled as usual */
+    }
+    if (menu && !e.target.closest(".ddm")) close();
   }, true);
-  document.addEventListener("submit", async e => {
-    if (e.target.id !== "wbform") return; e.preventDefault();
-    const v = id => { const el = document.getElementById(id); return el && el.value ? el.value.trim() : ""; };
-    const err = document.getElementById("wberr"), btn = document.getElementById("wbgo");
-    const name = v("wbname"), email = v("wbemail"), need = v("wbneed");
-    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !need) { err.textContent = t("cs2.err"); err.hidden = false; return; }
-    err.hidden = true;
-    const message = ["Website subscription order ($250 a month, up to 10 pages)", "Business: " + (v("wbbiz") || "-"), "Current site: " + (v("wbsite") || "-"), "Pages needed: " + T.en["wb.pagesv"][+v("wbpages") || 0], "The site should: " + need, "Name: " + name, "Email: " + email, "Phone: " + (v("wbphone") || "-"), "Site language: " + lang].join("\n");
-    const data = { name: name, email: email, phone: v("wbphone"), company: v("wbbiz"), message: message, language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
-    btn.disabled = true;
-    try {
-      if (CONFIG.web3formsKey) {
-        const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Moses Agentic: website order from " + name, from_name: "Moses Agentic website", botcheck: false, replyto: email }, data)) });
-        const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0;
-      } else if (CONFIG.contactEndpoint) {
-        const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
-      } else throw 0;
-      draw("done"); try { track("generate_lead", { form: "website_order" }); } catch (x) {}
-    } catch (x) { err.textContent = t("cs2.fail"); err.hidden = false; btn.disabled = false; }
-  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && menu) { const o = owner; close(); if (o) o.focus(); } });
+  addEventListener("resize", close); addEventListener("scroll", () => { if (menu && !menu.classList.contains("ph")) close(); }, { passive: true });
 })();
 </script>
 </body>

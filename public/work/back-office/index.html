@@ -1617,6 +1617,54 @@ html, body { overflow-x: clip; }
 .locs b { font-weight: 800; }
 footer .locs { margin: .2rem 0 .8rem; }
 .site-chocham .locs { display: none !important; }
+
+/* ===== front page: who we build for ===== */
+.serve { display: none; }
+.site-moses main[data-page="home"] > #serve:not(#hero3):not(#cabinet):not(#agents), .site-moses .serve { display: block !important; background: #0B2545; color: #FFFFFF; padding: clamp(3rem, 7vw, 5.5rem) 0; }
+.site-chocham .serve { display: none !important; }
+.srv-head { margin-bottom: clamp(1.4rem, 3vw, 2.4rem); }
+.srv-head .eyebrow { color: #C6F432; }
+.srv-head p { font: 700 clamp(1.05rem, 2vw, 1.4rem)/1.35 var(--f-body); color: rgba(255,255,255,.8); margin-top: .5rem; max-width: 46ch; }
+.srv-list { display: grid; border-top: 1px solid rgba(255,255,255,.18); }
+.srv-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(.8rem, 2.4vw, 2rem); width: 100%; background: none; border: 0; border-bottom: 1px solid rgba(255,255,255,.18); color: inherit; padding: clamp(1rem, 2.4vw, 1.8rem) 0; text-align: start; cursor: pointer; font: inherit; }
+.srv-n { font: 800 clamp(.9rem, 1.4vw, 1.1rem)/1 var(--f-display); color: rgba(255,255,255,.5); font-variant-numeric: tabular-nums; }
+.srv-name { font: 900 clamp(2rem, 6.4vw, 5.6rem)/.95 var(--f-display); letter-spacing: -.045em; text-transform: uppercase; overflow-wrap: anywhere; transition: color .2s; }
+.srv-go { display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; background: #C6F432; color: #0B2545; border-radius: 999px; padding: .65rem 1.1rem; font: 800 clamp(.9rem, 1.4vw, 1.1rem)/1 var(--f-display); transition: transform .25s cubic-bezier(.2,1.4,.4,1); }
+.srv-row:hover .srv-name, .srv-row.on .srv-name, .srv-row:focus-visible .srv-name { color: #C6F432; }
+.srv-row:hover .srv-go { transform: translateX(4px); }
+[dir="rtl"] .srv-row:hover .srv-go { transform: translateX(-4px); }
+[dir="rtl"] .srv-ar { display: inline-block; transform: scaleX(-1); }
+.srv-row.on .srv-go { background: #FFFFFF; }
+@media (max-width: 640px) { .srv-row { grid-template-columns: minmax(0, 1fr); gap: .7rem; } .srv-n { display: none; } .srv-go { justify-self: start; } .srv-name { font-size: clamp(1.9rem, 10vw, 2.8rem); } }
+.srv-pan { margin-top: clamp(1.6rem, 4vw, 3rem); scroll-margin-top: 80px; }
+.srv-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(1.4rem, 3.4vw, 3rem); align-items: start; }
+@media (max-width: 900px) { .srv-grid { grid-template-columns: minmax(0, 1fr); } }
+.sv { position: relative; border-radius: 24px; overflow: hidden; background-size: cover; background-position: center; box-shadow: 0 40px 80px -40px rgba(0,0,0,.6); }
+.sv-stage { position: relative; aspect-ratio: 16 / 10; cursor: pointer; }
+.svs { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: clamp(.6rem, 1.6vw, 1rem); padding: clamp(1.2rem, 4vw, 2.6rem); padding-bottom: clamp(3rem, 6vw, 4rem); animation: svin .55s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes svin { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.sv-chip, .sv-tag { display: inline-block; border-radius: 999px; padding: .4rem .9rem; font: 800 clamp(.8rem, 1.3vw, 1rem)/1.1 var(--f-display); }
+.sv-chip { background: #C6F432; color: #0B2545; }
+.sv-tag { border: 1px solid rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .08em; font-size: clamp(.7rem, 1.1vw, .85rem); }
+.sv-big { font: 900 clamp(1.7rem, 4.4vw, 3.4rem)/1.04 var(--f-display); letter-spacing: -.04em; max-width: 18ch; animation: svin .6s .15s both; }
+.sv-num { font: 900 clamp(2.6rem, 8vw, 5.6rem)/.95 var(--f-display); letter-spacing: -.05em; color: #C6F432; animation: svin .6s .15s both; }
+.sv-txt { font: 700 clamp(1.05rem, 2.2vw, 1.6rem)/1.25 var(--f-body); max-width: 26ch; color: rgba(255,255,255,.92); animation: svin .6s .4s both; }
+.sv-ctrl { position: absolute; inset-inline: 0; bottom: 0; display: flex; align-items: center; gap: .8rem; padding: .8rem 1rem; background: linear-gradient(0deg, rgba(11,37,69,.85), transparent); }
+.sv-pp { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; background: #FFFFFF; color: #0B2545; display: grid; place-items: center; cursor: pointer; }
+.sv-pp svg { width: 18px; height: 18px; }
+.sv-track { flex: 1; height: 4px; border-radius: 4px; background: rgba(255,255,255,.25); overflow: hidden; }
+.sv-track i { display: block; height: 100%; width: 0; background: #C6F432; }
+.srv-info h3 { font: 900 clamp(1.7rem, 3.4vw, 2.6rem)/1.05 var(--f-display); letter-spacing: -.035em; }
+.srv-lead { font: 600 clamp(1.05rem, 1.8vw, 1.25rem)/1.45 var(--f-body); color: rgba(255,255,255,.85); margin-top: .6rem; }
+.srv-info h4 { font: 800 .8rem/1 var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: #C6F432; margin: 1.5rem 0 .7rem; }
+.srv-does { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
+.srv-does li { position: relative; padding-inline-start: 1.6rem; font: 600 1.02rem/1.4 var(--f-body); }
+.srv-does li::before { content: ""; position: absolute; inset-inline-start: 0; top: .32em; width: .9rem; height: .9rem; border-radius: 50%; background: #C6F432; }
+.srv-ags { display: flex; flex-wrap: wrap; gap: .5rem; }
+.srv-ag { border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.06); color: #FFFFFF; border-radius: 999px; padding: .5rem .9rem; font: 700 .95rem/1.1 var(--f-body); cursor: pointer; }
+.srv-ag:hover { background: #FFFFFF; color: #0B2545; }
+.srv-cta { margin-top: 1.6rem; }
+@media (prefers-reduced-motion: reduce) { .svs, .svs * { animation-duration: .01s !important; animation-delay: 0s !important; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1754,6 +1802,12 @@ body { top: 0 !important; }
     <div class="wrap">
       <div class="mv-head"><div class="eyebrow" data-i18n="mv.k">Moses Agentic in 30 seconds</div><h2 data-i18n="mv.t">See what we do</h2></div>
       <div class="mv" id="mv"><div class="mv-stage" aria-live="polite"></div><div class="mv-ctrl"><button type="button" class="mv-pp"></button><div class="mv-ch"></div><button type="button" class="mv-snd"></button></div></div>
+    </div>
+  </section>
+  <section class="serve" id="serve">
+    <div class="wrap">
+      <div class="srv-head"><div class="eyebrow" data-i18n="srv.k">Who we build for</div><p data-i18n="srv.sub">Click yours. A short video shows what our agents do for you.</p></div>
+      <div id="srvbox"></div>
     </div>
   </section>
   <section class="cabinet" id="cabinet">
@@ -4430,7 +4484,113 @@ const T = {
   "mv.mute": "Mute",
   "mv.case": "Case study",
   "loc.k": "Offices",
-  "loc.t": "New York · Memphis · Miami"
+  "loc.t": "New York · Memphis · Miami",
+  "srv.k": "Who we build for",
+  "srv.sub": "Click yours. A short video shows what our agents do for you.",
+  "srv.click": "Click here",
+  "srv.does": "What our agents do",
+  "srv.agents": "Agents we build for you",
+  "srv.play": "Play",
+  "srv.pause": "Pause",
+  "srv.replay": "Replay",
+  "srv.seg": [
+   {
+    "n": "Commercial & CRE mortgage brokers",
+    "s1": "Your deals, packaged by AI.",
+    "lead": "Agents package every deal, so you place more loans with the same team.",
+    "does": [
+     "Collect and check borrower documents",
+     "Analyze rent rolls and operating statements",
+     "Build the underwriting model and lender memo",
+     "Follow up with borrowers and lenders"
+    ],
+    "st": [
+     [
+      "$20.75M",
+      "469 units underwritten, with two lender memos"
+     ],
+     [
+      "$285K a year",
+      "in tax upside the seller's numbers missed"
+     ],
+     [
+      "39%",
+      "asking price too high, caught in one afternoon"
+     ]
+    ]
+   },
+   {
+    "n": "Asset managers",
+    "s1": "Every report, compiled for you.",
+    "lead": "Agents compile the reports and track the numbers. You review, decide and manage.",
+    "does": [
+     "Monthly operating statements",
+     "Rent rolls and occupancy",
+     "Budget vs. actual and loan covenants",
+     "Investor reports"
+    ],
+    "st": [
+     [
+      "$1.1B",
+      "portfolio analyzed, $78.2M traced to the cent"
+     ],
+     [
+      "$79.5M",
+      "valuation of a distressed office package, before the auction"
+     ],
+     [
+      "Six figures",
+      "error found in the annual numbers by our AI controller"
+     ]
+    ]
+   },
+   {
+    "n": "Marketing",
+    "s1": "An AI marketing department.",
+    "lead": "Ads, website, content, reviews and leads, run by AI, without agency fees.",
+    "does": [
+     "Ads and Google profile",
+     "Website, blog and reviews",
+     "Referral and lead tracking",
+     "First replies to new leads, approved by you"
+    ],
+    "st": [
+     [
+      "3 move-ins",
+      "in 31 days, with no placement agency"
+     ],
+     [
+      "About 60% less",
+      "than agency fees: $4,292 in ads vs. about $10,625"
+     ],
+     [
+      "1,000+",
+      "referral sources, worked every day"
+     ]
+    ]
+   },
+   {
+    "n": "Senior living & healthcare",
+    "s1": "Census, staffing and payroll on autopilot.",
+    "lead": "Agents check payroll, staffing and census every day, and keep the front office running.",
+    "does": [
+     "Daily payroll and staffing brief",
+     "Census and occupancy tracking",
+     "Month-end close and reports",
+     "Website with live availability and reservations"
+    ],
+    "st": [
+     [
+      "0 overtime",
+      "payroll back to target, on a schedule built by the agent"
+     ],
+     [
+      "$200 → $0",
+      "a month in hosting, for a site that takes reservations"
+     ]
+    ]
+   }
+  ]
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6465,7 +6625,113 @@ const T = {
   "mv.mute": "שטיל",
   "mv.case": "קעיס סטאדי",
   "loc.k": "אפיסעס",
-  "loc.t": "ניו יארק · מעמפיס · מייאמי"
+  "loc.t": "ניו יארק · מעמפיס · מייאמי",
+  "srv.k": "פאר וועמען מיר בויען",
+  "srv.sub": "קליקט אויף אייערס. א קורצע ווידעא ווייזט וואס אונזערע אגענטן טוען פאר אייך.",
+  "srv.click": "קליקט דא",
+  "srv.does": "וואס אונזערע אגענטן טוען",
+  "srv.agents": "אגענטן וואס מיר בויען פאר אייך",
+  "srv.play": "שפילט",
+  "srv.pause": "שטעלט אפ",
+  "srv.replay": "נאכאמאל",
+  "srv.seg": [
+   {
+    "n": "קאמערשעל און CRE מארטגעדזש בראוקערס",
+    "s1": "אייערע דילס, צוגעגרייט דורך AI.",
+    "lead": "אגענטן גרייטן צו יעדן דיל, אזוי מאכט איר מער לאונס מיט די זעלבע טיעם.",
+    "does": [
+     "זאמלען און טשעקן די באראוער'ס דאקומענטן",
+     "אנאליזירן רענט ראלס און אפערעיטינג סטעיטמענטס",
+     "בויען דעם אנדערייטינג מאדעל און לענדער מעמא",
+     "נאכגיין באראוערס און לענדערס"
+    ],
+    "st": [
+     [
+      "$20.75M",
+      "469 יוניטס אנדערגעשריבן, מיט צוויי לענדער מעמאס"
+     ],
+     [
+      "$285K א יאר",
+      "טעקס-שפארונג וואס איז נישט געווען אין דעם סעלער'ס נומערן"
+     ],
+     [
+      "39%",
+      "צו הויכער פרייז, געכאפט אין איין נאכמיטאג"
+     ]
+    ]
+   },
+   {
+    "n": "עסעט מענעדזשערס",
+    "s1": "יעדע ריפארט, צוזאמגעשטעלט פאר אייך.",
+    "lead": "אגענטן שטעלן צוזאם די ריפארטס און האלטן אן אויג אויף די נומערן. איר קוקט איבער, באשליסט און פירט.",
+    "does": [
+     "חודש'ליכע אפערעיטינג סטעיטמענטס",
+     "רענט ראלס און אקיופענסי",
+     "בודזשעט קעגן אקטשועל און לאון קאוועננטס",
+     "ריפארטס פאר אינוועסטארן"
+    ],
+    "st": [
+     [
+      "$1.1B",
+      "פארטפאליא אנאליזירט, $78.2M נאכגעשפירט ביזן סענט"
+     ],
+     [
+      "$79.5M",
+      "ווערד פון א פעקל אפיס בילדינגס אין צרות, פארן אקשען"
+     ],
+     [
+      "זעקס ציפערן",
+      "טעות אין די יערליכע נומערן, געפונען דורך אונזער AI קאנטראלער"
+     ]
+    ]
+   },
+   {
+    "n": "מארקעטינג",
+    "s1": "אן AI מארקעטינג דעפארטמענט.",
+    "lead": "עדס, וועבסייט, אינהאלט, רעוויוס און לידס, געפירט דורך AI, אן עידזשענסי פיס.",
+    "does": [
+     "עדס און Google פראפיל",
+     "וועבסייט, בלאג און רעוויוס",
+     "טרעקן רעפערעלס און לידס",
+     "ערשטע ענטפערס צו נייע לידס, באשטעטיגט דורך אייך"
+    ],
+    "st": [
+     [
+      "3 נייע איינוואוינער",
+      "אין 31 טעג, אן א פלעיסמענט עידזשענסי"
+     ],
+     [
+      "בערך 60% ווייניגער",
+      "ווי עידזשענסי פיס: $4,292 אויף עדס קעגן בערך $10,625"
+     ],
+     [
+      "1,000+",
+      "רעפערעל מקורות, יעדן טאג באארבעט"
+     ]
+    ]
+   },
+   {
+    "n": "סיניער ליווינג און העלטקעיר",
+    "s1": "צענזוס, שטאב און פעיראל אויף אויטאפיילאט.",
+    "lead": "אגענטן קוקן יעדן טאג אויף פעיראל, שטאב און צענזוס, און האלטן די פראנט אפיס גייענדיג.",
+    "does": [
+     "טעגליכער פעיראל און שטאב באריכט",
+     "צענזוס און אקיופענסי טרעקינג",
+     "חודש-סוף קלאוזינג און ריפארטס",
+     "וועבסייט מיט לייוו אוועילעביליטי און רעזערוואציעס"
+    ],
+    "st": [
+     [
+      "0 אווערטיים",
+      "פעיראל צוריק צום ציל, מיט א שעדזשול געבויט דורך דעם אגענט"
+     ],
+     [
+      "$200 → $0",
+      "א חודש פאר האסטינג, פאר א סייט וואס נעמט רעזערוואציעס"
+     ]
+    ]
+   }
+  ]
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8500,7 +8766,113 @@ const T = {
   "mv.mute": "השתקה",
   "mv.case": "מקרה בוחן",
   "loc.k": "משרדים",
-  "loc.t": "ניו יורק · ממפיס · מיאמי"
+  "loc.t": "ניו יורק · ממפיס · מיאמי",
+  "srv.k": "למי אנחנו בונים",
+  "srv.sub": "לחצו על התחום שלכם. סרטון קצר מראה מה הסוכנים שלנו עושים בשבילכם.",
+  "srv.click": "לחצו כאן",
+  "srv.does": "מה הסוכנים שלנו עושים",
+  "srv.agents": "סוכנים שאנחנו בונים בשבילכם",
+  "srv.play": "הפעלה",
+  "srv.pause": "השהיה",
+  "srv.replay": "שוב",
+  "srv.seg": [
+   {
+    "n": "מתווכי משכנתאות מסחריות ונדל״ן מסחרי",
+    "s1": "העסקאות שלכם, מוכנות על ידי AI.",
+    "lead": "הסוכנים מכינים כל עסקה, כך שתסגרו יותר הלוואות עם אותו צוות.",
+    "does": [
+     "איסוף ובדיקת מסמכי הלווה",
+     "ניתוח רשימות שוכרים ודוחות תפעול",
+     "בניית מודל החיתום והמזכר למלווה",
+     "מעקב מול לווים ומלווים"
+    ],
+    "st": [
+     [
+      "$20.75M",
+      "469 יחידות בחיתום, עם שני מזכרים למלווים"
+     ],
+     [
+      "$285K בשנה",
+      "חיסכון במס שחסר במספרים של המוכר"
+     ],
+     [
+      "39%",
+      "מחיר מבוקש גבוה מדי, התגלה תוך אחר צהריים אחד"
+     ]
+    ]
+   },
+   {
+    "n": "מנהלי נכסים",
+    "s1": "כל דוח, מוכן בשבילכם.",
+    "lead": "הסוכנים מכינים את הדוחות ועוקבים אחרי המספרים. אתם בודקים, מחליטים ומנהלים.",
+    "does": [
+     "דוחות תפעול חודשיים",
+     "רשימות שוכרים ותפוסה",
+     "תקציב מול ביצוע ותניות הלוואה",
+     "דוחות למשקיעים"
+    ],
+    "st": [
+     [
+      "$1.1B",
+      "תיק שנותח, $78.2M אותרו עד הסנט"
+     ],
+     [
+      "$79.5M",
+      "הערכת שווי לחבילת משרדים במצוקה, לפני המכרז"
+     ],
+     [
+      "שש ספרות",
+      "טעות במספרים השנתיים, שמצא הקונטרולר ה-AI שלנו"
+     ]
+    ]
+   },
+   {
+    "n": "שיווק",
+    "s1": "מחלקת שיווק של AI.",
+    "lead": "מודעות, אתר, תוכן, ביקורות ולידים, מנוהלים על ידי AI, בלי עמלות סוכנות.",
+    "does": [
+     "מודעות ופרופיל Google",
+     "אתר, בלוג וביקורות",
+     "מעקב הפניות ולידים",
+     "תשובות ראשונות ללידים חדשים, באישורכם"
+    ],
+    "st": [
+     [
+      "3 דיירים חדשים",
+      "תוך 31 יום, בלי סוכנות השמה"
+     ],
+     [
+      "כ־60% פחות",
+      "מעמלות סוכנות: $4,292 במודעות מול כ־$10,625"
+     ],
+     [
+      "1,000+",
+      "מקורות הפניה, בעבודה כל יום"
+     ]
+    ]
+   },
+   {
+    "n": "דיור מוגן ובריאות",
+    "s1": "תפוסה, כוח אדם ושכר על טייס אוטומטי.",
+    "lead": "הסוכנים בודקים כל יום שכר, כוח אדם ותפוסה, ומחזיקים את הקבלה פועלת.",
+    "does": [
+     "דוח יומי של שכר וכוח אדם",
+     "מעקב תפוסה",
+     "סגירת חודש ודוחות",
+     "אתר עם זמינות חיה והזמנות"
+    ],
+    "st": [
+     [
+      "0 שעות נוספות",
+      "השכר חזר ליעד, עם סידור עבודה שבנה הסוכן"
+     ],
+     [
+      "$200 → $0",
+      "בחודש על אחסון, לאתר שמקבל הזמנות"
+     ]
+    ]
+   }
+  ]
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -10535,7 +10907,113 @@ const T = {
   "mv.mute": "Silenciar",
   "mv.case": "Caso de estudio",
   "loc.k": "Oficinas",
-  "loc.t": "Nueva York · Memphis · Miami"
+  "loc.t": "Nueva York · Memphis · Miami",
+  "srv.k": "Para quién construimos",
+  "srv.sub": "Haga clic en el suyo. Un video corto muestra lo que nuestros agentes hacen por usted.",
+  "srv.click": "Haga clic aquí",
+  "srv.does": "Lo que hacen nuestros agentes",
+  "srv.agents": "Agentes que construimos para usted",
+  "srv.play": "Reproducir",
+  "srv.pause": "Pausa",
+  "srv.replay": "Repetir",
+  "srv.seg": [
+   {
+    "n": "Corredores de hipotecas comerciales y CRE",
+    "s1": "Sus operaciones, preparadas por IA.",
+    "lead": "Los agentes preparan cada operación, para que coloque más préstamos con el mismo equipo.",
+    "does": [
+     "Reunir y revisar los documentos del prestatario",
+     "Analizar rent rolls y estados operativos",
+     "Armar el modelo de suscripción y el memo para el prestamista",
+     "Dar seguimiento a prestatarios y prestamistas"
+    ],
+    "st": [
+     [
+      "$20.75M",
+      "469 unidades suscritas, con dos memos para prestamistas"
+     ],
+     [
+      "$285K al año",
+      "de ahorro fiscal que faltaba en los números del vendedor"
+     ],
+     [
+      "39%",
+      "precio pedido demasiado alto, detectado en una tarde"
+     ]
+    ]
+   },
+   {
+    "n": "Gestores de activos",
+    "s1": "Cada informe, preparado para usted.",
+    "lead": "Los agentes preparan los informes y siguen los números. Usted revisa, decide y gestiona.",
+    "does": [
+     "Estados operativos mensuales",
+     "Rent rolls y ocupación",
+     "Presupuesto vs. real y covenants del préstamo",
+     "Informes para inversionistas"
+    ],
+    "st": [
+     [
+      "$1.1B",
+      "de cartera analizada, $78.2M rastreados al centavo"
+     ],
+     [
+      "$79.5M",
+      "de valuación de un paquete de oficinas en dificultades, antes de la subasta"
+     ],
+     [
+      "Seis cifras",
+      "de error en los números anuales, hallado por nuestro contralor de IA"
+     ]
+    ]
+   },
+   {
+    "n": "Marketing",
+    "s1": "Un departamento de marketing con IA.",
+    "lead": "Anuncios, sitio web, contenido, reseñas y prospectos, a cargo de la IA, sin honorarios de agencia.",
+    "does": [
+     "Anuncios y perfil de Google",
+     "Sitio web, blog y reseñas",
+     "Seguimiento de referidos y prospectos",
+     "Primeras respuestas a prospectos nuevos, aprobadas por usted"
+    ],
+    "st": [
+     [
+      "3 nuevos residentes",
+      "en 31 días, sin agencia de colocación"
+     ],
+     [
+      "Cerca de 60% menos",
+      "que los honorarios de agencia: $4,292 en anuncios vs. unos $10,625"
+     ],
+     [
+      "1,000+",
+      "fuentes de referidos, trabajadas cada día"
+     ]
+    ]
+   },
+   {
+    "n": "Vivienda para mayores y salud",
+    "s1": "Ocupación, personal y nómina en piloto automático.",
+    "lead": "Los agentes revisan cada día la nómina, el personal y la ocupación, y mantienen la recepción en marcha.",
+    "does": [
+     "Resumen diario de nómina y personal",
+     "Seguimiento de ocupación",
+     "Cierre de mes e informes",
+     "Sitio web con disponibilidad en vivo y reservas"
+    ],
+    "st": [
+     [
+      "0 horas extra",
+      "nómina de vuelta a la meta, con un horario armado por el agente"
+     ],
+     [
+      "$200 → $0",
+      "al mes en hosting, para un sitio que toma reservas"
+     ]
+    ]
+   }
+  ]
  }
 };
 
@@ -11277,7 +11755,7 @@ function confetti() {
 /* ---------- language + start ---------- */
 function setLang(k, save = true, name, code) {
   if (!LANGS[k] || !T[k]) return;
-  lang = k; render();
+  lang = k; render(); if (window.srvRender) window.srvRender();
   if (save) {
     store.set("seminar-lang", JSON.stringify({ k, name: name || (LANGS[k] && LANGS[k].name) || "", code: code || "" }));
     if (location.hash !== "#booked" && view === "home") history.replaceState(null, "", "#" + (["en", "yi", "he", "es"].includes(k) ? k : "lang"));
@@ -11427,7 +11905,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     Object.assign(hero.style, { position: "fixed", top: r.top + "px", left: "0", width: "100%", height: r.height + "px", minHeight: "0", zIndex: "25" });
     const cab = document.getElementById("mvid") || document.getElementById("cabinet"), hh = (document.querySelector(".top") || {}).offsetHeight || 64;
     window.scrollTo(0, cab ? Math.max(0, cab.getBoundingClientRect().top + scrollY - hh) : 0);
-    setTimeout(() => { if (window.mvPlayFromStart) window.mvPlayFromStart(); }, 900);
+    if (window.mvPlayFromStart) window.mvPlayFromStart(true);
     requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add("parting")));
     setTimeout(() => { hero.classList.add("parted"); hero.classList.remove("parting"); hero.removeAttribute("style"); }, reduce ? 30 : 1300);
     if (!(history.state && history.state.parted)) history.pushState({ parted: true }, "");
@@ -11925,7 +12403,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function play() { if (done) { show(0); } playing = true; t0 = performance.now(); setPP(); syncA(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); try { if (!seen) { seen = true; track("video_play"); } } catch (x) {} }
   function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); syncA(); }
-  window.mvPlayFromStart = () => { show(0); play(); };
+  window.mvPlayFromStart = withSound => { if (withSound && box) { sound = true; setSnd(); } show(0); play(); };
   document.addEventListener("DOMContentLoaded", () => {
     box = document.getElementById("mv"); if (!box) return;
     stage = box.querySelector(".mv-stage"); pp = box.querySelector(".mv-pp"); snd = box.querySelector(".mv-snd");
@@ -11941,6 +12419,66 @@ document.addEventListener("DOMContentLoaded", () => {
     pp.addEventListener("click", () => { box.dataset.user = playing ? "" : "1"; });
     document.addEventListener("click", e => { const w = e.target.closest(".mv-watch"); if (!w) return; e.preventDefault(); e.stopPropagation(); document.getElementById("mvid").scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(() => window.mvPlayFromStart(), 450); }, true);
   });
+})();
+</script>
+<script>
+(function () {
+  const SEG = [{ ph: "472786860", ag: [0, 7, 9, 8] }, { ph: "227055653", ag: [6, 5, 0, 10] }, { ph: "297124769", ag: [1, 7, 12, 8] }, { ph: "689022973", ag: [13, 2, 4, 5] }];
+  const D = 3600, E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const IC = { play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>' };
+  let cur = -1, sc = 0, N = 0, playing = false, done = false, acc = 0, t0 = 0, raf = 0, stage, bar, pp, box;
+  const seg = i => ((typeof t === "function" ? t("srv.seg") : null) || [])[i] || {};
+  function scenes(i) { const g = seg(i); return [{ k: "t" }].concat((g.st || []).map(v => ({ k: "s", v }))).concat([{ k: "e" }]); }
+  function sceneHTML(i, n) {
+    const g = seg(i), x = scenes(i)[n];
+    if (x.k === "t") return `<div class="svs"><span class="sv-chip">${E(g.n)}</span><div class="sv-big">${E(g.s1)}</div></div>`;
+    if (x.k === "s") return `<div class="svs"><span class="sv-tag">${E(t("mv.case"))}</span><div class="sv-num">${E(x.v[0])}</div><div class="sv-txt">${E(x.v[1])}</div></div>`;
+    return `<div class="svs"><div class="sv-big">${E(t("mv.s5"))}</div></div>`;
+  }
+  function setPP() { if (!pp) return; pp.innerHTML = done ? IC.replay : playing ? IC.pause : IC.play; pp.setAttribute("aria-label", t(done ? "srv.replay" : playing ? "srv.pause" : "srv.play")); }
+  function show(n) { sc = n; acc = 0; t0 = performance.now(); stage.innerHTML = sceneHTML(cur, n); setPP(); }
+  function tick(now) {
+    if (!playing) return;
+    const el = acc + (now - t0);
+    bar.style.width = Math.min(100, ((sc * D + el) / (N * D)) * 100) + "%";
+    if (el >= D) { if (sc < N - 1) show(sc + 1); else { playing = false; done = true; setPP(); return; } }
+    raf = requestAnimationFrame(tick);
+  }
+  function play() { if (!stage) return; if (done) { done = false; show(0); } playing = true; t0 = performance.now(); setPP(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
+  function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); }
+  function panel(i) {
+    const g = seg(i), A = (typeof t === "function" && t("ag.list")) || [];
+    return `<div class="srv-grid"><div class="sv" style="background-image: linear-gradient(180deg, rgba(11,37,69,.55) 0%, rgba(11,37,69,.86) 70%), url(/photos/${SEG[i].ph}.jpg)"><div class="sv-stage" aria-live="polite"></div><div class="sv-ctrl"><button type="button" class="sv-pp"></button><div class="sv-track"><i></i></div></div></div>
+      <div class="srv-info"><h3>${E(g.n)}</h3><p class="srv-lead">${E(g.lead)}</p>
+      <h4>${E(t("srv.does"))}</h4><ul class="srv-does">${(g.does || []).map(d => `<li>${E(d)}</li>`).join("")}</ul>
+      <h4>${E(t("srv.agents"))}</h4><div class="srv-ags">${SEG[i].ag.map(k => A[k] ? `<button type="button" class="srv-ag" data-folder="store">${E(A[k][0])}</button>` : "").join("")}</div>
+      <button type="button" class="btn big srv-cta" data-contact data-msgtext="${E(g.n)}">${E(t("mo.go"))} <span class="arrow">→</span></button></div></div>`;
+  }
+  function wire() {
+    const p = document.getElementById("srvpan"); if (!p || cur < 0) { stage = null; return; }
+    stage = p.querySelector(".sv-stage"); bar = p.querySelector(".sv-track i"); pp = p.querySelector(".sv-pp"); N = scenes(cur).length;
+    pp.addEventListener("click", () => { p.dataset.user = playing ? "1" : ""; playing ? pause() : play(); });
+    stage.addEventListener("click", () => { p.dataset.user = playing ? "1" : ""; playing ? pause() : play(); });
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) pause(); else if (!playing && !done && !p.dataset.user) play(); }), { threshold: .35 }).observe(p.querySelector(".sv"));
+  }
+  window.srvRender = function () {
+    box = document.getElementById("srvbox"); if (!box || typeof t !== "function") return;
+    const segs = t("srv.seg"); if (!Array.isArray(segs)) return;
+    const keep = sc;
+    box.innerHTML = `<div class="srv-list">${segs.map((g, i) => `<button type="button" class="srv-row${i === cur ? " on" : ""}" data-seg="${i}" aria-expanded="${i === cur}" aria-controls="srvpan"><span class="srv-n">0${i + 1}</span><span class="srv-name">${E(g.n)}</span><span class="srv-go">${E(t("srv.click"))} <span class="srv-ar">→</span></span></button>`).join("")}</div><div class="srv-pan" id="srvpan"${cur < 0 ? " hidden" : ""}>${cur < 0 ? "" : panel(cur)}</div>`;
+    wire();
+    if (stage) { show(Math.min(keep, N - 1)); bar.style.width = (sc / N * 100) + "%"; if (playing) { t0 = performance.now(); } else setPP(); }
+  };
+  function open(i) {
+    cancelAnimationFrame(raf); playing = false; done = false; cur = i; sc = 0;
+    window.srvRender();
+    const p = document.getElementById("srvpan"), hh = (document.querySelector(".top") || {}).offsetHeight || 64;
+    window.scrollTo({ top: Math.max(0, p.getBoundingClientRect().top + scrollY - hh - 12), behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    show(0); play();
+    try { track("segment_" + i); } catch (x) {}
+  }
+  document.addEventListener("click", e => { const r = e.target.closest(".srv-row"); if (r) { e.preventDefault(); open(+r.dataset.seg); } });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => window.srvRender()); else window.srvRender();
 })();
 </script>
 </body>

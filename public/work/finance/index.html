@@ -3397,7 +3397,7 @@ const T = {
   "pr.sub": "Pick an industry.",
   "pr.see": "See our work in {x}",
   "pr.hero": "Our work in {x}",
-  "pr.cta": "Talk to us about {x}",
+  "pr.cta": "Talk to us about AI for {x}",
   "pr.eyebrow": "Practice",
   "num.kicker": "By the numbers",
   "num.title": "What we've done with AI",
@@ -4670,7 +4670,8 @@ const T = {
    ]
   ],
   "hint.click": "Click anywhere to start",
-  "hint.tap": "Tap anywhere to start"
+  "hint.tap": "Tap anywhere to start",
+  "pr.cta_hc": "Talk to us about the healthcare industry"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -5568,7 +5569,7 @@ const T = {
   "pr.sub": "קלייבט אן אינדוסטריע.",
   "pr.see": "זעט אונזער ארבעט אין {x}",
   "pr.hero": "אונזער ארבעט אין {x}",
-  "pr.cta": "רעדט מיט אונז וועגן {x}",
+  "pr.cta": "רעדט מיט אונז וועגן AI פאר {x}",
   "pr.eyebrow": "פעלד",
   "num.kicker": "אין נומערן",
   "num.title": "וואס מיר האבן שוין געטון מיט AI",
@@ -6841,7 +6842,8 @@ const T = {
    ]
   ],
   "hint.click": "קליקט ערגעץ וואו צו אנהייבן",
-  "hint.tap": "דריקט ערגעץ וואו צו אנהייבן"
+  "hint.tap": "דריקט ערגעץ וואו צו אנהייבן",
+  "pr.cta_hc": "רעדט מיט אונז וועגן דער העלטקעיר אינדוסטריע"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -7739,7 +7741,7 @@ const T = {
   "pr.sub": "בחרו תחום.",
   "pr.see": "העבודה שלנו ב{x}",
   "pr.hero": "העבודה שלנו ב{x}",
-  "pr.cta": "דברו איתנו על {x}",
+  "pr.cta": "דברו איתנו על AI עבור {x}",
   "pr.eyebrow": "תחום",
   "num.kicker": "במספרים",
   "num.title": "מה עשינו עם AI",
@@ -9012,7 +9014,8 @@ const T = {
    ]
   ],
   "hint.click": "לחצו בכל מקום כדי להתחיל",
-  "hint.tap": "געו בכל מקום כדי להתחיל"
+  "hint.tap": "געו בכל מקום כדי להתחיל",
+  "pr.cta_hc": "דברו איתנו על ענף הבריאות"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -9910,7 +9913,7 @@ const T = {
   "pr.sub": "Elija una industria.",
   "pr.see": "Vea nuestro trabajo en {x}",
   "pr.hero": "Nuestro trabajo en {x}",
-  "pr.cta": "Hable con nosotros sobre {x}",
+  "pr.cta": "Hable con nosotros sobre IA para {x}",
   "pr.eyebrow": "Área",
   "num.kicker": "En números",
   "num.title": "Lo que hemos hecho con IA",
@@ -11183,7 +11186,8 @@ const T = {
    ]
   ],
   "hint.click": "Haga clic en cualquier lugar para empezar",
-  "hint.tap": "Toque en cualquier lugar para empezar"
+  "hint.tap": "Toque en cualquier lugar para empezar",
+  "pr.cta_hc": "Hable con nosotros sobre el sector de la salud"
  }
 };
 
@@ -11526,7 +11530,7 @@ function renderCases() {
   const inds = t("cs.inds"), all = csFilter === "all";
   $("#cfilters").innerHTML = inds.map(([k, n]) => `<button type="button" data-cf="${k}" aria-pressed="${k === csFilter}">${esc(n)}</button>`).join("");
   $("#cv-feature").innerHTML = all ? caseCard(13, true)
-    : `<div class="phero rise" style="${pheroBg(csFilter)}"><div class="eyebrow">${esc(t("pr.eyebrow"))}</div><h2>${esc(t("pr.hero", { x: prName(csFilter) }))}</h2><p>${esc(prLine(csFilter))}</p><button type="button" class="btn big" data-contact data-msgtext="${esc(t("pr.cta", { x: prName(csFilter) }))}" data-fx>${esc(t("pr.cta", { x: prName(csFilter) }))} <span class="arrow">→</span></button></div>`;
+    : `<div class="phero rise" style="${pheroBg(csFilter)}"><div class="eyebrow">${esc(t("pr.eyebrow"))}</div><h2>${esc(t("pr.hero", { x: prName(csFilter) }))}</h2><p>${esc(prLine(csFilter))}</p><button type="button" class="btn big" data-contact data-msgtext="${esc((csFilter === "hc" ? t("pr.cta_hc") : t("pr.cta", { x: prName(csFilter) })))}" data-fx>${esc((csFilter === "hc" ? t("pr.cta_hc") : t("pr.cta", { x: prName(csFilter) })))} <span class="arrow">→</span></button></div>`;
   const inG = (x, i, k) => !CASE_HIDE.includes(i) && (all ? (x[0] === k && i !== 13) : x.includes(k));
   const count = k => CASE_IND.filter((x, i) => inG(x, i, k)).length;
   $("#cv-groups").innerHTML = inds.filter(([k]) => k !== "all" && (all || k === csFilter)).map(([k, n]) => {

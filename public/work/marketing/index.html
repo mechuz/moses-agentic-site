@@ -1560,6 +1560,21 @@ html, body { overflow-x: clip; }
 .mv-stat { padding: clamp(.9rem, 2vw, 1.4rem) .6rem; border-radius: 18px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); display: grid; gap: .35rem; animation: mvin .5s calc(.3s + var(--k) * .25s) both; }
 .mv-stat b { font: 900 clamp(1.8rem, 4.8vw, 3.6rem)/1 var(--f-display); letter-spacing: -.04em; color: #C6F432; direction: ltr; }
 .mv-stat span { font: 700 clamp(.8rem, 1.5vw, 1.02rem)/1.3 var(--f-body); color: rgba(255,255,255,.85); }
+.mvs.sc { align-items: stretch; justify-content: flex-end; text-align: start; padding: 0; }
+.mvc-bg { position: absolute; inset: 0; overflow: hidden; }
+.mvc-bg img { width: 100%; height: 100%; object-fit: cover; animation: mvkb 8s ease-out both; }
+@keyframes mvkb { from { transform: scale(1.12); } to { transform: scale(1); } }
+.mvc-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,26,52,.94) 0%, rgba(8,26,52,.78) 48%, rgba(8,26,52,.25) 100%); }
+[dir="rtl"] .mvc-bg::after { background: linear-gradient(270deg, rgba(8,26,52,.94) 0%, rgba(8,26,52,.78) 48%, rgba(8,26,52,.25) 100%); }
+.mvc { position: relative; padding: clamp(1.4rem, 5vw, 3.4rem); display: grid; gap: clamp(.5rem, 1.2vw, .9rem); max-width: 640px; margin-bottom: auto; margin-top: auto; }
+.mvc-tags { display: flex; flex-wrap: wrap; gap: .5rem; animation: mvin .5s .1s both; }
+.mvc-svc { background: #C6F432; color: #0B2545; border-radius: 999px; padding: .35rem .85rem; font: 800 clamp(.8rem, 1.4vw, .98rem) var(--f-body); }
+.mvc-cs { border: 1px solid rgba(255,255,255,.4); border-radius: 999px; padding: .35rem .85rem; font: 700 clamp(.72rem, 1.2vw, .85rem) var(--f-body); letter-spacing: .08em; text-transform: uppercase; }
+.mvc-stat { font: 900 clamp(2.6rem, 8vw, 6rem)/1 var(--f-display); letter-spacing: -.05em; color: #C6F432; direction: ltr; unicode-bidi: isolate; text-align: start; animation: mvpop .7s .25s cubic-bezier(.2,1.3,.4,1) both; }
+.mvc-res { font: 800 clamp(1.15rem, 2.6vw, 2rem)/1.15 var(--f-display); letter-spacing: -.02em; animation: mvin .6s .55s both; }
+.mvc-ttl { font: 600 clamp(.9rem, 1.6vw, 1.1rem)/1.35 var(--f-body); color: rgba(255,255,255,.75); animation: mvin .6s .8s both; }
+.mv-top { font: 700 clamp(.95rem, 1.8vw, 1.25rem) var(--f-body); color: rgba(255,255,255,.85); animation: mvin .5s both; }
+.mv-top b { color: #C6F432; font-weight: 900; }
 .mv-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; animation: mvin .6s .8s both; }
 .mv-cta button { border: 0; border-radius: 999px; min-height: 54px; padding: 0 1.5rem; font: 800 clamp(1rem, 1.8vw, 1.15rem) var(--f-body); cursor: pointer; }
 .mv-b1 { background: #C6F432; color: #0B2545; } .mv-b2 { background: #FFFFFF; color: #0B2545; }
@@ -1571,7 +1586,7 @@ html, body { overflow-x: clip; }
 .mv-snd.on { background: #FFFFFF; color: #0B2545; animation: none; }
 .mv-snd svg { width: 20px; height: 20px; }
 @keyframes sndp { 50% { box-shadow: 0 0 0 6px rgba(198,244,50,.35); } }
-.mv-ch { flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+.mv-ch { flex: 1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 4px; }
 .mv-dot { height: 22px; border: 0; background: none; padding: 9px 0; cursor: pointer; }
 .mv-dot i { display: block; height: 4px; width: 0; border-radius: 4px; background: #C6F432; box-shadow: -1000px 0 0 1000px rgba(255,255,255,.18) inset; }
 .mv-dot { position: relative; } .mv-dot::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 4px; border-radius: 4px; background: rgba(255,255,255,.2); }
@@ -1682,12 +1697,6 @@ body { top: 0 !important; }
   });
 })();
 </script>
-<style>/* team-only link to the private prospect tracker */
-.teamlink{display:inline-flex;align-items:center;gap:.35rem;margin-inline-start:1rem;padding:.35rem .75rem;border:1px solid rgba(11,37,69,.18);border-radius:999px;color:#0B2545;font:600 .85rem var(--f-body,inherit);text-decoration:none;white-space:nowrap}
-.teamlink:hover{background:#EAF5FF}.teamlink svg{width:15px;height:15px}
-.site-chocham .teamlink{display:none}
-@media (max-width:900px){.teamlink{margin-inline-start:auto;padding:.4rem;border:0}.teamlink span{display:none}}
-</style>
 </head>
 <body>
 
@@ -1703,7 +1712,6 @@ body { top: 0 !important; }
       <button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button>
     </nav>
     <div class="langs" role="group" aria-label="Language" id="langs"></div>
-    <a class="teamlink" href="https://claude.ai/artifact/3XdfCAgPBe2vmtahkN69aK" target="_blank" rel="noopener" title="Team prospect tracker (Max and Eddie)" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
     <button type="button" class="askbtn" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg><span data-i18n="chat.open">Ask us anything</span></button>
     <button type="button" class="btn" data-contact data-fx data-i18n="cta.call">Book a call</button>
   </div>
@@ -4360,9 +4368,9 @@ const T = {
     "Billing and time tracking"
    ]
   ],
-  "mv.k": "Moses Agentic in 30 seconds",
+  "mv.k": "Moses Agentic in one minute",
   "mv.t": "See what we do",
-  "mv.watch": "Watch: what we do in 30 seconds",
+  "mv.watch": "Watch: what we do, in one minute",
   "mv.s0a": "AI agents that do the work.",
   "mv.s0b": "Your people lead.",
   "mv.s1": "Your team is buried in busywork.",
@@ -4399,7 +4407,8 @@ const T = {
   "mv.pause": "Pause",
   "mv.replay": "Replay",
   "mv.sound": "Turn sound on",
-  "mv.mute": "Mute"
+  "mv.mute": "Mute",
+  "mv.case": "Case study"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6392,9 +6401,9 @@ const T = {
     "בילינג און צייט נאכקוקן"
    ]
   ],
-  "mv.k": "Moses Agentic אין 30 סעקונדעס",
+  "mv.k": "Moses Agentic אין איין מינוט",
   "mv.t": "זעט וואס מיר טוען",
-  "mv.watch": "קוקט: וואס מיר טוען, אין 30 סעקונדעס",
+  "mv.watch": "קוקט: וואס מיר טוען, אין איין מינוט",
   "mv.s0a": "AI אגענטן וואס טוען די ארבעט.",
   "mv.s0b": "אייערע מענטשן פירן.",
   "mv.s1": "אייער טיעם ערטרינקט אין קליינע ארבעט.",
@@ -6431,7 +6440,8 @@ const T = {
   "mv.pause": "שטעלט אפ",
   "mv.replay": "נאכאמאל",
   "mv.sound": "שטעלט אן דעם קול",
-  "mv.mute": "שטיל"
+  "mv.mute": "שטיל",
+  "mv.case": "קעיס סטאדי"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8424,9 +8434,9 @@ const T = {
     "חיוב ומעקב שעות"
    ]
   ],
-  "mv.k": "Moses Agentic ב-30 שניות",
+  "mv.k": "Moses Agentic בדקה אחת",
   "mv.t": "ראו מה אנחנו עושים",
-  "mv.watch": "צפו: מה אנחנו עושים ב-30 שניות",
+  "mv.watch": "צפו: מה אנחנו עושים, בדקה אחת",
   "mv.s0a": "סוכני AI שעושים את העבודה.",
   "mv.s0b": "האנשים שלכם מובילים.",
   "mv.s1": "הצוות שלכם טובע בעבודה שחורה.",
@@ -8463,7 +8473,8 @@ const T = {
   "mv.pause": "השהיה",
   "mv.replay": "שוב",
   "mv.sound": "הפעלת קול",
-  "mv.mute": "השתקה"
+  "mv.mute": "השתקה",
+  "mv.case": "מקרה בוחן"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -10456,9 +10467,9 @@ const T = {
     "Facturación y control de horas"
    ]
   ],
-  "mv.k": "Moses Agentic en 30 segundos",
+  "mv.k": "Moses Agentic en un minuto",
   "mv.t": "Vea lo que hacemos",
-  "mv.watch": "Vea: lo que hacemos en 30 segundos",
+  "mv.watch": "Vea: lo que hacemos, en un minuto",
   "mv.s0a": "Agentes de IA que hacen el trabajo.",
   "mv.s0b": "Su gente lidera.",
   "mv.s1": "Su equipo está enterrado en tareas repetitivas.",
@@ -10495,7 +10506,8 @@ const T = {
   "mv.pause": "Pausa",
   "mv.replay": "Repetir",
   "mv.sound": "Activar sonido",
-  "mv.mute": "Silenciar"
+  "mv.mute": "Silenciar",
+  "mv.case": "Caso de estudio"
  }
 };
 
@@ -11826,18 +11838,27 @@ document.addEventListener("DOMContentLoaded", () => {
 /* Front page: "Moses Agentic in 30 seconds" - an interactive animated video (6 chapters, tap to jump, pause, replay) */
 (function () {
   if (CONFIG.site !== "moses") return;
-  const DUR = 5200, N = 6;
+  const CH = [{ k: 0 }, { k: 1 }, { k: 2 }, { k: "c", i: 21, s: 0 }, { k: "c", i: 20, s: 1 }, { k: "c", i: 13, s: 2 }, { k: "c", i: 17, p: "cre" }, { k: "c", i: 18, s: 3 }, { k: "c", i: 9, s: 4, st: 1 }, { k: "c", i: 22, s: 5 }, { k: "c", i: 0, p: "hc", v: "$212K" }, { k: 5 }];
+  const DURS = [6130, 6420, 7400, 9140, 8530, 9760, 7700, 7030, 7210, 8550, 6430, 9400], N = CH.length, START = DURS.map((_, k) => DURS.slice(0, k).reduce((a, b) => a + b, 0));
+  let DUR = DURS[0];
   const IC = { snd0: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>', snd1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>', play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>' };
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let snd, au = null, sound = false, box, stage, dots, pp, cur = 0, t0 = 0, acc = 0, playing = false, raf = 0, done = false, seen = false;
   const L = k => t(k);
-  function scene(i) {
+  function caseScene(c) {
+    const cs = t("cases")[c.i] || ["", "", ""], lab = c.p ? prName(c.p) : (t("svc.list")[c.s] || [""])[0];
+    const tr = t("tr.list")[1] || ["", ""], stat = c.v || (c.st ? tr[0] : (HERO[c.i] || "")), res = c.st ? tr[1] : cs[2];
+    const ph = (typeof PHOTO_MAP !== "undefined" && PHOTO_MAP[c.i]) ? phSrc(PHOTO_MAP[c.i]) : "";
+    return `<div class="mvs sc">${ph ? `<div class="mvc-bg"><img src="${ph}" alt=""></div>` : ""}<div class="mvc"><div class="mvc-tags"><span class="mvc-svc">${esc(lab)}</span><span class="mvc-cs">${esc(t("mv.case"))}</span></div><div class="mvc-stat">${esc(stat)}</div><div class="mvc-res">${esc(res)}</div><div class="mvc-ttl">${esc(cs[0])}</div></div></div>`;
+  }
+  function scene(n) {
+    const c = CH[n]; if (c.k === "c") return caseScene(c); const i = c.k;
     if (i === 0) return `<div class="mvs s0"><div class="mv-logo"><img src="/logo-mark.svg" alt=""></div><div class="mv-brand">Moses <span>Agentic</span></div><div class="mv-big">${esc(L("mv.s0a"))}</div><div class="mv-sub">${esc(L("mv.s0b"))}</div></div>`;
     if (i === 1) return `<div class="mvs s1"><div class="mv-h">${esc(L("mv.s1"))}</div><div class="mv-pile">${L("mv.s1i").map((x, k) => `<span style="--k:${k};--r:${[-8, 6, -3, 9, -6, 4][k]}deg">${esc(x)}</span>`).join("")}</div></div>`;
     if (i === 2) return `<div class="mvs s2"><div class="mv-h">${esc(L("mv.s2"))}</div><div class="mv-roles">${L("mv.s2i").map((x, k) => `<span style="--k:${k}"><i></i>${esc(x)}</span>`).join("")}</div></div>`;
     if (i === 3) return `<div class="mvs s3"><div class="mv-h">${esc(L("mv.s3"))}</div><div class="mv-win"><div class="mv-wb"><b></b><b></b><b></b><span class="mv-clock"><i></i></span></div>${L("mv.s3i").map((x, k) => `<div class="mv-task" style="--k:${k}"><span class="mv-ck"></span><span>${esc(x)}</span><span class="mv-bar"><i></i></span></div>`).join("")}</div></div>`;
     if (i === 4) return `<div class="mvs s4"><div class="mv-h">${esc(L("mv.s4"))}</div><div class="mv-stats">${t("tr.list").slice(0, 3).map((x, k) => `<div class="mv-stat" style="--k:${k}"><b data-to="${esc(x[0])}">${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join("")}</div></div>`;
-    return `<div class="mvs s5"><div class="mv-big">${esc(t("camp.a"))} <span>${esc(t("camp.b"))}</span></div><div class="mv-sub">${esc(L("mv.s5"))}</div><div class="mv-cta"><button type="button" class="mv-b1" data-contact data-msgtext="Front page video">${esc(t("mo.go"))} <span class="arrow">→</span></button><button type="button" class="mv-b2" data-folder="store">${esc(L("mv.ag"))} <span class="arrow">→</span></button></div></div>`;
+    return `<div class="mvs s5"><div class="mv-top"><b>${esc((t("tr.list")[0] || [""])[0])}</b> ${esc((t("tr.list")[0] || ["", ""])[1])}</div><div class="mv-big">${esc(t("camp.a"))} <span>${esc(t("camp.b"))}</span></div><div class="mv-sub">${esc(L("mv.s5"))}</div><div class="mv-cta"><button type="button" class="mv-b1" data-contact data-msgtext="Front page video">${esc(t("mo.go"))} <span class="arrow">→</span></button><button type="button" class="mv-b2" data-folder="store">${esc(L("mv.ag"))} <span class="arrow">→</span></button></div></div>`;
   }
   function count(el) {
     const to = el.dataset.to, m = to.match(/^(\D*)([\d,.]+)(.*)$/); if (!m || calm) return;
@@ -11849,17 +11870,17 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => requestAnimationFrame(step), 500 + (+el.parentNode.style.getPropertyValue("--k") || 0) * 250);
   }
   function show(i) {
-    cur = i; acc = 0; t0 = performance.now(); done = false;
+    cur = i; DUR = DURS[i]; acc = 0; t0 = performance.now(); done = false;
     stage.innerHTML = scene(i); stage.dataset.s = i;
     stage.querySelectorAll(".mv-stat b").forEach(count);
     dots.forEach((d, k) => { d.classList.toggle("on", k === i); d.classList.toggle("past", k < i); d.querySelector("i").style.width = k < i ? "100%" : "0%"; });
     setPP();
   }
-  function src() { return "/media/moses-30s-" + ((typeof lang === "string" && lang === "en") || typeof lang !== "string" ? "en" : "music") + ".mp3"; }
+  function src() { return "/media/moses-full-" + ((typeof lang === "string" && lang === "en") || typeof lang !== "string" ? "en" : "music") + ".mp3"; }
   function syncA() {
     if (!sound) { if (au) au.pause(); return; }
     if (!au || !au.src.endsWith(src())) { if (au) au.pause(); au = new Audio(src()); au.preload = "auto"; }
-    if (playing) { const at = cur * DUR / 1000 + (acc + (performance.now() - t0)) / 1000; if (Math.abs(au.currentTime - at) > .25) { try { au.currentTime = at; } catch (x) {} } const pr = au.play(); if (pr && pr.catch) pr.catch(() => {}); }
+    if (playing) { const at = (START[cur] + acc + (performance.now() - t0)) / 1000; if (Math.abs(au.currentTime - at) > .25) { try { au.currentTime = at; } catch (x) {} } const pr = au.play(); if (pr && pr.catch) pr.catch(() => {}); }
     else if (!done) au.pause();
   }
   function setSnd() { snd.innerHTML = sound ? IC.snd1 : IC.snd0; snd.setAttribute("aria-label", t(sound ? "mv.mute" : "mv.sound")); snd.classList.toggle("on", sound); }
@@ -11879,7 +11900,7 @@ document.addEventListener("DOMContentLoaded", () => {
     stage = box.querySelector(".mv-stage"); pp = box.querySelector(".mv-pp"); snd = box.querySelector(".mv-snd");
     snd.addEventListener("click", () => { sound = !sound; setSnd(); if (sound && !playing) { box.dataset.user = ""; play(); } else syncA(); });
     setSnd();
-    const ch = box.querySelector(".mv-ch"); ch.innerHTML = Array.from({ length: N }, (_, k) => `<button type="button" class="mv-dot" aria-label="${k + 1}"><i></i></button>`).join("");
+    const ch = box.querySelector(".mv-ch"); ch.style.gridTemplateColumns = `repeat(${N}, minmax(0, 1fr))`; ch.innerHTML = Array.from({ length: N }, (_, k) => `<button type="button" class="mv-dot" aria-label="${k + 1}"><i></i></button>`).join("");
     dots = [...ch.children];
     dots.forEach((d, k) => d.addEventListener("click", () => { show(k); play(); }));
     pp.addEventListener("click", () => playing ? pause() : play());

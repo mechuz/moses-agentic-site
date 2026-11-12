@@ -1605,6 +1605,10 @@ html, body { overflow-x: clip; }
   .mv-stat { grid-template-columns: auto 1fr; align-items: center; text-align: start; gap: .8rem; }
 }
 @media (prefers-reduced-motion: reduce) { .mvs, .mvs * { animation-duration: .01s !important; animation-delay: 0s !important; } }
+
+/* split sea: invite the click */
+.site-moses .hero3:not(.parted) { cursor: pointer; }
+.site-moses .hero3 .who2, .site-moses .hero3 .mv-watch { cursor: auto; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -11403,14 +11407,15 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const r = hero.getBoundingClientRect();
     Object.assign(hero.style, { position: "fixed", top: r.top + "px", left: "0", width: "100%", height: r.height + "px", minHeight: "0", zIndex: "25" });
-    window.scrollTo(0, 0);
+    const cab = document.getElementById("cabinet"), hh = (document.querySelector(".top") || {}).offsetHeight || 64;
+    window.scrollTo(0, cab ? Math.max(0, cab.getBoundingClientRect().top + scrollY - hh) : 0);
     requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add("parting")));
     setTimeout(() => { hero.classList.add("parted"); hero.classList.remove("parting"); hero.removeAttribute("style"); }, reduce ? 30 : 1300);
     if (!(history.state && history.state.parted)) history.pushState({ parted: true }, "");
     try { track("part_the_sea"); } catch (e) {}
   }
   /* calm: no sea, the headline simply leads to the folders */
-  if (hero) hero.addEventListener("click", e => { if (e.target.closest("button")) return; const c = document.getElementById("cabinet"); if (c) c.scrollIntoView({ behavior: "smooth", block: "start" }); });
+  if (hero) { hero.addEventListener("click", e => { if (e.target.closest("button, a, .mv-watch")) return; partSea(); }); hero.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target === hero) { e.preventDefault(); partSea(); } }); }
   document.addEventListener("click", e => { if (e.target.closest("[data-home]") && hero) hero.classList.remove("parted", "parting"); });
 })();
 </script>

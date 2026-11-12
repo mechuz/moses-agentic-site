@@ -1676,21 +1676,11 @@ footer .locs { margin: .2rem 0 .8rem; }
 .srv-prod { background: #C6F432 !important; color: #0B2545 !important; border-color: #C6F432 !important; cursor: default; }
 @media (prefers-reduced-motion: reduce) { .svs, .svs * { animation-duration: .01s !important; animation-delay: 0s !important; } }
 
-/* ===== AbraKadabra: compact strip; the demo opens on request ===== */
-.abk { display: none; }
-.site-moses main[data-page="home"] > #abk:not(#hero3):not(#cabinet):not(#agents), .site-moses .abk { display: block !important; background: #C6F432; color: #0B2545; padding: clamp(1.1rem, 2.4vw, 1.6rem) 0; }
-.site-chocham .abk { display: none !important; }
-.abk-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
-.abk-copy { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.4rem; }
-.abk .eyebrow { display: none; }
-.abk-name { font: 900 clamp(1.6rem, 3vw, 2.3rem)/1 var(--f-display); letter-spacing: -.045em; margin: 0; white-space: nowrap; }
-.abk-tag { font: 700 clamp(.98rem, 1.5vw, 1.15rem)/1.3 var(--f-body); margin: 0; flex: 1 1 22rem; max-width: 46ch; }
-.abk-btns { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0; }
-.abk .abk-btns .btn.big { background: #0B2545; color: #FFFFFF; padding: .62rem 1.1rem !important; font-size: 1rem !important; min-height: 0 !important; box-shadow: none; }
-.abk-watch { display: inline-flex; align-items: center; gap: .45rem; border: 2px solid #0B2545; background: transparent; color: #0B2545; border-radius: 999px; padding: .6rem 1rem; font: 800 1rem/1 var(--f-display); cursor: pointer; }
-.abk-watch svg { width: 16px; height: 16px; }
-.abk-v { display: none; width: 100%; max-width: 760px; justify-self: center; background: radial-gradient(120% 120% at 85% 0%, #1A73E8 0%, #0F3B7A 38%, #0B2545 72%); color: #FFFFFF; }
-.abk.open .abk-v { display: block; }
+/* ===== AbraKadabra demo in a popup ===== */
+#sheet[data-mode="abk"] { max-width: 820px; }
+.abk-sheet h2 { font: 900 clamp(1.5rem, 3vw, 2.1rem)/1.1 var(--f-display); letter-spacing: -.03em; color: #0B2545; margin: 0 0 1rem; padding-inline-end: 3rem; }
+.abk-v { display: block; width: 100%; background: radial-gradient(120% 120% at 85% 0%, #1A73E8 0%, #0F3B7A 38%, #0B2545 72%); color: #FFFFFF; }
+.s-store .scard .sdemo-go { margin-top: auto; align-self: flex-start; position: relative; z-index: 4; }
 .abk-v .sv-big.sm { font-size: clamp(1.3rem, 2.8vw, 2.2rem); max-width: 20ch; }
 .abk-cnt { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.6rem, 2vw, 1.4rem); width: 100%; }
 .abk-cnt div { display: grid; gap: .3rem; animation: svin .5s calc(.2s + var(--k) * .5s) both; }
@@ -1839,17 +1829,6 @@ body { top: 0 !important; }
     <div class="wrap">
       <div class="mv-head"><div class="eyebrow" data-i18n="mv.k">Moses Agentic in 30 seconds</div><h2 data-i18n="mv.t">See what we do</h2></div>
       <div class="mv" id="mv"><div class="mv-stage" aria-live="polite"></div><div class="mv-ctrl"><button type="button" class="mv-pp"></button><div class="mv-ch"></div><button type="button" class="mv-snd"></button></div></div>
-    </div>
-  </section>
-  <section class="abk" id="abk">
-    <div class="wrap abk-grid">
-      <div class="abk-copy">
-        <div class="eyebrow" data-i18n="abk.k">Our proposal app</div>
-        <h2 class="abk-name" data-i18n="abk.n">AbraKadabra</h2>
-        <p class="abk-tag" data-i18n="abk.tag">From idea to proposal, with a full video presentation, in minutes.</p>
-                <div class="abk-btns"><button type="button" class="btn big" data-contact data-msgtext="AbraKadabra demo"><span data-i18n="abk.cta">See it for your business</span> <span class="arrow">→</span></button><button type="button" class="abk-watch" data-abk-play><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span data-i18n="abk.watch">Watch the demo</span></button></div>
-      </div>
-      <div class="sv abk-v" id="abkv"><div class="sv-stage" aria-live="polite"></div><div class="sv-ctrl"><button type="button" class="sv-pp"></button><div class="sv-track"><i></i></div><button type="button" class="sv-snd"></button></div></div>
     </div>
   </section>
   <section class="serve" id="serve">
@@ -4243,6 +4222,16 @@ const T = {
      "Tracks market rents, cap rates and new supply",
      "Builds market and submarket reports"
     ]
+   ],
+   [
+    "abk",
+    "AbraKadabra proposal app",
+    "From idea to proposal, with a full video presentation.",
+    [
+     "Researches the business",
+     "Writes a branded proposal with the savings against hiring",
+     "Designs a website concept and a narrated video"
+    ]
    ]
   ],
   "cust.k": "Custom agents",
@@ -4646,7 +4635,17 @@ const T = {
    ]
   ],
   "abk.cta": "See it for your business",
-  "abk.watch": "Watch the demo"
+  "abk.watch": "Watch the demo",
+  "abk.card": [
+   "abk",
+   "AbraKadabra proposal app",
+   "From idea to proposal, with a full video presentation.",
+   [
+    "Researches the business",
+    "Writes a branded proposal with the savings against hiring",
+    "Designs a website concept and a narrated video"
+   ]
+  ]
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6392,6 +6391,16 @@ const T = {
      "טרעקט מארקעט רענטס, קעפ רעיטס און נייע סופליי",
      "מאכט מארקעט און סאבמארקעט רעפארטס"
     ]
+   ],
+   [
+    "abk",
+    "AbraKadabra פראפאזעל עפ",
+    "פון א געדאנק ביז א פראפאזעל, מיט א פולע ווידעא פרעזענטאציע.",
+    [
+     "פארשט דעם ביזנעס",
+     "שרייבט א פראפאזעל מיט אייער בראנד, מיט וויפיל מען שפארט קעגן אננעמען מענטשן",
+     "דיזיינט א וועבסייט קאנצעפט און א ווידעא מיט א נערעיטער"
+    ]
    ]
   ],
   "cust.k": "קאסטעם אגענטן",
@@ -6795,7 +6804,17 @@ const T = {
    ]
   ],
   "abk.cta": "זעט עס פאר אייער ביזנעס",
-  "abk.watch": "קוקט די דעמא"
+  "abk.watch": "קוקט די דעמא",
+  "abk.card": [
+   "abk",
+   "AbraKadabra פראפאזעל עפ",
+   "פון א געדאנק ביז א פראפאזעל, מיט א פולע ווידעא פרעזענטאציע.",
+   [
+    "פארשט דעם ביזנעס",
+    "שרייבט א פראפאזעל מיט אייער בראנד, מיט וויפיל מען שפארט קעגן אננעמען מענטשן",
+    "דיזיינט א וועבסייט קאנצעפט און א ווידעא מיט א נערעיטער"
+   ]
+  ]
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8541,6 +8560,16 @@ const T = {
      "עוקב אחרי שכר דירה בשוק, שיעורי היוון והיצע חדש",
      "בונה דוחות שוק ותת-שוק"
     ]
+   ],
+   [
+    "abk",
+    "אפליקציית ההצעות AbraKadabra",
+    "מרעיון להצעה, עם מצגת וידאו מלאה.",
+    [
+     "חוקרת את העסק",
+     "כותבת הצעה ממותגת עם החיסכון מול גיוס עובדים",
+     "מעצבת קונספט לאתר וסרטון עם קריינות"
+    ]
    ]
   ],
   "cust.k": "סוכנים בהתאמה אישית",
@@ -8944,7 +8973,17 @@ const T = {
    ]
   ],
   "abk.cta": "ראו את זה לעסק שלכם",
-  "abk.watch": "צפו בהדגמה"
+  "abk.watch": "צפו בהדגמה",
+  "abk.card": [
+   "abk",
+   "אפליקציית ההצעות AbraKadabra",
+   "מרעיון להצעה, עם מצגת וידאו מלאה.",
+   [
+    "חוקרת את העסק",
+    "כותבת הצעה ממותגת עם החיסכון מול גיוס עובדים",
+    "מעצבת קונספט לאתר וסרטון עם קריינות"
+   ]
+  ]
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -10690,6 +10729,16 @@ const T = {
      "Sigue rentas de mercado, cap rates y nueva oferta",
      "Prepara informes de mercado y submercado"
     ]
+   ],
+   [
+    "abk",
+    "AbraKadabra, app de propuestas",
+    "De la idea a la propuesta, con una presentación en video completa.",
+    [
+     "Investiga el negocio",
+     "Redacta una propuesta con su marca y el ahorro frente a contratar",
+     "Diseña un concepto de sitio web y un video narrado"
+    ]
    ]
   ],
   "cust.k": "Agentes a medida",
@@ -11093,7 +11142,17 @@ const T = {
    ]
   ],
   "abk.cta": "Véalo para su negocio",
-  "abk.watch": "Vea la demostración"
+  "abk.watch": "Vea la demostración",
+  "abk.card": [
+   "abk",
+   "AbraKadabra, app de propuestas",
+   "De la idea a la propuesta, con una presentación en video completa.",
+   [
+    "Investiga el negocio",
+    "Redacta una propuesta con su marca y el ahorro frente a contratar",
+    "Diseña un concepto de sitio web y un video narrado"
+   ]
+  ]
  }
 };
 
@@ -11836,7 +11895,7 @@ function confetti() {
 /* ---------- language + start ---------- */
 function setLang(k, save = true, name, code) {
   if (!LANGS[k] || !T[k]) return;
-  lang = k; render(); if (window.srvRender) window.srvRender(); if (window.abkRender) window.abkRender(); if (window.abkSteps) window.abkSteps();
+  lang = k; render(); if (window.srvRender) window.srvRender(); if (window.abkRender) window.abkRender();
   if (save) {
     store.set("seminar-lang", JSON.stringify({ k, name: name || (LANGS[k] && LANGS[k].name) || "", code: code || "" }));
     if (location.hash !== "#booked" && view === "home") history.replaceState(null, "", "#" + (["en", "yi", "he", "es"].includes(k) ? k : "lang"));
@@ -12234,13 +12293,14 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     analyst: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7h7M8.5 11h1M12 11h1M15.5 11h0M8.5 14.5h1M12 14.5h1M15.5 14.5h0M8.5 18h1M12 18h3.5"/>',
     research: '<ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V5.5M4.5 12v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V12"/>'
   };
+  AGI.abk = '<path d="M4 20 15 9"/><path d="m14 4 .9 2.1L17 7l-2.1.9L14 10l-.9-2.1L11 7l2.1-.9z"/><path d="M19 12l.6 1.4L21 14l-1.4.6L19 16l-.6-1.4L17 14l1.4-.6z"/>';
   const agIcon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${AGI[k] || '<circle cx="12" cy="9" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/>'}</svg>`;
   function card(x, kind) {
     const c = ((S().agents) || {})[x[0]] || {};
     const en = (T.en["store." + kind] || []).find(v => v[0] === x[0]);
     const lab = t("store.l");
     const body = kind === "exec" ? `<div class="slayers">${x[3].map((v, j) => `<div class="slayer"><span>${esc(lab[j])}</span><p>${esc(v)}</p></div>`).join("")}</div>` : `<ul>${x[3].map(v => `<li>${esc(v)}</li>`).join("")}</ul>`;
-    return `<article class="scard ${kind}" data-ag="${esc(x[0])}" tabindex="0" role="button"><span class="sico" aria-hidden="true">${agIcon(x[0])}</span><h4>${esc(x[1])}</h4><p class="sline">${esc(x[2])}</p>${body}<div class="sprice">${price(c)}</div>${action(c, en ? en[1] : x[1])}</article>`;
+    return `<article class="scard ${kind}" data-ag="${esc(x[0])}" tabindex="0" role="button"><span class="sico" aria-hidden="true">${agIcon(x[0])}</span><h4>${esc(x[1])}</h4><p class="sline">${esc(x[2])}</p>${body}${x[0] === "abk" ? `<button type="button" class="btn aqua sdemo-go" data-abk-play>${esc(t("abk.watch"))} <span class="arrow">▶</span></button>` : `<div class="sprice">${price(c)}</div>${action(c, en ? en[1] : x[1])}`}</article>`;
   }
   function renderStore() {
     const el = document.getElementById("store"); if (!el) return;
@@ -12620,21 +12680,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function play() { if (done) { done = false; show(0); } playing = true; t0 = performance.now(); setPP(); syncA(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
   function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); syncA(); }
-  window.abkPause = () => { if (box) box.dataset.user = "1"; pause(); if (au) au.pause(); };
+  window.abkPause = () => { pause(); if (au) au.pause(); };
   window.abkRender = () => { if (stage) { stage.innerHTML = scene(sc); setPP(); setSnd(); } };
-  document.addEventListener("DOMContentLoaded", () => {
-    box = document.getElementById("abkv"); if (!box) return;
-    stage = box.querySelector(".sv-stage"); bar = box.querySelector(".sv-track i"); pp = box.querySelector(".sv-pp"); snd = box.querySelector(".sv-snd");
-    const tog = () => { box.dataset.user = playing ? "1" : ""; playing ? pause() : play(); };
+  function bind(root) {
+    box = root; stage = box.querySelector(".sv-stage"); bar = box.querySelector(".sv-track i"); pp = box.querySelector(".sv-pp"); snd = box.querySelector(".sv-snd");
+    const tog = () => { playing ? pause() : play(); };
     pp.addEventListener("click", tog); stage.addEventListener("click", tog);
-    snd.addEventListener("click", () => { sound = !sound; setSnd(); if (sound && !playing) { box.dataset.user = ""; play(); } else syncA(); });
-    document.addEventListener("click", e => { if (e.target.closest("[data-abk-play]")) { e.preventDefault(); const sec = document.getElementById("abk"); if (sec) sec.classList.add("open"); sound = true; setSnd(); box.dataset.user = ""; box.scrollIntoView({ behavior: "smooth", block: "center" }); show(0); play(); } });
-    show(0); setSnd();
-    if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) pause(); else if (!playing && !done && !box.dataset.user) play(); }), { threshold: .45 }).observe(box);
-  });
+    snd.addEventListener("click", () => { sound = !sound; setSnd(); if (sound && !playing) play(); else syncA(); });
+  }
+  window.abkOpen = function () {
+    const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
+    const c = (t("abk.card") || [])[1] || "AbraKadabra";
+    sh.dataset.mode = "abk"; sh.classList.remove("wide");
+    sh.innerHTML = `<button type="button" class="x" data-close aria-label="${E(t("close"))}">×</button><div class="abk-sheet"><h2 id="sheet-title">${E(c)}</h2><div class="sv abk-v"><div class="sv-stage" aria-live="polite"></div><div class="sv-ctrl"><button type="button" class="sv-pp"></button><div class="sv-track"><i></i></div><button type="button" class="sv-snd"></button></div></div></div>`;
+    ov.hidden = false; document.body.style.overflow = "hidden";
+    bind(sh.querySelector(".abk-v")); sound = true; setSnd(); done = false; show(0); play();
+    try { track("abk_demo"); } catch (x) {}
+  };
+  document.addEventListener("click", e => {
+    if (e.target.closest("[data-abk-play]") || (e.target.closest(".s-store .scard[data-ag=\"abk\"]") && !e.target.closest("a, button"))) { e.preventDefault(); e.stopPropagation(); window.abkOpen(); return; }
+    if (box && (e.target.closest("[data-close]") || e.target.id === "overlay")) window.abkPause();
+  }, true);
 })();
 </script>
 <script>(function () { const stop = () => ["mvPause", "srvPause", "abkPause"].forEach(f => { try { window[f] && window[f](); } catch (e) {} }); window.mediaStop = stop; document.addEventListener("click", e => { const x = e.target.closest("[data-view], [data-folder], [data-go], [data-contact], [data-book], [data-open-chat], [data-langs], [data-lang], .teamlink, .nav a, a[href]"); if (x && !x.closest(".srv-row, [data-abk-play], .mv-watch, #mv, .sv")) stop(); else if (x && x.closest(".srv-pan .srv-ag, .srv-pan .srv-cta")) stop(); }, true); addEventListener("popstate", stop); addEventListener("hashchange", stop); addEventListener("pagehide", stop); document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); }); })();</script>
-<script>window.abkSteps = () => { const o = document.getElementById("abksteps"); if (o && typeof t === "function") o.innerHTML = (t("abk.steps") || []).map(x => `<li>${String(x).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c])}</li>`).join(""); }; document.addEventListener("DOMContentLoaded", () => window.abkSteps());</script>
 </body>
 </html>

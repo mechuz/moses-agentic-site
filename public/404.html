@@ -1675,6 +1675,30 @@ footer .locs { margin: .2rem 0 .8rem; }
 .sv-snd svg { width: 20px; height: 20px; }
 .srv-prod { background: #C6F432 !important; color: #0B2545 !important; border-color: #C6F432 !important; cursor: default; }
 @media (prefers-reduced-motion: reduce) { .svs, .svs * { animation-duration: .01s !important; animation-delay: 0s !important; } }
+
+/* ===== AbraKadabra spotlight ===== */
+.abk { display: none; }
+.site-moses main[data-page="home"] > #abk:not(#hero3):not(#cabinet):not(#agents), .site-moses .abk { display: block !important; background: #C6F432; color: #0B2545; padding: clamp(3rem, 7vw, 5.5rem) 0; overflow: hidden; }
+.site-chocham .abk { display: none !important; }
+.abk-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(1.6rem, 4vw, 3.4rem); align-items: center; }
+@media (max-width: 900px) { .abk-grid { grid-template-columns: minmax(0, 1fr); } }
+.abk .eyebrow { color: #0B2545; opacity: .75; }
+.abk-name { font: 900 clamp(2.6rem, 5.4vw, 5.4rem)/.95 var(--f-display); letter-spacing: -.055em; margin: .3rem 0 0; white-space: nowrap; }
+@media (max-width: 900px) { .abk-name { font-size: clamp(2.6rem, 13vw, 5rem); } }
+.abk-v .sv-big.sm { font-size: clamp(1.4rem, 3vw, 2.4rem); max-width: 20ch; }
+.abk-tag { font: 800 clamp(1.3rem, 2.8vw, 2.1rem)/1.15 var(--f-display); letter-spacing: -.025em; margin-top: .9rem; max-width: 24ch; }
+.abk-steps { list-style: none; counter-reset: ab; padding: 0; margin: 1.5rem 0 0; display: grid; gap: .6rem; }
+.abk-steps li { counter-increment: ab; display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); align-items: center; gap: .7rem; font: 700 clamp(1rem, 1.6vw, 1.15rem)/1.35 var(--f-body); }
+.abk-steps li::before { content: counter(ab); width: 2.1rem; height: 2.1rem; border-radius: 50%; background: #0B2545; color: #C6F432; display: grid; place-items: center; font: 900 1rem/1 var(--f-display); }
+.abk-btns { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 1.8rem; }
+.abk .btn.big { background: #0B2545; color: #FFFFFF; }
+.abk-watch { width: 58px; height: 58px; border-radius: 50%; border: 2px solid #0B2545; background: transparent; color: #0B2545; display: grid; place-items: center; cursor: pointer; }
+.abk-watch svg { width: 22px; height: 22px; }
+.abk-v { background: radial-gradient(120% 120% at 85% 0%, #1A73E8 0%, #0F3B7A 38%, #0B2545 72%); color: #FFFFFF; }
+.abk-cnt { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.6rem, 2vw, 1.4rem); width: 100%; }
+.abk-cnt div { display: grid; gap: .3rem; animation: svin .5s calc(.2s + var(--k) * .5s) both; }
+.abk-cnt b { font: 900 clamp(2.6rem, 7vw, 5rem)/.9 var(--f-display); color: #C6F432; letter-spacing: -.05em; }
+.abk-cnt span { font: 700 clamp(.9rem, 1.6vw, 1.15rem)/1.25 var(--f-body); }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1812,6 +1836,18 @@ body { top: 0 !important; }
     <div class="wrap">
       <div class="mv-head"><div class="eyebrow" data-i18n="mv.k">Moses Agentic in 30 seconds</div><h2 data-i18n="mv.t">See what we do</h2></div>
       <div class="mv" id="mv"><div class="mv-stage" aria-live="polite"></div><div class="mv-ctrl"><button type="button" class="mv-pp"></button><div class="mv-ch"></div><button type="button" class="mv-snd"></button></div></div>
+    </div>
+  </section>
+  <section class="abk" id="abk">
+    <div class="wrap abk-grid">
+      <div class="abk-copy">
+        <div class="eyebrow" data-i18n="abk.k">Our proposal app</div>
+        <h2 class="abk-name" data-i18n="abk.n">AbraKadabra</h2>
+        <p class="abk-tag" data-i18n="abk.tag">From idea to proposal, with a full video presentation, in minutes.</p>
+        <ol class="abk-steps" id="abksteps"></ol>
+        <div class="abk-btns"><button type="button" class="btn big" data-contact data-msgtext="AbraKadabra demo"><span data-i18n="abk.cta">See it for your business</span> <span class="arrow">→</span></button><button type="button" class="abk-watch" data-abk-play aria-label="Play"><span class="mv-wi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div>
+      </div>
+      <div class="sv abk-v" id="abkv"><div class="sv-stage" aria-live="polite"></div><div class="sv-ctrl"><button type="button" class="sv-pp"></button><div class="sv-track"><i></i></div><button type="button" class="sv-snd"></button></div></div>
     </div>
   </section>
   <section class="serve" id="serve">
@@ -4580,7 +4616,33 @@ const T = {
    }
   ],
   "srv.meet": "Meet {p}.",
-  "srv.also": "We also build"
+  "srv.also": "We also build",
+  "abk.n": "AbraKadabra",
+  "abk.k": "Our proposal app",
+  "abk.tag": "From idea to proposal, with a full video presentation, in minutes.",
+  "abk.steps": [
+   "Researches the business",
+   "Writes a branded proposal with the savings against hiring",
+   "Designs a website concept",
+   "Produces a narrated video presentation"
+  ],
+  "abk.tr": "Every deal, proposal and video lands in your team tracker.",
+  "abk.sofar": "So far",
+  "abk.cnt": [
+   [
+    "8",
+    "client proposals"
+   ],
+   [
+    "8",
+    "website concepts"
+   ],
+   [
+    "4",
+    "commercials"
+   ]
+  ],
+  "abk.cta": "See it for your business"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6701,7 +6763,33 @@ const T = {
    }
   ],
   "srv.meet": "באקענט זיך מיט {p}.",
-  "srv.also": "מיר בויען אויך"
+  "srv.also": "מיר בויען אויך",
+  "abk.n": "AbraKadabra",
+  "abk.k": "אונזער פראפאזעל עפ",
+  "abk.tag": "פון א געדאנק ביז א פראפאזעל, מיט א פולע ווידעא פרעזענטאציע, אין מינוטן.",
+  "abk.steps": [
+   "פארשט דעם ביזנעס",
+   "שרייבט א פראפאזעל מיט אייער בראנד, מיט וויפיל מען שפארט קעגן אננעמען מענטשן",
+   "דיזיינט א וועבסייט קאנצעפט",
+   "מאכט א ווידעא פרעזענטאציע מיט א נערעיטער"
+  ],
+  "abk.tr": "יעדער דיל, פראפאזעל און ווידעא קומט אריין אין אייער טיעם טרעקער.",
+  "abk.sofar": "ביז איצט",
+  "abk.cnt": [
+   [
+    "8",
+    "פראפאזעלס פאר קליענטן"
+   ],
+   [
+    "8",
+    "וועבסייט קאנצעפטן"
+   ],
+   [
+    "4",
+    "קאמערשעלס"
+   ]
+  ],
+  "abk.cta": "זעט עס פאר אייער ביזנעס"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8822,7 +8910,33 @@ const T = {
    }
   ],
   "srv.meet": "הכירו את {p}.",
-  "srv.also": "אנחנו בונים גם"
+  "srv.also": "אנחנו בונים גם",
+  "abk.n": "AbraKadabra",
+  "abk.k": "אפליקציית ההצעות שלנו",
+  "abk.tag": "מרעיון להצעה, עם מצגת וידאו מלאה, בתוך דקות.",
+  "abk.steps": [
+   "חוקרת את העסק",
+   "כותבת הצעה ממותגת עם החיסכון מול גיוס עובדים",
+   "מעצבת קונספט לאתר",
+   "מפיקה מצגת וידאו עם קריינות"
+  ],
+  "abk.tr": "כל עסקה, הצעה וסרטון נרשמים אוטומטית במעקב של הצוות.",
+  "abk.sofar": "עד עכשיו",
+  "abk.cnt": [
+   [
+    "8",
+    "הצעות ללקוחות"
+   ],
+   [
+    "8",
+    "קונספטים לאתרים"
+   ],
+   [
+    "4",
+    "פרסומות"
+   ]
+  ],
+  "abk.cta": "ראו את זה לעסק שלכם"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -10943,7 +11057,33 @@ const T = {
    }
   ],
   "srv.meet": "Conozca {p}.",
-  "srv.also": "También construimos"
+  "srv.also": "También construimos",
+  "abk.n": "AbraKadabra",
+  "abk.k": "Nuestra app de propuestas",
+  "abk.tag": "De la idea a la propuesta, con una presentación en video completa, en minutos.",
+  "abk.steps": [
+   "Investiga el negocio",
+   "Redacta una propuesta con su marca y el ahorro frente a contratar",
+   "Diseña un concepto de sitio web",
+   "Produce una presentación en video narrada"
+  ],
+  "abk.tr": "Cada operación, propuesta y video queda registrado en el tracker de su equipo.",
+  "abk.sofar": "Hasta ahora",
+  "abk.cnt": [
+   [
+    "8",
+    "propuestas para clientes"
+   ],
+   [
+    "8",
+    "conceptos de sitio web"
+   ],
+   [
+    "4",
+    "comerciales"
+   ]
+  ],
+  "abk.cta": "Véalo para su negocio"
  }
 };
 
@@ -11686,7 +11826,7 @@ function confetti() {
 /* ---------- language + start ---------- */
 function setLang(k, save = true, name, code) {
   if (!LANGS[k] || !T[k]) return;
-  lang = k; render(); if (window.srvRender) window.srvRender();
+  lang = k; render(); if (window.srvRender) window.srvRender(); if (window.abkRender) window.abkRender(); if (window.abkSteps) window.abkSteps();
   if (save) {
     store.set("seminar-lang", JSON.stringify({ k, name: name || (LANGS[k] && LANGS[k].name) || "", code: code || "" }));
     if (location.hash !== "#booked" && view === "home") history.replaceState(null, "", "#" + (["en", "yi", "he", "es"].includes(k) ? k : "lang"));
@@ -12435,5 +12575,52 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => window.srvRender()); else window.srvRender();
 })();
 </script>
+<script>
+(function () {
+  const DURS = [5450, 9440, 4020, 4660, 3869];
+  const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const IC = { play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
+    snd1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>', snd0: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="m22 9-6 6M16 9l6 6"/></svg>' };
+  const N = DURS.length, START = DURS.map((d, k) => DURS.slice(0, k).reduce((a, b) => a + b, 0)), TOT = DURS.reduce((a, b) => a + b, 0);
+  let sc = 0, playing = false, done = false, acc = 0, t0 = 0, raf = 0, sound = false, au = null, stage, bar, pp, snd, box;
+  function scene(n) {
+    if (n === 0) return `<div class="svs"><span class="sv-chip">${E(t("abk.n"))}</span><div class="sv-big sm">${E(t("abk.tag"))}</div></div>`;
+    if (n === 1) return `<div class="svs"><span class="sv-chip">${E(t("abk.n"))}</span><ul class="sv-feat">${(t("abk.steps") || []).map((f, k) => `<li style="--k:${k}">${E(f)}</li>`).join("")}</ul></div>`;
+    if (n === 2) return `<div class="svs"><span class="sv-tag">${E(t("abk.n"))}</span><div class="sv-big">${E(t("abk.tr"))}</div></div>`;
+    if (n === 3) return `<div class="svs"><span class="sv-tag">${E(t("abk.sofar"))}</span><div class="abk-cnt">${(t("abk.cnt") || []).map(([a, b], k) => `<div style="--k:${k}"><b>${E(a)}</b><span>${E(b)}</span></div>`).join("")}</div></div>`;
+    return `<div class="svs"><div class="sv-big">${E(t("mv.s5"))}</div></div>`;
+  }
+  const src = () => "/media/abk-" + ((typeof lang !== "string" || lang === "en") ? "en" : "music") + ".mp3";
+  function syncA() {
+    if (!sound) { if (au) au.pause(); return; }
+    if (!au || !au.src.endsWith(src())) { if (au) au.pause(); au = new Audio(src()); au.preload = "auto"; }
+    if (playing) { const at = (START[sc] + acc + (performance.now() - t0)) / 1000; if (Math.abs(au.currentTime - at) > .25) { try { au.currentTime = at; } catch (x) {} } const pr = au.play(); if (pr && pr.catch) pr.catch(() => {}); }
+    else au.pause();
+  }
+  function setPP() { pp.innerHTML = done ? IC.replay : playing ? IC.pause : IC.play; pp.setAttribute("aria-label", t(done ? "srv.replay" : playing ? "srv.pause" : "srv.play")); }
+  function setSnd() { snd.innerHTML = sound ? IC.snd1 : IC.snd0; snd.setAttribute("aria-label", t(sound ? "mv.mute" : "mv.sound")); snd.classList.toggle("on", sound); }
+  function show(n) { sc = n; acc = 0; t0 = performance.now(); stage.innerHTML = scene(n); setPP(); }
+  function tick(now) {
+    if (!playing) return;
+    const el = acc + (now - t0); bar.style.width = Math.min(100, (START[sc] + el) / TOT * 100) + "%";
+    if (el >= DURS[sc]) { if (sc < N - 1) show(sc + 1); else { playing = false; done = true; setPP(); return; } }
+    raf = requestAnimationFrame(tick);
+  }
+  function play() { if (done) { done = false; show(0); } playing = true; t0 = performance.now(); setPP(); syncA(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
+  function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); syncA(); }
+  window.abkRender = () => { if (stage) { stage.innerHTML = scene(sc); setPP(); setSnd(); } };
+  document.addEventListener("DOMContentLoaded", () => {
+    box = document.getElementById("abkv"); if (!box) return;
+    stage = box.querySelector(".sv-stage"); bar = box.querySelector(".sv-track i"); pp = box.querySelector(".sv-pp"); snd = box.querySelector(".sv-snd");
+    const tog = () => { box.dataset.user = playing ? "1" : ""; playing ? pause() : play(); };
+    pp.addEventListener("click", tog); stage.addEventListener("click", tog);
+    snd.addEventListener("click", () => { sound = !sound; setSnd(); if (sound && !playing) { box.dataset.user = ""; play(); } else syncA(); });
+    document.addEventListener("click", e => { if (e.target.closest("[data-abk-play]")) { e.preventDefault(); sound = true; setSnd(); box.dataset.user = ""; box.scrollIntoView({ behavior: "smooth", block: "center" }); show(0); play(); } });
+    show(0); setSnd();
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) pause(); else if (!playing && !done && !box.dataset.user) play(); }), { threshold: .45 }).observe(box);
+  });
+})();
+</script>
+<script>window.abkSteps = () => { const o = document.getElementById("abksteps"); if (o && typeof t === "function") o.innerHTML = (t("abk.steps") || []).map(x => `<li>${String(x).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c])}</li>`).join(""); }; document.addEventListener("DOMContentLoaded", () => window.abkSteps());</script>
 </body>
 </html>

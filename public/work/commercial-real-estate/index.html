@@ -1678,6 +1678,12 @@ body { top: 0 !important; }
   });
 })();
 </script>
+<style>/* team-only link to the private prospect tracker */
+.teamlink{display:inline-flex;align-items:center;gap:.35rem;margin-inline-start:1rem;padding:.35rem .75rem;border:1px solid rgba(11,37,69,.18);border-radius:999px;color:#0B2545;font:600 .85rem var(--f-body,inherit);text-decoration:none;white-space:nowrap}
+.teamlink:hover{background:#EAF5FF}.teamlink svg{width:15px;height:15px}
+.site-chocham .teamlink{display:none}
+@media (max-width:900px){.teamlink{margin-inline-start:auto;padding:.4rem;border:0}.teamlink span{display:none}}
+</style>
 </head>
 <body>
 
@@ -1693,6 +1699,7 @@ body { top: 0 !important; }
       <button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button>
     </nav>
     <div class="langs" role="group" aria-label="Language" id="langs"></div>
+    <a class="teamlink" href="https://claude.ai/artifact/3XdfCAgPBe2vmtahkN69aK" target="_blank" rel="noopener" title="Team prospect tracker (Max and Eddie)" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
     <button type="button" class="askbtn" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg><span data-i18n="chat.open">Ask us anything</span></button>
     <button type="button" class="btn" data-contact data-fx data-i18n="cta.call">Book a call</button>
   </div>

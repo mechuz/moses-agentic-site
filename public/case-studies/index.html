@@ -1590,7 +1590,7 @@ body { top: 0 !important; }
     if (ign) { ign = false; e.stopImmediatePropagation(); return; }
     var st = history.state || {}, ov = document.getElementById("overlay");
     if (ov && !ov.hidden) { e.stopImmediatePropagation(); window.__ovNoPush = true; closeSheet(); setTimeout(function () { window.__ovNoPush = false; }, 0); return; }
-    if (st.ov && st.c != null && typeof openCase === "function") { e.stopImmediatePropagation(); window.__ovNoPush = true; openCase(st.c); setTimeout(function () { window.__ovNoPush = false; }, 0); return; }
+    if (st.ov && st.c != null && typeof openCase === "function" && !document.querySelector(".fsheet.open")) { e.stopImmediatePropagation(); window.__ovNoPush = true; openCase(st.c); setTimeout(function () { window.__ovNoPush = false; }, 0); return; }
     var c = document.getElementById("consult"), fs = c && c.closest(".fsheet");
     if (fs && fs.classList.contains("open") && window.__qSet && (st.q || st.mf === fs.dataset.f)) { e.stopImmediatePropagation(); window.__qSet(st.q || 1); return; }
   });
@@ -10379,7 +10379,7 @@ function goConsult(msg) {
   if (!$("#chat").hidden) closeChat();
   if (!$("#overlay").hidden) closeSheet();
   const go = () => { window.openFor(document.getElementById("consult")); const m = $("#c-msg"); if (m && msg && !m.value.trim()) m.value = msg; setTimeout(() => { const n = $("#c-name"); if (n) n.focus({ preventScroll: true }); }, 450); };
-  const cpg = document.getElementById("consult").closest("main[data-page]").dataset.page; if (view !== cpg) { setView(cpg); setTimeout(go, 40); } else go();
+  const _cm = document.getElementById("consult").closest("main[data-page]"); const cpg = _cm ? _cm.dataset.page : view; if (view !== cpg) { setView(cpg); setTimeout(go, 40); } else go();
 }
 document.addEventListener("submit", async e => {
   if (e.target.id !== "cform") return;
@@ -10967,7 +10967,7 @@ document.addEventListener("click", e => {
   if (e.target.closest("[data-close]") || e.target.id === "overlay") { closeSheet(); return; }
   const tab = e.target.closest("[data-tab]"); if (tab) { datesTab = tab.dataset.tab; render(); return; }
   const g = e.target.closest("[data-go]");
-  if (g) { const el = document.getElementById(g.dataset.go); if (!el) return; const pg = el.closest("main[data-page]").dataset.page; const go = () => window.openFor(el); if (view !== pg) { setView(pg); setTimeout(go, 40); } else go(); return; }
+  if (g) { const el = document.getElementById(g.dataset.go); if (!el) return; const _pm = el.closest("main[data-page]"); const pg = _pm ? _pm.dataset.page : view; const go = () => window.openFor(el); if (view !== pg) { setView(pg); setTimeout(go, 40); } else go(); return; }
   if (e.target.closest("[data-home]")) { e.preventDefault(); setView("home"); }
 });
 document.addEventListener("keydown", e => { if (e.key === "Escape") { if (!$("#overlay").hidden) closeSheet(); else if (!$("#chat").hidden) closeChat(); } });
@@ -11120,6 +11120,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     if (open && e.target.closest("[data-view], [data-book], a[href]")) closeFolder();
     setTimeout(() => { if (open && !open.getClientRects().length) { const sh = open; open = null; sh.classList.remove("open"); sh.hidden = true; document.documentElement.classList.remove("filing"); } }, 60);
   });
+  window.__closeFolder = () => { if (!open) return; const sh = open; open = null; sh.classList.remove("open", "closing"); sh.hidden = true; document.documentElement.classList.remove("filing"); };
   function userClose() { const n = history.state && history.state.mf ? (history.state.d || 1) : 0; if (n) history.go(-n); else closeFolder(); }
   addEventListener("popstate", e => {
     const st = e.state || {}, hero = document.getElementById("hero3");
@@ -11559,6 +11560,20 @@ window.openInd = function (i) {
   try { track("industry_open", { ind: enName }); } catch (x) {}
 };
 document.addEventListener("click", e => { const b = e.target.closest("[data-pract]"); if (!b) return; e.preventDefault(); closeSheet(); openPractice(b.dataset.pract); scrollTo(0, 0); });
+</script>
+<script>
+/* folders open over any page; changing pages closes any open popup or folder */
+document.addEventListener("DOMContentLoaded", () => {
+  if (CONFIG.site !== "moses") return;
+  document.querySelectorAll(".fsheet").forEach(s => document.body.appendChild(s));
+  document.addEventListener("click", e => { if (!e.target.closest("[data-folder], .folder[data-folder]")) return; const ov = document.getElementById("overlay"); if (ov && !ov.hidden) closeSheet(); }, true);
+  const sv = window.setView;
+  if (typeof sv === "function") window.setView = function () {
+    const ov = document.getElementById("overlay"); if (ov && !ov.hidden) closeSheet();
+    if (window.__closeFolder) window.__closeFolder();
+    return sv.apply(this, arguments);
+  };
+});
 </script>
 </body>
 </html>

@@ -11869,7 +11869,7 @@ document.addEventListener("DOMContentLoaded", () => {
 (function () {
   if (CONFIG.site !== "moses") return;
   const CH = [{ k: 0 }, { k: 1 }, { k: 2 }, { k: "c", i: 21, s: 0 }, { k: "c", i: 20, s: 1 }, { k: "c", i: 13, s: 2 }, { k: "c", i: 17, p: "cre" }, { k: "c", i: 18, s: 3 }, { k: "c", i: 9, s: 4, st: 1 }, { k: "c", i: 22, s: 5 }, { k: "c", i: 0, p: "hc", v: "$212K" }, { k: 5 }];
-  const DURS = [6160, 6440, 8110, 9860, 8770, 10100, 7820, 7370, 8040, 8740, 6650, 12720], N = CH.length, START = DURS.map((_, k) => DURS.slice(0, k).reduce((a, b) => a + b, 0));
+  const DURS = [6070, 6200, 7760, 8560, 9160, 10260, 8540, 7780, 8360, 8620, 6860, 11770], N = CH.length, START = DURS.map((_, k) => DURS.slice(0, k).reduce((a, b) => a + b, 0));
   let DUR = DURS[0];
   const IC = { snd0: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>', snd1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>', play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>' };
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;

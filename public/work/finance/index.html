@@ -1641,6 +1641,7 @@ footer .locs { margin: .2rem 0 .8rem; }
 @media (max-width: 900px) { .srv-grid { grid-template-columns: minmax(0, 1fr); } }
 .sv { position: relative; border-radius: 24px; overflow: hidden; background-size: cover; background-position: center; box-shadow: 0 40px 80px -40px rgba(0,0,0,.6); }
 .sv-stage { position: relative; aspect-ratio: 16 / 10; cursor: pointer; }
+@media (max-width: 640px) { .sv-stage { aspect-ratio: 4 / 5; } .sv-feat li { font-size: 1.05rem; } .svs { padding-bottom: 4.2rem; } }
 .svs { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: clamp(.6rem, 1.6vw, 1rem); padding: clamp(1.2rem, 4vw, 2.6rem); padding-bottom: clamp(3rem, 6vw, 4rem); animation: svin .55s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes svin { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .sv-chip, .sv-tag { display: inline-block; border-radius: 999px; padding: .4rem .9rem; font: 800 clamp(.8rem, 1.3vw, 1rem)/1.1 var(--f-display); }
@@ -1664,6 +1665,15 @@ footer .locs { margin: .2rem 0 .8rem; }
 .srv-ag { border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.06); color: #FFFFFF; border-radius: 999px; padding: .5rem .9rem; font: 700 .95rem/1.1 var(--f-body); cursor: pointer; }
 .srv-ag:hover { background: #FFFFFF; color: #0B2545; }
 .srv-cta { margin-top: 1.6rem; }
+.sv-feat { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(.35rem, 1vw, .6rem); }
+.sv-feat li { position: relative; padding-inline-start: 1.9em; font: 800 clamp(1rem, 2.1vw, 1.55rem)/1.2 var(--f-display); letter-spacing: -.02em; animation: svin .5s calc(.25s + var(--k) * .55s) both; }
+.sv-feat li::before { content: "✓"; position: absolute; inset-inline-start: 0; top: 0; width: 1.35em; height: 1.35em; border-radius: 50%; background: #C6F432; color: #0B2545; display: grid; place-items: center; font-size: .8em; }
+.sv-also { display: flex; flex-wrap: wrap; gap: .6rem; max-width: 34ch; }
+.sv-also span { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.4); border-radius: 999px; padding: .55rem 1rem; font: 800 clamp(1rem, 2vw, 1.4rem)/1.1 var(--f-display); animation: svin .5s calc(.3s + var(--k) * .45s) both; }
+.sv-snd { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); background: transparent; color: #FFFFFF; display: grid; place-items: center; cursor: pointer; }
+.sv-snd.on { background: #C6F432; color: #0B2545; border-color: #C6F432; }
+.sv-snd svg { width: 20px; height: 20px; }
+.srv-prod { background: #C6F432 !important; color: #0B2545 !important; border-color: #C6F432 !important; cursor: default; }
 @media (prefers-reduced-motion: reduce) { .svs, .svs * { animation-duration: .01s !important; animation-delay: 0s !important; } }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
@@ -4488,7 +4498,7 @@ const T = {
   "srv.k": "Who we build for",
   "srv.sub": "Click yours. A short video shows what our agents do for you.",
   "srv.click": "Click here",
-  "srv.does": "What our agents do",
+  "srv.does": "What it does",
   "srv.agents": "Agents we build for you",
   "srv.play": "Play",
   "srv.pause": "Pause",
@@ -4498,45 +4508,34 @@ const T = {
     "n": "Commercial & CRE mortgage brokers",
     "s1": "Your deals, packaged by AI.",
     "lead": "Agents package every deal, so you place more loans with the same team.",
-    "does": [
-     "Collect and check borrower documents",
-     "Analyze rent rolls and operating statements",
-     "Build the underwriting model and lender memo",
-     "Follow up with borrowers and lenders"
-    ],
     "st": [
      [
       "$20.75M",
-      "469 units underwritten, with two lender memos"
-     ],
-     [
-      "$285K a year",
-      "in tax upside the seller's numbers missed"
+      "469 units underwritten in a senior-housing portfolio"
      ],
      [
       "39%",
-      "asking price too high, caught in one afternoon"
+      "auction asking price too high, caught in diligence"
      ]
+    ],
+    "prod": "Debt Broker AI",
+    "feat": [
+     "Underwrites the deal",
+     "Sizes the loan",
+     "Builds the loan request",
+     "Targets the right lenders",
+     "Drafts outreach for your approval",
+     "Chases every missing document"
     ]
    },
    {
     "n": "Asset managers",
     "s1": "Every report, compiled for you.",
     "lead": "Agents compile the reports and track the numbers. You review, decide and manage.",
-    "does": [
-     "Monthly operating statements",
-     "Rent rolls and occupancy",
-     "Budget vs. actual and loan covenants",
-     "Investor reports"
-    ],
     "st": [
      [
       "$1.1B",
       "portfolio analyzed, $78.2M traced to the cent"
-     ],
-     [
-      "$79.5M",
-      "valuation of a distressed office package, before the auction"
      ],
      [
       "Six figures",
@@ -4548,20 +4547,10 @@ const T = {
     "n": "Marketing",
     "s1": "An AI marketing department.",
     "lead": "Ads, website, content, reviews and leads, run by AI, without agency fees.",
-    "does": [
-     "Ads and Google profile",
-     "Website, blog and reviews",
-     "Referral and lead tracking",
-     "First replies to new leads, approved by you"
-    ],
     "st": [
      [
       "3 move-ins",
-      "in 31 days, with no placement agency"
-     ],
-     [
-      "About 60% less",
-      "than agency fees: $4,292 in ads vs. about $10,625"
+      "in 31 days, no placement agency, about 60% less than agency fees"
      ],
      [
       "1,000+",
@@ -4573,12 +4562,6 @@ const T = {
     "n": "Senior living & healthcare",
     "s1": "Census, staffing and payroll on autopilot.",
     "lead": "Agents check payroll, staffing and census every day, and keep the front office running.",
-    "does": [
-     "Daily payroll and staffing brief",
-     "Census and occupancy tracking",
-     "Month-end close and reports",
-     "Website with live availability and reservations"
-    ],
     "st": [
      [
       "0 overtime",
@@ -4590,7 +4573,9 @@ const T = {
      ]
     ]
    }
-  ]
+  ],
+  "srv.meet": "Meet {p}.",
+  "srv.also": "We also build"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6629,7 +6614,7 @@ const T = {
   "srv.k": "פאר וועמען מיר בויען",
   "srv.sub": "קליקט אויף אייערס. א קורצע ווידעא ווייזט וואס אונזערע אגענטן טוען פאר אייך.",
   "srv.click": "קליקט דא",
-  "srv.does": "וואס אונזערע אגענטן טוען",
+  "srv.does": "וואס עס טוט",
   "srv.agents": "אגענטן וואס מיר בויען פאר אייך",
   "srv.play": "שפילט",
   "srv.pause": "שטעלט אפ",
@@ -6639,45 +6624,34 @@ const T = {
     "n": "קאמערשעל און CRE מארטגעדזש בראוקערס",
     "s1": "אייערע דילס, צוגעגרייט דורך AI.",
     "lead": "אגענטן גרייטן צו יעדן דיל, אזוי מאכט איר מער לאונס מיט די זעלבע טיעם.",
-    "does": [
-     "זאמלען און טשעקן די באראוער'ס דאקומענטן",
-     "אנאליזירן רענט ראלס און אפערעיטינג סטעיטמענטס",
-     "בויען דעם אנדערייטינג מאדעל און לענדער מעמא",
-     "נאכגיין באראוערס און לענדערס"
-    ],
     "st": [
      [
       "$20.75M",
-      "469 יוניטס אנדערגעשריבן, מיט צוויי לענדער מעמאס"
-     ],
-     [
-      "$285K א יאר",
-      "טעקס-שפארונג וואס איז נישט געווען אין דעם סעלער'ס נומערן"
+      "469 יוניטס אנדערגעשריבן אין א סיניער-הויזינג פארטפאליא"
      ],
      [
       "39%",
-      "צו הויכער פרייז, געכאפט אין איין נאכמיטאג"
+      "צו הויכער אקשען פרייז, געכאפט ביי די דיו דיליגענס"
      ]
+    ],
+    "prod": "Debt Broker AI",
+    "feat": [
+     "אנדערשרייבט דעם דיל",
+     "רעכנט אויס די גרייס פון דער לאון",
+     "בויט די לאון ריקוועסט",
+     "זוכט די ריכטיגע לענדערס",
+     "שרייבט אויטריטש פאר אייער באשטעטיגונג",
+     "יאגט נאך יעדן פעלנדן דאקומענט"
     ]
    },
    {
     "n": "עסעט מענעדזשערס",
     "s1": "יעדע ריפארט, צוזאמגעשטעלט פאר אייך.",
     "lead": "אגענטן שטעלן צוזאם די ריפארטס און האלטן אן אויג אויף די נומערן. איר קוקט איבער, באשליסט און פירט.",
-    "does": [
-     "חודש'ליכע אפערעיטינג סטעיטמענטס",
-     "רענט ראלס און אקיופענסי",
-     "בודזשעט קעגן אקטשועל און לאון קאוועננטס",
-     "ריפארטס פאר אינוועסטארן"
-    ],
     "st": [
      [
       "$1.1B",
       "פארטפאליא אנאליזירט, $78.2M נאכגעשפירט ביזן סענט"
-     ],
-     [
-      "$79.5M",
-      "ווערד פון א פעקל אפיס בילדינגס אין צרות, פארן אקשען"
      ],
      [
       "זעקס ציפערן",
@@ -6689,20 +6663,10 @@ const T = {
     "n": "מארקעטינג",
     "s1": "אן AI מארקעטינג דעפארטמענט.",
     "lead": "עדס, וועבסייט, אינהאלט, רעוויוס און לידס, געפירט דורך AI, אן עידזשענסי פיס.",
-    "does": [
-     "עדס און Google פראפיל",
-     "וועבסייט, בלאג און רעוויוס",
-     "טרעקן רעפערעלס און לידס",
-     "ערשטע ענטפערס צו נייע לידס, באשטעטיגט דורך אייך"
-    ],
     "st": [
      [
       "3 נייע איינוואוינער",
-      "אין 31 טעג, אן א פלעיסמענט עידזשענסי"
-     ],
-     [
-      "בערך 60% ווייניגער",
-      "ווי עידזשענסי פיס: $4,292 אויף עדס קעגן בערך $10,625"
+      "אין 31 טעג, אן א פלעיסמענט עידזשענסי, בערך 60% ווייניגער ווי עידזשענסי פיס"
      ],
      [
       "1,000+",
@@ -6714,12 +6678,6 @@ const T = {
     "n": "סיניער ליווינג און העלטקעיר",
     "s1": "צענזוס, שטאב און פעיראל אויף אויטאפיילאט.",
     "lead": "אגענטן קוקן יעדן טאג אויף פעיראל, שטאב און צענזוס, און האלטן די פראנט אפיס גייענדיג.",
-    "does": [
-     "טעגליכער פעיראל און שטאב באריכט",
-     "צענזוס און אקיופענסי טרעקינג",
-     "חודש-סוף קלאוזינג און ריפארטס",
-     "וועבסייט מיט לייוו אוועילעביליטי און רעזערוואציעס"
-    ],
     "st": [
      [
       "0 אווערטיים",
@@ -6731,7 +6689,9 @@ const T = {
      ]
     ]
    }
-  ]
+  ],
+  "srv.meet": "באקענט זיך מיט {p}.",
+  "srv.also": "מיר בויען אויך"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8770,7 +8730,7 @@ const T = {
   "srv.k": "למי אנחנו בונים",
   "srv.sub": "לחצו על התחום שלכם. סרטון קצר מראה מה הסוכנים שלנו עושים בשבילכם.",
   "srv.click": "לחצו כאן",
-  "srv.does": "מה הסוכנים שלנו עושים",
+  "srv.does": "מה הוא עושה",
   "srv.agents": "סוכנים שאנחנו בונים בשבילכם",
   "srv.play": "הפעלה",
   "srv.pause": "השהיה",
@@ -8780,45 +8740,34 @@ const T = {
     "n": "מתווכי משכנתאות מסחריות ונדל״ן מסחרי",
     "s1": "העסקאות שלכם, מוכנות על ידי AI.",
     "lead": "הסוכנים מכינים כל עסקה, כך שתסגרו יותר הלוואות עם אותו צוות.",
-    "does": [
-     "איסוף ובדיקת מסמכי הלווה",
-     "ניתוח רשימות שוכרים ודוחות תפעול",
-     "בניית מודל החיתום והמזכר למלווה",
-     "מעקב מול לווים ומלווים"
-    ],
     "st": [
      [
       "$20.75M",
-      "469 יחידות בחיתום, עם שני מזכרים למלווים"
-     ],
-     [
-      "$285K בשנה",
-      "חיסכון במס שחסר במספרים של המוכר"
+      "469 יחידות בחיתום, בתיק דיור לגיל השלישי"
      ],
      [
       "39%",
-      "מחיר מבוקש גבוה מדי, התגלה תוך אחר צהריים אחד"
+      "מחיר מבוקש במכרז גבוה מדי, התגלה בבדיקת הנאותות"
      ]
+    ],
+    "prod": "Debt Broker AI",
+    "feat": [
+     "חיתום העסקה",
+     "קביעת גודל ההלוואה",
+     "בניית בקשת ההלוואה",
+     "איתור המלווים המתאימים",
+     "טיוטות פנייה לאישורכם",
+     "מעקב אחר כל מסמך חסר"
     ]
    },
    {
     "n": "מנהלי נכסים",
     "s1": "כל דוח, מוכן בשבילכם.",
     "lead": "הסוכנים מכינים את הדוחות ועוקבים אחרי המספרים. אתם בודקים, מחליטים ומנהלים.",
-    "does": [
-     "דוחות תפעול חודשיים",
-     "רשימות שוכרים ותפוסה",
-     "תקציב מול ביצוע ותניות הלוואה",
-     "דוחות למשקיעים"
-    ],
     "st": [
      [
       "$1.1B",
       "תיק שנותח, $78.2M אותרו עד הסנט"
-     ],
-     [
-      "$79.5M",
-      "הערכת שווי לחבילת משרדים במצוקה, לפני המכרז"
      ],
      [
       "שש ספרות",
@@ -8830,20 +8779,10 @@ const T = {
     "n": "שיווק",
     "s1": "מחלקת שיווק של AI.",
     "lead": "מודעות, אתר, תוכן, ביקורות ולידים, מנוהלים על ידי AI, בלי עמלות סוכנות.",
-    "does": [
-     "מודעות ופרופיל Google",
-     "אתר, בלוג וביקורות",
-     "מעקב הפניות ולידים",
-     "תשובות ראשונות ללידים חדשים, באישורכם"
-    ],
     "st": [
      [
       "3 דיירים חדשים",
-      "תוך 31 יום, בלי סוכנות השמה"
-     ],
-     [
-      "כ־60% פחות",
-      "מעמלות סוכנות: $4,292 במודעות מול כ־$10,625"
+      "תוך 31 יום, בלי סוכנות השמה, כ־60% פחות מעמלות סוכנות"
      ],
      [
       "1,000+",
@@ -8855,12 +8794,6 @@ const T = {
     "n": "דיור מוגן ובריאות",
     "s1": "תפוסה, כוח אדם ושכר על טייס אוטומטי.",
     "lead": "הסוכנים בודקים כל יום שכר, כוח אדם ותפוסה, ומחזיקים את הקבלה פועלת.",
-    "does": [
-     "דוח יומי של שכר וכוח אדם",
-     "מעקב תפוסה",
-     "סגירת חודש ודוחות",
-     "אתר עם זמינות חיה והזמנות"
-    ],
     "st": [
      [
       "0 שעות נוספות",
@@ -8872,7 +8805,9 @@ const T = {
      ]
     ]
    }
-  ]
+  ],
+  "srv.meet": "הכירו את {p}.",
+  "srv.also": "אנחנו בונים גם"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -10911,7 +10846,7 @@ const T = {
   "srv.k": "Para quién construimos",
   "srv.sub": "Haga clic en el suyo. Un video corto muestra lo que nuestros agentes hacen por usted.",
   "srv.click": "Haga clic aquí",
-  "srv.does": "Lo que hacen nuestros agentes",
+  "srv.does": "Lo que hace",
   "srv.agents": "Agentes que construimos para usted",
   "srv.play": "Reproducir",
   "srv.pause": "Pausa",
@@ -10921,45 +10856,34 @@ const T = {
     "n": "Corredores de hipotecas comerciales y CRE",
     "s1": "Sus operaciones, preparadas por IA.",
     "lead": "Los agentes preparan cada operación, para que coloque más préstamos con el mismo equipo.",
-    "does": [
-     "Reunir y revisar los documentos del prestatario",
-     "Analizar rent rolls y estados operativos",
-     "Armar el modelo de suscripción y el memo para el prestamista",
-     "Dar seguimiento a prestatarios y prestamistas"
-    ],
     "st": [
      [
       "$20.75M",
-      "469 unidades suscritas, con dos memos para prestamistas"
-     ],
-     [
-      "$285K al año",
-      "de ahorro fiscal que faltaba en los números del vendedor"
+      "469 unidades suscritas en una cartera de vivienda para mayores"
      ],
      [
       "39%",
-      "precio pedido demasiado alto, detectado en una tarde"
+      "precio pedido en subasta demasiado alto, detectado en la debida diligencia"
      ]
+    ],
+    "prod": "Debt Broker AI",
+    "feat": [
+     "Suscribe la operación",
+     "Dimensiona el préstamo",
+     "Arma la solicitud de préstamo",
+     "Identifica a los prestamistas adecuados",
+     "Redacta el contacto para su aprobación",
+     "Persigue cada documento faltante"
     ]
    },
    {
     "n": "Gestores de activos",
     "s1": "Cada informe, preparado para usted.",
     "lead": "Los agentes preparan los informes y siguen los números. Usted revisa, decide y gestiona.",
-    "does": [
-     "Estados operativos mensuales",
-     "Rent rolls y ocupación",
-     "Presupuesto vs. real y covenants del préstamo",
-     "Informes para inversionistas"
-    ],
     "st": [
      [
       "$1.1B",
       "de cartera analizada, $78.2M rastreados al centavo"
-     ],
-     [
-      "$79.5M",
-      "de valuación de un paquete de oficinas en dificultades, antes de la subasta"
      ],
      [
       "Seis cifras",
@@ -10971,20 +10895,10 @@ const T = {
     "n": "Marketing",
     "s1": "Un departamento de marketing con IA.",
     "lead": "Anuncios, sitio web, contenido, reseñas y prospectos, a cargo de la IA, sin honorarios de agencia.",
-    "does": [
-     "Anuncios y perfil de Google",
-     "Sitio web, blog y reseñas",
-     "Seguimiento de referidos y prospectos",
-     "Primeras respuestas a prospectos nuevos, aprobadas por usted"
-    ],
     "st": [
      [
       "3 nuevos residentes",
-      "en 31 días, sin agencia de colocación"
-     ],
-     [
-      "Cerca de 60% menos",
-      "que los honorarios de agencia: $4,292 en anuncios vs. unos $10,625"
+      "en 31 días, sin agencia de colocación, cerca de 60% menos que los honorarios de agencia"
      ],
      [
       "1,000+",
@@ -10996,12 +10910,6 @@ const T = {
     "n": "Vivienda para mayores y salud",
     "s1": "Ocupación, personal y nómina en piloto automático.",
     "lead": "Los agentes revisan cada día la nómina, el personal y la ocupación, y mantienen la recepción en marcha.",
-    "does": [
-     "Resumen diario de nómina y personal",
-     "Seguimiento de ocupación",
-     "Cierre de mes e informes",
-     "Sitio web con disponibilidad en vivo y reservas"
-    ],
     "st": [
      [
       "0 horas extra",
@@ -11013,7 +10921,9 @@ const T = {
      ]
     ]
    }
-  ]
+  ],
+  "srv.meet": "Conozca {p}.",
+  "srv.also": "También construimos"
  }
 };
 
@@ -12423,54 +12333,75 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <script>
 (function () {
-  const SEG = [{ ph: "472786860", ag: [0, 7, 9, 8] }, { ph: "227055653", ag: [6, 5, 0, 10] }, { ph: "297124769", ag: [1, 7, 12, 8] }, { ph: "689022973", ag: [13, 2, 4, 5] }];
-  const D = 3600, E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  const IC = { play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>' };
-  let cur = -1, sc = 0, N = 0, playing = false, done = false, acc = 0, t0 = 0, raf = 0, stage, bar, pp, box;
+  const SEG = [{"ph": "472786860", "prod": null, "also": [7, 9, 0], "durs": [4290, 8240, 3820, 5580, 3660, 3737]}, {"ph": "227055653", "prod": 6, "also": [5, 10, 0], "durs": [3950, 8280, 3400, 6100, 3820, 3848]}, {"ph": "297124769", "prod": 1, "also": [7, 8, 12], "durs": [2790, 8480, 3960, 7480, 3300, 3770]}, {"ph": "689022973", "prod": 13, "also": [2, 4, 8], "durs": [4030, 7840, 4040, 3400, 5100, 3851]}];
+  const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const IC = { play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
+    snd1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>', snd0: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="m22 9-6 6M16 9l6 6"/></svg>' };
+  let cur = -1, sc = 0, N = 0, playing = false, done = false, acc = 0, t0 = 0, raf = 0, stage, bar, pp, snd, box, sound = false, au = null, DURS = [], START = [], TOT = 1;
   const seg = i => ((typeof t === "function" ? t("srv.seg") : null) || [])[i] || {};
-  function scenes(i) { const g = seg(i); return [{ k: "t" }].concat((g.st || []).map(v => ({ k: "s", v }))).concat([{ k: "e" }]); }
+  const AG = () => (typeof t === "function" && t("ag.list")) || [];
+  const prodName = i => SEG[i].prod == null ? seg(i).prod : (AG()[SEG[i].prod] || [""])[0];
+  const feats = i => SEG[i].prod == null ? (seg(i).feat || []) : ((AG()[SEG[i].prod] || [])[2] || []);
+  function scenes(i) { const g = seg(i); return [{ k: "t" }, { k: "f" }, { k: "a" }].concat((g.st || []).map(v => ({ k: "s", v }))).concat([{ k: "e" }]); }
   function sceneHTML(i, n) {
     const g = seg(i), x = scenes(i)[n];
-    if (x.k === "t") return `<div class="svs"><span class="sv-chip">${E(g.n)}</span><div class="sv-big">${E(g.s1)}</div></div>`;
+    if (x.k === "t") return `<div class="svs"><span class="sv-chip">${E(g.n)}</span><div class="sv-big">${E(String(t("srv.meet", { p: prodName(i) })))}</div></div>`;
+    if (x.k === "f") return `<div class="svs"><span class="sv-chip">${E(prodName(i))}</span><ul class="sv-feat">${feats(i).map((f, k) => `<li style="--k:${k}">${E(f)}</li>`).join("")}</ul></div>`;
+    if (x.k === "a") return `<div class="svs"><span class="sv-tag">${E(t("srv.also"))}</span><div class="sv-also">${SEG[i].also.map((k, j) => AG()[k] ? `<span style="--k:${j}">${E(AG()[k][0])}</span>` : "").join("")}</div></div>`;
     if (x.k === "s") return `<div class="svs"><span class="sv-tag">${E(t("mv.case"))}</span><div class="sv-num">${E(x.v[0])}</div><div class="sv-txt">${E(x.v[1])}</div></div>`;
     return `<div class="svs"><div class="sv-big">${E(t("mv.s5"))}</div></div>`;
   }
+  const isEn = () => typeof lang !== "string" || lang === "en";
+  function src() { return "/media/srv-" + cur + "-" + (isEn() ? "en" : "music") + ".mp3"; }
+  function syncA() {
+    if (!sound || cur < 0) { if (au) au.pause(); return; }
+    if (!au || !au.src.endsWith(src())) { if (au) au.pause(); au = new Audio(src()); au.preload = "auto"; }
+    if (playing) { const at = (START[sc] + acc + (performance.now() - t0)) / 1000; if (Math.abs(au.currentTime - at) > .25) { try { au.currentTime = at; } catch (x) {} } const pr = au.play(); if (pr && pr.catch) pr.catch(() => {}); }
+    else au.pause();
+  }
   function setPP() { if (!pp) return; pp.innerHTML = done ? IC.replay : playing ? IC.pause : IC.play; pp.setAttribute("aria-label", t(done ? "srv.replay" : playing ? "srv.pause" : "srv.play")); }
+  function setSnd() { if (!snd) return; snd.innerHTML = sound ? IC.snd1 : IC.snd0; snd.setAttribute("aria-label", t(sound ? "mv.mute" : "mv.sound")); snd.classList.toggle("on", sound); }
   function show(n) { sc = n; acc = 0; t0 = performance.now(); stage.innerHTML = sceneHTML(cur, n); setPP(); }
   function tick(now) {
     if (!playing) return;
     const el = acc + (now - t0);
-    bar.style.width = Math.min(100, ((sc * D + el) / (N * D)) * 100) + "%";
-    if (el >= D) { if (sc < N - 1) show(sc + 1); else { playing = false; done = true; setPP(); return; } }
+    bar.style.width = Math.min(100, ((START[sc] + el) / TOT) * 100) + "%";
+    if (el >= DURS[sc]) { if (sc < N - 1) show(sc + 1); else { playing = false; done = true; setPP(); return; } }
     raf = requestAnimationFrame(tick);
   }
-  function play() { if (!stage) return; if (done) { done = false; show(0); } playing = true; t0 = performance.now(); setPP(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
-  function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); }
+  function play() { if (!stage) return; if (done) { done = false; show(0); } playing = true; t0 = performance.now(); setPP(); syncA(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
+  function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); syncA(); }
   function panel(i) {
-    const g = seg(i), A = (typeof t === "function" && t("ag.list")) || [];
-    return `<div class="srv-grid"><div class="sv" style="background-image: linear-gradient(180deg, rgba(11,37,69,.55) 0%, rgba(11,37,69,.86) 70%), url(/photos/${SEG[i].ph}.jpg)"><div class="sv-stage" aria-live="polite"></div><div class="sv-ctrl"><button type="button" class="sv-pp"></button><div class="sv-track"><i></i></div></div></div>
+    const g = seg(i), A = AG(), chips = (SEG[i].prod == null ? [] : [SEG[i].prod]).concat(SEG[i].also);
+    return `<div class="srv-grid"><div class="sv" style="background-image: linear-gradient(180deg, rgba(11,37,69,.55) 0%, rgba(11,37,69,.88) 70%), url(/photos/${SEG[i].ph}.jpg)"><div class="sv-stage" aria-live="polite"></div><div class="sv-ctrl"><button type="button" class="sv-pp"></button><div class="sv-track"><i></i></div><button type="button" class="sv-snd"></button></div></div>
       <div class="srv-info"><h3>${E(g.n)}</h3><p class="srv-lead">${E(g.lead)}</p>
-      <h4>${E(t("srv.does"))}</h4><ul class="srv-does">${(g.does || []).map(d => `<li>${E(d)}</li>`).join("")}</ul>
-      <h4>${E(t("srv.agents"))}</h4><div class="srv-ags">${SEG[i].ag.map(k => A[k] ? `<button type="button" class="srv-ag" data-folder="store">${E(A[k][0])}</button>` : "").join("")}</div>
+      <h4>${E(prodName(i))}: ${E(t("srv.does"))}</h4><ul class="srv-does">${feats(i).map(d => `<li>${E(d)}</li>`).join("")}</ul>
+      <h4>${E(t("srv.agents"))}</h4><div class="srv-ags">${SEG[i].prod == null ? `<span class="srv-ag srv-prod">${E(prodName(i))}</span>` : ""}${chips.map(k => A[k] ? `<button type="button" class="srv-ag" data-folder="store">${E(A[k][0])}</button>` : "").join("")}</div>
       <button type="button" class="btn big srv-cta" data-contact data-msgtext="${E(g.n)}">${E(t("mo.go"))} <span class="arrow">→</span></button></div></div>`;
   }
   function wire() {
     const p = document.getElementById("srvpan"); if (!p || cur < 0) { stage = null; return; }
-    stage = p.querySelector(".sv-stage"); bar = p.querySelector(".sv-track i"); pp = p.querySelector(".sv-pp"); N = scenes(cur).length;
-    pp.addEventListener("click", () => { p.dataset.user = playing ? "1" : ""; playing ? pause() : play(); });
-    stage.addEventListener("click", () => { p.dataset.user = playing ? "1" : ""; playing ? pause() : play(); });
+    stage = p.querySelector(".sv-stage"); bar = p.querySelector(".sv-track i"); pp = p.querySelector(".sv-pp"); snd = p.querySelector(".sv-snd"); N = scenes(cur).length;
+    DURS = SEG[cur].durs.slice(0, N); START = DURS.map((d, k) => DURS.slice(0, k).reduce((a, b) => a + b, 0)); TOT = DURS.reduce((a, b) => a + b, 0);
+    const tog = () => { p.dataset.user = playing ? "1" : ""; playing ? pause() : play(); };
+    pp.addEventListener("click", tog); stage.addEventListener("click", tog);
+    snd.addEventListener("click", () => { sound = !sound; setSnd(); if (sound && !playing) { p.dataset.user = ""; play(); } else syncA(); });
+    setSnd();
     if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) pause(); else if (!playing && !done && !p.dataset.user) play(); }), { threshold: .35 }).observe(p.querySelector(".sv"));
   }
   window.srvRender = function () {
     box = document.getElementById("srvbox"); if (!box || typeof t !== "function") return;
     const segs = t("srv.seg"); if (!Array.isArray(segs)) return;
-    const keep = sc;
+    const keep = sc, was = playing;
+    if (au) au.pause();
     box.innerHTML = `<div class="srv-list">${segs.map((g, i) => `<button type="button" class="srv-row${i === cur ? " on" : ""}" data-seg="${i}" aria-expanded="${i === cur}" aria-controls="srvpan"><span class="srv-n">0${i + 1}</span><span class="srv-name">${E(g.n)}</span><span class="srv-go">${E(t("srv.click"))} <span class="srv-ar">→</span></span></button>`).join("")}</div><div class="srv-pan" id="srvpan"${cur < 0 ? " hidden" : ""}>${cur < 0 ? "" : panel(cur)}</div>`;
     wire();
-    if (stage) { show(Math.min(keep, N - 1)); bar.style.width = (sc / N * 100) + "%"; if (playing) { t0 = performance.now(); } else setPP(); }
+    if (stage) { show(Math.min(keep, N - 1)); bar.style.width = (START[sc] / TOT * 100) + "%"; playing = was; if (was) { t0 = performance.now(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); syncA(); } setPP(); }
   };
   function open(i) {
     cancelAnimationFrame(raf); playing = false; done = false; cur = i; sc = 0;
+    if (au) { au.pause(); au = null; }
+    sound = true;
     window.srvRender();
     const p = document.getElementById("srvpan"), hh = (document.querySelector(".top") || {}).offsetHeight || 64;
     window.scrollTo({ top: Math.max(0, p.getBoundingClientRect().top + scrollY - hh - 12), behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
@@ -12478,6 +12409,8 @@ document.addEventListener("DOMContentLoaded", () => {
     try { track("segment_" + i); } catch (x) {}
   }
   document.addEventListener("click", e => { const r = e.target.closest(".srv-row"); if (r) { e.preventDefault(); open(+r.dataset.seg); } });
+  addEventListener("pagehide", () => { if (au) au.pause(); });
+  document.addEventListener("click", e => { if (e.target.closest("[data-go], [data-folder], .nav button, [data-home]") && !e.target.closest(".srv-row")) pause(); }, true);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => window.srvRender()); else window.srvRender();
 })();
 </script>

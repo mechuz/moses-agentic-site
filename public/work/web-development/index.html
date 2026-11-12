@@ -1498,6 +1498,24 @@ html.filing #overlay:not([hidden]) { z-index: 1100; }
 .sdemo .shd span { max-width: 58%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 #sheet[data-mode="agent"] .sdemo { z-index: 0; margin-top: 2.8rem; }
 @media (prefers-reduced-motion: reduce) { .sdemo, .sdemo * { animation-duration: .01s !important; animation-iteration-count: 1 !important; } }
+
+/* ===== industry page (popup) ===== */
+#sheet[data-mode="ind"] { max-width: 640px; }
+#sheet[data-mode="ind"] .indd { display: grid; gap: .8rem; }
+#sheet[data-mode="ind"] .indph { margin: -.2rem 0 .4rem; border-radius: 20px; overflow: hidden; aspect-ratio: 16 / 8; margin-top: 2.6rem; }
+#sheet[data-mode="ind"] .indph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+#sheet[data-mode="ind"] h2 { font: 900 clamp(1.7rem, 3.4vw, 2.3rem)/1.08 var(--f-display); letter-spacing: -.03em; margin: 0; color: #0B2545; }
+#sheet[data-mode="ind"] .indline { font: 500 1.08rem/1.5 var(--f-body); color: #4A5A70; margin: 0; }
+#sheet[data-mode="ind"] h3 { font: 800 .8rem var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: #1A73E8; margin: .6rem 0 0; }
+#sheet[data-mode="ind"] .indl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+#sheet[data-mode="ind"] .indl li { background: #F4F7FB; border-radius: 14px; padding: .8rem .9rem; font: 600 .98rem/1.35 var(--f-body); color: #0B2545; position: relative; padding-inline-start: 2.2rem; }
+#sheet[data-mode="ind"] .indl li::before { content: ""; position: absolute; inset-inline-start: .85rem; top: 1.05rem; width: 8px; height: 8px; border-radius: 50%; background: #C6F432; box-shadow: 0 0 0 3px rgba(26,115,232,.25); }
+#sheet[data-mode="ind"] .indbtns { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: .6rem; }
+#sheet[data-mode="ind"] .indbtns .btn { flex: 1 1 220px; justify-content: center; }
+@media (max-width: 560px) { #sheet[data-mode="ind"] .indl { grid-template-columns: 1fr; } }
+html, body { overflow-x: clip; }
+@media (max-width: 420px) { .site-moses .brand-logo { height: 19px !important; } .site-moses .top .wrap { gap: .5rem; } .site-moses .langs { flex: none; } }
+.tabstrip { max-width: 100vw; min-width: 0; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -4191,7 +4209,70 @@ const T = {
    "Forensic document review"
   ],
   "ent.more_cs": "See our work",
-  "ent.more_ag": "Shop ready-made agents"
+  "ent.more_ag": "Shop ready-made agents",
+  "ind.does": "What AI does for you",
+  "ind.list": [
+   [
+    "Underwriting and pro formas in minutes",
+    "Rent rolls, leases and occupancy tracked",
+    "Tenant letters, notices and renewals drafted",
+    "Monthly owner and investor reports"
+   ],
+   [
+    "Census and occupancy tracked every day",
+    "Staffing schedules and payroll prep",
+    "Billing and collections followed up",
+    "Family and referral inquiries answered fast"
+   ],
+   [
+    "Contract and lease abstracts",
+    "Long documents reviewed and summarized",
+    "Client intake summarized",
+    "Deadlines and follow-ups tracked"
+   ],
+   [
+    "Bank and account reconciliations",
+    "Budget vs. actual and variance reports",
+    "Claims and policy summaries",
+    "Month-end close checklists"
+   ],
+   [
+    "Product listings and descriptions",
+    "Inventory and reorder planning",
+    "Customer questions answered around the clock",
+    "Email and social campaigns"
+   ],
+   [
+    "Menu costing and pricing",
+    "Staff schedules",
+    "Supplier orders and invoices checked",
+    "Review replies and catering inquiries"
+   ],
+   [
+    "Bids and estimates organized",
+    "Change orders tracked",
+    "Schedules and subcontractor follow-up",
+    "Invoices and lien waivers organized"
+   ],
+   [
+    "Grant applications drafted",
+    "Donor letters and thank-you notes",
+    "Board and program reports",
+    "Event and enrollment follow-up"
+   ],
+   [
+    "Orders entered from emails and PDFs",
+    "Price sheets kept current",
+    "Supplier and shipment follow-up",
+    "Customer account statements"
+   ],
+   [
+    "Proposals and engagement letters",
+    "Client reports",
+    "Meeting notes and action items",
+    "Billing and time tracking"
+   ]
+  ]
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6120,7 +6201,70 @@ const T = {
    "פארענזישע דאקומענט איבערקוק"
   ],
   "ent.more_cs": "זעט אונזער ארבעט",
-  "ent.more_ag": "קויפט פארטיגע אגענטן"
+  "ent.more_ag": "קויפט פארטיגע אגענטן",
+  "ind.does": "וואס AI טוט פאר אייך",
+  "ind.list": [
+   [
+    "אנדערײַטינג און פרא-פארמעס אין מינוטן",
+    "רענט ראָלס, ליסעס און אַקיופּענסי נאכגעקוקט",
+    "בריוו צו טענענטס, נאטיסעס און רינועלס געשריבן",
+    "חודש'ליכע באריכטן פאר אונערס און אינוועסטארס"
+   ],
+   [
+    "סענסוס און אַקיופּענסי נאכגעקוקט יעדן טאג",
+    "סקעדזשולס פאר שטאב און פעירואל צוגעגרייט",
+    "בילינג און קאלעקשאנס נאכגעגאנגען",
+    "פאמיליעס און רעפערעלס באקומען שנעל ענטפער"
+   ],
+   [
+    "קורצע אויסצוגן פון קאנטראקטן און ליסעס",
+    "לאנגע דאקומענטן דורכגעקוקט און קורץ געמאכט",
+    "נייע קליענטן'ס אינפארמאציע צוזאמגענומען",
+    "דעדליינס און פאלאו-אפס נאכגעקוקט"
+   ],
+   [
+    "באנק און אקאונט רעקאנסיליעישאנס",
+    "בודזשעט קעגן פאקטיש, און ווערייענס רעפארטס",
+    "קורצע אויסצוגן פון קליימס און פאליסיס",
+    "טשעקליסטס פארן סוף חודש"
+   ],
+   [
+    "פראדוקט ליסטינגס און באשרייבונגען",
+    "אינווענטאר און ווען צו באשטעלן",
+    "קאסטומערס באקומען ענטפערס טאג און נאכט",
+    "אימעיל און סאשעל מידיא קאמפעינס"
+   ],
+   [
+    "אויסרעכענען מעניו קאסטן און פרייזן",
+    "סקעדזשולס פאר ארבעטער",
+    "באשטעלונגען און אינווייסעס פון סאפלייערס נאכגעקוקט",
+    "ענטפערס אויף רעוויוס און קעיטערינג פראגעס"
+   ],
+   [
+    "בידס און עסטימעיטס ארגאניזירט",
+    "טשעינדזש אָרדערס נאכגעקוקט",
+    "סקעדזשולס און נאכגיין סאב-קאנטראקטארס",
+    "אינווייסעס און לין וועיווערס ארגאניזירט"
+   ],
+   [
+    "גראנט אפליקאציעס געשריבן",
+    "בריוו און א יישר כח פאר נדבנים",
+    "באריכטן פאר דעם באורד און פראגראמען",
+    "נאכגיין עווענטס און איינשרייבונגען"
+   ],
+   [
+    "באשטעלונגען אריינגעלייגט פון אימעילס און PDFs",
+    "פרייז ליסטעס האלטן זיך אפגעדעיט",
+    "נאכגיין סאפלייערס און שיפּמענטס",
+    "סטעיטמענטס פאר קאסטומערס"
+   ],
+   [
+    "פראפאוזעלס און אגרימענטס",
+    "באריכטן פאר קליענטן",
+    "נאטיצן פון מיטינגס און וואס צו טון",
+    "בילינג און צייט נאכקוקן"
+   ]
+  ]
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -8049,7 +8193,70 @@ const T = {
    "ביקורת מסמכים פורנזית"
   ],
   "ent.more_cs": "ראו את העבודה שלנו",
-  "ent.more_ag": "לסוכנים המוכנים"
+  "ent.more_ag": "לסוכנים המוכנים",
+  "ind.does": "מה ה-AI עושה בשבילכם",
+  "ind.list": [
+   [
+    "חיתום ותחזיות פיננסיות בדקות",
+    "מעקב אחר רולי שכירות, חוזים ותפוסה",
+    "מכתבים לשוכרים, הודעות וחידושים",
+    "דוחות חודשיים לבעלים ולמשקיעים"
+   ],
+   [
+    "מעקב יומי אחר תפוסה ומספר דיירים",
+    "סידורי עבודה והכנת שכר",
+    "מעקב אחר חיובים וגבייה",
+    "מענה מהיר למשפחות ולהפניות"
+   ],
+   [
+    "תקצירי חוזים ושכירויות",
+    "סקירה וסיכום של מסמכים ארוכים",
+    "סיכום פרטי לקוחות חדשים",
+    "מעקב אחר מועדים והמשך טיפול"
+   ],
+   [
+    "התאמות בנק וחשבונות",
+    "תקציב מול ביצוע ודוחות סטיות",
+    "תקצירי תביעות ופוליסות",
+    "רשימות לסגירת חודש"
+   ],
+   [
+    "רישומי מוצרים ותיאורים",
+    "תכנון מלאי והזמנות חוזרות",
+    "מענה ללקוחות מסביב לשעון",
+    "קמפיינים במייל וברשתות"
+   ],
+   [
+    "תמחור תפריט",
+    "סידורי עבודה לצוות",
+    "בדיקת הזמנות וחשבוניות מספקים",
+    "מענה לביקורות ולפניות קייטרינג"
+   ],
+   [
+    "ארגון הצעות מחיר והערכות",
+    "מעקב אחר הזמנות שינוי",
+    "לוחות זמנים ומעקב קבלני משנה",
+    "ארגון חשבוניות וויתורי שעבוד"
+   ],
+   [
+    "כתיבת בקשות למענקים",
+    "מכתבים ותודות לתורמים",
+    "דוחות להנהלה ולתוכניות",
+    "מעקב אחר אירועים והרשמה"
+   ],
+   [
+    "קליטת הזמנות ממיילים ומ-PDF",
+    "מחירונים מעודכנים תמיד",
+    "מעקב ספקים ומשלוחים",
+    "דפי חשבון ללקוחות"
+   ],
+   [
+    "הצעות והסכמי התקשרות",
+    "דוחות ללקוחות",
+    "סיכומי פגישות ומשימות",
+    "חיוב ומעקב שעות"
+   ]
+  ]
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -9978,7 +10185,70 @@ const T = {
    "Revisión forense de documentos"
   ],
   "ent.more_cs": "Vea nuestro trabajo",
-  "ent.more_ag": "Ver agentes listos"
+  "ent.more_ag": "Ver agentes listos",
+  "ind.does": "Lo que la IA hace por usted",
+  "ind.list": [
+   [
+    "Suscripción y proyecciones en minutos",
+    "Rent rolls, contratos y ocupación al día",
+    "Cartas a inquilinos, avisos y renovaciones",
+    "Informes mensuales para dueños e inversionistas"
+   ],
+   [
+    "Censo y ocupación al día, cada día",
+    "Horarios del personal y preparación de nómina",
+    "Seguimiento de facturación y cobros",
+    "Respuesta rápida a familias y referidos"
+   ],
+   [
+    "Resúmenes de contratos y arrendamientos",
+    "Revisión y resumen de documentos largos",
+    "Resumen de datos de clientes nuevos",
+    "Seguimiento de plazos y pendientes"
+   ],
+   [
+    "Conciliaciones bancarias y de cuentas",
+    "Presupuesto vs. real e informes de variación",
+    "Resúmenes de reclamos y pólizas",
+    "Listas para el cierre de mes"
+   ],
+   [
+    "Listados y descripciones de productos",
+    "Planificación de inventario y pedidos",
+    "Respuestas a clientes las 24 horas",
+    "Campañas por email y redes"
+   ],
+   [
+    "Costeo y precios del menú",
+    "Horarios del personal",
+    "Pedidos y facturas de proveedores revisados",
+    "Respuestas a reseñas y pedidos de catering"
+   ],
+   [
+    "Ofertas y presupuestos organizados",
+    "Órdenes de cambio al día",
+    "Calendarios y seguimiento de subcontratistas",
+    "Facturas y renuncias de gravamen organizadas"
+   ],
+   [
+    "Solicitudes de subvenciones",
+    "Cartas y agradecimientos a donantes",
+    "Informes para la junta y los programas",
+    "Seguimiento de eventos e inscripciones"
+   ],
+   [
+    "Pedidos cargados desde emails y PDF",
+    "Listas de precios siempre al día",
+    "Seguimiento de proveedores y envíos",
+    "Estados de cuenta para clientes"
+   ],
+   [
+    "Propuestas y cartas de compromiso",
+    "Informes para clientes",
+    "Notas de reuniones y tareas",
+    "Facturación y control de horas"
+   ]
+  ]
  }
 };
 
@@ -10683,7 +10953,7 @@ document.addEventListener("click", e => {
   const ct = e.target.closest("[data-contact]"); if (ct) { e.preventDefault(); goConsult(ct.dataset.msgtext ? ct.dataset.msgtext : ct.dataset.agentname ? t("ag.cta") + ": " + ct.dataset.agentname : ct.dataset.msg ? t(ct.dataset.msg) : ""); return; }
   const vw = e.target.closest("[data-view]"); if (vw) { if (!$("#chat").hidden) closeChat(); setView(vw.dataset.view); return; }
   const cs = e.target.closest("[data-case]"); if (cs) { openCase(+cs.dataset.case); return; }
-  const ind = e.target.closest("[data-ind]"); if (ind) { const i = +ind.dataset.ind; ask(t("inds")[i], -1, esc(t("ind.lines")[i])); return; }
+  const ind = e.target.closest("[data-ind]"); if (ind) { const i = +ind.dataset.ind; if (window.openInd && CONFIG.site === "moses") openInd(i); else ask(t("inds")[i], -1, esc(t("ind.lines")[i])); return; }
   const row = e.target.closest("[data-stop]"); if (row) { const r = t("stop")[+row.dataset.stop]; ask(r[1], -1, esc(t("stop.ans"))); return; }
   const tile = e.target.closest("[data-tile]"); if (tile) { ask(t("outs")[+tile.dataset.tile][0], +tile.dataset.tile); return; }
   const chip = e.target.closest("[data-chip]");
@@ -11274,6 +11544,20 @@ document.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === 
     }).observe(sh, { childList: true });
   });
 })();
+</script>
+<script>
+/* Industries: each card opens its own page (photo, what AI does, our work, request) */
+window.openInd = function (i) {
+  const IP = [286096322, 255623940, 112326694, 659218843, 703456915, 453762991, 320595902, 129778887, 326508468, 405695461];
+  const PR = { 0: "cre", 1: "hc", 3: "fin" };
+  const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
+  const name = t("inds")[i], enName = (T.en.inds || [])[i] || name;
+  sh.dataset.mode = "ind"; sh.classList.remove("wide");
+  sh.innerHTML = `<button type="button" class="x" data-close aria-label="${esc(t("close"))}">×</button><div class="indd"><div class="indph"><img src="/photos/${IP[i]}.jpg" alt=""></div><h2 id="sheet-title">${esc(name)}</h2><p class="indline">${esc(t("ind.lines")[i])}</p><h3>${esc(t("ind.does"))}</h3><ul class="indl">${(t("ind.list")[i] || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul><div class="indbtns"><button type="button" class="btn aqua big" data-contact data-msgtext="${esc("Industry: " + enName)}">${esc(t("mo.go"))} <span class="arrow">→</span></button>${PR[i] ? `<button type="button" class="btn big ghost" data-pract="${PR[i]}">${esc(t("ent.more_cs"))} <span class="arrow">→</span></button>` : ""}</div></div>`;
+  ov.hidden = false; document.body.style.overflow = "hidden";
+  try { track("industry_open", { ind: enName }); } catch (x) {}
+};
+document.addEventListener("click", e => { const b = e.target.closest("[data-pract]"); if (!b) return; e.preventDefault(); closeSheet(); openPractice(b.dataset.pract); scrollTo(0, 0); });
 </script>
 </body>
 </html>

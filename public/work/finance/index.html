@@ -1715,6 +1715,30 @@ footer .locs { margin: .2rem 0 .8rem; }
 .h3tap::after { content: ""; position: absolute; inset: 32%; border-radius: 50%; background: #C6F432; }
 @keyframes h3ring { from { transform: scale(1); opacity: .8; } to { transform: scale(2.1); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .site-moses .hero3::after, .site-moses .hero3 .h3hint, .h3tap::before, .h3tap i { animation: none !important; } }
+
+/* ===== AI consulting booking ===== */
+.cs2 { display: grid; gap: .9rem; }
+.cs2 h2 { font: 900 clamp(1.5rem, 3vw, 2.1rem)/1.1 var(--f-display); letter-spacing: -.03em; color: #0B2545; margin: 0; padding-inline-end: 3rem; }
+.cs2-price { font: 800 1.05rem/1.3 var(--f-body); color: #1A73E8; margin: -.3rem 0 0; }
+.cs2-lead { font: 600 1.1rem/1.5 var(--f-body); color: #3D5170; }
+.cs2 label { display: grid; gap: .35rem; font: 700 .9rem var(--f-body); color: #0B2545; }
+.cs2 input, .cs2 select, .cs2 textarea { font: 500 1rem var(--f-body); padding: .7rem .85rem; border: 1px solid #C9D6E8; border-radius: 12px; background: #FFFFFF; color: #0B2545; width: 100%; box-sizing: border-box; }
+.cs2-row { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+@media (max-width: 560px) { .cs2-row { grid-template-columns: 1fr; } }
+.cs2-len { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+.cs2-len legend { font: 700 .9rem var(--f-body); color: #0B2545; margin-bottom: .4rem; }
+.cs2-len label { position: relative; }
+.cs2-len input { position: absolute; opacity: 0; pointer-events: none; }
+.cs2-len span { display: grid; gap: .2rem; padding: .8rem; border: 2px solid #C9D6E8; border-radius: 14px; cursor: pointer; text-align: center; }
+.cs2-len b { font: 800 1rem var(--f-display); }
+.cs2-len em { font: 900 1.2rem var(--f-display); font-style: normal; color: #1A73E8; }
+.cs2-len input:checked + span { border-color: #1A73E8; background: #EAF3FF; }
+.cs2-len input:focus-visible + span { outline: 3px solid #C6F432; }
+.cs2-note { font: 500 .88rem/1.45 var(--f-body); color: #5A6B85; margin: 0; }
+.s-store .sprod .scard .cs2-p { display: block !important; margin-top: .6rem; font: 900 1.05rem/1.2 var(--f-display) !important; color: #1A73E8 !important; }
+.s-store .sprod .stier-s { display: block !important; }
+.s-store .sprod .scard { height: auto !important; max-height: none !important; aspect-ratio: auto !important; overflow: visible !important; }
+.s-store .sprod .sgrid { align-items: stretch; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -4671,7 +4695,111 @@ const T = {
   ],
   "hint.click": "Click anywhere to start",
   "hint.tap": "Tap anywhere to start",
-  "pr.cta_hc": "Talk to us about the healthcare industry"
+  "pr.cta_hc": "Talk to us about the healthcare industry",
+  "cs2.card": [
+   "consult",
+   "AI consulting",
+   "Book time with one of our advisors: our services, our products, or how to use AI.",
+   [
+    "Questions about our services and agents",
+    "Hands-on help using AI in your work",
+    "Advice on where AI fits your business"
+   ]
+  ],
+  "cs2.price": "From $150 an hour · 30-minute minimum",
+  "cs2.book": "Book a session",
+  "cs2.title": "Book an AI consulting session",
+  "cs2.len": "Session length",
+  "cs2.lens": [
+   [
+    "30",
+    "30 minutes",
+    "$75"
+   ],
+   [
+    "60",
+    "1 hour",
+    "$150"
+   ],
+   [
+    "90",
+    "1½ hours",
+    "$225"
+   ]
+  ],
+  "cs2.topic": "What is it about?",
+  "cs2.topics": [
+   "Our services",
+   "Our products and agents",
+   "How to use AI",
+   "Something else"
+  ],
+  "cs2.when": "Preferred date and time",
+  "cs2.need": "What are you looking for?",
+  "cs2.needph": "Tell us what you'd like to cover, so the right advisor joins.",
+  "cs2.f": [
+   "Your name",
+   "Email",
+   "Phone",
+   "Company (optional)"
+  ],
+  "cs2.submit": "Request my session",
+  "cs2.note": "No payment now. We review your request, confirm the advisor, time and price (from $150 an hour), then send you a payment link.",
+  "cs2.err": "Please add your name, email and what you're looking for.",
+  "cs2.fail": "We couldn't send this right now. Please try again in a moment.",
+  "cs2.done_t": "Request received",
+  "cs2.done_s": "Thank you. An advisor will review it and send you the confirmed time and price.",
+  "prod.h": "Products",
+  "prod.s": "Book or order online. No payment until we confirm.",
+  "wb.card": [
+   "web",
+   "Your website, built for you",
+   "A fully designed and built website, up to 10 pages, for one monthly price.",
+   [
+    "Up to 10 pages, designed for your brand",
+    "Fully built and launched for you",
+    "One price: $250 a month"
+   ]
+  ],
+  "wb.price": "$250 a month",
+  "wb.go": "Get my website",
+  "wb.title": "Order your website",
+  "wb.lead": "Up to 10 pages, designed and built for you. $250 a month.",
+  "wb.biz": "Business name",
+  "wb.site": "Current website (if any)",
+  "wb.pages": "How many pages do you need?",
+  "wb.pagesv": [
+   "1 to 3",
+   "4 to 6",
+   "7 to 10"
+  ],
+  "wb.need": "What should the site do?",
+  "wb.needph": "For example: show our services, take bookings, collect leads.",
+  "wb.submit": "Send my order · $250 a month",
+  "wb.note": "No payment now. We review your order, confirm the details, then send you the subscription link.",
+  "wb.done_s": "Thank you. We'll review your order and send you the next steps.",
+  "prod.list": [
+   [
+    "consult",
+    "AI consulting",
+    "Book time with one of our advisors: our services, our products, or how to use AI.",
+    [
+     "Questions about our services and agents",
+     "Hands-on help using AI in your work",
+     "Advice on where AI fits your business"
+    ]
+   ],
+   [
+    "web",
+    "Your website, built for you",
+    "A fully designed and built website, up to 10 pages, for one monthly price.",
+    [
+     "Up to 10 pages, designed for your brand",
+     "Fully built and launched for you",
+     "One price: $250 a month"
+    ]
+   ]
+  ]
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6843,7 +6971,111 @@ const T = {
   ],
   "hint.click": "קליקט ערגעץ וואו צו אנהייבן",
   "hint.tap": "דריקט ערגעץ וואו צו אנהייבן",
-  "pr.cta_hc": "רעדט מיט אונז וועגן דער העלטקעיר אינדוסטריע"
+  "pr.cta_hc": "רעדט מיט אונז וועגן דער העלטקעיר אינדוסטריע",
+  "cs2.card": [
+   "consult",
+   "AI קאנסאלטינג",
+   "בוקט צייט מיט איינעם פון אונזערע עדווייזערס: אונזערע סערוויסעס, אונזערע פראדוקטן, אדער ווי אזוי צו ניצן AI.",
+   [
+    "פראגעס וועגן אונזערע סערוויסעס און אגענטן",
+    "הילף צו ניצן AI אין אייער ארבעט",
+    "עצות וואו AI פאסט אריין אין אייער ביזנעס"
+   ]
+  ],
+  "cs2.price": "פון $150 א שעה · מינימום 30 מינוט",
+  "cs2.book": "בוקט א סעסיע",
+  "cs2.title": "בוקט אן AI קאנסאלטינג סעסיע",
+  "cs2.len": "לענג פון דער סעסיע",
+  "cs2.lens": [
+   [
+    "30",
+    "30 מינוט",
+    "$75"
+   ],
+   [
+    "60",
+    "1 שעה",
+    "$150"
+   ],
+   [
+    "90",
+    "1½ שעה",
+    "$225"
+   ]
+  ],
+  "cs2.topic": "וועגן וואס?",
+  "cs2.topics": [
+   "אונזערע סערוויסעס",
+   "אונזערע פראדוקטן און אגענטן",
+   "ווי אזוי צו ניצן AI",
+   "עפעס אנדערש"
+  ],
+  "cs2.when": "בעסטער טאג און צייט",
+  "cs2.need": "וואס זוכט איר?",
+  "cs2.needph": "שרייבט וואס איר ווילט אדורכשמועסן, כדי דער ריכטיגער עדווייזער זאל זיין דערביי.",
+  "cs2.f": [
+   "אייער נאמען",
+   "אימעיל",
+   "טעלעפאן",
+   "פירמע (נישט נייטיג)"
+  ],
+  "cs2.submit": "שיקט מיין סעסיע בקשה",
+  "cs2.note": "קיין צאלונג יעצט נישט. מיר קוקן איבער אייער בקשה, באשטעטיגן דעם עדווייזער, צייט און פרייז (פון $150 א שעה), און דאן שיקן מיר אייך א לינק צו צאלן.",
+  "cs2.err": "ביטע לייגט צו אייער נאמען, אימעיל און וואס איר זוכט.",
+  "cs2.fail": "מיר האבן דאס נישט געקענט שיקן יעצט. פרובירט ביטע נאכאמאל אין א מינוט.",
+  "cs2.done_t": "בקשה באקומען",
+  "cs2.done_s": "א דאנק. אן עדווייזער וועט עס איבערקוקן און אייך שיקן די באשטעטיגטע צייט און פרייז.",
+  "prod.h": "פראדוקטן",
+  "prod.s": "בוקט אדער באשטעלט אנליין. קיין צאלונג ביז מיר באשטעטיגן.",
+  "wb.card": [
+   "web",
+   "אייער וועבסייט, געבויט פאר אייך",
+   "א פולשטענדיג דיזיינטער און געבויטער וועבסייט, ביז 10 זייטן, פאר איין חודש'ליכן פרייז.",
+   [
+    "ביז 10 זייטן, דיזיינט פאר אייער בראנד",
+    "אינגאנצן געבויט און ארויסגעלאזט פאר אייך",
+    "איין פרייז: $250 א חודש"
+   ]
+  ],
+  "wb.price": "$250 א חודש",
+  "wb.go": "איך וויל מיין וועבסייט",
+  "wb.title": "באשטעלט אייער וועבסייט",
+  "wb.lead": "ביז 10 זייטן, דיזיינט און געבויט פאר אייך. $250 א חודש.",
+  "wb.biz": "נאמען פון ביזנעס",
+  "wb.site": "יעצטיגער וועבסייט (אויב איז דא)",
+  "wb.pages": "וויפיל זייטן דארפט איר?",
+  "wb.pagesv": [
+   "1 ביז 3",
+   "4 ביז 6",
+   "7 ביז 10"
+  ],
+  "wb.need": "וואס זאל דער סייט טון?",
+  "wb.needph": "למשל: ווייזן אונזערע סערוויסעס, נעמען בוקינגס, זאמלען לידס.",
+  "wb.submit": "שיקט מיין באשטעלונג · $250 א חודש",
+  "wb.note": "קיין צאלונג יעצט נישט. מיר קוקן איבער אייער באשטעלונג, באשטעטיגן די פרטים, און דאן שיקן מיר אייך דעם לינק פאר די סובסקריפשאן.",
+  "wb.done_s": "א דאנק. מיר וועלן איבערקוקן אייער באשטעלונג און אייך שיקן די ווייטערדיגע טריט.",
+  "prod.list": [
+   [
+    "consult",
+    "AI קאנסאלטינג",
+    "בוקט צייט מיט איינעם פון אונזערע עדווייזערס: אונזערע סערוויסעס, אונזערע פראדוקטן, אדער ווי אזוי צו ניצן AI.",
+    [
+     "פראגעס וועגן אונזערע סערוויסעס און אגענטן",
+     "הילף צו ניצן AI אין אייער ארבעט",
+     "עצות וואו AI פאסט אריין אין אייער ביזנעס"
+    ]
+   ],
+   [
+    "web",
+    "אייער וועבסייט, געבויט פאר אייך",
+    "א פולשטענדיג דיזיינטער און געבויטער וועבסייט, ביז 10 זייטן, פאר איין חודש'ליכן פרייז.",
+    [
+     "ביז 10 זייטן, דיזיינט פאר אייער בראנד",
+     "אינגאנצן געבויט און ארויסגעלאזט פאר אייך",
+     "איין פרייז: $250 א חודש"
+    ]
+   ]
+  ]
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -9015,7 +9247,111 @@ const T = {
   ],
   "hint.click": "לחצו בכל מקום כדי להתחיל",
   "hint.tap": "געו בכל מקום כדי להתחיל",
-  "pr.cta_hc": "דברו איתנו על ענף הבריאות"
+  "pr.cta_hc": "דברו איתנו על ענף הבריאות",
+  "cs2.card": [
+   "consult",
+   "ייעוץ AI",
+   "קבעו זמן עם אחד היועצים שלנו: השירותים שלנו, המוצרים שלנו, או איך להשתמש ב-AI.",
+   [
+    "שאלות על השירותים והסוכנים שלנו",
+    "עזרה מעשית בשימוש ב-AI בעבודה",
+    "ייעוץ היכן AI מתאים לעסק שלכם"
+   ]
+  ],
+  "cs2.price": "מ-$150 לשעה · מינימום 30 דקות",
+  "cs2.book": "קבעו פגישה",
+  "cs2.title": "קביעת פגישת ייעוץ AI",
+  "cs2.len": "אורך הפגישה",
+  "cs2.lens": [
+   [
+    "30",
+    "30 דקות",
+    "$75"
+   ],
+   [
+    "60",
+    "שעה",
+    "$150"
+   ],
+   [
+    "90",
+    "שעה וחצי",
+    "$225"
+   ]
+  ],
+  "cs2.topic": "במה מדובר?",
+  "cs2.topics": [
+   "השירותים שלנו",
+   "המוצרים והסוכנים שלנו",
+   "איך להשתמש ב-AI",
+   "משהו אחר"
+  ],
+  "cs2.when": "תאריך ושעה מועדפים",
+  "cs2.need": "מה אתם מחפשים?",
+  "cs2.needph": "ספרו לנו מה תרצו לכסות, כדי שהיועץ המתאים יצטרף.",
+  "cs2.f": [
+   "השם שלכם",
+   "אימייל",
+   "טלפון",
+   "חברה (לא חובה)"
+  ],
+  "cs2.submit": "שלחו בקשה לפגישה",
+  "cs2.note": "אין תשלום עכשיו. נבדוק את הבקשה, נאשר יועץ, זמן ומחיר (מ-$150 לשעה), ונשלח לכם קישור לתשלום.",
+  "cs2.err": "נא להוסיף שם, אימייל ומה אתם מחפשים.",
+  "cs2.fail": "לא הצלחנו לשלוח כרגע. נסו שוב בעוד רגע.",
+  "cs2.done_t": "הבקשה התקבלה",
+  "cs2.done_s": "תודה. יועץ יבדוק אותה וישלח לכם את הזמן והמחיר המאושרים.",
+  "prod.h": "מוצרים",
+  "prod.s": "הזמינו או קבעו אונליין. אין תשלום עד שנאשר.",
+  "wb.card": [
+   "web",
+   "האתר שלכם, בנוי בשבילכם",
+   "אתר מעוצב ובנוי במלואו, עד 10 עמודים, במחיר חודשי אחד.",
+   [
+    "עד 10 עמודים, מעוצבים למותג שלכם",
+    "בנוי ומושק במלואו בשבילכם",
+    "מחיר אחד: $250 לחודש"
+   ]
+  ],
+  "wb.price": "$250 לחודש",
+  "wb.go": "אני רוצה אתר",
+  "wb.title": "הזמנת האתר שלכם",
+  "wb.lead": "עד 10 עמודים, מעוצבים ובנויים בשבילכם. $250 לחודש.",
+  "wb.biz": "שם העסק",
+  "wb.site": "אתר נוכחי (אם יש)",
+  "wb.pages": "כמה עמודים אתם צריכים?",
+  "wb.pagesv": [
+   "1 עד 3",
+   "4 עד 6",
+   "7 עד 10"
+  ],
+  "wb.need": "מה האתר צריך לעשות?",
+  "wb.needph": "לדוגמה: להציג את השירותים, לקבל הזמנות, לאסוף לידים.",
+  "wb.submit": "שלחו את ההזמנה · $250 לחודש",
+  "wb.note": "אין תשלום עכשיו. נבדוק את ההזמנה, נאשר את הפרטים ונשלח לכם קישור למנוי.",
+  "wb.done_s": "תודה. נבדוק את ההזמנה ונשלח לכם את הצעדים הבאים.",
+  "prod.list": [
+   [
+    "consult",
+    "ייעוץ AI",
+    "קבעו זמן עם אחד היועצים שלנו: השירותים שלנו, המוצרים שלנו, או איך להשתמש ב-AI.",
+    [
+     "שאלות על השירותים והסוכנים שלנו",
+     "עזרה מעשית בשימוש ב-AI בעבודה",
+     "ייעוץ היכן AI מתאים לעסק שלכם"
+    ]
+   ],
+   [
+    "web",
+    "האתר שלכם, בנוי בשבילכם",
+    "אתר מעוצב ובנוי במלואו, עד 10 עמודים, במחיר חודשי אחד.",
+    [
+     "עד 10 עמודים, מעוצבים למותג שלכם",
+     "בנוי ומושק במלואו בשבילכם",
+     "מחיר אחד: $250 לחודש"
+    ]
+   ]
+  ]
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -11187,7 +11523,111 @@ const T = {
   ],
   "hint.click": "Haga clic en cualquier lugar para empezar",
   "hint.tap": "Toque en cualquier lugar para empezar",
-  "pr.cta_hc": "Hable con nosotros sobre el sector de la salud"
+  "pr.cta_hc": "Hable con nosotros sobre el sector de la salud",
+  "cs2.card": [
+   "consult",
+   "Consultoría de IA",
+   "Reserve tiempo con uno de nuestros asesores: nuestros servicios, nuestros productos o cómo usar la IA.",
+   [
+    "Preguntas sobre nuestros servicios y agentes",
+    "Ayuda práctica para usar la IA en su trabajo",
+    "Consejos sobre dónde encaja la IA en su negocio"
+   ]
+  ],
+  "cs2.price": "Desde $150 la hora · mínimo 30 minutos",
+  "cs2.book": "Reservar una sesión",
+  "cs2.title": "Reserve una sesión de consultoría de IA",
+  "cs2.len": "Duración de la sesión",
+  "cs2.lens": [
+   [
+    "30",
+    "30 minutos",
+    "$75"
+   ],
+   [
+    "60",
+    "1 hora",
+    "$150"
+   ],
+   [
+    "90",
+    "1 hora y media",
+    "$225"
+   ]
+  ],
+  "cs2.topic": "¿Sobre qué es?",
+  "cs2.topics": [
+   "Nuestros servicios",
+   "Nuestros productos y agentes",
+   "Cómo usar la IA",
+   "Otra cosa"
+  ],
+  "cs2.when": "Fecha y hora preferidas",
+  "cs2.need": "¿Qué está buscando?",
+  "cs2.needph": "Cuéntenos qué le gustaría tratar, para que se una el asesor adecuado.",
+  "cs2.f": [
+   "Su nombre",
+   "Correo electrónico",
+   "Teléfono",
+   "Empresa (opcional)"
+  ],
+  "cs2.submit": "Solicitar mi sesión",
+  "cs2.note": "Sin pago ahora. Revisamos su solicitud, confirmamos el asesor, la hora y el precio (desde $150 la hora) y le enviamos un enlace de pago.",
+  "cs2.err": "Agregue su nombre, correo y lo que busca.",
+  "cs2.fail": "No pudimos enviarlo ahora. Inténtelo de nuevo en un momento.",
+  "cs2.done_t": "Solicitud recibida",
+  "cs2.done_s": "Gracias. Un asesor la revisará y le enviará la hora y el precio confirmados.",
+  "prod.h": "Productos",
+  "prod.s": "Reserve o pida en línea. Sin pago hasta que confirmemos.",
+  "wb.card": [
+   "web",
+   "Su sitio web, hecho para usted",
+   "Un sitio web completamente diseñado y construido, hasta 10 páginas, por un precio mensual.",
+   [
+    "Hasta 10 páginas, diseñadas para su marca",
+    "Construido y lanzado por nosotros",
+    "Un precio: $250 al mes"
+   ]
+  ],
+  "wb.price": "$250 al mes",
+  "wb.go": "Quiero mi sitio web",
+  "wb.title": "Pida su sitio web",
+  "wb.lead": "Hasta 10 páginas, diseñadas y construidas para usted. $250 al mes.",
+  "wb.biz": "Nombre del negocio",
+  "wb.site": "Sitio web actual (si tiene)",
+  "wb.pages": "¿Cuántas páginas necesita?",
+  "wb.pagesv": [
+   "1 a 3",
+   "4 a 6",
+   "7 a 10"
+  ],
+  "wb.need": "¿Qué debe hacer el sitio?",
+  "wb.needph": "Por ejemplo: mostrar servicios, tomar reservas, captar clientes.",
+  "wb.submit": "Enviar mi pedido · $250 al mes",
+  "wb.note": "Sin pago ahora. Revisamos su pedido, confirmamos los detalles y le enviamos el enlace de suscripción.",
+  "wb.done_s": "Gracias. Revisaremos su pedido y le enviaremos los próximos pasos.",
+  "prod.list": [
+   [
+    "consult",
+    "Consultoría de IA",
+    "Reserve tiempo con uno de nuestros asesores: nuestros servicios, nuestros productos o cómo usar la IA.",
+    [
+     "Preguntas sobre nuestros servicios y agentes",
+     "Ayuda práctica para usar la IA en su trabajo",
+     "Consejos sobre dónde encaja la IA en su negocio"
+    ]
+   ],
+   [
+    "web",
+    "Su sitio web, hecho para usted",
+    "Un sitio web completamente diseñado y construido, hasta 10 páginas, por un precio mensual.",
+    [
+     "Hasta 10 páginas, diseñadas para su marca",
+     "Construido y lanzado por nosotros",
+     "Un precio: $250 al mes"
+    ]
+   ]
+  ]
  }
 };
 
@@ -12329,19 +12769,21 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     research: '<ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V5.5M4.5 12v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V12"/>'
   };
   AGI.abk = '<path d="M4 20 15 9"/><path d="m14 4 .9 2.1L17 7l-2.1.9L14 10l-.9-2.1L11 7l2.1-.9z"/><path d="M19 12l.6 1.4L21 14l-1.4.6L19 16l-.6-1.4L17 14l1.4-.6z"/>';
+  AGI.web = '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>';
+  AGI.consult = '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/>';
   const agIcon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${AGI[k] || '<circle cx="12" cy="9" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/>'}</svg>`;
   function card(x, kind) {
     const c = ((S().agents) || {})[x[0]] || {};
     const en = (T.en["store." + kind] || []).find(v => v[0] === x[0]);
     const lab = t("store.l");
     const body = kind === "exec" ? `<div class="slayers">${x[3].map((v, j) => `<div class="slayer"><span>${esc(lab[j])}</span><p>${esc(v)}</p></div>`).join("")}</div>` : `<ul>${x[3].map(v => `<li>${esc(v)}</li>`).join("")}</ul>`;
-    return `<article class="scard ${kind}" data-ag="${esc(x[0])}" tabindex="0" role="button"><span class="sico" aria-hidden="true">${agIcon(x[0])}</span><h4>${esc(x[1])}</h4><p class="sline">${esc(x[2])}</p>${body}${x[0] === "abk" ? `<button type="button" class="btn aqua sdemo-go" data-abk-play>${esc(t("abk.watch"))} <span class="arrow">▶</span></button>` : `<div class="sprice">${price(c)}</div>${action(c, en ? en[1] : x[1])}`}</article>`;
+    return `<article class="scard ${kind}" data-ag="${esc(x[0])}" tabindex="0" role="button"><span class="sico" aria-hidden="true">${agIcon(x[0])}</span><h4>${esc(x[1])}</h4><p class="sline">${esc(x[2])}</p>${body}${x[0] === "web" ? `<div class="sprice cs2-p">${esc(t("wb.price"))}</div><button type="button" class="btn aqua" data-weborder>${esc(t("wb.go"))} <span class="arrow">→</span></button>` : x[0] === "consult" ? `<div class="sprice cs2-p">${esc(t("cs2.price"))}</div><button type="button" class="btn aqua" data-consult>${esc(t("cs2.book"))} <span class="arrow">→</span></button>` : x[0] === "abk" ? `<button type="button" class="btn aqua sdemo-go" data-abk-play>${esc(t("abk.watch"))} <span class="arrow">▶</span></button>` : `<div class="sprice">${price(c)}</div>${action(c, en ? en[1] : x[1])}`}</article>`;
   }
   function renderStore() {
     const el = document.getElementById("store"); if (!el) return;
     const st = S(), plan = st.plan || {};
     const planBtn = safe(plan.link) ? `<a class="btn aqua" href="${esc(plan.link)}" target="_blank" rel="noopener">${esc(t("store.buy"))} <span class="arrow">→</span></a>` : `<button type="button" class="btn aqua" data-contact data-msgtext="Agent Store: Managed plan">${esc(t("store.plan_go"))} <span class="arrow">→</span></button>`;
-    el.innerHTML = `<div class="stier"><h3 class="stier-h">${esc(t("store.exec_h"))}</h3><div class="sgrid exec">${t("store.exec").map(x => card(x, "exec")).join("")}</div></div>`
+    el.innerHTML = `<div class="stier sprod"><h3 class="stier-h">${esc(t("prod.h"))}</h3><p class="stier-s">${esc(t("prod.s"))}</p><div class="sgrid">${(t("prod.list") || []).map(x => card(x, "spec")).join("")}</div></div><div class="stier"><h3 class="stier-h">${esc(t("store.exec_h"))}</h3><div class="sgrid exec">${t("store.exec").map(x => card(x, "exec")).join("")}</div></div>`
       + `<div class="stier"><h3 class="stier-h">${esc(t("store.spec_h"))}</h3><p class="stier-s">${esc(t("store.spec_s"))}</p><div class="sgrid">${t("store.spec").map(x => card(x, "spec")).join("")}<div class="ssoon"><span class="sico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><h3>${esc(t("store.soon_t"))}</h3><p>${esc(t("store.soon_s"))}</p><button type="button" class="btn" data-contact data-msgtext="Agent Store: suggest a specialist">${esc(t("store.soon_go"))} <span class="arrow">→</span></button></div></div></div>`
       + `<div class="sbuild"><div><h3>${esc(t("sc.build_t"))}</h3><p>${esc(t("sc.build_s"))}</p></div><button type="button" class="btn aqua big" data-custom>${esc(t("sc.build_go"))} <span class="arrow">→</span></button></div>`
       + `<div class="splan"><h3>${esc(t("store.plan_t"))}</h3><p>${esc(t("store.plan_s"))}</p><div class="sprice">${price({ monthly: plan.monthly })}</div>${planBtn}</div>`;
@@ -12739,5 +13181,108 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 </script>
 <script>(function () { const stop = () => ["mvPause", "srvPause", "abkPause"].forEach(f => { try { window[f] && window[f](); } catch (e) {} }); window.mediaStop = stop; document.addEventListener("click", e => { const x = e.target.closest("[data-view], [data-folder], [data-go], [data-contact], [data-book], [data-open-chat], [data-langs], [data-lang], .teamlink, .nav a, a[href]"); if (x && !x.closest(".srv-row, [data-abk-play], .mv-watch, #mv, .sv")) stop(); else if (x && x.closest(".srv-pan .srv-ag, .srv-pan .srv-cta")) stop(); }, true); addEventListener("popstate", stop); addEventListener("hashchange", stop); addEventListener("pagehide", stop); document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); }); })();</script>
+<script>
+/* AI consulting: book a session (request first; the team confirms advisor, time and price, then sends a payment link) */
+(function () {
+  const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  function draw(state) {
+    const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
+    sh.dataset.mode = "consult"; sh.classList.remove("wide");
+    const x = `<button type="button" class="x" data-close aria-label="${E(t("close"))}">×</button>`;
+    if (state === "done") { sh.innerHTML = `${x}<div class="cs2"><h2 id="sheet-title">${E(t("cs2.done_t"))}</h2><p class="cs2-lead">${E(t("cs2.done_s"))}</p></div>`; return; }
+    const f = t("cs2.f"), lens = t("cs2.lens"), today = new Date().toISOString().slice(0, 10);
+    sh.innerHTML = `${x}<form class="cs2" id="cs2form" novalidate><h2 id="sheet-title">${E(t("cs2.title"))}</h2><p class="cs2-price">${E(t("cs2.price"))}</p>
+      <fieldset class="cs2-len"><legend>${E(t("cs2.len"))}</legend>${lens.map(([v, l, p], i) => `<label><input type="radio" name="cs2len" value="${v}"${i === 0 ? " checked" : ""}><span><b>${E(l)}</b><em>${E(p)}</em></span></label>`).join("")}</fieldset>
+      <label>${E(t("cs2.topic"))}<select id="cs2topic">${t("cs2.topics").map((o, i) => `<option value="${i}">${E(o)}</option>`).join("")}</select></label>
+      <div class="cs2-row"><label>${E(t("cs2.when"))}<input type="date" id="cs2date" min="${today}"></label><label>&nbsp;<input type="time" id="cs2time" value="10:00" step="900" aria-label="${E(t("cs2.when"))}"></label></div>
+      <label>${E(t("cs2.need"))}<textarea id="cs2need" rows="3" placeholder="${E(t("cs2.needph"))}"></textarea></label>
+      <div class="cs2-row"><label>${E(f[0])}<input id="cs2name" autocomplete="name"></label><label>${E(f[1])}<input id="cs2email" type="email" autocomplete="email"></label></div>
+      <div class="cs2-row"><label>${E(f[2])}<input id="cs2phone" type="tel" autocomplete="tel"></label><label>${E(f[3])}<input id="cs2co" autocomplete="organization"></label></div>
+      <p class="err" id="cs2err" hidden></p>
+      <button class="btn big aqua" type="submit" id="cs2go">${E(t("cs2.submit"))} · <span id="cs2amt">${E(lens[0][2])}</span></button>
+      <p class="cs2-note">${E(t("cs2.note"))}</p></form>`;
+    ov.hidden = false; document.body.style.overflow = "hidden";
+  }
+  window.consultOpen = () => { draw("form"); try { track("consult_open"); } catch (x) {} };
+  document.addEventListener("change", e => { if (e.target.name === "cs2len") { const l = t("cs2.lens").find(r => r[0] === e.target.value); const a = document.getElementById("cs2amt"); if (a && l) a.textContent = l[2]; } });
+  document.addEventListener("click", e => {
+    if (e.target.closest("[data-consult]") || (e.target.closest(".s-store .scard[data-ag=\"consult\"]") && !e.target.closest("a, button"))) { e.preventDefault(); e.stopPropagation(); window.consultOpen(); }
+  }, true);
+  document.addEventListener("submit", async e => {
+    if (e.target.id !== "cs2form") return; e.preventDefault();
+    const v = id => (document.getElementById(id) || {}).value ? document.getElementById(id).value.trim() : "";
+    const err = document.getElementById("cs2err"), btn = document.getElementById("cs2go");
+    const name = v("cs2name"), email = v("cs2email"), need = v("cs2need");
+    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !need) { err.textContent = t("cs2.err"); err.hidden = false; return; }
+    err.hidden = true;
+    const len = (document.querySelector('input[name="cs2len"]:checked') || {}).value || "30";
+    const enL = (T.en["cs2.lens"].find(r => r[0] === len) || []);
+    const d = v("cs2date"), tm = v("cs2time");
+    let when = "";
+    if (d) { const dt = new Date(d + "T" + (tm || "10:00")); when = isNaN(dt) ? d + " " + tm : dt.toLocaleString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" }); }
+    let tz = ""; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (x) {}
+    const topic = T.en["cs2.topics"][+v("cs2topic") || 0];
+    const message = ["AI consulting session request", "Length: " + (enL[1] || len + " minutes") + " (" + (enL[2] || "") + " at $150 an hour)", "Topic: " + topic, "Preferred time: " + (when || "not given") + (tz ? " (" + tz + ")" : ""), "Looking for: " + need, "Name: " + name, "Email: " + email, "Phone: " + (v("cs2phone") || "-"), "Company: " + (v("cs2co") || "-"), "Site language: " + lang].join("\n");
+    const data = { name: name, email: email, phone: v("cs2phone"), company: v("cs2co"), message: message, language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
+    btn.disabled = true;
+    try {
+      if (CONFIG.web3formsKey) {
+        const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Moses Agentic: AI consulting request from " + name + " (" + (enL[1] || len) + ")", from_name: "Moses Agentic website", botcheck: false, replyto: email }, data)) });
+        const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0;
+      } else if (CONFIG.contactEndpoint) {
+        const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
+      } else throw 0;
+      draw("done"); try { track("generate_lead", { form: "consulting" }); } catch (x) {}
+    } catch (x) { err.textContent = t("cs2.fail"); err.hidden = false; btn.disabled = false; }
+  });
+})();
+</script>
+<script>
+/* Website subscription ($250 a month, up to 10 pages): order online; the team confirms, then sends the subscription link */
+(function () {
+  const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  function draw(state) {
+    const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
+    sh.dataset.mode = "weborder"; sh.classList.remove("wide");
+    const x = `<button type="button" class="x" data-close aria-label="${E(t("close"))}">×</button>`;
+    if (state === "done") { sh.innerHTML = `${x}<div class="cs2"><h2 id="sheet-title">${E(t("cs2.done_t"))}</h2><p class="cs2-lead">${E(t("wb.done_s"))}</p></div>`; return; }
+    const f = t("cs2.f");
+    sh.innerHTML = `${x}<form class="cs2" id="wbform" novalidate><h2 id="sheet-title">${E(t("wb.title"))}</h2><p class="cs2-price">${E(t("wb.lead"))}</p>
+      <div class="cs2-row"><label>${E(t("wb.biz"))}<input id="wbbiz" autocomplete="organization"></label><label>${E(t("wb.site"))}<input id="wbsite" type="url" placeholder="https://"></label></div>
+      <label>${E(t("wb.pages"))}<select id="wbpages">${t("wb.pagesv").map((o, i) => `<option value="${i}">${E(o)}</option>`).join("")}</select></label>
+      <label>${E(t("wb.need"))}<textarea id="wbneed" rows="3" placeholder="${E(t("wb.needph"))}"></textarea></label>
+      <div class="cs2-row"><label>${E(f[0])}<input id="wbname" autocomplete="name"></label><label>${E(f[1])}<input id="wbemail" type="email" autocomplete="email"></label></div>
+      <label>${E(f[2])}<input id="wbphone" type="tel" autocomplete="tel"></label>
+      <p class="err" id="wberr" hidden></p>
+      <button class="btn big aqua" type="submit" id="wbgo">${E(t("wb.submit"))}</button>
+      <p class="cs2-note">${E(t("wb.note"))}</p></form>`;
+    ov.hidden = false; document.body.style.overflow = "hidden";
+  }
+  window.webOrderOpen = () => { draw("form"); try { track("web_order_open"); } catch (x) {} };
+  document.addEventListener("click", e => {
+    if (e.target.closest("[data-weborder]") || (e.target.closest(".s-store .scard[data-ag=\"web\"]") && !e.target.closest("a, button"))) { e.preventDefault(); e.stopPropagation(); window.webOrderOpen(); }
+  }, true);
+  document.addEventListener("submit", async e => {
+    if (e.target.id !== "wbform") return; e.preventDefault();
+    const v = id => { const el = document.getElementById(id); return el && el.value ? el.value.trim() : ""; };
+    const err = document.getElementById("wberr"), btn = document.getElementById("wbgo");
+    const name = v("wbname"), email = v("wbemail"), need = v("wbneed");
+    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !need) { err.textContent = t("cs2.err"); err.hidden = false; return; }
+    err.hidden = true;
+    const message = ["Website subscription order ($250 a month, up to 10 pages)", "Business: " + (v("wbbiz") || "-"), "Current site: " + (v("wbsite") || "-"), "Pages needed: " + T.en["wb.pagesv"][+v("wbpages") || 0], "The site should: " + need, "Name: " + name, "Email: " + email, "Phone: " + (v("wbphone") || "-"), "Site language: " + lang].join("\n");
+    const data = { name: name, email: email, phone: v("wbphone"), company: v("wbbiz"), message: message, language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
+    btn.disabled = true;
+    try {
+      if (CONFIG.web3formsKey) {
+        const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Moses Agentic: website order from " + name, from_name: "Moses Agentic website", botcheck: false, replyto: email }, data)) });
+        const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0;
+      } else if (CONFIG.contactEndpoint) {
+        const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
+      } else throw 0;
+      draw("done"); try { track("generate_lead", { form: "website_order" }); } catch (x) {}
+    } catch (x) { err.textContent = t("cs2.fail"); err.hidden = false; btn.disabled = false; }
+  });
+})();
+</script>
 </body>
 </html>

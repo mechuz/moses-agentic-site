@@ -11144,11 +11144,11 @@ function render() {
   $("#chat-in").placeholder = t("chat.ph");
   $("#chat-send").setAttribute("aria-label", t("chat.send"));
 
-  const base = CONFIG.site === "moses" ? ["en"] : ["en", "es", "yi"];
+  const base = ["en"];
   let pills = base.map(k => `<button type="button" lang="${k}" data-lang="${k}" aria-pressed="${k === lang && !gtl}">${esc(LANGS[k].label)}</button>`).join("");
   const extra = !base.includes(lang), machine = !["en", "yi", "he", "es"].includes(lang);
   const gtLabel = gtl ? ((MORE_LANGS.find(([c]) => (GT_CODES[c] || c) === gtl) || [0, gtl])[1]).slice(0, 14) : "";
-  pills += `<button type="button" class="globe" data-langs aria-pressed="${extra || !!gtl}" aria-label="${esc(t("lang.more"))}">${GLOBE}${extra ? esc(LANGS[lang].label) : esc(gtLabel)}</button>`;
+  pills += `<button type="button" class="globe" data-langs aria-pressed="${extra || !!gtl}" aria-label="${esc(t("lang.more"))}${extra ? ": " + esc(LANGS[lang].label) : gtLabel ? ": " + esc(gtLabel) : ""}" title="${extra ? esc(LANGS[lang].label) : esc(gtLabel || t("lang.more"))}">${GLOBE}</button>`;
   $("#langs").innerHTML = pills;
   $("#trnote").hidden = !machine;
   $("#trnote").textContent = machine ? t("lang.note") : "";

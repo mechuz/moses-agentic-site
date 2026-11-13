@@ -1777,6 +1777,21 @@ footer .locs { margin: .2rem 0 .8rem; }
 .fw-steps li::before { content: counter(fw); width: 1.9rem; height: 1.9rem; border-radius: 50%; background: #0B2545; color: #FFFFFF; display: grid; place-items: center; font: 900 .95rem var(--f-display); }
 @media (max-width: 560px) { .fw-steps { grid-template-columns: 1fr; } .fw-steps li { grid-template-columns: auto 1fr; align-items: center; } }
 .fw .chk { display: flex; align-items: center; gap: .5rem; font: 600 .95rem var(--f-body); }
+.fw-val { font: 900 clamp(1.15rem, 2.2vw, 1.45rem)/1.3 var(--f-display); color: #0B2545; margin: .2rem 0 0; padding: .9rem 1.1rem; border-radius: 14px; background: #C6F432; }
+.fw-why { border: 2px solid #0B2545; border-radius: 16px; padding: 1rem 1.1rem; }
+.fw-why h3, .fw-h3 { font: 900 1.15rem/1.2 var(--f-display); color: #0B2545; margin: 0 0 .35rem; }
+.fw-h3 { margin-top: .6rem; }
+.fw-why p { font: 600 1rem/1.5 var(--f-body); color: #3D5170; margin: 0; }
+.fw-inc { list-style: none; padding: 0; margin: 0; display: grid; gap: .45rem; }
+.fw-inc li { position: relative; padding-inline-start: 1.7rem; font: 700 1rem/1.4 var(--f-body); color: #0B2545; }
+.fw-inc li::before { content: "✓"; position: absolute; inset-inline-start: 0; top: 0; width: 1.25rem; height: 1.25rem; border-radius: 50%; background: #0B2545; color: #FFFFFF; display: grid; place-items: center; font-size: .75rem; }
+.fw-opts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; }
+@media (max-width: 760px) { .fw-opts { grid-template-columns: 1fr 1fr; } }
+.fw-opt { display: grid; gap: .25rem; padding: .85rem; border: 1px solid #C9D6E8; border-radius: 14px; align-content: start; }
+.fw-opt b { font: 800 .95rem/1.25 var(--f-body); color: #0B2545; }
+.fw-opt em { font: 900 1.2rem/1.1 var(--f-display); font-style: normal; color: #1A73E8; }
+.fw-opt span { font: 600 .85rem/1.35 var(--f-body); color: #5A6B85; }
+.fw-opt.own { background: #F4F7FB; }
 .fw .chk input { width: 18px; height: 18px; accent-color: #0B2545; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
@@ -4865,6 +4880,42 @@ const T = {
   "fw.note": "No cost to build. We'll review your request and get back to you.",
   "fw.done_s": "Thank you. We'll review your website request and get back to you with next steps.",
   "fw.err": "Please add your name, email, and what you'd like improved.",
+  "fw.value": "The kind of custom website agencies typically charge $15,000 to $45,000 to design and build. Yours, free.",
+  "fw.why_h": "No gimmick",
+  "fw.why": "We build it free so you can see what our AI agents can do for your business. If you like the work, we'd love to talk about agents and our other services. If not, you keep the website.",
+  "fw.inc_h": "What's included",
+  "fw.inc": [
+   "Custom design and build",
+   "Up to 5 rounds of edits",
+   "60 days of management, free"
+  ],
+  "fw.after_h": "After 60 days, you choose",
+  "fw.opts": [
+   [
+    "Manage it yourself",
+    "$0",
+    "We hand you the fully built website. It's yours."
+   ],
+   [
+    "We manage it",
+    "$149 a month",
+    "24-month commitment"
+   ],
+   [
+    "We manage it",
+    "$200 a month",
+    "12-month commitment"
+   ],
+   [
+    "We manage it",
+    "$250 a month",
+    "No commitment"
+   ]
+  ],
+  "fw.after_note": "The build is free. Management is optional.",
+  "fw.form_h": "Get started",
+  "fw.pick": "After the 60 days, I'd like to",
+  "fw.pick_none": "Not sure yet",
   "mail.note": "Your email app opened with your message to welcome@mosesagentic.com. Press Send to finish."
  },
  "yi": {
@@ -7162,6 +7213,42 @@ const T = {
   "fw.note": "קיין קאסטן צו בויען. מיר קוקן איבער אייער בקשה און מיר מעלדן זיך צוריק.",
   "fw.done_s": "א דאנק. מיר וועלן איבערקוקן אייער וועבסייט בקשה און אייך שיקן די ווייטערדיגע טריט.",
   "fw.err": "ביטע לייגט צו אייער נאמען, אימעיל, און וואס איר ווילט פארבעסערן.",
+  "fw.value": "די סארט קאסטעם וועבסייט וואס עידזשענסיס רעכענען געווענליך $15,000 ביז $45,000 צו דיזיינען און בויען. פאר אייך, אומזיסט.",
+  "fw.why_h": "קיין טריק",
+  "fw.why": "מיר בויען עס אומזיסט כדי איר זאלט זען וואס אונזערע AI אגענטן קענען טון פאר אייער ביזנעס. אויב די ארבעט געפעלט אייך, וועלן מיר גערן רעדן וועגן אגענטן און אונזערע אנדערע סערוויסעס. אויב נישט, בלייבט דער וועבסייט אייערס.",
+  "fw.inc_h": "וואס איז אריינגערעכנט",
+  "fw.inc": [
+   "קאסטעם דיזיין און בוי",
+   "ביז 5 רונדן ענדערונגען",
+   "60 טעג מענעדזשמענט, אומזיסט"
+  ],
+  "fw.after_h": "נאך 60 טעג, קלייבט איר",
+  "fw.opts": [
+   [
+    "פירט עס אליין",
+    "$0",
+    "מיר געבן אייך איבער דעם פארטיגן וועבסייט. ער איז אייערס."
+   ],
+   [
+    "מיר פירן עס",
+    "$149 א חודש",
+    "24 חודש התחייבות"
+   ],
+   [
+    "מיר פירן עס",
+    "$200 א חודש",
+    "12 חודש התחייבות"
+   ],
+   [
+    "מיר פירן עס",
+    "$250 א חודש",
+    "קיין התחייבות"
+   ]
+  ],
+  "fw.after_note": "דער בוי איז אומזיסט. מענעדזשמענט איז אפציאנעל.",
+  "fw.form_h": "הייבט אן",
+  "fw.pick": "נאך די 60 טעג וויל איך",
+  "fw.pick_none": "נאך נישט זיכער",
   "mail.note": "אייער אימעיל עפ האט זיך געעפנט מיט אייער מעסעדזש צו welcome@mosesagentic.com. דריקט Send צו ענדיגן."
  },
  "he": {
@@ -9459,6 +9546,42 @@ const T = {
   "fw.note": "הבנייה ללא עלות. נבדוק את הבקשה ונחזור אליכם.",
   "fw.done_s": "תודה. נבדוק את הבקשה ונחזור אליכם עם הצעדים הבאים.",
   "fw.err": "נא להוסיף שם, אימייל ומה תרצו לשפר.",
+  "fw.value": "אתר מותאם מהסוג שסוכנויות גובות עליו בדרך כלל $15,000 עד $45,000 לעיצוב ובנייה. בשבילכם, בחינם.",
+  "fw.why_h": "בלי טריקים",
+  "fw.why": "אנחנו בונים אותו בחינם כדי שתראו מה סוכני ה-AI שלנו יכולים לעשות לעסק שלכם. אם העבודה מוצאת חן בעיניכם, נשמח לדבר על סוכנים ועל השירותים האחרים שלנו. אם לא, האתר נשאר שלכם.",
+  "fw.inc_h": "מה כלול",
+  "fw.inc": [
+   "עיצוב ובנייה מותאמים",
+   "עד 5 סבבי תיקונים",
+   "60 ימי ניהול, בחינם"
+  ],
+  "fw.after_h": "אחרי 60 יום, אתם בוחרים",
+  "fw.opts": [
+   [
+    "מנהלים לבד",
+    "$0",
+    "אנחנו מוסרים לכם את האתר הבנוי במלואו. הוא שלכם."
+   ],
+   [
+    "אנחנו מנהלים",
+    "$149 לחודש",
+    "התחייבות ל-24 חודשים"
+   ],
+   [
+    "אנחנו מנהלים",
+    "$200 לחודש",
+    "התחייבות ל-12 חודשים"
+   ],
+   [
+    "אנחנו מנהלים",
+    "$250 לחודש",
+    "בלי התחייבות"
+   ]
+  ],
+  "fw.after_note": "הבנייה בחינם. הניהול לבחירתכם.",
+  "fw.form_h": "מתחילים",
+  "fw.pick": "אחרי 60 הימים, אני רוצה",
+  "fw.pick_none": "עוד לא בטוח",
   "mail.note": "אפליקציית המייל נפתחה עם ההודעה שלכם ל-welcome@mosesagentic.com. לחצו שלח כדי לסיים."
  },
  "es": {
@@ -11756,6 +11879,42 @@ const T = {
   "fw.note": "Sin costo de construcción. Revisaremos su solicitud y le responderemos.",
   "fw.done_s": "Gracias. Revisaremos su solicitud y le enviaremos los próximos pasos.",
   "fw.err": "Agregue su nombre, correo y qué le gustaría mejorar.",
+  "fw.value": "El tipo de sitio web a medida por el que las agencias suelen cobrar de $15,000 a $45,000 por diseñarlo y construirlo. Para usted, gratis.",
+  "fw.why_h": "Sin trucos",
+  "fw.why": "Lo construimos gratis para que vea lo que nuestros agentes de IA pueden hacer por su negocio. Si le gusta el trabajo, con gusto hablamos de agentes y de nuestros otros servicios. Si no, el sitio web es suyo.",
+  "fw.inc_h": "Qué incluye",
+  "fw.inc": [
+   "Diseño y construcción a medida",
+   "Hasta 5 rondas de cambios",
+   "60 días de gestión, gratis"
+  ],
+  "fw.after_h": "Después de 60 días, usted elige",
+  "fw.opts": [
+   [
+    "Gestionarlo usted mismo",
+    "$0",
+    "Le entregamos el sitio web completo. Es suyo."
+   ],
+   [
+    "Nosotros lo gestionamos",
+    "$149 al mes",
+    "Compromiso de 24 meses"
+   ],
+   [
+    "Nosotros lo gestionamos",
+    "$200 al mes",
+    "Compromiso de 12 meses"
+   ],
+   [
+    "Nosotros lo gestionamos",
+    "$250 al mes",
+    "Sin compromiso"
+   ]
+  ],
+  "fw.after_note": "La construcción es gratis. La gestión es opcional.",
+  "fw.form_h": "Empecemos",
+  "fw.pick": "Después de los 60 días, quiero",
+  "fw.pick_none": "Aún no lo sé",
   "mail.note": "Se abrió su app de correo con su mensaje para welcome@mosesagentic.com. Presione Enviar para terminar."
  }
 };
@@ -13490,13 +13649,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (done) { sh.innerHTML = `${x}<div class="fw"><h2 id="sheet-title">${E(t("cs2.done_t"))}</h2><p class="fw-lead">${E(t("fw.done_s"))}</p></div>`; return; }
     const f = t("cs2.f");
     sh.innerHTML = `${x}<div class="fw"><p class="fw-k">${E(t("nav.free"))}</p><h2 id="sheet-title">${E(t("fw.h"))}</h2><p class="fw-lead">${E(t("fw.lead"))}</p>
+      <p class="fw-val">${E(t("fw.value"))}</p>
+      <div class="fw-why"><h3>${E(t("fw.why_h"))}</h3><p>${E(t("fw.why"))}</p></div>
+      <h3 class="fw-h3">${E(t("fw.inc_h"))}</h3><ul class="fw-inc">${t("fw.inc").map(s => `<li>${E(s)}</li>`).join("")}</ul>
       <ol class="fw-steps">${t("fw.steps").map(s => `<li>${E(s)}</li>`).join("")}</ol>
+      <h3 class="fw-h3">${E(t("fw.after_h"))}</h3>
+      <div class="fw-opts">${t("fw.opts").map(([a, p, n], i) => `<div class="fw-opt${i === 0 ? " own" : ""}"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div>
+      <p class="cs2-note">${E(t("fw.after_note"))}</p>
+      <h3 class="fw-h3">${E(t("fw.form_h"))}</h3>
       <form class="cs2" id="fwform" novalidate>
         <div class="cs2-row"><label>${E(t("wb.biz"))}<input id="fw-biz" autocomplete="organization"></label><label>${E(t("wb.type"))}<input id="fw-type"></label></div>
         <label>${E(t("fw.site"))}<input id="fw-site" type="url" placeholder="https://"></label>
         <label class="chk fw-none"><input type="checkbox" id="fw-none"> ${E(t("fw.none"))}</label>
         <label>${E(t("fw.improve"))}<textarea id="fw-need" rows="4" placeholder="${E(t("fw.improve_ph"))}"></textarea></label>
         <fieldset class="sp-feats"><legend>${E(t("wb.feat"))}</legend>${t("wb.feats").map((s, i) => `<label class="chk"><input type="checkbox" name="fw-f" value="${i}"> ${E(s)}</label>`).join("")}</fieldset>
+        <label>${E(t("fw.pick"))}<select id="fw-pick">${t("fw.opts").map(([a, p, n], i) => `<option value="${i}">${E(a + " · " + p + (i ? " · " + n : ""))}</option>`).join("")}<option value="x" selected>${E(t("fw.pick_none"))}</option></select></label>
         <div class="cs2-row"><label>${E(f[0])}<input id="fw-name" autocomplete="name"></label><label>${E(f[1])}<input id="fw-email" type="email" autocomplete="email"></label></div>
         <label>${E(f[2])}<input id="fw-phone" type="tel" autocomplete="tel"></label>
         <p class="err" id="fw-err" hidden></p>
@@ -13515,7 +13682,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!name || !okMail(email) || !need) { err.textContent = t("fw.err"); err.hidden = false; return; }
     err.hidden = true;
     const feats = [...document.querySelectorAll('input[name="fw-f"]:checked')].map(x => T.en["wb.feats"][+x.value]);
-    const lines = ["Free website request", "Business: " + (v("fw-biz") || "-") + (v("fw-type") ? " (" + v("fw-type") + ")" : ""), "Current website: " + (none ? "none yet" : (v("fw-site") || "-")), "Improve / wants: " + need, "Features: " + (feats.join(", ") || "-"), "Name: " + name, "Email: " + email, "Phone: " + (v("fw-phone") || "-"), "Site language: " + lang];
+    const lines = ["Free website request", "Business: " + (v("fw-biz") || "-") + (v("fw-type") ? " (" + v("fw-type") + ")" : ""), "Current website: " + (none ? "none yet" : (v("fw-site") || "-")), "Improve / wants: " + need, "Features: " + (feats.join(", ") || "-"), "After 60 days: " + (v("fw-pick") === "x" ? "not sure yet" : (en => en[0] + " " + en[1] + (+v("fw-pick") ? " (" + en[2] + ")" : ""))(T.en["fw.opts"][+v("fw-pick")])), "Name: " + name, "Email: " + email, "Phone: " + (v("fw-phone") || "-"), "Site language: " + lang];
     const data = { name, email, phone: v("fw-phone"), company: v("fw-biz"), message: lines.join("\n"), language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
     btn.disabled = true;
     try {

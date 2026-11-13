@@ -1795,6 +1795,24 @@ footer .locs { margin: .2rem 0 .8rem; }
 .fw-opt span { font: 600 .85rem/1.35 var(--f-body); color: #5A6B85; }
 .fw-opt.own { background: #F4F7FB; }
 .fw .chk input { width: 18px; height: 18px; accent-color: #0B2545; }
+
+/* ===== why not do it yourself ===== */
+.diy { display: none; }
+.site-moses main[data-page="home"] > #diy:not(#hero3):not(#cabinet):not(#agents), .site-chocham #diy2 { display: block !important; padding: clamp(3rem, 7vw, 5.5rem) 0; }
+.site-moses #diy { background: #FFFFFF; color: #0B2545; }
+.diy .eyebrow { color: inherit; opacity: .7; }
+.diy-h { font: 900 clamp(1.9rem, 5vw, 3.6rem)/1.02 var(--f-display); letter-spacing: -.04em; margin: .4rem 0 clamp(1.4rem, 3vw, 2.2rem); max-width: 20ch; }
+.diy-list { list-style: none; counter-reset: diy; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.4rem); }
+@media (max-width: 760px) { .diy-list { grid-template-columns: minmax(0, 1fr); } }
+.diy-list li { counter-increment: diy; border: 1.5px solid currentColor; border-color: rgba(11,37,69,.18); border-radius: 18px; padding: clamp(1rem, 2.4vw, 1.5rem); }
+.site-chocham .diy-list li { border-color: rgba(0,0,0,.2); }
+.diy-list li::before { content: counter(diy); display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: #0B2545; color: #FFFFFF; font: 900 1rem var(--f-display); margin-bottom: .7rem; }
+.site-moses .diy-list li::before { background: #C6F432; color: #0B2545; }
+.site-chocham .diy-list li::before { background: #000000; color: #FFFFFF; }
+.diy-list h3 { font: 900 clamp(1.1rem, 2vw, 1.35rem)/1.2 var(--f-display); letter-spacing: -.02em; margin: 0 0 .4rem; }
+.diy-list p { margin: 0; font: 500 1rem/1.5 var(--f-body); opacity: .85; }
+.diy-end { margin-top: clamp(1.4rem, 3vw, 2rem); display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.diy-end p { margin: 0; font: 800 clamp(1.05rem, 2vw, 1.3rem)/1.35 var(--f-display); }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -1944,6 +1962,9 @@ body { top: 0 !important; }
       <div class="srv-head"><div class="eyebrow" data-i18n="srv.k">Who we build for</div><p data-i18n="srv.sub">Click yours. A short video shows what our agents do for you.</p></div>
       <div id="srvbox"></div>
     </div>
+  </section>
+  <section class="diy" id="diy">
+    <div class="wrap"><div class="diy-in" data-diy="0"></div></div>
   </section>
   <section class="cabinet" id="cabinet">
     <div class="wrap">
@@ -2243,6 +2264,9 @@ body { top: 0 !important; }
     </div>
   </section>
 
+  <section class="diy" id="diy2">
+    <div class="wrap"><div class="diy-in" data-diy="1"></div></div>
+  </section>
   <section class="why" id="moses-promo">
     <div class="wrap center">
       <div class="head rise"><div class="eyebrow" data-i18n="mp.kicker">Our sister company</div><h2 class="h2" data-i18n="mp.title">Want it built for you?</h2><p class="lead" data-i18n="mp.sub">Moses Agentic builds AI agents and automation for your business, and runs them for you.</p></div>
@@ -4921,6 +4945,29 @@ const T = {
   "fw.pick": "After the 60 days, I'd like to",
   "fw.pick_none": "Not sure yet",
   "fw.big": "24‑hour website",
+  "diy.k": "Why not do it yourself?",
+  "diy.h": "You can try. Here's why businesses hire us.",
+  "diy.items": [
+   [
+    "Using AI isn't the same as building an agent",
+    "Anyone can open ChatGPT and ask a question. An agent that does a real job every day, reading your files, checking the numbers and following your rules, has to be built, tested and connected to your systems."
+   ],
+   [
+    "Your time is worth more",
+    "Building and maintaining agents is a job of its own. Doing it yourself means taking those hours from running your business."
+   ],
+   [
+    "We start from what already works",
+    "Our agents already run in real businesses: real estate, lending, senior living and marketing. You skip the trial and error."
+   ],
+   [
+    "It keeps working",
+    "AI tools change every month. We maintain and update your agents, so they don't quietly break."
+   ]
+  ],
+  "diy.close": "Want it done right, without learning it all yourself?",
+  "diy.go": "Talk to us",
+  "diy.close2": "Want to learn it yourself? That's what our seminars teach. Want it done for you? That's Moses Agentic.",
   "mail.note": "Your email app opened with your message to welcome@mosesagentic.com. Press Send to finish."
  },
  "yi": {
@@ -7257,6 +7304,29 @@ const T = {
   "fw.pick": "נאך די 60 טעג וויל איך",
   "fw.pick_none": "נאך נישט זיכער",
   "fw.big": "24‑שעה וועבסייט",
+  "diy.k": "פארוואס נישט טון אליין?",
+  "diy.h": "איר קענט פרובירן. אט איז פארוואס ביזנעסער נעמען אונז.",
+  "diy.items": [
+   [
+    "ניצן AI איז נישט דאס זעלבע ווי בויען אן אגענט",
+    "יעדער קען עפענען ChatGPT און פרעגן א שאלה. אן אגענט וואס טוט יעדן טאג אן אמת'ע ארבעט, ליינט אייערע פיילס, טשעקט די נומערן און פאלגט אייערע כללים, דארף מען בויען, אויספרובירן און צוביינדן צו אייערע סיסטעמען."
+   ],
+   [
+    "אייער צייט איז מער ווערט",
+    "בויען און אויפהאלטן אגענטן איז א באזונדערע ארבעט. טון עס אליין מיינט נעמען די שעות פון פירן אייער ביזנעס."
+   ],
+   [
+    "מיר הייבן אן פון וואס ארבעט שוין",
+    "אונזערע אגענטן ארבעטן שוין אין אמת'ע ביזנעסער: ריעל עסטעיט, לענדינג, סיניער ליווינג און מארקעטינג. איר שפארט זיך אפ דאס פרובירן און טועה זיין."
+   ],
+   [
+    "עס ארבעט ווייטער",
+    "AI געצייג טוישן זיך יעדן חודש. מיר האלטן אויף און דערהיינטיגן אייערע אגענטן, אז זיי זאלן נישט שטילערהייט קאליע ווערן."
+   ]
+  ],
+  "diy.close": "ווילט איר עס געטון ריכטיג, אן אליין אויסלערנען אלעס?",
+  "diy.go": "רעדט מיט אונז",
+  "diy.close2": "ווילט איר עס אליין אויסלערנען? דאס לערנען אונזערע סעמינארן. ווילט איר עס געטון פאר אייך? דאס איז Moses Agentic.",
   "mail.note": "אייער אימעיל עפ האט זיך געעפנט מיט אייער מעסעדזש צו welcome@mosesagentic.com. דריקט Send צו ענדיגן."
  },
  "he": {
@@ -9593,6 +9663,29 @@ const T = {
   "fw.pick": "אחרי 60 הימים, אני רוצה",
   "fw.pick_none": "עוד לא בטוח",
   "fw.big": "אתר ב-24 שעות",
+  "diy.k": "למה לא לעשות את זה לבד?",
+  "diy.h": "אפשר לנסות. הנה למה עסקים בוחרים בנו.",
+  "diy.items": [
+   [
+    "שימוש ב-AI זה לא בניית סוכן",
+    "כל אחד יכול לפתוח ChatGPT ולשאול שאלה. סוכן שעושה עבודה אמיתית כל יום, קורא את הקבצים שלכם, בודק את המספרים ופועל לפי הכללים שלכם, צריך להיבנות, להיבדק ולהתחבר למערכות שלכם."
+   ],
+   [
+    "הזמן שלכם שווה יותר",
+    "בנייה ותחזוקה של סוכנים היא עבודה בפני עצמה. לעשות את זה לבד פירושו לקחת את השעות האלה מניהול העסק."
+   ],
+   [
+    "אנחנו מתחילים ממה שכבר עובד",
+    "הסוכנים שלנו כבר עובדים בעסקים אמיתיים: נדל״ן, הלוואות, דיור מוגן ושיווק. אתם מדלגים על הניסוי והטעייה."
+   ],
+   [
+    "זה ממשיך לעבוד",
+    "כלי AI משתנים כל חודש. אנחנו מתחזקים ומעדכנים את הסוכנים שלכם, כדי שלא יפסיקו לעבוד בשקט."
+   ]
+  ],
+  "diy.close": "רוצים שזה ייעשה נכון, בלי ללמוד הכול בעצמכם?",
+  "diy.go": "דברו איתנו",
+  "diy.close2": "רוצים ללמוד את זה בעצמכם? את זה מלמדים הסמינרים שלנו. רוצים שיעשו את זה בשבילכם? זה Moses Agentic.",
   "mail.note": "אפליקציית המייל נפתחה עם ההודעה שלכם ל-welcome@mosesagentic.com. לחצו שלח כדי לסיים."
  },
  "es": {
@@ -11929,6 +12022,29 @@ const T = {
   "fw.pick": "Después de los 60 días, quiero",
   "fw.pick_none": "Aún no lo sé",
   "fw.big": "Sitio web en 24 horas",
+  "diy.k": "¿Por qué no hacerlo usted mismo?",
+  "diy.h": "Puede intentarlo. Por esto las empresas nos contratan.",
+  "diy.items": [
+   [
+    "Usar IA no es lo mismo que construir un agente",
+    "Cualquiera puede abrir ChatGPT y hacer una pregunta. Un agente que hace un trabajo real cada día, que lee sus archivos, revisa los números y sigue sus reglas, hay que construirlo, probarlo y conectarlo a sus sistemas."
+   ],
+   [
+    "Su tiempo vale más",
+    "Construir y mantener agentes es un trabajo en sí mismo. Hacerlo usted mismo significa quitarle esas horas a su negocio."
+   ],
+   [
+    "Partimos de lo que ya funciona",
+    "Nuestros agentes ya trabajan en negocios reales: bienes raíces, préstamos, vivienda para mayores y marketing. Usted se ahorra la prueba y error."
+   ],
+   [
+    "Sigue funcionando",
+    "Las herramientas de IA cambian cada mes. Mantenemos y actualizamos sus agentes para que no dejen de funcionar sin que nadie lo note."
+   ]
+  ],
+  "diy.close": "¿Lo quiere bien hecho, sin tener que aprenderlo todo?",
+  "diy.go": "Hable con nosotros",
+  "diy.close2": "¿Quiere aprenderlo usted mismo? Eso enseñan nuestros seminarios. ¿Quiere que lo hagan por usted? Eso es Moses Agentic.",
   "mail.note": "Se abrió su app de correo con su mensaje para welcome@mosesagentic.com. Presione Enviar para terminar."
  }
 };
@@ -12674,7 +12790,7 @@ function confetti() {
 /* ---------- language + start ---------- */
 function setLang(k, save = true, name, code) {
   if (!LANGS[k] || !T[k]) return;
-  lang = k; render(); if (window.srvRender) window.srvRender(); if (window.heroFit) setTimeout(window.heroFit, 0); if (window.abkRender) window.abkRender();
+  lang = k; render(); if (window.srvRender) window.srvRender(); if (window.diyRender) window.diyRender(); if (window.heroFit) setTimeout(window.heroFit, 0); if (window.abkRender) window.abkRender();
   if (save) {
     store.set("seminar-lang", JSON.stringify({ k, name: name || (LANGS[k] && LANGS[k].name) || "", code: code || "" }));
     if (location.hash !== "#booked" && view === "home") history.replaceState(null, "", "#" + (["en", "yi", "he", "es"].includes(k) ? k : "lang"));
@@ -13709,6 +13825,21 @@ document.addEventListener("DOMContentLoaded", () => {
       draw(true); try { track("generate_lead", { form: "free_website" }); } catch (x) {}
     } catch (x) { err.textContent = t("cs2.fail"); err.hidden = false; btn.disabled = false; }
   });
+})();
+</script>
+<script>
+(function () {
+  const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  window.diyRender = function () {
+    if (typeof t !== "function") return;
+    document.querySelectorAll("[data-diy]").forEach(el => {
+      const cho = el.dataset.diy === "1";
+      el.innerHTML = `<div class="eyebrow">${E(t("diy.k"))}</div><h2 class="diy-h">${E(t("diy.h"))}</h2>
+        <ol class="diy-list">${(t("diy.items") || []).map(([h, p]) => `<li><h3>${E(h)}</h3><p>${E(p)}</p></li>`).join("")}</ol>
+        <div class="diy-end">${cho ? `<p>${E(t("diy.close2"))}</p>` : `<p>${E(t("diy.close"))}</p><button type="button" class="btn diy-go" data-contact>${E(t("diy.go"))} <span class="arrow">→</span></button>`}</div>`;
+    });
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", window.diyRender); else window.diyRender();
 })();
 </script>
 <script>

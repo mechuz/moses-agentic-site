@@ -1798,7 +1798,7 @@ footer .locs { margin: .2rem 0 .8rem; }
 
 /* ===== why not do it yourself ===== */
 .diy { display: none; }
-.site-moses main[data-page="home"] > #diy:not(#hero3):not(#cabinet):not(#agents) { display: block !important; padding: clamp(3rem, 7vw, 5.5rem) 0; }
+.site-moses main[data-page="home"] > #diy:not(#hero3):not(#cabinet):not(#agents), .site-chocham #diy2 { display: block !important; padding: clamp(3rem, 7vw, 5.5rem) 0; }
 .site-moses #diy { background: #FFFFFF; color: #0B2545; }
 .diy .eyebrow { color: inherit; opacity: .7; }
 .diy-h { font: 900 clamp(1.9rem, 5vw, 3.6rem)/1.02 var(--f-display); letter-spacing: -.04em; margin: .4rem 0 clamp(1.4rem, 3vw, 2.2rem); max-width: 20ch; }
@@ -2264,6 +2264,9 @@ body { top: 0 !important; }
     </div>
   </section>
 
+  <section class="diy" id="diy2">
+    <div class="wrap"><div class="diy-in" data-diy="1"></div></div>
+  </section>
   <section class="why" id="moses-promo">
     <div class="wrap center">
       <div class="head rise"><div class="eyebrow" data-i18n="mp.kicker">Our sister company</div><h2 class="h2" data-i18n="mp.title">Want it built for you?</h2><p class="lead" data-i18n="mp.sub">Moses Agentic builds AI agents and automation for your business, and runs them for you.</p></div>
@@ -4964,7 +4967,28 @@ const T = {
   ],
   "diy.close": "Want to learn it? We'll teach your team. Want it done? We'll build it.",
   "diy.go": "Talk to us",
-  "diy.close2": "Want to learn it yourself? That's what our seminars teach. Want it done for you? That's Moses Agentic.",
+  "chdiy.k": "Why not learn it on your own?",
+  "chdiy.h": "You can. Here's why people take our seminars.",
+  "chdiy.items": [
+   [
+    "We already went through the trial and error",
+    "Building AI agents that hold up in a real business took us a lot of time, testing and mistakes. We teach what actually works, so you skip months of guessing."
+   ],
+   [
+    "Experience since the early days of ChatGPT",
+    "We've been building with AI since the early days of ChatGPT, and our agents do real work in real estate, lending, senior living and marketing. You learn from that."
+   ],
+   [
+    "Step by step, hands on",
+    "Eight one-hour seminars. You start with the basics, and by the last one you build your own AI agent."
+   ],
+   [
+    "Questions answered live",
+    "Ask as you go, in the room or live on Zoom."
+   ]
+  ],
+  "chdiy.close": "Ready to learn it the fast way?",
+  "chdiy.go": "Book my seat",
   "mail.note": "Your email app opened with your message to welcome@mosesagentic.com. Press Send to finish."
  },
  "yi": {
@@ -7323,7 +7347,28 @@ const T = {
   ],
   "diy.close": "ווילט איר עס לערנען? מיר לערנען אייער טיעם. ווילט איר עס געטון? מיר בויען עס.",
   "diy.go": "רעדט מיט אונז",
-  "diy.close2": "ווילט איר עס אליין אויסלערנען? דאס לערנען אונזערע סעמינארן. ווילט איר עס געטון פאר אייך? דאס איז Moses Agentic.",
+  "chdiy.k": "פארוואס נישט אליין אויסלערנען?",
+  "chdiy.h": "איר קענט. אט איז פארוואס מענטשן קומען צו אונזערע סעמינארן.",
+  "chdiy.items": [
+   [
+    "מיר זענען שוין דורך דאס פרובירן און טועה זיין",
+    "בויען AI אגענטן וואס האלטן זיך אין אן אמת'ן ביזנעס האט אונז גענומען אסאך צייט, טעסטן און טעותים. מיר לערנען וואס ארבעט טאקע, אזוי שפארט איר אפ חדשים פון רעכענען."
+   ],
+   [
+    "עקספיריענס זינט די ערשטע טעג פון ChatGPT",
+    "מיר בויען מיט AI זינט די ערשטע טעג פון ChatGPT, און אונזערע אגענטן טוען אמת'ע ארבעט אין ריעל עסטעיט, לענדינג, סיניער ליווינג און מארקעטינג. איר לערנט פון דעם."
+   ],
+   [
+    "שריט ביי שריט, מיט די הענט",
+    "אכט סעמינארן פון א שעה. איר הייבט אן מיט די יסודות, און ביים לעצטן בויט איר אייער אייגענעם AI אגענט."
+   ],
+   [
+    "שאלות געענטפערט לייוו",
+    "פרעגט ווען איר ווילט, אין צימער אדער לייוו אויף זום."
+   ]
+  ],
+  "chdiy.close": "גרייט עס אויסצולערנען דעם שנעלן וועג?",
+  "chdiy.go": "האלט מיר אן ארט",
   "mail.note": "אייער אימעיל עפ האט זיך געעפנט מיט אייער מעסעדזש צו welcome@mosesagentic.com. דריקט Send צו ענדיגן."
  },
  "he": {
@@ -9682,7 +9727,28 @@ const T = {
   ],
   "diy.close": "רוצים ללמוד? נלמד את הצוות שלכם. רוצים שזה ייעשה? אנחנו נבנה.",
   "diy.go": "דברו איתנו",
-  "diy.close2": "רוצים ללמוד את זה בעצמכם? את זה מלמדים הסמינרים שלנו. רוצים שיעשו את זה בשבילכם? זה Moses Agentic.",
+  "chdiy.k": "למה לא ללמוד לבד?",
+  "chdiy.h": "אפשר. הנה למה אנשים באים לסמינרים שלנו.",
+  "chdiy.items": [
+   [
+    "כבר עברנו את הניסוי והטעייה",
+    "לבנות סוכני AI שמחזיקים מעמד בעסק אמיתי לקח לנו הרבה זמן, בדיקות וטעויות. אנחנו מלמדים מה שבאמת עובד, כך שאתם חוסכים חודשים של ניחושים."
+   ],
+   [
+    "ניסיון מאז הימים הראשונים של ChatGPT",
+    "אנחנו בונים עם AI מאז הימים הראשונים של ChatGPT, והסוכנים שלנו עושים עבודה אמיתית בנדל״ן, הלוואות, דיור מוגן ושיווק. אתם לומדים מזה."
+   ],
+   [
+    "צעד אחר צעד, הלכה למעשה",
+    "שמונה סמינרים של שעה. מתחילים מהבסיס, ובסמינר האחרון אתם בונים סוכן AI משלכם."
+   ],
+   [
+    "תשובות לשאלות בזמן אמת",
+    "שואלים תוך כדי, באולם או בשידור חי בזום."
+   ]
+  ],
+  "chdiy.close": "מוכנים ללמוד בדרך המהירה?",
+  "chdiy.go": "שריינו לי מקום",
   "mail.note": "אפליקציית המייל נפתחה עם ההודעה שלכם ל-welcome@mosesagentic.com. לחצו שלח כדי לסיים."
  },
  "es": {
@@ -12041,7 +12107,28 @@ const T = {
   ],
   "diy.close": "¿Quiere aprenderlo? Capacitamos a su equipo. ¿Lo quiere hecho? Lo construimos.",
   "diy.go": "Hable con nosotros",
-  "diy.close2": "¿Quiere aprenderlo usted mismo? Eso enseñan nuestros seminarios. ¿Quiere que lo hagan por usted? Eso es Moses Agentic.",
+  "chdiy.k": "¿Por qué no aprenderlo por su cuenta?",
+  "chdiy.h": "Puede hacerlo. Por esto la gente toma nuestros seminarios.",
+  "chdiy.items": [
+   [
+    "Ya pasamos por la prueba y error",
+    "Construir agentes de IA que funcionen en un negocio real nos llevó mucho tiempo, pruebas y errores. Enseñamos lo que realmente funciona, para que se ahorre meses de adivinar."
+   ],
+   [
+    "Experiencia desde los primeros días de ChatGPT",
+    "Construimos con IA desde los primeros días de ChatGPT, y nuestros agentes hacen trabajo real en bienes raíces, préstamos, vivienda para mayores y marketing. Usted aprende de eso."
+   ],
+   [
+    "Paso a paso, con práctica",
+    "Ocho seminarios de una hora. Empieza por lo básico y en el último construye su propio agente de IA."
+   ],
+   [
+    "Preguntas respondidas en vivo",
+    "Pregunte sobre la marcha, en la sala o en vivo por Zoom."
+   ]
+  ],
+  "chdiy.close": "¿Listo para aprenderlo por el camino rápido?",
+  "chdiy.go": "Reservar mi lugar",
   "mail.note": "Se abrió su app de correo con su mensaje para welcome@mosesagentic.com. Presione Enviar para terminar."
  }
 };
@@ -13830,10 +13917,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.diyRender = function () {
     if (typeof t !== "function") return;
     document.querySelectorAll("[data-diy]").forEach(el => {
-      const cho = el.dataset.diy === "1";
-      el.innerHTML = `<div class="eyebrow">${E(t("diy.k"))}</div><h2 class="diy-h">${E(t("diy.h"))}</h2>
-        <ol class="diy-list">${(t("diy.items") || []).map(([h, p]) => `<li><h3>${E(h)}</h3><p>${E(p)}</p></li>`).join("")}</ol>
-        <div class="diy-end">${cho ? `<p>${E(t("diy.close2"))}</p>` : `<p>${E(t("diy.close"))}</p><button type="button" class="btn diy-go" data-contact>${E(t("diy.go"))} <span class="arrow">→</span></button>`}</div>`;
+      const k = el.dataset.diy === "1" ? "chdiy" : "diy";
+      el.innerHTML = `<div class="eyebrow">${E(t(k + ".k"))}</div><h2 class="diy-h">${E(t(k + ".h"))}</h2>
+        <ol class="diy-list">${(t(k + ".items") || []).map(([h, p]) => `<li><h3>${E(h)}</h3><p>${E(p)}</p></li>`).join("")}</ol>
+        <div class="diy-end"><p>${E(t(k + ".close"))}</p><button type="button" class="btn diy-go" ${k === "chdiy" ? "data-book" : "data-contact"}>${E(t(k + ".go"))} <span class="arrow">→</span></button></div>`;
     });
   };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", window.diyRender); else window.diyRender();

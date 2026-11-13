@@ -2152,7 +2152,7 @@ body { top: 0 !important; }
     <div class="wrap consult">
       <div class="rise">
         <div class="eyebrow" data-i18n="con.kicker">Contact</div>
-        <h2 class="h2" data-i18n="con.title">Tell us what you need</h2><p class="locs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><b data-i18n="loc.k">Offices</b> <span data-i18n="loc.t">New York · Memphis · Miami</span> <span class="locmail">· <a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a></span></p>
+        <h2 class="h2" data-i18n="con.title">Let's talk</h2><p class="locs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><b data-i18n="loc.k">Offices</b> <span data-i18n="loc.t">New York · Memphis · Miami</span> <span class="locmail">· <a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a></span></p>
         <p class="lead" data-i18n="con.sub">Tell us what eats your team&#x27;s time, or what you want them to learn. We&#x27;ll show you what AI can do for you.</p>
         <p class="con-alt"><span data-i18n="con.alt">Rather learn it yourself?</span> <button type="button" class="btn big seminar-btn" data-book><span data-i18n="cta.seminar">Learn AI: book a seminar</span> <span class="arrow">→</span></button></p>
       </div>
@@ -3383,7 +3383,7 @@ const T = {
    ]
   ],
   "con.kicker": "Contact",
-  "con.title": "Tell us what you need",
+  "con.title": "Let's talk",
   "con.sub": "Tell us what eats your team's time, or what you want them to learn. We'll show you what AI can do for you.",
   "con.name": "Name",
   "con.company": "Company",
@@ -5696,7 +5696,7 @@ const T = {
    ]
   ],
   "con.kicker": "קאנטאקט",
-  "con.title": "זאגט אונז וואס איר דארפט",
+  "con.title": "לאמיר רעדן",
   "con.sub": "זאגט אונז וואס עסט אויף אייער טיעם'ס צייט, אדער וואס איר ווילט אז זיי זאלן לערנען. מיר וועלן אייך ווייזן וואס AI קען טון פאר אייך.",
   "con.name": "נאמען",
   "con.company": "פירמע",
@@ -8009,7 +8009,7 @@ const T = {
    ]
   ],
   "con.kicker": "צרו קשר",
-  "con.title": "ספרו לנו מה אתם צריכים",
+  "con.title": "בואו נדבר",
   "con.sub": "ספרו לנו מה אוכל את הזמן של הצוות, או מה אתם רוצים שילמדו. נראה לכם מה AI יכול לעשות בשבילכם.",
   "con.name": "שם",
   "con.company": "חברה",
@@ -10322,7 +10322,7 @@ const T = {
    ]
   ],
   "con.kicker": "Contacto",
-  "con.title": "Cuéntenos qué necesita",
+  "con.title": "Hablemos",
   "con.sub": "Cuéntenos qué le quita tiempo a su equipo, o qué quiere que aprendan. Le mostraremos lo que la IA puede hacer por usted.",
   "con.name": "Nombre",
   "con.company": "Empresa",
@@ -13162,7 +13162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 (function () {
   if (CONFIG.site !== "moses") return;
   const CH = [{ k: 0 }, { k: 1 }, { k: 2 }, { k: "c", i: 21, s: 0 }, { k: "c", i: 20, s: 1 }, { k: "c", i: 13, s: 2 }, { k: "c", i: 17, p: "cre" }, { k: "c", i: 18, s: 3 }, { k: "c", i: 13, s: 4, st: 1 }, { k: "c", i: 22, s: 5 }, { k: "c", i: 15, p: "hc" }, { k: 5 }];
-  const DURS = [5250,5700,6600,8140,7720,8500,7080,9400,6800,8900,7140,11100], N = CH.length, START = DURS.map((_, k) => DURS.slice(0, k).reduce((a, b) => a + b, 0));
+  const DURS = [5250,5700,6600,8140,7700,8520,7060,9420,6800,8900,7160,9050], N = CH.length, START = DURS.map((_, k) => DURS.slice(0, k).reduce((a, b) => a + b, 0));
   let DUR = DURS[0];
   const IC = { snd0: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>', snd1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>', play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>' };
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -13181,7 +13181,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (i === 2) return `<div class="mvs s2"><div class="mv-h">${esc(L("mv.s2"))}</div><div class="mv-roles">${L("mv.s2i").map((x, k) => `<span style="--k:${k}"><i></i>${esc(x)}</span>`).join("")}</div></div>`;
     if (i === 3) return `<div class="mvs s3"><div class="mv-h">${esc(L("mv.s3"))}</div><div class="mv-win"><div class="mv-wb"><b></b><b></b><b></b><span class="mv-clock"><i></i></span></div>${L("mv.s3i").map((x, k) => `<div class="mv-task" style="--k:${k}"><span class="mv-ck"></span><span>${esc(x)}</span><span class="mv-bar"><i></i></span></div>`).join("")}</div></div>`;
     if (i === 4) return `<div class="mvs s4"><div class="mv-h">${esc(L("mv.s4"))}</div><div class="mv-stats">${t("tr.list").slice(0, 3).map((x, k) => `<div class="mv-stat" style="--k:${k}"><b data-to="${esc(x[0])}">${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join("")}</div></div>`;
-    return `<div class="mvs s5"><div class="mv-top"><b>${esc((t("tr.list")[0] || [""])[0])}</b> ${esc((t("tr.list")[0] || ["", ""])[1])}</div><div class="mv-big">${esc(t("camp.a"))} <span>${esc(t("camp.b"))}</span></div><div class="mv-sub">${esc(L("mv.s5"))}</div><div class="mv-locs">${esc(t("loc.t"))}</div><div class="mv-cta"><button type="button" class="mv-b1" data-contact data-msgtext="Front page video">${esc(t("mo.go"))} <span class="arrow">→</span></button><button type="button" class="mv-b2" data-folder="store">${esc(L("mv.ag"))} <span class="arrow">→</span></button></div></div>`;
+    return `<div class="mvs s5"><div class="mv-top"><b>${esc((t("tr.list")[0] || [""])[0])}</b> ${esc((t("tr.list")[0] || ["", ""])[1])}</div><div class="mv-big">${esc(t("camp.a"))} <span>${esc(t("camp.b"))}</span></div><div class="mv-locs">${esc(t("loc.t"))}</div><div class="mv-cta"><button type="button" class="mv-b1" data-contact data-msgtext="Front page video">${esc(t("mo.go"))} <span class="arrow">→</span></button><button type="button" class="mv-b2" data-folder="store">${esc(L("mv.ag"))} <span class="arrow">→</span></button></div></div>`;
   }
   function count(el) {
     const to = el.dataset.to, m = to.match(/^(\D*)([\d,.]+)(.*)$/); if (!m || calm) return;
@@ -13238,7 +13238,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <script>
 (function () {
-  const SEG = [{"ph": "472786860", "prod": null, "also": [7, 9, 0], "durs": [4290, 8240, 3700, 7200, 3200, 3819]}, {"ph": "227055653", "prod": 6, "also": [5, 10, 0], "durs": [3950, 8280, 3400, 6100, 3820, 3848]}, {"ph": "297124769", "prod": 1, "also": [7, 8, 12], "durs": [2790, 8480, 3960, 7480, 3300, 3770]}, {"ph": "689022973", "prod": 13, "also": [2, 4, 8], "durs": [4030, 7840, 4040, 3380, 5360, 3910]}];
+  const SEG = [{"ph": "472786860", "prod": null, "also": [7, 9, 0], "durs": [4270, 8260, 3700, 7200, 5150]}, {"ph": "227055653", "prod": 6, "also": [5, 10, 0], "durs": [3970, 8260, 3400, 5480, 6390]}, {"ph": "297124769", "prod": 1, "also": [7, 8, 12], "durs": [2790, 8480, 3980, 7460, 5250]}, {"ph": "689022973", "prod": 13, "also": [2, 4, 8], "durs": [4030, 7820, 4060, 3380, 7310]}];
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const IC = { play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
     snd1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>', snd0: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="m22 9-6 6M16 9l6 6"/></svg>' };
@@ -13247,7 +13247,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const AG = () => (typeof t === "function" && t("ag.list")) || [];
   const prodName = i => SEG[i].prod == null ? seg(i).prod : (AG()[SEG[i].prod] || [""])[0];
   const feats = i => SEG[i].prod == null ? (seg(i).feat || []) : ((AG()[SEG[i].prod] || [])[2] || []);
-  function scenes(i) { const g = seg(i); return [{ k: "t" }, { k: "f" }, { k: "a" }].concat((g.st || []).map(v => ({ k: "s", v }))).concat([{ k: "e" }]); }
+  function scenes(i) { const g = seg(i); return [{ k: "t" }, { k: "f" }, { k: "a" }].concat((g.st || []).map(v => ({ k: "s", v }))); }
   function sceneHTML(i, n) {
     const g = seg(i), x = scenes(i)[n];
     if (x.k === "t") return `<div class="svs"><span class="sv-chip">${E(g.n)}</span><div class="sv-big">${E(String(t("srv.meet", { p: prodName(i) })))}</div></div>`;
@@ -13322,7 +13322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <script>
 (function () {
-  const DURS = [5450, 9440, 4020, 4660, 3869];
+  const DURS = [5430, 9440, 5990];
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const IC = { play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
     snd1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>', snd0: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="m22 9-6 6M16 9l6 6"/></svg>' };

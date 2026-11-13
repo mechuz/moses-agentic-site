@@ -1772,7 +1772,8 @@ footer .locs { margin: .2rem 0 .8rem; }
 .fw-k { font: 800 .78rem var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: #5A6B85; margin: 0; }
 .fw h2 { font: 900 clamp(1.8rem, 4vw, 2.8rem)/1.05 var(--f-display); letter-spacing: -.035em; color: #0B2545; margin: 0; padding-inline-end: 3rem; }
 .fw-lead { font: 600 clamp(1.02rem, 1.8vw, 1.2rem)/1.5 var(--f-body); color: #3D5170; margin: 0; }
-.fw-steps { list-style: none; counter-reset: fw; padding: 0; margin: .2rem 0 .4rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+.fw-steps { list-style: none; counter-reset: fw; padding: 0; margin: .2rem 0 .4rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7rem; }
+@media (max-width: 900px) { .fw-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .fw-steps li { counter-increment: fw; display: grid; gap: .45rem; padding: .9rem; border: 1px solid #C9D6E8; border-radius: 14px; font: 800 .98rem/1.3 var(--f-body); color: #0B2545; }
 .fw-steps li::before { content: counter(fw); width: 1.9rem; height: 1.9rem; border-radius: 50%; background: #0B2545; color: #FFFFFF; display: grid; place-items: center; font: 900 .95rem var(--f-display); }
 @media (max-width: 560px) { .fw-steps { grid-template-columns: 1fr; } .fw-steps li { grid-template-columns: auto 1fr; align-items: center; } }
@@ -4866,26 +4867,28 @@ const T = {
   "wb.mq": "Sites over 10 pages are quoted after we review your request.",
   "nav.free": "Free website",
   "fw.h": "Free website development",
-  "fw.lead": "Send us your website or your business name. We'll design a preview of your new site and email you the link, usually within an hour. No website yet? We'll build your first one.",
+  "fw.lead": "Send us your website or your business name. Within about an hour, we email you 5 designs made for your business. Pick the one you like and we build it. No website yet? We'll build your first one.",
   "fw.steps": [
    "Send us your website or business name",
-   "Within about an hour, we email you a link to your preview",
-   "You review it, ask for edits, and go live"
+   "Within about an hour, we email you 5 designs made for your business",
+   "Pick your favorite, or ask for 5 more",
+   "We build it, with up to 5 rounds of edits"
   ],
   "fw.site": "Your current website",
   "fw.none": "I don't have a website yet",
   "fw.improve": "Anything you'd like improved, or to see on your new site? (optional)",
   "fw.improve_ph": "For example: it looks dated, it's slow, it doesn't bring in leads, it's hard to update.",
-  "fw.submit": "Send me my free preview",
+  "fw.submit": "Send me my 5 free designs",
   "fw.note": "No cost to build. We'll review your request and get back to you.",
-  "fw.done_s": "Thank you. We're building your preview now and will email you the link, usually within an hour.",
+  "fw.done_s": "Thank you. We're designing your 5 looks now and will email you the link, usually within an hour.",
   "fw.err": "Please add your business name or website, your name and your email.",
   "fw.value": "The kind of custom website agencies typically charge $15,000 to $45,000 to design and build. Yours, free.",
   "fw.why_h": "No gimmick",
   "fw.why": "We build it free so you can see what our AI agents can do for your business. If you like the work, we'd love to talk about agents and our other services. If not, you keep the website.",
   "fw.inc_h": "What's included",
   "fw.inc": [
-   "Custom design and build",
+   "Your choice of up to 10 designs made for your business",
+   "Full build of the design you pick",
    "Up to 5 rounds of edits",
    "60 days of management, free"
   ],
@@ -7199,28 +7202,30 @@ const T = {
   "wb.mq": "סייטס מיט מער ווי 10 זייטן באקומען א פרייז נאכדעם וואס מיר קוקן איבער אייער בקשה.",
   "nav.free": "אומזיסטע וועבסייט",
   "fw.h": "אומזיסט בויען אייער וועבסייט",
-  "fw.lead": "שיקט אונז אייער וועבסייט אדער דעם נאמען פון אייער ביזנעס. מיר דיזיינען א פארקוק פון אייער נייעם סייט און שיקן אייך דעם לינק, געווענליך אין אן שעה. נאך נישטא קיין וועבסייט? מיר בויען אייער ערשטע.",
+  "fw.lead": "שיקט אונז אייער וועבסייט אדער דעם נאמען פון אייער ביזנעס. אין בערך אן שעה שיקן מיר אייך 5 דיזיינס געמאכט פאר אייער ביזנעס. קלייבט אויס וואס געפעלט אייך, און מיר בויען עס. נאך נישטא קיין וועבסייט? מיר בויען אייער ערשטע.",
   "fw.steps": [
    "שיקט אונז אייער וועבסייט אדער ביזנעס נאמען",
-   "אין בערך אן שעה שיקן מיר אייך א לינק צו אייער פארקוק",
-   "איר קוקט איבער, בעט ענדערונגען, און עס גייט ארויף"
+   "אין בערך אן שעה שיקן מיר אייך 5 דיזיינס געמאכט פאר אייער ביזנעס",
+   "קלייבט אויס וואס געפעלט אייך, אדער בעט נאך 5",
+   "מיר בויען עס, מיט ביז 5 רונדן ענדערונגען"
   ],
   "fw.site": "אייער יעצטיגער וועבסייט",
   "fw.none": "איך האב נאך נישט קיין וועבסייט",
   "fw.improve": "וואס ווילט איר פארבעסערן, אדער זען אויף אייער נייעם סייט? (נישט נייטיג)",
   "fw.improve_ph": "למשל: ער זעט אויס אלט, ער איז פאמעלעך, ער ברענגט נישט קיין לידס, ער איז שווער צו טוישן.",
-  "fw.submit": "שיקט מיר מיין אומזיסטן פארקוק",
+  "fw.submit": "שיקט מיר מיינע 5 אומזיסטע דיזיינס",
   "fw.note": "קיין קאסטן צו בויען. מיר קוקן איבער אייער בקשה און מיר מעלדן זיך צוריק.",
-  "fw.done_s": "א דאנק. מיר בויען יעצט אייער פארקוק און וועלן אייך שיקן דעם לינק, געווענליך אין אן שעה.",
+  "fw.done_s": "א דאנק. מיר דיזיינען יעצט אייערע 5 דיזיינס און וועלן אייך שיקן דעם לינק, געווענליך אין אן שעה.",
   "fw.err": "ביטע לייגט צו אייער ביזנעס נאמען אדער וועבסייט, אייער נאמען און אימעיל.",
   "fw.value": "די סארט קאסטעם וועבסייט וואס עידזשענסיס רעכענען געווענליך $15,000 ביז $45,000 צו דיזיינען און בויען. פאר אייך, אומזיסט.",
   "fw.why_h": "קיין טריק",
   "fw.why": "מיר בויען עס אומזיסט כדי איר זאלט זען וואס אונזערע AI אגענטן קענען טון פאר אייער ביזנעס. אויב די ארבעט געפעלט אייך, וועלן מיר גערן רעדן וועגן אגענטן און אונזערע אנדערע סערוויסעס. אויב נישט, בלייבט דער וועבסייט אייערס.",
   "fw.inc_h": "וואס איז אריינגערעכנט",
   "fw.inc": [
-   "קאסטעם דיזיין און בוי",
+   "אייער אויסוואל פון ביז 10 דיזיינס געמאכט פאר אייער ביזנעס",
+   "פולע בוי פון דעם דיזיין וואס איר קלייבט",
    "ביז 5 רונדן ענדערונגען",
-   "60 טעג מענעדזשמענט, אומזיסט"
+   "60 טעג פארוואלטונג, אומזיסט"
   ],
   "fw.after_h": "נאך 60 טעג, קלייבט איר",
   "fw.opts": [
@@ -9532,28 +9537,30 @@ const T = {
   "wb.mq": "אתרים מעל 10 עמודים מתומחרים אחרי שנבדוק את הבקשה.",
   "nav.free": "אתר בחינם",
   "fw.h": "פיתוח אתר בחינם",
-  "fw.lead": "שלחו לנו את האתר שלכם או את שם העסק. נעצב תצוגה מקדימה של האתר החדש ונשלח לכם קישור, בדרך כלל תוך שעה. עוד אין לכם אתר? נבנה את הראשון.",
+  "fw.lead": "שלחו לנו את האתר שלכם או את שם העסק. תוך כשעה נשלח לכם 5 עיצובים שנעשו לעסק שלכם. בחרו את מה שאהבתם ואנחנו נבנה אותו. עוד אין לכם אתר? נבנה את הראשון.",
   "fw.steps": [
    "שלחו לנו את האתר או את שם העסק",
-   "תוך כשעה נשלח לכם קישור לתצוגה המקדימה",
-   "אתם בודקים, מבקשים תיקונים ועולים לאוויר"
+   "תוך כשעה נשלח לכם 5 עיצובים שנעשו לעסק שלכם",
+   "בחרו את המועדף, או בקשו עוד 5",
+   "אנחנו בונים אותו, עם עד 5 סבבי תיקונים"
   ],
   "fw.site": "האתר הנוכחי שלכם",
   "fw.none": "עוד אין לי אתר",
   "fw.improve": "מה תרצו לשפר, או לראות באתר החדש? (לא חובה)",
   "fw.improve_ph": "לדוגמה: נראה מיושן, איטי, לא מביא לידים, קשה לעדכן.",
-  "fw.submit": "שלחו לי תצוגה מקדימה בחינם",
+  "fw.submit": "שלחו לי 5 עיצובים בחינם",
   "fw.note": "הבנייה ללא עלות. נבדוק את הבקשה ונחזור אליכם.",
-  "fw.done_s": "תודה. אנחנו בונים עכשיו את התצוגה המקדימה ונשלח לכם קישור, בדרך כלל תוך שעה.",
+  "fw.done_s": "תודה. אנחנו מעצבים עכשיו את 5 העיצובים שלכם ונשלח לכם קישור, בדרך כלל תוך שעה.",
   "fw.err": "נא להוסיף את שם העסק או האתר, את שמכם ואת האימייל.",
   "fw.value": "אתר מותאם מהסוג שסוכנויות גובות עליו בדרך כלל $15,000 עד $45,000 לעיצוב ובנייה. בשבילכם, בחינם.",
   "fw.why_h": "בלי טריקים",
   "fw.why": "אנחנו בונים אותו בחינם כדי שתראו מה סוכני ה-AI שלנו יכולים לעשות לעסק שלכם. אם העבודה מוצאת חן בעיניכם, נשמח לדבר על סוכנים ועל השירותים האחרים שלנו. אם לא, האתר נשאר שלכם.",
   "fw.inc_h": "מה כלול",
   "fw.inc": [
-   "עיצוב ובנייה מותאמים",
+   "בחירה מתוך עד 10 עיצובים שנעשו לעסק שלכם",
+   "בנייה מלאה של העיצוב שבחרתם",
    "עד 5 סבבי תיקונים",
-   "60 ימי ניהול, בחינם"
+   "60 יום ניהול, בחינם"
   ],
   "fw.after_h": "אחרי 60 יום, אתם בוחרים",
   "fw.opts": [
@@ -11865,26 +11872,28 @@ const T = {
   "wb.mq": "Los sitios de más de 10 páginas se cotizan después de revisar su solicitud.",
   "nav.free": "Sitio web gratis",
   "fw.h": "Desarrollo de sitio web gratis",
-  "fw.lead": "Envíenos su sitio web o el nombre de su negocio. Diseñaremos una vista previa de su nuevo sitio y le enviaremos el enlace, normalmente en una hora. ¿Aún no tiene sitio? Construimos el primero.",
+  "fw.lead": "Envíenos su sitio web o el nombre de su negocio. En aproximadamente una hora le enviamos 5 diseños hechos para su negocio. Elija el que le guste y lo construimos. ¿Aún no tiene sitio? Construimos el primero.",
   "fw.steps": [
    "Envíenos su sitio web o el nombre de su negocio",
-   "En aproximadamente una hora le enviamos el enlace a su vista previa",
-   "Usted la revisa, pide cambios y se publica"
+   "En aproximadamente una hora le enviamos 5 diseños hechos para su negocio",
+   "Elija su favorito, o pida 5 más",
+   "Lo construimos, con hasta 5 rondas de cambios"
   ],
   "fw.site": "Su sitio web actual",
   "fw.none": "Aún no tengo sitio web",
   "fw.improve": "¿Qué le gustaría mejorar, o ver en su nuevo sitio? (opcional)",
   "fw.improve_ph": "Por ejemplo: se ve anticuado, es lento, no trae clientes, es difícil de actualizar.",
-  "fw.submit": "Envíenme mi vista previa gratis",
+  "fw.submit": "Envíenme mis 5 diseños gratis",
   "fw.note": "Sin costo de construcción. Revisaremos su solicitud y le responderemos.",
-  "fw.done_s": "Gracias. Estamos creando su vista previa y le enviaremos el enlace, normalmente en una hora.",
+  "fw.done_s": "Gracias. Estamos creando sus 5 diseños y le enviaremos el enlace, normalmente en una hora.",
   "fw.err": "Agregue el nombre de su negocio o su sitio web, su nombre y su correo.",
   "fw.value": "El tipo de sitio web a medida por el que las agencias suelen cobrar de $15,000 a $45,000 por diseñarlo y construirlo. Para usted, gratis.",
   "fw.why_h": "Sin trucos",
   "fw.why": "Lo construimos gratis para que vea lo que nuestros agentes de IA pueden hacer por su negocio. Si le gusta el trabajo, con gusto hablamos de agentes y de nuestros otros servicios. Si no, el sitio web es suyo.",
   "fw.inc_h": "Qué incluye",
   "fw.inc": [
-   "Diseño y construcción a medida",
+   "A elegir entre hasta 10 diseños hechos para su negocio",
+   "Construcción completa del diseño que elija",
    "Hasta 5 rondas de cambios",
    "60 días de gestión, gratis"
   ],
@@ -13682,7 +13691,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!name || !okMail(email) || !(v("fw-biz") || v("fw-site"))) { err.textContent = t("fw.err"); err.hidden = false; return; }
     err.hidden = true;
     const feats = [...document.querySelectorAll('input[name="fw-f"]:checked')].map(x => T.en["wb.feats"][+x.value]);
-    const lines = ["Free website PREVIEW request: build a preview and email the link within about an hour", "Business: " + (v("fw-biz") || "-") + (v("fw-type") ? " (" + v("fw-type") + ")" : ""), "Current website: " + (none ? "none yet" : (v("fw-site") || "-")), "Improve / wants: " + (need || "-"), "Features: " + (feats.join(", ") || "-"), "After 60 days: " + (v("fw-pick") === "x" ? "not sure yet" : (en => en[0] + " " + en[1] + (+v("fw-pick") ? " (" + en[2] + ")" : ""))(T.en["fw.opts"][+v("fw-pick")])), "Name: " + name, "Email: " + email, "Phone: " + (v("fw-phone") || "-"), "Site language: " + lang];
+    const lines = ["Free website DESIGNS request: make 10 designs, email the first 5 within about an hour", "Business: " + (v("fw-biz") || "-") + (v("fw-type") ? " (" + v("fw-type") + ")" : ""), "Current website: " + (none ? "none yet" : (v("fw-site") || "-")), "Improve / wants: " + (need || "-"), "Features: " + (feats.join(", ") || "-"), "After 60 days: " + (v("fw-pick") === "x" ? "not sure yet" : (en => en[0] + " " + en[1] + (+v("fw-pick") ? " (" + en[2] + ")" : ""))(T.en["fw.opts"][+v("fw-pick")])), "Name: " + name, "Email: " + email, "Phone: " + (v("fw-phone") || "-"), "Site language: " + lang];
     const data = { name, email, phone: v("fw-phone"), company: v("fw-biz"), message: lines.join("\n"), language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
     btn.disabled = true;
     try {

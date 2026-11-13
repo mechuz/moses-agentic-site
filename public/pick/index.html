@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Your designs | Moses Agentic</title>
+<link rel="icon" href="/favicon.svg">
+<style>
+:root { --ink: #0B2545; --acc: #C6F432; --accink: #0B2545; --bg: #FFFFFF; --soft: #F3F5F9; --line: #D5DCE6; --mut: #5B6576; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 500 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+header { background: var(--ink); color: #FFF; }
+header .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 60px; }
+.brand { font: 900 1.15rem/1 system-ui, sans-serif; letter-spacing: -.02em; color: #FFF; text-decoration: none; }
+.hero { padding: clamp(1.6rem, 5vw, 3rem) 0 1rem; }
+h1 { font: 900 clamp(1.8rem, 5vw, 3rem)/1.05 system-ui, sans-serif; letter-spacing: -.035em; margin: 0 0 .6rem; }
+.lead { font-size: clamp(1.02rem, 2vw, 1.2rem); color: var(--mut); margin: 0; max-width: 60ch; }
+.how { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; padding: 0; list-style: none; }
+.how li { background: var(--soft); border-radius: 999px; padding: .4rem .85rem; font-weight: 700; font-size: .92rem; }
+h2 { font: 900 clamp(1.3rem, 3vw, 1.8rem)/1.1 system-ui, sans-serif; letter-spacing: -.02em; margin: 2rem 0 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 18px; }
+.card { border: 2px solid var(--line); border-radius: 18px; overflow: hidden; background: #FFF; display: flex; flex-direction: column; transition: border-color .15s, box-shadow .15s; }
+.card.on { border-color: var(--ink); box-shadow: 0 0 0 3px var(--acc); }
+.shot { display: block; width: 100%; aspect-ratio: 4 / 3; border: 0; padding: 0; background: var(--soft); cursor: zoom-in; overflow: hidden; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.meta { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .85rem 1rem; }
+.meta b { display: block; font-size: 1.02rem; }
+.meta span { color: var(--mut); font-size: .9rem; }
+.choose { flex: none; border: 2px solid var(--ink); background: #FFF; color: var(--ink); border-radius: 999px; padding: .55rem 1rem; font: 800 .95rem/1 system-ui, sans-serif; cursor: pointer; min-height: 44px; }
+.card.on .choose { background: var(--ink); color: #FFF; }
+.more { margin: 1.6rem 0 0; padding: 1.2rem; border: 2px dashed var(--line); border-radius: 18px; text-align: center; }
+.more p { margin: 0 0 .8rem; color: var(--mut); }
+.btn { border: 0; border-radius: 999px; padding: .85rem 1.4rem; font: 800 1rem/1 system-ui, sans-serif; cursor: pointer; min-height: 48px; }
+.btn.pri { background: var(--acc); color: var(--accink); }
+.btn.sec { background: var(--ink); color: #FFF; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.must { margin-top: 1.6rem; padding: 1.2rem; border-radius: 18px; background: var(--soft); }
+.must b { display: block; font-size: 1.1rem; margin-bottom: .3rem; }
+.must p { margin: 0 0 .8rem; color: var(--mut); }
+.bar { position: sticky; bottom: 0; background: #FFF; border-top: 1px solid var(--line); margin-top: 2rem; z-index: 5; }
+.bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; padding-top: .8rem; padding-bottom: .8rem; }
+.picks { flex: 1 1 260px; font-weight: 700; }
+.picks small { display: block; color: var(--mut); font-weight: 500; }
+form { display: grid; gap: .7rem; margin-top: 1rem; }
+label { font-weight: 700; font-size: .92rem; display: grid; gap: .3rem; }
+input, textarea { font: inherit; border: 1.5px solid var(--line); border-radius: 12px; padding: .7rem .8rem; width: 100%; }
+textarea { min-height: 90px; resize: vertical; }
+.panel { display: none; padding: 1.4rem; border: 2px solid var(--ink); border-radius: 18px; margin-top: 1.4rem; }
+.panel.show { display: block; }
+.done { text-align: center; padding: 3rem 1rem; }
+.done h2 { margin-top: 0; }
+.err { color: #B42318; font-weight: 700; }
+.lb { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: flex-start; justify-content: center; overflow: auto; z-index: 20; padding: 16px; }
+.lb.show { display: flex; }
+.lb img { max-width: min(1200px, 100%); height: auto; border-radius: 12px; }
+.lb button { position: fixed; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #FFF; font: 900 1.3rem/1 system-ui; cursor: pointer; }
+.toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%); background: var(--ink); color: #FFF; padding: .7rem 1.1rem; border-radius: 999px; font-weight: 700; z-index: 30; max-width: calc(100% - 32px); text-align: center; }
+footer { color: var(--mut); font-size: .85rem; padding: 2rem 0 6rem; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/">Moses Agentic</a></div></header>
+<main class="wrap" id="app"><p class="hero">Loading your designs…</p></main>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Design preview"><button type="button" aria-label="Close">×</button><img alt=""></div>
+<footer class="wrap">These are design previews made for your business. Not clickable yet: we build the one you choose.</footer>
+<script>
+(function () {
+  "use strict";
+  var KEY = "", MAIL = "welcome@mosesagentic.com", BRAND = "Moses Agentic";
+  var app = document.getElementById("app");
+  var q = new URLSearchParams(location.search), c = (q.get("c") || "").replace(/[^a-z0-9-]/gi, "");
+  var E = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (m) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]; }); };
+  var store = { get: function (k) { try { return localStorage.getItem("pick:" + c + ":" + k); } catch (e) { return null; } }, set: function (k, v) { try { localStorage.setItem("pick:" + c + ":" + k, v); } catch (e) {} } };
+  function toast(msg) { var n = document.createElement("div"); n.className = "toast"; n.setAttribute("role", "status"); n.textContent = msg; document.body.appendChild(n); setTimeout(function () { n.remove(); }, 3500); }
+  if (!c) { app.innerHTML = '<div class="done"><h2>This link is missing its code.</h2><p>Please open the link from your email again.</p></div>'; return; }
+  fetch(c + "/designs.json", { cache: "no-store" }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(start).catch(function () {
+    app.innerHTML = '<div class="done"><h2>We couldn’t find these designs.</h2><p>Please open the link from your email again, or write to <a href="mailto:' + E(MAIL) + '">' + E(MAIL) + '</a>.</p></div>';
+  });
+
+  function start(D) {
+    var list = (D.designs || []).slice(0, 10), biz = D.business || "your business";
+    var more = store.get("more") === "1" && list.length > 5, picks = [];
+    function render() {
+      var shown = more ? list.length : Math.min(5, list.length);
+      var h = '<section class="hero"><h1>' + E(D.greeting || ("Here are your designs, " + biz + ".")) + '</h1>'
+        + '<p class="lead">Each one is made for ' + E(biz) + '. Tap a picture to see it full size. Choose your favorite, and a second choice if you like.</p>'
+        + '<ul class="how"><li>1. Choose up to 2</li><li>2. Send your choice</li><li>3. We build it, with up to 5 rounds of edits</li></ul></section>';
+      h += '<h2>' + (more ? "Your 10 designs" : "Your 5 designs") + '</h2><div class="grid">';
+      for (var i = 0; i < shown; i++) {
+        var d = list[i], k = picks.indexOf(i), on = k >= 0;
+        h += '<article class="card' + (on ? " on" : "") + '"><button type="button" class="shot" data-zoom="' + i + '" aria-label="See design ' + (i + 1) + ' full size"><img loading="lazy" src="' + E(c + "/" + d.img) + '" alt="Design ' + (i + 1) + '"></button>'
+          + '<div class="meta"><div><b>Design ' + (i + 1) + '</b><span>' + E(d.title || "") + '</span></div>'
+          + '<button type="button" class="choose" data-pick="' + i + '" aria-pressed="' + on + '">' + (on ? (k === 0 ? "1st choice ✓" : "2nd choice ✓") : "Choose") + '</button></div></article>';
+      }
+      h += '</div>';
+      if (!more && list.length > 5) {
+        h += '<div class="more"><p>Not quite right? You can see 5 more designs, one time.</p><button type="button" class="btn sec" id="more">None of these. Show me 5 more</button></div>';
+      } else if (more) {
+        h += '<div class="must"><b>Please choose one of these 10 designs.</b><p>Want something fully custom instead? A custom design is a paid project, priced for you.</p><button type="button" class="btn sec" id="custom">Ask about a custom design</button></div>';
+      }
+      h += '<div class="panel" id="panel"><h2 id="ptitle" style="margin-top:0"></h2><form id="f" novalidate>'
+        + '<label>Your name<input id="nm" autocomplete="name" required></label>'
+        + '<label>Your email<input id="em" type="email" autocomplete="email" required></label>'
+        + '<label id="ntl">Anything you’d like changed? (optional)<textarea id="nt"></textarea></label>'
+        + '<p class="err" id="er" hidden></p><button class="btn pri" id="go" type="submit">Send</button></form></div>';
+      app.innerHTML = h;
+      app.insertAdjacentHTML("beforeend", '<div class="bar"><div class="wrap"><div class="picks" id="pk"></div><button type="button" class="btn pri" id="send"' + (picks.length ? "" : " disabled") + '>Send my choice</button></div></div>');
+      document.getElementById("pk").innerHTML = picks.length ? "Your choice: " + picks.map(function (p, j) { return "Design " + (p + 1) + (j === 0 ? " (1st)" : " (2nd)"); }).join(", ") : "No design chosen yet<small>Tap “Choose” on the one you like</small>";
+    }
+    var mode = "pick";
+    function openPanel(m) {
+      mode = m; var p = document.getElementById("panel"); p.classList.add("show");
+      document.getElementById("ptitle").textContent = m === "pick" ? "Send your choice" : "Ask about a custom design";
+      document.getElementById("ntl").firstChild.textContent = m === "pick" ? "Anything you’d like changed? (optional)" : "What would you like your custom site to look like?";
+      document.getElementById("go").textContent = m === "pick" ? "Send my choice" : "Send my request";
+      try { var s = JSON.parse(store.get("me") || "{}"); if (s.n) document.getElementById("nm").value = s.n; if (s.e) document.getElementById("em").value = s.e; } catch (e) {}
+      p.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    app.addEventListener("click", function (ev) {
+      var t = ev.target.closest("button"); if (!t) return;
+      if (t.dataset.zoom != null) { var lb = document.getElementById("lb"); lb.querySelector("img").src = c + "/" + (list[+t.dataset.zoom].full || list[+t.dataset.zoom].img); lb.querySelector("img").alt = "Design " + (+t.dataset.zoom + 1); lb.classList.add("show"); lb.querySelector("button").focus(); return; }
+      if (t.dataset.pick != null) {
+        var i = +t.dataset.pick, k = picks.indexOf(i);
+        if (k >= 0) picks.splice(k, 1); else if (picks.length < 2) picks.push(i); else { toast("You can choose up to 2. Tap a chosen design to remove it."); return; }
+        var y = scrollY; render(); scrollTo(0, y); return;
+      }
+      if (t.id === "more") { more = true; store.set("more", "1"); render(); var g = app.querySelectorAll(".card")[5]; if (g) g.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+      if (t.id === "custom") { openPanel("custom"); return; }
+      if (t.id === "send") { if (picks.length) openPanel("pick"); return; }
+    });
+    app.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var nm = document.getElementById("nm").value.trim(), em = document.getElementById("em").value.trim(), nt = document.getElementById("nt").value.trim(), er = document.getElementById("er");
+      if (!nm || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { er.textContent = "Please add your name and email."; er.hidden = false; return; }
+      if (mode === "pick" && !picks.length) { er.textContent = "Please choose a design first."; er.hidden = false; return; }
+      er.hidden = true; store.set("me", JSON.stringify({ n: nm, e: em }));
+      var chosen = picks.map(function (p, j) { return (j === 0 ? "1st choice: " : "2nd choice: ") + "Design " + (p + 1) + (list[p].title ? " (" + list[p].title + ")" : ""); });
+      var subject = mode === "pick" ? BRAND + ": design chosen by " + biz : BRAND + ": PAID custom design request from " + biz;
+      var lines = [mode === "pick" ? "Free website DESIGN CHOSEN" : "CUSTOM design request (paid project)", "Business: " + biz, "Link code: " + c, "Name: " + nm, "Email: " + em]
+        .concat(mode === "pick" ? chosen : []).concat(["Saw 5 more: " + (more ? "yes" : "no"), (mode === "pick" ? "Changes: " : "Wants: ") + (nt || "-")]);
+      var body = lines.join("\n");
+      function thanks() {
+        app.innerHTML = '<div class="done"><h2>' + (mode === "pick" ? "Thank you. We’re on it." : "Thank you. We’ll be in touch.") + '</h2><p>' + (mode === "pick"
+          ? "We’ll start building " + E(chosen[0].replace("1st choice: ", "")) + " for " + E(biz) + " and email you when it’s ready to review. Up to 5 rounds of edits are included."
+          : "We’ll reply with a quote for your custom design. You can still choose one of your 10 designs at no cost.") + '</p></div>';
+        var b = document.querySelector(".bar"); if (b) b.remove(); scrollTo(0, 0);
+      }
+      if (KEY) {
+        fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ access_key: KEY, subject: subject, from_name: BRAND + " website", replyto: em, botcheck: false, message: body }) })
+          .then(function (r) { return r.json(); }).then(function (j) { if (j && j.success) thanks(); else throw 0; })
+          .catch(function () { mailto(); });
+      } else mailto();
+      function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body); toast("Your email app opened with your choice. Press Send to finish."); setTimeout(thanks, 600); }
+    });
+    var lb = document.getElementById("lb");
+    lb.addEventListener("click", function (ev) { if (ev.target === lb || ev.target.tagName === "BUTTON") lb.classList.remove("show"); });
+    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") lb.classList.remove("show"); });
+    render();
+  }
+})();
+</script>
+</body>
+</html>

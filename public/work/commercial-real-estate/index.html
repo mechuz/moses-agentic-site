@@ -13507,6 +13507,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (k === "cases") return [item(t("dd.all_cs"), 'data-view="cases"')].concat((t("cs.inds") || []).filter(([c]) => c !== "all").map(([c, n]) => item(n, `data-pract="${c}"`)));
     return [];
   }
+  function openStore() {
+    let go = document.querySelector('[data-folder="store"]:not([data-dd])'), tmp = null;
+    if (!go) { tmp = go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = "store"; document.body.appendChild(go); }
+    go.click(); if (tmp) tmp.remove();
+  }
   let menu = null, owner = null;
   function close() { if (menu) { menu.remove(); menu = null; } if (owner) owner.setAttribute("aria-expanded", "false"); owner = null; }
   function openFor(btn) {
@@ -13525,8 +13530,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const it = e.target.closest(".ddm .dd-i");
     if (it) {
       close();
-      if (it.dataset.ddStore != null) { const n = +it.dataset.ddStore; e.stopPropagation(); e.preventDefault(); const go = document.querySelector('[data-folder="store"]'); if (go) go.click(); setTimeout(() => { const tiers = [...document.querySelectorAll(".s-store .stier")].filter(x => x.offsetParent); const el = tiers[n]; if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 650); return; }
-      if (it.dataset.ddCustom != null) { e.stopPropagation(); e.preventDefault(); const go = document.querySelector('[data-folder="store"]'); if (go) go.click(); setTimeout(() => { const c = [...document.querySelectorAll("[data-custom]")].find(x => x.offsetParent); if (c) c.click(); }, 650); return; }
+      if (it.dataset.ddStore != null) { const n = +it.dataset.ddStore; e.stopPropagation(); e.preventDefault(); openStore(); setTimeout(() => { const tiers = [...document.querySelectorAll(".s-store .stier")].filter(x => x.offsetParent); const el = tiers[n]; if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 650); return; }
+      if (it.dataset.ddCustom != null) { e.stopPropagation(); e.preventDefault(); openStore(); setTimeout(() => { const c = [...document.querySelectorAll("[data-custom]")].find(x => x.offsetParent); if (c) c.click(); }, 650); return; }
       if (it.dataset.ddInd != null) { e.stopPropagation(); e.preventDefault(); const i = it.dataset.ddInd; if (typeof setView === "function") setView("industries"); setTimeout(() => { const c = document.querySelector(`#igrid .icard[data-ind="${i}"]`); if (c) c.click(); }, 120); return; }
       return; /* other items carry the site's own data attributes and are handled as usual */
     }

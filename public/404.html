@@ -1813,6 +1813,10 @@ footer .locs { margin: .2rem 0 .8rem; }
 .diy-list p { margin: 0; font: 500 1rem/1.5 var(--f-body); opacity: .85; }
 .diy-end { margin-top: clamp(1.4rem, 3vw, 2rem); display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
 .diy-end p { margin: 0; font: 800 clamp(1.05rem, 2vw, 1.3rem)/1.35 var(--f-display); }
+
+/* ===== agents page groups ===== */
+.s-store .stier { scroll-margin-top: 96px; }
+.s-store .ssoon .btn { max-width: 100%; white-space: normal; text-align: center; line-height: 1.2; padding: .6rem .9rem; min-height: 40px; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -4989,6 +4993,33 @@ const T = {
   ],
   "chdiy.close": "Ready to learn it the fast way?",
   "chdiy.go": "Book my seat",
+  "store.groups": [
+   [
+    "Commercial real estate agents",
+    "For owners, asset managers, brokers and lenders.",
+    [
+     "cre",
+     "broker",
+     "acq",
+     "analyst",
+     "research"
+    ]
+   ],
+   [
+    "Healthcare and senior living agents",
+    "For senior living and healthcare operators.",
+    [
+     "staff"
+    ]
+   ],
+   [
+    "General business agents",
+    "For any business.",
+    [
+     "abk"
+    ]
+   ]
+  ],
   "mail.note": "Your email app opened with your message to welcome@mosesagentic.com. Press Send to finish."
  },
  "yi": {
@@ -7369,6 +7400,33 @@ const T = {
   ],
   "chdiy.close": "גרייט עס אויסצולערנען דעם שנעלן וועג?",
   "chdiy.go": "האלט מיר אן ארט",
+  "store.groups": [
+   [
+    "קאמערשעל ריעל עסטעיט אגענטן",
+    "פאר אונערס, עסעט מענעדזשערס, בראוקערס און לענדערס.",
+    [
+     "cre",
+     "broker",
+     "acq",
+     "analyst",
+     "research"
+    ]
+   ],
+   [
+    "העלטקעיר און סיניער ליווינג אגענטן",
+    "פאר אפערעיטארס פון סיניער ליווינג און העלטקעיר.",
+    [
+     "staff"
+    ]
+   ],
+   [
+    "אלגעמיינע ביזנעס אגענטן",
+    "פאר יעדן ביזנעס.",
+    [
+     "abk"
+    ]
+   ]
+  ],
   "mail.note": "אייער אימעיל עפ האט זיך געעפנט מיט אייער מעסעדזש צו welcome@mosesagentic.com. דריקט Send צו ענדיגן."
  },
  "he": {
@@ -9749,6 +9807,33 @@ const T = {
   ],
   "chdiy.close": "מוכנים ללמוד בדרך המהירה?",
   "chdiy.go": "שריינו לי מקום",
+  "store.groups": [
+   [
+    "סוכני נדל״ן מסחרי",
+    "לבעלי נכסים, מנהלי נכסים, מתווכים ומלווים.",
+    [
+     "cre",
+     "broker",
+     "acq",
+     "analyst",
+     "research"
+    ]
+   ],
+   [
+    "סוכנים לבריאות ודיור מוגן",
+    "למפעילי דיור מוגן ומוסדות בריאות.",
+    [
+     "staff"
+    ]
+   ],
+   [
+    "סוכנים לכל עסק",
+    "לכל סוג של עסק.",
+    [
+     "abk"
+    ]
+   ]
+  ],
   "mail.note": "אפליקציית המייל נפתחה עם ההודעה שלכם ל-welcome@mosesagentic.com. לחצו שלח כדי לסיים."
  },
  "es": {
@@ -12129,6 +12214,33 @@ const T = {
   ],
   "chdiy.close": "¿Listo para aprenderlo por el camino rápido?",
   "chdiy.go": "Reservar mi lugar",
+  "store.groups": [
+   [
+    "Agentes para bienes raíces comerciales",
+    "Para propietarios, gestores de activos, corredores y prestamistas.",
+    [
+     "cre",
+     "broker",
+     "acq",
+     "analyst",
+     "research"
+    ]
+   ],
+   [
+    "Agentes para salud y vivienda para mayores",
+    "Para operadores de vivienda para mayores y de salud.",
+    [
+     "staff"
+    ]
+   ],
+   [
+    "Agentes para cualquier negocio",
+    "Para todo tipo de negocio.",
+    [
+     "abk"
+    ]
+   ]
+  ],
   "mail.note": "Se abrió su app de correo con su mensaje para welcome@mosesagentic.com. Presione Enviar para terminar."
  }
 };
@@ -13289,7 +13401,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     const st = S(), plan = st.plan || {};
     const planBtn = safe(plan.link) ? `<a class="btn aqua" href="${esc(plan.link)}" target="_blank" rel="noopener">${esc(t("store.buy"))} <span class="arrow">→</span></a>` : `<button type="button" class="btn aqua" data-contact data-msgtext="Agent Store: Managed plan">${esc(t("store.plan_go"))} <span class="arrow">→</span></button>`;
     el.innerHTML = `<div class="stier"><h3 class="stier-h">${esc(t("store.exec_h"))}</h3><div class="sgrid exec">${t("store.exec").map(x => card(x, "exec")).join("")}</div></div>`
-      + `<div class="stier"><h3 class="stier-h">${esc(t("store.spec_h"))}</h3><p class="stier-s">${esc(t("store.spec_s"))}</p><div class="sgrid">${t("store.spec").map(x => card(x, "spec")).join("")}<div class="ssoon"><span class="sico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><h3>${esc(t("store.soon_t"))}</h3><p>${esc(t("store.soon_s"))}</p><button type="button" class="btn" data-contact data-msgtext="Agent Store: suggest a specialist">${esc(t("store.soon_go"))} <span class="arrow">→</span></button></div></div></div>`
+      + (t("store.groups") || []).map((g, gi, all) => `<div class="stier"><h3 class="stier-h">${esc(g[0])}</h3><p class="stier-s">${esc(g[1])}</p><div class="sgrid">${g[2].map(id => (t("store.spec") || []).find(x => x[0] === id)).filter(Boolean).map(x => card(x, "spec")).join("")}${gi === all.length - 1 ? `<div class="ssoon"><span class="sico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><h3>${esc(t("store.soon_t"))}</h3><p>${esc(t("store.soon_s"))}</p><button type="button" class="btn" data-contact data-msgtext="Agent Store: suggest a specialist">${esc(t("store.soon_go"))} <span class="arrow">→</span></button></div>` : ""}</div></div>`).join("")
       + `<div class="sbuild"><div><h3>${esc(t("sc.build_t"))}</h3><p>${esc(t("sc.build_s"))}</p></div><button type="button" class="btn aqua big" data-custom>${esc(t("sc.build_go"))} <span class="arrow">→</span></button></div>`
       + `<div class="splan"><h3>${esc(t("store.plan_t"))}</h3><p>${esc(t("store.plan_s"))}</p><div class="sprice">${price({ monthly: plan.monthly })}</div>${planBtn}</div>`;
   }
@@ -13810,7 +13922,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const item = (label, attrs) => `<button type="button" class="dd-i" ${attrs}>${E(label)}</button>`;
   function items(k) {
-    if (k === "agents") return [item(t("dd.all_agents"), 'data-folder="store"'), item(t("dd.exec"), 'data-dd-store="0"'), item(t("dd.spec"), 'data-dd-store="1"'), item(((t("abk.card") || [])[1]) || "AbraKadabra", "data-abk-play"), item(t("dd.custom"), 'data-dd-custom')];
+    if (k === "agents") return [item(t("dd.all_agents"), 'data-folder="store"'), item(t("dd.exec"), 'data-dd-store="0"'), ...(t("store.groups") || []).map((g, i) => item(g[0], 'data-dd-store="' + (i + 1) + '"')), item(t("dd.custom"), 'data-dd-custom')];
     if (k === "services") return [item(t("dd.all_serv"), 'data-folder="ent"'), item(t("dd.consult"), "data-consult"), `<a class="dd-i" href="${E(CONFIG.chochamUrl || "https://chochamai.com/")}#${E(lang)}">${E(t("dd.learn"))}</a>`];
     if (k === "industries") return [item(t("dd.all_ind"), 'data-view="industries"')].concat((t("inds") || []).map((n, i) => item(n, `data-dd-ind="${i}"`)));
     if (k === "cases") return [item(t("dd.all_cs"), 'data-view="cases"')].concat((t("cs.inds") || []).filter(([c]) => c !== "all").map(([c, n]) => item(n, `data-pract="${c}"`)));

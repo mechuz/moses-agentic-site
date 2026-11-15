@@ -445,3 +445,25 @@ dialog.lightbox button{position:absolute;top:-14px;right:-14px;width:46px;height
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
 }
+
+/* ---------- Craft pillars + service cards ---------- */
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.pillar{border-radius:26px;background:var(--blush);padding:30px 26px 32px;min-width:0;transition:transform .35s var(--spring), background .25s, color .25s}
+.pillar:hover{transform:translateY(-6px);background:var(--red);color:#fff}
+.pillar .pn{font-family:var(--f-accent);font-style:italic;font-size:1.6rem;color:var(--red);transition:color .25s}
+.pillar:hover .pn{color:#FFD9DE}
+.pillar h3{font-size:1.7rem;margin:16px 0 12px;line-height:1}
+.pillar p{font-size:.98rem;opacity:.85}
+.svc-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.svc-card{display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:#fff;text-decoration:none;min-width:0;transition:transform .35s var(--spring), box-shadow .35s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(28,20,22,.5)}
+.svc-img{display:block;overflow:hidden}
+.svc-img img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .8s var(--ease)}
+.svc-card:hover .svc-img img{transform:scale(1.05)}
+.svc-txt{display:flex;flex-direction:column;gap:8px;padding:20px 20px 22px;flex:1}
+.svc-txt b{font-family:var(--f-display);font-weight:800;font-size:1.4rem;line-height:1.05;letter-spacing:-.02em}
+.svc-txt > span{font-size:.92rem;color:var(--ink-soft);line-height:1.5}
+.svc-txt i{font-style:normal;font-weight:700;color:var(--red);margin-top:auto;padding-top:6px}
+.mi .pr-soft{font-family:var(--f-body);font-weight:600;font-size:1rem;color:var(--ink-soft);letter-spacing:0}
+@media (max-width:1100px){.svc-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.svc-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.svc-txt{padding:14px}.svc-txt b{font-size:1.15rem}.svc-txt > span{display:none}.pillars{grid-template-columns:1fr}}

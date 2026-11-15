@@ -100,13 +100,81 @@
 
   // ---------- Gallery filter ----------
   document.querySelectorAll('[aria-label="Filter photos"]').forEach(function (group) {
-    var grid = group.parentNode.querySelector("[data-filter-grid]"); if (!grid) return;
+    var sec = group.closest("section") || document; var grid = sec.querySelector("[data-filter-grid]"); if (!grid) return;
     group.addEventListener("click", function (e) {
       var b = e.target.closest("[data-filter]"); if (!b) return;
       group.querySelectorAll("[data-filter]").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
       var f = b.dataset.filter;
-      grid.querySelectorAll(".work").forEach(function (w) { w.hidden = f !== "all" && w.dataset.tag !== f; });
+      grid.querySelectorAll(".work, .card-work").forEach(function (w) { w.hidden = f !== "all" && w.dataset.tag !== f; }); grid.scrollLeft = 0;
     });
+  });
+
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---------- Hero slideshow (Ken Burns) ----------
+  document.querySelectorAll("[data-slides]").forEach(function (box) {
+    var slides = [].slice.call(box.querySelectorAll(".slide")), dots = [].slice.call(box.querySelectorAll(".slide-ui button"));
+    if (slides.length < 2) return;
+    var i = 0, timer = null, DUR = 5500;
+    function go(n) {
+      slides[i].classList.remove("on"); slides[i].setAttribute("aria-hidden", "true"); if (dots[i]) dots[i].removeAttribute("aria-current");
+      i = (n + slides.length) % slides.length;
+      var s = slides[i], img = s.querySelector("img"); if (img && img.loading === "lazy") img.loading = "eager";
+      s.classList.add("on"); s.setAttribute("aria-hidden", "false");
+      if (dots[i]) { dots[i].setAttribute("aria-current", "true"); var c = dots[i].cloneNode(true); dots[i].replaceWith(c); dots[i] = c; c.addEventListener("click", dotClick(i)); }
+    }
+    function dotClick(n) { return function () { go(n); restart(); }; }
+    function restart() { clearInterval(timer); if (!reduce) timer = setInterval(function () { go(i + 1); }, DUR); }
+    dots.forEach(function (d, n) { d.addEventListener("click", dotClick(n)); });
+    var nx = box.querySelector("[data-next]"), pv = box.querySelector("[data-prev]");
+    if (nx) nx.addEventListener("click", function () { go(i + 1); restart(); });
+    if (pv) pv.addEventListener("click", function () { go(i - 1); restart(); });
+    box.addEventListener("mouseenter", function () { clearInterval(timer); });
+    box.addEventListener("mouseleave", restart);
+    var x0 = null;
+    box.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    box.addEventListener("touchend", function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) { go(i + (dx < 0 ? 1 : -1)); restart(); } x0 = null; });
+    restart();
+  });
+
+  // ---------- Work carousel ----------
+  document.querySelectorAll("[data-car]").forEach(function (car) {
+    var track = car.querySelector(".car-track"), sec = car.closest("section");
+    function step(dir) { var card = track.querySelector(".card-work:not([hidden])"); var w = card ? card.getBoundingClientRect().width + 18 : 320; track.scrollBy({ left: dir * w * (window.innerWidth > 900 ? 2 : 1), behavior: "smooth" }); }
+    var n = sec.querySelector("[data-car-next]"), p = sec.querySelector("[data-car-prev]");
+    if (n) n.addEventListener("click", function () { if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) track.scrollTo({ left: 0, behavior: "smooth" }); else step(1); });
+    if (p) p.addEventListener("click", function () { step(-1); });
+  });
+
+  // ---------- Zoom lens on hover ----------
+  if (window.matchMedia && window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".lens").forEach(function (l) {
+      var img = l.querySelector("img");
+      l.addEventListener("mousemove", function (e) {
+        var r = l.getBoundingClientRect();
+        img.style.transformOrigin = ((e.clientX - r.left) / r.width * 100) + "% " + ((e.clientY - r.top) / r.height * 100) + "%";
+        l.classList.add("zooming");
+      });
+      l.addEventListener("mouseleave", function () { l.classList.remove("zooming"); });
+    });
+  }
+
+  // ---------- Scroll zoom into the hair ----------
+  document.querySelectorAll("[data-zoom]").forEach(function (sec) {
+    if (reduce) return;
+    var img = sec.querySelector(".zoom-img"), copy = sec.querySelector(".zoom-copy"), calls = [].slice.call(sec.querySelectorAll(".callout"));
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var r = sec.getBoundingClientRect(), total = r.height - window.innerHeight;
+      var p = Math.min(1, Math.max(0, -r.top / (total || 1)));
+      img.style.transform = "scale(" + (1 + p * 1.6).toFixed(3) + ")";
+      if (copy) copy.style.opacity = String(Math.max(0, 1 - p * 3.2));
+      calls.forEach(function (c) { c.classList.toggle("on", p >= parseFloat(c.dataset.at)); });
+    }
+    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener("resize", update);
+    update();
   });
 
   // ---------- Photo lightbox ----------

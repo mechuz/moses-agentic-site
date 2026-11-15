@@ -1814,9 +1814,32 @@ footer .locs { margin: .2rem 0 .8rem; }
 .diy-end { margin-top: clamp(1.4rem, 3vw, 2rem); display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
 .diy-end p { margin: 0; font: 800 clamp(1.05rem, 2vw, 1.3rem)/1.35 var(--f-display); }
 
-/* ===== agents page groups ===== */
-.s-store .stier { scroll-margin-top: 96px; }
-.s-store .ssoon .btn { max-width: 100%; white-space: normal; text-align: center; line-height: 1.2; padding: .6rem .9rem; min-height: 40px; }
+/* ===== agents page: industry tabs + list ===== */
+.s-store .sind { scroll-margin-top: 96px; }
+.sind-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .9rem; }
+.sind-tab { border: 1.5px solid #C9D6E8; background: #FFFFFF; color: #0B2545; border-radius: 999px; padding: .65rem 1.1rem; font: 800 1rem/1.1 var(--f-display); cursor: pointer; min-height: 44px; }
+.sind-tab:hover { border-color: #0B2545; }
+.sind-tab.on { background: #0B2545; border-color: #0B2545; color: #FFFFFF; }
+.sind-s { margin: 0 0 1rem; color: #3D5170; font: 600 1rem/1.45 var(--f-body); }
+.sind-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+@media (max-width: 760px) { .sind-list { grid-template-columns: minmax(0, 1fr); } }
+.sind-list .scard { display: grid !important; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: .9rem; row-gap: .15rem; align-items: center; padding: .85rem 1rem !important; min-height: 0 !important; height: auto !important; border-radius: 14px !important; cursor: pointer; }
+.sind-list .scard, .sind-list .scard.exec { aspect-ratio: auto !important; max-height: none; background: #FFFFFF !important; color: #0B2545 !important; border: 1.5px solid #DCE5F0 !important; box-shadow: none !important; transform: none !important; }
+.sind-list .scard:hover { border-color: #0B2545 !important; }
+body .s-store .sind-list .scard.exec h4, body .s-store .sind-list .scard.exec .sline, body .s-store .sind-list .scard h4, body .s-store .sind-list .scard .sline { color: #0B2545 !important; }
+.sind-list .scard .sline { opacity: .75; }
+.sind-list .scard .sico { width: 44px !important; height: 44px !important; }
+.sind-list .scard > * { grid-column: 2; }
+.sind-list .scard .sico { grid-column: 1; grid-row: 1 / span 2; margin: 0 !important; }
+.sind-list .scard h4 { grid-row: 1; margin: 0 !important; font-size: 1.05rem !important; }
+.sind-list .scard .sline { grid-row: 2; margin: 0 !important; font-size: .92rem !important; }
+.sind-list .scard h4, .sind-list .scard .sline { width: auto !important; max-width: none !important; min-width: 0; padding-inline-end: .4rem; }
+.sind-list .scard::after { content: "→"; grid-column: 3; grid-row: 1 / span 2; font: 800 1.1rem var(--f-display); color: #0B2545; opacity: .5; }
+[dir="rtl"] .sind-list .scard::after { content: "←"; }
+.sind-list .scard:hover::after { opacity: 1; }
+.sind-list .scard ul, .sind-list .scard .slayers, .sind-list .scard .btn, .sind-list .scard .sprice, .sind-list .scard .sdemo, .sind-list .scard .sgo { display: none !important; }
+.srow-tag { display: inline-block; font: 800 .68rem/1 var(--f-body); font-style: normal; letter-spacing: .08em; text-transform: uppercase; background: #C6F432; color: #0B2545; border-radius: 999px; padding: .25rem .5rem; margin-inline-end: .45rem; vertical-align: .15em; }
+.agdetail .srow-tag { display: none; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -4993,33 +5016,57 @@ const T = {
   ],
   "chdiy.close": "Ready to learn it the fast way?",
   "chdiy.go": "Book my seat",
-  "store.groups": [
+  "store.ind": [
    [
-    "Commercial real estate agents",
+    "all",
+    "All agents",
+    "Every agent we build. Pick your industry to narrow it down.",
+    []
+   ],
+   [
+    "cre",
+    "Commercial real estate",
     "For owners, asset managers, brokers and lenders.",
     [
+     "cio",
+     "cfo",
+     "coo",
+     "cmo",
      "cre",
      "broker",
      "acq",
      "analyst",
-     "research"
+     "research",
+     "abk"
     ]
    ],
    [
-    "Healthcare and senior living agents",
+    "health",
+    "Healthcare & senior living",
     "For senior living and healthcare operators.",
     [
-     "staff"
+     "coo",
+     "cmo",
+     "cfo",
+     "staff",
+     "abk"
     ]
    ],
    [
-    "General business agents",
+    "biz",
+    "General business",
     "For any business.",
     [
+     "coo",
+     "cmo",
+     "cfo",
+     "staff",
      "abk"
     ]
    ]
   ],
+  "store.exec_tag": "Executive",
+  "store.tap": "Tap an agent to see what it does.",
   "mail.note": "Your email app opened with your message to welcome@mosesagentic.com. Press Send to finish."
  },
  "yi": {
@@ -7400,33 +7447,57 @@ const T = {
   ],
   "chdiy.close": "גרייט עס אויסצולערנען דעם שנעלן וועג?",
   "chdiy.go": "האלט מיר אן ארט",
-  "store.groups": [
+  "store.ind": [
    [
-    "קאמערשעל ריעל עסטעיט אגענטן",
+    "all",
+    "אלע אגענטן",
+    "יעדער אגענט וואס מיר בויען. קלייבט אייער אינדוסטריע.",
+    []
+   ],
+   [
+    "cre",
+    "קאמערשעל ריעל עסטעיט",
     "פאר אונערס, עסעט מענעדזשערס, בראוקערס און לענדערס.",
     [
+     "cio",
+     "cfo",
+     "coo",
+     "cmo",
      "cre",
      "broker",
      "acq",
      "analyst",
-     "research"
+     "research",
+     "abk"
     ]
    ],
    [
-    "העלטקעיר און סיניער ליווינג אגענטן",
+    "health",
+    "העלטקעיר און סיניער ליווינג",
     "פאר אפערעיטארס פון סיניער ליווינג און העלטקעיר.",
     [
-     "staff"
+     "coo",
+     "cmo",
+     "cfo",
+     "staff",
+     "abk"
     ]
    ],
    [
-    "אלגעמיינע ביזנעס אגענטן",
+    "biz",
+    "אלגעמיינע ביזנעס",
     "פאר יעדן ביזנעס.",
     [
+     "coo",
+     "cmo",
+     "cfo",
+     "staff",
      "abk"
     ]
    ]
   ],
+  "store.exec_tag": "עקזעקיוטיוו",
+  "store.tap": "קליקט אויף אן אגענט צו זען וואס ער טוט.",
   "mail.note": "אייער אימעיל עפ האט זיך געעפנט מיט אייער מעסעדזש צו welcome@mosesagentic.com. דריקט Send צו ענדיגן."
  },
  "he": {
@@ -9807,33 +9878,57 @@ const T = {
   ],
   "chdiy.close": "מוכנים ללמוד בדרך המהירה?",
   "chdiy.go": "שריינו לי מקום",
-  "store.groups": [
+  "store.ind": [
    [
-    "סוכני נדל״ן מסחרי",
+    "all",
+    "כל הסוכנים",
+    "כל סוכן שאנחנו בונים. בחרו את התחום שלכם.",
+    []
+   ],
+   [
+    "cre",
+    "נדל״ן מסחרי",
     "לבעלי נכסים, מנהלי נכסים, מתווכים ומלווים.",
     [
+     "cio",
+     "cfo",
+     "coo",
+     "cmo",
      "cre",
      "broker",
      "acq",
      "analyst",
-     "research"
+     "research",
+     "abk"
     ]
    ],
    [
-    "סוכנים לבריאות ודיור מוגן",
+    "health",
+    "בריאות ודיור מוגן",
     "למפעילי דיור מוגן ומוסדות בריאות.",
     [
-     "staff"
+     "coo",
+     "cmo",
+     "cfo",
+     "staff",
+     "abk"
     ]
    ],
    [
-    "סוכנים לכל עסק",
+    "biz",
+    "כל עסק",
     "לכל סוג של עסק.",
     [
+     "coo",
+     "cmo",
+     "cfo",
+     "staff",
      "abk"
     ]
    ]
   ],
+  "store.exec_tag": "בכיר",
+  "store.tap": "לחצו על סוכן כדי לראות מה הוא עושה.",
   "mail.note": "אפליקציית המייל נפתחה עם ההודעה שלכם ל-welcome@mosesagentic.com. לחצו שלח כדי לסיים."
  },
  "es": {
@@ -12214,33 +12309,57 @@ const T = {
   ],
   "chdiy.close": "¿Listo para aprenderlo por el camino rápido?",
   "chdiy.go": "Reservar mi lugar",
-  "store.groups": [
+  "store.ind": [
    [
-    "Agentes para bienes raíces comerciales",
+    "all",
+    "Todos los agentes",
+    "Cada agente que construimos. Elija su industria.",
+    []
+   ],
+   [
+    "cre",
+    "Bienes raíces comerciales",
     "Para propietarios, gestores de activos, corredores y prestamistas.",
     [
+     "cio",
+     "cfo",
+     "coo",
+     "cmo",
      "cre",
      "broker",
      "acq",
      "analyst",
-     "research"
+     "research",
+     "abk"
     ]
    ],
    [
-    "Agentes para salud y vivienda para mayores",
+    "health",
+    "Salud y vivienda para mayores",
     "Para operadores de vivienda para mayores y de salud.",
     [
-     "staff"
+     "coo",
+     "cmo",
+     "cfo",
+     "staff",
+     "abk"
     ]
    ],
    [
-    "Agentes para cualquier negocio",
+    "biz",
+    "Cualquier negocio",
     "Para todo tipo de negocio.",
     [
+     "coo",
+     "cmo",
+     "cfo",
+     "staff",
      "abk"
     ]
    ]
   ],
+  "store.exec_tag": "Ejecutivo",
+  "store.tap": "Toque un agente para ver lo que hace.",
   "mail.note": "Se abrió su app de correo con su mensaje para welcome@mosesagentic.com. Presione Enviar para terminar."
  }
 };
@@ -13396,12 +13515,18 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     const body = kind === "exec" ? `<div class="slayers">${x[3].map((v, j) => `<div class="slayer"><span>${esc(lab[j])}</span><p>${esc(v)}</p></div>`).join("")}</div>` : `<ul>${x[3].map(v => `<li>${esc(v)}</li>`).join("")}</ul>`;
     return `<article class="scard ${kind}" data-ag="${esc(x[0])}" tabindex="0" role="button"><span class="sico" aria-hidden="true">${agIcon(x[0])}</span><h4>${esc(x[1])}</h4><p class="sline">${esc(x[2])}</p>${body}${x[0] === "web" ? `<div class="sprice cs2-p">${esc(t("wb.price"))}</div><button type="button" class="btn aqua" data-weborder>${esc(t("wb.go"))} <span class="arrow">→</span></button>` : x[0] === "consult" ? `<div class="sprice cs2-p">${esc(t("cs2.price"))}</div><button type="button" class="btn aqua" data-consult>${esc(t("cs2.book"))} <span class="arrow">→</span></button>` : x[0] === "abk" ? `<button type="button" class="btn aqua sdemo-go" data-abk-play>${esc(t("abk.watch"))} <span class="arrow">▶</span></button>` : `<div class="sprice">${price(c)}</div>${action(c, en ? en[1] : x[1])}`}</article>`;
   }
+  window.storeIndSet = k => { window.storeInd = k; renderStore(); const el = document.querySelector(".s-store .sind"); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); };
+  document.addEventListener("click", e => { const b = e.target.closest && e.target.closest(".sind-tab"); if (!b) return; window.storeInd = b.dataset.sind; renderStore(); const n = document.querySelector('.sind-tab[data-sind="' + b.dataset.sind + '"]'); if (n) n.focus({ preventScroll: true }); });
   function renderStore() {
     const el = document.getElementById("store"); if (!el) return;
     const st = S(), plan = st.plan || {};
     const planBtn = safe(plan.link) ? `<a class="btn aqua" href="${esc(plan.link)}" target="_blank" rel="noopener">${esc(t("store.buy"))} <span class="arrow">→</span></a>` : `<button type="button" class="btn aqua" data-contact data-msgtext="Agent Store: Managed plan">${esc(t("store.plan_go"))} <span class="arrow">→</span></button>`;
-    el.innerHTML = `<div class="stier"><h3 class="stier-h">${esc(t("store.exec_h"))}</h3><div class="sgrid exec">${t("store.exec").map(x => card(x, "exec")).join("")}</div></div>`
-      + (t("store.groups") || []).map((g, gi, all) => `<div class="stier"><h3 class="stier-h">${esc(g[0])}</h3><p class="stier-s">${esc(g[1])}</p><div class="sgrid">${g[2].map(id => (t("store.spec") || []).find(x => x[0] === id)).filter(Boolean).map(x => card(x, "spec")).join("")}${gi === all.length - 1 ? `<div class="ssoon"><span class="sico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><h3>${esc(t("store.soon_t"))}</h3><p>${esc(t("store.soon_s"))}</p><button type="button" class="btn" data-contact data-msgtext="Agent Store: suggest a specialist">${esc(t("store.soon_go"))} <span class="arrow">→</span></button></div>` : ""}</div></div>`).join("")
+    const IND = t("store.ind") || [], cur = IND.find(g => g[0] === window.storeInd) || IND[0] || ["all", "", "", []];
+    const execIds = (t("store.exec") || []).map(x => x[0]), allAg = [...(t("store.exec") || []), ...(t("store.spec") || [])];
+    const ids = cur[0] === "all" ? allAg.map(x => x[0]) : cur[3];
+    const row = x => card(x, execIds.includes(x[0]) ? "exec" : "spec").replace('<h4>', '<h4>' + (execIds.includes(x[0]) ? `<em class="srow-tag">${esc(t("store.exec_tag"))}</em>` : ""));
+    el.innerHTML = `<div class="sind"><div class="sind-tabs" role="tablist">${IND.map(g => `<button type="button" role="tab" class="sind-tab${g[0] === cur[0] ? " on" : ""}" aria-selected="${g[0] === cur[0]}" data-sind="${esc(g[0])}">${esc(g[1])}</button>`).join("")}</div>`
+      + `<p class="sind-s">${esc(cur[2])} ${esc(t("store.tap"))}</p><div class="sind-list">${ids.map(id => allAg.find(x => x[0] === id)).filter(Boolean).map(row).join("")}</div></div>`
       + `<div class="sbuild"><div><h3>${esc(t("sc.build_t"))}</h3><p>${esc(t("sc.build_s"))}</p></div><button type="button" class="btn aqua big" data-custom>${esc(t("sc.build_go"))} <span class="arrow">→</span></button></div>`
       + `<div class="splan"><h3>${esc(t("store.plan_t"))}</h3><p>${esc(t("store.plan_s"))}</p><div class="sprice">${price({ monthly: plan.monthly })}</div>${planBtn}</div>`;
   }
@@ -13922,7 +14047,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const item = (label, attrs) => `<button type="button" class="dd-i" ${attrs}>${E(label)}</button>`;
   function items(k) {
-    if (k === "agents") return [item(t("dd.all_agents"), 'data-folder="store"'), item(t("dd.exec"), 'data-dd-store="0"'), ...(t("store.groups") || []).map((g, i) => item(g[0], 'data-dd-store="' + (i + 1) + '"')), item(t("dd.custom"), 'data-dd-custom')];
+    if (k === "agents") return [item(t("dd.all_agents"), 'data-folder="store"'), ...(t("store.ind") || []).slice(1).map(g => item(g[1], 'data-dd-ind="' + g[0] + '"')), item(t("dd.custom"), 'data-dd-custom')];
     if (k === "services") return [item(t("dd.all_serv"), 'data-folder="ent"'), item(t("dd.consult"), "data-consult"), `<a class="dd-i" href="${E(CONFIG.chochamUrl || "https://chochamai.com/")}#${E(lang)}">${E(t("dd.learn"))}</a>`];
     if (k === "industries") return [item(t("dd.all_ind"), 'data-view="industries"')].concat((t("inds") || []).map((n, i) => item(n, `data-dd-ind="${i}"`)));
     if (k === "cases") return [item(t("dd.all_cs"), 'data-view="cases"')].concat((t("cs.inds") || []).filter(([c]) => c !== "all").map(([c, n]) => item(n, `data-pract="${c}"`)));
@@ -13951,6 +14076,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const it = e.target.closest(".ddm .dd-i");
     if (it) {
       close();
+      if (it.dataset.ddInd != null) { e.stopPropagation(); e.preventDefault(); window.storeInd = it.dataset.ddInd; openStore(); setTimeout(() => { if (window.storeIndSet) window.storeIndSet(it.dataset.ddInd); }, 120); return; }
       if (it.dataset.ddStore != null) { const n = +it.dataset.ddStore; e.stopPropagation(); e.preventDefault(); openStore(); setTimeout(() => { const tiers = [...document.querySelectorAll(".s-store .stier")].filter(x => x.offsetParent); const el = tiers[n]; if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 650); return; }
       if (it.dataset.ddCustom != null) { e.stopPropagation(); e.preventDefault(); openStore(); setTimeout(() => { const c = [...document.querySelectorAll("[data-custom]")].find(x => x.offsetParent); if (c) c.click(); }, 650); return; }
       if (it.dataset.ddInd != null) { e.stopPropagation(); e.preventDefault(); const i = it.dataset.ddInd; if (typeof setView === "function") setView("industries"); setTimeout(() => { const c = document.querySelector(`#igrid .icard[data-ind="${i}"]`); if (c) c.click(); }, 120); return; }

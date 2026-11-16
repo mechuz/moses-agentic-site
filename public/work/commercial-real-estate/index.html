@@ -12523,7 +12523,7 @@ document.addEventListener("submit", async e => {
   if (CONFIG.web3formsKey) {
     const site = CONFIG.site === "chocham" ? "Chocham AI" : "Moses Agentic";
     try { const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: site + ": new request from " + data.name, from_name: site + " website", botcheck: $("#c-bot") && $("#c-bot").checked }, data.email ? { replyto: data.email } : {}, data)) }); const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0; } catch (x) { err.textContent = t("chat.err"); err.hidden = false; return; }
-  } else if (CONFIG.contactEndpoint) { try { const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0; } catch (x) { err.textContent = t("chat.err"); err.hidden = false; return; } }
+  } else if (CONFIG.contactEndpoint) { try { const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }); if (!r.ok) throw 0; } catch (x) { err.textContent = t("chat.err"); err.hidden = false; return; } }
   if (!CONFIG.web3formsKey && !CONFIG.contactEndpoint && window.mailFallback) mailFallback((CONFIG.site === "chocham" ? "Chocham AI" : "Moses Agentic") + ": new request from " + data.name, ["Name: " + data.name, "Company: " + (data.company || "-"), "Phone: " + (data.phone || "-"), "Email: " + (data.email || "-"), "", data.message].join("\n"));
   drawConsult(true); shake(); track("generate_lead", { form: "consultation" });
 });
@@ -13466,7 +13466,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
         const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) });
         const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0;
       } else if (CONFIG.contactEndpoint) {
-        const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
+        const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
       }
     } catch (x) { if (btn) btn.disabled = false; st.err = t("chat.err"); draw(); try { if (window.hcaptcha) hcaptcha.reset(); } catch (e) {} return; }
     if (!CONFIG.web3formsKey && !CONFIG.contactEndpoint && window.mailFallback) mailFallback((CONFIG.site === "chocham" ? "Chocham AI" : "Moses Agentic") + ": request from " + data.name, ["Name: " + data.name, "Company: " + (data.company || "-"), "Phone: " + (data.phone || "-"), "Email: " + (data.email || "-"), "", data.message].join("\n"));
@@ -14052,7 +14052,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Moses Agentic: " + (P === "consult" ? "AI consulting order" : "website order") + " from " + st.name, from_name: "Moses Agentic website", botcheck: false, replyto: st.email }, data)) });
         const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0;
       } else if (CONFIG.contactEndpoint) {
-        const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
+        const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
       } else if (window.mailFallback) { mailFallback("Moses Agentic: " + (P === "consult" ? "AI consulting order" : "website order") + " from " + st.name, lines.join("\n")); } else throw 0;
       step(4); try { track("generate_lead", { form: P === "consult" ? "consulting" : "website_order" }); } catch (x) {}
     } catch (x) { err(t("cs2.fail")); if (btn) btn.disabled = false; }
@@ -14135,7 +14135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <label>${E(t("fw.improve"))}<textarea id="fw-need" rows="4" placeholder="${E(t("fw.improve_ph"))}"></textarea></label>
         <fieldset class="sp-feats"><legend>${E(t("wb.feat"))}</legend>${t("wb.feats").map((s, i) => `<label class="chk"><input type="checkbox" name="fw-f" value="${i}"> ${E(s)}</label>`).join("")}</fieldset>
         <label>${E(t("fw.pick"))}<select id="fw-pick">${t("fw.opts").map(([a, p, n], i) => `<option value="${i}">${E(a + " · " + p)}</option>`).join("")}<option value="x" selected>${E(t("fw.pick_none"))}</option></select></label>
-        <div class="cs2-row"><label>${E(f[0])}<input id="fw-name" autocomplete="name"></label><label>${E(f[1])}<input id="fw-email" type="email" autocomplete="email"></label></div>
+        <input id="fw-hp" name="website_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"><div class="cs2-row"><label>${E(f[0])}<input id="fw-name" autocomplete="name"></label><label>${E(f[1])}<input id="fw-email" type="email" autocomplete="email"></label></div>
         <label>${E(f[2])}<input id="fw-phone" type="tel" autocomplete="tel"></label>
         <p class="err" id="fw-err" hidden></p>
         <button class="btn big aqua" type="submit" id="fw-go">${E(t("fw.submit"))} <span class="arrow">→</span></button>
@@ -14154,15 +14154,15 @@ document.addEventListener("DOMContentLoaded", () => {
     err.hidden = true;
     const feats = [...document.querySelectorAll('input[name="fw-f"]:checked')].map(x => T.en["wb.feats"][+x.value]);
     const lines = ["Free website DESIGNS request: make 10 designs, email the first 5 within 24 hours", "Business: " + (v("fw-biz") || "-") + (v("fw-type") ? " (" + v("fw-type") + ")" : ""), "Current website: " + (none ? "none yet" : (v("fw-site") || "-")), "Improve / wants: " + (need || "-"), "Features: " + (feats.join(", ") || "-"), "After 60 days: " + (v("fw-pick") === "x" ? "not sure yet" : (en => en[0] + ", " + en[1] + (+v("fw-pick") === 2 ? " " + en[2] : ""))(T.en["fw.opts"][+v("fw-pick")])), "Name: " + name, "Email: " + email, "Phone: " + (v("fw-phone") || "-"), "Site language: " + lang];
-    const data = { name, email, phone: v("fw-phone"), company: v("fw-biz"), message: lines.join("\n"), language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
+    const data = { kind: "free-website", hp: v("fw-hp"), subject: "Moses Agentic free website build: request from " + name + (v("fw-biz") ? " (" + v("fw-biz") + ")" : ""), name, email, phone: v("fw-phone"), company: v("fw-biz"), message: lines.join("\n"), language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
     btn.disabled = true;
     try {
       if (CONFIG.web3formsKey) {
-        const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Moses Agentic: free website preview request from " + name + (v("fw-biz") ? " (" + v("fw-biz") + ")" : ""), from_name: "Moses Agentic website", botcheck: false, replyto: email }, data)) });
+        const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, subject: "Moses Agentic free website build: request from " + name + (v("fw-biz") ? " (" + v("fw-biz") + ")" : ""), from_name: "Moses Agentic website", botcheck: false, replyto: email }, data)) });
         const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0;
       } else if (CONFIG.contactEndpoint) {
-        const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
-      } else if (window.mailFallback) { mailFallback("Moses Agentic: free website preview request from " + name + (v("fw-biz") ? " (" + v("fw-biz") + ")" : ""), lines.join("\n")); } else throw 0;
+        const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }); if (!r.ok) throw 0;
+      } else if (window.mailFallback) { mailFallback("Moses Agentic free website build: request from " + name + (v("fw-biz") ? " (" + v("fw-biz") + ")" : ""), lines.join("\n")); } else throw 0;
       draw(true); try { track("generate_lead", { form: "free_website" }); } catch (x) {}
     } catch (x) { err.textContent = t("cs2.fail"); err.hidden = false; btn.disabled = false; }
   });

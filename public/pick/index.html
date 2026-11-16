@@ -69,7 +69,7 @@ footer { color: var(--mut); font-size: .85rem; padding: 2rem 0 6rem; }
 <script>
 (function () {
   "use strict";
-  var KEY = "", MAIL = "welcome@mosesagentic.com", BRAND = "Moses Agentic";
+  var KEY = "", MAIL = "welcome@mosesagentic.com", BRAND = "Moses Agentic", ENDPOINT = "";
   var app = document.getElementById("app");
   var q = new URLSearchParams(location.search), c = (q.get("c") || "").replace(/[^a-z0-9-]/gi, "");
   var E = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (m) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]; }); };
@@ -148,7 +148,10 @@ footer { color: var(--mut); font-size: .85rem; padding: 2rem 0 6rem; }
           : "We’ll reply with a quote for your custom design. You can still choose one of your 10 designs at no cost.") + '</p></div>';
         var b = document.querySelector(".bar"); if (b) b.remove(); scrollTo(0, 0);
       }
-      if (KEY) {
+      if (ENDPOINT) {
+        fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ kind: mode === "pick" ? "design-chosen" : "custom-design", name: nm, email: em, subject: subject, message: body, source: location.hostname }) })
+          .then(function (r) { if (!r.ok) throw 0; thanks(); }).catch(function () { mailto(); });
+      } else if (KEY) {
         fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ access_key: KEY, subject: subject, from_name: BRAND + " website", replyto: em, botcheck: false, message: body }) })
           .then(function (r) { return r.json(); }).then(function (j) { if (j && j.success) thanks(); else throw 0; })
           .catch(function () { mailto(); });

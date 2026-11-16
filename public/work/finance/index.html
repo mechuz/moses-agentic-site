@@ -13311,6 +13311,12 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     if (user && history.state && history.state.mvfull) history.replaceState({ parted: true }, "");
   }
   addEventListener("popstate", e => { if (!(e.state && e.state.mvfull)) mvClose(false); });
+  /* scrolling down out of the full-window video closes it and stops the sound */
+  let ty = null;
+  addEventListener("wheel", e => { if (e.deltaY > 12 && document.documentElement.classList.contains("mvfull-on")) mvClose(true); }, { passive: true });
+  addEventListener("touchstart", e => { ty = e.touches[0].clientY; }, { passive: true });
+  addEventListener("touchmove", e => { if (ty != null && ty - e.touches[0].clientY > 40 && document.documentElement.classList.contains("mvfull-on")) { ty = null; mvClose(true); } }, { passive: true });
+  document.addEventListener("keydown", e => { if (["ArrowDown", "PageDown"].includes(e.key) && document.documentElement.classList.contains("mvfull-on")) mvClose(true); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") mvClose(true); });
   /* calm: no sea, the headline simply leads to the folders */
   if (hero) { hero.addEventListener("click", e => { if (e.target.closest("button, a, .mv-watch")) return; partSea(); }); hero.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target === hero) { e.preventDefault(); partSea(); } }); }

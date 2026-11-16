@@ -1921,13 +1921,28 @@ body { top: 0 !important; }
 .site-moses .nav-free, .site-moses .tabstrip .nav-free { text-transform: uppercase; letter-spacing: .02em; font-weight: 900 !important; font-size: .88rem !important; background: #C6F432 !important; color: #0B2545 !important; border-radius: 999px; padding: .45rem .85rem !important; animation: fwflash 1.4s ease-in-out infinite; }
 @keyframes fwflash { 0%, 100% { background: #C6F432; box-shadow: 0 0 0 0 rgba(198,244,50,.75); } 50% { background: #FFFFFF; box-shadow: 0 0 0 7px rgba(198,244,50,0); } }
 @media (prefers-reduced-motion: reduce) { .site-moses .nav-free { animation: none; } }
+/* front page: "Who we build for" as folders; the old bottom folders are gone */
+.site-moses #cabinet { display: none !important; }
+.site-moses .srv-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; border-top: 0; padding-top: 42px; }
+.site-moses .srv-row { --fc: #C6F432; --fi: #0B2545; position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 1rem; min-height: 300px; border: 0; border-radius: 0 18px 18px 18px; padding: 1.3rem 1.1rem 1.2rem; background: var(--fc); color: var(--fi); box-shadow: 0 24px 40px -28px rgba(0,0,0,.6); transition: transform .25s cubic-bezier(.2,1.4,.4,1); }
+.site-moses .srv-row:nth-child(2) { --fc: #1A73E8; --fi: #FFFFFF; }
+.site-moses .srv-row:nth-child(3) { --fc: #4DB6FF; --fi: #0B2545; }
+.site-moses .srv-row:nth-child(4) { --fc: #FFFFFF; --fi: #0B2545; }
+.site-moses .srv-row .srv-n { display: flex !important; align-items: center; position: absolute; top: -40px; inset-inline-start: 0; height: 41px; width: 52%; padding-inline: 1rem; border-radius: 14px 14px 0 0; background: var(--fc); color: var(--fi); font: 900 .95rem/1 var(--f-display); }
+.site-moses .srv-row .srv-name { font: 900 clamp(1.45rem, 2.5vw, 2.25rem)/1 var(--f-display); letter-spacing: -.035em; color: inherit !important; overflow-wrap: break-word; hyphens: auto; }
+.site-moses .srv-row .srv-go { background: var(--fi); color: var(--fc); }
+.site-moses .srv-row:nth-child(4) .srv-go { background: #0B2545; color: #FFFFFF; }
+.site-moses .srv-row:hover, .site-moses .srv-row:focus-visible { transform: translateY(-6px); }
+.site-moses .srv-row.on { outline: 3px solid #FFFFFF; outline-offset: 4px; }
+@media (max-width: 900px) { .site-moses .srv-list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 54px; } .site-moses .srv-row { min-height: 210px; } }
+@media (max-width: 640px) { .site-moses .srv-row { min-height: 180px; padding: 1rem .9rem; grid-template-columns: none; } .site-moses .srv-row .srv-name { font-size: clamp(1rem, 4.9vw, 1.4rem); } .site-moses .srv-row .srv-go { font-size: .85rem; padding: .5rem .8rem; } }
 @media (min-width: 1041px) and (max-width: 1500px) {
   .site-moses { --hdr: 116px; }
   .site-moses .nav { display: none; }
   .site-moses .langs { margin-inline-start: auto; }
   .site-moses .top .askbtn { display: none; }
   .site-moses .top .wrap { height: 64px; }
-  .site-moses .tabstrip { display: flex; align-items: center; gap: .4rem; height: 52px; overflow-x: auto; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px)); scrollbar-width: none; max-width: 100vw; }
+  .site-moses .tabstrip { display: flex; align-items: center; gap: .4rem; height: 52px; overflow-x: auto; padding: 0 max(16px, calc((100vw - 1140px) / 2)); scrollbar-width: none; max-width: 100vw; }
   .site-moses .tabstrip button { flex: none; border: 0; border-radius: 999px; min-height: 40px; padding: 0 1rem; font: 600 .95rem var(--f-body); cursor: pointer; }
 }
 </style>
@@ -4720,7 +4735,7 @@ const T = {
   "srv.replay": "Replay",
   "srv.seg": [
    {
-    "n": "Commercial & CRE mortgage brokers",
+    "n": "Commercial mortgage brokers",
     "s1": "Your deals, packaged by AI.",
     "lead": "Agents package every deal, so you place more loans with the same team.",
     "st": [
@@ -4977,12 +4992,12 @@ const T = {
    ],
    [
     "12-month plan",
-    "$200 a month",
+    "$199 a month",
     "One-year commitment"
    ],
    [
     "Month to month",
-    "$250 a month",
+    "$249 a month",
     "No commitment"
    ]
   ],
@@ -7146,7 +7161,7 @@ const T = {
   "srv.replay": "נאכאמאל",
   "srv.seg": [
    {
-    "n": "קאמערשעל און CRE מארטגעדזש בראוקערס",
+    "n": "קאמערשעל מארטגעדזש בראוקערס",
     "s1": "אייערע דילס, צוגעגרייט דורך AI.",
     "lead": "אגענטן גרייטן צו יעדן דיל, אזוי מאכט איר מער לאונס מיט די זעלבע טיעם.",
     "st": [
@@ -7403,12 +7418,12 @@ const T = {
    ],
    [
     "12-חודשים פלאן",
-    "$200 א חודש",
+    "$199 א חודש",
     "איין יאר התחייבות"
    ],
    [
     "חודש צו חודש",
-    "$250 א חודש",
+    "$249 א חודש",
     "קיין התחייבות"
    ]
   ],
@@ -9572,7 +9587,7 @@ const T = {
   "srv.replay": "שוב",
   "srv.seg": [
    {
-    "n": "מתווכי משכנתאות מסחריות ונדל״ן מסחרי",
+    "n": "מתווכי משכנתאות מסחריות",
     "s1": "העסקאות שלכם, מוכנות על ידי AI.",
     "lead": "הסוכנים מכינים כל עסקה, כך שתסגרו יותר הלוואות עם אותו צוות.",
     "st": [
@@ -9829,12 +9844,12 @@ const T = {
    ],
    [
     "תוכנית ל-12 חודשים",
-    "$200 לחודש",
+    "$199 לחודש",
     "התחייבות לשנה"
    ],
    [
     "חודש לחודש",
-    "$250 לחודש",
+    "$249 לחודש",
     "בלי התחייבות"
    ]
   ],
@@ -11998,7 +12013,7 @@ const T = {
   "srv.replay": "Repetir",
   "srv.seg": [
    {
-    "n": "Corredores de hipotecas comerciales y CRE",
+    "n": "Corredores de hipotecas comerciales",
     "s1": "Sus operaciones, preparadas por IA.",
     "lead": "Los agentes preparan cada operación, para que coloque más préstamos con el mismo equipo.",
     "st": [
@@ -12255,12 +12270,12 @@ const T = {
    ],
    [
     "Plan de 12 meses",
-    "$200 al mes",
+    "$199 al mes",
     "Compromiso de un año"
    ],
    [
     "Mes a mes",
-    "$250 al mes",
+    "$249 al mes",
     "Sin compromiso"
    ]
   ],

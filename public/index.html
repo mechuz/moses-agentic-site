@@ -14083,7 +14083,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const item = (label, attrs) => `<button type="button" class="dd-i" ${attrs}>${E(label)}</button>`;
   function items(k) {
-    if (k === "agents") return [item(t("dd.all_agents"), 'data-folder="store"'), ...(t("store.ind") || []).slice(1).map(g => item(g[1], 'data-dd-ind="' + g[0] + '"')), item(t("dd.custom"), 'data-dd-custom')];
+    if (k === "agents") return [item(t("dd.all_agents"), 'data-folder="store"'), ...(t("store.ind") || []).slice(1).map(g => item(g[1], 'data-dd-agind="' + g[0] + '"')), item(t("dd.custom"), 'data-dd-custom')];
     if (k === "services") return [item(t("dd.all_serv"), 'data-folder="ent"'), item(t("dd.consult"), "data-consult"), `<a class="dd-i" href="${E(CONFIG.chochamUrl || "https://chochamai.com/")}#${E(lang)}">${E(t("dd.learn"))}</a>`];
     if (k === "industries") return [item(t("dd.all_ind"), 'data-view="industries"')].concat((t("inds") || []).map((n, i) => item(n, `data-dd-ind="${i}"`)));
     if (k === "cases") return [item(t("dd.all_cs"), 'data-view="cases"')].concat((t("cs.inds") || []).filter(([c]) => c !== "all").map(([c, n]) => item(n, `data-pract="${c}"`)));
@@ -14112,7 +14112,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const it = e.target.closest(".ddm .dd-i");
     if (it) {
       close();
-      if (it.dataset.ddInd != null) { e.stopPropagation(); e.preventDefault(); window.storeInd = it.dataset.ddInd; openStore(); setTimeout(() => { if (window.storeIndSet) window.storeIndSet(it.dataset.ddInd); }, 120); return; }
+      if (it.dataset.ddAgind != null) { e.stopPropagation(); e.preventDefault(); window.storeInd = it.dataset.ddAgind; openStore(); setTimeout(() => { if (window.storeIndSet) window.storeIndSet(it.dataset.ddAgind); }, 120); return; }
       if (it.dataset.ddStore != null) { const n = +it.dataset.ddStore; e.stopPropagation(); e.preventDefault(); openStore(); setTimeout(() => { const tiers = [...document.querySelectorAll(".s-store .stier")].filter(x => x.offsetParent); const el = tiers[n]; if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 650); return; }
       if (it.dataset.ddCustom != null) { e.stopPropagation(); e.preventDefault(); openStore(); setTimeout(() => { const c = [...document.querySelectorAll("[data-custom]")].find(x => x.offsetParent); if (c) c.click(); }, 650); return; }
       if (it.dataset.ddInd != null) { e.stopPropagation(); e.preventDefault(); const i = it.dataset.ddInd; if (typeof setView === "function") setView("industries"); setTimeout(() => { const c = document.querySelector(`#igrid .icard[data-ind="${i}"]`); if (c) c.click(); }, 120); return; }

@@ -1923,19 +1923,22 @@ body { top: 0 !important; }
 @media (prefers-reduced-motion: reduce) { .site-moses .nav-free { animation: none; } }
 /* front page: "Who we build for" as folders; the old bottom folders are gone */
 .site-moses #cabinet { display: none !important; }
-.site-moses .srv-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; border-top: 0; padding-top: 42px; }
-.site-moses .srv-row { --fc: #C6F432; --fi: #0B2545; position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 1rem; min-height: 300px; border: 0; border-radius: 0 18px 18px 18px; padding: 1.3rem 1.1rem 1.2rem; background: var(--fc); color: var(--fi); box-shadow: 0 24px 40px -28px rgba(0,0,0,.6); transition: transform .25s cubic-bezier(.2,1.4,.4,1); }
-.site-moses .srv-row:nth-child(2) { --fc: #1A73E8; --fi: #FFFFFF; }
-.site-moses .srv-row:nth-child(3) { --fc: #4DB6FF; --fi: #0B2545; }
-.site-moses .srv-row:nth-child(4) { --fc: #FFFFFF; --fi: #0B2545; }
+.site-moses .srv-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 54px 14px; border-top: 0; padding-top: 42px; }
+.site-moses .srv-row { --fc: #C6F432; --fi: #0B2545; position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 1rem; min-height: 210px; border: 0; border-radius: 0 18px 18px 18px; padding: 1.3rem 1.1rem 1.2rem; background: var(--fc); color: var(--fi); box-shadow: 0 24px 40px -28px rgba(0,0,0,.6); transition: transform .25s cubic-bezier(.2,1.4,.4,1); }
+.site-moses .srv-row:nth-child(4n+2) { --fc: #1A73E8; --fi: #FFFFFF; }
+.site-moses .srv-row:nth-child(4n+3) { --fc: #4DB6FF; --fi: #0B2545; }
+.site-moses .srv-row:nth-child(4n) { --fc: #FFFFFF; --fi: #0B2545; }
 .site-moses .srv-row .srv-n { display: flex !important; align-items: center; position: absolute; top: -40px; inset-inline-start: 0; height: 41px; width: 52%; padding-inline: 1rem; border-radius: 14px 14px 0 0; background: var(--fc); color: var(--fi); font: 900 .95rem/1 var(--f-display); }
-.site-moses .srv-row .srv-name { font: 900 clamp(1.45rem, 2.5vw, 2.25rem)/1 var(--f-display); letter-spacing: -.035em; color: inherit !important; overflow-wrap: break-word; hyphens: auto; }
+.site-moses .srv-row .srv-name { font: 900 clamp(1.2rem, 1.9vw, 1.7rem)/1.05 var(--f-display); letter-spacing: -.03em; color: inherit !important; overflow-wrap: break-word; hyphens: auto; }
 .site-moses .srv-row .srv-go { background: var(--fi); color: var(--fc); }
-.site-moses .srv-row:nth-child(4) .srv-go { background: #0B2545; color: #FFFFFF; }
+.site-moses .srv-row:nth-child(4n) .srv-go { background: #0B2545; color: #FFFFFF; }
 .site-moses .srv-row:hover, .site-moses .srv-row:focus-visible { transform: translateY(-6px); }
 .site-moses .srv-row.on { outline: 3px solid #FFFFFF; outline-offset: 4px; }
-@media (max-width: 900px) { .site-moses .srv-list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 54px; } .site-moses .srv-row { min-height: 210px; } }
-@media (max-width: 640px) { .site-moses .srv-row { min-height: 180px; padding: 1rem .9rem; grid-template-columns: none; } .site-moses .srv-row .srv-name { font-size: clamp(1rem, 4.9vw, 1.4rem); } .site-moses .srv-row .srv-go { font-size: .85rem; padding: .5rem .8rem; } }
+.site-moses .srv-row.srv-more { --fc: transparent; --fi: #FFFFFF; border: 2px dashed rgba(255,255,255,.45); box-shadow: none; }
+.site-moses .srv-row.srv-more .srv-n { border: 2px dashed rgba(255,255,255,.45); border-bottom: 0; top: -42px; }
+.site-moses .srv-row.srv-more .srv-go { background: #C6F432; color: #0B2545; }
+@media (max-width: 900px) { .site-moses .srv-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .site-moses .srv-row { min-height: 180px; } }
+@media (max-width: 640px) { .site-moses .srv-row { min-height: 160px; padding: 1rem .9rem; grid-template-columns: none; } .site-moses .srv-row .srv-name { font-size: clamp(.92rem, 4.4vw, 1.3rem); } .site-moses .srv-row .srv-go { font-size: .85rem; padding: .5rem .8rem; } }
 @media (min-width: 1041px) and (max-width: 1500px) {
   .site-moses { --hdr: 116px; }
   .site-moses .nav { display: none; }
@@ -2033,7 +2036,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
   </section>
   <section class="serve" id="serve">
     <div class="wrap">
-      <div class="srv-head"><div class="eyebrow" data-i18n="srv.k">Who we build for</div><p data-i18n="srv.sub">Click yours. A short video shows what our agents do for you.</p></div>
+      <div class="srv-head"><div class="eyebrow" data-i18n="srv.k">Industries we serve</div><p data-i18n="srv.sub">Click yours to see what our agents do for you.</p></div>
       <div id="srvbox"></div>
     </div>
   </section>
@@ -4733,9 +4736,9 @@ const T = {
   "mv.case": "Case study",
   "loc.k": "Offices",
   "loc.t": "New York · Memphis · Miami",
-  "srv.k": "Who we build for",
-  "srv.sub": "Click yours. A short video shows what our agents do for you.",
-  "srv.click": "Click here",
+  "srv.k": "Industries we serve",
+  "srv.sub": "Click yours to see what our agents do for you.",
+  "srv.click": "Explore",
   "srv.does": "What it does",
   "srv.agents": "Agents we build for you",
   "srv.play": "Play",
@@ -4814,6 +4817,9 @@ const T = {
   ],
   "srv.meet": "Meet {p}.",
   "srv.also": "We also build",
+  "srv.watch": "Watch",
+  "srv.yours": "Don't see yours?",
+  "srv.ask": "Ask us",
   "abk.n": "AbraKadabra",
   "abk.k": "Our proposal app",
   "abk.tag": "From idea to proposal, with a full video presentation, in minutes.",
@@ -7159,9 +7165,9 @@ const T = {
   "mv.case": "קעיס סטאדי",
   "loc.k": "אפיסעס",
   "loc.t": "ניו יארק · מעמפיס · מייאמי",
-  "srv.k": "פאר וועמען מיר בויען",
-  "srv.sub": "קליקט אויף אייערס. א קורצע ווידעא ווייזט וואס אונזערע אגענטן טוען פאר אייך.",
-  "srv.click": "קליקט דא",
+  "srv.k": "אינדוסטריעס וואס מיר באדינען",
+  "srv.sub": "קליקט אויף אייערס צו זען וואס אונזערע אגענטן טוען פאר אייך.",
+  "srv.click": "זעט מער",
   "srv.does": "וואס עס טוט",
   "srv.agents": "אגענטן וואס מיר בויען פאר אייך",
   "srv.play": "שפילט",
@@ -7240,6 +7246,9 @@ const T = {
   ],
   "srv.meet": "באקענט זיך מיט {p}.",
   "srv.also": "מיר בויען אויך",
+  "srv.watch": "קוקט",
+  "srv.yours": "זעט נישט אייערס?",
+  "srv.ask": "פרעגט אונז",
   "abk.n": "AbraKadabra",
   "abk.k": "אונזער פראפאזעל עפ",
   "abk.tag": "פון א געדאנק ביז א פראפאזעל, מיט א פולע ווידעא פרעזענטאציע, אין מינוטן.",
@@ -9585,9 +9594,9 @@ const T = {
   "mv.case": "מקרה בוחן",
   "loc.k": "משרדים",
   "loc.t": "ניו יורק · ממפיס · מיאמי",
-  "srv.k": "למי אנחנו בונים",
-  "srv.sub": "לחצו על התחום שלכם. סרטון קצר מראה מה הסוכנים שלנו עושים בשבילכם.",
-  "srv.click": "לחצו כאן",
+  "srv.k": "התחומים שאנחנו משרתים",
+  "srv.sub": "לחצו על התחום שלכם כדי לראות מה הסוכנים שלנו עושים בשבילכם.",
+  "srv.click": "גלו",
   "srv.does": "מה הוא עושה",
   "srv.agents": "סוכנים שאנחנו בונים בשבילכם",
   "srv.play": "הפעלה",
@@ -9666,6 +9675,9 @@ const T = {
   ],
   "srv.meet": "הכירו את {p}.",
   "srv.also": "אנחנו בונים גם",
+  "srv.watch": "צפו",
+  "srv.yours": "לא מוצאים את התחום שלכם?",
+  "srv.ask": "שאלו אותנו",
   "abk.n": "AbraKadabra",
   "abk.k": "אפליקציית ההצעות שלנו",
   "abk.tag": "מרעיון להצעה, עם מצגת וידאו מלאה, בתוך דקות.",
@@ -12011,9 +12023,9 @@ const T = {
   "mv.case": "Caso de estudio",
   "loc.k": "Oficinas",
   "loc.t": "Nueva York · Memphis · Miami",
-  "srv.k": "Para quién construimos",
-  "srv.sub": "Haga clic en el suyo. Un video corto muestra lo que nuestros agentes hacen por usted.",
-  "srv.click": "Haga clic aquí",
+  "srv.k": "Industrias que atendemos",
+  "srv.sub": "Haga clic en la suya para ver lo que nuestros agentes hacen por usted.",
+  "srv.click": "Explorar",
   "srv.does": "Lo que hace",
   "srv.agents": "Agentes que construimos para usted",
   "srv.play": "Reproducir",
@@ -12092,6 +12104,9 @@ const T = {
   ],
   "srv.meet": "Conozca {p}.",
   "srv.also": "También construimos",
+  "srv.watch": "Ver",
+  "srv.yours": "¿No ve la suya?",
+  "srv.ask": "Pregúntenos",
   "abk.n": "AbraKadabra",
   "abk.k": "Nuestra app de propuestas",
   "abk.tag": "De la idea a la propuesta, con una presentación en video completa, en minutos.",
@@ -13821,6 +13836,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 (function () {
   const SEG = [{"ph": "472786860", "prod": null, "also": [7, 9, 0], "durs": [4270, 8260, 3700, 7200, 5150]}, {"ph": "227055653", "prod": 6, "also": [5, 10, 0], "durs": [3970, 8260, 3400, 5480, 6390]}, {"ph": "297124769", "prod": 1, "also": [7, 8, 12], "durs": [2790, 8480, 3980, 7460, 5250]}, {"ph": "689022973", "prod": 13, "also": [2, 4, 8], "durs": [4030, 7820, 4060, 3380, 7310]}];
+  /* industry folder -> its video: real estate = asset managers, healthcare = senior living, finance = mortgage brokers */
+  const IND_SEG = { 0: 1, 1: 3, 3: 0 };
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const IC = { play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>', replay: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
     snd1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>', snd0: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="m22 9-6 6M16 9l6 6"/></svg>' };
@@ -13882,7 +13899,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const segs = t("srv.seg"); if (!Array.isArray(segs)) return;
     const keep = sc, was = playing;
     if (au) au.pause();
-    box.innerHTML = `<div class="srv-list">${segs.map((g, i) => `<button type="button" class="srv-row${i === cur ? " on" : ""}" data-seg="${i}" aria-expanded="${i === cur}" aria-controls="srvpan"><span class="srv-n">0${i + 1}</span><span class="srv-name">${E(g.n)}</span><span class="srv-go">${E(t("srv.click"))} <span class="srv-ar">→</span></span></button>`).join("")}</div><div class="srv-pan" id="srvpan"${cur < 0 ? " hidden" : ""}>${cur < 0 ? "" : panel(cur)}</div>`;
+    box.innerHTML = `<div class="srv-list">${(t("inds") || []).map((n, i) => { const sg = IND_SEG[i]; const on = sg != null && sg === cur; return `<button type="button" class="srv-row${on ? " on" : ""}" ${sg != null ? `data-seg="${sg}" aria-expanded="${on}" aria-controls="srvpan"` : `data-ind="${i}"`}><span class="srv-n">${String(i + 1).padStart(2, "0")}</span><span class="srv-name">${E(n.replace(/-/g, "\u2011"))}</span><span class="srv-go">${E(t(sg != null ? "srv.watch" : "srv.click"))} <span class="srv-ar">→</span></span></button>`; }).join("")}<button type="button" class="srv-row srv-more" data-contact><span class="srv-n">+</span><span class="srv-name">${E(t("srv.yours"))}</span><span class="srv-go">${E(t("srv.ask"))} <span class="srv-ar">→</span></span></button></div><div class="srv-pan" id="srvpan"${cur < 0 ? " hidden" : ""}>${cur < 0 ? "" : panel(cur)}</div>`;
     wire();
     if (stage) { show(Math.min(keep, N - 1)); bar.style.width = (START[sc] / TOT * 100) + "%"; playing = was; if (was) { t0 = performance.now(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); syncA(); } setPP(); }
   };
@@ -13896,7 +13913,7 @@ document.addEventListener("DOMContentLoaded", () => {
     show(0); play();
     try { track("segment_" + i); } catch (x) {}
   }
-  document.addEventListener("click", e => { const r = e.target.closest(".srv-row"); if (r) { e.preventDefault(); open(+r.dataset.seg); } });
+  document.addEventListener("click", e => { const r = e.target.closest(".srv-row[data-seg]"); if (r) { e.preventDefault(); open(+r.dataset.seg); } });
   addEventListener("pagehide", () => { if (au) au.pause(); });
   document.addEventListener("click", e => { if (e.target.closest("[data-go], [data-folder], .nav button, [data-home]") && !e.target.closest(".srv-row")) pause(); }, true);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => window.srvRender()); else window.srvRender();

@@ -4998,10 +4998,10 @@ const T = {
    [
     "Month to month",
     "$249 a month",
-    "No commitment"
+    "+ $1,999 one-time build fee"
    ]
   ],
-  "fw.after_note": "Every website is managed by us. Pick the plan that fits.",
+  "fw.after_note": "The build is free on a 12- or 24-month plan. Month to month adds a one-time build fee. Every website is managed by us.",
   "fw.form_h": "Get started",
   "fw.pick": "Management plan after the 60 days",
   "fw.pick_none": "Not sure yet",
@@ -7424,10 +7424,10 @@ const T = {
    [
     "חודש צו חודש",
     "$249 א חודש",
-    "קיין התחייבות"
+    "+ $1,999 איינמאליגע בוי פיס"
    ]
   ],
-  "fw.after_note": "יעדער וועבסייט ווערט געפירט דורך אונז. קלייבט דעם פלאן וואס פאסט.",
+  "fw.after_note": "דער בוי איז אומזיסט מיט א 12 אדער 24 חודשים פלאן. חודש צו חודש לייגט צו אן איינמאליגע בוי פיס. יעדער וועבסייט ווערט געפירט דורך אונז.",
   "fw.form_h": "הייבט אן",
   "fw.pick": "מענעדזשמענט פלאן נאך די 60 טעג",
   "fw.pick_none": "נאך נישט זיכער",
@@ -9850,10 +9850,10 @@ const T = {
    [
     "חודש לחודש",
     "$249 לחודש",
-    "בלי התחייבות"
+    "+ $1,999 דמי בנייה חד־פעמיים"
    ]
   ],
-  "fw.after_note": "כל אתר מנוהל על ידינו. בחרו את התוכנית שמתאימה לכם.",
+  "fw.after_note": "הבנייה בחינם בתוכנית ל-12 או 24 חודשים. בחודש לחודש נוספים דמי בנייה חד־פעמיים. כל אתר מנוהל על ידינו.",
   "fw.form_h": "מתחילים",
   "fw.pick": "תוכנית ניהול אחרי 60 הימים",
   "fw.pick_none": "עוד לא בטוח",
@@ -12276,10 +12276,10 @@ const T = {
    [
     "Mes a mes",
     "$249 al mes",
-    "Sin compromiso"
+    "+ $1,999 de construcción, pago único"
    ]
   ],
-  "fw.after_note": "Nosotros gestionamos cada sitio web. Elija el plan que le convenga.",
+  "fw.after_note": "La construcción es gratis con un plan de 12 o 24 meses. Mes a mes suma un pago único de construcción. Nosotros gestionamos cada sitio web.",
   "fw.form_h": "Empecemos",
   "fw.pick": "Plan de gestión después de los 60 días",
   "fw.pick_none": "Aún no lo sé",
@@ -14153,7 +14153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!name || !okMail(email) || !(v("fw-biz") || v("fw-site"))) { err.textContent = t("fw.err"); err.hidden = false; return; }
     err.hidden = true;
     const feats = [...document.querySelectorAll('input[name="fw-f"]:checked')].map(x => T.en["wb.feats"][+x.value]);
-    const lines = ["Free website DESIGNS request: make 10 designs, email the first 5 within 24 hours", "Business: " + (v("fw-biz") || "-") + (v("fw-type") ? " (" + v("fw-type") + ")" : ""), "Current website: " + (none ? "none yet" : (v("fw-site") || "-")), "Improve / wants: " + (need || "-"), "Features: " + (feats.join(", ") || "-"), "After 60 days: " + (v("fw-pick") === "x" ? "not sure yet" : (en => en[0] + ", " + en[1])(T.en["fw.opts"][+v("fw-pick")])), "Name: " + name, "Email: " + email, "Phone: " + (v("fw-phone") || "-"), "Site language: " + lang];
+    const lines = ["Free website DESIGNS request: make 10 designs, email the first 5 within 24 hours", "Business: " + (v("fw-biz") || "-") + (v("fw-type") ? " (" + v("fw-type") + ")" : ""), "Current website: " + (none ? "none yet" : (v("fw-site") || "-")), "Improve / wants: " + (need || "-"), "Features: " + (feats.join(", ") || "-"), "After 60 days: " + (v("fw-pick") === "x" ? "not sure yet" : (en => en[0] + ", " + en[1] + (+v("fw-pick") === 2 ? " " + en[2] : ""))(T.en["fw.opts"][+v("fw-pick")])), "Name: " + name, "Email: " + email, "Phone: " + (v("fw-phone") || "-"), "Site language: " + lang];
     const data = { name, email, phone: v("fw-phone"), company: v("fw-biz"), message: lines.join("\n"), language: lang, source: location.hostname || CONFIG.site, sentAt: new Date().toISOString() };
     btn.disabled = true;
     try {

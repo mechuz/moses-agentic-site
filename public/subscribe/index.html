@@ -262,7 +262,18 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
   /* pre-select from the link: ?p=website-24,smm-12,agent-coo  (?c= is a reference carried into the request) */
   var q = new URLSearchParams(location.search), ref = (q.get("c") || "").replace(/[^a-z0-9-]/gi, "").slice(0, 80);
   (q.get("p") || "").split(",").forEach(function (code) {
-    code = code.trim().toLowerCase(); if (!code) return;
+    var raw = code.trim(); code = raw.toLowerCase(); if (!code) return;
+    var xp = code.match(/^xplat-(\d{1,2})$/);
+    if (xp) { $("#xplat").value = Math.max(0, Math.min(10, +xp[1])); $('.svc[data-svc="smm"] input[type=checkbox]').checked = true; return; }
+    var cu = raw.match(/^agent-(tool|specialist|advanced|executive)~(.+)$/i);
+    if (cu) {
+      var nm = ""; try { nm = decodeURIComponent(cu[2]); } catch (e) { nm = cu[2]; }
+      nm = nm.replace(/[^A-Za-z0-9 &,.'-]/g, "").replace(/\s+/g, " ").trim().slice(0, 60); if (!nm) return;
+      var pr = { tool: 299, specialist: 499, advanced: 599, executive: 799 }[cu[1].toLowerCase()], n = $$('.svc[data-svc^="custom-"]').length;
+      if (n >= 12) return;
+      $("#agents").insertAdjacentHTML("afterbegin", '<label class="svc" data-svc="custom-' + n + '" data-price="' + pr + '"><input type="checkbox" checked><b>' + E(nm) + '</b><span class="price">' + fmt(pr) + '<small>/mo</small></span><p>From your proposal.</p></label>');
+      return;
+    }
     var m = code.match(/^(website|smm)-(24|12|m2m)$/);
     if (m) { var row = $('.svc[data-svc="' + m[1] + '"]'); row.querySelector("input[type=checkbox]").checked = true; var r = row.querySelector('input[type=radio][value="' + m[2] + '"]'); if (r) r.checked = true; return; }
     var a = $('.svc[data-svc="' + code + '"]'); if (a) a.querySelector("input[type=checkbox]").checked = true;

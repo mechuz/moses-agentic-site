@@ -103,6 +103,7 @@ html.flash body::after { content:""; position:fixed; inset:0; z-index:70; backgr
 .brand { display:flex; align-items:center; gap:.55rem; font:700 1.2rem var(--f-display); letter-spacing:-.03em; text-decoration:none; white-space:nowrap; direction:ltr; }
 .mark { display:grid; place-items:center; width:32px; height:32px; border-radius:9px; background:linear-gradient(135deg, var(--indigo), var(--tehelet) 60%, var(--aqua)); color:var(--wh); font:800 .78rem var(--f-body); letter-spacing:0; flex:none; }
 .nav { display:flex; gap:1.6rem; margin-inline-start:auto; }
+.nav a.nav-ins { color:var(--mute); font:500 .98rem var(--f-body); text-decoration:none; padding:.3rem 0; transition:color .15s; } .nav a.nav-ins:hover { color:var(--ink); }
 .nav button { background:none; border:0; color:var(--mute); font:500 .98rem var(--f-body); cursor:pointer; padding:.3rem 0; transition:color .15s; }
 .nav button:hover { color:var(--ink); }
 .langs { display:flex; gap:2px; padding:3px; border-radius:999px; background:var(--soft); }
@@ -2124,6 +2125,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
       <button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false" data-i18n="nav.ind">Industries</button>
       <button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false" data-i18n="nav.cases">Case Studies</button>
       <button type="button" class="nav-price" data-pricing data-i18n="nav.price">Pricing</button>
+    <a class="nav-ins" href="/blog/">Insights</a>
     </nav>
     <div class="langs" role="group" aria-label="Language" id="langs"></div>
     <a class="teamlink" href="https://airtable.com/appzqMaRLQZQDcAMU" target="_blank" rel="noopener" title="Team prospect tracker (Max and Eddie)" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
@@ -2572,7 +2574,7 @@ const CONFIG = {
   site: "moses",                        // "moses" = mosesagentic.com, "chocham" = chochamai.com (set by the build)
   mosesUrl: "https://mosesagentic.com/",
   chochamUrl: "https://chochamai.com/",
-  contactEndpoint: "",                  // Formspree (or similar) URL for consultation requests; they POST here as JSON
+  contactEndpoint: "https://hooks.zapier.com/hooks/catch/27563206/tHNY93KrYmljtGhD/",                  // Formspree (or similar) URL for consultation requests; they POST here as JSON
   web3formsKey: "",
   pay: {},
   email: "welcome@mosesagentic.com",            // company inbox (Google Workspace)                     // Web3Forms access key (public by design); each request is emailed to the owner

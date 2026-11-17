@@ -1,0 +1,57 @@
+name: Publish approved articles and news
+
+# Reads approved, due blog articles (Content Items, Channel = Blog) and news items
+# from the Moses Agentic Marketing base in Airtable, renders them into public/blog/
+# and public/news/, rebuilds the index pages, feeds and sitemap, commits to main and
+# lets the Pages deploy run. Needs the AIRTABLE_TOKEN repository secret; without it
+# the run exits quietly. Rows are marked Published only after the push succeeded, so
+# a failed run is retried on the next schedule.
+
+on:
+  schedule:
+    - cron: '35 14 * * *'   # daily, 9:35 AM Eastern in winter, 10:35 AM in summer
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Prepare approved articles and news items from Airtable
+        id: prepare
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+          MANIFEST: ${{ runner.temp }}/publish-manifest.json
+          MAX_POSTS: "2"
+          MAX_NEWS: "5"
+        run: python3 scripts/publish_from_airtable.py prepare
+
+      - name: Commit and push to main
+        if: steps.prepare.outputs.count != '0'
+        env:
+          MSG: ${{ steps.prepare.outputs.commit_message }}
+        run: |
+          git config user.name "Moses Agentic Marketing Agent"
+          git config user.email "welcome@mosesagentic.com"
+          git add content public/blog public/news public/feed.xml public/sitemap.xml
+          test -d public/assets/img/blog && git add public/assets/img/blog || true
+          git commit -m "$MSG"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Mark the rows published in Airtable
+        if: steps.prepare.outputs.finalize != '0'
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+          MANIFEST: ${{ runner.temp }}/publish-manifest.json
+        run: python3 scripts/publish_from_airtable.py finalize

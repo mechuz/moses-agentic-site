@@ -2471,7 +2471,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
 
   <section id="series" class="center" style="padding-top:0">
     <div class="wrap">
-      <div class="head rise"><div class="eyebrow" data-i18n="series.kicker">The program</div><h2 class="h2" data-i18n="series.title">Eight seminars. Eight hours.</h2><p class="lead" data-i18n="series.sub">One hour each, every other week at each location. Start with Seminar 1. By Seminar 8 you build your own AI staff and see how AI runs a business.</p></div>
+      <div class="head rise"><div class="eyebrow" data-i18n="series.kicker">The program</div><h2 class="h2" data-i18n="series.title">Eight seminars. Eight hours.</h2><p class="lead" data-i18n="series.sub">One hour each, every other week at each location. Start with Seminar 1. By Seminar 8 you build your own agent and see how AI runs a business.</p></div>
       <ol class="road rise" id="road"></ol>
     </div>
   </section>
@@ -3118,7 +3118,7 @@ const T = {
   "save.note": "An estimate based on 50 working weeks. Your results depend on your business and how you use AI.",
   "series.kicker": "The program",
   "series.title": "Eight seminars. Eight hours.",
-  "series.sub": "One hour each, every other week at each location. Start with Seminar 1. By Seminar 8 you build your own AI staff and see how AI runs a business.",
+  "series.sub": "One hour each, every other week at each location. Start with Seminar 1. By Seminar 8 you build your own agent and see how AI runs a business.",
   "road": [
    [
     "The big picture",
@@ -3145,7 +3145,7 @@ const T = {
     "Connect email, spreadsheets, accounting and your CRM so routine work runs on its own, with no code."
    ],
    [
-    "Build your first AI staff",
+    "Build your first agent",
     "Plan, build and test an agent that does a real job for you, with tools, rules and your approval."
    ],
    [
@@ -3186,7 +3186,7 @@ const T = {
    ],
    [
     "Will I learn everything in one night?",
-    "No. It's eight one-hour seminars. Seminar 1 gets you started; by Seminar 8 you build your own AI staff."
+    "No. It's eight one-hour seminars. Seminar 1 gets you started; by Seminar 8 you build your own agent."
    ],
    [
     "Is there an online option?",
@@ -4684,9 +4684,9 @@ const T = {
     ]
    ],
    [
-    "Build your first AI staff",
+    "Build your first agent",
     [
-     "What AI staff is",
+     "What an agent is",
      "An agent that does a real job for you",
      "Rules and your approval, built in"
     ]
@@ -4706,7 +4706,7 @@ const T = {
   "val.go": "Book my seat",
   "val.list": [
    [
-    "Build AI staff and agents",
+    "Build AI staff",
     "Set up AI that answers, follows up, schedules and handles work around the clock."
    ],
    [
@@ -5212,7 +5212,7 @@ const T = {
    ],
    [
     "Step by step, hands on",
-    "Eight one-hour seminars. You start with the basics, and by the last one you build your own AI staff."
+    "Eight one-hour seminars. You start with the basics, and by the last one you build your own agent."
    ],
    [
     "Questions answered live",
@@ -14066,7 +14066,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
       const L2 = (list, arr) => (arr || []).map(c => label(list, c)).filter(Boolean).join(", ");
       const ind = label(en.industries, st.industry), size = st.size ? en.sizes[+st.size] : "", dept = label(en.depts, st.dept);
       buildPrompt = ["AGENT BUILD PROMPT",
-        "Build AI staff for " + (st.company.trim() || "a new client") + (ind ? ", a business in " + ind.toLowerCase() : "") + (size ? ", team size " + size : "") + ".",
+        "Build an agent for " + (st.company.trim() || "a new client") + (ind ? ", a business in " + ind.toLowerCase() : "") + (size ? ", team size " + size : "") + ".",
         base ? "Start from our " + base + " agent and tailor it to this client." : "This is a new role, built from scratch.",
         (st.jd || "").trim() ? "The client sent a job description for this role (below). Treat it as the role definition: duties, responsibilities and standards." : "",
         (st.jdag || []).length ? "Agents to build for this role (read from the job description): " + st.jdag.map(k => ((Q_EN().jd_agents || {})[k] || [k])[0]).join(", ") + "." : "",

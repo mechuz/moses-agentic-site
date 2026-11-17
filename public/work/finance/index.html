@@ -2065,6 +2065,19 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
 /* no request forms on the service pages: the plan buttons go to checkout */
 .fsheet[data-f="free"] .agx form, .fsheet[data-f="smm"] .agx form, .fsheet[data-f="free"] .agx .ag-h:has(+ form), .fsheet[data-f="smm"] .agx .ag-h:has(+ form) { display: none !important; }
 .ag-plan i { background: #C6F432; color: #0B2545; border-color: #C6F432; }
+/* websites we've built: interactive tombstones */
+.pf { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.4rem); }
+@media (max-width: 700px) { .pf { grid-template-columns: minmax(0, 1fr); } }
+.pf-t { display: block; text-decoration: none; color: #FFFFFF; border-radius: 20px; overflow: hidden; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); transition: transform .3s cubic-bezier(.2,1.2,.4,1), border-color .2s, box-shadow .3s; }
+.pf-t:hover, .pf-t:focus-visible { transform: translateY(-8px); border-color: #C6F432; box-shadow: 0 30px 60px -30px rgba(0,0,0,.7); }
+.pf-img { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #0A1E38; }
+.pf-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.pf-t:hover .pf-img img { transform: scale(1.06); }
+.pf-b { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .15rem 1rem; align-items: center; padding: 1rem 1.2rem 1.1rem; }
+.pf-b b { font: 900 clamp(1.1rem, 2vw, 1.5rem)/1.1 var(--f-display); letter-spacing: -.03em; }
+.pf-b em { grid-column: 1; font: 600 .9rem var(--f-body); font-style: normal; color: rgba(255,255,255,.65); }
+.pf-b i { grid-column: 2; grid-row: 1 / span 2; font: 800 .9rem var(--f-body); font-style: normal; background: #C6F432; color: #0B2545; border-radius: 999px; padding: .55rem .95rem; white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .pf-t, .pf-img img { transition: none; } }
 /* ===== industries: the big folders ===== */
 .site-moses .srv-drawer { height: clamp(380px, 52svh, 520px); margin-top: clamp(1rem, 2vw, 1.6rem); }
 .site-moses .srv-drawer + .srv-drawer { margin-top: clamp(.6rem, 1.4vw, 1.2rem); }
@@ -5156,6 +5169,14 @@ const T = {
   "fw.pick": "Your plan",
   "fw.pick_none": "Not sure yet",
   "fw.big": "Your new website, designed in 24 hours.",
+  "fw.pf_h": "Websites we've built",
+  "fw.pf_go": "Visit site",
+  "fw.pf_k": [
+   "Senior living",
+   "Assisted living",
+   "Healthcare consulting",
+   "School"
+  ],
   "diy.k": "Why not do it yourself?",
   "diy.h": "Yes, you can. Here's why businesses still hire us.",
   "diy.items": [
@@ -7686,6 +7707,14 @@ const T = {
   "fw.pick": "אייער פלאן",
   "fw.pick_none": "נאך נישט זיכער",
   "fw.big": "אייער נייער וועבסייט, דיזיינט אין 24 שעות.",
+  "fw.pf_h": "וועבסייטס וואס מיר האבן געבויט",
+  "fw.pf_go": "באזוכט דעם סייט",
+  "fw.pf_k": [
+   "סיניער ליווינג",
+   "אסיסטעד ליווינג",
+   "העלטקעיר קאנסאלטינג",
+   "ישיבה"
+  ],
   "diy.k": "פארוואס נישט טון אליין?",
   "diy.h": "יא, איר קענט. אט איז פארוואס ביזנעסער נעמען אונז פונדעסטוועגן.",
   "diy.items": [
@@ -10216,6 +10245,14 @@ const T = {
   "fw.pick": "התוכנית שלכם",
   "fw.pick_none": "עוד לא בטוח",
   "fw.big": "האתר החדש שלכם, מעוצב תוך 24 שעות.",
+  "fw.pf_h": "אתרים שבנינו",
+  "fw.pf_go": "לאתר",
+  "fw.pf_k": [
+   "דיור מוגן",
+   "דיור מוגן",
+   "ייעוץ בתחום הבריאות",
+   "ישיבה"
+  ],
   "diy.k": "למה לא לעשות את זה לבד?",
   "diy.h": "כן, אפשר. הנה למה עסקים בכל זאת בוחרים בנו.",
   "diy.items": [
@@ -12746,6 +12783,14 @@ const T = {
   "fw.pick": "Su plan",
   "fw.pick_none": "Aún no lo sé",
   "fw.big": "Su nuevo sitio web, diseñado en 24 horas.",
+  "fw.pf_h": "Sitios web que hemos construido",
+  "fw.pf_go": "Visitar sitio",
+  "fw.pf_k": [
+   "Vivienda para mayores",
+   "Vida asistida",
+   "Consultoría de salud",
+   "Escuela"
+  ],
   "diy.k": "¿Por qué no hacerlo usted mismo?",
   "diy.h": "Sí, puede. Por esto las empresas igual nos contratan.",
   "diy.items": [
@@ -14705,6 +14750,8 @@ document.addEventListener("DOMContentLoaded", () => {
     put(`<div class="agx"><h1 class="ag-big">${E(t("fw.big"))}</h1>
       <p class="ag-lead">${E(t("fw.lead"))}</p>
       <p class="ag-val">${E(t("fw.value"))}</p>
+      <h2 class="ag-h">${E(t("fw.pf_h"))}</h2>
+      <div class="pf">${[["kirby", "The Pointe at Kirby Gate", "https://www.kirbygateliving.com"], ["hixson", "Regency House Hixson", "https://www.hixsonregencyhouse.com"], ["mainspring", "Mainspring Healthcare Partners", "https://mainspringhcp.com"], ["yakirei", "Yeshivah Yakirei Torah", "https://yakireitorah.org"]].map(([k, n, u], i) => `<a class="pf-t" href="${u}" target="_blank" rel="noopener"><span class="pf-img"><img loading="lazy" src="/photos/portfolio/${k}.webp" alt="${E(n)} website" width="960" height="600"></span><span class="pf-b"><b>${E(n)}</b><em>${E((t("fw.pf_k") || [])[i] || "")}</em><i>${E(t("fw.pf_go"))} ↗</i></span></a>`).join("")}</div>
       <ol class="ag-steps one">${t("fw.steps").map((x, i) => `<li><span>0${i + 1}</span><b>${E(x)}</b></li>`).join("")}</ol>
       <h2 class="ag-h">${E(t("fw.inc_h"))}</h2>
       <ul class="ag-inc">${t("fw.inc").map(x => `<li>${E(x)}</li>`).join("")}</ul>

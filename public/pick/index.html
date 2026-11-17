@@ -69,7 +69,7 @@ footer { color: var(--mut); font-size: .85rem; padding: 2rem 0 6rem; }
 <script>
 (function () {
   "use strict";
-  var KEY = "", MAIL = "welcome@mosesagentic.com", BRAND = "Moses Agentic", ENDPOINT = "";
+  var KEY = "", MAIL = "welcome@mosesagentic.com", BRAND = "Moses Agentic", ENDPOINT = "https://hooks.zapier.com/hooks/catch/27563206/tHNY93KrYmljtGhD/";
   var app = document.getElementById("app");
   var q = new URLSearchParams(location.search), c = (q.get("c") || "").replace(/[^a-z0-9-]/gi, "");
   var E = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (m) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]; }); };

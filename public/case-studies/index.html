@@ -103,7 +103,6 @@ html.flash body::after { content:""; position:fixed; inset:0; z-index:70; backgr
 .brand { display:flex; align-items:center; gap:.55rem; font:700 1.2rem var(--f-display); letter-spacing:-.03em; text-decoration:none; white-space:nowrap; direction:ltr; }
 .mark { display:grid; place-items:center; width:32px; height:32px; border-radius:9px; background:linear-gradient(135deg, var(--indigo), var(--tehelet) 60%, var(--aqua)); color:var(--wh); font:800 .78rem var(--f-body); letter-spacing:0; flex:none; }
 .nav { display:flex; gap:1.6rem; margin-inline-start:auto; }
-.nav a.nav-ins { color:var(--mute); font:500 .98rem var(--f-body); text-decoration:none; padding:.3rem 0; transition:color .15s; } .nav a.nav-ins:hover { color:var(--ink); }
 .nav button { background:none; border:0; color:var(--mute); font:500 .98rem var(--f-body); cursor:pointer; padding:.3rem 0; transition:color .15s; }
 .nav button:hover { color:var(--ink); }
 .langs { display:flex; gap:2px; padding:3px; border-radius:999px; background:var(--soft); }
@@ -1914,7 +1913,11 @@ body { top: 0 !important; }
 #mailnote { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 100001; max-width: min(560px, calc(100vw - 32px)); background: #0B2545; color: #FFFFFF; border-radius: 14px; padding: .9rem 1.1rem; font: 700 .98rem/1.4 var(--f-body); box-shadow: 0 20px 50px -20px rgba(0,0,0,.6); }
 
 /* ===== Social media marketing + Pricing pages ===== */
-.site-chocham .nav-smm, .site-chocham .nav-price { display: none !important; }
+.site-chocham .nav-smm, .site-chocham .nav-price, .site-chocham .nav-about { display: none !important; }
+.site-chocham .nav-ins { display: none !important; }
+.nav a.nav-ins { color: rgba(255,255,255,.82); font: 500 .98rem var(--f-body); text-decoration: none; padding: .3rem 0; white-space: nowrap; }
+.nav a.nav-ins:hover { color: #FFFFFF; }
+.tabstrip a.nav-ins { flex: none; display: inline-flex; align-items: center; min-height: 40px; padding: 0 1rem; border-radius: 999px; background: rgba(255,255,255,.12); color: #FFFFFF; font: 600 .95rem var(--f-body); text-decoration: none; white-space: nowrap; }
 .sv-notes { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; }
 .sv-notes li { position: relative; padding-inline-start: 1.1rem; font: 600 .95rem/1.45 var(--f-body); color: #3D5170; }
 .sv-notes li::before { content: ""; position: absolute; inset-inline-start: 0; top: .55em; width: .45rem; height: .45rem; border-radius: 50%; background: #1A73E8; }
@@ -2125,7 +2128,8 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
       <button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false" data-i18n="nav.ind">Industries</button>
       <button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false" data-i18n="nav.cases">Case Studies</button>
       <button type="button" class="nav-price" data-pricing data-i18n="nav.price">Pricing</button>
-    <a class="nav-ins" href="/blog/">Insights</a>
+      <a class="nav-ins" href="/blog/" data-i18n="nav.ins">Insights</a>
+      <button type="button" class="nav-about" data-about data-i18n="nav.about">About</button>
     </nav>
     <div class="langs" role="group" aria-label="Language" id="langs"></div>
     <a class="teamlink" href="https://airtable.com/appzqMaRLQZQDcAMU" target="_blank" rel="noopener" title="Team prospect tracker (Max and Eddie)" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
@@ -5323,7 +5327,20 @@ const T = {
   "smm.start_h": "Start",
   "ag.pick": "Choose",
   "ag.picked": "Selected",
-  "ag.checkout": "Continue to checkout"
+  "ag.checkout": "Continue to checkout",
+  "nav.about": "About",
+  "ab.big": "Let my people grow.",
+  "ab.lead": "The people behind Moses Agentic genuinely care about making your business better and helping it grow. That is what \"Let my people grow\" means: AI does the work, so your people can lead.",
+  "ab.exp_h": "Our edge",
+  "ab.exp": "We have deep, hands-on experience across industries. We know what is possible in each business, and which problems are worth solving.",
+  "ab.fields": [
+   "Banking and finance",
+   "Healthcare",
+   "Real estate",
+   "Operations"
+  ],
+  "ab.go": "Talk to us",
+  "nav.ins": "Insights"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -7839,7 +7856,20 @@ const T = {
   "smm.start_h": "הייבט אן",
   "ag.pick": "קלייבט",
   "ag.picked": "אויסגעקליבן",
-  "ag.checkout": "ווייטער צו טשעקאוט"
+  "ag.checkout": "ווייטער צו טשעקאוט",
+  "nav.about": "וועגן אונז",
+  "ab.big": "לאז מיין פאלק וואקסן.",
+  "ab.lead": "די מענטשן הינטער Moses Agentic ליגט עס באמת אין הארץ צו מאכן אייער ביזנעס בעסער און עס העלפן וואקסן. דאס מיינט \"לאז מיין פאלק וואקסן\": AI טוט די ארבעט, כדי אייערע מענטשן זאלן קענען פירן.",
+  "ab.exp_h": "אונזער מעלה",
+  "ab.exp": "מיר האבן טיפע, פראקטישע עקספיריענס אין פארשידענע אינדוסטריעס. מיר ווייסן וואס איז מעגליך אין יעדן ביזנעס, און וועלכע פראבלעמען עס לוינט זיך צו לייזן.",
+  "ab.fields": [
+   "בענקינג און פינאנץ",
+   "העלטקעיר",
+   "ריעל עסטעיט",
+   "אפערעישאנס"
+  ],
+  "ab.go": "רעדט מיט אונז",
+  "nav.ins": "אינסייטס"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -10355,7 +10385,20 @@ const T = {
   "smm.start_h": "מתחילים",
   "ag.pick": "בחירה",
   "ag.picked": "נבחר",
-  "ag.checkout": "המשך לתשלום"
+  "ag.checkout": "המשך לתשלום",
+  "nav.about": "אודות",
+  "ab.big": "שלח את עמי ויצמח.",
+  "ab.lead": "לאנשים שמאחורי Moses Agentic באמת אכפת לשפר את העסק שלכם ולעזור לו לצמוח. זו המשמעות של \"שלח את עמי ויצמח\": ה-AI עושה את העבודה, כדי שהאנשים שלכם יובילו.",
+  "ab.exp_h": "היתרון שלנו",
+  "ab.exp": "יש לנו ניסיון עמוק ומעשי במגוון תחומים. אנחנו יודעים מה אפשרי בכל עסק, ואילו בעיות שווה לפתור.",
+  "ab.fields": [
+   "בנקאות ופיננסים",
+   "בריאות",
+   "נדל״ן",
+   "תפעול"
+  ],
+  "ab.go": "דברו איתנו",
+  "nav.ins": "תובנות"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -12871,7 +12914,20 @@ const T = {
   "smm.start_h": "Empezar",
   "ag.pick": "Elegir",
   "ag.picked": "Elegido",
-  "ag.checkout": "Continuar al pago"
+  "ag.checkout": "Continuar al pago",
+  "nav.about": "Nosotros",
+  "ab.big": "Deja crecer a mi gente.",
+  "ab.lead": "A las personas detrás de Moses Agentic nos importa de verdad mejorar su negocio y ayudarlo a crecer. Eso significa \"Deja crecer a mi gente\": la IA hace el trabajo, para que su gente lidere.",
+  "ab.exp_h": "Nuestra ventaja",
+  "ab.exp": "Tenemos experiencia profunda y práctica en distintas industrias. Sabemos qué es posible en cada negocio y qué problemas vale la pena resolver.",
+  "ab.fields": [
+   "Banca y finanzas",
+   "Salud",
+   "Bienes raíces",
+   "Operaciones"
+  ],
+  "ab.go": "Hable con nosotros",
+  "nav.ins": "Ideas"
  }
 };
 
@@ -13130,7 +13186,7 @@ function render() {
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);
   $$(".bigstat, .bigstat-l, .bigline").forEach(el => el.hidden = !CONFIG.pagesExample);
   $("#tabstrip").innerHTML = (CONFIG.site === "chocham" ? [["education", "nav.home"]] : []).map(([v, k]) => `<button type="button" data-view="${v}" aria-current="${view === v ? "page" : "false"}">${esc(t(k))}</button>`).join("")
-    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="nav-free" data-freesite>${esc(t("nav.free"))}</button><button type="button" class="ask" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false">${esc(t("nav.hire"))}</button><button type="button" class="nav-smm" data-smm>${esc(t("nav.smm"))}</button><button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false">${esc(t("nav.services"))}</button><button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false">${esc(t("nav.ind"))}</button><button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false">${esc(t("nav.cases"))}</button><button type="button" class="nav-price" data-pricing>${esc(t("nav.price"))}</button>`)
+    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="nav-free" data-freesite>${esc(t("nav.free"))}</button><button type="button" class="ask" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false">${esc(t("nav.hire"))}</button><button type="button" class="nav-smm" data-smm>${esc(t("nav.smm"))}</button><button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false">${esc(t("nav.services"))}</button><button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false">${esc(t("nav.ind"))}</button><button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false">${esc(t("nav.cases"))}</button><button type="button" class="nav-price" data-pricing>${esc(t("nav.price"))}</button><a class="nav-ins" href="/blog/">${esc(t("nav.ins"))}</a><button type="button" class="nav-about" data-about>${esc(t("nav.about"))}</button>`)
     + (CONFIG.site === "chocham" ? [["seats", "nav.indiv"], ["consult", "nav.entp"], ["dates", "nav.dates"], ["semfaq", "faq.kicker"]] : []).map(([g, k]) => `<button type="button" data-go="${g}">${esc(t(k))}</button>`).join("")
     + `<button type="button" class="ask" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>${esc(t("chat.open"))}</button>`;
   $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : "");
@@ -14713,7 +14769,7 @@ window.mailFallback = function (subject, body) {
   const okMail = v => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
   const opts = k => `<div class="fw-opts">${t(k).map(([a, p, n]) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div>`;
   const notes = () => `<ul class="sv-notes">${t("smm.notes").map(n => `<li>${E(n)}</li>`).join("")}</ul>`;
-  const TITLE = { smm: "smm.h", pricing: "pr.h" };
+  const TITLE = { smm: "smm.h", pricing: "pr.h", about: "nav.about" };
   function open(mode, html) { window.pageOpen(mode, t(TITLE[mode]), html); }
   function smm(done) {
     if (done) return open("smm", `<div class="agx"><h1 class="ag-big">${E(t("cs2.done_t"))}</h1><p class="ag-lead fw-lead">${E(t("smm.done"))}</p></div>`);
@@ -14751,10 +14807,22 @@ window.mailFallback = function (subject, body) {
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.ag"))}</h3><div class="pr-tiers">${t("pr.tiers").map(([a, p, n]) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div><button type="button" class="btn aqua" data-pr-agents>${E(t("pr.ag_go"))} <span class="arrow">→</span></button></div>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.con"))}</h3><div class="pr-tiers one"><div class="fw-opt"><b>${E(t("pr.con"))}</b><em>${E(t("pr.con_p"))}</em><span>${E(t("pr.con_s"))}</span></div></div><button type="button" class="btn aqua" data-consult>${E(t("pr.con_go"))} <span class="arrow">→</span></button></div>`);
   }
+  function about() {
+    open("about", `<div class="agx"><h1 class="ag-big">${E(t("ab.big"))}</h1>
+      <p class="ag-lead">${E(t("ab.lead"))}</p>
+      <h2 class="ag-h">${E(t("ab.exp_h"))}</h2>
+      <p class="ag-lead ag-why">${E(t("ab.exp"))}</p>
+      <ul class="ag-inc" style="margin-top:1.6rem">${t("ab.fields").map(x => `<li>${E(x)}</li>`).join("")}</ul>
+      <h2 class="ag-h">${E(t("why.kicker"))}</h2>
+      <p class="ag-lead ag-why">${E(t("why.p1"))}</p><p class="ag-lead ag-why" style="margin-top:1rem !important">${E(t("why.p2"))}</p>
+      <button type="button" class="ag-go" data-contact style="margin-top:2.4rem">${E(t("ab.go"))} <span class="arrow">→</span></button></div>`);
+  }
+  window.aboutOpen = () => { about(); try { track("about_open"); } catch (x) {} };
   window.smmOpen = () => { smm(false); try { track("smm_open"); } catch (x) {} };
   window.pricingOpen = () => { pricing(); try { track("pricing_open"); } catch (x) {} };
   document.addEventListener("click", e => {
     if (e.target.closest("[data-smm]")) { e.preventDefault(); e.stopPropagation(); window.smmOpen(); return; }
+    if (e.target.closest("[data-about]")) { e.preventDefault(); e.stopPropagation(); window.aboutOpen(); return; }
     if (e.target.closest("[data-pricing]")) { e.preventDefault(); e.stopPropagation(); window.pricingOpen(); return; }
     if (e.target.closest("[data-pr-agents]")) { e.preventDefault(); e.stopPropagation(); const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = "store"; document.body.appendChild(go); go.click(); go.remove(); }
   }, true);

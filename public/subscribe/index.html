@@ -74,6 +74,19 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
 .total { display: none; }
 .total button { background: var(--navy); color: #fff; border: 0; font: 900 1.05rem var(--d); border-radius: 999px; padding: .85rem 1.5rem; white-space: nowrap; cursor: pointer; }
 @media (max-width: 860px) { .top { grid-template-columns: minmax(0, 1fr); } #f { position: static; } .total.show { display: block; } }
+#agr { display: grid; gap: 1.1rem; }
+#f:has(#agr:not([hidden])) { position: static; }
+.draft { margin: 0; background: #FFF1B8; color: #0B2545; font-weight: 700; font-size: .85rem; border-radius: 10px; padding: .6rem .8rem; }
+.agbox summary { cursor: pointer; font-weight: 800; color: var(--lime); }
+.agree { max-height: 320px; overflow: auto; margin-top: .7rem; background: #fff; color: #16263D; border-radius: 12px; padding: 14px 16px; font-size: .86rem; line-height: 1.5; }
+.agree h4 { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; margin: 14px 0 4px; color: #0B2545; }
+.agree p { margin: 0 0 8px; } .agree table { border-collapse: collapse; width: 100%; font-size: .78rem; margin: 4px 0 8px; } .agree th, .agree td { border: 1px solid #D5E2F0; padding: 5px 7px; text-align: left; vertical-align: top; }
+.agree .box { border: 1px solid #E0B54A; background: #FFF6E0; padding: 8px 10px; margin: 6px 0 8px; } .agree .tw { overflow-x: auto; } .agree mark { background: #FFF1B8; }
+.inits { display: grid; gap: .6rem; } .inits > span { color: rgba(255,255,255,.6); font: 700 .78rem/1.2 var(--b); letter-spacing: .14em; text-transform: uppercase; }
+.inits label { display: grid; grid-template-columns: minmax(0, 1fr) 72px; gap: 10px; align-items: center; font-size: .9rem; color: #fff; }
+.inits input { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.4); border-radius: 10px; padding: 8px; text-align: center; text-transform: uppercase; font: 800 1rem var(--b); letter-spacing: .1em; }
+.chk { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; } .chk input { width: 22px; height: 22px; flex: none; accent-color: var(--lime); margin-top: 1px; }
+#intake { max-width: 820px; background: none; border: 0; padding: 0; position: static; }
 .sales { margin-top: 3rem; color: var(--mut); font-size: .95rem; }
 .done h1 { max-width: 14ch; }
 @media (max-width: 640px) { .row { grid-template-columns: minmax(0, 1fr); } .svc { grid-template-columns: auto minmax(0, 1fr); } .svc .price { grid-column: 2; text-align: start; } }
@@ -94,10 +107,71 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
         <label class="f">Business name<input id="biz" autocomplete="organization"></label>
         <label class="f">Your name<input id="nm" autocomplete="name"></label>
         <label class="f">Email<input id="em" type="email" autocomplete="email"></label>
+        <div id="agr" hidden>
+          <label class="f">Your title<input id="ti" autocomplete="organization-title" placeholder="Owner"></label>
+          <p class="draft">Draft agreement, pending counsel review. Preview only: nothing is signed or charged.</p>
+          <details class="agbox"><summary>Read the Subscription Agreement</summary><div class="agree" tabindex="0"><h4>1. Services and prices</h4>
+<div class="tw"><table><tr><th>Service (prices per month)</th><th>24-month</th><th>12-month</th><th>Month to month</th></tr><tr><td><strong>Website</strong>, built and managed by us</td><td>$149, build free</td><td>$199, build free</td><td>$199 + $1,999 build</td></tr><tr><td><strong>Social media management &amp; distribution</strong></td><td>$499</td><td>$549</td><td>$599</td></tr><tr><td><strong>Agents</strong>, per agent (month to month only)</td><td colspan="3">Tool $299  ·  Specialist $499  ·  Advanced specialist $599  ·  Executive $799 (Chief Operating, Financial, Marketing or Investment Officer)</td></tr></table></div>
+
+<p><b class="n">1.1</b> <strong>Website.</strong> You choose from 5 designs, then get up to 5 rounds of changes. Every website is managed by us (hosting, updates and support). There is no self-managed option.</p>
+<p><b class="n">1.2</b> <strong>Social media.</strong> Covers Facebook, Instagram, Google Business Profile and Google Ads. We publish 2 posts a week on each channel, using content you supply. Each extra platform is $50 a month.</p>
+<p><b class="n">1.3</b> <strong>Agents.</strong> Ready-made agents we set up and maintain, for a flat monthly price per agent.</p>
+<p><b class="n">1.4</b> <strong>Extra work.</strong> Anything not listed above, such as more design changes or extra posts, is $150 an hour, and only with your approval.</p>
+<h4>2. What is not included</h4>
+<div class="box"><p><strong>NOT INCLUDED: CONTENT CREATION.</strong> You supply all photos, videos and copy. Content creation is a separate service, quoted on request.</p><p><strong>NOT INCLUDED: AD SPEND.</strong> You set your own ad budget and pay Google, Meta and others directly. We are not responsible for platform charges or decisions.</p></div>
+<h4>3. Billing</h4>
+<p>Billing starts the day you sign. Fees are paid by autopay, in advance, on the same day each month. You authorize us to charge your card or bank account on file for every amount due under this agreement. We do not offer financing; you may use a provider such as Klarna or Affirm on its own terms. Taxes are extra. All questions, including billing, go to welcome@mosesagentic.com; we communicate by email.</p>
+<h4>4. Missed payments</h4>
+<div class="box"><p class="bt">IF A PAYMENT FAILS</p><p><strong>Day 1:</strong> we retry your payment and send a reminder.</p><p><strong>Day 7:</strong> second retry and an email reminder. A late fee of $25 or 5% of the overdue amount, whichever is greater, is added.</p><p><strong>Day 15:</strong> your site is paused and all work stops.</p><p><strong>Day 30:</strong> the agreement ends, the early-exit amount (Section 5.2) is due, and the site is taken down.</p></div>
+
+<p>Unpaid amounts bear interest at 16% a year, or the legal maximum if lower. To restart paused services, you pay everything past due plus a $50 reinstatement fee. If you dispute a valid charge with your bank instead of contacting us (a chargeback), we may suspend services, you pay a $25 fee plus the processor’s fees, and the amount stays owed. We may refer unpaid amounts to a collection agency, and report them to credit agencies only as the law allows. You pay our reasonable collection costs. In any dispute, the winning side recovers its reasonable attorneys’ fees. You agree that we may email you about your account and billing at the email you gave us, and call or text you only if email goes unanswered.</p>
+<h4>5. Term, renewal and leaving</h4>
+<p><b class="n">5.1</b> <strong>Term.</strong> A 12- or 24-month term starts the day you sign. Month-to-month services renew each month.</p>
+<div class="box"><p class="bt">AUTOMATIC RENEWAL</p><p>When a 12- or 24-month term ends, it <strong>renews month to month</strong> at our then-current month-to-month price (today: website $199, social media $599) <strong>until you cancel</strong>. We will send you a written reminder, by email and certified mail, 15 to 30 days before your deadline to cancel (New York General Obligations Law § 5-903; General Business Law § 527-a).</p></div>
+
+<p><b class="n">5.2</b> <strong>Leaving a website plan early.</strong> Your free build is valued at $1,999, earned evenly over your term. If you leave a 12- or 24-month website plan early, switch it to month to month, or we end the agreement because you did not pay or breached it, you pay the unearned part: <strong>$1,999 × months left ÷ months in the term</strong> (6 months left of 24 = $499.75), plus anything already due. After that, or once your term is complete, month to month is $199 with no breakup fee.</p>
+<p><b class="n">5.3</b> <strong>Social media, agents and month to month.</strong> End any time on 30 days’ written notice, with no early-exit fee.</p>
+<p><b class="n">5.4</b> <strong>Plan changes.</strong> Upgrades start right away, prorated. Downgrades start when your current term ends.</p>
+<p><b class="n">5.5</b> <strong>How to cancel.</strong> Email welcome@mosesagentic.com. Cancelling does not erase amounts already owed.</p>
+<h4>6. Who owns what</h4>
+<p>Your website stays in our hosting and builder accounts until your term is complete and fully paid. After that, you may stay month to month or ask us in writing to transfer it. If the agreement ends early and unpaid, the site is taken down. You always own your domain name and your own content; we never hold your domain as security. Our tools, templates, code and agents stay ours; you may use them while you subscribe. You have 30 days after the agreement ends to export your data.</p>
+<h4>7. Agents</h4>
+<p>Agents can make mistakes. You review and approve anything important before you rely on it or send it. Nothing we or our agents provide is legal, tax, accounting or financial advice.</p>
+<h4>8. Your responsibilities</h4>
+<p>You will give us accurate information and timely access and approvals. If you do not reply within 5 business days after we ask for an approval, it is approved. You will supply only lawful content you have the rights to use. You are responsible for your own privacy policy and customer consents, and for the accessibility of your content on your website. You will not use the services for anything illegal, deceptive or against platform rules.</p>
+<h4>9. Other platforms</h4>
+<p>Shopify, Meta, Google, Stripe, hosting providers and other platforms have their own terms, which you must follow. We are not responsible for their outages, changes, fees or decisions, including account suspensions.</p>
+<h4>10. No guarantee of results</h4>
+<p>We do not promise any particular sales, search rankings, followers, leads or ad results.</p>
+<h4>11. Disclaimer of warranties</h4>
+<p><strong>WE WILL PERFORM THE SERVICES IN A PROFESSIONAL AND WORKMANLIKE MANNER. IF WE DO NOT AND YOU TELL US WITHIN 30 DAYS, WE WILL REDO THE WORK; THAT IS YOUR ONLY REMEDY. OTHERWISE, THE SERVICES, WEBSITES, AGENTS AND THEIR OUTPUT ARE PROVIDED “AS IS” AND “AS AVAILABLE.” WE DISCLAIM ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT AND ACCURACY, AND DO NOT PROMISE THE SERVICES WILL BE UNINTERRUPTED OR ERROR-FREE.</strong></p>
+<h4>12. Limitation of liability</h4>
+<p><strong>EXCEPT FOR GROSS NEGLIGENCE, WILLFUL MISCONDUCT OR FRAUD, AND TO THE FULLEST EXTENT THE LAW ALLOWS: (A) NEITHER SIDE IS LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR FOR LOST PROFITS, SALES OR DATA; AND (B) OUR TOTAL LIABILITY FOR ALL CLAIMS IS LIMITED TO THE FEES YOU PAID US IN THE 3 MONTHS BEFORE THE CLAIM AROSE. THESE LIMITS DO NOT REDUCE WHAT YOU OWE US UNDER SECTIONS 3 TO 5 AND 13.</strong></p>
+<h4>13. Your indemnity</h4>
+<p>You will defend, indemnify and hold harmless Moses Agentic and its people against third-party claims, including reasonable attorneys’ fees, arising from your content, your products and services, your ads, your compliance with law, or your breach of this agreement.</p>
+<h4>14. Confidentiality and data</h4>
+<p>Each side keeps the other’s confidential information private and uses it only for this agreement. We use reasonable safeguards for your data, as the New York SHIELD Act requires. Your data stays in your accounts and is never used to train AI models.</p>
+<h4>15. Suspension and termination</h4>
+<p>We may suspend services for non-payment (Section 4), misuse, or when a platform or the law requires it. Fees continue during a suspension you cause. Either side may end this agreement if the other commits a material breach and does not fix it within 30 days after written notice. We may end it at once for illegal use, fraud or abuse of our staff. When it ends, everything you owe is due at once.</p>
+<h4>16. No hiring our staff</h4>
+<p>During this agreement and for 12 months after, you will not solicit or hire any of our employees or contractors who worked on your account without our written consent.</p>
+<h4>17. Changes to these terms</h4>
+<p>We may change these terms only on 30 days’ written notice. If a change hurts you, you may leave before it takes effect without paying the early-exit amount. Committed prices never change during your term.</p>
+<h4>18. Disputes</h4>
+<p>New York law governs this agreement. <mark>[Forum for disputes: to be completed by counsel.]</mark> Either side may use small claims court. Claims against us must be brought within <mark>[1 year]</mark> after they arise, where the law allows. <strong>EACH SIDE WAIVES ANY RIGHT TO A JURY TRIAL. CLAIMS MAY BE BROUGHT ONLY INDIVIDUALLY, NOT IN A CLASS OR REPRESENTATIVE ACTION.</strong></p>
+<h4>19. General</h4>
+<p>Neither side is responsible for delays caused by events beyond its reasonable control (force majeure), but this does not excuse payment. We are an independent contractor. You may not assign this agreement without our written consent. Notices are given by email to the addresses on page 2. Electronic signatures and records are valid (New York Electronic Signatures and Records Act; federal E-SIGN Act). If any part is unenforceable, the rest stays in effect. Terms that by their nature should last, including payment, ownership, confidentiality, liability, indemnity and disputes, survive the end of this agreement. This is the entire agreement and replaces all earlier proposals and discussions.</p></div></details>
+          <div class="inits"><span>Initial each key term</span>
+            <label>Automatic renewal: committed plans continue month to month unless you cancel.<input id="i1" maxlength="4" autocomplete="off" aria-label="Initials: automatic renewal"></label>
+            <label>Missed payments: Day 1 retry, Day 7 late fee and email, Day 15 pause, Day 30 agreement ends.<input id="i2" maxlength="4" autocomplete="off" aria-label="Initials: missed payments"></label>
+            <label>Content creation and ad spend are not included.<input id="i3" maxlength="4" autocomplete="off" aria-label="Initials: not included"></label>
+            <label>Leaving a website plan early: you pay the unearned part of the $1,999 build value.<input id="i4" maxlength="4" autocomplete="off" aria-label="Initials: early exit"></label></div>
+          <label class="chk"><input type="checkbox" id="ok"><span>I have read and agree to the Subscription Agreement, and I agree to sign it electronically. Typing my name above is my signature.</span></label>
+        </div>
         <input id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="err" id="err" role="alert"></div>
         <button class="go" id="go" type="submit">Subscribe →</button>
-        <p class="fine">We email your agreement to sign and your payment link. Billing starts at signing.</p>
+        <p class="fine">Billing starts at signing.</p>
       </form>
     </div>
     <h2 id="more">Add or change services</h2>
@@ -126,7 +200,16 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
   <section id="done" class="done" hidden>
     <h1>You're in.</h1>
     <p class="lead" id="donemsg"></p>
-    <p class="lead"><a href="/">Back to mosesagentic.com</a></p>
+    <h2>Tell us about your business</h2>
+    <form id="intake" novalidate>
+      <div class="row"><label class="f">Website or domain<input id="n1" placeholder="yourbusiness.com"></label><label class="f">Social accounts<input id="n2" placeholder="Instagram, Facebook"></label></div>
+      <label class="f">Where are your photos, videos and brand files?<input id="n3" placeholder="Google Drive or Dropbox link"></label>
+      <label class="f">Your top goals for the next 90 days<input id="n4"></label>
+      <p class="fine">Never type passwords here. We send a secure link for logins.</p>
+      <div class="err" id="err2" role="alert"></div>
+      <button class="go" id="go3" type="submit">Send →</button>
+    </form>
+    <p class="lead" id="alldone" hidden>All set. We'll start on your services now.</p>
   </section>
 </main>
 <div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><button type="button" id="go2">Subscribe →</button></div></div>
@@ -134,6 +217,9 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
 (function () {
   "use strict";
   var ENDPOINT = "https://hooks.zapier.com/hooks/catch/27563206/tHNY93KrYmljtGhD/", MAIL = "welcome@mosesagentic.com";
+  /* AGREEMENT: "off" until counsel approves; "final" turns on signing for everyone. ?preview=1 shows the signing step as a preview (nothing is sent). */
+  var AGREEMENT = "off", VERSION = "short-2p-draft-2026-11-17", PAY = {};
+  var PREVIEW = AGREEMENT !== "final" && /[?&]preview=1/.test(location.search), SIGN = AGREEMENT === "final" || PREVIEW;
   var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
   var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
   var PRICE = { website: { "24": 149, "12": 199, m2m: 199 }, smm: { "24": 499, "12": 549, m2m: 599 } };
@@ -180,20 +266,42 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
   plan();
 
 
+  if (SIGN) { $("#agr").hidden = false; $("#go").textContent = "Sign and start subscription →"; $("#go2").textContent = "Sign and start →"; if (AGREEMENT === "final") { var dr = $(".draft"); if (dr) dr.remove(); } }
+  function sha(t) { return crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)).then(function (b) { return [].map.call(new Uint8Array(b), function (x) { return x.toString(16).padStart(2, "0"); }).join(""); }); }
   $("#f").addEventListener("submit", function (ev) {
     ev.preventDefault();
     var p = plan(), v = function (id) { return $("#" + id).value.trim(); }, err = $("#err"), go = $("#go");
     if (!p.items.length) { err.textContent = "Choose at least one service."; $("#more").scrollIntoView({ behavior: "smooth" }); return; }
     if (!v("biz") || !v("nm") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("em"))) { err.textContent = "Please add your business name, your name and your email."; var bad = ["biz", "nm", "em"].filter(function (i) { return !v(i); })[0] || "em"; $("#" + bad).focus(); $("#f").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
+    if (SIGN) {
+      if (["i1", "i2", "i3", "i4"].some(function (i) { return v(i).length < 2; })) { err.textContent = "Initial all four key terms (2 to 4 letters)."; return; }
+      if (!$("#ok").checked) { err.textContent = "Tick the box to agree and sign."; return; }
+    }
     err.textContent = "";
     var subject = "Moses Agentic subscription: " + v("biz") + ", " + fmt(p.m) + " a month";
     var lines = ["SUBSCRIPTION REQUEST: send the agreement to sign and the payment link", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-")]);
     var data = { kind: "subscription", hp: v("hp"), subject: subject, name: v("nm"), email: v("em"), phone: "", company: v("biz"), message: lines.join("\n"), language: "en", source: location.hostname };
-    function done() { $("#pick").hidden = true; $("#total").hidden = true; $("#done").hidden = false; $("#donemsg").textContent = "Thank you, " + v("nm") + ". Your plan is " + fmt(p.m) + " a month" + (p.one ? ", plus a " + fmt(p.one) + " one-time build" : "") + ". We'll email your agreement to sign and your payment link to " + v("em") + "."; scrollTo(0, 0); }
+    function done() { $("#pick").hidden = true; $("#total").hidden = true; $("#done").hidden = false; $("#donemsg").textContent = "Thank you, " + v("nm") + ". Your plan is " + fmt(p.m) + " a month" + (p.one ? ", plus a " + fmt(p.one) + " one-time build" : "") + "." + (PREVIEW ? " (Preview: nothing was signed or charged.)" : ""); window.__who = { name: v("nm"), email: v("em"), biz: v("biz") }; scrollTo(0, 0); }
     function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n")); setTimeout(done, 600); }
+    var payKey = p.items.length === 1 ? ($(".svc:not(.off)").dataset.svc + ($(".svc:not(.off) input[type=radio]:checked") ? "-" + $(".svc:not(.off) input[type=radio]:checked").value : "")) : "";
+    var after = function () { var l = PAY[payKey]; if (l && AGREEMENT === "final") location.href = l + (l.indexOf("?") > -1 ? "&" : "?") + "prefilled_email=" + encodeURIComponent(v("em")); else done(); };
+    if (PREVIEW) { done(); return; }
     go.disabled = true;
+    if (SIGN) { sha($(".agree").textContent).then(function (h) {
+      lines = lines.concat(["SIGNED ONLINE by " + v("nm") + (v("ti") ? ", " + v("ti") : "") + " for " + v("biz"), "Initials: " + ["i1", "i2", "i3", "i4"].map(v).join(" / "), "Signed at: " + new Date().toISOString(), "Agreement version: " + VERSION, "Agreement text SHA-256: " + h, "Device: " + navigator.userAgent]);
+      data.message = lines.join("\n"); data.kind = "subscription-signed";
+      fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; after(); }).catch(function () { go.disabled = false; err.textContent = "We could not record your signature. Please try again."; });
+    }); return; }
     if (ENDPOINT) fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; done(); }).catch(function () { go.disabled = false; mailto(); });
     else mailto();
+  });
+  $("#intake").addEventListener("submit", function (ev) {
+    ev.preventDefault(); var w = window.__who || {}, g = function (i) { return $("#" + i).value.trim(); }, b = $("#go3");
+    var lines = ["INTAKE for " + (w.biz || "-"), "Website or domain: " + (g("n1") || "-"), "Social accounts: " + (g("n2") || "-"), "Files: " + (g("n3") || "-"), "Goals: " + (g("n4") || "-")];
+    var fin = function () { $("#intake").hidden = true; $("#alldone").hidden = false; };
+    if (PREVIEW || !ENDPOINT) { fin(); return; }
+    b.disabled = true;
+    fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ kind: "intake", subject: "Moses Agentic intake: " + (w.biz || ""), name: w.name || "", email: w.email || "", company: w.biz || "", message: lines.join("\n"), source: location.hostname }) }).then(function (r) { if (!r.ok) throw 0; fin(); }).catch(function () { b.disabled = false; $("#err2").textContent = "Could not send. Please try again."; });
   });
 })();
 </script>

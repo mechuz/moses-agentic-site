@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subscribe | Moses Agentic</title>
+<meta name="description" content="Choose your Moses Agentic services and subscribe: websites, social media management and AI agents on monthly plans.">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
+<style>
+:root { --navy: #0B2545; --lime: #C6F432; --blue: #4DB8FF; --line: rgba(255,255,255,.18); --mut: rgba(255,255,255,.7); --d: "Inter Tight", Inter, system-ui, sans-serif; --b: Inter, system-ui, sans-serif; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--navy); color: #fff; font: 500 16px/1.5 var(--b); }
+a { color: inherit; }
+.bar { position: sticky; top: 0; z-index: 5; background: var(--navy); border-bottom: 1px solid var(--line); }
+.bar .in { max-width: 1280px; margin: 0 auto; padding: 14px clamp(16px, 4vw, 56px); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.bar img { height: 28px; max-width: 46vw; object-fit: contain; object-position: left; display: block; }
+.bar .in > * { min-width: 0; flex-shrink: 1; }
+.total .in > * { min-width: 0; }
+.bar a.back { text-decoration: none; background: var(--lime); color: var(--navy); font-weight: 800; border-radius: 999px; padding: 10px 18px; white-space: nowrap; }
+main { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px) 140px; }
+h1 { font: 900 clamp(2.8rem, 9.5vw, 8rem)/.92 var(--d); letter-spacing: -.05em; margin: clamp(2rem, 6vw, 5rem) 0 0; max-width: 12ch; text-wrap: balance; }
+h1::after { content: ""; display: block; width: clamp(4rem, 9vw, 8rem); height: clamp(.5rem, 1vw, .8rem); background: var(--lime); border-radius: 99px; margin-top: clamp(1rem, 2.4vw, 2rem); }
+.lead { font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--mut); max-width: 48ch; margin: clamp(1.2rem, 3vw, 2.2rem) 0 0; }
+h2 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.55); margin: clamp(2.6rem, 7vw, 5rem) 0 1.2rem; }
+.svc { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px 18px; align-items: center; padding: clamp(1rem, 2.4vw, 1.7rem) 0; border-top: 1px solid var(--line); cursor: pointer; }
+.svc:last-child { border-bottom: 1px solid var(--line); }
+.svc input[type=checkbox] { width: 26px; height: 26px; accent-color: var(--lime); cursor: pointer; }
+.svc b { font: 900 clamp(1.3rem, 3.2vw, 2.4rem)/1.05 var(--d); letter-spacing: -.035em; }
+.svc p { grid-column: 2; margin: 0; color: var(--mut); font-size: .98rem; max-width: 62ch; }
+.svc .price { font: 900 clamp(1.2rem, 2.4vw, 1.9rem)/1 var(--d); letter-spacing: -.03em; white-space: nowrap; text-align: end; }
+.svc .price small { font: 600 .85rem var(--b); letter-spacing: 0; color: var(--mut); margin-inline-start: .3rem; }
+.svc .opts { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.svc.off .opts { display: none; }
+.opt { position: relative; }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt span { display: block; border: 1.5px solid rgba(255,255,255,.3); border-radius: 999px; padding: 9px 15px; font-weight: 700; font-size: .92rem; cursor: pointer; }
+.opt input:checked + span { background: var(--lime); border-color: var(--lime); color: var(--navy); }
+.opt input:focus-visible + span { outline: 2px solid #fff; outline-offset: 2px; }
+.svc .num { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .92rem; color: var(--mut); }
+.svc .num input { width: 64px; background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.3); border-radius: 10px; padding: 8px; font: inherit; }
+.tag { display: inline-block; font: 800 .68rem/1 var(--b); letter-spacing: .08em; text-transform: uppercase; background: var(--lime); color: var(--navy); border-radius: 999px; padding: .28rem .55rem; margin-inline-end: .5rem; vertical-align: .3em; }
+.notes { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; gap: .45rem; color: rgba(255,255,255,.62); font-size: .95rem; max-width: 72ch; }
+.notes li { padding-inline-start: 1.2rem; position: relative; } .notes li::before { content: "—"; position: absolute; inset-inline-start: 0; }
+form { display: grid; gap: 1.4rem; max-width: 820px; }
+.row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+label.f { display: grid; gap: .5rem; color: rgba(255,255,255,.6); font: 700 .78rem/1.2 var(--b); letter-spacing: .14em; text-transform: uppercase; }
+label.f input { background: transparent; color: #fff; border: 0; border-bottom: 1px solid rgba(255,255,255,.45); padding: .6rem 0; font: 500 1.2rem var(--b); border-radius: 0; }
+label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
+.err { color: #FFB4A8; min-height: 1.2em; font-weight: 700; }
+.go { justify-self: start; border: 0; border-radius: 999px; background: var(--lime); color: var(--navy); padding: 1.1rem 2.2rem; font: 900 1.15rem var(--d); cursor: pointer; }
+.go:disabled { opacity: .5; cursor: not-allowed; }
+.total { position: fixed; inset-inline: 0; bottom: 0; z-index: 6; background: var(--lime); color: var(--navy); }
+.total .in { max-width: 1280px; margin: 0 auto; padding: 12px clamp(16px, 4vw, 56px) calc(12px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.total strong { font: 900 clamp(1.6rem, 4vw, 2.6rem)/1 var(--d); letter-spacing: -.04em; }
+.total small { display: block; font-weight: 700; font-size: .82rem; }
+.total a { background: var(--navy); color: #fff; text-decoration: none; font: 900 1.05rem var(--d); border-radius: 999px; padding: .85rem 1.5rem; white-space: nowrap; }
+.sales { margin-top: 3rem; color: var(--mut); font-size: .95rem; }
+.done h1 { max-width: 14ch; }
+@media (max-width: 640px) { .row { grid-template-columns: minmax(0, 1fr); } .svc { grid-template-columns: auto minmax(0, 1fr); } .svc .price { grid-column: 2; text-align: start; } }
+</style>
+</head>
+<body>
+<div class="bar"><div class="in"><a href="/" aria-label="Moses Agentic home"><img src="/logo-full-light.png" alt="Moses Agentic"></a><a class="back" href="/">Back to site</a></div></div>
+<main id="app">
+  <section id="pick">
+    <h1>Choose your services.</h1>
+    <p class="lead">Pick what you need. Everything is a monthly plan, and you can add more later.</p>
+
+    <h2>Website</h2>
+    <div>
+      <label class="svc off" data-svc="website"><input type="checkbox"><b>Website, built and managed</b><span class="price"></span>
+        <p>Your new website, designed in 24 hours: 5 designs made for your business, then up to 5 rounds of edits. The build is free on a 12- or 24-month plan.</p>
+        <span class="opts" role="radiogroup" aria-label="Website plan"><label class="opt"><input type="radio" name="t-website" value="24" checked><span>24 months · $149/mo</span></label><label class="opt"><input type="radio" name="t-website" value="12"><span>12 months · $199/mo</span></label><label class="opt"><input type="radio" name="t-website" value="m2m"><span>Month to month · $199/mo + $1,999 build</span></label></span></label>
+    </div>
+
+    <h2>Social media management &amp; distribution</h2>
+    <div>
+      <label class="svc off" data-svc="smm"><input type="checkbox"><b>Social media, run for you</b><span class="price"></span>
+        <p>Facebook, Instagram, Google Business Profile and Google Ads. You send the photos, videos and copy; we post, schedule and manage.</p>
+        <span class="opts" role="radiogroup" aria-label="Social media plan"><label class="opt"><input type="radio" name="t-smm" value="24" checked><span>24 months · $499/mo</span></label><label class="opt"><input type="radio" name="t-smm" value="12"><span>12 months · $549/mo</span></label><label class="opt"><input type="radio" name="t-smm" value="m2m"><span>Month to month · $599/mo</span></label>
+        <span class="num">Extra platforms (+$50/mo each) <input type="number" id="xplat" min="0" max="10" value="0" aria-label="Extra platforms"></span></span></label>
+    </div>
+
+    <h2>AI agents, per month</h2>
+    <div id="agents"></div>
+
+    <ul class="notes"><li>Billing starts at signing. Leave a website plan early? You pay only the unearned part of the $1,999 build.</li><li>Ad spend is not included. You set your budget and pay Google and Meta directly.</li><li>Content is not included. You supply the photos, videos and copy. Content creation is quoted separately.</li></ul>
+
+    <h2 id="you">Your details</h2>
+    <form id="f" novalidate>
+      <div class="row"><label class="f">Business name<input id="biz" autocomplete="organization"></label><label class="f">Your name<input id="nm" autocomplete="name"></label></div>
+      <div class="row"><label class="f">Email<input id="em" type="email" autocomplete="email"></label><label class="f">Phone<input id="ph" type="tel" autocomplete="tel"></label></div>
+      <input id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <div class="err" id="err" role="alert"></div>
+      <button class="go" id="go" type="submit">Subscribe →</button>
+    </form>
+    <p class="sales">Need something that isn't listed? <a href="mailto:welcome@mosesagentic.com?subject=Talk%20to%20sales" id="sales">Talk to sales</a>.</p>
+  </section>
+  <section id="done" class="done" hidden>
+    <h1>You're in.</h1>
+    <p class="lead" id="donemsg"></p>
+    <p class="lead"><a href="/">Back to mosesagentic.com</a></p>
+  </section>
+</main>
+<div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><a href="#you">Continue →</a></div></div>
+<script>
+(function () {
+  "use strict";
+  var ENDPOINT = "https://hooks.zapier.com/hooks/catch/27563206/tHNY93KrYmljtGhD/", MAIL = "welcome@mosesagentic.com";
+  var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
+  var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
+  var PRICE = { website: { "24": 149, "12": 199, m2m: 199 }, smm: { "24": 499, "12": 549, m2m: 599 } };
+  var TERM = { "24": "24-month plan", "12": "12-month plan", m2m: "month to month" };
+  var AGENTS = [["coo", "Chief Operating Officer (COO)", "Takes over operations, from the back office to the executive level.", 799, "Executive"], ["cmo", "Chief Marketing Officer (CMO)", "Takes over marketing, from the back office to the executive level.", 799, "Executive"], ["cfo", "Chief Financial Officer (CFO)", "Takes over finance, from the back office to the executive level.", 799, "Executive"], ["cio", "Chief Investment Officer (CIO)", "Takes over investments, from the back office to the executive level.", 799, "Executive"],
+    ["cre", "Commercial real estate asset manager", "Runs your portfolio's numbers and reporting.", 599, ""], ["broker", "Commercial mortgage broker", "Packages your deals and finds the right lenders.", 599, ""], ["acq", "Acquisitions director", "Finds, screens and underwrites deals for you.", 599, ""],
+    ["analyst", "Commercial real estate analyst", "Your underwriting and financial models, fast.", 499, ""], ["research", "Commercial real estate data and research", "Market data and comps, gathered and organized.", 499, ""], ["staff", "Staffing and payroll manager", "Keeps every shift covered and every paycheck right.", 499, ""],
+    ["abk", "AbraKadabra proposal app", "From idea to proposal, with a full video presentation.", 299, ""]];
+  var E = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  $("#agents").innerHTML = AGENTS.map(function (a) { return '<label class="svc off" data-svc="agent-' + a[0] + '" data-price="' + a[3] + '"><input type="checkbox"><b>' + (a[4] ? '<span class="tag">' + a[4] + '</span>' : "") + E(a[1]) + '</b><span class="price">' + fmt(a[3]) + '<small>/mo</small></span><p>' + E(a[2]) + '</p></label>'; }).join("");
+
+  function plan() {
+    var items = [], m = 0, one = 0;
+    $$(".svc").forEach(function (row) {
+      var on = row.querySelector("input[type=checkbox]").checked, k = row.dataset.svc; row.classList.toggle("off", !on);
+      if (k === "website" || k === "smm") {
+        var term = (row.querySelector("input[type=radio]:checked") || {}).value || "24", p = PRICE[k][term];
+        row.querySelector(".price").innerHTML = fmt(p) + "<small>/mo</small>";
+        if (!on) return; m += p;
+        if (k === "website") { if (term === "m2m") one += 1999; items.push("Website, " + TERM[term] + ", " + fmt(p) + "/mo" + (term === "m2m" ? " + $1,999 build" : "")); }
+        else { var x = Math.max(0, Math.min(10, parseInt($("#xplat").value, 10) || 0)); m += 50 * x; items.push("Social media management, " + TERM[term] + ", " + fmt(p) + "/mo" + (x ? " + " + x + " extra platform" + (x > 1 ? "s" : "") + " (" + fmt(50 * x) + "/mo)" : "")); }
+      } else if (on) { var pr = +row.dataset.price; m += pr; items.push(row.querySelector("b").textContent.replace(/^Executive/, "") + " agent, " + fmt(pr) + "/mo"); }
+    });
+    $("#tot").textContent = fmt(m); $("#one").textContent = one ? "+ " + fmt(one) + " one-time build" : "";
+    return { items: items, m: m, one: one };
+  }
+  document.addEventListener("change", plan);
+  document.addEventListener("input", function (e) { if (e.target.id === "xplat") plan(); });
+
+  /* pre-select from the link: ?p=website-24,smm-12,agent-coo  (?c= is a reference carried into the request) */
+  var q = new URLSearchParams(location.search), ref = (q.get("c") || "").replace(/[^a-z0-9-]/gi, "").slice(0, 80);
+  (q.get("p") || "").split(",").forEach(function (code) {
+    code = code.trim().toLowerCase(); if (!code) return;
+    var m = code.match(/^(website|smm)-(24|12|m2m)$/);
+    if (m) { var row = $('.svc[data-svc="' + m[1] + '"]'); row.querySelector("input[type=checkbox]").checked = true; var r = row.querySelector('input[type=radio][value="' + m[2] + '"]'); if (r) r.checked = true; return; }
+    var a = $('.svc[data-svc="' + code + '"]'); if (a) a.querySelector("input[type=checkbox]").checked = true;
+  });
+  plan();
+  var first = $(".svc:not(.off)"); if (first && location.hash !== "#you") setTimeout(function () { first.scrollIntoView({ block: "center" }); }, 60);
+
+  $("#f").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var p = plan(), v = function (id) { return $("#" + id).value.trim(); }, err = $("#err"), go = $("#go");
+    if (!p.items.length) { err.textContent = "Choose at least one service."; $("#pick h2").scrollIntoView({ behavior: "smooth" }); return; }
+    if (!v("biz") || !v("nm") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("em"))) { err.textContent = "Please add your business name, your name and your email."; return; }
+    err.textContent = "";
+    var subject = "Moses Agentic subscription: " + v("biz") + ", " + fmt(p.m) + " a month";
+    var lines = ["SUBSCRIPTION REQUEST: send the agreement to sign and the payment link", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em"), "Phone: " + (v("ph") || "-")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-")]);
+    var data = { kind: "subscription", hp: v("hp"), subject: subject, name: v("nm"), email: v("em"), phone: v("ph"), company: v("biz"), message: lines.join("\n"), language: "en", source: location.hostname };
+    function done() { $("#pick").hidden = true; $("#total").hidden = true; $("#done").hidden = false; $("#donemsg").textContent = "Thank you, " + v("nm") + ". Your plan is " + fmt(p.m) + " a month" + (p.one ? ", plus a " + fmt(p.one) + " one-time build" : "") + ". We'll email your agreement to sign and your payment link to " + v("em") + "."; scrollTo(0, 0); }
+    function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n")); setTimeout(done, 600); }
+    go.disabled = true;
+    if (ENDPOINT) fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; done(); }).catch(function () { go.disabled = false; mailto(); });
+    else mailto();
+  });
+})();
+</script>
+</body>
+</html>

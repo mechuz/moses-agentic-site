@@ -1918,6 +1918,8 @@ body { top: 0 !important; }
 .nav a.nav-ins { color: rgba(255,255,255,.82); font: 500 .98rem var(--f-body); text-decoration: none; padding: .3rem 0; white-space: nowrap; }
 .nav a.nav-ins:hover { color: #FFFFFF; }
 .tabstrip a.nav-ins { flex: none; display: inline-flex; align-items: center; min-height: 40px; padding: 0 1rem; border-radius: 999px; background: rgba(255,255,255,.12); color: #FFFFFF; font: 600 .95rem var(--f-body); text-decoration: none; white-space: nowrap; }
+.site-chocham .nav-sub { display: none !important; }
+.site-moses .nav .nav-sub, .site-moses .tabstrip .nav-sub { background: #FFFFFF !important; color: #0B2545 !important; font-weight: 900 !important; border-radius: 999px; padding: .45rem .95rem !important; }
 .sv-notes { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; }
 .sv-notes li { position: relative; padding-inline-start: 1.1rem; font: 600 .95rem/1.45 var(--f-body); color: #3D5170; }
 .sv-notes li::before { content: ""; position: absolute; inset-inline-start: 0; top: .55em; width: .45rem; height: .45rem; border-radius: 50%; background: #1A73E8; }
@@ -2056,6 +2058,9 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
 .agx form legend { grid-column: 1 / -1; padding: 0 0 .8rem; color: rgba(255,255,255,.6); font: 700 .78rem/1.2 var(--f-body); letter-spacing: .14em; text-transform: uppercase; }
 .agx form .cs2-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
 @media (max-width: 640px) { .agx form .cs2-row { grid-template-columns: minmax(0, 1fr); } }
+/* no request forms on the service pages: the plan buttons go to checkout */
+.fsheet[data-f="free"] .agx form, .fsheet[data-f="smm"] .agx form, .fsheet[data-f="free"] .agx .ag-h:has(+ form), .fsheet[data-f="smm"] .agx .ag-h:has(+ form) { display: none !important; }
+.ag-plan i { background: #C6F432; color: #0B2545; border-color: #C6F432; }
 /* ===== industries: the big folders ===== */
 .site-moses .srv-drawer { height: clamp(380px, 52svh, 520px); margin-top: clamp(1rem, 2vw, 1.6rem); }
 .site-moses .srv-drawer + .srv-drawer { margin-top: clamp(.6rem, 1.4vw, 1.2rem); }
@@ -2132,6 +2137,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
       <button type="button" class="nav-price" data-pricing data-i18n="nav.price">Pricing</button>
       <a class="nav-ins" href="/blog/" data-i18n="nav.ins">Insights</a>
       <button type="button" class="nav-about" data-about data-i18n="nav.about">About</button>
+      <button type="button" class="nav-sub" data-subscribe="" data-i18n="nav.sub">Subscribe</button>
     </nav>
     <div class="langs" role="group" aria-label="Language" id="langs"></div>
     <a class="teamlink" href="https://airtable.com/appzqMaRLQZQDcAMU" target="_blank" rel="noopener" title="Team prospect tracker (Max and Eddie)" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
@@ -4417,8 +4423,8 @@ const T = {
   "store.k": "Agent Store · For enterprises",
   "store.t": "Hire an AI executive.",
   "store.s": "Each executive agent takes over its whole function: the executive level, the middle office and the back office. Hire one, or build your full AI leadership team.",
-  "store.buy": "Buy now",
-  "store.ask": "Get this agent",
+  "store.buy": "Subscribe",
+  "store.ask": "Subscribe",
   "store.price": "Pricing on request",
   "store.mo": "/month",
   "store.setup": "setup",
@@ -5167,7 +5173,7 @@ const T = {
    ]
   ],
   "diy.close": "Want to learn it? We'll teach your team. Want it done? We'll build it.",
-  "diy.go": "Talk to us",
+  "diy.go": "Subscribe",
   "chdiy.k": "Why not learn it on your own?",
   "chdiy.h": "You can. Here's why people take our seminars.",
   "chdiy.items": [
@@ -5280,8 +5286,8 @@ const T = {
   "pr.h": "Pricing",
   "pr.lead": "Monthly plans for every service.",
   "pr.web": "Websites",
-  "pr.web_go": "Get your 5 free designs",
-  "pr.smm_go": "Get started",
+  "pr.web_go": "Subscribe",
+  "pr.smm_go": "Subscribe",
   "pr.ag": "AI agents",
   "pr.ag_go": "Browse agents",
   "pr.tiers": [
@@ -5327,7 +5333,7 @@ const T = {
   ],
   "smm.plans_h": "Plans",
   "smm.start_h": "Start",
-  "ag.pick": "Choose",
+  "ag.pick": "Subscribe",
   "ag.picked": "Selected",
   "ag.checkout": "Continue to checkout",
   "nav.about": "About",
@@ -5341,8 +5347,9 @@ const T = {
    "Real estate",
    "Operations"
   ],
-  "ab.go": "Talk to us",
-  "nav.ins": "Insights"
+  "ab.go": "Subscribe",
+  "nav.ins": "Insights",
+  "nav.sub": "Subscribe"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -6946,8 +6953,8 @@ const T = {
   "store.k": "אגענט סטאר · פאר פירמעס",
   "store.t": "דינגט אן AI עקזעקיוטיוו.",
   "store.s": "יעדער עקזעקיוטיוו אגענט נעמט איבער זיין גאנצע דעפארטמענט: דעם עקזעקיוטיוו לעוועל, דעם מידל אפיס און דעם בעק אפיס. דינגט איינעם, אדער בויט אייער גאנצע AI הנהלה.",
-  "store.buy": "קויפט יעצט",
-  "store.ask": "נעמט דעם אגענט",
+  "store.buy": "סאבסקרייבט",
+  "store.ask": "סאבסקרייבט",
   "store.price": "פרייז אויף פארלאנג",
   "store.mo": "/חודש",
   "store.setup": "סעטאפ",
@@ -7696,7 +7703,7 @@ const T = {
    ]
   ],
   "diy.close": "ווילט איר עס לערנען? מיר לערנען אייער טיעם. ווילט איר עס געטון? מיר בויען עס.",
-  "diy.go": "רעדט מיט אונז",
+  "diy.go": "סאבסקרייבט",
   "chdiy.k": "פארוואס נישט אליין אויסלערנען?",
   "chdiy.h": "איר קענט. אט איז פארוואס מענטשן קומען צו אונזערע סעמינארן.",
   "chdiy.items": [
@@ -7809,8 +7816,8 @@ const T = {
   "pr.h": "פרייזן",
   "pr.lead": "חודשליכע פלענער פאר יעדע סערוויס.",
   "pr.web": "וועבסייטס",
-  "pr.web_go": "באקומט אייערע 5 אומזיסטע דיזיינס",
-  "pr.smm_go": "הייבט אן",
+  "pr.web_go": "סאבסקרייבט",
+  "pr.smm_go": "סאבסקרייבט",
   "pr.ag": "AI אגענטן",
   "pr.ag_go": "זעט די אגענטן",
   "pr.tiers": [
@@ -7856,7 +7863,7 @@ const T = {
   ],
   "smm.plans_h": "פלענער",
   "smm.start_h": "הייבט אן",
-  "ag.pick": "קלייבט",
+  "ag.pick": "סאבסקרייבט",
   "ag.picked": "אויסגעקליבן",
   "ag.checkout": "ווייטער צו טשעקאוט",
   "nav.about": "וועגן אונז",
@@ -7870,8 +7877,9 @@ const T = {
    "ריעל עסטעיט",
    "אפערעישאנס"
   ],
-  "ab.go": "רעדט מיט אונז",
-  "nav.ins": "אינסייטס"
+  "ab.go": "סאבסקרייבט",
+  "nav.ins": "אינסייטס",
+  "nav.sub": "סאבסקרייבט"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -9475,8 +9483,8 @@ const T = {
   "store.k": "חנות הסוכנים · לארגונים",
   "store.t": "גייסו מנהל AI בכיר.",
   "store.s": "כל סוכן בכיר לוקח על עצמו את כל התחום: הדרג הבכיר, המידל אופיס והבק אופיס. גייסו אחד, או בנו צוות הנהלת AI שלם.",
-  "store.buy": "קנו עכשיו",
-  "store.ask": "קבלו את הסוכן",
+  "store.buy": "הצטרפו",
+  "store.ask": "הצטרפו",
   "store.price": "מחיר לפי בקשה",
   "store.mo": "/חודש",
   "store.setup": "הקמה",
@@ -10225,7 +10233,7 @@ const T = {
    ]
   ],
   "diy.close": "רוצים ללמוד? נלמד את הצוות שלכם. רוצים שזה ייעשה? אנחנו נבנה.",
-  "diy.go": "דברו איתנו",
+  "diy.go": "הצטרפו",
   "chdiy.k": "למה לא ללמוד לבד?",
   "chdiy.h": "אפשר. הנה למה אנשים באים לסמינרים שלנו.",
   "chdiy.items": [
@@ -10338,8 +10346,8 @@ const T = {
   "pr.h": "מחירים",
   "pr.lead": "תוכניות חודשיות לכל שירות.",
   "pr.web": "אתרים",
-  "pr.web_go": "קבלו 5 עיצובים בחינם",
-  "pr.smm_go": "מתחילים",
+  "pr.web_go": "הצטרפו",
+  "pr.smm_go": "הצטרפו",
   "pr.ag": "סוכני AI",
   "pr.ag_go": "לכל הסוכנים",
   "pr.tiers": [
@@ -10385,7 +10393,7 @@ const T = {
   ],
   "smm.plans_h": "תוכניות",
   "smm.start_h": "מתחילים",
-  "ag.pick": "בחירה",
+  "ag.pick": "הצטרפו",
   "ag.picked": "נבחר",
   "ag.checkout": "המשך לתשלום",
   "nav.about": "אודות",
@@ -10399,8 +10407,9 @@ const T = {
    "נדל״ן",
    "תפעול"
   ],
-  "ab.go": "דברו איתנו",
-  "nav.ins": "תובנות"
+  "ab.go": "הצטרפו",
+  "nav.ins": "תובנות",
+  "nav.sub": "הצטרפו"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -12004,8 +12013,8 @@ const T = {
   "store.k": "Tienda de agentes · Para empresas",
   "store.t": "Contrate un ejecutivo de IA.",
   "store.s": "Cada agente ejecutivo asume toda su función: el nivel ejecutivo, el middle office y el back office. Contrate uno o arme todo su equipo directivo de IA.",
-  "store.buy": "Comprar ahora",
-  "store.ask": "Obtener este agente",
+  "store.buy": "Suscribirse",
+  "store.ask": "Suscribirse",
   "store.price": "Precio a consultar",
   "store.mo": "/mes",
   "store.setup": "instalación",
@@ -12754,7 +12763,7 @@ const T = {
    ]
   ],
   "diy.close": "¿Quiere aprenderlo? Capacitamos a su equipo. ¿Lo quiere hecho? Lo construimos.",
-  "diy.go": "Hable con nosotros",
+  "diy.go": "Suscribirse",
   "chdiy.k": "¿Por qué no aprenderlo por su cuenta?",
   "chdiy.h": "Puede hacerlo. Por esto la gente toma nuestros seminarios.",
   "chdiy.items": [
@@ -12867,8 +12876,8 @@ const T = {
   "pr.h": "Precios",
   "pr.lead": "Planes mensuales para cada servicio.",
   "pr.web": "Sitios web",
-  "pr.web_go": "Reciba sus 5 diseños gratis",
-  "pr.smm_go": "Empezar",
+  "pr.web_go": "Suscribirse",
+  "pr.smm_go": "Suscribirse",
   "pr.ag": "Agentes de IA",
   "pr.ag_go": "Ver agentes",
   "pr.tiers": [
@@ -12914,7 +12923,7 @@ const T = {
   ],
   "smm.plans_h": "Planes",
   "smm.start_h": "Empezar",
-  "ag.pick": "Elegir",
+  "ag.pick": "Suscribirse",
   "ag.picked": "Elegido",
   "ag.checkout": "Continuar al pago",
   "nav.about": "Nosotros",
@@ -12928,8 +12937,9 @@ const T = {
    "Bienes raíces",
    "Operaciones"
   ],
-  "ab.go": "Hable con nosotros",
-  "nav.ins": "Ideas"
+  "ab.go": "Suscribirse",
+  "nav.ins": "Ideas",
+  "nav.sub": "Suscribirse"
  }
 };
 
@@ -13188,7 +13198,7 @@ function render() {
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);
   $$(".bigstat, .bigstat-l, .bigline").forEach(el => el.hidden = !CONFIG.pagesExample);
   $("#tabstrip").innerHTML = (CONFIG.site === "chocham" ? [["education", "nav.home"]] : []).map(([v, k]) => `<button type="button" data-view="${v}" aria-current="${view === v ? "page" : "false"}">${esc(t(k))}</button>`).join("")
-    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="nav-free" data-freesite>${esc(t("nav.free"))}</button><button type="button" class="ask" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false">${esc(t("nav.hire"))}</button><button type="button" class="nav-smm" data-smm>${esc(t("nav.smm"))}</button><button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false">${esc(t("nav.services"))}</button><button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false">${esc(t("nav.ind"))}</button><button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false">${esc(t("nav.cases"))}</button><button type="button" class="nav-price" data-pricing>${esc(t("nav.price"))}</button><a class="nav-ins" href="/blog/">${esc(t("nav.ins"))}</a><button type="button" class="nav-about" data-about>${esc(t("nav.about"))}</button>`)
+    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="nav-free" data-freesite>${esc(t("nav.free"))}</button><button type="button" class="ask" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false">${esc(t("nav.hire"))}</button><button type="button" class="nav-smm" data-smm>${esc(t("nav.smm"))}</button><button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false">${esc(t("nav.services"))}</button><button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false">${esc(t("nav.ind"))}</button><button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false">${esc(t("nav.cases"))}</button><button type="button" class="nav-price" data-pricing>${esc(t("nav.price"))}</button><a class="nav-ins" href="/blog/">${esc(t("nav.ins"))}</a><button type="button" class="nav-about" data-about>${esc(t("nav.about"))}</button><button type="button" class="nav-sub" data-subscribe="">${esc(t("nav.sub"))}</button>`)
     + (CONFIG.site === "chocham" ? [["seats", "nav.indiv"], ["consult", "nav.entp"], ["dates", "nav.dates"], ["semfaq", "faq.kicker"]] : []).map(([g, k]) => `<button type="button" data-go="${g}">${esc(t(k))}</button>`).join("")
     + `<button type="button" class="ask" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>${esc(t("chat.open"))}</button>`;
   $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : "");
@@ -14747,7 +14757,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const k = el.dataset.diy === "1" ? "chdiy" : "diy";
       el.innerHTML = `<div class="eyebrow">${E(t(k + ".k"))}</div><h2 class="diy-h">${E(t(k + ".h"))}</h2>
         <ol class="diy-list">${(t(k + ".items") || []).map(([h, p]) => `<li><h3>${E(h)}</h3><p>${E(p)}</p></li>`).join("")}</ol>
-        <div class="diy-end"><p>${E(t(k + ".close"))}</p><button type="button" class="btn diy-go" ${k === "chdiy" ? "data-book" : "data-contact"}>${E(t(k + ".go"))} <span class="arrow">→</span></button></div>`;
+        <div class="diy-end"><p>${E(t(k + ".close"))}</p><button type="button" class="btn diy-go" ${k === "chdiy" ? "data-book" : 'data-subscribe=""'}>${E(t(k + ".go"))} <span class="arrow">→</span></button></div>`;
     });
   };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", window.diyRender); else window.diyRender();
@@ -14804,8 +14814,8 @@ window.mailFallback = function (subject, body) {
   }
   function pricing() {
     open("pricing", `<p class="fw-lead">${E(t("pr.lead"))}</p>
-      <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.web"))}</h3>${opts("fw.opts")}<p class="cs2-note">${E(t("fw.after_note"))}</p><button type="button" class="btn aqua" data-freesite>${E(t("pr.web_go"))} <span class="arrow">→</span></button></div>
-      <div class="pr-sec"><h3 class="fw-h3">${E(t("smm.h"))}</h3>${opts("smm.opts")}${notes()}<button type="button" class="btn aqua" data-smm>${E(t("pr.smm_go"))} <span class="arrow">→</span></button></div>
+      <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.web"))}</h3>${opts("fw.opts")}<p class="cs2-note">${E(t("fw.after_note"))}</p><button type="button" class="btn aqua" data-subscribe="website-24">${E(t("pr.web_go"))} <span class="arrow">→</span></button></div>
+      <div class="pr-sec"><h3 class="fw-h3">${E(t("smm.h"))}</h3>${opts("smm.opts")}${notes()}<button type="button" class="btn aqua" data-subscribe="smm-24">${E(t("pr.smm_go"))} <span class="arrow">→</span></button></div>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.ag"))}</h3><div class="pr-tiers">${t("pr.tiers").map(([a, p, n]) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div><button type="button" class="btn aqua" data-pr-agents>${E(t("pr.ag_go"))} <span class="arrow">→</span></button></div>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.con"))}</h3><div class="pr-tiers one"><div class="fw-opt"><b>${E(t("pr.con"))}</b><em>${E(t("pr.con_p"))}</em><span>${E(t("pr.con_s"))}</span></div></div><button type="button" class="btn aqua" data-consult>${E(t("pr.con_go"))} <span class="arrow">→</span></button></div>`);
   }
@@ -14817,7 +14827,7 @@ window.mailFallback = function (subject, body) {
       <ul class="ag-inc" style="margin-top:1.6rem">${t("ab.fields").map(x => `<li>${E(x)}</li>`).join("")}</ul>
       <h2 class="ag-h">${E(t("why.kicker"))}</h2>
       <p class="ag-lead ag-why">${E(t("why.p1"))}</p><p class="ag-lead ag-why" style="margin-top:1rem !important">${E(t("why.p2"))}</p>
-      <button type="button" class="ag-go" data-contact style="margin-top:2.4rem">${E(t("ab.go"))} <span class="arrow">→</span></button></div>`);
+      <button type="button" class="ag-go" data-subscribe="" style="margin-top:2.4rem">${E(t("ab.go"))} <span class="arrow">→</span></button></div>`);
   }
   window.aboutOpen = () => { about(); try { track("about_open"); } catch (x) {} };
   window.smmOpen = () => { smm(false); try { track("smm_open"); } catch (x) {} };
@@ -14878,8 +14888,15 @@ document.addEventListener("click", e => {
 /* plans are real choices: tap one to select it, then continue to checkout */
 function agSync(box, val) { box.querySelectorAll(".ag-plan").forEach(b => { const on = b.dataset.plan === String(val); b.setAttribute("aria-pressed", on); const i = b.querySelector("i"); if (i) i.textContent = on ? i.dataset.b + " ✓" : i.dataset.a; });
   const go = box.closest(".agx").querySelector(".ag-go"); if (go) go.querySelector(".ag-go-t").textContent = val === "x" || val == null ? go.dataset.a : go.dataset.b; }
-document.addEventListener("click", e => { const b = e.target.closest(".ag-plan"); if (!b) return; const box = b.closest(".ag-plans"), sel = document.getElementById(box.dataset.sel); if (!sel) return;
-  sel.value = b.dataset.plan; agSync(box, sel.value); const f = box.closest(".agx").querySelector("form"); if (f) { f.scrollIntoView({ behavior: "smooth", block: "start" }); const first = f.querySelector("input:not([tabindex='-1'])"); if (first) setTimeout(() => first.focus({ preventScroll: true }), 500); } });
+document.addEventListener("click", e => { const b = e.target.closest(".ag-plan"); if (!b) return; const box = b.closest(".ag-plans");
+  const kind = box.dataset.sel === "sm-pick" ? "smm" : "website"; location.href = "/subscribe/?p=" + kind + "-" + ["24", "12", "m2m"][+b.dataset.plan]; });
+/* every product leads to the store checkout */
+document.addEventListener("click", e => { const c = e.target.closest(".s-store .scard[data-ag]"); if (c) window.lastAg = c.dataset.ag; }, true);
+document.addEventListener("click", e => {
+  const go = u => { e.preventDefault(); e.stopPropagation(); location.href = u; };
+  if (e.target.closest("[data-subscribe]")) return go("/subscribe/" + (e.target.closest("[data-subscribe]").dataset.subscribe ? "?p=" + e.target.closest("[data-subscribe]").dataset.subscribe : ""));
+  const ab = e.target.closest("#sheet .agdetail .btn"); if (ab && !ab.matches("[data-abk-play], [data-consult], [data-weborder]") && window.lastAg) return go("/subscribe/?p=agent-" + window.lastAg);
+}, true);
 document.addEventListener("change", e => { const s = e.target; if (!s.matches || !s.matches("#fw-pick, #sm-pick")) return; const box = document.querySelector('.ag-plans[data-sel="' + s.id + '"]'); if (box) agSync(box, s.value); });
 /* pop-ups started from a page (consulting, contact) open on top of the site, not behind the page */
 document.addEventListener("click", e => { if (e.target.closest(".s-page [data-consult], .s-page [data-contact]") && window.__closeFolder) window.__closeFolder(); }, true);

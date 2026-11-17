@@ -1,41 +1,15 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Rent · Power Rentals</title>
-<meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#000000">
-<script src="js/gate.js"></script>
-<script>
-/* The old four-step booking page is retired: the product page (the buy box) and checkout replace it.
-   This page only forwards old links:
-     book.html?model=X  ->  product.html?model=X (start and len kept; old len ids become days)
-     book.html?cat=Y    ->  equipment.html#Y
-     anything else      ->  equipment.html
-   A ?key= passcode is passed along so the preview gate still opens on the next page. */
-(function () {
-  'use strict';
-  var q = new URLSearchParams(location.search), out = new URLSearchParams();
-  var CATS = ['gen', 'heat', 'cool', 'light', 'dist', 'lift'];
-  var LEN = { day: 1, week: 7, month: 28, long: 56 };
-  var model = q.get('model'), cat = q.get('cat'), dest = 'equipment.html', hash = '';
-  if (model && /^[a-z0-9]+$/i.test(model)) {
-    dest = 'product.html';
-    out.set('model', model);
-    if (/^\d{4}-\d{2}-\d{2}$/.test(q.get('start') || '')) out.set('start', q.get('start'));
-    var len = q.get('len');
-    if (len && (LEN[len] || /^\d{1,3}$/.test(len))) out.set('len', String(LEN[len] || len));
-  } else if (cat && CATS.indexOf(cat) !== -1) {
-    hash = '#' + cat;
-  }
-  if (q.get('key')) out.set('key', q.get('key'));
-  var s = out.toString();
-  location.replace(dest + (s ? '?' + s : '') + hash);
-})();
-</script>
-</head>
-<body>
-<p style="font-family:Inter,Arial,sans-serif;padding:24px">Booking has moved. <a href="equipment.html">See the equipment</a>.</p>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Private preview</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0B2545;color:#fff;font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}form{width:min(92vw,380px);display:grid;gap:14px}h1{font:900 28px/1.1 system-ui,sans-serif;margin:0;letter-spacing:-.02em}p{margin:0;color:rgba(255,255,255,.75)}input{font:inherit;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff}button{font:800 16px system-ui,sans-serif;padding:14px;border:0;border-radius:999px;background:#C6F432;color:#0B2545;cursor:pointer}.e{color:#FFB4A8;min-height:1.2em;font-size:14px}</style></head>
+<body><form id="f" hidden><h1>Private preview</h1><p>Enter the passcode you were given.</p><input id="c" type="password" placeholder="Passcode" autocomplete="off" autofocus aria-label="Passcode"><div class="e" id="e" role="alert"></div><button>Open</button></form>
+<script>(function(){var S="cHtMwKThNmaB7MJNdy6jVw==",IV="IOAdLAsCgARFgPUS",CT="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",N=310000,K="lock:power-rentals";
+var d=function(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})},f=document.getElementById("f"),e=document.getElementById("e");
+function open(raw){return crypto.subtle.importKey("raw",raw,"AES-GCM",false,["decrypt"]).then(function(k){return crypto.subtle.decrypt({name:"AES-GCM",iv:d(IV)},k,d(CT))}).then(function(b){try{sessionStorage.setItem(K,btoa(String.fromCharCode.apply(null,new Uint8Array(raw))))}catch(x){}
+ var m=location.search.match(/[?&]key=[^&]*/);if(m){var q=location.search.replace(m[0],"").replace(/^&/,"?");history.replaceState(null,"",location.pathname+(q.length>1?q:"")+location.hash)}
+ var h=new TextDecoder().decode(b);(function put(){if(document.readyState==="complete"){document.open();document.write(h);document.close()}else window.addEventListener("load",put)})()})}
+function derive(p){return crypto.subtle.importKey("raw",new TextEncoder().encode(p.trim().toLowerCase()),"PBKDF2",false,["deriveBits"]).then(function(k){return crypto.subtle.deriveBits({name:"PBKDF2",salt:d(S),iterations:N,hash:"SHA-256"},k,256)})}
+function tryCode(p){return derive(p).then(open)}
+var saved=null;try{saved=sessionStorage.getItem(K)}catch(x){}
+var m=location.search.match(/[?&]key=([^&]+)/);
+(saved?open(d(saved).buffer):Promise.reject()).catch(function(){return m?tryCode(decodeURIComponent(m[1])):Promise.reject()}).catch(function(){f.hidden=false});
+f.addEventListener("submit",function(ev){ev.preventDefault();e.textContent="";tryCode(document.getElementById("c").value).catch(function(){e.textContent="That passcode is not right."})});
+})();</script></body></html>

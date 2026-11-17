@@ -1972,33 +1972,34 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
 /* ===== full pages ===== */
 .s-page { --fc: #0B2545; --fi: #FFFFFF; }
 .fsheet .fbody .fw.pg { max-width: 900px; padding: clamp(1.6rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem) 1rem; }
-/* ===== Social media management: creative-agency look (black, giant type) ===== */
-.fsheet[data-f="smm"] { --fc: #000000; --fi: #FFFFFF; }
-.fsheet[data-f="smm"] .fscroll > .fbody { background: #000000; max-width: none; margin-top: 0; border-radius: 0; box-shadow: none; }
-.fsheet[data-f="smm"] .fbar { border-bottom: 1px solid rgba(255,255,255,.18); }
-.fsheet[data-f="smm"] .fname { font: 700 .82rem/1 var(--f-body); letter-spacing: .22em; text-transform: uppercase; }
-.fsheet[data-f="smm"] .fclose { background: transparent; color: #FFFFFF; border: 1px solid rgba(255,255,255,.5); }
-.fsheet[data-f="smm"] .fw.pg { max-width: 1280px; padding: 0 clamp(1.1rem, 4vw, 3.5rem) 4rem; display: block; color: #FFFFFF; }
+/* ===== Social media management: giant type in the Moses Agentic colors (navy, lime, blue) ===== */
+.fsheet.s-big { --fc: #0B2545; --fi: #FFFFFF; }
+.fsheet.s-big .fscroll > .fbody { background: #0B2545; max-width: none; margin-top: 0; border-radius: 0; box-shadow: none; }
+.fsheet.s-big .fbar { border-bottom: 1px solid rgba(255,255,255,.18); }
+.fsheet.s-big .fname { font: 700 .82rem/1 var(--f-body); letter-spacing: .22em; text-transform: uppercase; }
+.fsheet.s-big .fclose { background: #C6F432; color: #0B2545; }
+.fsheet.s-big .fw.pg { max-width: 1280px; padding: 0 clamp(1.1rem, 4vw, 3.5rem) 4rem; display: block; color: #FFFFFF; }
 .agx { color: #FFFFFF; }
 .ag-big { font: 900 clamp(3rem, 10.5vw, 9.5rem)/.9 var(--f-display); letter-spacing: -.055em; margin: clamp(2.5rem, 8vw, 6.5rem) 0 0; max-width: 12ch; color: #FFFFFF; text-wrap: balance; }
 .ag-lead { font: 500 clamp(1.1rem, 2vw, 1.55rem)/1.4 var(--f-body); color: rgba(255,255,255,.72) !important; max-width: 46ch; margin: clamp(1.4rem, 3vw, 2.4rem) 0 0; }
 .ag-mq { overflow: hidden; margin: clamp(2.5rem, 7vw, 5.5rem) calc(-1 * clamp(1.1rem, 4vw, 3.5rem)) 0; border-block: 1px solid rgba(255,255,255,.18); padding: 1.1rem 0; direction: ltr; }
 .ag-mq > div { display: inline-flex; white-space: nowrap; animation: agmq 28s linear infinite; }
 .ag-mq span { font: 900 clamp(1.4rem, 3.4vw, 2.8rem)/1 var(--f-display); letter-spacing: -.02em; text-transform: uppercase; padding-inline: 1.4rem; }
-.ag-mq span::after { content: "✳"; margin-inline-start: 2.8rem; opacity: .5; }
+.ag-mq span { display: inline-flex; align-items: center; gap: .8rem; padding-inline: 2rem; }
+.ag-mq svg { width: 1.1em; height: 1.1em; color: #C6F432; flex: none; }
 @keyframes agmq { to { transform: translateX(-25%); } }
 @media (prefers-reduced-motion: reduce) { .ag-mq > div { animation: none; } }
 .ag-steps { list-style: none; margin: clamp(2.5rem, 7vw, 5rem) 0 0; padding: 0; }
 .ag-steps li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) minmax(0, 1fr); align-items: baseline; gap: 1rem; padding: clamp(1.2rem, 3vw, 2.2rem) 0; border-top: 1px solid rgba(255,255,255,.18); }
 .ag-steps li:last-child { border-bottom: 1px solid rgba(255,255,255,.18); }
-.ag-steps span { font: 600 .9rem var(--f-body); letter-spacing: .12em; color: rgba(255,255,255,.5); }
+.ag-steps span { font: 800 .9rem var(--f-body); letter-spacing: .12em; color: #C6F432; }
 .ag-steps b { font: 900 clamp(1.7rem, 5vw, 4.2rem)/1 var(--f-display); letter-spacing: -.04em; }
 .ag-steps em { font: 500 clamp(1rem, 1.6vw, 1.3rem)/1.4 var(--f-body); font-style: normal; color: rgba(255,255,255,.7); }
 @media (max-width: 760px) { .ag-steps li { grid-template-columns: 2.6rem minmax(0, 1fr); } .ag-steps em { grid-column: 2; } }
 .ag-h { font: 700 .82rem/1 var(--f-body) !important; letter-spacing: .22em !important; text-transform: uppercase; color: rgba(255,255,255,.55) !important; margin: clamp(3rem, 8vw, 6rem) 0 1.4rem !important; padding: 0 !important; }
 .ag-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid rgba(255,255,255,.25); }
 .ag-plans > div { display: grid; gap: .6rem; padding: clamp(1.2rem, 3vw, 2.4rem); border-inline-start: 1px solid rgba(255,255,255,.25); }
-.ag-plans > div:first-child { border-inline-start: 0; background: #FFFFFF; color: #000000; }
+.ag-plans > div:first-child { border-inline-start: 0; background: #C6F432; color: #0B2545; }
 .ag-plans b { font: 700 .82rem/1.2 var(--f-body); letter-spacing: .14em; text-transform: uppercase; }
 .ag-plans strong { font: 900 clamp(1.8rem, 3.6vw, 3.2rem)/1 var(--f-display); letter-spacing: -.04em; }
 .ag-plans strong { white-space: nowrap; }
@@ -2012,10 +2013,33 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
 .agx form label { color: rgba(255,255,255,.6) !important; font: 700 .78rem/1.2 var(--f-body) !important; letter-spacing: .14em; text-transform: uppercase; display: grid; gap: .5rem; }
 .agx form input, .agx form select { background: transparent !important; color: #FFFFFF !important; border: 0 !important; border-bottom: 1px solid rgba(255,255,255,.45) !important; border-radius: 0 !important; padding: .6rem 0 !important; font: 500 1.2rem var(--f-body) !important; box-shadow: none !important; outline-offset: 4px; }
 .agx form input:focus, .agx form select:focus { border-bottom-color: #FFFFFF !important; }
-.agx form select option { color: #000000; }
+.agx form select option { color: #0B2545; }
 .agx form .err { color: #FF8A80; }
-.ag-go { justify-self: start; border: 0; border-radius: 999px; background: #FFFFFF; color: #000000; padding: 1.1rem 2.2rem; font: 900 1.15rem var(--f-display); cursor: pointer; margin-top: .6rem; }
-.ag-go:hover { background: #C6F432; }
+.ag-go { justify-self: start; border: 0; border-radius: 999px; background: #C6F432; color: #0B2545; padding: 1.1rem 2.2rem; font: 900 1.15rem var(--f-display); cursor: pointer; margin-top: .6rem; }
+.ag-go:hover { background: #FFFFFF; }
+.ag-big::after { content: ""; display: block; width: clamp(4rem, 9vw, 8rem); height: clamp(.5rem, 1vw, .8rem); background: #C6F432; margin-top: clamp(1rem, 2.4vw, 2rem); border-radius: 99px; }
+.ag-ic { list-style: none; padding: 0; margin: clamp(2rem, 5vw, 3.5rem) 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.6rem, 1.4vw, 1.1rem); }
+.ag-ic li { display: grid; gap: .9rem; align-content: start; padding: clamp(1rem, 2.2vw, 1.6rem); border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); }
+.ag-ic svg { width: clamp(2.4rem, 4.4vw, 3.4rem); height: clamp(2.4rem, 4.4vw, 3.4rem); color: #C6F432; }
+.ag-ic li:nth-child(2) svg, .ag-ic li:nth-child(4) svg { color: #4DB8FF; }
+.ag-ic b { font: 800 clamp(1rem, 1.6vw, 1.3rem)/1.15 var(--f-display); letter-spacing: -.02em; }
+@media (max-width: 760px) { .ag-ic { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ag-val { margin: clamp(2rem, 5vw, 3.5rem) 0 0; padding: clamp(1.1rem, 2.6vw, 2rem) clamp(1.2rem, 3vw, 2.4rem); border-radius: 22px; background: #C6F432; color: #0B2545; font: 900 clamp(1.3rem, 3vw, 2.4rem)/1.12 var(--f-display); letter-spacing: -.03em; max-width: 30ch; }
+.ag-steps.one li { grid-template-columns: 4.5rem minmax(0, 1fr); }
+.ag-steps.one b { font-size: clamp(1.5rem, 3.8vw, 3.2rem); }
+@media (max-width: 760px) { .ag-steps.one li { grid-template-columns: 2.6rem minmax(0, 1fr); } }
+.ag-inc { list-style: none; margin: 0; padding: 0; display: grid; }
+.ag-inc li { font: 900 clamp(1.4rem, 3.4vw, 2.8rem)/1.1 var(--f-display); letter-spacing: -.035em; padding: clamp(.8rem, 2vw, 1.3rem) 0; border-top: 1px solid rgba(255,255,255,.18); }
+.ag-inc li:last-child { border-bottom: 1px solid rgba(255,255,255,.18); }
+.ag-why { margin-top: 0 !important; max-width: 60ch !important; color: #FFFFFF !important; }
+.agx form textarea { background: transparent !important; color: #FFFFFF !important; border: 1px solid rgba(255,255,255,.45) !important; border-radius: 12px !important; padding: .8rem !important; font: 500 1.1rem var(--f-body) !important; text-transform: none; letter-spacing: 0; }
+.agx form input::placeholder, .agx form textarea::placeholder { color: rgba(255,255,255,.4); }
+.agx form .chk { display: flex !important; align-items: center; gap: .6rem; text-transform: none; letter-spacing: 0; font: 600 1rem/1.3 var(--f-body) !important; color: #FFFFFF !important; }
+.agx form .chk input { width: 20px !important; height: 20px; flex: none; accent-color: #C6F432; padding: 0 !important; border: 0 !important; }
+.agx form fieldset { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .7rem 1.2rem; }
+.agx form legend { grid-column: 1 / -1; padding: 0 0 .8rem; color: rgba(255,255,255,.6); font: 700 .78rem/1.2 var(--f-body); letter-spacing: .14em; text-transform: uppercase; }
+.agx form .cs2-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+@media (max-width: 640px) { .agx form .cs2-row { grid-template-columns: minmax(0, 1fr); } }
 /* ===== industries: the big folders ===== */
 .site-moses .srv-drawer { height: clamp(380px, 52svh, 520px); margin-top: clamp(1rem, 2vw, 1.6rem); }
 .site-moses .srv-drawer + .srv-drawer { margin-top: clamp(.6rem, 1.4vw, 1.2rem); }
@@ -2082,7 +2106,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
   <div class="wrap">
     <a class="brand" href="#" data-home><img class="brand-logo" src="/logo-full-light.png" alt="Moses Agentic" width="1009" height="114"><img class="brand-mark" src="/logo-mark-light.svg" alt="Moses Agentic" width="580" height="340"><span class="mark">M</span><span class="name" data-brand></span></a>
     <nav class="nav" aria-label="Sections">
-      <button type="button" class="nav-free" data-freesite data-i18n="nav.free">Free website</button>
+      <button type="button" class="nav-free" data-freesite data-i18n="nav.free">Websites</button>
       <button type="button" class="nav-hire" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false" data-i18n="nav.hire">Our Agents</button>
       <button type="button" class="nav-smm" data-smm data-i18n="nav.smm">Social media management</button>
       <button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false" data-i18n="nav.services">Services</button>
@@ -5054,7 +5078,7 @@ const T = {
   "wb.line": "Website: designed, built and run for you",
   "wb.pg": "{n} pages",
   "wb.mq": "Sites over 10 pages are quoted after we review your request.",
-  "nav.free": "Free website in 24 hours",
+  "nav.free": "Websites",
   "fw.h": "Get your free 24‑hour website.",
   "fw.lead": "Send us your website or your business name. Within 24 hours, we email you 5 designs made for your business. Pick the one you like and we build it. No website yet? We'll build your first one.",
   "fw.steps": [
@@ -5102,7 +5126,7 @@ const T = {
   "fw.form_h": "Get started",
   "fw.pick": "Your plan",
   "fw.pick_none": "Not sure yet",
-  "fw.big": "24‑hour website",
+  "fw.big": "Your new website, designed in 24 hours.",
   "diy.k": "Why not do it yourself?",
   "diy.h": "Yes, you can. Here's why businesses still hire us.",
   "diy.items": [
@@ -7567,7 +7591,7 @@ const T = {
   "wb.line": "וועבסייט: דיזיינט, געבויט און געפירט פאר אייך",
   "wb.pg": "{n} זייטן",
   "wb.mq": "סייטס מיט מער ווי 10 זייטן באקומען א פרייז נאכדעם וואס מיר קוקן איבער אייער בקשה.",
-  "nav.free": "אומזיסטע וועבסייט אין 24 שעות",
+  "nav.free": "וועבסייטס",
   "fw.h": "באקומט אייער אומזיסטע 24‑שעה וועבסייט.",
   "fw.lead": "שיקט אונז אייער וועבסייט אדער דעם נאמען פון אייער ביזנעס. אין 24 שעות שיקן מיר אייך 5 דיזיינס געמאכט פאר אייער ביזנעס. קלייבט אויס וואס געפעלט אייך, און מיר בויען עס. נאך נישטא קיין וועבסייט? מיר בויען אייער ערשטע.",
   "fw.steps": [
@@ -7615,7 +7639,7 @@ const T = {
   "fw.form_h": "הייבט אן",
   "fw.pick": "אייער פלאן",
   "fw.pick_none": "נאך נישט זיכער",
-  "fw.big": "24‑שעה וועבסייט",
+  "fw.big": "אייער נייער וועבסייט, דיזיינט אין 24 שעות.",
   "diy.k": "פארוואס נישט טון אליין?",
   "diy.h": "יא, איר קענט. אט איז פארוואס ביזנעסער נעמען אונז פונדעסטוועגן.",
   "diy.items": [
@@ -10080,7 +10104,7 @@ const T = {
   "wb.line": "אתר: מעוצב, נבנה ומנוהל בשבילכם",
   "wb.pg": "{n} עמודים",
   "wb.mq": "אתרים מעל 10 עמודים מתומחרים אחרי שנבדוק את הבקשה.",
-  "nav.free": "אתר בחינם תוך 24 שעות",
+  "nav.free": "אתרים",
   "fw.h": "קבלו אתר בחינם תוך 24 שעות.",
   "fw.lead": "שלחו לנו את האתר שלכם או את שם העסק. תוך 24 שעות נשלח לכם 5 עיצובים שנעשו לעסק שלכם. בחרו את מה שאהבתם ואנחנו נבנה אותו. עוד אין לכם אתר? נבנה את הראשון.",
   "fw.steps": [
@@ -10128,7 +10152,7 @@ const T = {
   "fw.form_h": "מתחילים",
   "fw.pick": "התוכנית שלכם",
   "fw.pick_none": "עוד לא בטוח",
-  "fw.big": "אתר ב-24 שעות",
+  "fw.big": "האתר החדש שלכם, מעוצב תוך 24 שעות.",
   "diy.k": "למה לא לעשות את זה לבד?",
   "diy.h": "כן, אפשר. הנה למה עסקים בכל זאת בוחרים בנו.",
   "diy.items": [
@@ -12593,7 +12617,7 @@ const T = {
   "wb.line": "Sitio web: diseñado, construido y gestionado para usted",
   "wb.pg": "{n} páginas",
   "wb.mq": "Los sitios de más de 10 páginas se cotizan después de revisar su solicitud.",
-  "nav.free": "Sitio web gratis en 24 horas",
+  "nav.free": "Sitios web",
   "fw.h": "Obtenga su sitio web gratis en 24 horas.",
   "fw.lead": "Envíenos su sitio web o el nombre de su negocio. En 24 horas le enviamos 5 diseños hechos para su negocio. Elija el que le guste y lo construimos. ¿Aún no tiene sitio? Construimos el primero.",
   "fw.steps": [
@@ -12641,7 +12665,7 @@ const T = {
   "fw.form_h": "Empecemos",
   "fw.pick": "Su plan",
   "fw.pick_none": "Aún no lo sé",
-  "fw.big": "Sitio web en 24 horas",
+  "fw.big": "Su nuevo sitio web, diseñado en 24 horas.",
   "diy.k": "¿Por qué no hacerlo usted mismo?",
   "diy.h": "Sí, puede. Por esto las empresas igual nos contratan.",
   "diy.items": [
@@ -14580,17 +14604,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const okMail = v => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
   function draw(done) {
     const put = h => window.pageOpen("free", t("nav.free"), h);
-    if (done) { put(`<h2>${E(t("cs2.done_t"))}</h2><p class="fw-lead">${E(t("fw.done_s"))}</p>`); return; }
+    if (done) { put(`<div class="agx"><h1 class="ag-big">${E(t("cs2.done_t"))}</h1><p class="ag-lead fw-lead">${E(t("fw.done_s"))}</p></div>`); return; }
     const f = t("cs2.f");
-    put(`<p class="fw-big">${E(t("fw.big"))}</p><h2>${E(t("fw.h"))}</h2><p class="fw-lead">${E(t("fw.lead"))}</p>
-      <p class="fw-val">${E(t("fw.value"))}</p>
-      <div class="fw-why"><h3>${E(t("fw.why_h"))}</h3><p>${E(t("fw.why"))}</p></div>
-      <h3 class="fw-h3">${E(t("fw.inc_h"))}</h3><ul class="fw-inc">${t("fw.inc").map(s => `<li>${E(s)}</li>`).join("")}</ul>
-      <ol class="fw-steps">${t("fw.steps").map(s => `<li>${E(s)}</li>`).join("")}</ol>
-      <h3 class="fw-h3">${E(t("fw.after_h"))}</h3>
-      <div class="fw-opts">${t("fw.opts").map(([a, p, n], i) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div>
-      <p class="cs2-note">${E(t("fw.after_note"))}</p>
-      <h3 class="fw-h3">${E(t("fw.form_h"))}</h3>
+    put(`<div class="agx"><h1 class="ag-big">${E(t("fw.big"))}</h1>
+      <p class="ag-lead">${E(t("fw.lead"))}</p>
+      <p class="ag-val">${E(t("fw.value"))}</p>
+      <ol class="ag-steps one">${t("fw.steps").map((x, i) => `<li><span>0${i + 1}</span><b>${E(x)}</b></li>`).join("")}</ol>
+      <h2 class="ag-h">${E(t("fw.inc_h"))}</h2>
+      <ul class="ag-inc">${t("fw.inc").map(x => `<li>${E(x)}</li>`).join("")}</ul>
+      <h2 class="ag-h">${E(t("fw.why_h"))}</h2>
+      <p class="ag-lead ag-why">${E(t("fw.why"))}</p>
+      <h2 class="ag-h">${E(t("fw.after_h"))}</h2>
+      <div class="ag-plans">${t("fw.opts").map(([a, p, n]) => `<div><b>${E(a)}</b><strong>${E(p.split(" ")[0])}<small>${E(p.split(" ").slice(1).join(" "))}</small></strong><span>${E(n)}</span></div>`).join("")}</div>
+      <ul class="ag-notes"><li>${E(t("fw.after_note"))}</li></ul>
+      <h2 class="ag-h">${E(t("fw.form_h"))}</h2>
       <form class="cs2" id="fwform" novalidate>
         <div class="cs2-row"><label>${E(t("wb.biz"))}<input id="fw-biz" autocomplete="organization"></label><label>${E(t("wb.type"))}<input id="fw-type"></label></div>
         <label>${E(t("fw.site"))}<input id="fw-site" type="url" placeholder="https://"></label>
@@ -14601,8 +14628,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <input id="fw-hp" name="website_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"><div class="cs2-row"><label>${E(f[0])}<input id="fw-name" autocomplete="name"></label><label>${E(f[1])}<input id="fw-email" type="email" autocomplete="email"></label></div>
         <label>${E(f[2])}<input id="fw-phone" type="tel" autocomplete="tel"></label>
         <p class="err" id="fw-err" hidden></p>
-        <button class="btn big aqua" type="submit" id="fw-go">${E(t("fw.submit"))} <span class="arrow">→</span></button>
-        <p class="cs2-note">${E(t("fw.note"))}</p></form>`);
+        <button class="ag-go" type="submit" id="fw-go">${E(t("fw.submit"))} <span class="arrow">→</span></button></form></div>`);
   }
   window.freeSiteOpen = () => { draw(false); try { track("free_site_open"); } catch (x) {} };
   document.addEventListener("click", e => { if (e.target.closest("[data-freesite]")) { e.preventDefault(); e.stopPropagation(); window.freeSiteOpen(); } }, true);
@@ -14668,9 +14694,16 @@ window.mailFallback = function (subject, body) {
   function smm(done) {
     if (done) return open("smm", `<div class="agx"><h1 class="ag-big">${E(t("cs2.done_t"))}</h1><p class="ag-lead fw-lead">${E(t("smm.done"))}</p></div>`);
     const f = t("cs2.f");
-    const mq = t("smm.inc").map(x => `<span>${E(x)}</span>`).join("");
+    const IC = [
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path fill="#0B2545" d="M13.4 20v-6.6h2.2l.35-2.7H13.4V9c0-.8.25-1.3 1.4-1.3h1.3V5.3c-.25-.03-1.05-.1-1.95-.1-1.95 0-3.25 1.15-3.25 3.35v2.15H8.7v2.7h2.2V20z"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 10v10h16V10"/><path d="M2.5 8.5 4.5 3h15l2 5.5a2.6 2.6 0 0 1-4.9.9 2.6 2.6 0 0 1-4.6 0 2.6 2.6 0 0 1-4.6 0 2.6 2.6 0 0 1-4.9-.9z"/><path d="M10 20v-5h4v5"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M9.5 4.5 3.6 17.8"/><path d="m14.5 4.5 5.9 13.3"/><circle cx="4.6" cy="18.6" r="2.6" fill="currentColor" stroke="none"/></svg>'];
+    const mq = t("smm.inc").map((x, i) => `<span>${IC[i] || ""}${E(x)}</span>`).join("");
+    const tiles = t("smm.inc").map((x, i) => `<li>${IC[i] || ""}<b>${E(x)}</b></li>`).join("");
     open("smm", `<div class="agx"><h1 class="ag-big">${E(t("smm.big"))}</h1>
       <p class="ag-lead">${E(t("smm.lead"))}</p>
+      <ul class="ag-ic">${tiles}</ul>
       <div class="ag-mq" aria-hidden="true"><div>${mq}${mq}${mq}${mq}</div></div>
       <ol class="ag-steps">${t("smm.steps").map(([a, b], i) => `<li><span>0${i + 1}</span><b>${E(a)}</b><em>${E(b)}</em></li>`).join("")}</ol>
       <h2 class="ag-h">${E(t("smm.plans_h"))}</h2>
@@ -14733,10 +14766,13 @@ window.pageOpen = function (key, title, html) {
   }
   sh.querySelector(".fname").textContent = title; sh.querySelector(".fclose-t").textContent = t("fo.close");
   sh.querySelector(".fbody").innerHTML = '<div class="fw pg">' + html + '</div>';
+  sh.classList.toggle("s-big", html.indexOf('class="agx"') >= 0);
   const ov = document.getElementById("overlay"); if (ov && !ov.hidden) { ov.hidden = true; document.body.style.overflow = ""; }
   if (sh.hidden) { const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = key; document.body.appendChild(go); go.click(); go.remove(); }
   else sh.querySelector(".fscroll").scrollTop = 0;
 };
+/* Backspace goes back, like the browser's back button (not while typing) */
+document.addEventListener("keydown", e => { if (e.key !== "Backspace" || e.ctrlKey || e.metaKey || e.altKey) return; const el = document.activeElement; if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))) return; e.preventDefault(); if (e.shiftKey) history.forward(); else history.back(); });
 /* pop-ups started from a page (consulting, contact) open on top of the site, not behind the page */
 document.addEventListener("click", e => { if (e.target.closest(".s-page [data-consult], .s-page [data-contact]") && window.__closeFolder) window.__closeFolder(); }, true);
 </script>

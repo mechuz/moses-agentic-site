@@ -20,7 +20,7 @@ a { color: inherit; }
 .bar .in > * { min-width: 0; flex-shrink: 1; }
 .total .in > * { min-width: 0; }
 .bar a.back { text-decoration: none; background: var(--lime); color: var(--navy); font-weight: 800; border-radius: 999px; padding: 10px 18px; white-space: nowrap; }
-main { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px) 140px; }
+main { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px) 120px; }
 h1 { font: 900 clamp(2.8rem, 9.5vw, 8rem)/.92 var(--d); letter-spacing: -.05em; margin: clamp(2rem, 6vw, 5rem) 0 0; max-width: 12ch; text-wrap: balance; }
 h1::after { content: ""; display: block; width: clamp(4rem, 9vw, 8rem); height: clamp(.5rem, 1vw, .8rem); background: var(--lime); border-radius: 99px; margin-top: clamp(1rem, 2.4vw, 2rem); }
 .lead { font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--mut); max-width: 48ch; margin: clamp(1.2rem, 3vw, 2.2rem) 0 0; }
@@ -57,6 +57,23 @@ label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
 .total strong { font: 900 clamp(1.6rem, 4vw, 2.6rem)/1 var(--d); letter-spacing: -.04em; }
 .total small { display: block; font-weight: 700; font-size: .82rem; }
 .total a { background: var(--navy); color: #fff; text-decoration: none; font: 900 1.05rem var(--d); border-radius: 999px; padding: .85rem 1.5rem; white-space: nowrap; }
+.top { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(1.5rem, 5vw, 4.5rem); align-items: start; padding-top: clamp(1.4rem, 4vw, 3.4rem); }
+.top h1 { margin-top: 0; font-size: clamp(2.6rem, 7.5vw, 6.5rem); }
+.order { list-style: none; margin: clamp(1.2rem, 3vw, 2rem) 0 0; padding: 0; }
+.order li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px; align-items: baseline; padding: .85rem 0; border-top: 1px solid var(--line); font: 800 clamp(1.05rem, 1.9vw, 1.4rem)/1.2 var(--d); letter-spacing: -.02em; }
+.order li:last-child { border-bottom: 1px solid var(--line); }
+.order li span { color: var(--lime); white-space: nowrap; }
+.order li button { border: 0; background: transparent; color: var(--mut); font: 700 1.2rem/1 var(--b); cursor: pointer; padding: 4px 8px; }
+.empty { color: var(--mut); margin: 1.2rem 0 0; }
+#f { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); border-radius: 22px; padding: clamp(1.1rem, 2.6vw, 2rem); gap: 1.1rem; position: sticky; top: 84px; }
+.sum strong { display: block; font: 900 clamp(2.4rem, 5vw, 3.8rem)/1 var(--d); letter-spacing: -.045em; color: var(--lime); }
+.sum small { display: block; color: var(--mut); font-weight: 700; font-size: .82rem; }
+#f .go { width: 100%; justify-self: stretch; text-align: center; font-size: 1.3rem; padding: 1.15rem; }
+.fine { margin: 0; color: var(--mut); font-size: .85rem; }
+h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.55); margin: 2.4rem 0 .9rem; }
+.total { display: none; }
+.total button { background: var(--navy); color: #fff; border: 0; font: 900 1.05rem var(--d); border-radius: 999px; padding: .85rem 1.5rem; white-space: nowrap; cursor: pointer; }
+@media (max-width: 860px) { .top { grid-template-columns: minmax(0, 1fr); } #f { position: static; } .total.show { display: block; } }
 .sales { margin-top: 3rem; color: var(--mut); font-size: .95rem; }
 .done h1 { max-width: 14ch; }
 @media (max-width: 640px) { .row { grid-template-columns: minmax(0, 1fr); } .svc { grid-template-columns: auto minmax(0, 1fr); } .svc .price { grid-column: 2; text-align: start; } }
@@ -66,17 +83,32 @@ label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
 <div class="bar"><div class="in"><a href="/" aria-label="Moses Agentic home"><img src="/logo-full-light.png" alt="Moses Agentic"></a><a class="back" href="/">Back to site</a></div></div>
 <main id="app">
   <section id="pick">
-    <h1>Choose your services.</h1>
-    <p class="lead">Pick what you need. Everything is a monthly plan, and you can add more later.</p>
-
-    <h2>Website</h2>
+    <div class="top">
+      <div>
+        <h1 id="h1">Your order.</h1>
+        <ul class="order" id="order"></ul>
+        <p class="empty" id="empty">Nothing picked yet. Choose below.</p>
+      </div>
+      <form id="f" novalidate>
+        <div class="sum"><small>Your monthly total</small><strong id="tot2">$0</strong><small id="one2"></small></div>
+        <label class="f">Business name<input id="biz" autocomplete="organization"></label>
+        <label class="f">Your name<input id="nm" autocomplete="name"></label>
+        <label class="f">Email<input id="em" type="email" autocomplete="email"></label>
+        <input id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div class="err" id="err" role="alert"></div>
+        <button class="go" id="go" type="submit">Subscribe →</button>
+        <p class="fine">We email your agreement to sign and your payment link. Billing starts at signing.</p>
+      </form>
+    </div>
+    <h2 id="more">Add or change services</h2>
+    <h3>Website</h3>
     <div>
       <label class="svc off" data-svc="website"><input type="checkbox"><b>Website, built and managed</b><span class="price"></span>
         <p>Your new website, designed in 24 hours: 5 designs made for your business, then up to 5 rounds of edits. The build is free on a 12- or 24-month plan.</p>
         <span class="opts" role="radiogroup" aria-label="Website plan"><label class="opt"><input type="radio" name="t-website" value="24" checked><span>24 months · $149/mo</span></label><label class="opt"><input type="radio" name="t-website" value="12"><span>12 months · $199/mo</span></label><label class="opt"><input type="radio" name="t-website" value="m2m"><span>Month to month · $199/mo + $1,999 build</span></label></span></label>
     </div>
 
-    <h2>Social media management &amp; distribution</h2>
+    <h3>Social media management &amp; distribution</h3>
     <div>
       <label class="svc off" data-svc="smm"><input type="checkbox"><b>Social media, run for you</b><span class="price"></span>
         <p>Facebook, Instagram, Google Business Profile and Google Ads. You send the photos, videos and copy; we post, schedule and manage.</p>
@@ -84,19 +116,11 @@ label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
         <span class="num">Extra platforms (+$50/mo each) <input type="number" id="xplat" min="0" max="10" value="0" aria-label="Extra platforms"></span></span></label>
     </div>
 
-    <h2>AI agents, per month</h2>
+    <h3>AI agents, per month</h3>
     <div id="agents"></div>
 
     <ul class="notes"><li>Billing starts at signing. Leave a website plan early? You pay only the unearned part of the $1,999 build.</li><li>Ad spend is not included. You set your budget and pay Google and Meta directly.</li><li>Content is not included. You supply the photos, videos and copy. Content creation is quoted separately.</li></ul>
 
-    <h2 id="you">Your details</h2>
-    <form id="f" novalidate>
-      <div class="row"><label class="f">Business name<input id="biz" autocomplete="organization"></label><label class="f">Your name<input id="nm" autocomplete="name"></label></div>
-      <div class="row"><label class="f">Email<input id="em" type="email" autocomplete="email"></label><label class="f">Phone<input id="ph" type="tel" autocomplete="tel"></label></div>
-      <input id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-      <div class="err" id="err" role="alert"></div>
-      <button class="go" id="go" type="submit">Subscribe →</button>
-    </form>
     <p class="sales">Need something that isn't listed? <a href="mailto:welcome@mosesagentic.com?subject=Talk%20to%20sales" id="sales">Talk to sales</a>.</p>
   </section>
   <section id="done" class="done" hidden>
@@ -105,7 +129,7 @@ label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
     <p class="lead"><a href="/">Back to mosesagentic.com</a></p>
   </section>
 </main>
-<div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><a href="#you">Continue →</a></div></div>
+<div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><button type="button" id="go2">Subscribe →</button></div></div>
 <script>
 (function () {
   "use strict";
@@ -122,21 +146,27 @@ label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
   $("#agents").innerHTML = AGENTS.map(function (a) { return '<label class="svc off" data-svc="agent-' + a[0] + '" data-price="' + a[3] + '"><input type="checkbox"><b>' + (a[4] ? '<span class="tag">' + a[4] + '</span>' : "") + E(a[1]) + '</b><span class="price">' + fmt(a[3]) + '<small>/mo</small></span><p>' + E(a[2]) + '</p></label>'; }).join("");
 
   function plan() {
-    var items = [], m = 0, one = 0;
+    var items = [], lines = [], m = 0, one = 0;
     $$(".svc").forEach(function (row) {
       var on = row.querySelector("input[type=checkbox]").checked, k = row.dataset.svc; row.classList.toggle("off", !on);
       if (k === "website" || k === "smm") {
         var term = (row.querySelector("input[type=radio]:checked") || {}).value || "24", p = PRICE[k][term];
         row.querySelector(".price").innerHTML = fmt(p) + "<small>/mo</small>";
         if (!on) return; m += p;
+        lines.push([k, k === "website" ? "Website, " + TERM[term] : "Social media management, " + TERM[term], fmt(p) + "/mo"]);
         if (k === "website") { if (term === "m2m") one += 1999; items.push("Website, " + TERM[term] + ", " + fmt(p) + "/mo" + (term === "m2m" ? " + $1,999 build" : "")); }
         else { var x = Math.max(0, Math.min(10, parseInt($("#xplat").value, 10) || 0)); m += 50 * x; items.push("Social media management, " + TERM[term] + ", " + fmt(p) + "/mo" + (x ? " + " + x + " extra platform" + (x > 1 ? "s" : "") + " (" + fmt(50 * x) + "/mo)" : "")); }
-      } else if (on) { var pr = +row.dataset.price; m += pr; items.push(row.querySelector("b").textContent.replace(/^Executive/, "") + " agent, " + fmt(pr) + "/mo"); }
+      } else if (on) { var pr = +row.dataset.price; m += pr; lines.push([k, row.querySelector("b").textContent.replace(/^Executive/, ""), fmt(pr) + "/mo"]); items.push(row.querySelector("b").textContent.replace(/^Executive/, "") + " agent, " + fmt(pr) + "/mo"); }
     });
-    $("#tot").textContent = fmt(m); $("#one").textContent = one ? "+ " + fmt(one) + " one-time build" : "";
+    $("#tot").textContent = $("#tot2").textContent = fmt(m); $("#one").textContent = $("#one2").textContent = one ? "+ " + fmt(one) + " one-time build" : "";
+    $("#order").innerHTML = lines.map(function (l) { return "<li>" + E(l[1]) + "<span>" + E(l[2]) + '</span><button type="button" data-rm="' + l[0] + '" aria-label="Remove">×</button></li>'; }).join("");
+    $("#empty").hidden = !!lines.length; $("#h1").textContent = lines.length ? "Your order." : "Choose your services.";
     return { items: items, m: m, one: one };
   }
   document.addEventListener("change", plan);
+  document.addEventListener("click", function (e) { var b = e.target.closest("[data-rm]"); if (b) { var r = $('.svc[data-svc="' + b.dataset.rm + '"]'); if (r) { r.querySelector("input[type=checkbox]").checked = false; plan(); } } });
+  $("#go2").addEventListener("click", function () { if ($("#f").requestSubmit) $("#f").requestSubmit(); else $("#go").click(); });
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { $("#total").classList.toggle("show", !es[0].isIntersecting); }).observe($("#go"));
   document.addEventListener("input", function (e) { if (e.target.id === "xplat") plan(); });
 
   /* pre-select from the link: ?p=website-24,smm-12,agent-coo  (?c= is a reference carried into the request) */
@@ -148,17 +178,17 @@ label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
     var a = $('.svc[data-svc="' + code + '"]'); if (a) a.querySelector("input[type=checkbox]").checked = true;
   });
   plan();
-  var first = $(".svc:not(.off)"); if (first && location.hash !== "#you") setTimeout(function () { first.scrollIntoView({ block: "center" }); }, 60);
+
 
   $("#f").addEventListener("submit", function (ev) {
     ev.preventDefault();
     var p = plan(), v = function (id) { return $("#" + id).value.trim(); }, err = $("#err"), go = $("#go");
-    if (!p.items.length) { err.textContent = "Choose at least one service."; $("#pick h2").scrollIntoView({ behavior: "smooth" }); return; }
-    if (!v("biz") || !v("nm") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("em"))) { err.textContent = "Please add your business name, your name and your email."; return; }
+    if (!p.items.length) { err.textContent = "Choose at least one service."; $("#more").scrollIntoView({ behavior: "smooth" }); return; }
+    if (!v("biz") || !v("nm") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("em"))) { err.textContent = "Please add your business name, your name and your email."; var bad = ["biz", "nm", "em"].filter(function (i) { return !v(i); })[0] || "em"; $("#" + bad).focus(); $("#f").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
     err.textContent = "";
     var subject = "Moses Agentic subscription: " + v("biz") + ", " + fmt(p.m) + " a month";
-    var lines = ["SUBSCRIPTION REQUEST: send the agreement to sign and the payment link", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em"), "Phone: " + (v("ph") || "-")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-")]);
-    var data = { kind: "subscription", hp: v("hp"), subject: subject, name: v("nm"), email: v("em"), phone: v("ph"), company: v("biz"), message: lines.join("\n"), language: "en", source: location.hostname };
+    var lines = ["SUBSCRIPTION REQUEST: send the agreement to sign and the payment link", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-")]);
+    var data = { kind: "subscription", hp: v("hp"), subject: subject, name: v("nm"), email: v("em"), phone: "", company: v("biz"), message: lines.join("\n"), language: "en", source: location.hostname };
     function done() { $("#pick").hidden = true; $("#total").hidden = true; $("#done").hidden = false; $("#donemsg").textContent = "Thank you, " + v("nm") + ". Your plan is " + fmt(p.m) + " a month" + (p.one ? ", plus a " + fmt(p.one) + " one-time build" : "") + ". We'll email your agreement to sign and your payment link to " + v("em") + "."; scrollTo(0, 0); }
     function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n")); setTimeout(done, 600); }
     go.disabled = true;

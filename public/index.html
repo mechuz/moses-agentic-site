@@ -1839,7 +1839,11 @@ footer .locs { margin: .2rem 0 .8rem; }
 .sind-list .scard .sico { grid-column: 1; grid-row: 1 / span 2; margin: 0 !important; width: 48px !important; height: 48px !important; }
 html body .s-store .sind-list .scard h4, html body .s-store .sind-list .scard.exec h4 { grid-row: 1; margin: 0 !important; font-size: 1.15rem !important; color: #FFFFFF !important; width: auto !important; max-width: none !important; min-width: 0; }
 html body .s-store .sind-list .scard .sline, html body .s-store .sind-list .scard.exec .sline { grid-row: 2; margin: 0 !important; font-size: .95rem !important; color: rgba(255,255,255,.7) !important; opacity: 1; width: auto !important; max-width: none !important; min-width: 0; }
-.sind-list .scard::after { content: "→"; grid-column: 3; grid-row: 1 / span 2; font: 800 1.2rem var(--f-display); color: #C6F432; }
+.sind-list .scard .srow-sub { grid-column: 3; grid-row: 1 / span 2; align-self: center; background: #C6F432; color: #0B2545; text-decoration: none; font: 900 .95rem/1 var(--f-display); border-radius: 999px; padding: .7rem 1.1rem; white-space: nowrap; }
+.sind-list .scard .srow-sub:hover { background: #FFFFFF; }
+.agdetail .srow-sub { display: none; }
+@media (max-width: 760px) { .sind-list .scard, .sind-list .scard.exec { grid-template-rows: auto auto auto; } .sind-list .scard .srow-sub { grid-column: 2 / -1; grid-row: 3; justify-self: start; margin-top: .6rem; } }
+.sind-list .scard::after { display: none; content: "→"; grid-column: 3; grid-row: 1 / span 2; font: 800 1.2rem var(--f-display); color: #C6F432; }
 [dir="rtl"] .sind-list .scard::after { content: "←"; }
 .sind-list .scard ul, .sind-list .scard .slayers, .sind-list .scard .btn, .sind-list .scard .sprice, .sind-list .scard .sdemo, .sind-list .scard .sgo { display: none !important; }
 .srow-tag { display: inline-block; font: 800 .68rem/1 var(--f-body); font-style: normal; letter-spacing: .08em; text-transform: uppercase; background: #C6F432; color: #0B2545; border-radius: 999px; padding: .25rem .5rem; margin-inline-end: .5rem; vertical-align: .15em; }
@@ -14118,7 +14122,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     const IND = t("store.ind") || [], cur = IND.find(g => g[0] === window.storeInd) || IND[0] || ["all", "", "", []];
     const execIds = (t("store.exec") || []).map(x => x[0]), allAg = [...(t("store.exec") || []), ...(t("store.spec") || [])];
     const ids = cur[0] === "all" ? allAg.map(x => x[0]) : cur[3];
-    const row = x => card(x, execIds.includes(x[0]) ? "exec" : "spec").replace('<h4>', '<h4>' + (execIds.includes(x[0]) ? `<em class="srow-tag">${esc(t("store.exec_tag"))}</em>` : ""));
+    const row = x => card(x, execIds.includes(x[0]) ? "exec" : "spec").replace('<h4>', '<h4>' + (execIds.includes(x[0]) ? `<em class="srow-tag">${esc(t("store.exec_tag"))}</em>` : "")).replace(/<\/article>$/, `<a class="srow-sub" href="/subscribe/?p=agent-${esc(x[0])}">${esc(t("store.ask"))}</a></article>`);
     el.innerHTML = `<div class="sind"><h1 class="ag-big">${esc(t("ag.title"))}.</h1><p class="ag-lead">${esc(t("sc.s"))}</p><div class="sind-tabs" role="tablist">${IND.map(g => `<button type="button" role="tab" class="sind-tab${g[0] === cur[0] ? " on" : ""}" aria-selected="${g[0] === cur[0]}" data-sind="${esc(g[0])}">${esc(g[1])}</button>`).join("")}</div>`
       + `<p class="sind-s">${esc(cur[2])} ${esc(t("store.tap"))}</p><div class="sind-list">${ids.map(id => allAg.find(x => x[0] === id)).filter(Boolean).map(row).join("")}</div></div>`
       + `<div class="sbuild"><div><h3>${esc(t("sc.build_t"))}</h3><p>${esc(t("sc.build_s"))}</p></div><button type="button" class="btn aqua big" data-custom>${esc(t("sc.build_go"))} <span class="arrow">→</span></button></div>`;

@@ -1907,6 +1907,18 @@ body { top: 0 !important; }
 .locmail a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 #mailnote { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 100001; max-width: min(560px, calc(100vw - 32px)); background: #0B2545; color: #FFFFFF; border-radius: 14px; padding: .9rem 1.1rem; font: 700 .98rem/1.4 var(--f-body); box-shadow: 0 20px 50px -20px rgba(0,0,0,.6); }
 
+/* ===== Social media marketing + Pricing pages ===== */
+.site-chocham .nav-smm, .site-chocham .nav-price { display: none !important; }
+.sv-notes { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; }
+.sv-notes li { position: relative; padding-inline-start: 1.1rem; font: 600 .95rem/1.45 var(--f-body); color: #3D5170; }
+.sv-notes li::before { content: ""; position: absolute; inset-inline-start: 0; top: .55em; width: .45rem; height: .45rem; border-radius: 50%; background: #1A73E8; }
+#sheet .fw { align-content: start; grid-auto-rows: max-content; }
+.pr-sec { display: grid; align-content: start; gap: .7rem; padding-top: 1.2rem; border-top: 1px solid #DCE5F0; justify-items: start; }
+.pr-sec .fw-opts, .pr-sec .sv-notes, .pr-sec .pr-tiers { justify-self: stretch; }
+.pr-tiers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+.pr-tiers.one { grid-template-columns: minmax(0, 1fr); max-width: 360px; }
+@media (max-width: 760px) { .pr-tiers { grid-template-columns: minmax(0, 1fr); } }
+
 /* ===== Moses: one navy theme from the top of the page ===== */
 .site-moses .top { background: #0B2545 !important; border-bottom: 0 !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none !important; }
 .site-moses .nav button { color: rgba(255,255,255,.82) !important; }
@@ -1939,7 +1951,7 @@ body { top: 0 !important; }
 .site-moses .srv-row.srv-more .srv-go { background: #C6F432; color: #0B2545; }
 @media (max-width: 900px) { .site-moses .srv-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .site-moses .srv-row { min-height: 180px; } }
 @media (max-width: 640px) { .site-moses .srv-row { min-height: 160px; padding: 1rem .9rem; grid-template-columns: none; } .site-moses .srv-row .srv-name { font-size: clamp(.92rem, 4.4vw, 1.3rem); } .site-moses .srv-row .srv-go { font-size: .85rem; padding: .5rem .8rem; } }
-@media (min-width: 1041px) and (max-width: 1500px) {
+@media (min-width: 1041px) and (max-width: 1920px) {
   .site-moses { --hdr: 116px; }
   .site-moses .nav { display: none; }
   .site-moses .langs { margin-inline-start: auto; }
@@ -2002,10 +2014,12 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
     <nav class="nav" aria-label="Sections">
       <button type="button" class="nav-free" data-freesite data-i18n="nav.free">Free website</button>
       <button type="button" class="nav-hire" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false" data-i18n="nav.hire">Our Agents</button>
+      <button type="button" class="nav-smm" data-smm data-i18n="nav.smm">Social media marketing</button>
       <button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false" data-i18n="nav.services">Services</button>
       <button type="button" data-view="education" data-i18n="nav.edu">Education</button>
       <button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false" data-i18n="nav.ind">Industries</button>
       <button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false" data-i18n="nav.cases">Case Studies</button>
+      <button type="button" class="nav-price" data-pricing data-i18n="nav.price">Pricing</button>
     </nav>
     <div class="langs" role="group" aria-label="Language" id="langs"></div>
     <a class="teamlink" href="https://airtable.com/appzqMaRLQZQDcAMU" target="_blank" rel="noopener" title="Team prospect tracker (Max and Eddie)" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
@@ -5114,7 +5128,75 @@ const T = {
   ],
   "store.exec_tag": "Executive",
   "store.tap": "Tap an agent to see what it does.",
-  "mail.note": "Your email app opened with your message to welcome@mosesagentic.com. Press Send to finish."
+  "mail.note": "Your email app opened with your message to welcome@mosesagentic.com. Press Send to finish.",
+  "nav.smm": "Social media marketing",
+  "nav.price": "Pricing",
+  "smm.h": "Social media marketing",
+  "smm.lead": "We run your Facebook, Instagram, Google Business Profile and Google Ads. You send the photos, videos and copy; we post, schedule and manage.",
+  "smm.inc": [
+   "Facebook",
+   "Instagram",
+   "Google Business Profile",
+   "Google Ads"
+  ],
+  "smm.opts": [
+   [
+    "24-month plan",
+    "$499 a month",
+    "Lowest monthly price"
+   ],
+   [
+    "12-month plan",
+    "$549 a month",
+    "One-year commitment"
+   ],
+   [
+    "Month to month",
+    "$599 a month",
+    "No commitment"
+   ]
+  ],
+  "smm.notes": [
+   "Extra platforms: +$50 a month each.",
+   "Ad spend is not included. You set your budget and pay Google and Meta directly.",
+   "Content is not included. You supply the photos, videos and copy. Content creation is quoted separately."
+  ],
+  "smm.more": "Other platforms you'd like (optional)",
+  "smm.submit": "Get started",
+  "smm.done": "Thank you. We'll be in touch soon.",
+  "pr.h": "Pricing",
+  "pr.lead": "Monthly plans for every service.",
+  "pr.web": "Websites",
+  "pr.web_go": "Get your 5 free designs",
+  "pr.smm_go": "Get started",
+  "pr.ag": "AI agents",
+  "pr.ag_go": "Browse agents",
+  "pr.tiers": [
+   [
+    "Tool",
+    "$299 a month",
+    "AbraKadabra proposal app"
+   ],
+   [
+    "Specialist",
+    "$499 a month",
+    "CRE analyst · CRE data & research · Staffing & payroll manager"
+   ],
+   [
+    "Advanced specialist",
+    "$599 a month",
+    "CRE asset manager · Acquisitions director · Commercial mortgage broker"
+   ],
+   [
+    "Executive",
+    "$799 a month",
+    "COO · CMO · CFO · CIO"
+   ]
+  ],
+  "pr.con": "AI consulting",
+  "pr.con_p": "$150 an hour",
+  "pr.con_s": "30-minute minimum",
+  "pr.con_go": "Book consulting"
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -7542,7 +7624,75 @@ const T = {
   ],
   "store.exec_tag": "עקזעקיוטיוו",
   "store.tap": "קליקט אויף אן אגענט צו זען וואס ער טוט.",
-  "mail.note": "אייער אימעיל עפ האט זיך געעפנט מיט אייער מעסעדזש צו welcome@mosesagentic.com. דריקט Send צו ענדיגן."
+  "mail.note": "אייער אימעיל עפ האט זיך געעפנט מיט אייער מעסעדזש צו welcome@mosesagentic.com. דריקט Send צו ענדיגן.",
+  "nav.smm": "סאשעל מידיע מארקעטינג",
+  "nav.price": "פרייזן",
+  "smm.h": "סאשעל מידיע מארקעטינג",
+  "smm.lead": "מיר פירן אייער פעיסבוק, אינסטאגראם, Google Business Profile און Google Ads. איר שיקט די בילדער, ווידעאס און טעקסט; מיר פאסטן, פלאנירן און פירן.",
+  "smm.inc": [
+   "פעיסבוק",
+   "אינסטאגראם",
+   "Google Business Profile",
+   "Google Ads"
+  ],
+  "smm.opts": [
+   [
+    "24-חודשים פלאן",
+    "$499 א חודש",
+    "די נידריגסטע חודשליכע פרייז"
+   ],
+   [
+    "12-חודשים פלאן",
+    "$549 א חודש",
+    "איין יאר התחייבות"
+   ],
+   [
+    "חודש צו חודש",
+    "$599 א חודש",
+    "קיין התחייבות"
+   ]
+  ],
+  "smm.notes": [
+   "נאך פלאטפארמעס: +$50 א חודש יעדע.",
+   "עד ספענד איז נישט אריינגערעכנט. איר שטעלט אייער בודזשעט און באצאלט Google און Meta גלייך.",
+   "אינהאלט איז נישט אריינגערעכנט. איר גיט די בילדער, ווידעאס און טעקסט. מאכן אינהאלט ווערט באזונדער געפרייזט."
+  ],
+  "smm.more": "אנדערע פלאטפארמעס וואס איר ווילט (נישט נייטיג)",
+  "smm.submit": "הייבט אן",
+  "smm.done": "א דאנק. מיר מעלדן זיך באלד.",
+  "pr.h": "פרייזן",
+  "pr.lead": "חודשליכע פלענער פאר יעדע סערוויס.",
+  "pr.web": "וועבסייטס",
+  "pr.web_go": "באקומט אייערע 5 אומזיסטע דיזיינס",
+  "pr.smm_go": "הייבט אן",
+  "pr.ag": "AI אגענטן",
+  "pr.ag_go": "זעט די אגענטן",
+  "pr.tiers": [
+   [
+    "געצייג",
+    "$299 א חודש",
+    "AbraKadabra פראפאזעל עפ"
+   ],
+   [
+    "ספעציאליסט",
+    "$499 א חודש",
+    "CRE אנאליסט · CRE דאטא און ריסוירטש · שטאב און פעיראל מענעדזשער"
+   ],
+   [
+    "אדוואנסט ספעציאליסט",
+    "$599 א חודש",
+    "CRE עסעט מענעדזשער · אקוויזישאנס דירעקטאר · קאמערשעל מארטגעדזש בראוקער"
+   ],
+   [
+    "עקזעקיוטיוו",
+    "$799 א חודש",
+    "COO · CMO · CFO · CIO"
+   ]
+  ],
+  "pr.con": "AI קאנסאלטינג",
+  "pr.con_p": "$150 א שעה",
+  "pr.con_s": "מינימום 30 מינוט",
+  "pr.con_go": "באשטעלט קאנסאלטינג"
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -9970,7 +10120,75 @@ const T = {
   ],
   "store.exec_tag": "בכיר",
   "store.tap": "לחצו על סוכן כדי לראות מה הוא עושה.",
-  "mail.note": "אפליקציית המייל נפתחה עם ההודעה שלכם ל-welcome@mosesagentic.com. לחצו שלח כדי לסיים."
+  "mail.note": "אפליקציית המייל נפתחה עם ההודעה שלכם ל-welcome@mosesagentic.com. לחצו שלח כדי לסיים.",
+  "nav.smm": "שיווק ברשתות",
+  "nav.price": "מחירים",
+  "smm.h": "שיווק ברשתות חברתיות",
+  "smm.lead": "אנחנו מנהלים את הפייסבוק, האינסטגרם, Google Business Profile ו-Google Ads שלכם. אתם שולחים תמונות, סרטונים וטקסט; אנחנו מפרסמים, מתזמנים ומנהלים.",
+  "smm.inc": [
+   "פייסבוק",
+   "אינסטגרם",
+   "Google Business Profile",
+   "Google Ads"
+  ],
+  "smm.opts": [
+   [
+    "תוכנית ל-24 חודשים",
+    "$499 לחודש",
+    "המחיר החודשי הנמוך ביותר"
+   ],
+   [
+    "תוכנית ל-12 חודשים",
+    "$549 לחודש",
+    "התחייבות לשנה"
+   ],
+   [
+    "חודש לחודש",
+    "$599 לחודש",
+    "בלי התחייבות"
+   ]
+  ],
+  "smm.notes": [
+   "פלטפורמות נוספות: ‎+$50 לחודש לכל אחת.",
+   "תקציב הפרסום לא כלול. אתם קובעים את התקציב ומשלמים ישירות ל-Google ול-Meta.",
+   "תוכן לא כלול. אתם מספקים תמונות, סרטונים וטקסט. יצירת תוכן מתומחרת בנפרד."
+  ],
+  "smm.more": "פלטפורמות נוספות שתרצו (לא חובה)",
+  "smm.submit": "מתחילים",
+  "smm.done": "תודה. נחזור אליכם בקרוב.",
+  "pr.h": "מחירים",
+  "pr.lead": "תוכניות חודשיות לכל שירות.",
+  "pr.web": "אתרים",
+  "pr.web_go": "קבלו 5 עיצובים בחינם",
+  "pr.smm_go": "מתחילים",
+  "pr.ag": "סוכני AI",
+  "pr.ag_go": "לכל הסוכנים",
+  "pr.tiers": [
+   [
+    "כלי",
+    "$299 לחודש",
+    "אפליקציית ההצעות AbraKadabra"
+   ],
+   [
+    "מומחה",
+    "$499 לחודש",
+    "אנליסט נדל״ן מסחרי · נתונים ומחקר נדל״ן מסחרי · מנהל כוח אדם ושכר"
+   ],
+   [
+    "מומחה מתקדם",
+    "$599 לחודש",
+    "מנהל נכסים מסחריים · מנהל רכישות · מתווך משכנתאות מסחריות"
+   ],
+   [
+    "בכיר",
+    "$799 לחודש",
+    "COO · CMO · CFO · CIO"
+   ]
+  ],
+  "pr.con": "ייעוץ AI",
+  "pr.con_p": "$150 לשעה",
+  "pr.con_s": "מינימום 30 דקות",
+  "pr.con_go": "קביעת ייעוץ"
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -12398,7 +12616,75 @@ const T = {
   ],
   "store.exec_tag": "Ejecutivo",
   "store.tap": "Toque un agente para ver lo que hace.",
-  "mail.note": "Se abrió su app de correo con su mensaje para welcome@mosesagentic.com. Presione Enviar para terminar."
+  "mail.note": "Se abrió su app de correo con su mensaje para welcome@mosesagentic.com. Presione Enviar para terminar.",
+  "nav.smm": "Marketing en redes",
+  "nav.price": "Precios",
+  "smm.h": "Marketing en redes sociales",
+  "smm.lead": "Manejamos su Facebook, Instagram, Google Business Profile y Google Ads. Usted envía las fotos, videos y textos; nosotros publicamos, programamos y gestionamos.",
+  "smm.inc": [
+   "Facebook",
+   "Instagram",
+   "Google Business Profile",
+   "Google Ads"
+  ],
+  "smm.opts": [
+   [
+    "Plan de 24 meses",
+    "$499 al mes",
+    "El precio mensual más bajo"
+   ],
+   [
+    "Plan de 12 meses",
+    "$549 al mes",
+    "Compromiso de un año"
+   ],
+   [
+    "Mes a mes",
+    "$599 al mes",
+    "Sin compromiso"
+   ]
+  ],
+  "smm.notes": [
+   "Plataformas adicionales: +$50 al mes cada una.",
+   "La inversión en anuncios no está incluida. Usted fija su presupuesto y paga directamente a Google y Meta.",
+   "El contenido no está incluido. Usted aporta las fotos, videos y textos. La creación de contenido se cotiza aparte."
+  ],
+  "smm.more": "Otras plataformas que le interesan (opcional)",
+  "smm.submit": "Empezar",
+  "smm.done": "Gracias. Le contactaremos pronto.",
+  "pr.h": "Precios",
+  "pr.lead": "Planes mensuales para cada servicio.",
+  "pr.web": "Sitios web",
+  "pr.web_go": "Reciba sus 5 diseños gratis",
+  "pr.smm_go": "Empezar",
+  "pr.ag": "Agentes de IA",
+  "pr.ag_go": "Ver agentes",
+  "pr.tiers": [
+   [
+    "Herramienta",
+    "$299 al mes",
+    "App de propuestas AbraKadabra"
+   ],
+   [
+    "Especialista",
+    "$499 al mes",
+    "Analista CRE · Datos e investigación CRE · Gestor de personal y nómina"
+   ],
+   [
+    "Especialista avanzado",
+    "$599 al mes",
+    "Gestor de activos CRE · Director de adquisiciones · Corredor de hipotecas comerciales"
+   ],
+   [
+    "Ejecutivo",
+    "$799 al mes",
+    "COO · CMO · CFO · CIO"
+   ]
+  ],
+  "pr.con": "Consultoría de IA",
+  "pr.con_p": "$150 la hora",
+  "pr.con_s": "Mínimo 30 minutos",
+  "pr.con_go": "Reservar consultoría"
  }
 };
 
@@ -12657,7 +12943,7 @@ function render() {
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);
   $$(".bigstat, .bigstat-l, .bigline").forEach(el => el.hidden = !CONFIG.pagesExample);
   $("#tabstrip").innerHTML = (CONFIG.site === "chocham" ? [["education", "nav.home"]] : []).map(([v, k]) => `<button type="button" data-view="${v}" aria-current="${view === v ? "page" : "false"}">${esc(t(k))}</button>`).join("")
-    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="nav-free" data-freesite>${esc(t("nav.free"))}</button><button type="button" class="ask" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false">${esc(t("nav.hire"))}</button><button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false">${esc(t("nav.services"))}</button><button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false">${esc(t("nav.ind"))}</button><button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false">${esc(t("nav.cases"))}</button>`)
+    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="nav-free" data-freesite>${esc(t("nav.free"))}</button><button type="button" class="ask" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false">${esc(t("nav.hire"))}</button><button type="button" class="nav-smm" data-smm>${esc(t("nav.smm"))}</button><button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false">${esc(t("nav.services"))}</button><button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false">${esc(t("nav.ind"))}</button><button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false">${esc(t("nav.cases"))}</button><button type="button" class="nav-price" data-pricing>${esc(t("nav.price"))}</button>`)
     + (CONFIG.site === "chocham" ? [["seats", "nav.indiv"], ["consult", "nav.entp"], ["dates", "nav.dates"], ["semfaq", "faq.kicker"]] : []).map(([g, k]) => `<button type="button" data-go="${g}">${esc(t(k))}</button>`).join("")
     + `<button type="button" class="ask" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>${esc(t("chat.open"))}</button>`;
   $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : "");
@@ -14228,6 +14514,71 @@ window.mailFallback = function (subject, body) {
   n.textContent = (typeof t === "function" && t("mail.note")) || "Your email app opened with your message. Press Send to finish.";
   document.body.appendChild(n); setTimeout(function () { if (n.isConnected) n.remove(); }, 12000);
 };
+</script>
+<script>
+/* Social media marketing and Pricing: top menu items that open their own pages */
+(function () {
+  if (CONFIG.site !== "moses") return;
+  const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const okMail = v => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+  const opts = k => `<div class="fw-opts">${t(k).map(([a, p, n]) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div>`;
+  const notes = () => `<ul class="sv-notes">${t("smm.notes").map(n => `<li>${E(n)}</li>`).join("")}</ul>`;
+  function open(mode, html) {
+    const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
+    sh.dataset.mode = mode; sh.classList.add("wide");
+    sh.innerHTML = `<button type="button" class="x" data-close aria-label="${E(t("close"))}">×</button><div class="fw">${html}</div>`;
+    ov.hidden = false; document.body.style.overflow = "hidden"; sh.scrollTop = 0;
+  }
+  function smm(done) {
+    if (done) return open("smm", `<h2 id="sheet-title">${E(t("cs2.done_t"))}</h2><p class="fw-lead">${E(t("smm.done"))}</p>`);
+    const f = t("cs2.f");
+    open("smm", `<h2 id="sheet-title">${E(t("smm.h"))}</h2><p class="fw-lead">${E(t("smm.lead"))}</p>
+      <ul class="fw-inc">${t("smm.inc").map(s => `<li>${E(s)}</li>`).join("")}</ul>
+      ${opts("smm.opts")}${notes()}
+      <form class="cs2" id="smmform" novalidate>
+        <div class="cs2-row"><label>${E(t("wb.biz"))}<input id="sm-biz" autocomplete="organization"></label><label>${E(t("fw.site"))}<input id="sm-site" type="url" placeholder="https://"></label></div>
+        <label>${E(t("smm.more"))}<input id="sm-more"></label>
+        <label>${E(t("fw.pick"))}<select id="sm-pick">${t("smm.opts").map(([a, p], i) => `<option value="${i}">${E(a + " · " + p)}</option>`).join("")}<option value="x" selected>${E(t("fw.pick_none"))}</option></select></label>
+        <input id="sm-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div class="cs2-row"><label>${E(f[0])}<input id="sm-name" autocomplete="name"></label><label>${E(f[1])}<input id="sm-email" type="email" autocomplete="email"></label></div>
+        <label>${E(f[2])}<input id="sm-phone" type="tel" autocomplete="tel"></label>
+        <p class="err" id="sm-err" hidden></p>
+        <button class="btn big aqua" type="submit" id="sm-go">${E(t("smm.submit"))} <span class="arrow">→</span></button></form>`);
+  }
+  function pricing() {
+    open("pricing", `<h2 id="sheet-title">${E(t("pr.h"))}</h2><p class="fw-lead">${E(t("pr.lead"))}</p>
+      <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.web"))}</h3>${opts("fw.opts")}<p class="cs2-note">${E(t("fw.after_note"))}</p><button type="button" class="btn aqua" data-freesite>${E(t("pr.web_go"))} <span class="arrow">→</span></button></div>
+      <div class="pr-sec"><h3 class="fw-h3">${E(t("smm.h"))}</h3>${opts("smm.opts")}${notes()}<button type="button" class="btn aqua" data-smm>${E(t("pr.smm_go"))} <span class="arrow">→</span></button></div>
+      <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.ag"))}</h3><div class="pr-tiers">${t("pr.tiers").map(([a, p, n]) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div><button type="button" class="btn aqua" data-pr-agents>${E(t("pr.ag_go"))} <span class="arrow">→</span></button></div>
+      <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.con"))}</h3><div class="pr-tiers one"><div class="fw-opt"><b>${E(t("pr.con"))}</b><em>${E(t("pr.con_p"))}</em><span>${E(t("pr.con_s"))}</span></div></div><button type="button" class="btn aqua" data-consult>${E(t("pr.con_go"))} <span class="arrow">→</span></button></div>`);
+  }
+  window.smmOpen = () => { smm(false); try { track("smm_open"); } catch (x) {} };
+  window.pricingOpen = () => { pricing(); try { track("pricing_open"); } catch (x) {} };
+  document.addEventListener("click", e => {
+    if (e.target.closest("[data-smm]")) { e.preventDefault(); e.stopPropagation(); window.smmOpen(); return; }
+    if (e.target.closest("[data-pricing]")) { e.preventDefault(); e.stopPropagation(); window.pricingOpen(); return; }
+    if (e.target.closest("[data-pr-agents]")) { e.preventDefault(); e.stopPropagation(); const ov = document.getElementById("overlay"); if (ov) ov.hidden = true; document.body.style.overflow = ""; const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = "store"; document.body.appendChild(go); go.click(); go.remove(); }
+  }, true);
+  document.addEventListener("submit", async e => {
+    if (e.target.id !== "smmform") return; e.preventDefault();
+    const v = id => { const el = document.getElementById(id); return el && el.value ? el.value.trim() : ""; };
+    const err = document.getElementById("sm-err"), btn = document.getElementById("sm-go");
+    const name = v("sm-name"), email = v("sm-email");
+    if (!name || !okMail(email) || !v("sm-biz")) { err.textContent = t("fw.err"); err.hidden = false; return; }
+    err.hidden = true;
+    const plan = v("sm-pick") === "x" ? "not sure yet" : (en => en[0] + ", " + en[1])(T.en["smm.opts"][+v("sm-pick")]);
+    const subject = "Moses Agentic social media marketing: request from " + name + " (" + v("sm-biz") + ")";
+    const lines = ["Social media marketing request", "Business: " + v("sm-biz"), "Website: " + (v("sm-site") || "-"), "Extra platforms: " + (v("sm-more") || "-"), "Plan: " + plan, "Name: " + name, "Email: " + email, "Phone: " + (v("sm-phone") || "-"), "Site language: " + lang];
+    const data = { kind: "marketing", hp: v("sm-hp"), subject, name, email, phone: v("sm-phone"), company: v("sm-biz"), message: lines.join("\n"), language: lang, source: location.hostname || CONFIG.site };
+    btn.disabled = true;
+    try {
+      if (CONFIG.contactEndpoint) { const r = await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }); if (!r.ok) throw 0; }
+      else if (CONFIG.web3formsKey) { const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(Object.assign({ access_key: CONFIG.web3formsKey, from_name: "Moses Agentic website", botcheck: false, replyto: email }, data)) }); const j = await r.json().catch(() => ({})); if (!r.ok || j.success === false) throw 0; }
+      else if (window.mailFallback) mailFallback(subject, lines.join("\n")); else throw 0;
+      smm(true); try { track("generate_lead", { form: "social_media" }); } catch (x) {}
+    } catch (x) { err.textContent = t("cs2.fail"); err.hidden = false; btn.disabled = false; }
+  });
+})();
 </script>
 </body>
 </html>

@@ -99,12 +99,14 @@ NF = {
     "notes": "fldebvI4JGfhccW5M",
 }
 # Category option name in Airtable -> (key, label) on the news page
+# The Airtable option names are kept as they were created; the labels shown on the page are the
+# technology-news labels ownership asked for on November 17, 2026.
 NEWS_CATEGORIES = {
     "AI & automation": ("ai", "AI & automation"),
-    "AI for small business": ("smb", "AI for small business"),
-    "AI by industry": ("industry", "AI by industry"),
-    "Agents & tools": ("agents", "Agents & tools"),
-    "Policy, law & data": ("policy", "Policy, law & data"),
+    "AI for small business": ("smb", "Small business tech"),
+    "AI by industry": ("industry", "Tech by industry"),
+    "Agents & tools": ("tools", "Software & devices"),
+    "Policy, law & data": ("policy", "Security, policy & law"),
     "Work & productivity": ("work", "Work & productivity"),
     "Company update": ("company", "Company update"),
 }
@@ -452,7 +454,7 @@ def render_blog_index(posts):
                   {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/blog/{p['slug']}/", "name": p["headline"]} for i, p in enumerate(posts[:50])]}}
     page = render(tpl("list.html"), {
         "title": f"Insights: AI for your business | {SITE_NAME}",
-        "description": "Plain-language articles on putting AI agents to work in a real business: by department, by industry, and with the numbers that matter.",
+        "description": "Plain-language articles on putting AI staff to work in a real business: by department, by industry, and with the numbers that matter.",
         "url": SITE + "/blog/", "feed_title": "Moses Agentic: Insights", "feed_path": "/feed.xml",
         "schema": json.dumps(schema, ensure_ascii=False),
         "nav_blog": ' aria-current="page"', "nav_news": "",
@@ -464,7 +466,7 @@ def render_blog_index(posts):
     })
     write_page("/blog/", page)
     write_feed(PUBLIC / "feed.xml", "Moses Agentic: Insights", SITE + "/blog/",
-               "Plain-language articles on putting AI agents to work in a real business.",
+               "Plain-language articles on putting AI staff to work in a real business.",
                [(p["headline"], f"{SITE}/blog/{p['slug']}/", p.get("description") or p.get("excerpt", ""), p["date"]) for p in posts[:20]])
 
 
@@ -489,19 +491,19 @@ def render_news_item(n, items):
     others = [x for x in items if x["slug"] != n["slug"]][:3]
     related = ""
     if others:
-        related = '<section class="related"><h2>More AI news for business</h2><ul>' + "".join(
+        related = '<section class="related"><h2>More Technology news for business</h2><ul>' + "".join(
             f'<li><a href="/news/{esc(x["slug"])}/">{esc(x["title"])}</a></li>' for x in others) + "</ul></section>"
     meta = [f'<span>{esc(pretty_date(n["date"]))}</span>', f'<span class="tag">{esc(label)}</span>']
     if n.get("article_date"):
         meta.append(f'<span>Published by {esc(src_label)} on {esc(pretty_date(n["article_date"]))}</span>')
     page = render(tpl("post.html"), {
         "lang": "en", "dir": "ltr",
-        "title": f"{n['title']} | AI news for business | {SITE_NAME}",
+        "title": f"{n['title']} | Technology news for business | {SITE_NAME}",
         "description": esc(n["summary"][:155]),
         "url": url, "og_type": "article", "image_abs": f"{SITE}/og.png",
         "schema": json.dumps(schema, ensure_ascii=False),
         "nav_blog": "", "nav_news": ' aria-current="page"',
-        "kicker": "AI news for business", "headline": esc(n["title"]),
+        "kicker": "Technology news for business", "headline": esc(n["title"]),
         "lead_html": "", "meta_html": " ".join(meta), "hero_img": "",
         "body": body, "source_html": source_html,
         "disclaimer_html": '<p class="disclaimer">Summaries are written in our own words from the source linked above. This is news, not legal, tax or financial advice.</p>',
@@ -541,15 +543,15 @@ def render_news_index(items):
                 + "</div></article>")
         parts.append("</div>")
     items_html = "".join(parts) if items else '<p class="empty">The news desk opens shortly.</p>'
-    schema = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "AI news for business", "url": SITE + "/news/",
+    schema = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Technology news for business", "url": SITE + "/news/",
               "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE + "/"}}
     page = render(tpl("list.html"), {
-        "title": f"AI news for business | {SITE_NAME}",
-        "description": "A daily desk of reputable AI and automation news, summarized for business owners: what changed and why it matters.",
-        "url": SITE + "/news/", "feed_title": "Moses Agentic: AI news for business", "feed_path": "/news/feed.xml",
+        "title": f"Technology news for business | {SITE_NAME}",
+        "description": "A daily desk of reputable technology news, summarized for business owners: what changed and why it matters.",
+        "url": SITE + "/news/", "feed_title": "Moses Agentic: Technology news for business", "feed_path": "/news/feed.xml",
         "schema": json.dumps(schema, ensure_ascii=False),
         "nav_blog": "", "nav_news": ' aria-current="page"',
-        "kicker": "AI news for business", "headline": "What changed in AI this week, and why it matters to you.",
+        "kicker": "Technology news for business", "headline": "What changed in technology this week, and why it matters to your business.",
         "lead": "Reputable sources, summarized in plain words for owners and operators. Updated most days.",
         "chips_html": f'<div class="chips">{"".join(chips)}</div>',
         "items_html": items_html,
@@ -557,8 +559,8 @@ def render_news_index(items):
         "year": str(datetime.now(tz()).year),
     })
     write_page("/news/", page)
-    write_feed(PUBLIC / "news" / "feed.xml", "Moses Agentic: AI news for business", SITE + "/news/",
-               "Reputable AI and automation news, summarized for business owners.",
+    write_feed(PUBLIC / "news" / "feed.xml", "Moses Agentic: Technology news for business", SITE + "/news/",
+               "Reputable technology news, summarized for business owners.",
                [(n["title"], f"{SITE}/news/{n['slug']}/", n["summary"], n["date"]) for n in items[:20]])
 
 

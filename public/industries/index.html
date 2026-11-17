@@ -1814,32 +1814,37 @@ footer .locs { margin: .2rem 0 .8rem; }
 .diy-end { margin-top: clamp(1.4rem, 3vw, 2rem); display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
 .diy-end p { margin: 0; font: 800 clamp(1.05rem, 2vw, 1.3rem)/1.35 var(--f-display); }
 
-/* ===== agents page: industry tabs + list ===== */
+/* ===== agents page: big navy page, industry tabs + list ===== */
+.s-store { --fc: #0B2545; --fi: #FFFFFF; }
+.s-store .fbar { border-bottom: 1px solid rgba(255,255,255,.18); }
+.s-store .fname { font: 700 .82rem/1 var(--f-body); letter-spacing: .22em; text-transform: uppercase; }
+.s-store .fclose { background: #C6F432; color: #0B2545; }
+.fsheet.s-store .fscroll > .fintro { background: #0B2545; color: #FFFFFF; max-width: 1280px; margin-top: 0; border-radius: 0; box-shadow: none; padding: 0 clamp(1.1rem, 4vw, 3.5rem) 4rem; }
+.fsheet.s-store .fscroll > .fbody { display: none; }
+.fsheet.s-store, .fsheet.s-store .fscroll, .fsheet.s-store .fscroll > .fintro, .fsheet.s-store #store { background: #0B2545 !important; }
+.fsheet.s-store .fscroll > .fintro { max-width: 1280px !important; margin-inline: auto !important; }
+.s-store .dir2, .s-store .splan { display: none !important; }
 .s-store .sind { scroll-margin-top: 96px; }
-.sind-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .9rem; }
-.sind-tab { border: 1.5px solid #C9D6E8; background: #FFFFFF; color: #0B2545; border-radius: 999px; padding: .65rem 1.1rem; font: 800 1rem/1.1 var(--f-display); cursor: pointer; min-height: 44px; }
-.sind-tab:hover { border-color: #0B2545; }
-.sind-tab.on { background: #0B2545; border-color: #0B2545; color: #FFFFFF; }
-.sind-s { margin: 0 0 1rem; color: #3D5170; font: 600 1rem/1.45 var(--f-body); }
-.sind-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+.s-store .sind .ag-lead { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.sind-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.sind-tab { border: 1.5px solid rgba(255,255,255,.3); background: transparent; color: #FFFFFF; border-radius: 999px; padding: .7rem 1.2rem; font: 800 1rem/1.1 var(--f-display); cursor: pointer; min-height: 44px; }
+.sind-tab:hover { border-color: #FFFFFF; }
+.sind-tab.on { background: #C6F432; border-color: #C6F432; color: #0B2545; }
+.sind-s { margin: 0 0 1.2rem; color: rgba(255,255,255,.7); font: 600 1rem/1.45 var(--f-body); }
+.sind-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
 @media (max-width: 760px) { .sind-list { grid-template-columns: minmax(0, 1fr); } }
-.sind-list .scard { display: grid !important; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: .9rem; row-gap: .15rem; align-items: center; padding: .85rem 1rem !important; min-height: 0 !important; height: auto !important; border-radius: 14px !important; cursor: pointer; }
-.sind-list .scard, .sind-list .scard.exec { aspect-ratio: auto !important; max-height: none; background: #FFFFFF !important; color: #0B2545 !important; border: 1.5px solid #DCE5F0 !important; box-shadow: none !important; transform: none !important; }
-.sind-list .scard:hover { border-color: #0B2545 !important; }
-body .s-store .sind-list .scard.exec h4, body .s-store .sind-list .scard.exec .sline, body .s-store .sind-list .scard h4, body .s-store .sind-list .scard .sline { color: #0B2545 !important; }
-.sind-list .scard .sline { opacity: .75; }
-.sind-list .scard .sico { width: 44px !important; height: 44px !important; }
+.sind-list .scard, .sind-list .scard.exec { display: grid !important; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: 1rem; row-gap: .2rem; align-items: center; padding: 1.1rem 1.2rem !important; min-height: 0 !important; height: auto !important; aspect-ratio: auto !important; border-radius: 16px !important; cursor: pointer; background: rgba(255,255,255,.07) !important; color: #FFFFFF !important; border: 1px solid rgba(255,255,255,.16) !important; box-shadow: none !important; transform: none !important; }
+.sind-list .scard:hover { border-color: #C6F432 !important; background: rgba(255,255,255,.11) !important; }
 .sind-list .scard > * { grid-column: 2; }
-.sind-list .scard .sico { grid-column: 1; grid-row: 1 / span 2; margin: 0 !important; }
-.sind-list .scard h4 { grid-row: 1; margin: 0 !important; font-size: 1.05rem !important; }
-.sind-list .scard .sline { grid-row: 2; margin: 0 !important; font-size: .92rem !important; }
-.sind-list .scard h4, .sind-list .scard .sline { width: auto !important; max-width: none !important; min-width: 0; padding-inline-end: .4rem; }
-.sind-list .scard::after { content: "→"; grid-column: 3; grid-row: 1 / span 2; font: 800 1.1rem var(--f-display); color: #0B2545; opacity: .5; }
+.sind-list .scard .sico { grid-column: 1; grid-row: 1 / span 2; margin: 0 !important; width: 48px !important; height: 48px !important; }
+html body .s-store .sind-list .scard h4, html body .s-store .sind-list .scard.exec h4 { grid-row: 1; margin: 0 !important; font-size: 1.15rem !important; color: #FFFFFF !important; width: auto !important; max-width: none !important; min-width: 0; }
+html body .s-store .sind-list .scard .sline, html body .s-store .sind-list .scard.exec .sline { grid-row: 2; margin: 0 !important; font-size: .95rem !important; color: rgba(255,255,255,.7) !important; opacity: 1; width: auto !important; max-width: none !important; min-width: 0; }
+.sind-list .scard::after { content: "→"; grid-column: 3; grid-row: 1 / span 2; font: 800 1.2rem var(--f-display); color: #C6F432; }
 [dir="rtl"] .sind-list .scard::after { content: "←"; }
-.sind-list .scard:hover::after { opacity: 1; }
 .sind-list .scard ul, .sind-list .scard .slayers, .sind-list .scard .btn, .sind-list .scard .sprice, .sind-list .scard .sdemo, .sind-list .scard .sgo { display: none !important; }
-.srow-tag { display: inline-block; font: 800 .68rem/1 var(--f-body); font-style: normal; letter-spacing: .08em; text-transform: uppercase; background: #C6F432; color: #0B2545; border-radius: 999px; padding: .25rem .5rem; margin-inline-end: .45rem; vertical-align: .15em; }
+.srow-tag { display: inline-block; font: 800 .68rem/1 var(--f-body); font-style: normal; letter-spacing: .08em; text-transform: uppercase; background: #C6F432; color: #0B2545; border-radius: 999px; padding: .25rem .5rem; margin-inline-end: .5rem; vertical-align: .15em; }
 .agdetail .srow-tag { display: none; }
+.s-store .sbuild { display: flex !important; margin-top: clamp(2.5rem, 6vw, 4.5rem) !important; max-width: none !important; }
 .goog-te-banner-frame, .skiptranslate > iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
@@ -4568,9 +4573,9 @@ const T = {
   "sc.k": "Our agents",
   "sc.t": "Hire an AI agent.",
   "sc.s": "Ready-made agents, cloned and set up for your business. Or build your own.",
-  "sc.build_t": "Build your own agent.",
-  "sc.build_s": "Tell us the problem. We design the agent around your business, build it and run it.",
-  "sc.build_go": "Start building",
+  "sc.build_t": "Need an agent that isn't here?",
+  "sc.build_s": "Tell us the job. We design it around your business, build it and run it.",
+  "sc.build_go": "Request a custom agent",
   "sc.learn_k": "Chocham AI",
   "sc.learn_t": "Learn AI yourself.",
   "sc.learn_s": "Hands-on AI seminars and training for you and your team.",
@@ -7081,9 +7086,9 @@ const T = {
   "sc.k": "אונזערע אגענטן",
   "sc.t": "דינגט אן AI אגענט.",
   "sc.s": "גרייטע אגענטן, קאפירט און איינגעשטעלט פאר אייער ביזנעס. אדער בויט אייער אייגענעם.",
-  "sc.build_t": "בויט אייער אייגענעם אגענט.",
-  "sc.build_s": "זאגט אונז די פראבלעם. מיר פלאנירן דעם אגענט ארום אייער ביזנעס, בויען און פירן אים.",
-  "sc.build_go": "הייבט אן בויען",
+  "sc.build_t": "דארפט איר אן אגענט וואס איז נישט דא?",
+  "sc.build_s": "זאגט אונז די ארבעט. מיר דיזיינען עס ארום אייער ביזנעס, בויען עס און פירן עס.",
+  "sc.build_go": "בעט א קאסטעם אגענט",
   "sc.learn_k": "חכם AI",
   "sc.learn_t": "לערנט זיך AI אליין.",
   "sc.learn_s": "פראקטישע AI סעמינארן און טרעינינג פאר אייך און אייער טיעם.",
@@ -9594,9 +9599,9 @@ const T = {
   "sc.k": "הסוכנים שלנו",
   "sc.t": "גייסו סוכן AI.",
   "sc.s": "סוכנים מוכנים, משוכפלים ומותאמים לעסק שלכם. או בנו סוכן משלכם.",
-  "sc.build_t": "בנו סוכן משלכם.",
-  "sc.build_s": "ספרו לנו מה הבעיה. אנחנו מתכננים את הסוכן סביב העסק שלכם, בונים ומפעילים אותו.",
-  "sc.build_go": "להתחיל לבנות",
+  "sc.build_t": "צריכים סוכן שלא מופיע כאן?",
+  "sc.build_s": "ספרו לנו מה העבודה. נעצב אותו סביב העסק שלכם, נבנה ונפעיל אותו.",
+  "sc.build_go": "בקשו סוכן מותאם",
   "sc.learn_k": "חכם AI",
   "sc.learn_t": "למדו AI בעצמכם.",
   "sc.learn_s": "סמינרים והדרכות AI מעשיות לכם ולצוות שלכם.",
@@ -12107,9 +12112,9 @@ const T = {
   "sc.k": "Nuestros agentes",
   "sc.t": "Contrate un agente de IA.",
   "sc.s": "Agentes listos, clonados y configurados para su negocio. O cree el suyo.",
-  "sc.build_t": "Cree su propio agente.",
-  "sc.build_s": "Cuéntenos el problema. Diseñamos el agente según su negocio, lo creamos y lo operamos.",
-  "sc.build_go": "Empezar a crear",
+  "sc.build_t": "¿Necesita un agente que no está aquí?",
+  "sc.build_s": "Cuéntenos el trabajo. Lo diseñamos para su negocio, lo construimos y lo operamos.",
+  "sc.build_go": "Solicitar un agente a medida",
   "sc.learn_k": "Chocham AI",
   "sc.learn_t": "Aprenda IA por su cuenta.",
   "sc.learn_s": "Seminarios y capacitación práctica de IA para usted y su equipo.",
@@ -14026,10 +14031,9 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     const execIds = (t("store.exec") || []).map(x => x[0]), allAg = [...(t("store.exec") || []), ...(t("store.spec") || [])];
     const ids = cur[0] === "all" ? allAg.map(x => x[0]) : cur[3];
     const row = x => card(x, execIds.includes(x[0]) ? "exec" : "spec").replace('<h4>', '<h4>' + (execIds.includes(x[0]) ? `<em class="srow-tag">${esc(t("store.exec_tag"))}</em>` : ""));
-    el.innerHTML = `<div class="sind"><div class="sind-tabs" role="tablist">${IND.map(g => `<button type="button" role="tab" class="sind-tab${g[0] === cur[0] ? " on" : ""}" aria-selected="${g[0] === cur[0]}" data-sind="${esc(g[0])}">${esc(g[1])}</button>`).join("")}</div>`
+    el.innerHTML = `<div class="sind"><h1 class="ag-big">${esc(t("ag.title"))}.</h1><p class="ag-lead">${esc(t("sc.s"))}</p><div class="sind-tabs" role="tablist">${IND.map(g => `<button type="button" role="tab" class="sind-tab${g[0] === cur[0] ? " on" : ""}" aria-selected="${g[0] === cur[0]}" data-sind="${esc(g[0])}">${esc(g[1])}</button>`).join("")}</div>`
       + `<p class="sind-s">${esc(cur[2])} ${esc(t("store.tap"))}</p><div class="sind-list">${ids.map(id => allAg.find(x => x[0] === id)).filter(Boolean).map(row).join("")}</div></div>`
-      + `<div class="sbuild"><div><h3>${esc(t("sc.build_t"))}</h3><p>${esc(t("sc.build_s"))}</p></div><button type="button" class="btn aqua big" data-custom>${esc(t("sc.build_go"))} <span class="arrow">→</span></button></div>`
-      + `<div class="splan"><h3>${esc(t("store.plan_t"))}</h3><p>${esc(t("store.plan_s"))}</p><div class="sprice">${price({ monthly: plan.monthly })}</div>${planBtn}</div>`;
+      + `<div class="sbuild"><div><h3>${esc(t("sc.build_t"))}</h3><p>${esc(t("sc.build_s"))}</p></div><button type="button" class="btn aqua big" data-custom>${esc(t("sc.build_go"))} <span class="arrow">→</span></button></div>`;
   }
   function renderFour() { const el = document.getElementById("fourg"); if (el) el.innerHTML = t("ent.four").map(([h, d], i) => `<div class="fourc"><span class="n">${i + 1}</span><h4>${esc(h)}</h4><p>${esc(d)}</p></div>`).join(""); }
   const orig = renderMoses;
@@ -14773,6 +14777,14 @@ window.pageOpen = function (key, title, html) {
 };
 /* Backspace goes back, like the browser's back button (not while typing) */
 document.addEventListener("keydown", e => { if (e.key !== "Backspace" || e.ctrlKey || e.metaKey || e.altKey) return; const el = document.activeElement; if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))) return; e.preventDefault(); if (e.shiftKey) history.forward(); else history.back(); });
+/* a custom-agent request shows its own title instead of "Contact / Let's talk" */
+document.addEventListener("click", e => {
+  const cus = !!e.target.closest("[data-custom], [data-dd-custom]"), con = !!e.target.closest('[data-contact], [data-folder="con"]');
+  if (!cus && !con) return;
+  setTimeout(() => { const sh = document.querySelector('.fsheet[data-f="con"]'); if (!sh) return; const n = sh.querySelector(".fname"), h = sh.querySelector("h2");
+    [n, h].forEach(el => { if (el && el.dataset.orig == null) el.dataset.orig = el.textContent; });
+    if (n) n.textContent = cus ? t("sc.build_go") : n.dataset.orig; if (h) h.textContent = cus ? t("sc.build_t") : h.dataset.orig; }, 700);
+});
 /* pop-ups started from a page (consulting, contact) open on top of the site, not behind the page */
 document.addEventListener("click", e => { if (e.target.closest(".s-page [data-consult], .s-page [data-contact]") && window.__closeFolder) window.__closeFolder(); }, true);
 </script>

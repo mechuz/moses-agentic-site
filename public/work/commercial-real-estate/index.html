@@ -1933,6 +1933,35 @@ body { top: 0 !important; }
 .pr-tiers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
 .pr-tiers.one { grid-template-columns: minmax(0, 1fr); max-width: 360px; }
 @media (max-width: 760px) { .pr-tiers { grid-template-columns: minmax(0, 1fr); } }
+.pr-rec { font: 800 .62rem/1 var(--f-body); font-style: normal; letter-spacing: .08em; text-transform: uppercase; background: #C6F432; color: #0B2545; border-radius: 999px; padding: .25rem .5rem; vertical-align: .15em; margin-inline-start: .35rem; }
+/* social media plan builder: channels, posting frequency, plan length */
+.sm-sub { margin: .6rem 0 0 !important; color: rgba(255,255,255,.7); font: 500 1.05rem/1.5 var(--f-body); max-width: 60ch; }
+.sm-ch { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(.5rem, 1.2vw, .9rem); margin-top: 1.4rem; }
+.sm-c { position: relative; display: grid; gap: .8rem; align-content: start; justify-items: start; text-align: start; padding: clamp(.9rem, 2vw, 1.4rem); border-radius: 18px; background: rgba(255,255,255,.05); border: 2px solid rgba(255,255,255,.16); color: rgba(255,255,255,.55); font: inherit; cursor: pointer; transition: border-color .15s, background .15s, color .15s; }
+.sm-c svg { width: clamp(2rem, 3.6vw, 2.8rem); height: clamp(2rem, 3.6vw, 2.8rem); }
+.sm-c b { font: 800 clamp(.95rem, 1.4vw, 1.15rem)/1.15 var(--f-display); letter-spacing: -.02em; }
+.sm-c::after { content: "+"; position: absolute; top: .7rem; inset-inline-end: .8rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center; font: 900 1rem/1 var(--f-body); border: 1.5px solid currentColor; }
+.sm-c[aria-pressed="true"] { border-color: #C6F432; background: rgba(198,244,50,.1); color: #FFFFFF; }
+.sm-c[aria-pressed="true"] svg { color: #C6F432; }
+.sm-c[aria-pressed="true"]::after { content: "\2713"; background: #C6F432; border-color: #C6F432; color: #0B2545; }
+.sm-c:focus-visible, .sm-f:focus-visible, .sm-t:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+.sm-msg { min-height: 1.4em; margin: .6rem 0 0 !important; color: #FFB4A8; font: 700 .95rem var(--f-body); }
+.sm-fq { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(.5rem, 1.2vw, .9rem); margin-top: 1.4rem; }
+.sm-f { position: relative; display: grid; gap: .45rem; align-content: start; text-align: start; padding: clamp(1.4rem, 2.4vw, 1.9rem) clamp(.9rem, 1.8vw, 1.3rem) clamp(1rem, 2vw, 1.4rem); border-radius: 18px; background: rgba(255,255,255,.05); border: 2px solid rgba(255,255,255,.16); color: #FFFFFF; font: inherit; cursor: pointer; }
+.sm-f b { font: 900 clamp(1.1rem, 1.8vw, 1.5rem)/1.1 var(--f-display); letter-spacing: -.03em; }
+.sm-f span { font: 500 .9rem/1.35 var(--f-body); color: rgba(255,255,255,.7); }
+.sm-f strong { font: 900 clamp(1.5rem, 2.6vw, 2.2rem)/1 var(--f-display); letter-spacing: -.04em; margin-top: .3rem; }
+.sm-f i { position: absolute; top: -.7rem; inset-inline-start: .9rem; font: 800 .66rem/1 var(--f-body); font-style: normal; letter-spacing: .08em; text-transform: uppercase; background: #4DB8FF; color: #0B2545; border-radius: 999px; padding: .32rem .6rem; }
+.sm-f[aria-pressed="true"] { background: #C6F432; border-color: #C6F432; color: #0B2545; }
+.sm-f[aria-pressed="true"] span { color: #0B2545; }
+.sm-tm { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+.sm-t { border: 2px solid rgba(255,255,255,.3); border-radius: 999px; background: transparent; color: #FFFFFF; font: 800 1rem var(--f-body); padding: .8rem 1.3rem; cursor: pointer; }
+.sm-t[aria-pressed="true"] { background: #C6F432; border-color: #C6F432; color: #0B2545; }
+.sm-tot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; margin-top: clamp(2rem, 5vw, 3.5rem); padding-top: clamp(1.4rem, 3vw, 2.2rem); border-top: 1px solid rgba(255,255,255,.18); }
+.sm-tot small { display: block; font: 700 .78rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: .5rem; }
+.sm-tot strong { font: 900 clamp(2.4rem, 7vw, 5rem)/1 var(--f-display); letter-spacing: -.05em; color: #C6F432; }
+.sm-tot .ag-go { margin-top: 0; }
+@media (max-width: 900px) { .sm-ch, .sm-fq { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ===== Moses: one navy theme from the top of the page ===== */
 .site-moses .top { background: #0B2545 !important; border-bottom: 0 !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none !important; }
@@ -5276,7 +5305,7 @@ const T = {
   "nav.smm": "Social media management",
   "nav.price": "Pricing",
   "smm.h": "Social media management & distribution",
-  "smm.lead": "We run your Facebook, Instagram, Google Business Profile and Google Ads. You send the photos, videos and copy; we post, schedule and manage.",
+  "smm.lead": "Pick your channels and how often we post. You send the photos, videos and copy; we post, schedule and manage.",
   "smm.inc": [
    "Facebook",
    "Instagram",
@@ -5301,7 +5330,7 @@ const T = {
    ]
   ],
   "smm.notes": [
-   "Extra platforms: +$50 a month each.",
+   "Up to 4 channels are included. Each one after that is +$50 a month.",
    "Ad spend is not included. You set your budget and pay Google and Meta directly.",
    "Content is not included. You supply the photos, videos and copy. Content creation is quoted separately."
   ],
@@ -5374,7 +5403,43 @@ const T = {
   ],
   "ab.go": "Subscribe",
   "nav.ins": "Insights",
-  "nav.sub": "Subscribe"
+  "nav.sub": "Subscribe",
+  "smm.ch_h": "Choose your channels",
+  "smm.ch_s": "Pick at least 3. Up to 4 are included in the price; each one after that is +$50 a month.",
+  "smm.min": "Keep at least 3 channels selected.",
+  "smm.fq_h": "How often we post",
+  "smm.rec": "Recommended",
+  "smm.tiers": [
+   [
+    "Starter",
+    "1 post a week on each channel"
+   ],
+   [
+    "Standard",
+    "2 posts a week on each channel"
+   ],
+   [
+    "Plus",
+    "3 posts a week on each channel"
+   ],
+   [
+    "Pro",
+    "5 posts a week on each channel"
+   ],
+   [
+    "Daily",
+    "7 posts a week on each channel"
+   ]
+  ],
+  "smm.term_h": "Plan length",
+  "smm.terms": [
+   "24 months",
+   "12 months",
+   "Month to month"
+  ],
+  "smm.tot": "Your price",
+  "smm.mo": "a month",
+  "smm.pr_note": "Prices shown are for a 24-month plan. 12-month plans are +$50 a month; month to month is +$100 a month."
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -7814,7 +7879,7 @@ const T = {
   "nav.smm": "סאשעל מידיע מענעדזשמענט",
   "nav.price": "פרייזן",
   "smm.h": "סאשעל מידיע מענעדזשמענט און פארשפרייטונג",
-  "smm.lead": "מיר פירן אייער פעיסבוק, אינסטאגראם, Google Business Profile און Google Ads. איר שיקט די בילדער, ווידעאס און טעקסט; מיר פאסטן, פלאנירן און פירן.",
+  "smm.lead": "קלייבט אויס אייערע טשענעלס און ווי אפט מיר פאסטן. איר שיקט די בילדער, ווידעאס און טעקסט; מיר פאסטן, פלאנירן און פירן.",
   "smm.inc": [
    "פעיסבוק",
    "אינסטאגראם",
@@ -7839,7 +7904,7 @@ const T = {
    ]
   ],
   "smm.notes": [
-   "נאך פלאטפארמעס: +$50 א חודש יעדע.",
+   "ביז 4 טשענעלס זענען אריינגערעכנט. יעדע נאך איינע איז +$50 א חודש.",
    "עד ספענד איז נישט אריינגערעכנט. איר שטעלט אייער בודזשעט און באצאלט Google און Meta גלייך.",
    "אינהאלט איז נישט אריינגערעכנט. איר גיט די בילדער, ווידעאס און טעקסט. מאכן אינהאלט ווערט באזונדער געפרייזט."
   ],
@@ -7912,7 +7977,43 @@ const T = {
   ],
   "ab.go": "סאבסקרייבט",
   "nav.ins": "אינסייטס",
-  "nav.sub": "סאבסקרייבט"
+  "nav.sub": "סאבסקרייבט",
+  "smm.ch_h": "קלייבט אויס אייערע טשענעלס",
+  "smm.ch_s": "קלייבט אויס כאטש 3. ביז 4 זענען אריינגערעכנט אין די פרייז; יעדע נאך איינע איז +$50 א חודש.",
+  "smm.min": "לאזט כאטש 3 טשענעלס אויסגעקליבן.",
+  "smm.fq_h": "ווי אפט מיר פאסטן",
+  "smm.rec": "רעקאמענדירט",
+  "smm.tiers": [
+   [
+    "סטארטער",
+    "1 פאוסט א וואך אויף יעדע טשענעל"
+   ],
+   [
+    "סטאנדארט",
+    "2 פאוסטס א וואך אויף יעדע טשענעל"
+   ],
+   [
+    "פלאס",
+    "3 פאוסטס א וואך אויף יעדע טשענעל"
+   ],
+   [
+    "פרא",
+    "5 פאוסטס א וואך אויף יעדע טשענעל"
+   ],
+   [
+    "טעגליך",
+    "7 פאוסטס א וואך אויף יעדע טשענעל"
+   ]
+  ],
+  "smm.term_h": "לענג פון פלאן",
+  "smm.terms": [
+   "24 חדשים",
+   "12 חדשים",
+   "חודש צו חודש"
+  ],
+  "smm.tot": "אייער פרייז",
+  "smm.mo": "א חודש",
+  "smm.pr_note": "די פרייזן זענען פאר א 24-חדשים פלאן. 12-חדשים פלענער זענען +$50 א חודש; חודש צו חודש איז +$100 א חודש."
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -10352,7 +10453,7 @@ const T = {
   "nav.smm": "ניהול רשתות חברתיות",
   "nav.price": "מחירים",
   "smm.h": "ניהול והפצה ברשתות חברתיות",
-  "smm.lead": "אנחנו מנהלים את הפייסבוק, האינסטגרם, Google Business Profile ו-Google Ads שלכם. אתם שולחים תמונות, סרטונים וטקסט; אנחנו מפרסמים, מתזמנים ומנהלים.",
+  "smm.lead": "בחרו את הערוצים שלכם ובאיזו תדירות נפרסם. אתם שולחים תמונות, סרטונים וטקסט; אנחנו מפרסמים, מתזמנים ומנהלים.",
   "smm.inc": [
    "פייסבוק",
    "אינסטגרם",
@@ -10377,7 +10478,7 @@ const T = {
    ]
   ],
   "smm.notes": [
-   "פלטפורמות נוספות: ‎+$50 לחודש לכל אחת.",
+   "עד 4 ערוצים כלולים. כל ערוץ נוסף ‎+$50 לחודש.",
    "תקציב הפרסום לא כלול. אתם קובעים את התקציב ומשלמים ישירות ל-Google ול-Meta.",
    "תוכן לא כלול. אתם מספקים תמונות, סרטונים וטקסט. יצירת תוכן מתומחרת בנפרד."
   ],
@@ -10450,7 +10551,43 @@ const T = {
   ],
   "ab.go": "הצטרפו",
   "nav.ins": "תובנות",
-  "nav.sub": "הצטרפו"
+  "nav.sub": "הצטרפו",
+  "smm.ch_h": "בחרו את הערוצים שלכם",
+  "smm.ch_s": "בחרו לפחות 3. עד 4 כלולים במחיר; כל ערוץ נוסף ‎+$50 לחודש.",
+  "smm.min": "יש להשאיר לפחות 3 ערוצים מסומנים.",
+  "smm.fq_h": "באיזו תדירות נפרסם",
+  "smm.rec": "מומלץ",
+  "smm.tiers": [
+   [
+    "התחלה",
+    "פוסט אחד בשבוע בכל ערוץ"
+   ],
+   [
+    "רגיל",
+    "2 פוסטים בשבוע בכל ערוץ"
+   ],
+   [
+    "פלוס",
+    "3 פוסטים בשבוע בכל ערוץ"
+   ],
+   [
+    "פרו",
+    "5 פוסטים בשבוע בכל ערוץ"
+   ],
+   [
+    "יומי",
+    "7 פוסטים בשבוע בכל ערוץ"
+   ]
+  ],
+  "smm.term_h": "אורך התוכנית",
+  "smm.terms": [
+   "24 חודשים",
+   "12 חודשים",
+   "חודש לחודש"
+  ],
+  "smm.tot": "המחיר שלכם",
+  "smm.mo": "לחודש",
+  "smm.pr_note": "המחירים הם לתוכנית של 24 חודשים. תוכנית של 12 חודשים ‎+$50 לחודש; חודש לחודש ‎+$100 לחודש."
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -12890,7 +13027,7 @@ const T = {
   "nav.smm": "Gestión de redes sociales",
   "nav.price": "Precios",
   "smm.h": "Gestión y distribución en redes sociales",
-  "smm.lead": "Manejamos su Facebook, Instagram, Google Business Profile y Google Ads. Usted envía las fotos, videos y textos; nosotros publicamos, programamos y gestionamos.",
+  "smm.lead": "Elija sus canales y con qué frecuencia publicamos. Usted envía las fotos, videos y textos; nosotros publicamos, programamos y gestionamos.",
   "smm.inc": [
    "Facebook",
    "Instagram",
@@ -12915,7 +13052,7 @@ const T = {
    ]
   ],
   "smm.notes": [
-   "Plataformas adicionales: +$50 al mes cada una.",
+   "Hasta 4 canales están incluidos. Cada canal adicional cuesta +$50 al mes.",
    "La inversión en anuncios no está incluida. Usted fija su presupuesto y paga directamente a Google y Meta.",
    "El contenido no está incluido. Usted aporta las fotos, videos y textos. La creación de contenido se cotiza aparte."
   ],
@@ -12988,7 +13125,43 @@ const T = {
   ],
   "ab.go": "Suscribirse",
   "nav.ins": "Ideas",
-  "nav.sub": "Suscribirse"
+  "nav.sub": "Suscribirse",
+  "smm.ch_h": "Elija sus canales",
+  "smm.ch_s": "Elija al menos 3. Hasta 4 están incluidos en el precio; cada canal adicional cuesta +$50 al mes.",
+  "smm.min": "Mantenga al menos 3 canales seleccionados.",
+  "smm.fq_h": "Con qué frecuencia publicamos",
+  "smm.rec": "Recomendado",
+  "smm.tiers": [
+   [
+    "Inicial",
+    "1 publicación a la semana en cada canal"
+   ],
+   [
+    "Estándar",
+    "2 publicaciones a la semana en cada canal"
+   ],
+   [
+    "Plus",
+    "3 publicaciones a la semana en cada canal"
+   ],
+   [
+    "Pro",
+    "5 publicaciones a la semana en cada canal"
+   ],
+   [
+    "Diario",
+    "7 publicaciones a la semana en cada canal"
+   ]
+  ],
+  "smm.term_h": "Duración del plan",
+  "smm.terms": [
+   "24 meses",
+   "12 meses",
+   "Mes a mes"
+  ],
+  "smm.tot": "Su precio",
+  "smm.mo": "al mes",
+  "smm.pr_note": "Los precios son para un plan de 24 meses. Los planes de 12 meses cuestan +$50 al mes; mes a mes, +$100 al mes."
  }
 };
 
@@ -14834,6 +15007,18 @@ window.mailFallback = function (subject, body) {
   const notes = () => `<ul class="sv-notes">${t("smm.notes").map(n => `<li>${E(n)}</li>`).join("")}</ul>`;
   const TITLE = { smm: "smm.h", pricing: "pr.h", about: "nav.about" };
   function open(mode, html) { window.pageOpen(mode, t(TITLE[mode]), html); }
+  const CH = [["fb", "Facebook"], ["ig", "Instagram"], ["gbp", "Google Business Profile"], ["gads", "Google Ads"], ["li", "LinkedIn"], ["tt", "TikTok"], ["yt", "YouTube"], ["x", "X"], ["pin", "Pinterest"], ["th", "Threads"]];
+  const FQ = [1, 2, 3, 5, 7], TM = ["24", "12", "m2m"], SM_BASE = { "24": 499, "12": 549, m2m: 599 }, SM_FD = { 1: -50, 2: 0, 3: 50, 5: 100, 7: 200 };
+  const usd = n => "$" + n.toLocaleString("en-US");
+  function smCalc() {
+    const box = document.getElementById("sm-ch"); if (!box) return null;
+    const on = [...box.querySelectorAll('.sm-c[aria-pressed="true"]')].map(b => b.dataset.ch);
+    const f = +((document.querySelector('#sm-fq .sm-f[aria-pressed="true"]') || { dataset: { f: 2 } }).dataset.f);
+    const tm = (document.querySelector('#sm-tm .sm-t[aria-pressed="true"]') || { dataset: { t: "24" } }).dataset.t;
+    document.querySelectorAll("#sm-fq .sm-f").forEach(b => { b.querySelector("strong").textContent = usd(SM_BASE[tm] + SM_FD[b.dataset.f]); });
+    document.getElementById("sm-tot").textContent = usd(SM_BASE[tm] + SM_FD[f] + 50 * Math.max(0, on.length - 4)) + " " + t("smm.mo");
+    return { on, f, tm };
+  }
   function smm(done) {
     if (done) return open("smm", `<div class="agx"><h1 class="ag-big">${E(t("cs2.done_t"))}</h1><p class="ag-lead fw-lead">${E(t("smm.done"))}</p></div>`);
     const f = t("cs2.f");
@@ -14841,16 +15026,27 @@ window.mailFallback = function (subject, body) {
       '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path fill="#0B2545" d="M13.4 20v-6.6h2.2l.35-2.7H13.4V9c0-.8.25-1.3 1.4-1.3h1.3V5.3c-.25-.03-1.05-.1-1.95-.1-1.95 0-3.25 1.15-3.25 3.35v2.15H8.7v2.7h2.2V20z"/></svg>',
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>',
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 10v10h16V10"/><path d="M2.5 8.5 4.5 3h15l2 5.5a2.6 2.6 0 0 1-4.9.9 2.6 2.6 0 0 1-4.6 0 2.6 2.6 0 0 1-4.6 0 2.6 2.6 0 0 1-4.9-.9z"/><path d="M10 20v-5h4v5"/></svg>',
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M9.5 4.5 3.6 17.8"/><path d="m14.5 4.5 5.9 13.3"/><circle cx="4.6" cy="18.6" r="2.6" fill="currentColor" stroke="none"/></svg>'];
-    const mq = t("smm.inc").map((x, i) => `<span>${IC[i] || ""}${E(x)}</span>`).join("");
-    const tiles = t("smm.inc").map((x, i) => `<li>${IC[i] || ""}<b>${E(x)}</b></li>`).join("");
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M9.5 4.5 3.6 17.8"/><path d="m14.5 4.5 5.9 13.3"/><circle cx="4.6" cy="18.6" r="2.6" fill="currentColor" stroke="none"/></svg>',
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4.5" fill="currentColor"/><path fill="#0B2545" d="M6.4 10h2.6v8H6.4zM7.7 5.9a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM11 10h2.5v1.1c.4-.7 1.3-1.3 2.6-1.3 2.4 0 2.9 1.6 2.9 3.6V18h-2.6v-4.1c0-1-.1-2-1.3-2s-1.5.9-1.5 1.9V18H11z"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 3v11.2a3.8 3.8 0 1 1-3.3-3.76"/><path d="M13.5 3c.4 2.8 2.3 4.7 5 5"/></svg>',
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="currentColor"/><path fill="#0B2545" d="M10 8.6 15.6 12 10 15.4z"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5 19.5 19.5"/><path d="M19.5 4.5 4.5 19.5"/></svg>',
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path fill="none" stroke="#0B2545" stroke-width="2.3" stroke-linecap="round" d="M10.3 19.2 12.2 10.6"/><path fill="none" stroke="#0B2545" stroke-width="2.3" stroke-linecap="round" d="M9.2 12.6a3.5 3.5 0 1 1 3.4 2.4"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.7"/><path d="M15.7 8.3v4.9a2.6 2.6 0 0 0 5.2 0V12a8.9 8.9 0 1 0-3.6 7.1"/></svg>'];
+    const mq = CH.map(([, x], i) => `<span>${IC[i] || ""}${E(x)}</span>`).join("");
     open("smm", `<div class="agx"><h1 class="ag-big">${E(t("smm.big"))}</h1>
       <p class="ag-lead">${E(t("smm.lead"))}</p>
-      <ul class="ag-ic">${tiles}</ul>
       <div class="ag-mq" aria-hidden="true"><div>${mq}${mq}${mq}${mq}</div></div>
       <ol class="ag-steps">${t("smm.steps").map(([a, b], i) => `<li><span>0${i + 1}</span><b>${E(a)}</b><em>${E(b)}</em></li>`).join("")}</ol>
-      <h2 class="ag-h">${E(t("smm.plans_h"))}</h2>
-      <div class="ag-plans" data-sel="sm-pick">${t("smm.opts").map(([a, p, n], i) => `<button type="button" class="ag-plan" data-plan="${i}" aria-pressed="false"><b>${E(a)}</b><strong>${E(p.split(" ")[0])}<small>${E(p.split(" ").slice(1).join(" "))}</small></strong><span>${E(n)}</span><i data-a="${E(t("ag.pick"))}" data-b="${E(t("ag.picked"))}">${E(t("ag.pick"))}</i></button>`).join("")}</div>
+      <h2 class="ag-h">${E(t("smm.ch_h"))}</h2>
+      <p class="sm-sub">${E(t("smm.ch_s"))}</p>
+      <div class="sm-ch" id="sm-ch">${CH.map(([k, x], i) => `<button type="button" class="sm-c" data-ch="${k}" aria-pressed="${i < 4}">${IC[i] || ""}<b>${E(x)}</b></button>`).join("")}</div>
+      <p class="sm-msg" id="sm-msg" role="status"></p>
+      <h2 class="ag-h">${E(t("smm.fq_h"))}</h2>
+      <div class="sm-fq" id="sm-fq">${t("smm.tiers").map(([a, n], i) => `<button type="button" class="sm-f" data-f="${FQ[i]}" aria-pressed="${i === 1}">${i === 1 ? `<i>${E(t("smm.rec"))}</i>` : ""}<b>${E(a)}</b><span>${E(n)}</span><strong></strong></button>`).join("")}</div>
+      <h2 class="ag-h">${E(t("smm.term_h"))}</h2>
+      <div class="sm-tm" id="sm-tm">${t("smm.terms").map((a, i) => `<button type="button" class="sm-t" data-t="${TM[i]}" aria-pressed="${i === 0}">${E(a)}</button>`).join("")}</div>
+      <div class="sm-tot"><div><small>${E(t("smm.tot"))}</small><strong id="sm-tot"></strong></div><button type="button" class="ag-go" id="sm-sub">${E(t("nav.sub"))} <span class="arrow">→</span></button></div>
       <ul class="ag-notes">${t("smm.notes").map(n => `<li>${E(n)}</li>`).join("")}</ul>
       <h2 class="ag-h">${E(t("smm.start_h"))}</h2>
       <form class="cs2" id="smmform" novalidate>
@@ -14862,11 +15058,12 @@ window.mailFallback = function (subject, body) {
         <label>${E(f[2])}<input id="sm-phone" type="tel" autocomplete="tel"></label>
         <p class="err" id="sm-err" hidden></p>
         <button class="ag-go" type="submit" id="sm-go" data-a="${E(t("smm.submit"))}" data-b="${E(t("ag.checkout"))}"><span class="ag-go-t">${E(t("smm.submit"))}</span> <span class="arrow">→</span></button></form></div>`);
+    smCalc();
   }
   function pricing() {
     open("pricing", `<p class="fw-lead">${E(t("pr.lead"))}</p>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.web"))}</h3>${opts("fw.opts")}<p class="cs2-note">${E(t("fw.after_note"))}</p><button type="button" class="btn aqua" data-subscribe="website-24">${E(t("pr.web_go"))} <span class="arrow">→</span></button></div>
-      <div class="pr-sec"><h3 class="fw-h3">${E(t("smm.h"))}</h3>${opts("smm.opts")}${notes()}<button type="button" class="btn aqua" data-subscribe="smm-24">${E(t("pr.smm_go"))} <span class="arrow">→</span></button></div>
+      <div class="pr-sec"><h3 class="fw-h3">${E(t("smm.h"))}</h3><div class="pr-tiers">${t("smm.tiers").map(([a, n], i) => `<div class="fw-opt"><b>${E(a)}${i === 1 ? ` <i class="pr-rec">${E(t("smm.rec"))}</i>` : ""}</b><em>${usd(SM_BASE["24"] + SM_FD[FQ[i]])} ${E(t("smm.mo"))}</em><span>${E(n)}</span></div>`).join("")}</div><p class="cs2-note">${E(t("smm.pr_note"))}</p>${notes()}<button type="button" class="btn aqua" data-smm>${E(t("pr.smm_go"))} <span class="arrow">→</span></button></div>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.ag"))}</h3><div class="pr-tiers">${t("pr.tiers").map(([a, p, n]) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div><button type="button" class="btn aqua" data-pr-agents>${E(t("pr.ag_go"))} <span class="arrow">→</span></button></div>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.con"))}</h3><div class="pr-tiers one"><div class="fw-opt"><b>${E(t("pr.con"))}</b><em>${E(t("pr.con_p"))}</em><span>${E(t("pr.con_s"))}</span></div></div><button type="button" class="btn aqua" data-consult>${E(t("pr.con_go"))} <span class="arrow">→</span></button></div>`);
   }
@@ -14883,6 +15080,17 @@ window.mailFallback = function (subject, body) {
   window.aboutOpen = () => { about(); try { track("about_open"); } catch (x) {} };
   window.smmOpen = () => { smm(false); try { track("smm_open"); } catch (x) {} };
   window.pricingOpen = () => { pricing(); try { track("pricing_open"); } catch (x) {} };
+  document.addEventListener("click", e => {
+    const c = e.target.closest(".sm-c, .sm-f, .sm-t, #sm-sub"); if (!c) return;
+    const msg = document.getElementById("sm-msg");
+    if (c.classList.contains("sm-c")) {
+      const on = c.getAttribute("aria-pressed") === "true";
+      if (on && document.querySelectorAll('#sm-ch .sm-c[aria-pressed="true"]').length <= 3) { msg.textContent = t("smm.min"); return; }
+      c.setAttribute("aria-pressed", String(!on)); msg.textContent = "";
+    } else if (c.id !== "sm-sub") { c.parentNode.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === c))); }
+    const st = smCalc();
+    if (c.id === "sm-sub" && st) location.href = "/subscribe/?p=smm-" + st.tm + ",smm-f" + st.f + ",smmch-" + st.on.join(".");
+  });
   document.addEventListener("click", e => {
     if (e.target.closest("[data-smm]")) { e.preventDefault(); e.stopPropagation(); window.smmOpen(); return; }
     if (e.target.closest("[data-about]")) { e.preventDefault(); e.stopPropagation(); window.aboutOpen(); return; }

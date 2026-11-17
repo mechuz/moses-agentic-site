@@ -33,7 +33,11 @@ h2 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
 .svc .price { font: 900 clamp(1.2rem, 2.4vw, 1.9rem)/1 var(--d); letter-spacing: -.03em; white-space: nowrap; text-align: end; }
 .svc .price small { font: 600 .85rem var(--b); letter-spacing: 0; color: var(--mut); margin-inline-start: .3rem; }
 .svc .opts { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.svc.off .opts { display: none; }
+.svc.off .opts, .svc.off .olab { display: none; }
+.svc .olab { grid-column: 2 / -1; margin-top: 14px; font: 700 .78rem/1.3 var(--b); letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.svc .olab.warn { margin-top: 4px; color: #FFB4A8; letter-spacing: 0; text-transform: none; font-size: .92rem; }
+.svc .olab.warn:empty { display: none; }
+.opt i { font-style: normal; }
 .opt { position: relative; }
 .opt input { position: absolute; opacity: 0; pointer-events: none; }
 .opt span { display: block; border: 1.5px solid rgba(255,255,255,.3); border-radius: 999px; padding: 9px 15px; font-weight: 700; font-size: .92rem; cursor: pointer; }
@@ -111,9 +115,15 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
     <h3>Social media management &amp; distribution</h3>
     <div>
       <label class="svc off" data-svc="smm"><input type="checkbox"><b>Social media, run for you</b><span class="price"></span>
-        <p>Facebook, Instagram, Google Business Profile and Google Ads. You send the photos, videos and copy; we post, schedule and manage.</p>
-        <span class="opts" role="radiogroup" aria-label="Social media plan"><label class="opt"><input type="radio" name="t-smm" value="24" checked><span>24 months · $499/mo</span></label><label class="opt"><input type="radio" name="t-smm" value="12"><span>12 months · $549/mo</span></label><label class="opt"><input type="radio" name="t-smm" value="m2m"><span>Month to month · $599/mo</span></label>
-        <span class="num">Extra platforms (+$50/mo each) <input type="number" id="xplat" min="0" max="10" value="0" aria-label="Extra platforms"></span></span></label>
+        <p>Pick your channels and how often we post. You send the photos, videos and copy; we post, schedule and manage.</p>
+        <span class="olab">Channels: pick at least 3. Up to 4 are included; each one after that is +$50/mo.</span>
+        <span class="opts" id="chs" role="group" aria-label="Channels"><label class="opt"><input type="checkbox" class="ch" value="fb" checked><span>Facebook</span></label><label class="opt"><input type="checkbox" class="ch" value="ig" checked><span>Instagram</span></label><label class="opt"><input type="checkbox" class="ch" value="gbp" checked><span>Google Business Profile</span></label><label class="opt"><input type="checkbox" class="ch" value="gads" checked><span>Google Ads</span></label><label class="opt"><input type="checkbox" class="ch" value="li"><span>LinkedIn</span></label><label class="opt"><input type="checkbox" class="ch" value="tt"><span>TikTok</span></label><label class="opt"><input type="checkbox" class="ch" value="yt"><span>YouTube</span></label><label class="opt"><input type="checkbox" class="ch" value="x"><span>X</span></label><label class="opt"><input type="checkbox" class="ch" value="pin"><span>Pinterest</span></label><label class="opt"><input type="checkbox" class="ch" value="th"><span>Threads</span></label></span>
+        <span class="olab warn" id="chmsg" role="status"></span>
+        <span class="olab">How often we post on each channel</span>
+        <span class="opts" role="radiogroup" aria-label="Posting frequency"><label class="opt"><input type="radio" name="f-smm" value="1"><span>Starter · 1 a week · <i data-fp="1"></i></span></label><label class="opt"><input type="radio" name="f-smm" value="2" checked><span>Standard · 2 a week · <i data-fp="2"></i> · Recommended</span></label><label class="opt"><input type="radio" name="f-smm" value="3"><span>Plus · 3 a week · <i data-fp="3"></i></span></label><label class="opt"><input type="radio" name="f-smm" value="5"><span>Pro · 5 a week · <i data-fp="5"></i></span></label><label class="opt"><input type="radio" name="f-smm" value="7"><span>Daily · 7 a week · <i data-fp="7"></i></span></label></span>
+        <span class="olab">Plan length</span>
+        <span class="opts" role="radiogroup" aria-label="Social media plan length"><label class="opt"><input type="radio" name="t-smm" value="24" checked><span>24 months</span></label><label class="opt"><input type="radio" name="t-smm" value="12"><span>12 months · +$50/mo</span></label><label class="opt"><input type="radio" name="t-smm" value="m2m"><span>Month to month · +$100/mo</span></label>
+        <span class="num">Other platforms not listed (+$50/mo each) <input type="number" id="xplat" min="0" max="10" value="0" aria-label="Other platforms not listed"></span></span></label>
     </div>
 
     <h3>AI staff, per month</h3>
@@ -136,7 +146,7 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
           <label class="f">Your title<input id="ti" autocomplete="organization-title" placeholder="Owner"></label>
           <p class="draft">Draft agreement, pending counsel review. Preview only: nothing is signed or charged.</p>
           <details class="agbox"><summary>Read the Subscription Agreement</summary><div class="agree" tabindex="0"><h4>1. Services and prices</h4>
-<div class="tw"><table><tr><th>Service (prices per month)</th><th>24-month</th><th>12-month</th><th>Month to month</th></tr><tr><td><strong>Website</strong>, built and managed by us</td><td>$149, build free</td><td>$199, build free</td><td>$199 + $1,999 build</td></tr><tr><td><strong>Social media management &amp; distribution</strong></td><td>$499</td><td>$549</td><td>$599</td></tr><tr><td><strong>Agents</strong>, per agent (month to month only)</td><td colspan="3">Tool $299  ·  Specialist $499  ·  Advanced specialist $599  ·  Executive $799 (Chief Operating, Financial, Marketing or Investment Officer)</td></tr></table></div>
+<div class="tw"><table><tr><th>Service (prices per month)</th><th>24-month</th><th>12-month</th><th>Month to month</th></tr><tr><td><strong>Website</strong>, built and managed by us</td><td>$149, build free</td><td>$199, build free</td><td>$199 + $1,999 build</td></tr><tr><td><strong>Social media management &amp; distribution</strong>, Standard: 2 posts a week on each channel, up to 4 channels</td><td>$499</td><td>$549</td><td>$599</td></tr><tr><td>Other posting plans and extra channels, per month</td><td colspan="3">Starter (1 post a week) $50 less  ·  Plus (3 a week) +$50  ·  Pro (5 a week) +$100  ·  Daily (7 a week) +$200  ·  each channel beyond 4: +$50. At least 3 channels.</td></tr><tr><td><strong>Agents</strong>, per agent (month to month only)</td><td colspan="3">Tool $299  ·  Specialist $499  ·  Advanced specialist $599  ·  Executive $799 (Chief Operating, Financial, Marketing or Investment Officer)</td></tr></table></div>
 <p><b class="n">1.1</b> <strong>Website.</strong> You choose from 5 designs, then get up to 5 rounds of changes. Every website is managed by us (hosting, updates and support). There is no self-managed option.</p>
 <p><b class="n">1.2</b> <strong>Social media.</strong> Covers Facebook, Instagram, Google Business Profile and Google Ads. We publish 2 posts a week on each channel, using content you supply. Each extra platform is $50 a month.</p>
 <p><b class="n">1.3</b> <strong>Agents.</strong> Ready-made agents we set up and maintain, for a flat monthly price per agent.</p>
@@ -227,6 +237,7 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
   var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
   var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
   var PRICE = { website: { "24": 149, "12": 199, m2m: 199 }, smm: { "24": 499, "12": 549, m2m: 599 } };
+  var FD = { 1: -50, 2: 0, 3: 50, 5: 100, 7: 200 }, FN = { 1: "Starter", 2: "Standard", 3: "Plus", 5: "Pro", 7: "Daily" };
   var TERM = { "24": "24-month plan", "12": "12-month plan", m2m: "month to month" };
   var AGENTS = [["coo", "Chief Operating Officer (COO)", "Takes over operations, from the back office to the executive level.", 799, "Executive"], ["cmo", "Chief Marketing Officer (CMO)", "Takes over marketing, from the back office to the executive level.", 799, "Executive"], ["cfo", "Chief Financial Officer (CFO)", "Takes over finance, from the back office to the executive level.", 799, "Executive"], ["cio", "Chief Investment Officer (CIO)", "Takes over investments, from the back office to the executive level.", 799, "Executive"],
     ["cre", "Commercial real estate asset manager", "Runs your portfolio's numbers and reporting.", 599, ""], ["broker", "Commercial mortgage broker", "Packages your deals and finds the right lenders.", 599, ""], ["acq", "Acquisitions director", "Finds, screens and underwrites deals for you.", 599, ""],
@@ -240,12 +251,22 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
     $$(".svc").forEach(function (row) {
       var on = row.querySelector("input[type=checkbox]").checked, k = row.dataset.svc; row.classList.toggle("off", !on);
       if (k === "website" || k === "smm") {
-        var term = (row.querySelector("input[type=radio]:checked") || {}).value || "24", p = PRICE[k][term];
+        var term = (row.querySelector('input[name="t-' + k + '"]:checked') || {}).value || "24", p = PRICE[k][term];
+        if (k === "smm") {
+          var fq = +((row.querySelector('input[name="f-smm"]:checked') || {}).value || 2), chn = $$("#chs .ch").filter(function (c) { return c.checked; }).map(function (c) { return c.parentNode.textContent.trim(); });
+          var x = Math.max(0, Math.min(10, parseInt($("#xplat").value, 10) || 0)), extra = Math.max(0, chn.length - 4) + x;
+          $$("[data-fp]").forEach(function (i) { i.textContent = fmt(PRICE.smm[term] + FD[i.dataset.fp]) + "/mo"; });
+          p += FD[fq] + 50 * extra;
+          row.querySelector(".price").innerHTML = fmt(p) + "<small>/mo</small>";
+          if (!on) return; m += p;
+          lines.push([k, "Social media management, " + FN[fq] + " (" + fq + " a week), " + (chn.length + x) + " channels, " + TERM[term], fmt(p) + "/mo"]);
+          items.push("Social media management, " + FN[fq] + ": " + fq + " post" + (fq > 1 ? "s" : "") + " a week on each channel, " + TERM[term] + ", " + fmt(p) + "/mo. Channels: " + chn.join(", ") + (x ? " + " + x + " other platform" + (x > 1 ? "s" : "") : "") + (extra ? " (includes " + extra + " extra at $50/mo each)" : ""));
+          return;
+        }
         row.querySelector(".price").innerHTML = fmt(p) + "<small>/mo</small>";
         if (!on) return; m += p;
-        lines.push([k, k === "website" ? "Website, " + TERM[term] : "Social media management, " + TERM[term], fmt(p) + "/mo"]);
-        if (k === "website") { if (term === "m2m") one += 1999; items.push("Website, " + TERM[term] + ", " + fmt(p) + "/mo" + (term === "m2m" ? " + $1,999 build" : "")); }
-        else { var x = Math.max(0, Math.min(10, parseInt($("#xplat").value, 10) || 0)); m += 50 * x; items.push("Social media management, " + TERM[term] + ", " + fmt(p) + "/mo" + (x ? " + " + x + " extra platform" + (x > 1 ? "s" : "") + " (" + fmt(50 * x) + "/mo)" : "")); }
+        lines.push([k, "Website, " + TERM[term], fmt(p) + "/mo"]);
+        if (term === "m2m") one += 1999; items.push("Website, " + TERM[term] + ", " + fmt(p) + "/mo" + (term === "m2m" ? " + $1,999 build" : ""));
       } else if (on) { var pr = +row.dataset.price; m += pr; lines.push([k, row.querySelector("b").textContent.replace(/^Executive/, ""), fmt(pr) + "/mo"]); items.push(row.querySelector("b").textContent.replace(/^Executive/, "") + " agent, " + fmt(pr) + "/mo"); }
     });
     $("#tot").textContent = $("#tot2").textContent = fmt(m); $("#one").textContent = $("#one2").textContent = one ? "+ " + fmt(one) + " one-time build" : "";
@@ -253,7 +274,14 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
     $("#empty").hidden = !!lines.length;
     return { items: items, m: m, one: one };
   }
-  document.addEventListener("change", plan);
+  document.addEventListener("change", function (e) {
+    if (e.target.classList && e.target.classList.contains("ch")) {
+      var few = $$("#chs .ch").filter(function (c) { return c.checked; }).length < 3;
+      if (few) e.target.checked = true;
+      $("#chmsg").textContent = few ? "Keep at least 3 channels selected." : "";
+    }
+    plan();
+  });
   document.addEventListener("click", function (e) { var b = e.target.closest("[data-rm]"); if (b) { var r = $('.svc[data-svc="' + b.dataset.rm + '"]'); if (r) { r.querySelector("input[type=checkbox]").checked = false; plan(); } } });
   $("#go2").addEventListener("click", function () { $("#checkout").scrollIntoView({ behavior: "smooth", block: "start" }); setTimeout(function () { var e = ["biz", "nm", "em"].filter(function (i) { return !$("#" + i).value.trim(); })[0]; if (e) $("#" + e).focus({ preventScroll: true }); }, 600); });
   if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { $("#total").classList.toggle("show", !es[0].isIntersecting); }, { threshold: .15 }).observe($("#f")); else $("#total").classList.add("show");
@@ -265,6 +293,10 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
     var raw = code.trim(); code = raw.toLowerCase(); if (!code) return;
     var xp = code.match(/^xplat-(\d{1,2})$/);
     if (xp) { $("#xplat").value = Math.max(0, Math.min(10, +xp[1])); $('.svc[data-svc="smm"] input[type=checkbox]').checked = true; return; }
+    var fqc = code.match(/^smm-f([12357])$/);
+    if (fqc) { var fr = $('input[name="f-smm"][value="' + fqc[1] + '"]'); if (fr) fr.checked = true; $('.svc[data-svc="smm"] input[type=checkbox]').checked = true; return; }
+    var chc = code.match(/^smmch-([a-z.]{1,60})$/);
+    if (chc) { var want = chc[1].split("."), all = $$("#chs .ch"), okc = all.filter(function (c) { return want.indexOf(c.value) > -1; }); if (okc.length >= 3) all.forEach(function (c) { c.checked = want.indexOf(c.value) > -1; }); $('.svc[data-svc="smm"] input[type=checkbox]').checked = true; return; }
     var cu = raw.match(/^agent-(tool|specialist|advanced|executive)~(.+)$/i);
     if (cu) {
       var nm = ""; try { nm = decodeURIComponent(cu[2]); } catch (e) { nm = cu[2]; }

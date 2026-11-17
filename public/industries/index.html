@@ -1968,6 +1968,32 @@ body { top: 0 !important; }
 .mv.mvfull .mv-x { display: grid; place-items: center; position: absolute; top: max(14px, env(safe-area-inset-top, 0px)); inset-inline-end: 14px; z-index: 6; width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); color: #0B2545; font: 900 1.5rem/1 system-ui, sans-serif; cursor: pointer; }
 html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
 .site-moses .mv-head { display: none !important; }
+
+/* ===== full pages ===== */
+.s-page { --fc: #0B2545; --fi: #FFFFFF; }
+.fsheet .fbody .fw.pg { max-width: 900px; padding: clamp(1.6rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem) 1rem; }
+/* ===== industries: the big folders ===== */
+.site-moses .srv-drawer { height: clamp(380px, 52svh, 520px); margin-top: clamp(1rem, 2vw, 1.6rem); }
+.site-moses .srv-drawer + .srv-drawer { margin-top: clamp(.6rem, 1.4vw, 1.2rem); }
+.srv-f { border: 0; font: inherit; text-align: start; gap: .9rem; }
+.srv-drawer .folder:nth-child(6n+1) { --fc: #C6F432; --fi: #0B2545; }
+.srv-drawer .folder:nth-child(6n+2) { --fc: #1A73E8; --fi: #FFFFFF; }
+.srv-drawer .folder:nth-child(6n+3) { --fc: #4DB8FF; --fi: #0B2545; }
+.srv-drawer .folder:nth-child(6n+4) { --fc: #FFFFFF; --fi: #0B2545; }
+.srv-drawer .folder:nth-child(6n+5) { --fc: #E9FBA8; --fi: #0B2545; }
+.srv-drawer .folder:nth-child(6n) { --fc: #0F4FB0; --fi: #FFFFFF; }
+.srv-drawer .folder { box-shadow: -14px 0 30px -18px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.25); }
+.srv-drawer .folder .flabel { white-space: normal; font-size: clamp(1.5rem, 2.2vw, 2.4rem); line-height: 1.02; flex: 1 1 auto; min-height: 0; }
+.srv-drawer .folder.on { transform: translateY(-28px); z-index: 3; outline: 3px solid #FFFFFF; outline-offset: -3px; }
+@media (max-width: 760px) {
+  .site-moses .srv-drawer { height: auto; }
+  .site-moses .srv-drawer + .srv-drawer { margin-top: -18px; padding-top: 0; }
+  .srv-drawer .folder { min-height: 118px; padding-bottom: 4.1rem; }
+  .srv-drawer:last-of-type .folder:last-child { padding-bottom: 1.4rem; }
+  .site-moses .srv-drawer + .srv-drawer { padding-top: 0; }
+  .srv-drawer .folder .flabel { font-size: clamp(1.25rem, 6vw, 1.7rem); }
+  .srv-drawer .folder.on { transform: none; }
+}
 </style>
 <script>
 /* back / forward / swipe: popups (case studies, booking) and form steps are history steps too */
@@ -2014,7 +2040,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
     <nav class="nav" aria-label="Sections">
       <button type="button" class="nav-free" data-freesite data-i18n="nav.free">Free website</button>
       <button type="button" class="nav-hire" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false" data-i18n="nav.hire">Our Agents</button>
-      <button type="button" class="nav-smm" data-smm data-i18n="nav.smm">Social media marketing</button>
+      <button type="button" class="nav-smm" data-smm data-i18n="nav.smm">Social media management</button>
       <button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false" data-i18n="nav.services">Services</button>
       <button type="button" data-view="education" data-i18n="nav.edu">Education</button>
       <button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false" data-i18n="nav.ind">Industries</button>
@@ -2062,7 +2088,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
       <div class="cab-head"><h2 data-i18n="cab.t">Choose your path.</h2><p data-i18n="cab.s">Everything we do, filed in one place.</p></div>
       <div class="drawer"><div class="folder f-store" role="button" tabindex="0" data-folder="store"><span class="ftab"><b>01</b></span><span class="flabel" data-i18n="fo.store">Our Agents</span><span class="ffoot"><span class="fdesc" data-i18n="fo.stored">Ready-made AI agents, or build your own</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ent" role="button" tabindex="0" data-folder="ent"><span class="ftab"><b>02</b></span><span class="flabel" data-i18n="fo.ent">Enterprise</span><span class="ffoot"><span class="fdesc" data-i18n="fo.entd">AI agents and training for your whole company</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-ind" role="button" tabindex="0" data-folder="ind"><span class="ftab"><b>03</b></span><span class="flabel" data-i18n="fo.ind">Individuals</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indd">Your own AI team, and how to run it</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-inds" role="button" tabindex="0" data-view="industries"><span class="ftab"><b>04</b></span><span class="flabel" data-i18n="fo.inds">Industries</span><span class="ffoot"><span class="fdesc" data-i18n="fo.indsd">Where AI fits your business</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-cs" role="button" tabindex="0" data-view="cases"><span class="ftab"><b>05</b></span><span class="flabel" data-i18n="fo.cs">Case Studies</span><span class="ffoot"><span class="fdesc" data-i18n="fo.csd">Work we've done</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div><div class="folder f-con" role="button" tabindex="0" data-folder="con"><span class="ftab"><b>06</b></span><span class="flabel" data-i18n="fo.con">Contact</span><span class="ffoot"><span class="fdesc" data-i18n="fo.cond">Book a free consultation</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div></div>
     </div>
-<div class="fsheet s-store" data-f="store" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.store">Our Agents</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro sc-main"><div class="dir2"><button type="button" class="dirbtn d-pre" data-prebuilt><span class="dt" data-i18n="dir.pre">Prebuilt agents</span><span class="ds" data-i18n="dir.pre_s">Ready-made executives and specialists.</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="dirbtn d-cus" data-custom><span class="dt" data-i18n="dir.cus">Custom agent</span><span class="ds" data-i18n="dir.cus_s">Tell us the job. We build it for you.</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div><div class="store" id="store"></div></div><div class="fbody"></div></div></div><div class="fsheet s-ent" data-f="ent" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ent">Enterprise</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="fh" data-i18n="ent.h">Your people, running AI.</h2><p class="fp" data-i18n="ent.s">We build AI agents for every role, from front desk to CFO, and train your team to run them.</p><div class="fctas"><button type="button" class="btn aqua big" data-contact data-msgtext="Enterprise"><span data-i18n="mo.go">Book a free consultation</span> <span class="arrow">→</span></button><button type="button" class="btn big seminar-btn" data-book><span data-i18n="cta.seminar">Learn AI: book a seminar</span> <span class="arrow">→</span></button></div><div class="four"><div class="fourh"><h3 data-i18n="ent.svc_h">Our services</h3><p data-i18n="ent.svc_s">We work with you, start to finish.</p></div><div class="fourg" id="fourg"></div><button type="button" class="btn big shop-btn" data-folder="store"><span data-i18n="ent.shop">Or shop ready-made agents</span> <span class="arrow">→</span></button></div></div><div class="fbody"></div></div></div><div class="fsheet s-ind" data-f="ind" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ind">Individuals</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2><p class="camp-h2" data-i18n="camp2.h2">…the old way. Learn to run AI.</p><p class="fp" data-i18n="camp2.s">Don't get left behind, and don't let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.</p><button type="button" class="btn big" data-book><span data-i18n="camp2.go">Learn AI at Chocham AI</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-cs" data-f="cs" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.cs">Case Studies</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><p class="fp" data-i18n="fo.csd">Work we've done</p><button type="button" class="btn aqua big" data-view="cases"><span data-i18n="fo.allcs">See all case studies</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-con" data-f="con" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.con">Contact</span><button type="button" class="fclose"><span data-i18n="fo.close">Back to the cabinet</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div>
+<div class="fsheet s-store" data-f="store" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.store">Our Agents</span><button type="button" class="fclose"><span data-i18n="fo.close">Back</span> <span aria-hidden="true">✕</span></button></div><div class="fintro sc-main"><div class="dir2"><button type="button" class="dirbtn d-pre" data-prebuilt><span class="dt" data-i18n="dir.pre">Prebuilt agents</span><span class="ds" data-i18n="dir.pre_s">Ready-made executives and specialists.</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button><button type="button" class="dirbtn d-cus" data-custom><span class="dt" data-i18n="dir.cus">Custom agent</span><span class="ds" data-i18n="dir.cus_s">Tell us the job. We build it for you.</span><span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div><div class="store" id="store"></div></div><div class="fbody"></div></div></div><div class="fsheet s-ent" data-f="ent" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ent">Enterprise</span><button type="button" class="fclose"><span data-i18n="fo.close">Back</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="fh" data-i18n="ent.h">Your people, running AI.</h2><p class="fp" data-i18n="ent.s">We build AI agents for every role, from front desk to CFO, and train your team to run them.</p><div class="fctas"><button type="button" class="btn aqua big" data-contact data-msgtext="Enterprise"><span data-i18n="mo.go">Book a free consultation</span> <span class="arrow">→</span></button><button type="button" class="btn big seminar-btn" data-book><span data-i18n="cta.seminar">Learn AI: book a seminar</span> <span class="arrow">→</span></button></div><div class="four"><div class="fourh"><h3 data-i18n="ent.svc_h">Our services</h3><p data-i18n="ent.svc_s">We work with you, start to finish.</p></div><div class="fourg" id="fourg"></div><button type="button" class="btn big shop-btn" data-folder="store"><span data-i18n="ent.shop">Or shop ready-made agents</span> <span class="arrow">→</span></button></div></div><div class="fbody"></div></div></div><div class="fsheet s-ind" data-f="ind" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.ind">Individuals</span><button type="button" class="fclose"><span data-i18n="fo.close">Back</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><h2 class="camp-h"><span data-i18n="camp2.a">STOP</span> <span class="camp-b" data-i18n="camp2.b">WORKING!</span></h2><p class="camp-h2" data-i18n="camp2.h2">…the old way. Learn to run AI.</p><p class="fp" data-i18n="camp2.s">Don't get left behind, and don't let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.</p><button type="button" class="btn big" data-book><span data-i18n="camp2.go">Learn AI at Chocham AI</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-cs" data-f="cs" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.cs">Case Studies</span><button type="button" class="fclose"><span data-i18n="fo.close">Back</span> <span aria-hidden="true">✕</span></button></div><div class="fintro"><p class="fp" data-i18n="fo.csd">Work we've done</p><button type="button" class="btn aqua big" data-view="cases"><span data-i18n="fo.allcs">See all case studies</span> <span class="arrow">→</span></button></div><div class="fbody"></div></div></div><div class="fsheet s-con" data-f="con" role="dialog" aria-modal="true" hidden><div class="fscroll"><div class="fbar"><span class="fname" data-i18n="fo.con">Contact</span><button type="button" class="fclose"><span data-i18n="fo.close">Back</span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div></div>
   </section>
   <section class="camp" id="campaign" role="button" tabindex="0" data-contact data-msgtext="Let my people go: train my team">
     <div class="wrap">
@@ -3803,7 +3829,7 @@ const T = {
   "h3.p": "In a world afraid that AI will take people's jobs, we teach, build, deploy and operate AI for enterprises and individuals.",
   "cab.t": "Choose your path.",
   "cab.s": "Everything we do, filed in one place.",
-  "fo.close": "Back to the cabinet",
+  "fo.close": "Back",
   "fo.ent": "Enterprise",
   "fo.entd": "AI agents and training for your whole company",
   "fo.ind": "Individuals",
@@ -5129,9 +5155,9 @@ const T = {
   "store.exec_tag": "Executive",
   "store.tap": "Tap an agent to see what it does.",
   "mail.note": "Your email app opened with your message to welcome@mosesagentic.com. Press Send to finish.",
-  "nav.smm": "Social media marketing",
+  "nav.smm": "Social media management",
   "nav.price": "Pricing",
-  "smm.h": "Social media marketing",
+  "smm.h": "Social media management & distribution",
   "smm.lead": "We run your Facebook, Instagram, Google Business Profile and Google Ads. You send the photos, videos and copy; we post, schedule and manage.",
   "smm.inc": [
    "Facebook",
@@ -6299,7 +6325,7 @@ const T = {
   "h3.p": "אין א וועלט וואו מ'האט מורא אז AI וועט צונעמען מענטשן'ס דזשאבס, לערנען מיר, בויען, שטעלן אויף און פירן AI פאר פירמעס און פאר יחידים.",
   "cab.t": "עפנט א פייל.",
   "cab.s": "אלעס וואס מיר טוען, אויף איין פלאץ.",
-  "fo.close": "צוריק צום קאבינעט",
+  "fo.close": "צוריק",
   "fo.ent": "ארגאניזאציעס",
   "fo.entd": "AI אגענטן און טרעינינג פאר אייער גאנצע פירמע",
   "fo.ind": "יחידים",
@@ -7625,9 +7651,9 @@ const T = {
   "store.exec_tag": "עקזעקיוטיוו",
   "store.tap": "קליקט אויף אן אגענט צו זען וואס ער טוט.",
   "mail.note": "אייער אימעיל עפ האט זיך געעפנט מיט אייער מעסעדזש צו welcome@mosesagentic.com. דריקט Send צו ענדיגן.",
-  "nav.smm": "סאשעל מידיע מארקעטינג",
+  "nav.smm": "סאשעל מידיע מענעדזשמענט",
   "nav.price": "פרייזן",
-  "smm.h": "סאשעל מידיע מארקעטינג",
+  "smm.h": "סאשעל מידיע מענעדזשמענט און פארשפרייטונג",
   "smm.lead": "מיר פירן אייער פעיסבוק, אינסטאגראם, Google Business Profile און Google Ads. איר שיקט די בילדער, ווידעאס און טעקסט; מיר פאסטן, פלאנירן און פירן.",
   "smm.inc": [
    "פעיסבוק",
@@ -8795,7 +8821,7 @@ const T = {
   "h3.p": "בעולם שחושש ש-AI ייקח לאנשים את העבודה, אנחנו מלמדים, בונים, מטמיעים ומפעילים AI לארגונים וליחידים.",
   "cab.t": "בחרו את הדרך שלכם.",
   "cab.s": "כל מה שאנחנו עושים, במקום אחד.",
-  "fo.close": "חזרה לארון",
+  "fo.close": "חזרה",
   "fo.ent": "ארגונים",
   "fo.entd": "סוכני AI והדרכה לכל החברה",
   "fo.ind": "יחידים",
@@ -10121,9 +10147,9 @@ const T = {
   "store.exec_tag": "בכיר",
   "store.tap": "לחצו על סוכן כדי לראות מה הוא עושה.",
   "mail.note": "אפליקציית המייל נפתחה עם ההודעה שלכם ל-welcome@mosesagentic.com. לחצו שלח כדי לסיים.",
-  "nav.smm": "שיווק ברשתות",
+  "nav.smm": "ניהול רשתות חברתיות",
   "nav.price": "מחירים",
-  "smm.h": "שיווק ברשתות חברתיות",
+  "smm.h": "ניהול והפצה ברשתות חברתיות",
   "smm.lead": "אנחנו מנהלים את הפייסבוק, האינסטגרם, Google Business Profile ו-Google Ads שלכם. אתם שולחים תמונות, סרטונים וטקסט; אנחנו מפרסמים, מתזמנים ומנהלים.",
   "smm.inc": [
    "פייסבוק",
@@ -11291,7 +11317,7 @@ const T = {
   "h3.p": "En un mundo que teme que la IA quite empleos, enseñamos, creamos, implementamos y operamos IA para empresas y particulares.",
   "cab.t": "Elija su camino.",
   "cab.s": "Todo lo que hacemos, en un solo lugar.",
-  "fo.close": "Volver al archivero",
+  "fo.close": "Volver",
   "fo.ent": "Organizaciones",
   "fo.entd": "Agentes de IA y capacitación para toda su empresa",
   "fo.ind": "Particulares",
@@ -12617,9 +12643,9 @@ const T = {
   "store.exec_tag": "Ejecutivo",
   "store.tap": "Toque un agente para ver lo que hace.",
   "mail.note": "Se abrió su app de correo con su mensaje para welcome@mosesagentic.com. Presione Enviar para terminar.",
-  "nav.smm": "Marketing en redes",
+  "nav.smm": "Gestión de redes sociales",
   "nav.price": "Precios",
-  "smm.h": "Marketing en redes sociales",
+  "smm.h": "Gestión y distribución en redes sociales",
   "smm.lead": "Manejamos su Facebook, Instagram, Google Business Profile y Google Ads. Usted envía las fotos, videos y textos; nosotros publicamos, programamos y gestionamos.",
   "smm.inc": [
    "Facebook",
@@ -14187,7 +14213,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const segs = t("srv.seg"); if (!Array.isArray(segs)) return;
     const keep = sc, was = playing;
     if (au) au.pause();
-    box.innerHTML = `<div class="srv-list">${(t("inds") || []).map((n, i) => { const sg = IND_SEG[i]; const on = sg != null && sg === cur; return `<button type="button" class="srv-row${on ? " on" : ""}" ${sg != null ? `data-seg="${sg}" aria-expanded="${on}" aria-controls="srvpan"` : `data-ind="${i}"`}><span class="srv-n">${String(i + 1).padStart(2, "0")}</span><span class="srv-name">${E(n.replace(/-/g, "\u2011"))}</span><span class="srv-go">${E(t(sg != null ? "srv.watch" : "srv.click"))} <span class="srv-ar">→</span></span></button>`; }).join("")}<button type="button" class="srv-row srv-more" data-contact><span class="srv-n">+</span><span class="srv-name">${E(t("srv.yours"))}</span><span class="srv-go">${E(t("srv.ask"))} <span class="srv-ar">→</span></span></button></div><div class="srv-pan" id="srvpan"${cur < 0 ? " hidden" : ""}>${cur < 0 ? "" : panel(cur)}</div>`;
+    const lines = t("ind.lines") || [], inds = t("inds") || [];
+    const fold = (i, n, d, attr, on) => `<button type="button" class="folder srv-f${on ? " on" : ""}" ${attr}><span class="ftab"><b>${i}</b></span><span class="flabel">${E(String(n).replace(/-/g, "\u2011"))}</span><span class="ffoot"><span class="fdesc">${E(d)}</span><span class="farrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></button>`;
+    const all = inds.map((n, i) => { const sg = IND_SEG[i]; const on = sg != null && sg === cur; return fold(String(i + 1).padStart(2, "0"), n, lines[i] || "", sg != null ? `data-seg="${sg}" aria-expanded="${on}" aria-controls="srvpan"` : `data-ind="${i}"`, on); });
+    all.push(fold("+", t("srv.yours"), t("srv.ask"), "data-contact", false));
+    const half = Math.ceil(all.length / 2);
+    box.innerHTML = `<div class="drawer srv-drawer">${all.slice(0, half).join("")}</div><div class="drawer srv-drawer">${all.slice(half).join("")}</div><div class="srv-pan" id="srvpan"${cur < 0 ? " hidden" : ""}>${cur < 0 ? "" : panel(cur)}</div>`;
     wire();
     if (stage) { show(Math.min(keep, N - 1)); bar.style.width = (START[sc] / TOT * 100) + "%"; playing = was; if (was) { t0 = performance.now(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); syncA(); } setPP(); }
   };
@@ -14201,9 +14232,9 @@ document.addEventListener("DOMContentLoaded", () => {
     show(0); play();
     try { track("segment_" + i); } catch (x) {}
   }
-  document.addEventListener("click", e => { const r = e.target.closest(".srv-row[data-seg]"); if (r) { e.preventDefault(); open(+r.dataset.seg); } });
+  document.addEventListener("click", e => { const r = e.target.closest(".srv-f[data-seg]"); if (r) { e.preventDefault(); open(+r.dataset.seg); } });
   addEventListener("pagehide", () => { if (au) au.pause(); });
-  document.addEventListener("click", e => { if (e.target.closest("[data-go], [data-folder], .nav button, [data-home]") && !e.target.closest(".srv-row")) pause(); }, true);
+  document.addEventListener("click", e => { if (e.target.closest("[data-go], [data-folder], .nav button, [data-home]") && !e.target.closest(".srv-f")) pause(); }, true);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => window.srvRender()); else window.srvRender();
 })();
 </script>
@@ -14436,12 +14467,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const okMail = v => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
   function draw(done) {
-    const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
-    sh.dataset.mode = "freesite"; sh.classList.add("wide");
-    const x = `<button type="button" class="x" data-close aria-label="${E(t("close"))}">×</button>`;
-    if (done) { sh.innerHTML = `${x}<div class="fw"><h2 id="sheet-title">${E(t("cs2.done_t"))}</h2><p class="fw-lead">${E(t("fw.done_s"))}</p></div>`; return; }
+    const put = h => window.pageOpen("free", t("nav.free"), h);
+    if (done) { put(`<h2>${E(t("cs2.done_t"))}</h2><p class="fw-lead">${E(t("fw.done_s"))}</p>`); return; }
     const f = t("cs2.f");
-    sh.innerHTML = `${x}<div class="fw"><p class="fw-big">${E(t("fw.big"))}</p><h2 id="sheet-title">${E(t("fw.h"))}</h2><p class="fw-lead">${E(t("fw.lead"))}</p>
+    put(`<p class="fw-big">${E(t("fw.big"))}</p><h2>${E(t("fw.h"))}</h2><p class="fw-lead">${E(t("fw.lead"))}</p>
       <p class="fw-val">${E(t("fw.value"))}</p>
       <div class="fw-why"><h3>${E(t("fw.why_h"))}</h3><p>${E(t("fw.why"))}</p></div>
       <h3 class="fw-h3">${E(t("fw.inc_h"))}</h3><ul class="fw-inc">${t("fw.inc").map(s => `<li>${E(s)}</li>`).join("")}</ul>
@@ -14461,8 +14490,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <label>${E(f[2])}<input id="fw-phone" type="tel" autocomplete="tel"></label>
         <p class="err" id="fw-err" hidden></p>
         <button class="btn big aqua" type="submit" id="fw-go">${E(t("fw.submit"))} <span class="arrow">→</span></button>
-        <p class="cs2-note">${E(t("fw.note"))}</p></form></div>`;
-    ov.hidden = false; document.body.style.overflow = "hidden"; sh.scrollTop = 0;
+        <p class="cs2-note">${E(t("fw.note"))}</p></form>`);
   }
   window.freeSiteOpen = () => { draw(false); try { track("free_site_open"); } catch (x) {} };
   document.addEventListener("click", e => { if (e.target.closest("[data-freesite]")) { e.preventDefault(); e.stopPropagation(); window.freeSiteOpen(); } }, true);
@@ -14523,16 +14551,12 @@ window.mailFallback = function (subject, body) {
   const okMail = v => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
   const opts = k => `<div class="fw-opts">${t(k).map(([a, p, n]) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div>`;
   const notes = () => `<ul class="sv-notes">${t("smm.notes").map(n => `<li>${E(n)}</li>`).join("")}</ul>`;
-  function open(mode, html) {
-    const ov = document.getElementById("overlay"), sh = document.getElementById("sheet"); if (!ov || !sh) return;
-    sh.dataset.mode = mode; sh.classList.add("wide");
-    sh.innerHTML = `<button type="button" class="x" data-close aria-label="${E(t("close"))}">×</button><div class="fw">${html}</div>`;
-    ov.hidden = false; document.body.style.overflow = "hidden"; sh.scrollTop = 0;
-  }
+  const TITLE = { smm: "smm.h", pricing: "pr.h" };
+  function open(mode, html) { window.pageOpen(mode, t(TITLE[mode]), html); }
   function smm(done) {
-    if (done) return open("smm", `<h2 id="sheet-title">${E(t("cs2.done_t"))}</h2><p class="fw-lead">${E(t("smm.done"))}</p>`);
+    if (done) return open("smm", `<h2>${E(t("cs2.done_t"))}</h2><p class="fw-lead">${E(t("smm.done"))}</p>`);
     const f = t("cs2.f");
-    open("smm", `<h2 id="sheet-title">${E(t("smm.h"))}</h2><p class="fw-lead">${E(t("smm.lead"))}</p>
+    open("smm", `<p class="fw-lead">${E(t("smm.lead"))}</p>
       <ul class="fw-inc">${t("smm.inc").map(s => `<li>${E(s)}</li>`).join("")}</ul>
       ${opts("smm.opts")}${notes()}
       <form class="cs2" id="smmform" novalidate>
@@ -14546,7 +14570,7 @@ window.mailFallback = function (subject, body) {
         <button class="btn big aqua" type="submit" id="sm-go">${E(t("smm.submit"))} <span class="arrow">→</span></button></form>`);
   }
   function pricing() {
-    open("pricing", `<h2 id="sheet-title">${E(t("pr.h"))}</h2><p class="fw-lead">${E(t("pr.lead"))}</p>
+    open("pricing", `<p class="fw-lead">${E(t("pr.lead"))}</p>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.web"))}</h3>${opts("fw.opts")}<p class="cs2-note">${E(t("fw.after_note"))}</p><button type="button" class="btn aqua" data-freesite>${E(t("pr.web_go"))} <span class="arrow">→</span></button></div>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("smm.h"))}</h3>${opts("smm.opts")}${notes()}<button type="button" class="btn aqua" data-smm>${E(t("pr.smm_go"))} <span class="arrow">→</span></button></div>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.ag"))}</h3><div class="pr-tiers">${t("pr.tiers").map(([a, p, n]) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div><button type="button" class="btn aqua" data-pr-agents>${E(t("pr.ag_go"))} <span class="arrow">→</span></button></div>
@@ -14557,7 +14581,7 @@ window.mailFallback = function (subject, body) {
   document.addEventListener("click", e => {
     if (e.target.closest("[data-smm]")) { e.preventDefault(); e.stopPropagation(); window.smmOpen(); return; }
     if (e.target.closest("[data-pricing]")) { e.preventDefault(); e.stopPropagation(); window.pricingOpen(); return; }
-    if (e.target.closest("[data-pr-agents]")) { e.preventDefault(); e.stopPropagation(); const ov = document.getElementById("overlay"); if (ov) ov.hidden = true; document.body.style.overflow = ""; const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = "store"; document.body.appendChild(go); go.click(); go.remove(); }
+    if (e.target.closest("[data-pr-agents]")) { e.preventDefault(); e.stopPropagation(); const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = "store"; document.body.appendChild(go); go.click(); go.remove(); }
   }, true);
   document.addEventListener("submit", async e => {
     if (e.target.id !== "smmform") return; e.preventDefault();
@@ -14567,8 +14591,8 @@ window.mailFallback = function (subject, body) {
     if (!name || !okMail(email) || !v("sm-biz")) { err.textContent = t("fw.err"); err.hidden = false; return; }
     err.hidden = true;
     const plan = v("sm-pick") === "x" ? "not sure yet" : (en => en[0] + ", " + en[1])(T.en["smm.opts"][+v("sm-pick")]);
-    const subject = "Moses Agentic social media marketing: request from " + name + " (" + v("sm-biz") + ")";
-    const lines = ["Social media marketing request", "Business: " + v("sm-biz"), "Website: " + (v("sm-site") || "-"), "Extra platforms: " + (v("sm-more") || "-"), "Plan: " + plan, "Name: " + name, "Email: " + email, "Phone: " + (v("sm-phone") || "-"), "Site language: " + lang];
+    const subject = "Moses Agentic social media management: request from " + name + " (" + v("sm-biz") + ")";
+    const lines = ["Social media management request", "Business: " + v("sm-biz"), "Website: " + (v("sm-site") || "-"), "Extra platforms: " + (v("sm-more") || "-"), "Plan: " + plan, "Name: " + name, "Email: " + email, "Phone: " + (v("sm-phone") || "-"), "Site language: " + lang];
     const data = { kind: "marketing", hp: v("sm-hp"), subject, name, email, phone: v("sm-phone"), company: v("sm-biz"), message: lines.join("\n"), language: lang, source: location.hostname || CONFIG.site };
     btn.disabled = true;
     try {
@@ -14579,6 +14603,24 @@ window.mailFallback = function (subject, body) {
     } catch (x) { err.textContent = t("cs2.fail"); err.hidden = false; btn.disabled = false; }
   });
 })();
+</script>
+<script>
+/* a full page (same sheet the Our Agents page uses) instead of a pop-up */
+window.pageOpen = function (key, title, html) {
+  let sh = document.querySelector('.fsheet[data-f="' + key + '"]');
+  if (!sh) {
+    sh = document.createElement("div"); sh.className = "fsheet s-page"; sh.dataset.f = key; sh.setAttribute("role", "dialog"); sh.setAttribute("aria-modal", "true"); sh.hidden = true;
+    sh.innerHTML = '<div class="fscroll"><div class="fbar"><span class="fname"></span><button type="button" class="fclose"><span class="fclose-t"></span> <span aria-hidden="true">✕</span></button></div><div class="fbody"></div></div>';
+    document.body.appendChild(sh);
+  }
+  sh.querySelector(".fname").textContent = title; sh.querySelector(".fclose-t").textContent = t("fo.close");
+  sh.querySelector(".fbody").innerHTML = '<div class="fw pg">' + html + '</div>';
+  const ov = document.getElementById("overlay"); if (ov && !ov.hidden) { ov.hidden = true; document.body.style.overflow = ""; }
+  if (sh.hidden) { const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = key; document.body.appendChild(go); go.click(); go.remove(); }
+  else sh.querySelector(".fscroll").scrollTop = 0;
+};
+/* pop-ups started from a page (consulting, contact) open on top of the site, not behind the page */
+document.addEventListener("click", e => { if (e.target.closest(".s-page [data-consult], .s-page [data-contact]") && window.__closeFolder) window.__closeFolder(); }, true);
 </script>
 </body>
 </html>

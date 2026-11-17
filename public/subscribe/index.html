@@ -57,7 +57,8 @@ label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
 .total strong { font: 900 clamp(1.6rem, 4vw, 2.6rem)/1 var(--d); letter-spacing: -.04em; }
 .total small { display: block; font-weight: 700; font-size: .82rem; }
 .total a { background: var(--navy); color: #fff; text-decoration: none; font: 900 1.05rem var(--d); border-radius: 999px; padding: .85rem 1.5rem; white-space: nowrap; }
-.top { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(1.5rem, 5vw, 4.5rem); align-items: start; padding-top: clamp(1.4rem, 4vw, 3.4rem); }
+.top { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(1.5rem, 5vw, 4.5rem); align-items: start; padding-top: clamp(2.5rem, 7vw, 5rem); margin-top: clamp(2.5rem, 7vw, 5rem); border-top: 1px solid var(--line); scroll-margin-top: 70px; }
+#more { font-size: clamp(2.6rem, 8vw, 6.5rem); margin-top: clamp(1.6rem, 5vw, 3.6rem); }
 .top h1 { margin-top: 0; font-size: clamp(2.6rem, 7.5vw, 6.5rem); }
 .order { list-style: none; margin: clamp(1.2rem, 3vw, 2rem) 0 0; padding: 0; }
 .order li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px; align-items: baseline; padding: .85rem 0; border-top: 1px solid var(--line); font: 800 clamp(1.05rem, 1.9vw, 1.4rem)/1.2 var(--d); letter-spacing: -.02em; }
@@ -73,7 +74,8 @@ label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
 h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.55); margin: 2.4rem 0 .9rem; }
 .total { display: none; }
 .total button { background: var(--navy); color: #fff; border: 0; font: 900 1.05rem var(--d); border-radius: 999px; padding: .85rem 1.5rem; white-space: nowrap; cursor: pointer; }
-@media (max-width: 860px) { .top { grid-template-columns: minmax(0, 1fr); } #f { position: static; } .total.show { display: block; } }
+.total.show { display: block; }
+@media (max-width: 860px) { .top { grid-template-columns: minmax(0, 1fr); } #f { position: static; } }
 #agr { display: grid; gap: 1.1rem; }
 #f:has(#agr:not([hidden])) { position: static; }
 .draft { margin: 0; background: #FFF1B8; color: #0B2545; font-weight: 700; font-size: .85rem; border-radius: 10px; padding: .6rem .8rem; }
@@ -96,11 +98,33 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
 <div class="bar"><div class="in"><a href="/" aria-label="Moses Agentic home"><img src="/logo-full-light.png" alt="Moses Agentic"></a><a class="back" href="/">Back to site</a></div></div>
 <main id="app">
   <section id="pick">
-    <div class="top">
+    <h1 id="more">Choose your services.</h1>
+    <p class="lead">Tick what you want, then check out.</p>
+    <h3>Website</h3>
+    <div>
+      <label class="svc off" data-svc="website"><input type="checkbox"><b>Website, built and managed</b><span class="price"></span>
+        <p>Your new website, designed in 24 hours: 5 designs made for your business, then up to 5 rounds of edits. The build is free on a 12- or 24-month plan.</p>
+        <span class="opts" role="radiogroup" aria-label="Website plan"><label class="opt"><input type="radio" name="t-website" value="24" checked><span>24 months · $149/mo</span></label><label class="opt"><input type="radio" name="t-website" value="12"><span>12 months · $199/mo</span></label><label class="opt"><input type="radio" name="t-website" value="m2m"><span>Month to month · $199/mo + $1,999 build</span></label></span></label>
+    </div>
+
+    <h3>Social media management &amp; distribution</h3>
+    <div>
+      <label class="svc off" data-svc="smm"><input type="checkbox"><b>Social media, run for you</b><span class="price"></span>
+        <p>Facebook, Instagram, Google Business Profile and Google Ads. You send the photos, videos and copy; we post, schedule and manage.</p>
+        <span class="opts" role="radiogroup" aria-label="Social media plan"><label class="opt"><input type="radio" name="t-smm" value="24" checked><span>24 months · $499/mo</span></label><label class="opt"><input type="radio" name="t-smm" value="12"><span>12 months · $549/mo</span></label><label class="opt"><input type="radio" name="t-smm" value="m2m"><span>Month to month · $599/mo</span></label>
+        <span class="num">Extra platforms (+$50/mo each) <input type="number" id="xplat" min="0" max="10" value="0" aria-label="Extra platforms"></span></span></label>
+    </div>
+
+    <h3>AI agents, per month</h3>
+    <div id="agents"></div>
+
+    <ul class="notes"><li>Billing starts at signing. Leave a website plan early? You pay only the unearned part of the $1,999 build.</li><li>Ad spend is not included. You set your budget and pay Google and Meta directly.</li><li>Content is not included. You supply the photos, videos and copy. Content creation is quoted separately.</li></ul>
+
+    <div class="top" id="checkout">
       <div>
         <h1 id="h1">Your order.</h1>
         <ul class="order" id="order"></ul>
-        <p class="empty" id="empty">Nothing picked yet. Choose below.</p>
+        <p class="empty" id="empty">Nothing picked yet. Choose above.</p>
       </div>
       <form id="f" novalidate>
         <div class="sum"><small>Your monthly total</small><strong id="tot2">$0</strong><small id="one2"></small></div>
@@ -156,11 +180,11 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
 <h4>16. No hiring our staff</h4>
 <p>During this agreement and for 12 months after, you will not solicit or hire any of our employees or contractors who worked on your account without our written consent.</p>
 <h4>17. Changes to these terms</h4>
-<p>We may change these terms only on 30 days’ written notice. If a change hurts you, you may leave before it takes effect without paying the early-exit amount. Committed prices never change during your term.</p>
+<p>We may change these terms only on 30 days’ written notice. If a change hurts you, you may leave before it takes effect without paying the early-exit amount. Committed prices never change during your term. These terms may be updated from time to time, including after review by our legal counsel. We will email you the updated terms, and they take effect 30 days after that notice.</p>
 <h4>18. Disputes</h4>
-<p>New York law governs this agreement. <mark>[Forum for disputes: to be completed by counsel.]</mark> Either side may use small claims court. Claims against us must be brought within <mark>[1 year]</mark> after they arise, where the law allows. <strong>EACH SIDE WAIVES ANY RIGHT TO A JURY TRIAL. CLAIMS MAY BE BROUGHT ONLY INDIVIDUALLY, NOT IN A CLASS OR REPRESENTATIVE ACTION.</strong></p>
+<p>New York law governs this agreement. Disputes go only to the state courts in Kings County, New York, or the federal court for the Eastern District of New York. Either side may use small claims court. Claims against us must be brought within 1 year after they arise, where the law allows. <strong>EACH SIDE WAIVES ANY RIGHT TO A JURY TRIAL. CLAIMS MAY BE BROUGHT ONLY INDIVIDUALLY, NOT IN A CLASS OR REPRESENTATIVE ACTION.</strong></p>
 <h4>19. General</h4>
-<p>Neither side is responsible for delays caused by events beyond its reasonable control (force majeure), but this does not excuse payment. We are an independent contractor. You may not assign this agreement without our written consent. Notices are given by email to the addresses on page 2. Electronic signatures and records are valid (New York Electronic Signatures and Records Act; federal E-SIGN Act). If any part is unenforceable, the rest stays in effect. Terms that by their nature should last, including payment, ownership, confidentiality, liability, indemnity and disputes, survive the end of this agreement. This is the entire agreement and replaces all earlier proposals and discussions.</p></div></details>
+<p>Neither side is responsible for delays caused by events beyond its reasonable control (force majeure), but this does not excuse payment. We are an independent contractor. You may not assign this agreement without our written consent. Notices are given by email to the addresses given at signing. Electronic signatures and records are valid (New York Electronic Signatures and Records Act; federal E-SIGN Act). If any part is unenforceable, the rest stays in effect. Terms that by their nature should last, including payment, ownership, confidentiality, liability, indemnity and disputes, survive the end of this agreement. This is the entire agreement and replaces all earlier proposals and discussions.</p></div></details>
           <div class="inits"><span>Initial each key term</span>
             <label>Automatic renewal: committed plans continue month to month unless you cancel.<input id="i1" maxlength="4" autocomplete="off" aria-label="Initials: automatic renewal"></label>
             <label>Missed payments: Day 1 retry, Day 7 late fee and email, Day 15 pause, Day 30 agreement ends.<input id="i2" maxlength="4" autocomplete="off" aria-label="Initials: missed payments"></label>
@@ -174,27 +198,6 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
         <p class="fine">Billing starts at signing.</p>
       </form>
     </div>
-    <h2 id="more">Add or change services</h2>
-    <h3>Website</h3>
-    <div>
-      <label class="svc off" data-svc="website"><input type="checkbox"><b>Website, built and managed</b><span class="price"></span>
-        <p>Your new website, designed in 24 hours: 5 designs made for your business, then up to 5 rounds of edits. The build is free on a 12- or 24-month plan.</p>
-        <span class="opts" role="radiogroup" aria-label="Website plan"><label class="opt"><input type="radio" name="t-website" value="24" checked><span>24 months · $149/mo</span></label><label class="opt"><input type="radio" name="t-website" value="12"><span>12 months · $199/mo</span></label><label class="opt"><input type="radio" name="t-website" value="m2m"><span>Month to month · $199/mo + $1,999 build</span></label></span></label>
-    </div>
-
-    <h3>Social media management &amp; distribution</h3>
-    <div>
-      <label class="svc off" data-svc="smm"><input type="checkbox"><b>Social media, run for you</b><span class="price"></span>
-        <p>Facebook, Instagram, Google Business Profile and Google Ads. You send the photos, videos and copy; we post, schedule and manage.</p>
-        <span class="opts" role="radiogroup" aria-label="Social media plan"><label class="opt"><input type="radio" name="t-smm" value="24" checked><span>24 months · $499/mo</span></label><label class="opt"><input type="radio" name="t-smm" value="12"><span>12 months · $549/mo</span></label><label class="opt"><input type="radio" name="t-smm" value="m2m"><span>Month to month · $599/mo</span></label>
-        <span class="num">Extra platforms (+$50/mo each) <input type="number" id="xplat" min="0" max="10" value="0" aria-label="Extra platforms"></span></span></label>
-    </div>
-
-    <h3>AI agents, per month</h3>
-    <div id="agents"></div>
-
-    <ul class="notes"><li>Billing starts at signing. Leave a website plan early? You pay only the unearned part of the $1,999 build.</li><li>Ad spend is not included. You set your budget and pay Google and Meta directly.</li><li>Content is not included. You supply the photos, videos and copy. Content creation is quoted separately.</li></ul>
-
     <p class="sales">Need something that isn't listed? <a href="mailto:welcome@mosesagentic.com?subject=Talk%20to%20sales" id="sales">Talk to sales</a>.</p>
   </section>
   <section id="done" class="done" hidden>
@@ -212,13 +215,13 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
     <p class="lead" id="alldone" hidden>All set. We'll start on your services now.</p>
   </section>
 </main>
-<div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><button type="button" id="go2">Subscribe →</button></div></div>
+<div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><button type="button" id="go2">Check out →</button></div></div>
 <script>
 (function () {
   "use strict";
   var ENDPOINT = "https://hooks.zapier.com/hooks/catch/27563206/tHNY93KrYmljtGhD/", MAIL = "welcome@mosesagentic.com";
   /* AGREEMENT: "off" until counsel approves; "final" turns on signing for everyone. ?preview=1 shows the signing step as a preview (nothing is sent). */
-  var AGREEMENT = "off", VERSION = "short-2p-draft-2026-11-17", PAY = {};
+  var AGREEMENT = "final", VERSION = "short-2p-2026-11-17", PAY = {};
   var PREVIEW = AGREEMENT !== "final" && /[?&]preview=1/.test(location.search), SIGN = AGREEMENT === "final" || PREVIEW;
   var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
   var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
@@ -246,13 +249,13 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
     });
     $("#tot").textContent = $("#tot2").textContent = fmt(m); $("#one").textContent = $("#one2").textContent = one ? "+ " + fmt(one) + " one-time build" : "";
     $("#order").innerHTML = lines.map(function (l) { return "<li>" + E(l[1]) + "<span>" + E(l[2]) + '</span><button type="button" data-rm="' + l[0] + '" aria-label="Remove">×</button></li>'; }).join("");
-    $("#empty").hidden = !!lines.length; $("#h1").textContent = lines.length ? "Your order." : "Choose your services.";
+    $("#empty").hidden = !!lines.length;
     return { items: items, m: m, one: one };
   }
   document.addEventListener("change", plan);
   document.addEventListener("click", function (e) { var b = e.target.closest("[data-rm]"); if (b) { var r = $('.svc[data-svc="' + b.dataset.rm + '"]'); if (r) { r.querySelector("input[type=checkbox]").checked = false; plan(); } } });
-  $("#go2").addEventListener("click", function () { if ($("#f").requestSubmit) $("#f").requestSubmit(); else $("#go").click(); });
-  if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { $("#total").classList.toggle("show", !es[0].isIntersecting); }).observe($("#go"));
+  $("#go2").addEventListener("click", function () { $("#checkout").scrollIntoView({ behavior: "smooth", block: "start" }); setTimeout(function () { var e = ["biz", "nm", "em"].filter(function (i) { return !$("#" + i).value.trim(); })[0]; if (e) $("#" + e).focus({ preventScroll: true }); }, 600); });
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { $("#total").classList.toggle("show", !es[0].isIntersecting); }, { threshold: .15 }).observe($("#f")); else $("#total").classList.add("show");
   document.addEventListener("input", function (e) { if (e.target.id === "xplat") plan(); });
 
   /* pre-select from the link: ?p=website-24,smm-12,agent-coo  (?c= is a reference carried into the request) */
@@ -266,7 +269,7 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
   plan();
 
 
-  if (SIGN) { $("#agr").hidden = false; $("#go").textContent = "Sign and start subscription →"; $("#go2").textContent = "Sign and start →"; if (AGREEMENT === "final") { var dr = $(".draft"); if (dr) dr.remove(); } }
+  if (SIGN) { $("#agr").hidden = false; $("#go").textContent = "Sign and start subscription →"; if (AGREEMENT === "final") { var dr = $(".draft"); if (dr) dr.remove(); } }
   function sha(t) { return crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)).then(function (b) { return [].map.call(new Uint8Array(b), function (x) { return x.toString(16).padStart(2, "0"); }).join(""); }); }
   $("#f").addEventListener("submit", function (ev) {
     ev.preventDefault();
@@ -279,7 +282,7 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
     }
     err.textContent = "";
     var subject = "Moses Agentic subscription: " + v("biz") + ", " + fmt(p.m) + " a month";
-    var lines = ["SUBSCRIPTION REQUEST: send the agreement to sign and the payment link", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-")]);
+    var lines = ["SUBSCRIPTION ORDER", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-")]);
     var data = { kind: "subscription", hp: v("hp"), subject: subject, name: v("nm"), email: v("em"), phone: "", company: v("biz"), message: lines.join("\n"), language: "en", source: location.hostname };
     function done() { $("#pick").hidden = true; $("#total").hidden = true; $("#done").hidden = false; $("#donemsg").textContent = "Thank you, " + v("nm") + ". Your plan is " + fmt(p.m) + " a month" + (p.one ? ", plus a " + fmt(p.one) + " one-time build" : "") + "." + (PREVIEW ? " (Preview: nothing was signed or charged.)" : ""); window.__who = { name: v("nm"), email: v("em"), biz: v("biz") }; scrollTo(0, 0); }
     function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n")); setTimeout(done, 600); }
@@ -288,6 +291,7 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
     if (PREVIEW) { done(); return; }
     go.disabled = true;
     if (SIGN) { sha($(".agree").textContent).then(function (h) {
+      lines[0] = "SUBSCRIPTION SIGNED ONLINE: agreement signed, payment to collect";
       lines = lines.concat(["SIGNED ONLINE by " + v("nm") + (v("ti") ? ", " + v("ti") : "") + " for " + v("biz"), "Initials: " + ["i1", "i2", "i3", "i4"].map(v).join(" / "), "Signed at: " + new Date().toISOString(), "Agreement version: " + VERSION, "Agreement text SHA-256: " + h, "Device: " + navigator.userAgent]);
       data.message = lines.join("\n"); data.kind = "subscription-signed";
       fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; after(); }).catch(function () { go.disabled = false; err.textContent = "We could not record your signature. Please try again."; });

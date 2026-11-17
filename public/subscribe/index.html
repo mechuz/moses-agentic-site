@@ -89,6 +89,7 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
 .inits input { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.4); border-radius: 10px; padding: 8px; text-align: center; text-transform: uppercase; font: 800 1rem var(--b); letter-spacing: .1em; }
 .chk { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; } .chk input { width: 22px; height: 22px; flex: none; accent-color: var(--lime); margin-top: 1px; }
 #intake { max-width: 820px; background: none; border: 0; padding: 0; position: static; }
+a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
 .sales { margin-top: 3rem; color: var(--mut); font-size: .95rem; }
 .done h1 { max-width: 14ch; }
 @media (max-width: 640px) { .row { grid-template-columns: minmax(0, 1fr); } .svc { grid-template-columns: auto minmax(0, 1fr); } .svc .price { grid-column: 2; text-align: start; } }
@@ -209,7 +210,10 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
       <div class="err" id="err2" role="alert"></div>
       <button class="go" id="go3" type="submit">Send →</button>
     </form>
-    <p class="lead" id="alldone" hidden>All set. We'll start on your services now.</p>
+    <p class="lead" id="alldone" hidden>Got it. One last step.</p>
+    <h2>Book your intake call</h2>
+    <p class="lead" style="margin-top:0">30 minutes with our team, to get your services started.</p>
+    <p><a class="go book" href="https://calendar.app.google/SziK8xiAre7NxCrR6" target="_blank" rel="noopener">Book your intake call →</a></p>
   </section>
 </main>
 <div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><button type="button" id="go2">Check out →</button></div></div>

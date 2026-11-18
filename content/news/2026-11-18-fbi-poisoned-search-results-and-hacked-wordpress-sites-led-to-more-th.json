@@ -1,0 +1,13 @@
+{
+ "slug": "2026-11-18-fbi-poisoned-search-results-and-hacked-wordpress-sites-led-to-more-th",
+ "title": "FBI: poisoned search results and hacked WordPress sites led to more than $28 million in ransom payments",
+ "source": "FBI (IC3 FLASH CC-111626-MW)",
+ "source_url": "https://www.ic3.gov/CSA/2026/261116.pdf",
+ "date": "2026-11-18",
+ "article_date": "2026-11-16",
+ "category_name": "Policy, law & data",
+ "summary": "The FBI issued an alert on November 16, 2026 about Gootloader, malware that reaches businesses through ordinary web searches. Criminals plant pages on hacked WordPress sites that rank for narrow searches, such as a specific contract clause, and the visitor downloads a file that opens the door for ransomware. As of October 2026 the FBI counted more than 1,000 infected WordPress sites, 216 domains run by the operator, and over $28 million in ransom payments. Recent targeting has focused on lawyers, in-house counsel and legal technology buyers. The alert tells organizations what to do if a staff member downloaded or opened such a file, and recommends reviewing incident response plans.",
+ "why": "If your business runs a WordPress site, make sure it is updated and its XML-RPC access is locked down, and tell staff that a downloaded template or form from a search result is not safe to open.",
+ "status": "published",
+ "airtable_id": "rectSUvqxDMQH3s6C"
+}

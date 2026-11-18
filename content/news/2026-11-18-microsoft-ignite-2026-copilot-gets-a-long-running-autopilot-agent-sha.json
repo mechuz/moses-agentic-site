@@ -1,0 +1,13 @@
+{
+ "slug": "2026-11-18-microsoft-ignite-2026-copilot-gets-a-long-running-autopilot-agent-sha",
+ "title": "Microsoft Ignite 2026: Copilot gets a long-running Autopilot agent, shared workspaces and a spend dashboard for agents",
+ "source": "Microsoft (Source)",
+ "source_url": "https://news.microsoft.com/source/2026/11/17/microsoft-ignite-2026-empowering-human-ambition-intelligence-and-trust/",
+ "date": "2026-11-18",
+ "article_date": "2026-11-17",
+ "category_name": "Agents & tools",
+ "summary": "At its Ignite conference on November 17, 2026, Microsoft described the next version of Copilot for work: Autopilot, an agent that keeps running recurring tasks on its own; Copilot Code, which builds dashboards, trackers and small apps from plain-language instructions; and Copilot Workspaces, where people and agents share the same files and context. For managers, Agent 365 Business Analytics is meant to show what the company's AI is costing and delivering, and Agent 365 policies will be enforced on every Windows device. Microsoft IQ connects agents to company knowledge, with a Salesforce plugin in preview. Microsoft did not give prices or dates for most of these in the announcement.",
+ "why": "If your office already pays for Microsoft 365, the agent features will arrive inside tools you own; the thing to ask your IT person about first is who approves what an agent is allowed to do.",
+ "status": "published",
+ "airtable_id": "recNIsPxxrg6woePL"
+}

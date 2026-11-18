@@ -3,93 +3,117 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insights: AI for your business | Moses Agentic</title>
-<meta name="description" content="Plain-language articles on putting AI staff to work in a real business: by department, by industry, and with the numbers that matter.">
+<title>Insights: a digital workforce for your business | Moses Agentic</title>
+<meta name="description" content="Plain-language articles on putting a digital workforce to work in a real business: by department, by industry, and with the numbers that matter.">
 <link rel="canonical" href="https://mosesagentic.com/blog/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Moses Agentic">
-<meta property="og:title" content="Insights: AI for your business | Moses Agentic">
-<meta property="og:description" content="Plain-language articles on putting AI staff to work in a real business: by department, by industry, and with the numbers that matter.">
+<meta property="og:title" content="Insights: a digital workforce for your business | Moses Agentic">
+<meta property="og:description" content="Plain-language articles on putting a digital workforce to work in a real business: by department, by industry, and with the numbers that matter.">
 <meta property="og:url" content="https://mosesagentic.com/blog/">
 <meta property="og:image" content="https://mosesagentic.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="Moses Agentic: Insights" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Moses Agentic: Technology news for business" href="/news/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Insights", "url": "https://mosesagentic.com/blog/", "isPartOf": {"@type": "WebSite", "name": "Moses Agentic", "url": "https://mosesagentic.com/"}, "mainEntity": {"@type": "ItemList", "itemListElement": []}}</script>
 <style>
-:root { --ink:#0B2545; --ink2:#122443; --blue:#1A73E8; --acc:#C6F432; --bg:#FFFFFF; --soft:#F3F5F9; --line:#D5DCE6; --mut:#5B6576; --f:Inter, -apple-system, "Segoe UI", Roboto, sans-serif; }
+:root { --ink:#0B2545; --mut:#44546B; --blue:#1F6FFF; --lime:#D9F76B; --bg:#FFFFFF; --soft:#F5F9FF; --line:#E3EAF4; --f:"Outfit", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; --fs:"Instrument Serif", Georgia, serif; }
 * { box-sizing:border-box; }
-body { margin:0; background:var(--bg); color:var(--ink2); font:400 17px/1.6 var(--f); -webkit-font-smoothing:antialiased; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--ink); font:400 17px/1.65 var(--f); -webkit-font-smoothing:antialiased; }
 a { color:var(--blue); }
-a:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+a:focus-visible, button:focus-visible { outline:3px solid var(--ink); outline-offset:3px; }
 .wrap { max-width:1120px; margin:0 auto; padding:0 16px; }
-header.top { background:var(--ink); color:#fff; }
-header.top .wrap { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:64px; }
-.brand { display:flex; align-items:center; gap:.6rem; color:#fff; text-decoration:none; font-weight:800; letter-spacing:-.02em; font-size:1.1rem; }
-.brand img { height:30px; width:auto; }
-nav.site { display:flex; gap:1.2rem; flex-wrap:wrap; }
-nav.site a { color:#D6EBFF; text-decoration:none; font-weight:600; font-size:.95rem; padding:.3rem 0; }
-nav.site a[aria-current="page"], nav.site a:hover { color:var(--acc); }
-.hero { background:var(--soft); border-bottom:1px solid var(--line); }
-.hero .wrap { padding:2.4rem 16px 1.8rem; max-width:900px; }
-.kicker { font:700 .8rem/1 var(--f); letter-spacing:.12em; text-transform:uppercase; color:var(--blue); margin:0 0 .8rem; }
-h1 { font:800 clamp(1.9rem, 4.5vw, 3rem)/1.08 var(--f); letter-spacing:-.03em; margin:0 0 .8rem; color:var(--ink); text-wrap:balance; }
-.lead { font-size:1.15rem; color:var(--mut); margin:0; max-width:62ch; }
-.chips { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.4rem 0 0; }
-.chips a { background:#fff; border:1px solid var(--line); border-radius:999px; padding:.3rem .85rem; font-size:.9rem; font-weight:600; color:var(--ink); text-decoration:none; }
-.chips a[aria-current="true"] { background:var(--ink); color:#fff; border-color:var(--ink); }
-main .wrap { padding:2rem 16px 3rem; }
-.month { font:700 .8rem/1 var(--f); letter-spacing:.1em; text-transform:uppercase; color:var(--mut); margin:2rem 0 .8rem; }
-.grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); }
-.card { border:1px solid var(--line); border-radius:16px; padding:1.1rem 1.2rem 1.2rem; display:grid; gap:.5rem; background:#fff; }
-.card .cat { font:700 .75rem/1 var(--f); letter-spacing:.1em; text-transform:uppercase; color:var(--blue); }
-.card h2 { font:800 1.15rem/1.3 var(--f); letter-spacing:-.01em; margin:0; color:var(--ink); }
+header.top { background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20; }
+header.top .wrap { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:76px; }
+.brand { display:inline-flex; align-items:center; text-decoration:none; }
+.brand img { height:38px; width:auto; display:block; }
+nav.site { display:flex; gap:1.4rem; flex-wrap:wrap; }
+nav.site a { color:var(--ink); text-decoration:none; font:500 1rem/1.2 var(--f); padding:.4rem 0; border-bottom:2px solid transparent; }
+nav.site a[aria-current="page"] { color:var(--blue); border-bottom-color:var(--lime); }
+nav.site a:hover { color:var(--blue); }
+.hero .wrap { padding:clamp(2.4rem, 6vw, 4.5rem) 16px clamp(1.6rem, 3vw, 2.4rem); max-width:900px; }
+.kicker { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0 0 1rem; }
+h1 { font:500 clamp(2.2rem, 5.5vw, 3.8rem)/1.02 var(--f); letter-spacing:-.04em; margin:0 0 1rem; color:var(--ink); text-wrap:balance; position:relative; }
+.lead { font:italic 400 clamp(1.3rem, 2.2vw, 1.6rem)/1.35 var(--fs); color:var(--ink); margin:0; max-width:40ch; letter-spacing:-.01em; }
+[dir="rtl"] .lead { font-style:normal; font-family:var(--f); font-weight:500; }
+.rule { width:72px; height:6px; background:var(--lime); border-radius:3px; margin:1.4rem 0 0; }
+footer.site { border-top:1px solid var(--line); margin-top:4rem; background:#fff; }
+footer.site .links { display:flex; flex-wrap:wrap; gap:.4rem 1.6rem; padding:1.6rem 0; border-bottom:1px solid rgba(11,37,69,.12); }
+footer.site .links a { font:700 1rem var(--f); color:var(--ink); text-decoration:none; padding:.3rem 0; }
+footer.site .links a:hover { color:var(--blue); }
+footer.site .base { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.8rem 1.6rem; padding:1.4rem 0 2.4rem; color:var(--mut); font-size:1rem; }
+footer.site .base .mark { display:inline-flex; align-items:center; gap:.6rem; color:var(--ink); font-weight:600; text-decoration:none; }
+footer.site .base .mark img { height:28px; width:auto; }
+footer.site .base a { color:var(--ink); text-decoration:none; font-weight:500; }
+footer.site .base a:hover { color:var(--blue); }
+.btn { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:0 1.5rem; border-radius:999px; font:600 1rem var(--f); text-decoration:none; transition:background .15s, color .15s; }
+.btn.primary { background:var(--blue); color:#fff; }
+.btn.primary:hover { background:var(--ink); }
+.btn.ghost { border:1.5px solid var(--ink); color:var(--ink); }
+.btn.ghost:hover { background:var(--ink); color:#fff; }
+@media (max-width:700px) { header.top { position:static; } header.top .wrap { flex-direction:column; align-items:flex-start; gap:.3rem; min-height:0; padding:.8rem 16px .5rem; } .brand img { height:30px; } nav.site { width:100%; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; gap:1.1rem; } nav.site::-webkit-scrollbar { display:none; } nav.site a { white-space:nowrap; } }
+
+.chips { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.6rem 0 0; }
+.chips a { background:#fff; border:1px solid var(--line); border-radius:999px; padding:.4rem 1rem; font:500 1rem/1.2 var(--f); color:var(--ink); text-decoration:none; }
+.chips a:hover { border-color:var(--blue); color:var(--blue); }
+.chips a[aria-current="true"] { background:var(--lime); border-color:var(--lime); color:var(--ink); font-weight:600; }
+main .wrap { padding:1rem 16px 2rem; }
+.month { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin:2.2rem 0 .9rem; }
+.grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); }
+.card { border:1px solid var(--line); border-radius:20px; padding:1.3rem 1.4rem 1.3rem; display:grid; gap:.55rem; background:#fff; align-content:start; transition:border-color .15s, transform .15s; }
+.card:hover { border-color:var(--blue); transform:translateY(-2px); }
+.card .cat { font:600 1rem/1 var(--f); letter-spacing:.06em; text-transform:uppercase; color:var(--blue); }
+.card h2 { font:500 1.3rem/1.25 var(--f); letter-spacing:-.025em; margin:0; color:var(--ink); }
 .card h2 a { color:inherit; text-decoration:none; }
 .card h2 a:hover { color:var(--blue); }
-.card p { margin:0; color:var(--ink2); font-size:.98rem; }
-.card .why { color:var(--mut); font-size:.92rem; }
-.card .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.4rem; font-size:.85rem; color:var(--mut); margin-top:.2rem; }
-.card .foot a { font-weight:600; }
-.empty { color:var(--mut); padding:2rem 0; }
-.share { border:1px dashed var(--line); border-radius:16px; padding:1.2rem 1.3rem; margin-top:2.4rem; color:var(--mut); }
+.card p { margin:0; color:var(--ink); font-size:1rem; }
+.card .why { color:var(--mut); font-size:1rem; }
+.card .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.4rem; font-size:1rem; color:var(--mut); margin-top:.3rem; }
+.card .foot a { font-weight:600; text-decoration:none; }
+.card .foot a:hover { text-decoration:underline; }
+.empty { color:var(--mut); padding:2rem 0; font:italic 400 1.4rem/1.4 var(--fs); }
+.share { background:var(--soft); border:1px solid var(--line); border-radius:20px; padding:1.4rem 1.5rem; margin-top:2.6rem; color:var(--ink); font-size:1.05rem; }
 .share a { font-weight:600; }
-footer.site { background:var(--soft); border-top:1px solid var(--line); margin-top:3rem; }
-footer.site .wrap { padding:1.6rem 16px 2.2rem; display:flex; flex-wrap:wrap; gap:.6rem 1.6rem; justify-content:space-between; color:var(--mut); font-size:.92rem; }
-footer.site a { color:var(--ink); text-decoration:none; font-weight:600; }
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="/"><img src="/logo-mark-light.svg" alt="" width="30" height="30"><span>Moses Agentic</span></a>
+  <a class="brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
   <nav class="site" aria-label="Site">
-    <a href="/">Home</a>
     <a href="/blog/" aria-current="page">Insights</a>
-    <a href="/news/">Tech news</a>
+    <a href="/news/">Technology news</a>
     <a href="/case-studies/">Case studies</a>
-    <a href="/#contact">Contact</a>
+    <a href="/">Home</a>
   </nav>
 </div></header>
 
 <section class="hero"><div class="wrap">
   <p class="kicker">Insights</p>
-  <h1>AI for your business, in plain words.</h1>
-  <p class="lead">What an agent can take off your team's plate, how to start safely, and what we have seen work across real estate, healthcare, finance, back office and more.</p>
+  <h1>A digital workforce for your business, in plain words.</h1>
+  <p class="lead">What a digital worker can take off your team's plate, how to start safely, and what we have seen work across real estate, healthcare, finance, back office and more.</p>
+  <div class="rule" aria-hidden="true"></div>
   
 </div></section>
 
 <main><div class="wrap">
 <p class="empty">The first articles are on their way.</p>
-<div class="share">Want to talk through any of this for your own business? <a href="/#contact">Book a free consultation</a>.</div>
+<div class="share">Want to talk through any of this for your own business? <a href="/">Book a free consultation</a>.</div>
 </div></main>
 
 <footer class="site"><div class="wrap">
-  <span>© 2026 Moses Agentic · New York · Memphis · Miami</span>
-  <span><a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a> · <a href="/blog/">Insights</a> · <a href="/news/">Tech news</a> · <a href="/feed.xml">RSS</a></span>
+  <div class="links"><a href="/case-studies/">Case Studies</a><a href="/blog/">Insights</a><a href="/news/">Technology news</a><a href="/industries/">Industries</a><a href="/">Home</a></div>
+  <div class="base">
+    <a class="mark" href="/"><img src="/logo-mark.svg" alt="" width="28" height="28">Moses Agentic</a>
+    <span>© 2026 Moses Agentic · New York · Memphis · Miami</span>
+    <span><a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a> · <a href="/feed.xml">RSS</a></span>
+  </div>
 </div></footer>
 </body>
 </html>

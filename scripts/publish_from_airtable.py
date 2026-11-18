@@ -431,7 +431,7 @@ def render_post(p, posts):
         "hero_img": f'<img class="hero" src="{esc(image)}" alt="{esc(p.get("image_alt", ""))}" width="1600" height="900" loading="eager">' if image else "",
         "body": body, "source_html": "", "disclaimer_html": disclaimer,
         "cta_title": "Want this working in your business?",
-        "cta_text": "A free 30-minute consultation shows where AI fits your team, your paperwork and your customers. No agency fees, no jargon.",
+        "cta_text": "A free 30-minute consultation shows where a digital workforce fits your team, your paperwork and your customers. No agency fees, no jargon.",
         "related_html": related_html(p["slug"], posts),
         "year": str(datetime.now(tz()).year),
     })
@@ -453,20 +453,20 @@ def render_blog_index(posts):
               "mainEntity": {"@type": "ItemList", "itemListElement": [
                   {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/blog/{p['slug']}/", "name": p["headline"]} for i, p in enumerate(posts[:50])]}}
     page = render(tpl("list.html"), {
-        "title": f"Insights: AI for your business | {SITE_NAME}",
-        "description": "Plain-language articles on putting AI staff to work in a real business: by department, by industry, and with the numbers that matter.",
+        "title": f"Insights: a digital workforce for your business | {SITE_NAME}",
+        "description": "Plain-language articles on putting a digital workforce to work in a real business: by department, by industry, and with the numbers that matter.",
         "url": SITE + "/blog/", "feed_title": "Moses Agentic: Insights", "feed_path": "/feed.xml",
         "schema": json.dumps(schema, ensure_ascii=False),
         "nav_blog": ' aria-current="page"', "nav_news": "",
-        "kicker": "Insights", "headline": "AI for your business, in plain words.",
-        "lead": "What an agent can take off your team's plate, how to start safely, and what we have seen work across real estate, healthcare, finance, back office and more.",
+        "kicker": "Insights", "headline": "A digital workforce for your business, in plain words.",
+        "lead": "What a digital worker can take off your team's plate, how to start safely, and what we have seen work across real estate, healthcare, finance, back office and more.",
         "chips_html": "", "items_html": items_html,
-        "share_html": '<div class="share">Want to talk through any of this for your own business? <a href="/#contact">Book a free consultation</a>.</div>',
+        "share_html": '<div class="share">Want to talk through any of this for your own business? <a href="/">Book a free consultation</a>.</div>',
         "year": str(datetime.now(tz()).year),
     })
     write_page("/blog/", page)
     write_feed(PUBLIC / "feed.xml", "Moses Agentic: Insights", SITE + "/blog/",
-               "Plain-language articles on putting AI staff to work in a real business.",
+               "Plain-language articles on putting a digital workforce to work in a real business.",
                [(p["headline"], f"{SITE}/blog/{p['slug']}/", p.get("description") or p.get("excerpt", ""), p["date"]) for p in posts[:20]])
 
 
@@ -508,7 +508,7 @@ def render_news_item(n, items):
         "body": body, "source_html": source_html,
         "disclaimer_html": '<p class="disclaimer">Summaries are written in our own words from the source linked above. This is news, not legal, tax or financial advice.</p>',
         "cta_title": "What would this mean for your business?",
-        "cta_text": "We put AI to work in real companies every day. A free 30-minute consultation shows where it fits yours.",
+        "cta_text": "We put a digital workforce to work in real companies every day. A free 30-minute consultation shows where it fits yours.",
         "related_html": related,
         "year": str(datetime.now(tz()).year),
     })

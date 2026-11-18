@@ -2246,6 +2246,55 @@ html.v2 body { padding-bottom: 104px; }
 .v2how i { width: 3rem; height: 3rem; border-radius: 50%; background: #D9F76B; color: #0B2545; display: grid; place-items: center; font: 600 1.3rem var(--f-display); font-style: normal; }
 .v2how h3 { font: 600 clamp(1.25rem, 2vw, 1.6rem)/1.15 var(--f-display); letter-spacing: -.02em; margin: .5rem 0 0; color: #0B2545; }
 .v2how p { font: 400 1.08rem/1.5 var(--f-body); margin: 0; color: #44546B; }
+html.v2.site-moses .top { height: 76px !important; min-height: 0 !important; }
+html.v2 { --hdr: 76px; }
+/* typefaces */
+html.v2 { --f-display: "Outfit", "Heebo", system-ui, sans-serif; --f-body: "Outfit", "Heebo", system-ui, sans-serif; }
+html.v2 .v2hl, html.v2 .v2rot em, html.v2 .v2name b, html.v2 .v2one { font-family: "Instrument Serif", "Heebo", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+html.v2[dir="rtl"] .v2hl, html.v2[dir="rtl"] .v2rot em, html.v2[dir="rtl"] .v2one { font-style: normal; font-family: "Heebo", system-ui, sans-serif; font-weight: 600; }
+.v2name { font-weight: 300 !important; }
+.v2name b { font-size: 1.08em; }
+.v2one { font-size: clamp(1.5rem, 2.6vw, 2rem) !important; }
+.v2big .v2hl { font-size: 1.1em; }
+/* hero motion */
+.v2top { position: relative; overflow: hidden; }
+.v2top .v2in { position: relative; z-index: 1; }
+.v2fx { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.v2top::after { content: ""; position: absolute; left: var(--mx, 50%); top: var(--my, 30%); width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%; background: radial-gradient(closest-side, rgba(77,184,255,.22), rgba(217,247,107,.12) 55%, rgba(255,255,255,0)); pointer-events: none; z-index: 0; transition: left .25s ease-out, top .25s ease-out; }
+.v2sage { width: clamp(84px, 11vw, 132px); height: auto; margin: 0 auto 1.2rem; display: block; animation: v2float 6s ease-in-out infinite; }
+.v2name span { display: inline-block; animation: v2letter .7s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * 55ms + 150ms); }
+.v2rot { font: 400 clamp(1.3rem, 2.4vw, 1.9rem)/1.25 var(--f-body); margin: 1.4rem 0 0; color: #0B2545; min-height: 1.4em; }
+.v2rot em { display: inline-block; color: #1F6FFF; font-size: 1.25em; background: linear-gradient(transparent 62%, #D9F76B 62%, #D9F76B 94%, transparent 94%); padding: 0 .2em; }
+.v2rot em.swap { animation: v2swap .55s cubic-bezier(.2,.8,.2,1) both; }
+.v2four .v2ic { animation: v2float 5s ease-in-out infinite; }
+.v2four button:nth-child(2) .v2ic { animation-delay: -1.2s; } .v2four button:nth-child(3) .v2ic { animation-delay: -2.4s; } .v2four button:nth-child(4) .v2ic { animation-delay: -3.6s; }
+.v2four button:hover .v2ic { animation-play-state: paused; }
+.v2four button:active .v2ic { transform: scale(.92); }
+/* things rise in as you scroll */
+.v2rise { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0ms); }
+.v2rise.in { opacity: 1; transform: none; }
+.v2mark, .v2big .v2hl { background-size: 0% 100%; background-repeat: no-repeat; transition: background-size .9s cubic-bezier(.2,.8,.2,1) .25s; }
+.in > .v2mark, .in.v2price .v2mark, .v2rise.in .v2mark, .v2big.in .v2hl, .in .v2hl { background-size: 100% 100%; }
+/* a strip of industries that keeps moving */
+.v2mq { overflow: hidden; border-block: 1px solid #EDF1F7; padding: 1.3rem 0; direction: ltr; }
+.v2mq > div { display: inline-flex; white-space: nowrap; animation: v2mq 46s linear infinite; }
+.v2mq span { font: 300 clamp(1.6rem, 3.6vw, 2.8rem)/1 var(--f-display); color: #0B2545; padding-inline: 1.6rem; display: inline-flex; align-items: center; gap: 1.6rem; }
+.v2mq span::after { content: ""; width: .5em; height: .5em; border-radius: 50%; background: #B4E61D; }
+.v2mq span:nth-child(odd) { color: #1F6FFF; font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; }
+.v2mq:hover > div { animation-play-state: paused; }
+.v2rows button i { transition: transform .25s; } .v2rows button:hover i { transform: translateY(5px); }
+.v2rows button b { transition: color .2s; } .v2rows button:hover b { color: #1F6FFF; }
+.v2s .v2in > .v2ic { animation: v2float 5.5s ease-in-out infinite; }
+.v2btn { transition: transform .18s, background .18s, border-color .18s, box-shadow .18s; }
+.v2btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -14px rgba(31,111,255,.7); }
+.v2btn .arrow { display: inline-block; transition: transform .2s; } .v2btn:hover .arrow { transform: translateX(4px); }
+.v2chips button { transition: transform .15s, background .15s, color .15s, border-color .15s; } .v2chips button:hover { transform: translateY(-2px); }
+.v2dock button { transition: background .2s, color .2s; } .v2dock .v2ic { transition: transform .25s; } .v2dock button:hover .v2ic { transform: translateY(-3px) scale(1.08); }
+@keyframes v2float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-9px) rotate(-2deg); } }
+@keyframes v2letter { from { opacity: 0; transform: translateY(.5em) rotate(6deg); } to { opacity: 1; transform: none; } }
+@keyframes v2swap { from { opacity: 0; transform: translateY(.6em); } to { opacity: 1; transform: none; } }
+@keyframes v2mq { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .v2sage, .v2four .v2ic, .v2s .v2in > .v2ic, .v2mq > div, .v2name span { animation: none !important; } .v2rise { opacity: 1; transform: none; transition: none; } .v2mark, .v2big .v2hl { background-size: 100% 100%; transition: none; } .v2top::after { display: none; } }
 /* icon bar */
 .v2dock { display: none; }
 html.v2 .v2dock { display: flex; position: fixed; inset-inline: 0; bottom: 0; z-index: 25; background: #FFFFFF; border-top: 1px solid #E3EAF4; overflow-x: auto; scrollbar-width: none; padding-bottom: env(safe-area-inset-bottom, 0px); }
@@ -2260,6 +2309,7 @@ html.v2 .v2dock { display: flex; position: fixed; inset-inline: 0; bottom: 0; z-
 .v2dock button.buy:hover { background: #0B2545; }
 html.mvfull-on .v2dock { display: none !important; }
 @media (max-width: 900px) { .v2grid, .v2sol, .v2proof, .v2how { grid-template-columns: minmax(0, 1fr); } .v2four { grid-template-columns: repeat(2, minmax(0, 1fr)); } .v2rows button { grid-template-columns: minmax(0, 1fr) auto; } .v2rows button span { grid-column: 1; grid-row: 2; } .v2rows button i { grid-row: 1 / span 2; grid-column: 2; } .v2grid li, .v2how { text-align: start; } .v2dock button { flex-basis: 96px; min-height: 84px; } html.v2 body { padding-bottom: 92px; } }
+.mark.sage { background: #FFFFFF url(/sage.png) center / 78% no-repeat !important; border-radius: 9px; font-size: 0; }
 </style>
 <script>
 /* back / forward / swipe: popups (case studies, booking) and form steps are history steps too */
@@ -2290,6 +2340,7 @@ html.mvfull-on .v2dock { display: none !important; }
   });
 })();
 </script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
 <script>if (/^\/preview(\/|$)/.test(location.pathname) || /[?&]v2=1/.test(location.search)) document.documentElement.classList.add("v2");</script>
 <style>/* team-only link to the private prospect tracker */
 .teamlink{display:inline-flex;align-items:center;gap:.35rem;margin-inline-start:1rem;padding:.35rem .75rem;border:1px solid rgba(11,37,69,.18);border-radius:999px;color:#0B2545;font:600 .85rem var(--f-body,inherit);text-decoration:none;white-space:nowrap}
@@ -2303,7 +2354,7 @@ html.mvfull-on .v2dock { display: none !important; }
 <div class="trnote" id="trnote" hidden></div>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#" data-home><img class="brand-logo" src="/logo-full-light.png" alt="Moses Agentic" width="1009" height="114"><img class="brand-mark" src="/logo-mark-light.svg" alt="Moses Agentic" width="580" height="340"><span class="mark">M</span><span class="name" data-brand></span></a>
+    <a class="brand" href="#" data-home><img class="brand-logo" src="/logo-full-light.png" alt="Moses Agentic" width="1088" height="216"><img class="brand-mark" src="/sage-w.png" alt="Moses Agentic" width="360" height="348"><span class="mark sage" aria-hidden="true"></span><span class="name" data-brand></span></a>
     <nav class="nav" aria-label="Sections">
       <button type="button" class="nav-free" data-dd="managed" aria-haspopup="true" aria-expanded="false" data-i18n="nav.managed">Managed Services</button>
       <button type="button" class="nav-hire" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false" data-i18n="nav.hire">Digital Workforce</button>
@@ -2715,7 +2766,7 @@ html.mvfull-on .v2dock { display: none !important; }
   <div class="wrap v2foot"><button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button><a href="/blog/" data-i18n="nav.ins">Insights</a><a href="/news/" data-i18n="v2.news">Technology news</a><button type="button" data-about data-i18n="nav.about">About</button><button type="button" class="v2disc" data-v2-disc aria-expanded="false" data-i18n="v2.disc">Disclosures</button></div>
   <div class="wrap disc" id="disc" lang="en" dir="ltr"></div>
   <div class="wrap">
-    <div class="brand"><span class="mark">M</span><span data-brand></span></div>
+    <div class="brand"><span class="mark sage" aria-hidden="true"></span><span data-brand></span></div>
     <div class="contact" id="contact"></div>
     <p class="locs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><b data-i18n="loc.k">Offices</b> <span data-i18n="loc.t">New York · Memphis · Miami</span> <span class="locmail">· <a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a></span></p>
     <small><span id="ftr"></span> © <span id="yr"></span></small>
@@ -2729,7 +2780,7 @@ html.mvfull-on .v2dock { display: none !important; }
 
 <button type="button" class="fab" id="fab" data-open-chat data-fx aria-label="Chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg><span data-i18n="chat.open">Ask us anything</span></button>
 <div class="chat" id="chat" role="dialog" aria-label="Chat" hidden>
-  <div class="chat-h"><span class="mark">M</span><div><b data-brand></b><small data-i18n="chat.sub">Ask about our services, agents, seminars or prices.</small></div><button type="button" class="x" data-chat-close aria-label="Close">×</button></div>
+  <div class="chat-h"><span class="mark sage" aria-hidden="true"></span><div><b data-brand></b><small data-i18n="chat.sub">Ask about our services, agents, seminars or prices.</small></div><button type="button" class="x" data-chat-close aria-label="Close">×</button></div>
   <div class="msgs" id="msgs" aria-live="polite"></div>
   <div class="qchips" id="qchips"></div>
   <form id="chatform"><input id="chat-in" autocomplete="off" maxlength="600"><button type="submit" id="chat-send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
@@ -5649,6 +5700,7 @@ const T = {
   "nav.managed": "Managed Services",
   "v2.h": "Your [digital workforce], built and run for you.",
   "v2.tag": "Digital workforce + managed services",
+  "v2.for": "Digital workers for",
   "v2.rows": [
    "A digital worker for every role.",
    "Your website and social media, run for you.",
@@ -8420,6 +8472,7 @@ const T = {
   "nav.managed": "מענעדזשד סערוויסעס",
   "v2.h": "אייער [דיגיטאלע ווארקפארס], געבויט און געפירט פאר אייך.",
   "v2.tag": "דיגיטאלע ווארקפארס + מענעדזשד סערוויסעס",
+  "v2.for": "דיגיטאלע ארבעטער פאר",
   "v2.rows": [
    "א דיגיטאלער ארבעטער פאר יעדע פאזיציע.",
    "אייער וועבסייט און סאשעל מידיא, געפירט פאר אייך.",
@@ -11191,6 +11244,7 @@ const T = {
   "nav.managed": "שירותים מנוהלים",
   "v2.h": "[כוח העבודה הדיגיטלי] שלכם, נבנה ומופעל בשבילכם.",
   "v2.tag": "כוח עבודה דיגיטלי + שירותים מנוהלים",
+  "v2.for": "עובדים דיגיטליים עבור",
   "v2.rows": [
    "עובד דיגיטלי לכל תפקיד.",
    "האתר והרשתות החברתיות שלכם, מופעלים בשבילכם.",
@@ -13962,6 +14016,7 @@ const T = {
   "nav.managed": "Servicios gestionados",
   "v2.h": "Su [fuerza laboral digital], creada y operada para usted.",
   "v2.tag": "Fuerza laboral digital + servicios gestionados",
+  "v2.for": "Trabajadores digitales para",
   "v2.rows": [
    "Un trabajador digital para cada puesto.",
    "Su sitio web y sus redes sociales, operados para usted.",
@@ -16122,14 +16177,18 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
       pr: '<svg viewBox="0 0 48 48"><path d="M8 10h17l15 15a4 4 0 0 1 0 6L30 41a4 4 0 0 1-6 0L8 26z"/><circle class="w" cx="17" cy="19" r="4"/></svg>' };
     const sec = (id, ic, i, extra, btns) => `<section class="v2s" id="${id}"><div class="v2in"><span class="v2ic">${IC[ic]}</span><h2>${E(B[i] ? B[i][0] : t("v2.sol"))}</h2><p class="v2one">${E(R[i === 2 ? 3 : i] || "")}</p><p class="v2p">${E(B[i][1])}</p>${B[i][2] ? `<p class="v2price"><span class="v2mark">${E(B[i][2])}</span></p>` : ""}</div><ul class="v2grid">${B[i][3].map(x => `<li>${E(x)}</li>`).join("")}</ul><div class="v2cta">${btns}</div></section>`;
     const btn = (label, attr, ghost) => `<button type="button" class="v2btn${ghost ? " ghost" : ""}" ${attr}>${E(label)} <span class="arrow">→</span></button>`;
-    home.innerHTML = `<section class="v2top" id="v2-top"><div class="v2in">
-        <h1 class="v2name">Moses <b>Agentic</b></h1><p class="v2tag">${E(t("v2.tag"))}</p>
+    home.innerHTML = `<section class="v2top" id="v2-top"><canvas class="v2fx" id="v2fx" aria-hidden="true"></canvas><div class="v2in">
+        <img class="v2sage" src="/sage.png" alt="" width="360" height="348">
+        <h1 class="v2name" aria-label="Moses Agentic">${[..."Moses"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")} <b>${[..."Agentic"].map((c, i) => `<span style="--i:${i + 6}">${c}</span>`).join("")}</b></h1>
+        <p class="v2tag">${E(t("v2.tag"))}</p>
+        <p class="v2rot"><span>${E(t("v2.for"))}</span> <em id="v2rot">${E(((t("v2.fn") || [[0, ""]])[0])[1])}</em></p>
         <div class="v2four"><button type="button" data-v2-go="v2-dw"><span class="v2ic">${IC.dw}</span>${E(B[0][0])}</button><button type="button" data-v2-go="v2-ms"><span class="v2ic">${IC.ms}</span>${E(B[1][0])}</button><button type="button" data-v2-go="v2-sol"><span class="v2ic">${IC.sol}</span>${E(t("v2.sol"))}</button><button type="button" data-v2-go="v2-ac"><span class="v2ic">${IC.ac}</span>${E(B[2][0])}</button></div>
         <p class="v2loc">${E(t("loc.t"))}</p></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
         <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>
         <p class="v2k">${E(t("v2.proof_k"))}</p>
         <ul class="v2proof">${(t("v2.proof") || []).map(([n, x]) => `<li><b>${E(n)}</b><span>${E(x)}</span></li>`).join("")}</ul></div></section>
+      <div class="v2mq" aria-hidden="true"><div>${[0, 1].map(() => (t("inds") || []).map(n => `<span>${E(n)}</span>`).join("")).join("")}</div></div>
       <section class="v2s"><div class="v2in"><h2>${E(t("v2.what"))}</h2></div>
         <div class="v2rows">${[[B[0][0], R[0], "v2-dw"], [B[1][0], R[1], "v2-ms"], [t("v2.sol"), R[2], "v2-sol"], [B[2][0], R[3], "v2-ac"]].map(([a, b, id]) => `<button type="button" data-v2-go="${id}"><b>${E(a)}</b><span>${E(b)}</span><i>↓</i></button>`).join("")}</div></section>
       ${sec("v2-dw", "dw", 0, "", btn(B[0][4][0], 'data-folder="store"'))}
@@ -16145,10 +16204,77 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
     let dock = document.getElementById("v2dock");
     if (!dock) { dock = document.createElement("nav"); dock.id = "v2dock"; dock.className = "v2dock"; dock.setAttribute("aria-label", "Sections"); document.body.appendChild(dock); }
     dock.innerHTML = [["v2-top", IC.home, t("nav.home") || "Home"], ["v2-dw", IC.dw, B[0][0]], ["v2-ms", IC.ms, B[1][0]], ["v2-sol", IC.sol, t("v2.sol")], ["v2-ac", IC.ac, B[2][0]]].map(([id, ic, l], i) => `<button type="button" data-v2-go="${id}"${i === 0 ? ' class="on"' : ""}><span class="v2ic">${ic}</span>${E(l)}</button>`).join("") + `<button type="button" class="buy" data-pricing><span class="v2ic">${IC.pr}</span>${E(t("nav.price"))}</button>`;
+    v2Motion();
     /* the light header uses the dark-on-white logos */
     document.querySelectorAll('.top img[src$="logo-full-light.png"]').forEach(i => { i.src = "/logo-full.png"; });
     document.querySelectorAll('.top img[src$="logo-mark-light.svg"]').forEach(i => { i.src = "/logo-mark.svg"; });
   };
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let fxRaf = 0, rotTimer = 0, io = null, spy = null;
+  function v2Motion() {
+    const home = document.getElementById("v2home"); if (!home) return;
+    /* sections and their parts rise in as they come on screen; figures count up once */
+    const parts = home.querySelectorAll(".v2s .v2in > *, .v2rows button, .v2grid li, .v2how li, .v2proof li, .v2sol > div, .v2s > .v2cta");
+    if (io) io.disconnect();
+    if (calm || !("IntersectionObserver" in window)) parts.forEach(x => x.classList.add("in"));
+    else {
+      parts.forEach((x, i) => { x.classList.add("v2rise"); x.style.setProperty("--d", (i % 6) * 70 + "ms"); });
+      io = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) return; en.target.classList.add("in"); io.unobserve(en.target);
+        const b = en.target.matches(".v2proof li") && en.target.querySelector("b"); if (b) count(b); }), { threshold: .15, rootMargin: "0px 0px -6% 0px" });
+      parts.forEach(x => io.observe(x));
+    }
+    /* the icon bar follows the section on screen */
+    if (spy) spy.disconnect();
+    if ("IntersectionObserver" in window) {
+      spy = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) document.querySelectorAll("#v2dock [data-v2-go]").forEach(b => b.classList.toggle("on", b.dataset.v2Go === en.target.id)); }), { rootMargin: "-45% 0px -50% 0px" });
+      ["v2-top", "v2-dw", "v2-ms", "v2-sol", "v2-ac"].forEach(id => { const x = document.getElementById(id); if (x) spy.observe(x); });
+    }
+    /* the rotating role */
+    clearInterval(rotTimer);
+    const rot = document.getElementById("v2rot"), words = (t("v2.fn") || []).map(x => x[1]);
+    if (rot && words.length > 1 && !calm) { let k = 0; rotTimer = setInterval(() => { if (!rot.isConnected) return clearInterval(rotTimer); k = (k + 1) % words.length; rot.classList.remove("swap"); void rot.offsetWidth; rot.textContent = words[k]; rot.classList.add("swap"); }, 1900); }
+    field();
+  }
+  function count(el) {
+    const m = el.textContent.match(/^(\D*)([\d.,]+)(.*)$/); if (!m || calm) return;
+    const to = parseFloat(m[2].replace(/,/g, "")), dec = (m[2].split(".")[1] || "").length, t0 = performance.now();
+    const step = now => { if (!el.isConnected) return; const k = Math.min(1, (now - t0) / 1300), v = to * (1 - Math.pow(1 - k, 3)); el.textContent = m[1] + (dec ? v.toFixed(dec) : Math.round(v)) + m[3]; if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+  /* a field of blue and green dots behind the hero: they drift, link up when close, and gather around the pointer */
+  function field() {
+    cancelAnimationFrame(fxRaf);
+    const cv = document.getElementById("v2fx"); if (!cv || !cv.getContext) return;
+    const box = cv.parentElement, ctx = cv.getContext("2d"), dpr = Math.min(2, devicePixelRatio || 1);
+    let W = 0, H = 0, dots = [], mx = -9999, my = -9999;
+    const COL = ["#1F6FFF", "#1F6FFF", "#4DB8FF", "#B4E61D"];
+    function size() { W = box.clientWidth; H = box.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.round(Math.min(150, Math.max(46, W * H / 9500)));
+      dots = Array.from({ length: n }, (_, i) => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: 1.6 + Math.random() * 3.2, c: COL[i % COL.length] })); }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (const d of dots) {
+        const dx = mx - d.x, dy = my - d.y, q = dx * dx + dy * dy;
+        if (q < 200 * 200 && q > 1) { const f = .0009 * (1 - Math.sqrt(q) / 200) * 60; d.vx += dx / Math.sqrt(q) * f * .05; d.vy += dy / Math.sqrt(q) * f * .05; }
+        d.vx *= .985; d.vy *= .985; d.vx += (Math.random() - .5) * .012; d.vy += (Math.random() - .5) * .012;
+        d.x += d.vx; d.y += d.vy;
+        if (d.x < -20) d.x = W + 20; else if (d.x > W + 20) d.x = -20; if (d.y < -20) d.y = H + 20; else if (d.y > H + 20) d.y = -20;
+      }
+      ctx.lineWidth = 1;
+      for (let i = 0; i < dots.length; i++) for (let j = i + 1; j < dots.length; j++) {
+        const a = dots[i], b = dots[j], dx = a.x - b.x, dy = a.y - b.y, q = dx * dx + dy * dy;
+        if (q < 120 * 120) { ctx.strokeStyle = "rgba(31,111,255," + (.16 * (1 - Math.sqrt(q) / 120)).toFixed(3) + ")"; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+      }
+      for (const d of dots) { ctx.globalAlpha = .75; ctx.fillStyle = d.c; ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, 6.2832); ctx.fill(); }
+      ctx.globalAlpha = 1;
+      if (!calm && cv.isConnected) fxRaf = requestAnimationFrame(draw);
+    }
+    size(); draw();
+    if (!box.dataset.fx) { box.dataset.fx = "1";
+      box.addEventListener("pointermove", e => { const r = box.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; box.style.setProperty("--mx", mx + "px"); box.style.setProperty("--my", my + "px"); });
+      box.addEventListener("pointerleave", () => { mx = my = -9999; });
+      addEventListener("resize", () => { if (cv.isConnected) { size(); if (calm) draw(); } }); }
+  }
   function openStore() { const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = "store"; document.body.appendChild(go); go.click(); go.remove(); }
   document.addEventListener("click", e => {
     const go = e.target.closest("[data-v2-go]");

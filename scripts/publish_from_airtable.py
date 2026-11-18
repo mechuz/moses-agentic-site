@@ -180,9 +180,14 @@ def one_line(s, limit=None):
     return s[:limit].rstrip() if limit else s
 
 
-def slugify(s):
+def slugify(s, limit=80):
+    """Lowercase, hyphenate, and cut at a word boundary so a long title never ends mid-word."""
     s = re.sub(r"[^a-z0-9]+", "-", str(s or "").lower()).strip("-")
-    return s[:80].rstrip("-")
+    if len(s) > limit:
+        s = s[:limit]
+        if "-" in s:
+            s = s.rsplit("-", 1)[0]
+    return s.rstrip("-")
 
 
 def text_of(body):
@@ -742,7 +747,7 @@ def prepare_news_one(rec, post_date, manifest):
 
     slug = str(f.get(NF["slug"]) or "").strip().lower()
     if not SLUG_RE.match(slug):
-        slug = slugify(f"{post_date} {title}")
+        slug = slugify(f"{post_date} {title}", 64)
     if not SLUG_RE.match(slug) or slug in RESERVED_SLUGS:
         return fail(f"cannot make a valid slug from {title!r}")
     url = f"{SITE}/news/{slug}/"

@@ -14875,7 +14875,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function play() { if (done) { show(0); } playing = true; t0 = performance.now(); setPP(); syncA(); cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); try { if (!seen) { seen = true; track("video_play"); } } catch (x) {} }
   function pause() { if (!playing) return; acc += performance.now() - t0; playing = false; cancelAnimationFrame(raf); setPP(); syncA(); }
   window.mvPause = () => { if (box) box.dataset.user = "1"; pause(); if (au) au.pause(); };
-  window.mvPlayFromStart = withSound => { if (withSound && box) { sound = true; setSnd(); } show(0); play(); };
+  window.mvPlayFromStart = withSound => {
+    if (withSound && box) { sound = true; setSnd(); }
+    show(0);
+    if (!sound) return play();
+    if (!au || !au.src.endsWith(src())) { if (au) au.pause(); au = new Audio(src()); au.preload = "auto"; }
+    try { au.currentTime = 0; } catch (x) {}
+    let go = false; const start = () => { if (go) return; go = true; play(); };
+    au.addEventListener("playing", start, { once: true });
+    const pr = au.play(); if (pr && pr.catch) pr.catch(start);
+    setTimeout(start, 3000);
+  };
+  addEventListener("load", () => setTimeout(() => { if (!au) { try { au = new Audio(src()); au.preload = "auto"; au.load(); } catch (x) {} } }, 1200));
   document.addEventListener("DOMContentLoaded", () => {
     box = document.getElementById("mv"); if (!box) return;
     stage = box.querySelector(".mv-stage"); pp = box.querySelector(".mv-pp"); snd = box.querySelector(".mv-snd");

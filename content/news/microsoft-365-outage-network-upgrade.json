@@ -1,0 +1,13 @@
+{
+ "slug": "microsoft-365-outage-network-upgrade",
+ "title": "Microsoft says a network upgrade, not Copilot, caused the Microsoft 365 outage",
+ "source": "Windows Latest",
+ "source_url": "https://www.windowslatest.com/2026/11/14/microsoft-is-begging-you-not-to-blame-ai-for-the-microsoft-365-outage-insisting-it-was-a-botched-network-upgrade/",
+ "date": "2026-11-17",
+ "article_date": "2026-11-14",
+ "category_name": "Work & productivity",
+ "summary": "Outlook, Teams and Copilot were disrupted for many businesses starting November 12, 2026, and service came back gradually over the following days. Microsoft's preliminary explanation points to a hidden bug in the systems that set up secure connections, which surfaced when traffic shifted during network maintenance and upgrades. The company said its Copilot assistant did not cause the outage and that it saw no sign of malicious activity.",
+ "why": "Email and chat can fail together when they share one provider, so agree in advance how staff and customers reach each other during an outage.",
+ "status": "published",
+ "airtable_id": "recDfD2UbTZQNsiYa"
+}

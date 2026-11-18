@@ -16246,11 +16246,17 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
     cancelAnimationFrame(fxRaf);
     const cv = document.getElementById("v2fx"); if (!cv || !cv.getContext) return;
     const box = cv.parentElement, ctx = cv.getContext("2d"), dpr = Math.min(2, devicePixelRatio || 1);
-    let W = 0, H = 0, dots = [], mx = -9999, my = -9999;
+    let W = 0, H = 0, dots = [], glyphs = [], mx = -9999, my = -9999;
+    /* single Hebrew letters, digits, binary, and mathematics */
+    const POOL = [..."אבגדהוזחטיכלמנסעפצקרשת", ..."0123456789", "0101", "1101", "0011", "1010", "100110", "01", "10",
+      "π", "∑", "∫", "√", "∞", "Δ", "λ", "≈", "≠", "±", "∂", "θ", "Ω", "∈", "→", "÷", "×",
+      "E=mc²", "a²+b²=c²", "f(x)", "y=mx+b", "e^iπ+1=0", "∫f(x)dx", "φ=1.618", "2ⁿ", "x²", "∑n²", "π≈3.14159", "n!"];
+    const GCOL = ["#0B2545", "#1F6FFF", "#1F6FFF", "#4DB8FF", "#8FBF12"];
     const COL = ["#1F6FFF", "#1F6FFF", "#4DB8FF", "#B4E61D"];
     function size() { W = box.clientWidth; H = box.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const n = Math.round(Math.min(150, Math.max(46, W * H / 9500)));
-      dots = Array.from({ length: n }, (_, i) => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: 1.6 + Math.random() * 3.2, c: COL[i % COL.length] })); }
+      dots = Array.from({ length: n }, (_, i) => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: 1.6 + Math.random() * 3.2, c: COL[i % COL.length] }));
+      glyphs = Array.from({ length: Math.round(n / 2.6) }, (_, i) => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .28, vy: (Math.random() - .5) * .28 - .05, s: 15 + Math.random() * 22, a: .2 + Math.random() * .34, rot: (Math.random() - .5) * .5, vr: (Math.random() - .5) * .002, t: POOL[Math.floor(Math.random() * POOL.length)], c: GCOL[i % GCOL.length] })); }
     function draw() {
       ctx.clearRect(0, 0, W, H);
       for (const d of dots) {
@@ -16260,6 +16266,18 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         d.x += d.vx; d.y += d.vy;
         if (d.x < -20) d.x = W + 20; else if (d.x > W + 20) d.x = -20; if (d.y < -20) d.y = H + 20; else if (d.y > H + 20) d.y = -20;
       }
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      for (const g of glyphs) {
+        const dx = mx - g.x, dy = my - g.y, q = dx * dx + dy * dy;
+        if (q < 180 * 180 && q > 1) { g.vx -= dx / Math.sqrt(q) * .012; g.vy -= dy / Math.sqrt(q) * .012; }   /* letters drift away from the pointer, dots toward it */
+        g.vx *= .99; g.vy *= .99; g.vx += (Math.random() - .5) * .008; g.vy += (Math.random() - .5) * .008;
+        g.x += g.vx; g.y += g.vy; g.rot += g.vr;
+        if (g.x < -60) g.x = W + 60; else if (g.x > W + 60) g.x = -60; if (g.y < -40) g.y = H + 40; else if (g.y > H + 40) g.y = -40;
+        ctx.save(); ctx.translate(g.x, g.y); ctx.rotate(g.rot); ctx.globalAlpha = g.a; ctx.fillStyle = g.c;
+        ctx.font = (/[\u0590-\u05FF]/.test(g.t) ? "600 " + (g.s * 1.25) + "px Heebo, sans-serif" : /^[01]+$/.test(g.t) ? "500 " + (g.s * .8) + "px 'IBM Plex Mono', monospace" : "400 " + g.s + "px 'Instrument Serif', Georgia, serif");
+        ctx.fillText(g.t, 0, 0); ctx.restore();
+      }
+      ctx.globalAlpha = 1;
       ctx.lineWidth = 1;
       for (let i = 0; i < dots.length; i++) for (let j = i + 1; j < dots.length; j++) {
         const a = dots[i], b = dots[j], dx = a.x - b.x, dy = a.y - b.y, q = dx * dx + dy * dy;

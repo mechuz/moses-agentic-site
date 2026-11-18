@@ -2319,6 +2319,11 @@ html.v2[dir="rtl"] .v2say2 select { background-position: left .1em center; paddi
 .v2say2 select:hover { border-bottom-color: #1F6FFF; }
 .v2say2 select:focus-visible { outline: 3px solid #0B2545; outline-offset: 4px; }
 .v2say2 select option { font: 400 1rem system-ui, sans-serif; color: #0B2545; font-style: normal; }
+/* the dot field runs to the very top of the first screen: no white band, and the header is see-through until you scroll */
+html.v2.site-moses main[data-page="home"] > #v2home { padding-top: 0 !important; }
+html.v2.site-moses .v2top { margin-top: -76px; min-height: 100vh; min-height: 100svh; padding-top: calc(76px + clamp(1.5rem, 5vw, 3.5rem)); }
+html.v2.site-moses .top { transition: background-color .25s ease, border-color .25s ease; }
+html.v2.site-moses:not(.v2scrolled):has(main[data-page="home"]) .top { background: transparent !important; border-bottom-color: transparent !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 /* typefaces */
 html.v2 { --f-display: "Outfit", "Heebo", system-ui, sans-serif; --f-body: "Outfit", "Heebo", system-ui, sans-serif; }
 html.v2 .v2hl, html.v2 .v2rot em, html.v2 .v2name b, html.v2 .v2one { font-family: "Instrument Serif", "Heebo", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -.01em; }
@@ -2485,14 +2490,6 @@ html.wbx-on, html.wbx-on body { overflow: hidden !important; }
 .teamlink:hover{background:#EAF5FF}.teamlink svg{width:15px;height:15px}
 .site-chocham .teamlink{display:none}
 @media (max-width:900px){.teamlink{margin-inline-start:auto;padding:.4rem;border:0}.teamlink span{display:none}}
-</style>
-<style id="v2-top-fill">
-/* The first screen's atmosphere (dots, glow, logo) runs to the very top edge and fills the whole first screen.
-   No white band above it, and no line under the header until the page scrolls. */
-html.v2.site-moses main[data-page="home"] > #v2home { padding-top: 0 !important; }
-html.v2.site-moses .v2top { margin-top: -76px; min-height: 100vh; min-height: 100svh; padding-top: calc(76px + clamp(1.5rem, 5vw, 3.5rem)); }
-html.v2.site-moses .top { transition: background-color .25s ease, border-color .25s ease; }
-html.v2.site-moses:not(.v2scrolled):has(main[data-page="home"]) .top { background: transparent !important; border-bottom-color: transparent !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 </style>
 </head>
 <body>
@@ -16443,6 +16440,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
     document.querySelectorAll('.top img[src$="logo-mark-light.svg"]').forEach(i => { i.src = "/logo-mark.svg"; });
   };
   try { sessionStorage.setItem("v2look", "1"); } catch (x) {}
+  (function () { const r = document.documentElement, f = () => r.classList.toggle("v2scrolled", (window.scrollY || r.scrollTop || 0) > 12); f(); addEventListener("scroll", f, { passive: true }); })();
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let fxRaf = 0, rotTimer = 0, io = null, spy = null;
   function v2Motion() {
@@ -16640,10 +16638,6 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   document.addEventListener("submit", e => { if (e.target.id === "wbx-form") { e.preventDefault(); next(); } });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && box && !box.hidden) close(); });
 })();
-</script>
-<script id="v2-top-fill-js">
-/* the header is see-through over the first screen and turns white once the page scrolls */
-(function () { var r = document.documentElement, f = function () { r.classList.toggle("v2scrolled", (window.scrollY || r.scrollTop || 0) > 12); }; f(); addEventListener("scroll", f, { passive: true }); })();
 </script>
 </body>
 </html>

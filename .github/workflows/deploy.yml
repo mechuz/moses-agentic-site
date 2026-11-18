@@ -4,6 +4,11 @@ name: Build and deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # The article and news publisher commits with the workflow token, and GitHub does not
+  # start a push-triggered run for those commits, so deploy again when it finishes.
+  workflow_run:
+    workflows: ["Publish approved articles and news"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:

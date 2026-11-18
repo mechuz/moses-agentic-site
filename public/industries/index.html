@@ -2149,6 +2149,79 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
 }
 
 .ddm.dd-managed .dd-i:first-child { font-weight: 700; color: #0B2545; }
+
+/* ===== Rebuilt front page and menu (v2), only under html.v2 ===== */
+.v2only, .v2home, .v2end, .v2foot { display: none !important; }
+html.v2 .v2only { display: inline-flex !important; align-items: center; }
+html.v2 .v2home, html.v2 .v2end { display: block !important; }
+/* an older rule hides every front-page section it does not list, by three ids; this outranks it */
+html.v2 main[data-page="home"] > #v2home:not(#x1):not(#x2):not(#x3), html.v2 main[data-page="home"] > #v2end:not(#x1):not(#x2):not(#x3) { display: block !important; }
+html.v2 .v2foot { display: flex !important; flex-wrap: wrap; gap: .4rem 1.6rem; padding-block: 1.6rem; border-bottom: 1px solid rgba(11,37,69,.12); margin-bottom: 1.4rem; }
+html.v2 .v2foot button, html.v2 .v2foot a { background: none; border: 0; padding: .3rem 0; font: 700 1rem var(--f-body); color: #0B2545; text-decoration: none; cursor: pointer; }
+html.v2 .v2foot button:hover, html.v2 .v2foot a:hover { color: #1A73E8; }
+html.v2 #disc:not(.open) { display: none !important; }
+/* menu: five items, in this order; the rest moved to the footer */
+html.v2 .nav > [data-folder="ent"], html.v2 .nav > [data-view="education"], html.v2 .nav > [data-view="industries"], html.v2 .nav > [data-view="cases"], html.v2 .nav > .nav-ins, html.v2 .nav > .nav-about, html.v2 .nav > .nav-sub,
+html.v2 .tabstrip > [data-folder="ent"], html.v2 .tabstrip > [data-view="education"], html.v2 .tabstrip > [data-view="industries"], html.v2 .tabstrip > [data-view="cases"], html.v2 .tabstrip > .nav-ins, html.v2 .tabstrip > .nav-about, html.v2 .tabstrip > .nav-sub { display: none !important; }
+html.v2 .nav > [data-dd="agents"], html.v2 .tabstrip > [data-dd="agents"] { order: 1; }
+html.v2 .nav > [data-dd="managed"], html.v2 .tabstrip > [data-dd="managed"] { order: 2; }
+html.v2 .nav > [data-dd="solutions"], html.v2 .tabstrip > [data-dd="solutions"] { order: 3; }
+html.v2 .nav > .nav-acad, html.v2 .tabstrip > .nav-acad { order: 4; }
+html.v2 .nav > .nav-price, html.v2 .tabstrip > .nav-price { order: 5; }
+html.v2.site-moses .nav-free, html.v2.site-moses .tabstrip .nav-free, html.v2.site-moses .nav .nav-free { animation: none !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 1rem !important; font-weight: 600 !important; background: rgba(255,255,255,.12) !important; color: #FFFFFF !important; }
+html.v2 .nav a.nav-acad, html.v2 .tabstrip a.nav-acad { min-height: 40px; padding: 0 1rem; border-radius: 999px; background: rgba(255,255,255,.12); color: #FFFFFF; font: 600 1rem var(--f-body); text-decoration: none; white-space: nowrap; }
+html.v2 .nav > button, html.v2 .tabstrip > button { font-size: 1rem !important; }
+.ddm .dd-h { padding: .7rem .85rem .25rem; font: 800 .8rem/1 var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: #5A6B85; }
+/* the old front page steps aside; the video stays reachable from the hero button */
+html.v2 main[data-page="home"] > section:not(#v2home):not(#v2end):not(#diy):not(#mvid) { display: none !important; }
+html.v2:not(.mvfull-on) main[data-page="home"] > #mvid { height: 0 !important; min-height: 0 !important; padding: 0 !important; margin: 0 !important; overflow: hidden !important; border: 0 !important; }
+html.v2 .final { display: none !important; }
+html.v2 main[data-page="home"] { background: linear-gradient(#0B2545, #0B2545) top / 100% 240px no-repeat; }
+/* hero */
+.v2hero { background: #0B2545; color: #FFFFFF; padding: clamp(3rem, 8vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
+.v2hero h1 { font: 900 clamp(2.5rem, 7vw, 5.6rem)/1 var(--f-display); letter-spacing: -.045em; margin: 0; max-width: 16ch; color: #FFFFFF; }
+.v2lead { font: 500 clamp(1.15rem, 2vw, 1.5rem)/1.45 var(--f-body); color: rgba(255,255,255,.82); max-width: 46ch; margin: 1.4rem 0 0; }
+.v2cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+.v2btn { display: inline-flex; align-items: center; gap: .5rem; border: 2px solid #C6F432; border-radius: 999px; background: #C6F432; color: #0B2545; font: 900 1.1rem var(--f-display); padding: 1rem 1.8rem; cursor: pointer; }
+.v2btn:hover { background: #FFFFFF; border-color: #FFFFFF; }
+.v2btn.ghost { background: transparent; color: #FFFFFF; border-color: rgba(255,255,255,.45); }
+.v2btn.ghost:hover { background: rgba(255,255,255,.12); border-color: #FFFFFF; }
+.v2btn.sm { font-size: 1rem; padding: .75rem 1.2rem; background: #0B2545; border-color: #0B2545; color: #FFFFFF; }
+.v2btn.sm:hover { background: #1A73E8; border-color: #1A73E8; }
+.v2btn:focus-visible, .v2chips button:focus-visible { outline: 3px solid #4DB8FF; outline-offset: 3px; }
+.v2k { font: 800 1rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: #C6F432; margin: clamp(2.4rem, 6vw, 4rem) 0 1rem; }
+.v2k.v2kd { color: #1A73E8; margin-top: 0; }
+.v2proof { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.6rem); }
+.v2proof li { display: grid; gap: .45rem; padding-top: 1rem; border-top: 2px solid rgba(255,255,255,.22); }
+.v2proof b { font: 900 clamp(2rem, 4.4vw, 3.4rem)/1 var(--f-display); letter-spacing: -.04em; color: #FFFFFF; direction: ltr; text-align: start; }
+.v2proof span { font: 500 1.05rem/1.4 var(--f-body); color: rgba(255,255,255,.78); }
+/* product bands */
+.v2sec { padding: clamp(3rem, 7vw, 5.5rem) 0; background: #FFFFFF; color: #0B2545; }
+.v2bands { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.6rem); }
+.v2band { display: grid; align-content: start; gap: .9rem; padding: clamp(1.4rem, 2.6vw, 2.2rem); border-radius: 24px; background: #F3F7FC; border: 1px solid #DCE5F0; }
+.v2band h2 { font: 900 clamp(1.7rem, 2.8vw, 2.4rem)/1.05 var(--f-display); letter-spacing: -.035em; margin: 0; color: #0B2545; }
+.v2band p { font: 500 1.1rem/1.5 var(--f-body); margin: 0; color: #3D5170; }
+.v2band strong { font: 800 1.1rem/1.35 var(--f-body); color: #1A73E8; }
+.v2band ul { list-style: none; padding: 0; margin: .2rem 0 0; display: grid; gap: .5rem; }
+.v2band li { position: relative; padding-inline-start: 1.7rem; font: 600 1.05rem/1.4 var(--f-body); }
+.v2band li::before { content: "\2713"; position: absolute; inset-inline-start: 0; font-weight: 900; color: #1A73E8; }
+.v2go { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .6rem; }
+.v2band.b0 { background: #0B2545; border-color: #0B2545; }
+.v2band.b0 h2 { color: #FFFFFF; } .v2band.b0 p { color: rgba(255,255,255,.8); } .v2band.b0 li { color: #FFFFFF; } .v2band.b0 strong, .v2band.b0 li::before { color: #C6F432; }
+.v2band.b0 .v2btn.sm { background: #C6F432; border-color: #C6F432; color: #0B2545; } .v2band.b0 .v2btn.sm:hover { background: #FFFFFF; border-color: #FFFFFF; }
+/* solutions */
+.v2sec.navy { background: #0B2545; color: #FFFFFF; }
+.v2h2 { font: 900 clamp(2rem, 4.6vw, 3.6rem)/1.03 var(--f-display); letter-spacing: -.04em; margin: 0 0 clamp(1.6rem, 4vw, 2.6rem); max-width: 18ch; color: #FFFFFF; }
+.v2sol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.6rem, 4vw, 3.5rem); }
+.v2sol h3 { font: 800 1rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: #C6F432; margin: 0 0 1rem; }
+.v2chips { display: flex; flex-wrap: wrap; gap: .6rem; }
+.v2chips button { border: 1.5px solid rgba(255,255,255,.3); border-radius: 999px; background: transparent; color: #FFFFFF; font: 700 1.05rem var(--f-body); padding: .75rem 1.15rem; cursor: pointer; text-align: start; }
+.v2chips button:hover { background: #C6F432; border-color: #C6F432; color: #0B2545; }
+/* closing band */
+.v2end { background: #1A73E8; color: #FFFFFF; padding: clamp(3rem, 8vw, 6rem) 0; text-align: center; }
+.v2end h2 { font: 900 clamp(2.2rem, 6vw, 4.6rem)/1 var(--f-display); letter-spacing: -.045em; margin: 0; color: #FFFFFF; }
+.v2end p { font: 500 1.25rem/1.4 var(--f-body); margin: 1rem 0 1.8rem; color: rgba(255,255,255,.9); }
+@media (max-width: 900px) { .v2bands, .v2sol, .v2proof { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <script>
 /* back / forward / swipe: popups (case studies, booking) and form steps are history steps too */
@@ -2179,6 +2252,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
   });
 })();
 </script>
+<script>if (/^\/preview(\/|$)/.test(location.pathname) || /[?&]v2=1/.test(location.search)) document.documentElement.classList.add("v2");</script>
 <style>/* team-only link to the private prospect tracker */
 .teamlink{display:inline-flex;align-items:center;gap:.35rem;margin-inline-start:1rem;padding:.35rem .75rem;border:1px solid rgba(11,37,69,.18);border-radius:999px;color:#0B2545;font:600 .85rem var(--f-body,inherit);text-decoration:none;white-space:nowrap}
 .teamlink:hover{background:#EAF5FF}.teamlink svg{width:15px;height:15px}
@@ -2193,13 +2267,15 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
   <div class="wrap">
     <a class="brand" href="#" data-home><img class="brand-logo" src="/logo-full-light.png" alt="Moses Agentic" width="1009" height="114"><img class="brand-mark" src="/logo-mark-light.svg" alt="Moses Agentic" width="580" height="340"><span class="mark">M</span><span class="name" data-brand></span></a>
     <nav class="nav" aria-label="Sections">
-      <button type="button" class="nav-free" data-dd="managed" aria-haspopup="true" aria-expanded="false" data-i18n="nav.managed">Managed services</button>
+      <button type="button" class="nav-free" data-dd="managed" aria-haspopup="true" aria-expanded="false" data-i18n="nav.managed">Managed Services</button>
       <button type="button" class="nav-hire" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false" data-i18n="nav.hire">Digital Workforce</button>
       
       <button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false" data-i18n="nav.services">Services</button>
       <button type="button" data-view="education" data-i18n="nav.edu">Education</button>
       <button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false" data-i18n="nav.ind">Industries</button>
       <button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false" data-i18n="nav.cases">Case Studies</button>
+      <button type="button" class="v2only" data-dd="solutions" aria-haspopup="true" aria-expanded="false" data-i18n="v2.sol">Solutions</button>
+      <a class="v2only nav-acad" href="https://chochamai.com/" data-i18n="v2.acad">Academy</a>
       <button type="button" class="nav-price" data-pricing data-i18n="nav.price">Pricing</button>
       <a class="nav-ins" href="/blog/" data-i18n="nav.ins">Insights</a>
       <button type="button" class="nav-about" data-about data-i18n="nav.about">About</button>
@@ -2215,6 +2291,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
 
 <main data-page="home">
   <!-- First screen: four screen-sized buttons -->
+  <section class="v2home" id="v2home"></section>
   <section class="hero3" id="hero3" role="button" tabindex="0" aria-label="Let my people go">
     <div class="sea-half l" aria-hidden="true"><div class="sea"></div></div><div class="sea-half r" aria-hidden="true"><div class="sea"></div></div>
     <div class="wrap">
@@ -2241,6 +2318,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
   <section class="diy" id="diy">
     <div class="wrap"><div class="diy-in" data-diy="0"></div></div>
   </section>
+  <section class="v2end" id="v2end"></section>
   <section class="cabinet" id="cabinet">
     <div class="wrap">
       <div class="cab-head"><h2 data-i18n="cab.t">Choose your path.</h2><p data-i18n="cab.s">Everything we do, filed in one place.</p></div>
@@ -2596,6 +2674,7 @@ html.mvfull-on, html.mvfull-on body { overflow: hidden !important; }
   </div>
 
 <footer>
+  <div class="wrap v2foot"><button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button><a href="/blog/" data-i18n="nav.ins">Insights</a><a href="/news/" data-i18n="v2.news">Technology news</a><button type="button" data-about data-i18n="nav.about">About</button><button type="button" class="v2disc" data-v2-disc aria-expanded="false" data-i18n="v2.disc">Disclosures</button></div>
   <div class="wrap disc" id="disc" lang="en" dir="ltr"></div>
   <div class="wrap">
     <div class="brand"><span class="mark">M</span><span data-brand></span></div>
@@ -5529,7 +5608,112 @@ const T = {
     "Narrated video"
    ]
   },
-  "nav.managed": "Managed services"
+  "nav.managed": "Managed Services",
+  "v2.h": "Your digital workforce, built and run for you.",
+  "v2.lead": "Digital workers for every role, plus your website and social media, managed for you on a monthly plan.",
+  "v2.cta": "See pricing",
+  "v2.vid": "Watch the 30-second video",
+  "v2.proof_k": "From our case studies",
+  "v2.what": "What we do",
+  "v2.b": [
+   [
+    "Digital Workforce",
+    "Digital workers that take on a role in your business: operations, marketing, finance, investments, staffing.",
+    "From $299 a month",
+    [
+     "Ready-made for your role and industry",
+     "Set up and run by us",
+     "You review the results"
+    ],
+    [
+     "See the digital workforce"
+    ]
+   ],
+   [
+    "Managed Services",
+    "Your website and social media, built and run for you.",
+    "Websites from $149 a month · Social media from $449 a month",
+    [
+     "Website designed in 24 hours",
+     "Social media posted on the channels you pick",
+     "Managed by us every month"
+    ],
+    [
+     "Websites",
+     "Social media"
+    ]
+   ],
+   [
+    "Academy",
+    "Chocham AI: hands-on AI seminars for you and your team.",
+    "",
+    [
+     "Eight one-hour seminars",
+     "Start with the basics, finish by building your own agent",
+     "Real skills you use the next day"
+    ],
+    [
+     "Go to the Academy"
+    ]
+   ]
+  ],
+  "v2.sol": "Solutions",
+  "v2.sol_h": "Solutions for your industry and your department.",
+  "v2.byind": "By industry",
+  "v2.byfn": "By function",
+  "v2.fn": [
+   [
+    "coo",
+    "Operations"
+   ],
+   [
+    "cmo",
+    "Marketing"
+   ],
+   [
+    "cfo",
+    "Finance"
+   ],
+   [
+    "cio",
+    "Investments"
+   ],
+   [
+    "staff",
+    "Staffing & payroll"
+   ],
+   [
+    "cre",
+    "Real estate asset management"
+   ],
+   [
+    "broker",
+    "Commercial lending"
+   ],
+   [
+    "acq",
+    "Acquisitions"
+   ]
+  ],
+  "v2.acad": "Academy",
+  "v2.end_h": "See every plan and price.",
+  "v2.end_s": "Monthly plans. Subscribe online in minutes.",
+  "v2.news": "Technology news",
+  "v2.disc": "Disclosures",
+  "v2.proof": [
+   [
+    "$1.1B",
+    "portfolio analyzed, $78.2M traced to the cent"
+   ],
+   [
+    "58 lenders",
+    "in the pipeline for one deal"
+   ],
+   [
+    "Six figures",
+    "error found in the annual numbers by our AI controller"
+   ]
+  ]
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -8173,7 +8357,112 @@ const T = {
     "א ווידעא מיט א נערעיטער"
    ]
   },
-  "nav.managed": "מענעדזשד סערוויסעס"
+  "nav.managed": "מענעדזשד סערוויסעס",
+  "v2.h": "אייער דיגיטאלע ווארקפארס, געבויט און געפירט פאר אייך.",
+  "v2.lead": "דיגיטאלע ארבעטער פאר יעדע פאזיציע, און אויך אייער וועבסייט און סאשעל מידיא, געפירט פאר אייך אויף א חודש'ליכן פלאן.",
+  "v2.cta": "זעט די פרייזן",
+  "v2.vid": "זעט דעם 30-סעקונדע ווידעא",
+  "v2.proof_k": "פון אונזערע קעיס סטאדיס",
+  "v2.what": "וואס מיר טוען",
+  "v2.b": [
+   [
+    "דיגיטאלע ווארקפארס",
+    "דיגיטאלע ארבעטער וואס נעמען איבער א פאזיציע אין אייער ביזנעס: אפערעישאנס, מארקעטינג, פינאנץ, אינוועסטמענטס, סטאפינג.",
+    "פון $299 א חודש",
+    [
+     "פארטיג פאר אייער פאזיציע און אינדוסטריע",
+     "אויפגעשטעלט און געפירט דורך אונז",
+     "איר קוקט איבער די רעזולטאטן"
+    ],
+    [
+     "זעט די דיגיטאלע ווארקפארס"
+    ]
+   ],
+   [
+    "מענעדזשד סערוויסעס",
+    "אייער וועבסייט און סאשעל מידיא, געבויט און געפירט פאר אייך.",
+    "וועבסייטס פון $149 א חודש · סאשעל מידיא פון $449 א חודש",
+    [
+     "א וועבסייט דיזיינט אין 24 שעה",
+     "מיר פאסטן אויף די טשענעלס וואס איר קלייבט אויס",
+     "געפירט דורך אונז יעדן חודש"
+    ],
+    [
+     "וועבסייטס",
+     "סאשעל מידיא"
+    ]
+   ],
+   [
+    "אקאדעמיע",
+    "Chocham AI: פראקטישע AI סעמינארן פאר אייך און אייער טים.",
+    "",
+    [
+     "אכט סעמינארן פון א שעה",
+     "מען הייבט אן פון די יסודות און ענדיגט מיט בויען אייער אייגענעם אגענט",
+     "אמת'ע סקילס וואס איר נוצט שוין מארגן"
+    ],
+    [
+     "גייט צו די אקאדעמיע"
+    ]
+   ]
+  ],
+  "v2.sol": "סאלושאנס",
+  "v2.sol_h": "סאלושאנס פאר אייער אינדוסטריע און אייער דעפארטמענט.",
+  "v2.byind": "לויט אינדוסטריע",
+  "v2.byfn": "לויט פונקציע",
+  "v2.fn": [
+   [
+    "coo",
+    "אפערעישאנס"
+   ],
+   [
+    "cmo",
+    "מארקעטינג"
+   ],
+   [
+    "cfo",
+    "פינאנץ"
+   ],
+   [
+    "cio",
+    "אינוועסטמענטס"
+   ],
+   [
+    "staff",
+    "סטאפינג און פעיראל"
+   ],
+   [
+    "cre",
+    "ריעל עסטעיט עסעט מענעדזשמענט"
+   ],
+   [
+    "broker",
+    "קאמערשל לאונס"
+   ],
+   [
+    "acq",
+    "אקוויזישאנס"
+   ]
+  ],
+  "v2.acad": "אקאדעמיע",
+  "v2.end_h": "זעט אלע פלענער און פרייזן.",
+  "v2.end_s": "חודש'ליכע פלענער. סאבסקרייבט אנליין אין מינוטן.",
+  "v2.news": "טעכנאלאגיע נייעס",
+  "v2.disc": "דיסקלאוזשערס",
+  "v2.proof": [
+   [
+    "$1.1B",
+    "פארטפאליא אנאליזירט, $78.2M נאכגעשפירט ביזן סענט"
+   ],
+   [
+    "58 לענדערס",
+    "אין דער ליסטע פאר איין דיל"
+   ],
+   [
+    "זעקס ציפערן",
+    "טעות אין די יערליכע נומערן, געפונען דורך אונזער AI קאנטראלער"
+   ]
+  ]
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -10817,7 +11106,112 @@ const T = {
     "סרטון עם קריינות"
    ]
   },
-  "nav.managed": "שירותים מנוהלים"
+  "nav.managed": "שירותים מנוהלים",
+  "v2.h": "כוח העבודה הדיגיטלי שלכם, נבנה ומופעל בשבילכם.",
+  "v2.lead": "עובדים דיגיטליים לכל תפקיד, יחד עם האתר והרשתות החברתיות שלכם, מנוהלים בשבילכם בתוכנית חודשית.",
+  "v2.cta": "למחירים",
+  "v2.vid": "צפו בסרטון של 30 שניות",
+  "v2.proof_k": "ממקרי הבוחן שלנו",
+  "v2.what": "מה אנחנו עושים",
+  "v2.b": [
+   [
+    "כוח עבודה דיגיטלי",
+    "עובדים דיגיטליים שלוקחים על עצמם תפקיד בעסק: תפעול, שיווק, כספים, השקעות, כוח אדם.",
+    "החל מ-$299 לחודש",
+    [
+     "מוכנים לתפקיד ולענף שלכם",
+     "מוקמים ומופעלים על ידינו",
+     "אתם בודקים את התוצאות"
+    ],
+    [
+     "לכוח העבודה הדיגיטלי"
+    ]
+   ],
+   [
+    "שירותים מנוהלים",
+    "האתר והרשתות החברתיות שלכם, נבנים ומופעלים בשבילכם.",
+    "אתרים החל מ-$149 לחודש · רשתות חברתיות החל מ-$449 לחודש",
+    [
+     "אתר מעוצב תוך 24 שעות",
+     "פרסום בערוצים שאתם בוחרים",
+     "מנוהל על ידינו כל חודש"
+    ],
+    [
+     "אתרים",
+     "רשתות חברתיות"
+    ]
+   ],
+   [
+    "אקדמיה",
+    "Chocham AI: סמינרים מעשיים ב-AI לכם ולצוות שלכם.",
+    "",
+    [
+     "שמונה סמינרים של שעה",
+     "מתחילים מהבסיס ומסיימים בבניית סוכן משלכם",
+     "כישורים אמיתיים שמשתמשים בהם כבר למחרת"
+    ],
+    [
+     "לאקדמיה"
+    ]
+   ]
+  ],
+  "v2.sol": "פתרונות",
+  "v2.sol_h": "פתרונות לענף ולמחלקה שלכם.",
+  "v2.byind": "לפי ענף",
+  "v2.byfn": "לפי תפקיד",
+  "v2.fn": [
+   [
+    "coo",
+    "תפעול"
+   ],
+   [
+    "cmo",
+    "שיווק"
+   ],
+   [
+    "cfo",
+    "כספים"
+   ],
+   [
+    "cio",
+    "השקעות"
+   ],
+   [
+    "staff",
+    "כוח אדם ושכר"
+   ],
+   [
+    "cre",
+    "ניהול נכסי נדל״ן"
+   ],
+   [
+    "broker",
+    "הלוואות מסחריות"
+   ],
+   [
+    "acq",
+    "רכישות"
+   ]
+  ],
+  "v2.acad": "אקדמיה",
+  "v2.end_h": "כל התוכניות והמחירים.",
+  "v2.end_s": "תוכניות חודשיות. הצטרפו אונליין תוך דקות.",
+  "v2.news": "חדשות טכנולוגיה",
+  "v2.disc": "גילוי נאות",
+  "v2.proof": [
+   [
+    "$1.1B",
+    "תיק שנותח, $78.2M אותרו עד הסנט"
+   ],
+   [
+    "58 מלווים",
+    "ברשימה לעסקה אחת"
+   ],
+   [
+    "שש ספרות",
+    "טעות במספרים השנתיים, שמצא הקונטרולר ה-AI שלנו"
+   ]
+  ]
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -13461,7 +13855,112 @@ const T = {
     "Video narrado"
    ]
   },
-  "nav.managed": "Servicios gestionados"
+  "nav.managed": "Servicios gestionados",
+  "v2.h": "Su fuerza laboral digital, creada y operada para usted.",
+  "v2.lead": "Trabajadores digitales para cada puesto, además de su sitio web y sus redes sociales, gestionados para usted con un plan mensual.",
+  "v2.cta": "Ver precios",
+  "v2.vid": "Ver el video de 30 segundos",
+  "v2.proof_k": "De nuestros casos de estudio",
+  "v2.what": "Lo que hacemos",
+  "v2.b": [
+   [
+    "Fuerza laboral digital",
+    "Trabajadores digitales que asumen un puesto en su negocio: operaciones, marketing, finanzas, inversiones, personal.",
+    "Desde $299 al mes",
+    [
+     "Listos para su puesto y su industria",
+     "Configurados y operados por nosotros",
+     "Usted revisa los resultados"
+    ],
+    [
+     "Ver la fuerza laboral digital"
+    ]
+   ],
+   [
+    "Servicios gestionados",
+    "Su sitio web y sus redes sociales, creados y operados para usted.",
+    "Sitios web desde $149 al mes · Redes sociales desde $449 al mes",
+    [
+     "Sitio web diseñado en 24 horas",
+     "Publicamos en los canales que usted elija",
+     "Gestionado por nosotros cada mes"
+    ],
+    [
+     "Sitios web",
+     "Redes sociales"
+    ]
+   ],
+   [
+    "Academia",
+    "Chocham AI: seminarios prácticos de IA para usted y su equipo.",
+    "",
+    [
+     "Ocho seminarios de una hora",
+     "Empiece por lo básico y termine creando su propio agente",
+     "Habilidades reales que usa al día siguiente"
+    ],
+    [
+     "Ir a la Academia"
+    ]
+   ]
+  ],
+  "v2.sol": "Soluciones",
+  "v2.sol_h": "Soluciones para su industria y su departamento.",
+  "v2.byind": "Por industria",
+  "v2.byfn": "Por función",
+  "v2.fn": [
+   [
+    "coo",
+    "Operaciones"
+   ],
+   [
+    "cmo",
+    "Marketing"
+   ],
+   [
+    "cfo",
+    "Finanzas"
+   ],
+   [
+    "cio",
+    "Inversiones"
+   ],
+   [
+    "staff",
+    "Personal y nómina"
+   ],
+   [
+    "cre",
+    "Gestión de activos inmobiliarios"
+   ],
+   [
+    "broker",
+    "Préstamos comerciales"
+   ],
+   [
+    "acq",
+    "Adquisiciones"
+   ]
+  ],
+  "v2.acad": "Academia",
+  "v2.end_h": "Vea todos los planes y precios.",
+  "v2.end_s": "Planes mensuales. Suscríbase en línea en minutos.",
+  "v2.news": "Noticias de tecnología",
+  "v2.disc": "Avisos legales",
+  "v2.proof": [
+   [
+    "$1.1B",
+    "de cartera analizada, $78.2M rastreados al centavo"
+   ],
+   [
+    "58 prestamistas",
+    "en la lista para una sola operación"
+   ],
+   [
+    "Seis cifras",
+    "de error en los números anuales, hallado por nuestro contralor de IA"
+   ]
+  ]
  }
 };
 
@@ -13720,7 +14219,7 @@ function render() {
   $$(".bigstat").forEach(el => el.textContent = CONFIG.pagesExample);
   $$(".bigstat, .bigstat-l, .bigline").forEach(el => el.hidden = !CONFIG.pagesExample);
   $("#tabstrip").innerHTML = (CONFIG.site === "chocham" ? [["education", "nav.home"]] : []).map(([v, k]) => `<button type="button" data-view="${v}" aria-current="${view === v ? "page" : "false"}">${esc(t(k))}</button>`).join("")
-    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="nav-free" data-dd="managed" aria-haspopup="true" aria-expanded="false">${esc(t("nav.managed"))}</button><button type="button" class="ask" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false">${esc(t("nav.hire"))}</button><button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false">${esc(t("nav.services"))}</button><button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false">${esc(t("nav.ind"))}</button><button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false">${esc(t("nav.cases"))}</button><button type="button" class="nav-price" data-pricing>${esc(t("nav.price"))}</button><a class="nav-ins" href="/blog/">${esc(t("nav.ins"))}</a><button type="button" class="nav-about" data-about>${esc(t("nav.about"))}</button><button type="button" class="nav-sub" data-subscribe="">${esc(t("nav.sub"))}</button>`)
+    + (CONFIG.site === "chocham" ? "" : `<button type="button" class="nav-free" data-dd="managed" aria-haspopup="true" aria-expanded="false">${esc(t("nav.managed"))}</button><button type="button" class="ask" data-folder="store" data-dd="agents" aria-haspopup="true" aria-expanded="false">${esc(t("nav.hire"))}</button><button type="button" data-folder="ent" data-dd="services" aria-haspopup="true" aria-expanded="false">${esc(t("nav.services"))}</button><button type="button" data-view="industries" data-dd="industries" aria-haspopup="true" aria-expanded="false">${esc(t("nav.ind"))}</button><button type="button" data-view="cases" data-dd="cases" aria-haspopup="true" aria-expanded="false">${esc(t("nav.cases"))}</button><button type="button" class="v2only" data-dd="solutions" aria-haspopup="true" aria-expanded="false">${esc(t("v2.sol"))}</button><a class="v2only nav-acad" href="https://chochamai.com/">${esc(t("v2.acad"))}</a><button type="button" class="nav-price" data-pricing>${esc(t("nav.price"))}</button><a class="nav-ins" href="/blog/">${esc(t("nav.ins"))}</a><button type="button" class="nav-about" data-about>${esc(t("nav.about"))}</button><button type="button" class="nav-sub" data-subscribe="">${esc(t("nav.sub"))}</button>`)
     + (CONFIG.site === "chocham" ? [["seats", "nav.indiv"], ["consult", "nav.entp"], ["dates", "nav.dates"], ["semfaq", "faq.kicker"]] : []).map(([g, k]) => `<button type="button" data-go="${g}">${esc(t(k))}</button>`).join("")
     + `<button type="button" class="ask" data-open-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>${esc(t("chat.open"))}</button>`;
   $("#tabstrip").insertAdjacentHTML("beforeend", CONFIG.site === "chocham" ? `<a class="tlink" href="${CONFIG.mosesUrl}#${lang}">Moses Agentic ↗</a>` : "");
@@ -14206,7 +14705,7 @@ function confetti() {
 /* ---------- language + start ---------- */
 function setLang(k, save = true, name, code) {
   if (!LANGS[k] || !T[k]) return;
-  lang = k; render(); if (window.srvRender) window.srvRender(); if (window.diyRender) window.diyRender(); if (window.heroFit) setTimeout(window.heroFit, 0); if (window.abkRender) window.abkRender();
+  lang = k; render(); if (window.srvRender) window.srvRender(); if (window.v2Render) window.v2Render(); if (window.diyRender) window.diyRender(); if (window.heroFit) setTimeout(window.heroFit, 0); if (window.abkRender) window.abkRender();
   if (save) {
     store.set("seminar-lang", JSON.stringify({ k, name: name || (LANGS[k] && LANGS[k].name) || "", code: code || "" }));
     if (location.hash !== "#booked" && view === "home") history.replaceState(null, "", "#" + (["en", "yi", "he", "es"].includes(k) ? k : "lang"));
@@ -15182,6 +15681,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const item = (label, attrs) => `<button type="button" class="dd-i" ${attrs}>${E(label)}</button>`;
   function items(k) {
+    if (k === "solutions") return [`<div class="dd-h">${E(t("v2.byind"))}</div>`].concat((t("inds") || []).map((n, i) => item(n, `data-v2-ind="${i}"`)), [`<div class="dd-h">${E(t("v2.byfn"))}</div>`], (t("v2.fn") || []).map(([id, n]) => item(n, `data-v2-fn="${id}"`)));
     if (k === "managed") return [item(t("nav.free"), "data-freesite"), item(t("nav.smm"), "data-smm")];
     if (k === "agents") return [item(t("dd.all_agents"), 'data-folder="store"'), ...(t("store.ind") || []).slice(1).map(g => item(g[1], 'data-dd-agind="' + g[0] + '"')), item(t("dd.custom"), 'data-dd-custom')];
     if (k === "services") return [item(t("dd.all_serv"), 'data-folder="ent"'), item(t("dd.consult"), "data-consult"), `<a class="dd-i" href="${E(CONFIG.chochamUrl || "https://chochamai.com/")}#${E(lang)}">${E(t("dd.learn"))}</a>`];
@@ -15474,6 +15974,45 @@ document.addEventListener("click", e => {
 document.addEventListener("change", e => { const s = e.target; if (!s.matches || !s.matches("#fw-pick, #sm-pick")) return; const box = document.querySelector('.ag-plans[data-sel="' + s.id + '"]'); if (box) agSync(box, s.value); });
 /* pop-ups started from a page (consulting, contact) open on top of the site, not behind the page */
 document.addEventListener("click", e => { if (e.target.closest(".s-page [data-consult], .s-page [data-contact]") && window.__closeFolder) window.__closeFolder(); }, true);
+</script>
+<script>
+/* Rebuilt front page (v2): rendered only when <html class="v2"> */
+(function () {
+  if (CONFIG.site !== "moses" || !document.documentElement.classList.contains("v2")) return;
+  const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const ACT = [['data-folder="store"'], ["data-freesite", "data-smm"], ["data-v2-acad"]];
+  window.v2Render = function () {
+    const home = document.getElementById("v2home"), end = document.getElementById("v2end"); if (!home || typeof t !== "function") return;
+    const li = a => a.map(x => `<li>${E(x)}</li>`).join("");
+    home.innerHTML = `<div class="v2hero"><div class="wrap">
+        <h1>${E(t("v2.h"))}</h1><p class="v2lead">${E(t("v2.lead"))}</p>
+        <div class="v2cta"><button type="button" class="v2btn" data-pricing>${E(t("v2.cta"))} <span class="arrow">→</span></button><button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>
+        <p class="v2k">${E(t("v2.proof_k"))}</p>
+        <ul class="v2proof">${(t("v2.proof") || []).map(([n, x]) => `<li><b>${E(n)}</b><span>${E(x)}</span></li>`).join("")}</ul>
+      </div></div>
+      <div class="v2sec"><div class="wrap"><p class="v2k v2kd">${E(t("v2.what"))}</p>
+        <div class="v2bands">${(t("v2.b") || []).map(([h, p, price, pts, btns], i) => `<article class="v2band b${i}"><h2>${E(h)}</h2><p>${E(p)}</p>${price ? `<strong>${E(price)}</strong>` : ""}<ul>${li(pts)}</ul><div class="v2go">${btns.map((b, j) => `<button type="button" class="v2btn sm" ${ACT[i][j]}>${E(b)} <span class="arrow">→</span></button>`).join("")}</div></article>`).join("")}</div>
+      </div></div>
+      <div class="v2sec navy"><div class="wrap"><h2 class="v2h2">${E(t("v2.sol_h"))}</h2>
+        <div class="v2sol"><div><h3>${E(t("v2.byind"))}</h3><div class="v2chips">${(t("inds") || []).map((n, i) => `<button type="button" data-v2-ind="${i}">${E(n)}</button>`).join("")}</div></div>
+        <div><h3>${E(t("v2.byfn"))}</h3><div class="v2chips">${(t("v2.fn") || []).map(([id, n]) => `<button type="button" data-v2-fn="${E(id)}">${E(n)}</button>`).join("")}</div></div></div>
+      </div></div>`;
+    if (end) end.innerHTML = `<div class="wrap"><h2>${E(t("v2.end_h"))}</h2><p>${E(t("v2.end_s"))}</p><button type="button" class="v2btn" data-pricing>${E(t("nav.price"))} <span class="arrow">→</span></button></div>`;
+  };
+  function openStore() { const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = "store"; document.body.appendChild(go); go.click(); go.remove(); }
+  document.addEventListener("click", e => {
+    const el = e.target.closest("[data-v2-ind], [data-v2-fn], [data-v2-video], [data-v2-acad], [data-v2-disc]"); if (!el) return;
+    e.preventDefault(); e.stopPropagation();
+    if (el.dataset.v2Ind != null) { const i = el.dataset.v2Ind; if (typeof setView === "function") setView("industries"); setTimeout(() => { const c = document.querySelector(`#igrid .icard[data-ind="${i}"]`); if (c) c.click(); }, 150); }
+    else if (el.dataset.v2Fn != null) { const id = el.dataset.v2Fn; openStore(); setTimeout(() => { const c = [...document.querySelectorAll(`.s-store .scard[data-ag="${id}"]`)].find(x => x.offsetParent); if (c) c.click(); }, 700); }
+    else if (el.dataset.v2Video != null) { const h = document.getElementById("hero3"); if (h) h.click(); }
+    else if (el.dataset.v2Acad != null) { location.href = (CONFIG.chochamUrl || "https://chochamai.com/") + "#" + (typeof lang === "string" ? lang : "en"); }
+    else { const d = document.getElementById("disc"), on = !d.classList.contains("open"); d.classList.toggle("open", on); el.setAttribute("aria-expanded", String(on)); if (on) d.scrollIntoView({ behavior: "smooth", block: "start" }); }
+  }, true);
+  document.querySelectorAll("a.nav-acad").forEach(a => { a.href = (CONFIG.chochamUrl || "https://chochamai.com/"); });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => window.v2Render()); else window.v2Render();
+  addEventListener("load", () => window.v2Render());
+})();
 </script>
 </body>
 </html>

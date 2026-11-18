@@ -2307,6 +2307,15 @@ html.v2 .fsheet h1, html.v2 .fsheet h2, html.v2 .fsheet h3, html.v2 #sheet h2, h
 /* the wordmark on the front page is lettered like the logo */
 html.v2 .v2name { font-family: "Montserrat", "Outfit", sans-serif !important; font-weight: 500 !important; letter-spacing: -.035em; color: #0B2545; }
 html.v2 .v2name b { font-family: "Montserrat", "Outfit", sans-serif !important; font-style: normal !important; font-weight: 500 !important; font-size: 1em !important; color: #5FB2F5 !important; letter-spacing: -.03em; }
+/* solutions: one sentence with two drop-downs */
+.v2say2 { max-width: 1040px; margin: clamp(1.6rem, 4vw, 2.6rem) auto 0; padding: 0 clamp(18px, 5vw, 40px); text-align: center; display: grid; gap: clamp(1.6rem, 4vw, 2.4rem); justify-items: center; }
+.v2say2 p { font: 300 clamp(1.7rem, 4.2vw, 3.2rem)/1.5 var(--f-display); letter-spacing: -.03em; margin: 0; color: #0B2545; }
+.v2say2 label { position: relative; display: inline-block; max-width: 100%; }
+.v2say2 select { appearance: none; -webkit-appearance: none; max-width: 100%; border: 0; border-bottom: 3px solid #B4E61D; border-radius: 0; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231F6FFF' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right .1em center / .7em; padding: 0 1em 0 .1em; margin: 0 .15em; font: 400 1.08em/1.3 "Instrument Serif", "Heebo", Georgia, serif; font-style: italic; color: #1F6FFF; cursor: pointer; text-overflow: ellipsis; }
+html.v2[dir="rtl"] .v2say2 select { background-position: left .1em center; padding: 0 .1em 0 1em; font-style: normal; font-family: "Heebo", system-ui, sans-serif; font-weight: 600; }
+.v2say2 select:hover { border-bottom-color: #1F6FFF; }
+.v2say2 select:focus-visible { outline: 3px solid #0B2545; outline-offset: 4px; }
+.v2say2 select option { font: 400 1rem system-ui, sans-serif; color: #0B2545; font-style: normal; }
 /* typefaces */
 html.v2 { --f-display: "Outfit", "Heebo", system-ui, sans-serif; --f-body: "Outfit", "Heebo", system-ui, sans-serif; }
 html.v2 .v2hl, html.v2 .v2rot em, html.v2 .v2name b, html.v2 .v2one { font-family: "Instrument Serif", "Heebo", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -.01em; }
@@ -5825,6 +5834,27 @@ const T = {
   "v2.h": "Your [digital workforce], built and run for you.",
   "v2.tag": "Digital workforce + managed services",
   "v2.for": "Digital workers for",
+  "v2.sent": [
+   "I run a business in",
+   "and I need help with",
+   "Show me"
+  ],
+  "v2.any": "everything",
+  "v2.other": "Other",
+  "v2.more": [
+   "Automotive",
+   "Beauty & wellness",
+   "Education & childcare",
+   "Hospitality & travel",
+   "Manufacturing",
+   "Technology & software",
+   "Transportation & logistics",
+   "Home services",
+   "Fitness & sports",
+   "Media & entertainment",
+   "Government & public sector",
+   "Agriculture"
+  ],
   "v2.rows": [
    "A digital worker for every role.",
    "Your website and social media, run for you.",
@@ -8597,6 +8627,27 @@ const T = {
   "v2.h": "אייער [דיגיטאלע ווארקפארס], געבויט און געפירט פאר אייך.",
   "v2.tag": "דיגיטאלע ווארקפארס + מענעדזשד סערוויסעס",
   "v2.for": "דיגיטאלע ארבעטער פאר",
+  "v2.sent": [
+   "איך האב א ביזנעס אין",
+   "און איך דארף הילף מיט",
+   "ווייזט מיר"
+  ],
+  "v2.any": "אלעס",
+  "v2.other": "אנדערש",
+  "v2.more": [
+   "קארס און אויטאמאטיוו",
+   "בויטי און וועלנעס",
+   "חינוך און טשיילדקעיר",
+   "האטעלן און רייזע",
+   "מאנופעקטשורינג",
+   "טעכנאלאגיע און סאפטווער",
+   "טראנספארטאציע און לאגיסטיקס",
+   "הויז סערוויסעס",
+   "פיטנעס און ספארט",
+   "מידיא און ענטערטיינמענט",
+   "רעגירונג און פובליק סעקטאר",
+   "אגריקולטור"
+  ],
   "v2.rows": [
    "א דיגיטאלער ארבעטער פאר יעדע פאזיציע.",
    "אייער וועבסייט און סאשעל מידיא, געפירט פאר אייך.",
@@ -11369,6 +11420,27 @@ const T = {
   "v2.h": "[כוח העבודה הדיגיטלי] שלכם, נבנה ומופעל בשבילכם.",
   "v2.tag": "כוח עבודה דיגיטלי + שירותים מנוהלים",
   "v2.for": "עובדים דיגיטליים עבור",
+  "v2.sent": [
+   "יש לי עסק בתחום",
+   "ואני צריך עזרה עם",
+   "הראו לי"
+  ],
+  "v2.any": "הכול",
+  "v2.other": "אחר",
+  "v2.more": [
+   "רכב",
+   "יופי ובריאות",
+   "חינוך וטיפול בילדים",
+   "אירוח ותיירות",
+   "ייצור",
+   "טכנולוגיה ותוכנה",
+   "תחבורה ולוגיסטיקה",
+   "שירותים לבית",
+   "כושר וספורט",
+   "מדיה ובידור",
+   "ממשל ומגזר ציבורי",
+   "חקלאות"
+  ],
   "v2.rows": [
    "עובד דיגיטלי לכל תפקיד.",
    "האתר והרשתות החברתיות שלכם, מופעלים בשבילכם.",
@@ -14141,6 +14213,27 @@ const T = {
   "v2.h": "Su [fuerza laboral digital], creada y operada para usted.",
   "v2.tag": "Fuerza laboral digital + servicios gestionados",
   "v2.for": "Trabajadores digitales para",
+  "v2.sent": [
+   "Tengo un negocio de",
+   "y necesito ayuda con",
+   "Mostrar"
+  ],
+  "v2.any": "todo",
+  "v2.other": "Otro",
+  "v2.more": [
+   "Automotriz",
+   "Belleza y bienestar",
+   "Educación y cuidado infantil",
+   "Hotelería y viajes",
+   "Manufactura",
+   "Tecnología y software",
+   "Transporte y logística",
+   "Servicios para el hogar",
+   "Fitness y deportes",
+   "Medios y entretenimiento",
+   "Gobierno y sector público",
+   "Agricultura"
+  ],
   "v2.rows": [
    "Un trabajador digital para cada puesto.",
    "Su sitio web y sus redes sociales, operados para usted.",
@@ -16318,8 +16411,11 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
       ${sec("v2-dw", "dw", 0, "", btn(B[0][4][0], 'data-folder="store"'))}
       ${sec("v2-ms", "ms", 1, "", `<button type="button" class="v2btn" data-wbx>✦ Build my website <span class="arrow">→</span></button>` + btn(B[1][4][0], "data-freesite", true) + btn(B[1][4][1], "data-smm", true))}
       <section class="v2s" id="v2-sol"><div class="v2in"><span class="v2ic">${IC.sol}</span><h2>${E(t("v2.sol"))}</h2><p class="v2one">${E(R[2] || "")}</p></div>
-        <div class="v2sol"><div><h3>${E(t("v2.byind"))}</h3><div class="v2chips">${(t("inds") || []).map((n, i) => `<button type="button" data-v2-ind="${i}">${E(n)}</button>`).join("")}</div></div>
-        <div><h3>${E(t("v2.byfn"))}</h3><div class="v2chips">${(t("v2.fn") || []).map(([id, n]) => `<button type="button" data-v2-fn="${E(id)}">${E(n)}</button>`).join("")}</div></div></div></section>
+        <form class="v2say2" id="v2-pick" novalidate><p><span>${E((t("v2.sent") || [])[0])}</span>
+          <label><select id="v2-ind" aria-label="${E(t("v2.byind"))}">${(t("inds") || []).map((n, i) => `<option value="${i}">${E(n)}</option>`).join("")}${(t("v2.more") || []).map(n => `<option value="x">${E(n)}</option>`).join("")}<option value="x">${E(t("v2.other"))}</option></select></label>
+          <span>${E((t("v2.sent") || [])[1])}</span>
+          <label><select id="v2-fn" aria-label="${E(t("v2.byfn"))}"><option value="">${E(t("v2.any"))}</option>${(t("v2.fn") || []).map(([id, n]) => `<option value="${E(id)}">${E(n)}</option>`).join("")}</select></label><span>.</span></p>
+          <button type="submit" class="v2btn">${E((t("v2.sent") || [])[2])} <span class="arrow">→</span></button></form></section>
       ${sec("v2-ac", "ac", 2, "", btn(B[2][4][0], "data-v2-acad"))}
       <section class="v2s"><div class="v2in"><h2>${E(t("v2.how_k"))}</h2></div>
         <ol class="v2how">${(t("v2.how") || []).map(([h, x], i) => `<li><i>${i + 1}</i><h3>${E(h)}</h3><p>${E(x)}</p></li>`).join("")}</ol>
@@ -16407,6 +16503,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
       if (typeof view === "string" && view !== "home" && typeof setView === "function") { setView("home"); setTimeout(jump, 200); } else jump();
       document.querySelectorAll("#v2dock button").forEach(b => b.classList.toggle("on", b === go || (go.closest("#v2dock") == null && b.dataset.v2Go === id))); return; }
     const el = e.target.closest("[data-v2-ind], [data-v2-fn], [data-v2-video], [data-v2-acad], [data-v2-disc]"); if (!el) return;
+    if (el.tagName === "SELECT" || el.tagName === "OPTION") return;
     e.preventDefault(); e.stopPropagation();
     if (el.dataset.v2Ind != null) { const i = el.dataset.v2Ind; if (typeof setView === "function") setView("industries"); setTimeout(() => { const c = document.querySelector(`#igrid .icard[data-ind="${i}"]`); if (c) c.click(); }, 150); }
     else if (el.dataset.v2Fn != null) { const id = el.dataset.v2Fn; openStore(); setTimeout(() => { const c = [...document.querySelectorAll(`.s-store .scard[data-ag="${id}"]`)].find(x => x.offsetParent); if (c) c.click(); }, 700); }
@@ -16414,6 +16511,14 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
     else if (el.dataset.v2Acad != null) { location.href = (CONFIG.chochamUrl || "https://chochamai.com/") + "#" + (typeof lang === "string" ? lang : "en"); }
     else { const d = document.getElementById("disc"), on = !d.classList.contains("open"); d.classList.toggle("open", on); el.setAttribute("aria-expanded", String(on)); if (on) d.scrollIntoView({ behavior: "smooth", block: "start" }); }
   }, true);
+  document.addEventListener("submit", e => {
+    if (e.target.id !== "v2-pick") return; e.preventDefault();
+    const ind = document.getElementById("v2-ind").value, fn = document.getElementById("v2-fn").value;
+    if (fn) { openStore(); setTimeout(() => { const c = [...document.querySelectorAll(`.s-store .scard[data-ag="${fn}"]`)].find(x => x.offsetParent); if (c) c.click(); }, 700); }
+    else if (ind !== "x") { if (typeof setView === "function") setView("industries"); setTimeout(() => { const c = document.querySelector(`#igrid .icard[data-ind="${ind}"]`); if (c) c.click(); }, 150); }
+    else openStore();
+    try { track("solution_pick", { industry: ind, need: fn || "all" }); } catch (x) {}
+  });
   document.querySelectorAll("a.nav-acad").forEach(a => { a.href = (CONFIG.chochamUrl || "https://chochamai.com/"); });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => window.v2Render()); else window.v2Render();
   addEventListener("load", () => window.v2Render());

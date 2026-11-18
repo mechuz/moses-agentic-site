@@ -2176,52 +2176,90 @@ html.v2 .nav > button, html.v2 .tabstrip > button { font-size: 1rem !important; 
 html.v2 main[data-page="home"] > section:not(#v2home):not(#v2end):not(#diy):not(#mvid) { display: none !important; }
 html.v2:not(.mvfull-on) main[data-page="home"] > #mvid { height: 0 !important; min-height: 0 !important; padding: 0 !important; margin: 0 !important; overflow: hidden !important; border: 0 !important; }
 html.v2 .final { display: none !important; }
-html.v2 main[data-page="home"] { background: linear-gradient(#0B2545, #0B2545) top / 100% 240px no-repeat; }
-/* hero */
-.v2hero { background: #0B2545; color: #FFFFFF; padding: clamp(3rem, 8vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
-.v2hero h1 { font: 900 clamp(2.5rem, 7vw, 5.6rem)/1 var(--f-display); letter-spacing: -.045em; margin: 0; max-width: 16ch; color: #FFFFFF; }
-.v2lead { font: 500 clamp(1.15rem, 2vw, 1.5rem)/1.45 var(--f-body); color: rgba(255,255,255,.82); max-width: 46ch; margin: 1.4rem 0 0; }
-.v2cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
-.v2btn { display: inline-flex; align-items: center; gap: .5rem; border: 2px solid #C6F432; border-radius: 999px; background: #C6F432; color: #0B2545; font: 900 1.1rem var(--f-display); padding: 1rem 1.8rem; cursor: pointer; }
-.v2btn:hover { background: #FFFFFF; border-color: #FFFFFF; }
-.v2btn.ghost { background: transparent; color: #FFFFFF; border-color: rgba(255,255,255,.45); }
-.v2btn.ghost:hover { background: rgba(255,255,255,.12); border-color: #FFFFFF; }
-.v2btn.sm { font-size: 1rem; padding: .75rem 1.2rem; background: #0B2545; border-color: #0B2545; color: #FFFFFF; }
-.v2btn.sm:hover { background: #1A73E8; border-color: #1A73E8; }
-.v2btn:focus-visible, .v2chips button:focus-visible { outline: 3px solid #4DB8FF; outline-offset: 3px; }
-.v2k { font: 800 1rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: #C6F432; margin: clamp(2.4rem, 6vw, 4rem) 0 1rem; }
-.v2k.v2kd { color: #1A73E8; margin-top: 0; }
-.v2proof { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.6rem); }
-.v2proof li { display: grid; gap: .45rem; padding-top: 1rem; border-top: 2px solid rgba(255,255,255,.22); }
-.v2proof b { font: 900 clamp(2rem, 4.4vw, 3.4rem)/1 var(--f-display); letter-spacing: -.04em; color: #FFFFFF; direction: ltr; text-align: start; }
-.v2proof span { font: 500 1.05rem/1.4 var(--f-body); color: rgba(255,255,255,.78); }
-/* product bands */
-.v2sec { padding: clamp(3rem, 7vw, 5.5rem) 0; background: #FFFFFF; color: #0B2545; }
-.v2bands { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.6rem); }
-.v2band { display: grid; align-content: start; gap: .9rem; padding: clamp(1.4rem, 2.6vw, 2.2rem); border-radius: 24px; background: #F3F7FC; border: 1px solid #DCE5F0; }
-.v2band h2 { font: 900 clamp(1.7rem, 2.8vw, 2.4rem)/1.05 var(--f-display); letter-spacing: -.035em; margin: 0; color: #0B2545; }
-.v2band p { font: 500 1.1rem/1.5 var(--f-body); margin: 0; color: #3D5170; }
-.v2band strong { font: 800 1.1rem/1.35 var(--f-body); color: #1A73E8; }
-.v2band ul { list-style: none; padding: 0; margin: .2rem 0 0; display: grid; gap: .5rem; }
-.v2band li { position: relative; padding-inline-start: 1.7rem; font: 600 1.05rem/1.4 var(--f-body); }
-.v2band li::before { content: "\2713"; position: absolute; inset-inline-start: 0; font-weight: 900; color: #1A73E8; }
-.v2go { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .6rem; }
-.v2band.b0 { background: #0B2545; border-color: #0B2545; }
-.v2band.b0 h2 { color: #FFFFFF; } .v2band.b0 p { color: rgba(255,255,255,.8); } .v2band.b0 li { color: #FFFFFF; } .v2band.b0 strong, .v2band.b0 li::before { color: #C6F432; }
-.v2band.b0 .v2btn.sm { background: #C6F432; border-color: #C6F432; color: #0B2545; } .v2band.b0 .v2btn.sm:hover { background: #FFFFFF; border-color: #FFFFFF; }
-/* solutions */
-.v2sec.navy { background: #0B2545; color: #FFFFFF; }
-.v2h2 { font: 900 clamp(2rem, 4.6vw, 3.6rem)/1.03 var(--f-display); letter-spacing: -.04em; margin: 0 0 clamp(1.6rem, 4vw, 2.6rem); max-width: 18ch; color: #FFFFFF; }
-.v2sol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.6rem, 4vw, 3.5rem); }
-.v2sol h3 { font: 800 1rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: #C6F432; margin: 0 0 1rem; }
-.v2chips { display: flex; flex-wrap: wrap; gap: .6rem; }
-.v2chips button { border: 1.5px solid rgba(255,255,255,.3); border-radius: 999px; background: transparent; color: #FFFFFF; font: 700 1.05rem var(--f-body); padding: .75rem 1.15rem; cursor: pointer; text-align: start; }
-.v2chips button:hover { background: #C6F432; border-color: #C6F432; color: #0B2545; }
-/* closing band */
-.v2end { background: #1A73E8; color: #FFFFFF; padding: clamp(3rem, 8vw, 6rem) 0; text-align: center; }
-.v2end h2 { font: 900 clamp(2.2rem, 6vw, 4.6rem)/1 var(--f-display); letter-spacing: -.045em; margin: 0; color: #FFFFFF; }
-.v2end p { font: 500 1.25rem/1.4 var(--f-body); margin: 1rem 0 1.8rem; color: rgba(255,255,255,.9); }
-@media (max-width: 900px) { .v2bands, .v2sol, .v2proof { grid-template-columns: minmax(0, 1fr); } }
+/* the "why hire us" section and the closing band are not on the new front page (the first lives on About) */
+html.v2 main[data-page="home"] > #diy:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5), html.v2 main[data-page="home"] > #v2end:not(#x1):not(#x2):not(#x3) { display: none !important; }
+/* light header */
+html.v2.site-moses .top { background: #FFFFFF !important; border-bottom: 1px solid #E3EAF4 !important; }
+html.v2.site-moses .tabstrip { background: #FFFFFF !important; }
+html.v2.site-moses .tabstrip button, html.v2.site-moses .tabstrip button:not(.nav-free), html.v2.site-moses .tabstrip .nav-free, html.v2.site-moses .tabstrip a.nav-acad,
+html.v2.site-moses .nav > button, html.v2.site-moses .nav > a.nav-acad, html.v2.site-moses .nav .nav-free { background: #EEF4FF !important; color: #0B2545 !important; font-weight: 700 !important; }
+html.v2.site-moses .tabstrip button:hover, html.v2.site-moses .tabstrip a.nav-acad:hover, html.v2.site-moses .nav > button:hover, html.v2.site-moses .nav > a.nav-acad:hover { background: #1F6FFF !important; color: #FFFFFF !important; }
+html.v2.site-moses .tabstrip button.nav-price:not(.nav-free):not(.x), html.v2.site-moses .nav > button.nav-price:not(.x):not(.y) { background: #1F6FFF !important; color: #FFFFFF !important; }
+html.v2.site-moses .tabstrip button.nav-price:not(.nav-free):not(.x):hover, html.v2.site-moses .nav > button.nav-price:not(.x):not(.y):hover { background: #0B2545 !important; }
+html.v2.site-moses .top .teamlink { color: #0B2545 !important; border-color: #C9D6E8 !important; background: #FFFFFF !important; }
+html.v2.site-moses .top .langs { background: #EEF4FF !important; }
+html.v2.site-moses .top .langs button { color: #3D5170 !important; }
+html.v2.site-moses .top .langs button[aria-pressed="true"] { background: #FFFFFF !important; color: #0B2545 !important; }
+html.v2 body { background: #FFFFFF; }
+/* ----- studio look: white, airy, centered, lighter type; blue and green as the only colors ----- */
+html.v2.site-moses .top .nav, html.v2.site-moses .tabstrip { display: none !important; }
+html.v2 body { padding-bottom: 104px; }
+.v2home { color: #0B2545; background: #FFFFFF; }
+.v2in { max-width: 860px; margin: 0 auto; padding: 0 clamp(18px, 5vw, 40px); text-align: center; }
+.v2ic { display: inline-grid; place-items: center; }
+.v2ic svg { width: 100%; height: 100%; fill: #1F6FFF; }
+.v2ic svg .g { fill: #B4E61D; } .v2ic svg .w { fill: #FFFFFF; }
+.v2top { min-height: min(78vh, 760px); display: grid; align-content: center; padding: clamp(3rem, 9vw, 6rem) 0 clamp(2rem, 5vw, 3rem); }
+.v2name { font: 500 clamp(3rem, 9vw, 6.4rem)/1 var(--f-display); letter-spacing: -.045em; margin: 0; color: #0B2545; }
+.v2name b { font-weight: 500; color: #1F6FFF; }
+.v2tag { font: 500 clamp(1.1rem, 1.8vw, 1.35rem)/1.3 var(--f-body); margin: 1rem 0 0; color: #0B2545; }
+.v2four { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.6rem, 3vw, 2.4rem); max-width: 980px; margin: clamp(2.4rem, 6vw, 4rem) auto 0; }
+.v2four button { display: grid; justify-items: center; gap: 1rem; background: none; border: 0; padding: .6rem .2rem; font: 500 1.05rem/1.25 var(--f-body); color: #0B2545; cursor: pointer; border-radius: 18px; }
+.v2four .v2ic { width: clamp(64px, 8vw, 96px); height: clamp(64px, 8vw, 96px); transition: transform .25s; }
+.v2four button:hover .v2ic { transform: scale(1.08) rotate(-4deg); }
+.v2loc { font: 600 1rem/1.3 var(--f-body); margin: clamp(2.4rem, 6vw, 4rem) 0 0; color: #0B2545; }
+.v2s { padding: clamp(3.2rem, 8vw, 6.5rem) 0; border-top: 1px solid #EDF1F7; }
+.v2s h2 { font: 600 clamp(2.2rem, 5vw, 3.6rem)/1.05 var(--f-display); letter-spacing: -.035em; margin: 0; color: #0B2545; }
+.v2s .v2in > .v2ic { width: 56px; height: 56px; margin-bottom: 1rem; }
+.v2one { font: 600 clamp(1.2rem, 2vw, 1.5rem)/1.3 var(--f-body); margin: 1.2rem 0 0; color: #0B2545; }
+.v2p { font: 400 1.15rem/1.6 var(--f-body); margin: .9rem auto 0; color: #44546B; max-width: 34em; }
+.v2price { font: 600 1.15rem/1.6 var(--f-body); margin: 1.4rem 0 0; color: #0B2545; }
+.v2mark, .v2hl { background: linear-gradient(transparent 12%, #D9F76B 12%, #D9F76B 92%, transparent 92%); padding: 0 .25em; border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.v2big { font: 500 clamp(1.7rem, 4vw, 3rem)/1.22 var(--f-display); letter-spacing: -.03em; margin: 0; color: #0B2545; }
+.v2cta { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: clamp(1.8rem, 4vw, 2.6rem); padding: 0 18px; }
+.v2btn { display: inline-flex; align-items: center; gap: .5rem; border: 1.5px solid #1F6FFF; border-radius: 999px; background: #1F6FFF; color: #FFFFFF; font: 600 1.05rem var(--f-body); padding: .95rem 1.7rem; cursor: pointer; }
+.v2btn:hover { background: #0B2545; border-color: #0B2545; }
+.v2btn.ghost { background: #FFFFFF; color: #0B2545; border-color: #C9D6E8; }
+.v2btn.ghost:hover { background: #F2F7FF; border-color: #1F6FFF; }
+.v2btn:focus-visible, .v2chips button:focus-visible, .v2rows button:focus-visible, .v2dock button:focus-visible, .v2four button:focus-visible { outline: 3px solid #0B2545; outline-offset: 3px; }
+.v2k { font: 600 1rem/1.3 var(--f-body); color: #0B2545; margin: clamp(2.6rem, 6vw, 4rem) 0 1.2rem; }
+.v2proof { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2.4rem); text-align: center; }
+.v2proof li { display: grid; gap: .5rem; align-content: start; }
+.v2proof b { font: 500 clamp(1.9rem, 4vw, 3rem)/1 var(--f-display); letter-spacing: -.035em; color: #1F6FFF; direction: ltr; }
+.v2proof span { font: 400 1.05rem/1.45 var(--f-body); color: #44546B; }
+.v2rows { max-width: 980px; margin: clamp(2rem, 5vw, 3rem) auto 0; padding: 0 clamp(18px, 5vw, 40px); }
+.v2rows button { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr) auto; gap: 1rem; align-items: center; width: 100%; text-align: start; background: none; border: 0; border-top: 1px solid #E3EAF4; padding: 1.35rem .4rem; font: 400 1.15rem/1.35 var(--f-body); color: #44546B; cursor: pointer; }
+.v2rows button:last-child { border-bottom: 1px solid #E3EAF4; }
+.v2rows button b { font: 600 1.2rem/1.3 var(--f-body); color: #0B2545; }
+.v2rows button i { font-style: normal; color: #1F6FFF; font-size: 1.2rem; }
+.v2rows button:hover { background: #F5F9FF; }
+.v2grid { list-style: none; max-width: 980px; margin: clamp(2rem, 5vw, 3rem) auto 0; padding: 0 clamp(18px, 5vw, 40px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(1rem, 3vw, 2.4rem); }
+.v2grid li { border-top: 1px solid #E3EAF4; padding: 1.1rem 0 1.2rem; font: 500 1.08rem/1.45 var(--f-body); color: #0B2545; text-align: start; }
+.v2grid li::before { content: ""; display: inline-block; width: .7rem; height: .7rem; border-radius: 50%; background: #B4E61D; margin-inline-end: .6rem; vertical-align: .02em; }
+.v2sol { max-width: 980px; margin: clamp(2rem, 5vw, 3rem) auto 0; padding: 0 clamp(18px, 5vw, 40px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.6rem, 4vw, 3rem); }
+.v2sol h3 { font: 600 1.05rem/1.3 var(--f-body); color: #0B2545; margin: 0 0 1rem; padding-bottom: .8rem; border-bottom: 1px solid #E3EAF4; }
+.v2chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.v2chips button { border: 1.5px solid #D5E3F7; border-radius: 999px; background: #FFFFFF; color: #0B2545; font: 500 1.02rem var(--f-body); padding: .65rem 1.05rem; cursor: pointer; text-align: start; }
+.v2chips button:hover { background: #1F6FFF; border-color: #1F6FFF; color: #FFFFFF; }
+.v2how { list-style: none; max-width: 980px; margin: clamp(2rem, 5vw, 3rem) auto 0; padding: 0 clamp(18px, 5vw, 40px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.2rem, 3vw, 2.6rem); text-align: center; }
+.v2how li { display: grid; gap: .5rem; align-content: start; justify-items: center; }
+.v2how i { width: 3rem; height: 3rem; border-radius: 50%; background: #D9F76B; color: #0B2545; display: grid; place-items: center; font: 600 1.3rem var(--f-display); font-style: normal; }
+.v2how h3 { font: 600 clamp(1.25rem, 2vw, 1.6rem)/1.15 var(--f-display); letter-spacing: -.02em; margin: .5rem 0 0; color: #0B2545; }
+.v2how p { font: 400 1.08rem/1.5 var(--f-body); margin: 0; color: #44546B; }
+/* icon bar */
+.v2dock { display: none; }
+html.v2 .v2dock { display: flex; position: fixed; inset-inline: 0; bottom: 0; z-index: 25; background: #FFFFFF; border-top: 1px solid #E3EAF4; overflow-x: auto; scrollbar-width: none; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.v2dock::-webkit-scrollbar { display: none; }
+.v2dock button { flex: 1 0 112px; display: grid; justify-items: center; align-content: center; gap: .45rem; min-height: 96px; background: #FFFFFF; border: 0; border-inline-end: 1px solid #E3EAF4; font: 500 1rem/1.15 var(--f-body); color: #0B2545; cursor: pointer; padding: .5rem .4rem; }
+.v2dock .v2ic { width: 34px; height: 34px; }
+.v2dock button:hover { background: #F5F9FF; }
+.v2dock button.on { background: linear-gradient(135deg, #1F6FFF, #4DB8FF 55%, #D9F76B); color: #0B2545; font-weight: 700; }
+.v2dock button.on .v2ic svg { fill: #0B2545; } .v2dock button.on .v2ic svg .g { fill: #0B2545; }
+.v2dock button.buy { background: #1F6FFF; color: #FFFFFF; font-weight: 700; border-inline-end: 0; }
+.v2dock button.buy .v2ic svg { fill: #FFFFFF; } .v2dock button.buy .v2ic svg .w { fill: #1F6FFF; }
+.v2dock button.buy:hover { background: #0B2545; }
+html.mvfull-on .v2dock { display: none !important; }
+@media (max-width: 900px) { .v2grid, .v2sol, .v2proof, .v2how { grid-template-columns: minmax(0, 1fr); } .v2four { grid-template-columns: repeat(2, minmax(0, 1fr)); } .v2rows button { grid-template-columns: minmax(0, 1fr) auto; } .v2rows button span { grid-column: 1; grid-row: 2; } .v2rows button i { grid-row: 1 / span 2; grid-column: 2; } .v2grid li, .v2how { text-align: start; } .v2dock button { flex-basis: 96px; min-height: 84px; } html.v2 body { padding-bottom: 92px; } }
 </style>
 <script>
 /* back / forward / swipe: popups (case studies, booking) and form steps are history steps too */
@@ -5609,7 +5647,29 @@ const T = {
    ]
   },
   "nav.managed": "Managed Services",
-  "v2.h": "Your digital workforce, built and run for you.",
+  "v2.h": "Your [digital workforce], built and run for you.",
+  "v2.tag": "Digital workforce + managed services",
+  "v2.rows": [
+   "A digital worker for every role.",
+   "Your website and social media, run for you.",
+   "Fits your industry and your department.",
+   "Learn to run AI yourself."
+  ],
+  "v2.how_k": "How it works",
+  "v2.how": [
+   [
+    "Pick what you need",
+    "Digital workers, a managed website, social media, or all three."
+   ],
+   [
+    "Subscribe online",
+    "See the price, sign and start in minutes."
+   ],
+   [
+    "We build and run it",
+    "Our solutions engineers set it up around your business. You review the results."
+   ]
+  ],
   "v2.lead": "Digital workers for every role, plus your website and social media, managed for you on a monthly plan.",
   "v2.cta": "See pricing",
   "v2.vid": "Watch the 30-second video",
@@ -8358,7 +8418,29 @@ const T = {
    ]
   },
   "nav.managed": "מענעדזשד סערוויסעס",
-  "v2.h": "אייער דיגיטאלע ווארקפארס, געבויט און געפירט פאר אייך.",
+  "v2.h": "אייער [דיגיטאלע ווארקפארס], געבויט און געפירט פאר אייך.",
+  "v2.tag": "דיגיטאלע ווארקפארס + מענעדזשד סערוויסעס",
+  "v2.rows": [
+   "א דיגיטאלער ארבעטער פאר יעדע פאזיציע.",
+   "אייער וועבסייט און סאשעל מידיא, געפירט פאר אייך.",
+   "פאסט פאר אייער אינדוסטריע און אייער דעפארטמענט.",
+   "לערנט זיך אליין צו פירן AI."
+  ],
+  "v2.how_k": "ווי עס ארבעט",
+  "v2.how": [
+   [
+    "קלייבט אויס וואס איר דארפט",
+    "דיגיטאלע ארבעטער, א געפירטע וועבסייט, סאשעל מידיא, אדער אלע דריי."
+   ],
+   [
+    "סאבסקרייבט אנליין",
+    "זעט די פרייז, שרייבט אונטער און הייבט אן אין מינוטן."
+   ],
+   [
+    "מיר בויען און פירן עס",
+    "אונזערע סאלושאנס אינזשענירן שטעלן עס אויף לויט אייער ביזנעס. איר קוקט איבער די רעזולטאטן."
+   ]
+  ],
   "v2.lead": "דיגיטאלע ארבעטער פאר יעדע פאזיציע, און אויך אייער וועבסייט און סאשעל מידיא, געפירט פאר אייך אויף א חודש'ליכן פלאן.",
   "v2.cta": "זעט די פרייזן",
   "v2.vid": "זעט דעם 30-סעקונדע ווידעא",
@@ -11107,7 +11189,29 @@ const T = {
    ]
   },
   "nav.managed": "שירותים מנוהלים",
-  "v2.h": "כוח העבודה הדיגיטלי שלכם, נבנה ומופעל בשבילכם.",
+  "v2.h": "[כוח העבודה הדיגיטלי] שלכם, נבנה ומופעל בשבילכם.",
+  "v2.tag": "כוח עבודה דיגיטלי + שירותים מנוהלים",
+  "v2.rows": [
+   "עובד דיגיטלי לכל תפקיד.",
+   "האתר והרשתות החברתיות שלכם, מופעלים בשבילכם.",
+   "מותאם לענף ולמחלקה שלכם.",
+   "למדו להפעיל AI בעצמכם."
+  ],
+  "v2.how_k": "איך זה עובד",
+  "v2.how": [
+   [
+    "בחרו מה שאתם צריכים",
+    "עובדים דיגיטליים, אתר מנוהל, רשתות חברתיות, או שלושתם."
+   ],
+   [
+    "הצטרפו אונליין",
+    "רואים את המחיר, חותמים ומתחילים תוך דקות."
+   ],
+   [
+    "אנחנו בונים ומפעילים",
+    "מהנדסי הפתרונות שלנו מתאימים אותו לעסק שלכם. אתם בודקים את התוצאות."
+   ]
+  ],
   "v2.lead": "עובדים דיגיטליים לכל תפקיד, יחד עם האתר והרשתות החברתיות שלכם, מנוהלים בשבילכם בתוכנית חודשית.",
   "v2.cta": "למחירים",
   "v2.vid": "צפו בסרטון של 30 שניות",
@@ -13856,7 +13960,29 @@ const T = {
    ]
   },
   "nav.managed": "Servicios gestionados",
-  "v2.h": "Su fuerza laboral digital, creada y operada para usted.",
+  "v2.h": "Su [fuerza laboral digital], creada y operada para usted.",
+  "v2.tag": "Fuerza laboral digital + servicios gestionados",
+  "v2.rows": [
+   "Un trabajador digital para cada puesto.",
+   "Su sitio web y sus redes sociales, operados para usted.",
+   "A la medida de su industria y su departamento.",
+   "Aprenda a manejar la IA usted mismo."
+  ],
+  "v2.how_k": "Cómo funciona",
+  "v2.how": [
+   [
+    "Elija lo que necesita",
+    "Trabajadores digitales, un sitio web gestionado, redes sociales, o los tres."
+   ],
+   [
+    "Suscríbase en línea",
+    "Vea el precio, firme y empiece en minutos."
+   ],
+   [
+    "Nosotros lo creamos y lo operamos",
+    "Nuestros ingenieros de soluciones lo configuran a la medida de su negocio. Usted revisa los resultados."
+   ]
+  ],
   "v2.lead": "Trabajadores digitales para cada puesto, además de su sitio web y sus redes sociales, gestionados para usted con un plan mensual.",
   "v2.cta": "Ver precios",
   "v2.vid": "Ver el video de 30 segundos",
@@ -15888,6 +16014,7 @@ window.mailFallback = function (subject, body) {
       <h2 class="ag-h">${E(t("ab.exp_h"))}</h2>
       <p class="ag-lead ag-why">${E(t("ab.exp"))}</p>
       <ul class="ag-inc" style="margin-top:1.6rem">${t("ab.fields").map(x => `<li>${E(x)}</li>`).join("")}</ul>
+      ${document.documentElement.classList.contains("v2") ? `<h2 class="ag-h">${E(t("diy.h"))}</h2><ol class="ag-steps">${(t("diy.items") || []).map(([a, b], i) => `<li><span>0${i + 1}</span><b>${E(a)}</b><em>${E(b)}</em></li>`).join("")}</ol>` : ""}
       <h2 class="ag-h">${E(t("why.kicker"))}</h2>
       <p class="ag-lead ag-why">${E(t("why.p1"))}</p><p class="ag-lead ag-why" style="margin-top:1rem !important">${E(t("why.p2"))}</p>
       <button type="button" class="ag-go" data-subscribe="" style="margin-top:2.4rem">${E(t("ab.go"))} <span class="arrow">→</span></button></div>`);
@@ -15984,23 +16111,50 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   window.v2Render = function () {
     const home = document.getElementById("v2home"), end = document.getElementById("v2end"); if (!home || typeof t !== "function") return;
     const li = a => a.map(x => `<li>${E(x)}</li>`).join("");
-    home.innerHTML = `<div class="v2hero"><div class="wrap">
-        <h1>${E(t("v2.h"))}</h1><p class="v2lead">${E(t("v2.lead"))}</p>
-        <div class="v2cta"><button type="button" class="v2btn" data-pricing>${E(t("v2.cta"))} <span class="arrow">→</span></button><button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>
+    const hl = x => E(x).replace("[", '<span class="v2hl">').replace("]", "</span>");
+    const B = t("v2.b") || [], R = t("v2.rows") || [];
+    const IC = {
+      home: '<svg viewBox="0 0 48 48"><circle cx="15" cy="24" r="7"/><circle cx="24" cy="24" r="9"/><circle cx="33" cy="24" r="7"/></svg>',
+      dw: '<svg viewBox="0 0 48 48"><circle cx="17" cy="18" r="9"/><circle cx="31" cy="20" r="7"/><circle cx="24" cy="31" r="10"/><circle class="g" cx="38" cy="34" r="4"/></svg>',
+      ms: '<svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="22" rx="7"/><rect x="18" y="34" width="12" height="5" rx="2.5"/><circle class="g" cx="38" cy="12" r="5"/></svg>',
+      sol: '<svg viewBox="0 0 48 48"><circle cx="24" cy="11" r="6"/><circle cx="11" cy="24" r="6"/><circle cx="37" cy="24" r="6"/><circle class="g" cx="24" cy="37" r="6"/></svg>',
+      ac: '<svg viewBox="0 0 48 48"><path d="M24 9 44 19 24 29 4 19z"/><path d="M13 25v8c3 4 19 4 22 0v-8l-11 6z"/><circle class="g" cx="42" cy="30" r="3.5"/></svg>',
+      pr: '<svg viewBox="0 0 48 48"><path d="M8 10h17l15 15a4 4 0 0 1 0 6L30 41a4 4 0 0 1-6 0L8 26z"/><circle class="w" cx="17" cy="19" r="4"/></svg>' };
+    const sec = (id, ic, i, extra, btns) => `<section class="v2s" id="${id}"><div class="v2in"><span class="v2ic">${IC[ic]}</span><h2>${E(B[i] ? B[i][0] : t("v2.sol"))}</h2><p class="v2one">${E(R[i === 2 ? 3 : i] || "")}</p><p class="v2p">${E(B[i][1])}</p>${B[i][2] ? `<p class="v2price"><span class="v2mark">${E(B[i][2])}</span></p>` : ""}</div><ul class="v2grid">${B[i][3].map(x => `<li>${E(x)}</li>`).join("")}</ul><div class="v2cta">${btns}</div></section>`;
+    const btn = (label, attr, ghost) => `<button type="button" class="v2btn${ghost ? " ghost" : ""}" ${attr}>${E(label)} <span class="arrow">→</span></button>`;
+    home.innerHTML = `<section class="v2top" id="v2-top"><div class="v2in">
+        <h1 class="v2name">Moses <b>Agentic</b></h1><p class="v2tag">${E(t("v2.tag"))}</p>
+        <div class="v2four"><button type="button" data-v2-go="v2-dw"><span class="v2ic">${IC.dw}</span>${E(B[0][0])}</button><button type="button" data-v2-go="v2-ms"><span class="v2ic">${IC.ms}</span>${E(B[1][0])}</button><button type="button" data-v2-go="v2-sol"><span class="v2ic">${IC.sol}</span>${E(t("v2.sol"))}</button><button type="button" data-v2-go="v2-ac"><span class="v2ic">${IC.ac}</span>${E(B[2][0])}</button></div>
+        <p class="v2loc">${E(t("loc.t"))}</p></div></section>
+      <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
+        <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>
         <p class="v2k">${E(t("v2.proof_k"))}</p>
-        <ul class="v2proof">${(t("v2.proof") || []).map(([n, x]) => `<li><b>${E(n)}</b><span>${E(x)}</span></li>`).join("")}</ul>
-      </div></div>
-      <div class="v2sec"><div class="wrap"><p class="v2k v2kd">${E(t("v2.what"))}</p>
-        <div class="v2bands">${(t("v2.b") || []).map(([h, p, price, pts, btns], i) => `<article class="v2band b${i}"><h2>${E(h)}</h2><p>${E(p)}</p>${price ? `<strong>${E(price)}</strong>` : ""}<ul>${li(pts)}</ul><div class="v2go">${btns.map((b, j) => `<button type="button" class="v2btn sm" ${ACT[i][j]}>${E(b)} <span class="arrow">→</span></button>`).join("")}</div></article>`).join("")}</div>
-      </div></div>
-      <div class="v2sec navy"><div class="wrap"><h2 class="v2h2">${E(t("v2.sol_h"))}</h2>
+        <ul class="v2proof">${(t("v2.proof") || []).map(([n, x]) => `<li><b>${E(n)}</b><span>${E(x)}</span></li>`).join("")}</ul></div></section>
+      <section class="v2s"><div class="v2in"><h2>${E(t("v2.what"))}</h2></div>
+        <div class="v2rows">${[[B[0][0], R[0], "v2-dw"], [B[1][0], R[1], "v2-ms"], [t("v2.sol"), R[2], "v2-sol"], [B[2][0], R[3], "v2-ac"]].map(([a, b, id]) => `<button type="button" data-v2-go="${id}"><b>${E(a)}</b><span>${E(b)}</span><i>↓</i></button>`).join("")}</div></section>
+      ${sec("v2-dw", "dw", 0, "", btn(B[0][4][0], 'data-folder="store"'))}
+      ${sec("v2-ms", "ms", 1, "", btn(B[1][4][0], "data-freesite") + btn(B[1][4][1], "data-smm"))}
+      <section class="v2s" id="v2-sol"><div class="v2in"><span class="v2ic">${IC.sol}</span><h2>${E(t("v2.sol"))}</h2><p class="v2one">${E(R[2] || "")}</p></div>
         <div class="v2sol"><div><h3>${E(t("v2.byind"))}</h3><div class="v2chips">${(t("inds") || []).map((n, i) => `<button type="button" data-v2-ind="${i}">${E(n)}</button>`).join("")}</div></div>
-        <div><h3>${E(t("v2.byfn"))}</h3><div class="v2chips">${(t("v2.fn") || []).map(([id, n]) => `<button type="button" data-v2-fn="${E(id)}">${E(n)}</button>`).join("")}</div></div></div>
-      </div></div>`;
-    if (end) end.innerHTML = `<div class="wrap"><h2>${E(t("v2.end_h"))}</h2><p>${E(t("v2.end_s"))}</p><button type="button" class="v2btn" data-pricing>${E(t("nav.price"))} <span class="arrow">→</span></button></div>`;
+        <div><h3>${E(t("v2.byfn"))}</h3><div class="v2chips">${(t("v2.fn") || []).map(([id, n]) => `<button type="button" data-v2-fn="${E(id)}">${E(n)}</button>`).join("")}</div></div></div></section>
+      ${sec("v2-ac", "ac", 2, "", btn(B[2][4][0], "data-v2-acad"))}
+      <section class="v2s"><div class="v2in"><h2>${E(t("v2.how_k"))}</h2></div>
+        <ol class="v2how">${(t("v2.how") || []).map(([h, x], i) => `<li><i>${i + 1}</i><h3>${E(h)}</h3><p>${E(x)}</p></li>`).join("")}</ol>
+        <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}</div></section>`;
+    if (end) end.innerHTML = "";
+    let dock = document.getElementById("v2dock");
+    if (!dock) { dock = document.createElement("nav"); dock.id = "v2dock"; dock.className = "v2dock"; dock.setAttribute("aria-label", "Sections"); document.body.appendChild(dock); }
+    dock.innerHTML = [["v2-top", IC.home, t("nav.home") || "Home"], ["v2-dw", IC.dw, B[0][0]], ["v2-ms", IC.ms, B[1][0]], ["v2-sol", IC.sol, t("v2.sol")], ["v2-ac", IC.ac, B[2][0]]].map(([id, ic, l], i) => `<button type="button" data-v2-go="${id}"${i === 0 ? ' class="on"' : ""}><span class="v2ic">${ic}</span>${E(l)}</button>`).join("") + `<button type="button" class="buy" data-pricing><span class="v2ic">${IC.pr}</span>${E(t("nav.price"))}</button>`;
+    /* the light header uses the dark-on-white logos */
+    document.querySelectorAll('.top img[src$="logo-full-light.png"]').forEach(i => { i.src = "/logo-full.png"; });
+    document.querySelectorAll('.top img[src$="logo-mark-light.svg"]').forEach(i => { i.src = "/logo-mark.svg"; });
   };
   function openStore() { const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = "store"; document.body.appendChild(go); go.click(); go.remove(); }
   document.addEventListener("click", e => {
+    const go = e.target.closest("[data-v2-go]");
+    if (go) { e.preventDefault(); const id = go.dataset.v2Go, jump = () => { const x = document.getElementById(id); if (x) x.scrollIntoView({ behavior: "smooth", block: "start" }); };
+      if (typeof view === "string" && view !== "home" && typeof setView === "function") { setView("home"); setTimeout(jump, 200); } else jump();
+      document.querySelectorAll("#v2dock button").forEach(b => b.classList.toggle("on", b === go || (go.closest("#v2dock") == null && b.dataset.v2Go === id))); return; }
     const el = e.target.closest("[data-v2-ind], [data-v2-fn], [data-v2-video], [data-v2-acad], [data-v2-disc]"); if (!el) return;
     e.preventDefault(); e.stopPropagation();
     if (el.dataset.v2Ind != null) { const i = el.dataset.v2Ind; if (typeof setView === "function") setView("industries"); setTimeout(() => { const c = document.querySelector(`#igrid .icard[data-ind="${i}"]`); if (c) c.click(); }, 150); }

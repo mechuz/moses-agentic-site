@@ -7,7 +7,8 @@
 <meta name="description" content="Choose your Moses Agentic services and subscribe: websites, social media management and a digital workforce on monthly plans.">
 <link rel="icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Inter+Tight:wght@800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>try { if (!/[?&]old=1/.test(location.search)) document.documentElement.classList.add("v2"); } catch (x) {}</script>
 <style>
 :root { --navy: #0B2545; --lime: #C6F432; --blue: #4DB8FF; --line: rgba(255,255,255,.18); --mut: rgba(255,255,255,.7); --d: "Inter Tight", Inter, system-ui, sans-serif; --b: Inter, system-ui, sans-serif; }
 * { box-sizing: border-box; }
@@ -101,10 +102,35 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
 .sales { margin-top: 3rem; color: var(--mut); font-size: .95rem; }
 .done h1 { max-width: 14ch; }
 @media (max-width: 640px) { .row { grid-template-columns: minmax(0, 1fr); } .svc { grid-template-columns: auto minmax(0, 1fr); } .svc .price { grid-column: 2; text-align: start; } }
+
+/* ----- white look, when the visitor came from the rebuilt site ----- */
+html.v2 { --line: #E3EAF4; --mut: #44546B; --d: "Outfit", system-ui, sans-serif; --b: "Outfit", system-ui, sans-serif; }
+html.v2 body { background: #FFFFFF; color: #0B2545; }
+html.v2 .bar { background: #FFFFFF; }
+html.v2 .bar a.back, html.v2 .go, html.v2 .total, html.v2 .total a { background: #1F6FFF; color: #FFFFFF; }
+html.v2 .total button { background: #FFFFFF; color: #0B2545; }
+html.v2 h1 { font-weight: 300; } html.v2 h1::after { background: #D9F76B; }
+html.v2 h2, html.v2 h3 { color: #1F6FFF; }
+html.v2 .svc b { font-weight: 500; } html.v2 .svc .price { font-weight: 500; color: #1F6FFF; }
+html.v2 .svc input[type=checkbox], html.v2 .chk input { accent-color: #1F6FFF; }
+html.v2 .opt span { border-color: #C9D6E8; }
+html.v2 .opt input:checked + span { background: #1F6FFF; border-color: #1F6FFF; color: #FFFFFF; }
+html.v2 .opt input:focus-visible + span { outline-color: #0B2545; }
+html.v2 .svc .num input, html.v2 .inits input { color: #0B2545; border-color: #C9D6E8; }
+html.v2 .tag { background: #D9F76B; }
+html.v2 .notes, html.v2 .svc .olab, html.v2 label.f, html.v2 .inits > span { color: #44546B; }
+html.v2 .svc .olab.warn, html.v2 .err { color: #C62828; }
+html.v2 label.f input { color: #0B2545; border-bottom-color: #C9D6E8; } html.v2 label.f input:focus { border-bottom-color: #1F6FFF; }
+html.v2 .order li span, html.v2 .sum strong, html.v2 .agbox summary { color: #1F6FFF; }
+html.v2 .order li { font-weight: 500; } html.v2 .sum strong { font-weight: 300; }
+html.v2 #f { background: #F5F9FF; border-color: #DCE7F5; }
+html.v2 #intake { background: none; }
+html.v2 .inits label { color: #0B2545; }
+html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { color: #1F6FFF; }
 </style>
 </head>
 <body>
-<div class="bar"><div class="in"><a href="/" aria-label="Moses Agentic home"><img src="/logo-full-light.png" alt="Moses Agentic"></a><a class="back" href="/">Back to site</a></div></div>
+<div class="bar"><div class="in"><a href="/" aria-label="Moses Agentic home"><img src="/logo-full-light.png" alt="Moses Agentic" id="brandlogo"><script>if (document.documentElement.classList.contains("v2")) document.getElementById("brandlogo").src = "/logo-full.png";</script></a><a class="back" href="/">Back to site</a></div></div>
 <main id="app">
   <section id="pick">
     <h1 id="more">Choose your services.</h1>

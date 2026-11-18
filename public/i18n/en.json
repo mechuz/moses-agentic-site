@@ -332,7 +332,7 @@
  "chat.sub": "Ask about our services, agents, seminars or prices.",
  "chat.ph": "Type your question…",
  "chat.send": "Send",
- "chat.hello": "Hi! I can answer questions about our AI staff, automation, seminars, prices and dates, in any language. What would you like to know?",
+ "chat.hello": "Hi! I can answer questions about our digital workforce, automation, seminars, prices and dates, in any language. What would you like to know?",
  "chat.chips": [
   "What will I learn?",
   "How much is it?",
@@ -434,9 +434,9 @@
  "nav.agents": "Agents",
  "nav.edu": "Education",
  "cta.call": "Book a call",
- "mo.kicker": "We build, run and teach AI staff for businesses",
+ "mo.kicker": "We build and run digital workforces for businesses, and we teach AI",
  "mo.title": "Your next hire is AI. [From CFO to front desk.]",
- "mo.sub": "Do more with less. AI staff for every role in your business.",
+ "mo.sub": "Do more with less. A digital workforce for every role in your business.",
  "mo.go": "Book a free consultation",
  "edu.pk": "Chocham AI · Education",
  "edu.pt": "Learn AI with Chocham AI",
@@ -465,7 +465,7 @@
  "svc.sub": "One partner for every place AI fits in your business: we build it, run it and teach it.",
  "svc.list": [
   [
-   "AI staff",
+   "Digital workforce",
    "Customer service, sales follow-up, intake, scheduling and inbox agents that work around the clock."
   ],
   [
@@ -490,7 +490,7 @@
   ]
  ],
  "ag.kicker": "Agents",
- "ag.title": "AI staff for every role",
+ "ag.title": "A digital workforce for every role",
  "ag.sub": "From the C-suite to the front desk. Pick a level, then tap a role to see what the agent does.",
  "ag.cta": "Build this agent",
  "ag.list": [
@@ -723,7 +723,7 @@
  "con.err": "Please add your name and a phone number or email.",
  "con.done": "Thank you!",
  "con.doneSub": "We'll be in touch within one business day.",
- "mo.chat": "We build AI staff and automation, and we teach AI. Here's what we do:",
+ "mo.chat": "We build your digital workforce and automation, and we teach AI. Here's what we do:",
  "ev.footer": "Chocham AI is the education company of Moses Agentic.",
  "cs.inds": [
   [
@@ -758,7 +758,7 @@
  "cs.count": "{n} case studies",
  "mp.kicker": "Our sister company",
  "mp.title": "Want it built for you?",
- "mp.sub": "Moses Agentic builds AI staff and automation for your business, and runs them for you.",
+ "mp.sub": "Moses Agentic builds your digital workforce and automation, and runs them for you.",
  "mp.go": "Visit Moses Agentic",
  "disc.title": "Disclosures",
  "disc.note": "These disclosures are written in English. The English version governs.",
@@ -814,7 +814,7 @@
  "am.title": "From compiling to reviewing.",
  "am.before.h": "Before",
  "am.before.p": "An asset manager can cost up to $200,000 a year, and much of the week goes to compiling reports and chasing numbers.",
- "am.after.h": "With AI staff",
+ "am.after.h": "With a digital workforce",
  "am.after.p": "The agent compiles the reports and tracks the numbers. The asset manager reviews, decides, and manages the property and the investment.",
  "am.list": [
   "Monthly operating statements",
@@ -955,7 +955,7 @@
  "pers.list": [
   [
    "Personal AI assistant",
-   "We set up AI staff for your email, calendar, documents, research and personal finances."
+   "We set up a digital workforce for your email, calendar, documents, research and personal finances."
   ],
   [
    "AI for solo professionals",
@@ -1001,7 +1001,7 @@
  "cab.s": "Everything we do, filed in one place.",
  "fo.close": "Back to the cabinet",
  "fo.ent": "Enterprise",
- "fo.entd": "AI staff and training for your whole company",
+ "fo.entd": "A digital workforce and training for your whole company",
  "fo.ind": "Individuals",
  "fo.indd": "Your own AI team, and how to run it",
  "fo.svc": "Services",
@@ -1015,7 +1015,7 @@
  "fo.con": "Contact",
  "fo.cond": "Book a free consultation",
  "ent.h": "Your people, running AI.",
- "ent.s": "We build AI staff for every role, from CFO to front desk, and train your team to run them.",
+ "ent.s": "We build a digital workforce for every role, from CFO to front desk, and train your team to run them.",
  "fo.allcs": "See all case studies",
  "h3.aside": "(from the burden of tedious labor)",
  "cta.seminar": "Learn AI: book a seminar",

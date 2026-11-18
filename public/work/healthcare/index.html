@@ -1963,6 +1963,24 @@ body { top: 0 !important; }
 .sm-tot .ag-go { margin-top: 0; }
 @media (max-width: 900px) { .sm-ch, .sm-fq { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
+/* ===== What's included, on every agent ===== */
+.sinc { display: grid; gap: .5rem; }
+.sinc > b { font: 800 .72rem/1 var(--f-body); letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
+.sinc ul { list-style: none !important; padding: 0 !important; margin: 0 !important; display: grid !important; gap: .35rem; }
+.sinc li { position: relative; padding-inline-start: 1.5rem; font: 500 .98rem/1.4 var(--f-body); }
+.sinc li::before { content: "\2713"; position: absolute; inset-inline-start: 0; top: 0; font-weight: 900; color: #7FB800; }
+.sind-list .scard .sinc { grid-column: 2 / -1; grid-row: 3; margin-top: .7rem; padding-top: .7rem; border-top: 1px solid rgba(255,255,255,.14); }
+.sind-list .scard .sinc ul { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.2rem; }
+.sind-list .scard .sinc li { color: rgba(255,255,255,.86); font-size: .92rem; }
+.sind-list .scard .sinc li::before { color: #C6F432; }
+.sind-list .scard, .sind-list .scard.exec { grid-template-rows: auto auto auto !important; align-items: start !important; }
+@media (max-width: 760px) { .sind-list .scard, .sind-list .scard.exec { grid-template-rows: auto auto auto auto !important; } .sind-list .scard .sinc { grid-row: 4; grid-column: 1 / -1; } .sind-list .scard .sinc ul { grid-template-columns: minmax(0, 1fr); } }
+.pr-inc { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; justify-self: stretch; }
+.pr-inc .fw-opt ul { list-style: none; padding: 0; margin: .5rem 0 0; display: grid; gap: .25rem; }
+.pr-inc .fw-opt li { position: relative; padding-inline-start: 1.3rem; font: 500 .9rem/1.4 var(--f-body); color: #3D5170; }
+.pr-inc .fw-opt li::before { content: "\2713"; position: absolute; inset-inline-start: 0; font-weight: 900; color: #1A73E8; }
+@media (max-width: 760px) { .pr-inc { grid-template-columns: minmax(0, 1fr); } }
+
 /* ===== Moses: one navy theme from the top of the page ===== */
 .site-moses .top { background: #0B2545 !important; border-bottom: 0 !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none !important; }
 .site-moses .nav button { color: rgba(255,255,255,.82) !important; }
@@ -5439,7 +5457,76 @@ const T = {
   ],
   "smm.tot": "Your price",
   "smm.mo": "a month",
-  "smm.pr_note": "Prices shown are for a 24-month plan. 12-month plans are +$50 a month; month to month is +$100 a month."
+  "smm.pr_note": "Prices shown are for a 24-month plan. 12-month plans are +$50 a month; month to month is +$100 a month.",
+  "store.inc_h": "What's included",
+  "store.inc": {
+   "coo": [
+    "Operating plan and KPIs",
+    "Weekly report to you",
+    "Scheduling and vendors",
+    "Compliance and project tracking",
+    "Admin, paperwork, purchasing and filing"
+   ],
+   "cmo": [
+    "Strategy, budget and brand",
+    "Campaigns and ad spend",
+    "Results reporting",
+    "Content and social posts",
+    "Email and lead lists"
+   ],
+   "cfo": [
+    "Forecasts, budgets and cash strategy",
+    "Board reports",
+    "Controls, reconciliations and approvals",
+    "Payables, receivables and billing",
+    "Payroll prep and bookkeeping"
+   ],
+   "cio": [
+    "Investment strategy and allocation",
+    "Investment committee reports",
+    "Deal pipeline and underwriting",
+    "Due diligence and portfolio monitoring",
+    "Investor reporting"
+   ],
+   "cre": [
+    "Rent rolls, leases and tenant tracking",
+    "Budgets against actuals",
+    "Loan covenants",
+    "Monthly investor and lender reports"
+   ],
+   "staff": [
+    "Schedules built",
+    "Open shifts filled",
+    "Hours, overtime and time off tracked",
+    "Payroll prepared for your approval"
+   ],
+   "broker": [
+    "Loan packages and executive summaries",
+    "Deals matched to lenders and loan programs",
+    "Term sheets, conditions and closing tracked"
+   ],
+   "acq": [
+    "New opportunities sourced and screened",
+    "First-pass underwriting and offers",
+    "Due-diligence checklists to closing"
+   ],
+   "analyst": [
+    "Deals underwritten and pro formas built",
+    "Rent rolls, T-12s and leases read",
+    "Investment memos and sensitivity tables"
+   ],
+   "research": [
+    "Sales and lease comps",
+    "Market rents, cap rates and new supply tracked",
+    "Market and submarket reports"
+   ],
+   "abk": [
+    "Business research",
+    "Branded proposal with savings against hiring",
+    "Website concept",
+    "Narrated video"
+   ]
+  }
  },
  "yi": {
   "nav.seminar": "סעמינאר 1",
@@ -8013,7 +8100,76 @@ const T = {
   ],
   "smm.tot": "אייער פרייז",
   "smm.mo": "א חודש",
-  "smm.pr_note": "די פרייזן זענען פאר א 24-חדשים פלאן. 12-חדשים פלענער זענען +$50 א חודש; חודש צו חודש איז +$100 א חודש."
+  "smm.pr_note": "די פרייזן זענען פאר א 24-חדשים פלאן. 12-חדשים פלענער זענען +$50 א חודש; חודש צו חודש איז +$100 א חודש.",
+  "store.inc_h": "וואס איז אריינגערעכנט",
+  "store.inc": {
+   "coo": [
+    "אפערעיטינג פלאן און KPIs",
+    "א וועכנטליכער רעפארט פאר אייך",
+    "סקעדזשולינג און ווענדארס",
+    "קאמפלייענס און פראדזשעקט טרעקינג",
+    "אדמין, פאפירן, איינקויפן און פיילינג"
+   ],
+   "cmo": [
+    "סטראטעגיע, בודזשעט און בראנד",
+    "קאמפעינס און אד ספענד",
+    "רעפארטס אויף די רעזולטאטן",
+    "קאנטענט און סאשעל פאוסטס",
+    "אימעילס און ליד ליסטס"
+   ],
+   "cfo": [
+    "פארקעסטס, בודזשעטס און קעש סטראטעגיע",
+    "באורד רעפארטס",
+    "קאנטראלס, רעקאנסיליעישאנס און אפרוווס",
+    "פעיעבלס, רעסיוועבלס און בילינג",
+    "פעיראל און בוקקיפינג"
+   ],
+   "cio": [
+    "אינוועסטמענט סטראטעגיע און צוטיילונג",
+    "רעפארטס פאר די אינוועסטמענט קאמיטעט",
+    "דיעל פייפליין און אנדעררייטינג",
+    "דו דיליגענס און נאכקוקן דעם פארטפאליא",
+    "רעפארטס פאר אינוועסטארס"
+   ],
+   "cre": [
+    "רענט ראלס, ליסעס און טענאנט טרעקינג",
+    "בודזשעט קעגן אקטשועלס",
+    "לאון קאווענאנטס",
+    "מאנאטליכע רעפארטס פאר אינוועסטארס און לענדערס"
+   ],
+   "staff": [
+    "סקעדזשולס געמאכט",
+    "אפענע שיפטס אנגעפילט",
+    "שעות, אווערטיים און פריי-טעג געטרעקט",
+    "פעיראל צוגעגרייט פאר אייער אפרוווען"
+   ],
+   "broker": [
+    "לאון פעקעדזשעס און עקזעקיוטיוו סאמעריס",
+    "דילס צוגעפאסט מיט לענדערס און לאון פראגראמען",
+    "טערם שיטס, קאנדישאנס און קלאוזינג געטרעקט"
+   ],
+   "acq": [
+    "נייע אפארטוניטיס געזוכט און געסקרינט",
+    "ערשטע אנדעררייטינג און אפערס",
+    "דיו-דיליגענס טשעקליסטס ביז קלאוזינג"
+   ],
+   "analyst": [
+    "דילס אנדעררייט און פרא פארמעס געמאכט",
+    "רענט ראלס, T-12s און ליסעס געלייענט",
+    "אינוועסטמענט מעמאס און סענסיטיוויטי טעבלס"
+   ],
+   "research": [
+    "סעילס און ליס קאמפס",
+    "מארקעט רענטס, קעפ רעיטס און נייע סופליי געטרעקט",
+    "מארקעט און סאבמארקעט רעפארטס"
+   ],
+   "abk": [
+    "פארשונג אויף דעם ביזנעס",
+    "א פראפאזעל מיט אייער בראנד, מיט וויפיל מען שפארט קעגן אננעמען מענטשן",
+    "א וועבסייט קאנצעפט",
+    "א ווידעא מיט א נערעיטער"
+   ]
+  }
  },
  "he": {
   "nav.seminar": "סמינר 1",
@@ -10587,7 +10743,76 @@ const T = {
   ],
   "smm.tot": "המחיר שלכם",
   "smm.mo": "לחודש",
-  "smm.pr_note": "המחירים הם לתוכנית של 24 חודשים. תוכנית של 12 חודשים ‎+$50 לחודש; חודש לחודש ‎+$100 לחודש."
+  "smm.pr_note": "המחירים הם לתוכנית של 24 חודשים. תוכנית של 12 חודשים ‎+$50 לחודש; חודש לחודש ‎+$100 לחודש.",
+  "store.inc_h": "מה כלול",
+  "store.inc": {
+   "coo": [
+    "תוכנית עבודה ומדדים",
+    "דוח שבועי אליכם",
+    "תיאום וספקים",
+    "רגולציה ומעקב פרויקטים",
+    "אדמיניסטרציה, ניירת, רכש ותיוק"
+   ],
+   "cmo": [
+    "אסטרטגיה, תקציב ומותג",
+    "קמפיינים ותקציב פרסום",
+    "דיווח תוצאות",
+    "תוכן ופוסטים",
+    "מיילים ורשימות לידים"
+   ],
+   "cfo": [
+    "תחזיות, תקציבים ואסטרטגיית מזומנים",
+    "דוחות לדירקטוריון",
+    "בקרות, התאמות ואישורים",
+    "ספקים, לקוחות וחיובים",
+    "הכנת שכר והנהלת חשבונות"
+   ],
+   "cio": [
+    "אסטרטגיית השקעות והקצאה",
+    "דוחות לוועדת ההשקעות",
+    "צנרת עסקאות וחיתום",
+    "בדיקת נאותות ומעקב אחר התיק",
+    "דיווח למשקיעים"
+   ],
+   "cre": [
+    "רשימות שכירות, חוזים ומעקב שוכרים",
+    "תקציב מול ביצוע",
+    "תנאי הלוואות",
+    "דוחות חודשיים למשקיעים ולמלווים"
+   ],
+   "staff": [
+    "סידורי עבודה בנויים",
+    "משמרות פתוחות מאוישות",
+    "מעקב שעות, שעות נוספות וחופשות",
+    "שכר מוכן לאישורכם"
+   ],
+   "broker": [
+    "תיקי הלוואה ותקצירי מנהלים",
+    "התאמת עסקאות למלווים ולתוכניות הלוואה",
+    "מעקב מזכרי תנאים, תנאים וסגירה"
+   ],
+   "acq": [
+    "איתור וסינון הזדמנויות חדשות",
+    "חיתום ראשוני והצעות",
+    "רשימות בדיקת נאותות עד הסגירה"
+   ],
+   "analyst": [
+    "חיתום עסקאות ובניית פרו-פורמה",
+    "קריאת רשימות שכירות, T-12 וחוזים",
+    "מזכרי השקעה וטבלאות רגישות"
+   ],
+   "research": [
+    "עסקאות מכר ושכירות להשוואה",
+    "מעקב שכר דירה בשוק, שיעורי היוון והיצע חדש",
+    "דוחות שוק ותת-שוק"
+   ],
+   "abk": [
+    "מחקר על העסק",
+    "הצעה ממותגת עם החיסכון מול גיוס עובדים",
+    "קונספט לאתר",
+    "סרטון עם קריינות"
+   ]
+  }
  },
  "es": {
   "nav.seminar": "Seminario 1",
@@ -13161,7 +13386,76 @@ const T = {
   ],
   "smm.tot": "Su precio",
   "smm.mo": "al mes",
-  "smm.pr_note": "Los precios son para un plan de 24 meses. Los planes de 12 meses cuestan +$50 al mes; mes a mes, +$100 al mes."
+  "smm.pr_note": "Los precios son para un plan de 24 meses. Los planes de 12 meses cuestan +$50 al mes; mes a mes, +$100 al mes.",
+  "store.inc_h": "Qué incluye",
+  "store.inc": {
+   "coo": [
+    "Plan operativo y KPIs",
+    "Informe semanal para usted",
+    "Agenda y proveedores",
+    "Cumplimiento y seguimiento de proyectos",
+    "Administración, papeleo, compras y archivo"
+   ],
+   "cmo": [
+    "Estrategia, presupuesto y marca",
+    "Campañas e inversión publicitaria",
+    "Informes de resultados",
+    "Contenido y redes sociales",
+    "Correos y listas de prospectos"
+   ],
+   "cfo": [
+    "Pronósticos, presupuestos y estrategia de caja",
+    "Informes para la junta",
+    "Controles, conciliaciones y aprobaciones",
+    "Cuentas por pagar y cobrar, y facturación",
+    "Nómina y contabilidad"
+   ],
+   "cio": [
+    "Estrategia de inversión y asignación",
+    "Informes para el comité de inversiones",
+    "Cartera de operaciones y análisis",
+    "Debida diligencia y seguimiento del portafolio",
+    "Informes a inversionistas"
+   ],
+   "cre": [
+    "Rent rolls, contratos y seguimiento de inquilinos",
+    "Presupuesto frente a lo real",
+    "Condiciones de préstamos",
+    "Informes mensuales para inversionistas y prestamistas"
+   ],
+   "staff": [
+    "Horarios armados",
+    "Turnos vacantes cubiertos",
+    "Control de horas, horas extra y ausencias",
+    "Nómina preparada para su aprobación"
+   ],
+   "broker": [
+    "Paquetes de préstamo y resúmenes ejecutivos",
+    "Operaciones relacionadas con prestamistas y programas",
+    "Seguimiento de term sheets, condiciones y cierre"
+   ],
+   "acq": [
+    "Nuevas oportunidades buscadas y filtradas",
+    "Suscripción inicial y ofertas",
+    "Listas de due diligence hasta el cierre"
+   ],
+   "analyst": [
+    "Operaciones suscritas y pro formas armadas",
+    "Lectura de rent rolls, T-12 y contratos",
+    "Memos de inversión y tablas de sensibilidad"
+   ],
+   "research": [
+    "Comparables de venta y alquiler",
+    "Seguimiento de rentas de mercado, cap rates y nueva oferta",
+    "Informes de mercado y submercado"
+   ],
+   "abk": [
+    "Investigación del negocio",
+    "Propuesta con su marca y el ahorro frente a contratar",
+    "Concepto de sitio web",
+    "Video narrado"
+   ]
+  }
  }
 };
 
@@ -14324,12 +14618,14 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
   AGI.web = '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>';
   AGI.consult = '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/>';
   const agIcon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${AGI[k] || '<circle cx="12" cy="9" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/>'}</svg>`;
+  const AGPRICE = { coo: 799, cmo: 799, cfo: 799, cio: 799, cre: 599, broker: 599, acq: 599, analyst: 499, research: 499, staff: 499, abk: 299 };
   function card(x, kind) {
     const c = ((S().agents) || {})[x[0]] || {};
     const en = (T.en["store." + kind] || []).find(v => v[0] === x[0]);
     const lab = t("store.l");
-    const body = kind === "exec" ? `<div class="slayers">${x[3].map((v, j) => `<div class="slayer"><span>${esc(lab[j])}</span><p>${esc(v)}</p></div>`).join("")}</div>` : `<ul>${x[3].map(v => `<li>${esc(v)}</li>`).join("")}</ul>`;
-    return `<article class="scard ${kind}" data-ag="${esc(x[0])}" tabindex="0" role="button"><span class="sico" aria-hidden="true">${agIcon(x[0])}</span><h4>${esc(x[1])}</h4><p class="sline">${esc(x[2])}</p>${body}${x[0] === "web" ? `<div class="sprice cs2-p">${esc(t("wb.price"))}</div><button type="button" class="btn aqua" data-weborder>${esc(t("wb.go"))} <span class="arrow">→</span></button>` : x[0] === "consult" ? `<div class="sprice cs2-p">${esc(t("cs2.price"))}</div><button type="button" class="btn aqua" data-consult>${esc(t("cs2.book"))} <span class="arrow">→</span></button>` : x[0] === "abk" ? `<button type="button" class="btn aqua sdemo-go" data-abk-play>${esc(t("abk.watch"))} <span class="arrow">▶</span></button>` : `<div class="sprice">${price(c)}</div>${action(c, en ? en[1] : x[1])}`}</article>`;
+    const inc = (t("store.inc") || {})[x[0]] || x[3];
+    const body = `<div class="sinc"><b>${esc(t("store.inc_h"))}</b><ul>${inc.map(v => `<li>${esc(v)}</li>`).join("")}</ul></div>`;
+    return `<article class="scard ${kind}" data-ag="${esc(x[0])}" tabindex="0" role="button"><span class="sico" aria-hidden="true">${agIcon(x[0])}</span><h4>${esc(x[1])}</h4><p class="sline">${esc(x[2])}</p>${body}${x[0] === "web" ? `<div class="sprice cs2-p">${esc(t("wb.price"))}</div><button type="button" class="btn aqua" data-weborder>${esc(t("wb.go"))} <span class="arrow">→</span></button>` : x[0] === "consult" ? `<div class="sprice cs2-p">${esc(t("cs2.price"))}</div><button type="button" class="btn aqua" data-consult>${esc(t("cs2.book"))} <span class="arrow">→</span></button>` : x[0] === "abk" ? `<button type="button" class="btn aqua sdemo-go" data-abk-play>${esc(t("abk.watch"))} <span class="arrow">▶</span></button>` : `<div class="sprice">${AGPRICE[x[0]] ? "$" + AGPRICE[x[0]] + " " + t("smm.mo") : price(c)}</div>${action(c, en ? en[1] : x[1])}`}</article>`;
   }
   window.storeIndSet = k => { window.storeInd = k; renderStore(); const el = document.querySelector(".s-store .sind"); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); };
   document.addEventListener("click", e => { const b = e.target.closest && e.target.closest(".sind-tab"); if (!b) return; window.storeInd = b.dataset.sind; renderStore(); const n = document.querySelector('.sind-tab[data-sind="' + b.dataset.sind + '"]'); if (n) n.focus({ preventScroll: true }); });
@@ -15010,6 +15306,7 @@ window.mailFallback = function (subject, body) {
   const CH = [["fb", "Facebook"], ["ig", "Instagram"], ["gbp", "Google Business Profile"], ["gads", "Google Ads"], ["li", "LinkedIn"], ["tt", "TikTok"], ["yt", "YouTube"], ["x", "X"], ["pin", "Pinterest"], ["th", "Threads"]];
   const FQ = [1, 2, 3, 5, 7], TM = ["24", "12", "m2m"], SM_BASE = { "24": 499, "12": 549, m2m: 599 }, SM_FD = { 1: -50, 2: 0, 3: 50, 5: 100, 7: 200 };
   const usd = n => "$" + n.toLocaleString("en-US");
+  const AGP = { coo: 799, cmo: 799, cfo: 799, cio: 799, cre: 599, broker: 599, acq: 599, analyst: 499, research: 499, staff: 499, abk: 299 };
   function smCalc() {
     const box = document.getElementById("sm-ch"); if (!box) return null;
     const on = [...box.querySelectorAll('.sm-c[aria-pressed="true"]')].map(b => b.dataset.ch);
@@ -15064,7 +15361,7 @@ window.mailFallback = function (subject, body) {
     open("pricing", `<p class="fw-lead">${E(t("pr.lead"))}</p>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.web"))}</h3>${opts("fw.opts")}<p class="cs2-note">${E(t("fw.after_note"))}</p><button type="button" class="btn aqua" data-subscribe="website-24">${E(t("pr.web_go"))} <span class="arrow">→</span></button></div>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("smm.h"))}</h3><div class="pr-tiers">${t("smm.tiers").map(([a, n], i) => `<div class="fw-opt"><b>${E(a)}${i === 1 ? ` <i class="pr-rec">${E(t("smm.rec"))}</i>` : ""}</b><em>${usd(SM_BASE["24"] + SM_FD[FQ[i]])} ${E(t("smm.mo"))}</em><span>${E(n)}</span></div>`).join("")}</div><p class="cs2-note">${E(t("smm.pr_note"))}</p>${notes()}<button type="button" class="btn aqua" data-smm>${E(t("pr.smm_go"))} <span class="arrow">→</span></button></div>
-      <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.ag"))}</h3><div class="pr-tiers">${t("pr.tiers").map(([a, p, n]) => `<div class="fw-opt"><b>${E(a)}</b><em>${E(p)}</em><span>${E(n)}</span></div>`).join("")}</div><button type="button" class="btn aqua" data-pr-agents>${E(t("pr.ag_go"))} <span class="arrow">→</span></button></div>
+      <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.ag"))}</h3><div class="pr-inc">${[...(t("store.exec") || []), ...(t("store.spec") || [])].map(x => `<div class="fw-opt"><b>${E(x[1])}</b><em>${usd(AGP[x[0]] || 0)} ${E(t("smm.mo"))}</em><ul>${(((t("store.inc") || {})[x[0]]) || []).map(v => `<li>${E(v)}</li>`).join("")}</ul></div>`).join("")}</div><button type="button" class="btn aqua" data-pr-agents>${E(t("pr.ag_go"))} <span class="arrow">→</span></button></div>
       <div class="pr-sec"><h3 class="fw-h3">${E(t("pr.con"))}</h3><div class="pr-tiers one"><div class="fw-opt"><b>${E(t("pr.con"))}</b><em>${E(t("pr.con_p"))}</em><span>${E(t("pr.con_s"))}</span></div></div><button type="button" class="btn aqua" data-consult>${E(t("pr.con_go"))} <span class="arrow">→</span></button></div>`);
   }
   function about() {

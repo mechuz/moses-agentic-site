@@ -84,6 +84,10 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
 .total { display: none; }
 .total button { background: var(--navy); color: #fff; border: 0; font: 900 1.05rem var(--d); border-radius: 999px; padding: .85rem 1.5rem; white-space: nowrap; cursor: pointer; }
 .total.show { display: block; }
+.total button:disabled, .go:disabled { opacity: .6; cursor: default; }
+.chg { margin: 1rem 0 0; font-size: 1rem; } .chg a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+#more { scroll-margin-top: 90px; }
+@media (max-width: 560px) { .total .in { flex-wrap: nowrap; } .total button { white-space: normal; line-height: 1.15; text-align: center; max-width: 11.5rem; padding: .7rem 1.1rem; } }
 @media (max-width: 860px) { .top { grid-template-columns: minmax(0, 1fr); } #f { position: static; } }
 #agr { display: grid; gap: 1.1rem; }
 #f:has(#agr:not([hidden])) { position: static; }
@@ -171,7 +175,7 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
       <div>
         <h1 id="h1">Your order.</h1>
         <ul class="order" id="order"></ul>
-        <p class="empty" id="empty">Nothing picked yet. Choose above.</p>
+        <p class="empty" id="empty">Nothing picked yet. Choose above.</p> <p class="chg"><a href="#more">Add or change services</a></p>
       </div>
       <form id="f" novalidate>
         <div class="sum"><small>Your monthly total</small><strong id="tot2">$0</strong><small id="one2"></small></div>
@@ -238,7 +242,7 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
         </div>
         <input id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="err" id="err" role="alert"></div>
-        <button class="go" id="go" type="submit">Subscribe →</button>
+        <button class="go" id="go" type="submit">Subscribe and check out →</button>
         <p class="fine">Billing starts at signing.</p>
       </form>
     </div>
@@ -269,7 +273,7 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
     </ol>
   </section>
 </main>
-<div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><button type="button" id="go2">Check out →</button></div></div>
+<div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><button type="button" id="go2">Subscribe and check out →</button></div></div>
 <script>
 (function () {
   "use strict";
@@ -327,8 +331,26 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
     plan();
   });
   document.addEventListener("click", function (e) { var b = e.target.closest("[data-rm]"); if (b) { var r = $('.svc[data-svc="' + b.dataset.rm + '"]'); if (r) { r.querySelector("input[type=checkbox]").checked = false; plan(); } } });
-  $("#go2").addEventListener("click", function () { $("#checkout").scrollIntoView({ behavior: "smooth", block: "start" }); setTimeout(function () { var e = ["biz", "nm", "em"].filter(function (i) { return !$("#" + i).value.trim(); })[0]; if (e) $("#" + e).focus({ preventScroll: true }); }, 600); });
-  if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { $("#total").classList.toggle("show", !es[0].isIntersecting); }, { threshold: .15 }).observe($("#f")); else $("#total").classList.add("show");
+  /* one-button checkout: the bar button and the form button are the same action */
+  $("#go2").addEventListener("click", function () {
+    var val = function (i) { return $("#" + i).value.trim(); }, basics = ["biz", "nm", "em"];
+    if (plan().items.length && basics.every(function (i) { return !val(i); })) {
+      /* first press with nothing filled in: go to the order form, no error yet */
+      $("#checkout").scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(function () { $("#biz").focus({ preventScroll: true }); }, 600);
+      return;
+    }
+    var f = $("#f"); if (f.requestSubmit) f.requestSubmit(); else $("#go").click();
+    /* if something is still missing, show the visitor what and where */
+    setTimeout(function () {
+      var er = $("#err"); if (!er.textContent || !$("#done").hidden) return;
+      var miss = basics.filter(function (i) { return !val(i); })[0];
+      if (!miss && SIGN) miss = ["i1", "i2", "i3", "i4"].filter(function (i) { return val(i).length < 2; })[0] || (!$("#ok").checked ? "ok" : "");
+      var el = miss ? $("#" + miss) : er;
+      if (plan().items.length) { el.scrollIntoView({ behavior: "smooth", block: "center" }); if (miss) el.focus({ preventScroll: true }); }
+    }, 60);
+  });
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { $("#total").classList.toggle("show", !es[0].isIntersecting); }, { threshold: .5 }).observe($("#go")); else $("#total").classList.add("show");
   document.addEventListener("input", function (e) { if (e.target.id === "xplat") plan(); });
 
   /* pre-select from the link: ?p=website-24,smm-12,agent-coo  (?c= is a reference carried into the request) */
@@ -354,11 +376,12 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
     if (m) { var row = $('.svc[data-svc="' + m[1] + '"]'); row.querySelector("input[type=checkbox]").checked = true; var r = row.querySelector('input[type=radio][value="' + m[2] + '"]'); if (r) r.checked = true; return; }
     var a = $('.svc[data-svc="' + code + '"]'); if (a) a.querySelector("input[type=checkbox]").checked = true;
   });
+  if ((q.get("p") || "").trim() && plan().items.length) setTimeout(function () { $("#checkout").scrollIntoView({ block: "start" }); }, 80);
   plan();
   try { var wb = JSON.parse(sessionStorage.getItem("wbx") || "null"); if (wb) { ["biz", "nm", "em"].forEach(function (k) { var el = $("#" + k); if (el && !el.value && wb[k]) el.value = String(wb[k]).slice(0, 120); }); } } catch (x) {}
 
 
-  if (SIGN) { $("#agr").hidden = false; $("#go").textContent = "Sign and start subscription →"; if (AGREEMENT === "final") { var dr = $(".draft"); if (dr) dr.remove(); } }
+  if (SIGN) { $("#agr").hidden = false; $("#go").textContent = "Subscribe and check out →"; if (AGREEMENT === "final") { var dr = $(".draft"); if (dr) dr.remove(); } }
   function sha(t) { return crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)).then(function (b) { return [].map.call(new Uint8Array(b), function (x) { return x.toString(16).padStart(2, "0"); }).join(""); }); }
   $("#f").addEventListener("submit", function (ev) {
     ev.preventDefault();
@@ -384,16 +407,16 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
     var payKey = p.items.length === 1 ? ($(".svc:not(.off)").dataset.svc + ($(".svc:not(.off) input[type=radio]:checked") ? "-" + $(".svc:not(.off) input[type=radio]:checked").value : "")) : "";
     var after = function () { var l = PAY[payKey]; if (l && AGREEMENT === "final") location.href = l + (l.indexOf("?") > -1 ? "&" : "?") + "prefilled_email=" + encodeURIComponent(v("em")); else done(); };
     if (PREVIEW) { done(); return; }
-    go.disabled = true;
+    go.disabled = $("#go2").disabled = true;
     if (SIGN) { sha($(".agree").textContent).then(function (h) {
       lines[0] = "SUBSCRIPTION SIGNED ONLINE: agreement signed, payment to collect";
       lines = lines.concat(["SIGNED ONLINE by " + v("nm") + (v("ti") ? ", " + v("ti") : "") + " for " + v("biz"), "Initials: " + ["i1", "i2", "i3", "i4"].map(v).join(" / "), "Signed at: " + new Date().toISOString(), "Agreement version: " + VERSION, "Agreement text SHA-256: " + h, "Device: " + navigator.userAgent]);
       data.message = lines.join("\n"); data.kind = "subscription-signed";
       window.__copy = ["MOSES AGENTIC SUBSCRIPTION AGREEMENT: SIGNED COPY", ""].concat(lines.slice(1)).concat(["", "AGREEMENT TEXT (version " + VERSION + ")", "", (function () { var d = $(".agbox"), was = d.open; d.open = true; var tx = $(".agree").innerText; d.open = was; return tx.replace(/\n{3,}/g, "\n\n").trim(); })()]).join("\n");
       data.agreement = window.__copy;
-      fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; after(); }).catch(function () { go.disabled = false; err.textContent = "We could not record your signature. Please try again."; });
+      fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; after(); }).catch(function () { go.disabled = $("#go2").disabled = false; err.textContent = "We could not record your signature. Please try again."; });
     }); return; }
-    if (ENDPOINT) fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; done(); }).catch(function () { go.disabled = false; mailto(); });
+    if (ENDPOINT) fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; done(); }).catch(function () { go.disabled = $("#go2").disabled = false; mailto(); });
     else mailto();
   });
   $("#copybtn").addEventListener("click", function () {

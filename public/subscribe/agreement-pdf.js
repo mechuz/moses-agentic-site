@@ -19,7 +19,7 @@ var MosesAgreement = (function () {
     var text = String(record || "").split(/\n\s*AGREEMENT TEXT \(/)[0];
     var lines = text.split(/\r?\n/), f = { items: [], keyTerms: [] }, signedLine = "";
     var map = { "Business": "business", "Name": "signer", "Email": "email", "Title": "title", "Monthly total": "monthly", "One-time": "oneTime",
-      "Due now": "dueNow", "Reference": "reference", "Initials": "initials", "Signed at": "signedAt", "Agreement version": "version",
+      "Due at signing": "dueNow", "Due now": "dueNow", "Payment method": "payMethod", "Reference": "reference", "Initials": "initials", "Signed at": "signedAt", "Agreement version": "version",
       "Agreement text SHA-256": "sha", "Device": "device", "Terms and Conditions box": "tc" };
     lines.forEach(function (ln) {
       ln = ln.trim(); if (!ln) return;
@@ -29,7 +29,7 @@ var MosesAgreement = (function () {
       m = ln.match(/^([A-Za-z0-9 -]{2,40}):\s*(.*)$/);
       if (m && map[m[1]] && f[map[m[1]]] === undefined) f[map[m[1]]] = m[2].trim();
     });
-    ["business", "signer", "email", "title", "monthly", "oneTime", "dueNow", "reference", "initials", "signedAt", "version", "sha", "device", "tc"].forEach(function (k) { if (f[k] === undefined) f[k] = ""; });
+    ["business", "signer", "email", "title", "monthly", "oneTime", "dueNow", "payMethod", "reference", "initials", "signedAt", "version", "sha", "device", "tc"].forEach(function (k) { if (f[k] === undefined) f[k] = ""; });
     if (!f.title && signedLine && f.signer && f.business) {
       var mid = signedLine.slice(("SIGNED ONLINE by " + f.signer).length, Math.max(0, signedLine.length - (" for " + f.business).length));
       f.title = mid.replace(/^,\s*/, "").trim();
@@ -224,6 +224,7 @@ var MosesAgreement = (function () {
         row("Monthly total", [{ x: f.monthly || "-", b: 1 }]);
         row("One-time", [{ x: f.oneTime || "none" }]);
         if (f.dueNow) row("Due at signing", [{ x: f.dueNow, b: 1 }]);
+        if (f.payMethod) row("Payment method", [{ x: f.payMethod }]);
 
         label("Electronic signature");
         need(86);

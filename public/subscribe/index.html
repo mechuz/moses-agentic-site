@@ -376,7 +376,14 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
     if (m) { var row = $('.svc[data-svc="' + m[1] + '"]'); row.querySelector("input[type=checkbox]").checked = true; var r = row.querySelector('input[type=radio][value="' + m[2] + '"]'); if (r) r.checked = true; return; }
     var a = $('.svc[data-svc="' + code + '"]'); if (a) a.querySelector("input[type=checkbox]").checked = true;
   });
-  if ((q.get("p") || "").trim() && plan().items.length) setTimeout(function () { $("#checkout").scrollIntoView({ block: "start" }); }, 80);
+  if ((q.get("p") || "").trim() && plan().items.length) {
+    /* arriving with services chosen: land on the order, and hold that spot while fonts and images settle */
+    var moved = false, land = function () { if (!moved) $("#checkout").scrollIntoView({ block: "start" }); };
+    ["wheel", "touchstart", "keydown", "mousedown"].forEach(function (ev) { window.addEventListener(ev, function () { moved = true; }, { once: true, passive: true }); });
+    setTimeout(land, 80);
+    window.addEventListener("load", function () { land(); setTimeout(land, 350); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(land);
+  }
   plan();
   try { var wb = JSON.parse(sessionStorage.getItem("wbx") || "null"); if (wb) { ["biz", "nm", "em"].forEach(function (k) { var el = $("#" + k); if (el && !el.value && wb[k]) el.value = String(wb[k]).slice(0, 120); }); } } catch (x) {}
 

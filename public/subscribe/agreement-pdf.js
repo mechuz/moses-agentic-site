@@ -49,8 +49,8 @@ var MosesAgreement = (function () {
     var d = new Date(iso);
     if (!iso || isNaN(d.getTime())) return String(iso || "");
     try {
-      return new Intl.DateTimeFormat("en-US", { timeZone: TZ, year: "numeric", month: "long", day: "numeric" }).format(d) + " at " +
-        new Intl.DateTimeFormat("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit", hour12: true }).format(d) + " Eastern Time";
+      return (new Intl.DateTimeFormat("en-US", { timeZone: TZ, year: "numeric", month: "long", day: "numeric" }).format(d) + " at " +
+        new Intl.DateTimeFormat("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit", hour12: true }).format(d) + " Eastern Time").replace(/[\u202F\u00A0]/g, " ");
     } catch (e) { return d.toISOString(); }
   }
 

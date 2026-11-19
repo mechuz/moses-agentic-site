@@ -113,6 +113,11 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
 .pay { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .6rem; max-width: 560px; }
 .pay li { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding: .9rem 1.1rem; border: 1px solid rgba(127,127,127,.35); border-radius: 12px; font: 600 1.05rem var(--b); }
 .pay li span { font-weight: 400; opacity: .8; overflow-wrap: anywhere; text-align: end; }
+.pay li.zq { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: center; font-weight: 400; }
+.pay li.zq img { background: #fff; border-radius: 10px; display: block; }
+.pay li.zq p { margin: 0 0 .9rem; font-size: 1rem; line-height: 1.45; }
+.pay li.zq a.go { display: inline-block; text-decoration: none; }
+@media (max-width: 520px) { .pay li.zq { grid-template-columns: 1fr; justify-items: start; } }
 .lnk { background: none; border: 0; padding: 0; font: 600 1rem var(--b); color: inherit; text-decoration: underline; cursor: pointer; }
 @media (max-width: 640px) { .row { grid-template-columns: minmax(0, 1fr); } .svc { grid-template-columns: auto minmax(0, 1fr); } .svc .price { grid-column: 2; text-align: start; } }
 
@@ -286,7 +291,7 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
   "use strict";
   var ENDPOINT = "https://hooks.zapier.com/hooks/catch/27563206/tHNY93KrYmljtGhD/", MAIL = "welcome@mosesagentic.com";
   /* AGREEMENT: "off" until counsel approves; "final" turns on signing for everyone. ?preview=1 shows the signing step as a preview (nothing is sent). */
-  var AGREEMENT = "final", VERSION = "short-2p-2026-11-19", PAY = {}, HANDLES = {};
+  var AGREEMENT = "final", VERSION = "short-2p-2026-11-19", PAY = {}, HANDLES = {"zelle": "Edward Beylin", "zelle_url": "https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiRURXQVJEIiwidG9rZW4iOiI3MTg3NzI4ODM4In0=", "zelle_qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAACdklEQVR42u1aMYojQQystgY2lH/gp8g/M/sz+Sn7A01o0FAXSOMLLtjoYAXbGIPbHYwoqaqknkV8s44Lvl2/R/7nETAAQEgoU5lAAkIXFnqW8yIykkJnmAQYljAAEiYkY1xEFwBr3QFAHQD084Mu9ASwr21yYh7rXkEda72udlynl5pteL7W/bgildt+F/pYZjCSEkZ6RSH0VEI5s45Orgv79zOV686VMKgzIGSqS1jvD8y6en4JgzLVGZWKnjoxoguADZbA64rc7xK1/8T+kHhu+30iMwgdSqBhkkDtSGXgvDryLP+jzii3gEQbBomhzOAnGyBhqQ51wISeI30dGMYAlMV1qSyiIH0oRnJqK7QcuFcFSQzVI4dWKbnQJfA368JG6lFrK9/pJ2RXkE51QUImLIsK1BnGsFQWUiM7vrBKPKiTlABP6h6KUSVeqieMdNITeCvUSIUFoCQJNHVDPdXr50inChQ62c2FnRQxU2FZeto0fjZ6FSNHYsRuH6T4DW1Ti7qHKmyeViHPsmJ0+mFkHQHoUQOUiRZZKGvgMBEjYTVHQBNdl1IFOJHrcIpReYZqkSTQfdPMHlaaq1uP8q28Q7Ouxt3aBlXiNHic6usAA1AAsWvKhJwaEcmChj0z6VkKkOpD53XdwypJ5xua+ntkHZHF1U1xloCElbsbyN4X7GuttSkZOG48bp8fPYTEBmzqA29bjCT2+7qi0HndPHtqB/kaOVOt0ZyQZfC6jY2hdXQe2R+JpwSA57YvvJ3DPIzOI/p5XAE85etx3Dz3x7oxYcd17B3fObVjoF4AqJFXTu0mIP3d9/7VBgI2MKL1+xbNjz/yB2MSr5doJy8UAAAAAElFTkSuQmCC"};
   var PREVIEW = AGREEMENT !== "final" && /[?&]preview=1/.test(location.search), SIGN = AGREEMENT === "final" || PREVIEW;
   var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
   var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
@@ -415,7 +420,9 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
       var due = p.m + (p.one || 0), names = { zelle: "Zelle", cashapp: "Cash App", venmo: "Venmo" }, have = ["zelle", "cashapp", "venmo"].filter(function (k) { return HANDLES[k]; });
       $("#paymsg").textContent = "Due now: " + fmt(due) + (p.one ? " (first month " + fmt(p.m) + " plus the " + fmt(p.one) + " build)" : " for your first month") + ". We accept Zelle, Cash App and Venmo.";
       $("#paylist").innerHTML = ""; (have.length ? have : ["zelle", "cashapp", "venmo"]).forEach(function (k) { var li = document.createElement("li"); li.textContent = names[k]; if (HANDLES[k]) { var sp = document.createElement("span"); sp.textContent = HANDLES[k]; li.appendChild(sp); } $("#paylist").appendChild(li); });
-      $("#paynote").textContent = have.length ? "Put \u201c" + v("biz") + "\u201d in the payment note so we can match it." : "We will email the payment details to " + v("em") + ".";
+      if (HANDLES.zelle_url && HANDLES.zelle_qr) { var zb = document.createElement("li"); zb.className = "zq"; var zi = document.createElement("img"); zi.src = HANDLES.zelle_qr; zi.alt = "Zelle QR code for " + (HANDLES.zelle || "Moses Agentic"); zi.width = 190; zi.height = 190; var zt = document.createElement("div"); var zp = document.createElement("p"); zp.textContent = "On a computer, scan this code with your bank app. On your phone, tap the button."; var za = document.createElement("a"); za.className = "go"; za.href = HANDLES.zelle_url; za.target = "_blank"; za.rel = "noopener"; za.textContent = "Pay " + fmt(due) + " with Zelle →"; zt.appendChild(zp); zt.appendChild(za); zb.appendChild(zi); zb.appendChild(zt); $("#paylist").appendChild(zb); }
+      var missing = ["cashapp", "venmo", "zelle"].filter(function (k) { return !HANDLES[k]; }).map(function (k) { return names[k]; });
+      $("#paynote").textContent = have.length ? "Put \u201c" + v("biz") + "\u201d in the payment note so we can match it." + (missing.length ? " To pay by " + missing.join(" or ") + ", email welcome@mosesagentic.com." : "") : "We will email the payment details to " + v("em") + ".";
       if (window.__copy) { $("#copyrow").hidden = false; }
       scrollTo(0, 0); }
     function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n")); setTimeout(done, 600); }

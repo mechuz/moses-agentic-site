@@ -101,6 +101,12 @@ h3 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
 a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
 .sales { margin-top: 3rem; color: var(--mut); font-size: .95rem; }
 .done h1 { max-width: 14ch; }
+.nx { list-style: none; margin: 0; padding: 0; }
+.nx > li > h2 { margin-top: clamp(2rem, 5vw, 3.2rem); }
+.pay { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .6rem; max-width: 560px; }
+.pay li { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding: .9rem 1.1rem; border: 1px solid rgba(127,127,127,.35); border-radius: 12px; font: 600 1.05rem var(--b); }
+.pay li span { font-weight: 400; opacity: .8; overflow-wrap: anywhere; text-align: end; }
+.lnk { background: none; border: 0; padding: 0; font: 600 1rem var(--b); color: inherit; text-decoration: underline; cursor: pointer; }
 @media (max-width: 640px) { .row { grid-template-columns: minmax(0, 1fr); } .svc { grid-template-columns: auto minmax(0, 1fr); } .svc .price { grid-column: 2; text-align: start; } }
 
 /* ----- white look, when the visitor came from the rebuilt site ----- */
@@ -241,19 +247,26 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
   <section id="done" class="done" hidden>
     <h1>You're in.</h1>
     <p class="lead" id="donemsg"></p>
-    <h2>Tell us about your business</h2>
-    <form id="intake" novalidate>
-      <div class="row"><label class="f">Website or domain<input id="n1" placeholder="yourbusiness.com"></label><label class="f">Social accounts<input id="n2" placeholder="Instagram, Facebook"></label></div>
-      <label class="f">Where are your photos, videos and brand files?<input id="n3" placeholder="Google Drive or Dropbox link"></label>
-      <label class="f">Your top goals for the next 90 days<input id="n4"></label>
-      <p class="fine">Never type passwords here. We send a secure link for logins.</p>
-      <div class="err" id="err2" role="alert"></div>
-      <button class="go" id="go3" type="submit">Send →</button>
-    </form>
-    <p class="lead" id="alldone" hidden>Got it. One last step.</p>
-    <h2>Book your intake call</h2>
-    <p class="lead" style="margin-top:0">30 minutes with our team, to get your services started.</p>
-    <p><a class="go book" href="https://calendar.app.google/SziK8xiAre7NxCrR6" target="_blank" rel="noopener">Book your intake call →</a></p>
+    <p id="copyrow" hidden><button type="button" class="lnk" id="copybtn">Download your signed agreement</button></p>
+    <ol class="nx">
+      <li><h2>1. Send your first payment</h2>
+        <p class="lead" style="margin-top:0" id="paymsg"></p>
+        <ul class="pay" id="paylist"></ul>
+        <p class="fine" id="paynote"></p></li>
+      <li><h2>2. Book your intake call</h2>
+        <p class="lead" style="margin-top:0">30 minutes with our team, to get your services started.</p>
+        <p><a class="go book" href="https://calendar.app.google/SziK8xiAre7NxCrR6" target="_blank" rel="noopener">Book your intake call →</a></p></li>
+      <li><h2>3. Tell us about your business</h2>
+        <form id="intake" novalidate>
+          <div class="row"><label class="f">Website or domain<input id="n1" placeholder="yourbusiness.com"></label><label class="f">Social accounts<input id="n2" placeholder="Instagram, Facebook"></label></div>
+          <label class="f">Where are your photos, videos and brand files?<input id="n3" placeholder="Google Drive or Dropbox link"></label>
+          <label class="f">Your top goals for the next 90 days<input id="n4"></label>
+          <p class="fine">Never type passwords here. We send a secure link for logins.</p>
+          <div class="err" id="err2" role="alert"></div>
+          <button class="go" id="go3" type="submit">Send →</button>
+        </form>
+        <p class="lead" id="alldone" hidden>Got it. Thank you.</p></li>
+    </ol>
   </section>
 </main>
 <div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><button type="button" id="go2">Check out →</button></div></div>
@@ -262,7 +275,7 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
   "use strict";
   var ENDPOINT = "https://hooks.zapier.com/hooks/catch/27563206/tHNY93KrYmljtGhD/", MAIL = "welcome@mosesagentic.com";
   /* AGREEMENT: "off" until counsel approves; "final" turns on signing for everyone. ?preview=1 shows the signing step as a preview (nothing is sent). */
-  var AGREEMENT = "final", VERSION = "short-2p-2026-11-18", PAY = {};
+  var AGREEMENT = "final", VERSION = "short-2p-2026-11-19", PAY = {}, HANDLES = {};
   var PREVIEW = AGREEMENT !== "final" && /[?&]preview=1/.test(location.search), SIGN = AGREEMENT === "final" || PREVIEW;
   var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
   var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
@@ -360,7 +373,13 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
     var subject = "Moses Agentic subscription: " + v("biz") + ", " + fmt(p.m) + " a month";
     var lines = ["SUBSCRIPTION ORDER", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-")]);
     var data = { kind: "subscription", hp: v("hp"), subject: subject, name: v("nm"), email: v("em"), phone: "", company: v("biz"), message: lines.join("\n"), language: "en", source: location.hostname };
-    function done() { $("#pick").hidden = true; $("#total").hidden = true; $("#done").hidden = false; $("#donemsg").textContent = "Thank you, " + v("nm") + ". Your plan is " + fmt(p.m) + " a month" + (p.one ? ", plus a " + fmt(p.one) + " one-time build" : "") + "." + (PREVIEW ? " (Preview: nothing was signed or charged.)" : ""); window.__who = { name: v("nm"), email: v("em"), biz: v("biz") }; scrollTo(0, 0); }
+    function done() { $("#pick").hidden = true; $("#total").hidden = true; $("#done").hidden = false; $("#donemsg").textContent = "Thank you, " + v("nm") + ". Your plan is " + fmt(p.m) + " a month" + (p.one ? ", plus a " + fmt(p.one) + " one-time build" : "") + "." + (PREVIEW ? " (Preview: nothing was signed or charged.)" : ""); window.__who = { name: v("nm"), email: v("em"), biz: v("biz") };
+      var due = p.m + (p.one || 0), names = { zelle: "Zelle", cashapp: "Cash App", venmo: "Venmo" }, have = ["zelle", "cashapp", "venmo"].filter(function (k) { return HANDLES[k]; });
+      $("#paymsg").textContent = "Due now: " + fmt(due) + (p.one ? " (first month " + fmt(p.m) + " plus the " + fmt(p.one) + " build)" : " for your first month") + ". We accept Zelle, Cash App and Venmo.";
+      $("#paylist").innerHTML = ""; (have.length ? have : ["zelle", "cashapp", "venmo"]).forEach(function (k) { var li = document.createElement("li"); li.textContent = names[k]; if (HANDLES[k]) { var sp = document.createElement("span"); sp.textContent = HANDLES[k]; li.appendChild(sp); } $("#paylist").appendChild(li); });
+      $("#paynote").textContent = have.length ? "Put \u201c" + v("biz") + "\u201d in the payment note so we can match it." : "We will email the payment details to " + v("em") + ".";
+      if (window.__copy) { $("#copyrow").hidden = false; }
+      scrollTo(0, 0); }
     function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n")); setTimeout(done, 600); }
     var payKey = p.items.length === 1 ? ($(".svc:not(.off)").dataset.svc + ($(".svc:not(.off) input[type=radio]:checked") ? "-" + $(".svc:not(.off) input[type=radio]:checked").value : "")) : "";
     var after = function () { var l = PAY[payKey]; if (l && AGREEMENT === "final") location.href = l + (l.indexOf("?") > -1 ? "&" : "?") + "prefilled_email=" + encodeURIComponent(v("em")); else done(); };
@@ -370,10 +389,16 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
       lines[0] = "SUBSCRIPTION SIGNED ONLINE: agreement signed, payment to collect";
       lines = lines.concat(["SIGNED ONLINE by " + v("nm") + (v("ti") ? ", " + v("ti") : "") + " for " + v("biz"), "Initials: " + ["i1", "i2", "i3", "i4"].map(v).join(" / "), "Signed at: " + new Date().toISOString(), "Agreement version: " + VERSION, "Agreement text SHA-256: " + h, "Device: " + navigator.userAgent]);
       data.message = lines.join("\n"); data.kind = "subscription-signed";
+      window.__copy = ["MOSES AGENTIC SUBSCRIPTION AGREEMENT: SIGNED COPY", ""].concat(lines.slice(1)).concat(["", "AGREEMENT TEXT (version " + VERSION + ")", "", (function () { var d = $(".agbox"), was = d.open; d.open = true; var tx = $(".agree").innerText; d.open = was; return tx.replace(/\n{3,}/g, "\n\n").trim(); })()]).join("\n");
+      data.agreement = window.__copy;
       fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; after(); }).catch(function () { go.disabled = false; err.textContent = "We could not record your signature. Please try again."; });
     }); return; }
     if (ENDPOINT) fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; done(); }).catch(function () { go.disabled = false; mailto(); });
     else mailto();
+  });
+  $("#copybtn").addEventListener("click", function () {
+    if (!window.__copy) return; var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([window.__copy], { type: "text/plain;charset=utf-8" })); a.download = "Moses-Agentic-subscription-agreement.txt"; document.body.appendChild(a); a.click(); a.remove();
   });
   $("#intake").addEventListener("submit", function (ev) {
     ev.preventDefault(); var w = window.__who || {}, g = function (i) { return $("#" + i).value.trim(); }, b = $("#go3");

@@ -110,14 +110,22 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
 .done h1 { max-width: 14ch; }
 .nx { list-style: none; margin: 0; padding: 0; }
 .nx > li > h2 { margin-top: clamp(2rem, 5vw, 3.2rem); }
-.pay { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .6rem; max-width: 560px; }
-.pay li { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding: .9rem 1.1rem; border: 1px solid rgba(127,127,127,.35); border-radius: 12px; font: 600 1.05rem var(--b); }
-.pay li span { font-weight: 400; opacity: .8; overflow-wrap: anywhere; text-align: end; }
-.pay li.zq { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: center; font-weight: 400; }
-.pay li.zq img { background: #fff; border-radius: 10px; display: block; }
-.pay li.zq p { margin: 0 0 .9rem; font-size: 1rem; line-height: 1.45; }
-.pay li.zq a.go { display: inline-block; text-decoration: none; }
-@media (max-width: 520px) { .pay li.zq { grid-template-columns: 1fr; justify-items: start; } }
+.pm { border: 0; margin: 1.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; scroll-margin-top: 110px; }
+.pm legend { padding: 0; margin-bottom: .7rem; font: 700 .82rem/1 var(--b); letter-spacing: .18em; text-transform: uppercase; opacity: .75; }
+.pm label, .pay button { position: relative; display: block; cursor: pointer; }
+.pm input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.pm span, .pay button { display: block; text-align: center; padding: .95rem .5rem; border: 2px solid rgba(127,127,127,.4); border-radius: 12px; font: 700 1.02rem var(--b); background: none; color: inherit; width: 100%; }
+.pm input:checked + span, .pay button[aria-selected="true"] { border-color: #1F6FFF; background: #1F6FFF; color: #fff; }
+.pm input:focus-visible + span, .pay button:focus-visible { outline: 3px solid #B4E61D; outline-offset: 3px; }
+.pay { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; max-width: 560px; }
+.payp { max-width: 560px; margin-top: .8rem; padding: 1.2rem; border: 1px solid rgba(127,127,127,.35); border-radius: 12px; display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: center; }
+.payp.one { grid-template-columns: 1fr; }
+.payp img { background: #fff; border-radius: 10px; display: block; }
+.payp p { margin: 0 0 .9rem; font-size: 1.02rem; line-height: 1.45; }
+.payp p:last-child { margin-bottom: 0; }
+.payp strong { font-weight: 800; overflow-wrap: anywhere; }
+.payp a.go { display: inline-block; text-decoration: none; }
+@media (max-width: 520px) { .payp { grid-template-columns: 1fr; justify-items: start; } }
 .lnk { background: none; border: 0; padding: 0; font: 600 1rem var(--b); color: inherit; text-decoration: underline; cursor: pointer; }
 @media (max-width: 640px) { .row { grid-template-columns: minmax(0, 1fr); } .svc { grid-template-columns: auto minmax(0, 1fr); } .svc .price { grid-column: 2; text-align: start; } }
 
@@ -191,6 +199,11 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
         <label class="f">Business name<input id="biz" autocomplete="organization"></label>
         <label class="f">Your name<input id="nm" autocomplete="name"></label>
         <label class="f">Email<input id="em" type="email" autocomplete="email"></label>
+        <fieldset class="pm" id="pm"><legend>How will you pay?</legend>
+          <label><input type="radio" name="pm" value="zelle"><span>Zelle</span></label>
+          <label><input type="radio" name="pm" value="cashapp"><span>Cash App</span></label>
+          <label><input type="radio" name="pm" value="venmo"><span>Venmo</span></label>
+        </fieldset>
         <div id="agr" hidden>
           <label class="f">Your title<input id="ti" autocomplete="organization-title" placeholder="Owner"></label>
           <p class="draft">Draft agreement, pending counsel review. Preview only: nothing is signed or charged.</p>
@@ -267,7 +280,8 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
     <ol class="nx">
       <li><h2>1. Send your first payment</h2>
         <p class="lead" style="margin-top:0" id="paymsg"></p>
-        <ul class="pay" id="paylist"></ul>
+        <div class="pay" id="paylist" role="tablist" aria-label="Payment method"></div>
+        <div class="payp" id="paypanel" role="tabpanel"></div>
         <p class="fine" id="paynote"></p></li>
       <li><h2>2. Book your intake call</h2>
         <p class="lead" style="margin-top:0">30 minutes with our team, to get your services started.</p>
@@ -412,17 +426,36 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
       if (v("ini").length < 2) { err.textContent = "Add your initials (2 to 4 letters)."; return; }
       if (!$("#ok").checked) { err.textContent = "Tick the box to agree to the Terms and Conditions."; return; }
     }
+    var pmEl = $('#pm input:checked'), pm = pmEl ? pmEl.value : "", PMN = { zelle: "Zelle", cashapp: "Cash App", venmo: "Venmo" };
+    if (!pm) { err.textContent = "Choose how you will pay: Zelle, Cash App or Venmo."; $("#pm").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
     err.textContent = "";
     var subject = "Moses Agentic subscription: " + v("biz") + ", " + fmt(p.m) + " a month";
-    var lines = ["SUBSCRIPTION ORDER", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-")]);
-    var data = { kind: "subscription", hp: v("hp"), subject: subject, name: v("nm"), email: v("em"), phone: "", company: v("biz"), message: lines.join("\n"), language: "en", source: location.hostname };
+    var lines = ["SUBSCRIPTION ORDER", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-"), "Payment method: " + PMN[pm], "Due at signing: " + fmt(p.m + (p.one || 0))]);
+    var data = { kind: "subscription", hp: v("hp"), subject: subject, name: v("nm"), email: v("em"), phone: "", company: v("biz"), message: lines.join("\n"), language: "en", source: location.hostname, pay_method: pm, monthly: p.m, due: p.m + (p.one || 0) };
     function done() { $("#pick").hidden = true; $("#total").hidden = true; $("#done").hidden = false; $("#donemsg").textContent = "Thank you, " + v("nm") + ". Your plan is " + fmt(p.m) + " a month" + (p.one ? ", plus a " + fmt(p.one) + " one-time build" : "") + "." + (PREVIEW ? " (Preview: nothing was signed or charged.)" : ""); window.__who = { name: v("nm"), email: v("em"), biz: v("biz") };
-      var due = p.m + (p.one || 0), names = { zelle: "Zelle", cashapp: "Cash App", venmo: "Venmo" }, have = ["zelle", "cashapp", "venmo"].filter(function (k) { return HANDLES[k]; });
-      $("#paymsg").textContent = "Due now: " + fmt(due) + (p.one ? " (first month " + fmt(p.m) + " plus the " + fmt(p.one) + " build)" : " for your first month") + ". We accept Zelle, Cash App and Venmo.";
-      $("#paylist").innerHTML = ""; (have.length ? have : ["zelle", "cashapp", "venmo"]).forEach(function (k) { var li = document.createElement("li"); li.textContent = names[k]; if (HANDLES[k]) { var sp = document.createElement("span"); sp.textContent = HANDLES[k]; li.appendChild(sp); } $("#paylist").appendChild(li); });
-      if (HANDLES.zelle_url && HANDLES.zelle_qr) { var zb = document.createElement("li"); zb.className = "zq"; var zi = document.createElement("img"); zi.src = HANDLES.zelle_qr; zi.alt = "Zelle QR code for " + (HANDLES.zelle || "Moses Agentic"); zi.width = 190; zi.height = 190; var zt = document.createElement("div"); var zp = document.createElement("p"); zp.textContent = "On a computer, scan this code with your bank app. On your phone, tap the button."; var za = document.createElement("a"); za.className = "go"; za.href = HANDLES.zelle_url; za.target = "_blank"; za.rel = "noopener"; za.textContent = "Pay " + fmt(due) + " with Zelle →"; zt.appendChild(zp); zt.appendChild(za); zb.appendChild(zi); zb.appendChild(zt); $("#paylist").appendChild(zb); }
-      var missing = ["cashapp", "venmo", "zelle"].filter(function (k) { return !HANDLES[k]; }).map(function (k) { return names[k]; });
-      $("#paynote").textContent = have.length ? "Put \u201c" + v("biz") + "\u201d in the payment note so we can match it." + (missing.length ? " To pay by " + missing.join(" or ") + ", email welcome@mosesagentic.com." : "") : "We will email the payment details to " + v("em") + ".";
+      var due = p.m + (p.one || 0), mk = function (t, x) { var e = document.createElement(t); if (x) e.textContent = x; return e; };
+      $("#paymsg").textContent = "Due now: " + fmt(due) + (p.one ? " (first month " + fmt(p.m) + " plus the " + fmt(p.one) + " build)" : " for your first month") + ".";
+      function showPay(k) {
+        [].forEach.call($("#paylist").children, function (b) { b.setAttribute("aria-selected", b.dataset.k === k ? "true" : "false"); });
+        var box = $("#paypanel"); box.innerHTML = ""; box.className = "payp one";
+        var pay = function (href, label) { var a = mk("a", label); a.className = "go"; a.href = href; a.target = "_blank"; a.rel = "noopener"; return a; };
+        if (k === "zelle" && HANDLES.zelle_url && HANDLES.zelle_qr) {
+          box.className = "payp"; var im = mk("img"); im.src = HANDLES.zelle_qr; im.alt = "Zelle QR code"; im.width = 190; im.height = 190; box.appendChild(im);
+          var d = mk("div"), p1 = mk("p", "Send " + fmt(due) + " by Zelle to "); p1.appendChild(mk("strong", HANDLES.zelle || "Moses Agentic")); p1.appendChild(document.createTextNode("."));
+          d.appendChild(p1); d.appendChild(mk("p", "On a computer, scan this code with your bank app. On your phone, tap the button.")); d.appendChild(pay(HANDLES.zelle_url, "Pay " + fmt(due) + " with Zelle \u2192")); box.appendChild(d);
+        } else if (k === "cashapp" && HANDLES.cashapp) {
+          var c1 = mk("p", "Send " + fmt(due) + " on Cash App to "); c1.appendChild(mk("strong", HANDLES.cashapp)); c1.appendChild(document.createTextNode(".")); box.appendChild(c1);
+          box.appendChild(pay("https://cash.app/" + encodeURIComponent(HANDLES.cashapp).replace("%24", "$") + "/" + due, "Pay " + fmt(due) + " with Cash App \u2192"));
+        } else if (k === "venmo" && HANDLES.venmo) {
+          var v1 = mk("p", "Send " + fmt(due) + " on Venmo to "); v1.appendChild(mk("strong", HANDLES.venmo)); v1.appendChild(document.createTextNode(".")); box.appendChild(v1);
+          box.appendChild(pay("https://venmo.com/u/" + encodeURIComponent(HANDLES.venmo.replace(/^@/, "")), "Pay " + fmt(due) + " with Venmo \u2192"));
+        } else {
+          box.appendChild(mk("p", "We will email your " + PMN[k] + " payment details to " + v("em") + " today."));
+        }
+        $("#paynote").textContent = "Put \u201c" + v("biz") + "\u201d in the payment note so we can match it.";
+      }
+      $("#paylist").innerHTML = ""; ["zelle", "cashapp", "venmo"].forEach(function (k) { var b = mk("button", PMN[k]); b.type = "button"; b.dataset.k = k; b.setAttribute("role", "tab"); b.addEventListener("click", function () { showPay(k); }); $("#paylist").appendChild(b); });
+      showPay(pm);
       if (window.__copy) { $("#copyrow").hidden = false; }
       scrollTo(0, 0); }
     function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n")); setTimeout(done, 600); }

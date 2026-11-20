@@ -2,7 +2,7 @@
    Uses TradingView's free ticker-tape widget (quotes come from TradingView; their credit link must stay visible).
    Nothing loads until mount() is called, and the tape is removed again if the widget never arrives (ad blockers, offline).
    Usage: MosesTicker.mount(element)            fills the element
-          MosesTicker.mount(element, { theme: "dark" }) */
+          MosesTicker.mount(element, { theme: "dark", onFail: function () {} })   onFail runs if the tape never arrives */
 (function () {
   "use strict";
   /* Sector funds first, then the largest technology companies by group. */
@@ -43,7 +43,8 @@
       colorTheme: opts.theme === "dark" ? "dark" : "light",
       locale: "en"
     });
-    s.onerror = function () { el.textContent = ""; el.removeAttribute("data-ticker"); };
+    function fail() { el.textContent = ""; el.removeAttribute("data-ticker"); if (typeof opts.onFail === "function") opts.onFail(); }
+    s.onerror = fail;
     box.appendChild(s);
     /* the credit TradingView asks for; screen readers and no-frame browsers get it as a plain link */
     var credit = document.createElement("a");
@@ -55,7 +56,7 @@
     el.appendChild(box);
     el.appendChild(credit);
     /* if nothing arrived after a while, take the empty band away */
-    setTimeout(function () { if (!el.querySelector("iframe")) { el.textContent = ""; el.removeAttribute("data-ticker"); } }, 9000);
+    setTimeout(function () { if (!el.querySelector("iframe")) fail(); }, 9000);
   }
 
   window.MosesTicker = { mount: mount, symbols: SYMBOLS };

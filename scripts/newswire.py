@@ -514,9 +514,6 @@ nav.site { display:flex; gap:1.4rem; flex-wrap:wrap; }
 nav.site a { color:var(--ink); text-decoration:none; font:500 1rem/1.2 var(--f); padding:.4rem 0; border-bottom:2px solid transparent; }
 nav.site a[aria-current="page"] { color:var(--blue); border-bottom-color:var(--lime); }
 nav.site a:hover { color:var(--blue); }
-.tape { border-bottom:1px solid var(--line); background:#fff; height:47px; overflow:hidden; position:relative; }
-.tape:empty { display:none; }
-.tape .ticker-credit { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 .hero .wrap { padding:clamp(2rem, 5vw, 3.6rem) 16px 1.2rem; }
 .kicker { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0 0 1rem; display:flex; align-items:center; gap:.6rem; }
 .kicker i { width:10px; height:10px; border-radius:50%; background:#18B26B; box-shadow:0 0 0 0 rgba(24,178,107,.5); animation:pulse 2s infinite; }
@@ -528,6 +525,7 @@ h1 { font:500 clamp(2.1rem, 5.2vw, 3.6rem)/1.03 var(--f); letter-spacing:-.04em;
 .stats b { display:block; font:600 1.7rem/1.1 var(--f); letter-spacing:-.03em; color:var(--ink); }
 .rule { width:72px; height:6px; background:var(--lime); border-radius:3px; margin:1.4rem 0 0; }
 .bar { position:sticky; top:76px; z-index:15; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); }
+html.has-ticker .bar { top:123px; }
 .bar .wrap { padding-top:.7rem; padding-bottom:.7rem; display:grid; gap:.6rem; }
 .chips { display:flex; gap:.5rem; overflow-x:auto; scrollbar-width:none; padding-bottom:2px; }
 .chips::-webkit-scrollbar { display:none; }
@@ -580,7 +578,7 @@ footer.site .base a:hover { color:var(--blue); }
 @media (max-width:700px) {
   header.top { position:static; } header.top .wrap { flex-direction:column; align-items:flex-start; gap:.3rem; min-height:0; padding:.8rem 16px .5rem; }
   .brand img { height:30px; } nav.site { width:100%; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; gap:1.1rem; } nav.site::-webkit-scrollbar { display:none; } nav.site a { white-space:nowrap; }
-  .bar { top:0; } .find span { display:none; }
+  .bar { top:0; } html.has-ticker .bar { top:47px; } .find span { display:none; }
   .stats { gap:.4rem 1.4rem; } .stats b { font-size:1.35rem; }
   .it { grid-template-columns:1fr; } .it .meta { display:flex; gap:.6rem; padding-top:0; } .it time { display:inline; }
 }
@@ -655,7 +653,6 @@ JS = r"""
       }).catch(function () { count.textContent = "Search could not load. Try again."; });
     }, 160);
   });
-  if (window.MosesTicker && document.getElementById("tape")) window.MosesTicker.mount(document.getElementById("tape"));
 })();
 """
 
@@ -686,8 +683,11 @@ def shell(title, desc, path, body, extra_head="", ld=None, nav="newswire"):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
 {ld_tag}{extra_head}<style>{CSS}</style>
+<link rel="stylesheet" href="/vendor/site-ticker.css">
+<script src="/vendor/site-ticker.js" defer></script>
 </head>
 <body>
+<div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div><script>document.documentElement.classList.add("has-ticker")</script>
 <header class="top"><div class="wrap">
   <a class="brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
   <nav class="site" aria-label="Site">
@@ -786,8 +786,7 @@ def write_pages(rows, sources, last_ok, now):
               "isPartOf": {"@type": "WebSite", "name": "Moses Agentic", "url": SITE + "/"},
               "mainEntity": {"@type": "ItemList", "itemListElement": [
                   {"@type": "ListItem", "position": i + 1, "name": r[2], "url": r[3]} for i, r in enumerate(chosen[:25])]}}
-        body = f"""<div class="tape" id="tape" aria-label="Technology sector stocks"></div>
-<section class="hero"><div class="wrap">
+        body = f"""<section class="hero"><div class="wrap">
   <p class="kicker"><i aria-hidden="true"></i>AI Newswire</p>
   <h1>{esc(h1)}</h1>
   <p class="lead">{esc(lead)}</p>
@@ -807,7 +806,6 @@ def write_pages(rows, sources, last_ok, now):
 <p class="note">Times are Eastern. Headlines and excerpts belong to their publishers, and every link goes to the original story. Stock quotes by <a href="https://www.tradingview.com/" target="_blank" rel="noopener nofollow">TradingView</a>. <a href="/newswire/sources/">See all {n_src} sources</a>, or <a href="mailto:welcome@mosesagentic.com?subject=Source%20for%20the%20AI%20Newswire">suggest one</a>.</p>
 </div></main>
 <script type="application/json" id="nw">{json.dumps(conf).replace("<", "\\u003c")}</script>
-<script src="/vendor/tech-ticker.js" defer></script>
 <script>document.addEventListener("DOMContentLoaded", function () {{{JS}}});</script>"""
         page = shell(title, desc, topic_path(key), body, ld=ld)
         target = OUT / "index.html" if key == "ai" else OUT / key / "index.html"
@@ -844,6 +842,16 @@ def write_pages(rows, sources, last_ok, now):
         "topics": [[BIT[k], k, lab] for k, lab, _, _ in TOPICS],
         "src": [[s["name"], s["site"], s["feed"], last_ok.get(s["feed"], 0)] for s in sources],
         "items": rows}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+    # the front page's news button reads this: the newest AI headlines, one per source
+    seen_src, latest = set(), []
+    for r in rows:
+        if r[5] & BIT["ai"] and r[1] not in seen_src and len(r[2]) <= 140:
+            seen_src.add(r[1])
+            latest.append([r[2], sources[r[1]]["name"]])
+            if len(latest) >= 10:
+                break
+    (OUT / "latest.json").write_text(json.dumps({"items": latest}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     # one combined feed of the AI stream
     def rfc(ts):

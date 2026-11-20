@@ -1,0 +1,16 @@
+/* Site-wide technology stock ticker: one band at the top of every public page, in view as the page scrolls.
+   Each page has  <div class="site-ticker" id="site-ticker"></div>  right after <body>, followed by a one-line
+   script that sets html.has-ticker. Without that class (no script, or the quotes never arrived) the band takes
+   no room and nothing below is offset. /vendor/site-ticker.js fills the band. */
+.site-ticker { display: none; }
+html.has-ticker .site-ticker { display: block; position: -webkit-sticky; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 32; height: 47px; overflow: hidden; background: #FFFFFF; border-bottom: 1px solid #E3EAF4; }
+.site-ticker .ticker-credit { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* sticky headers sit under the band, and jumps to a section leave room for it */
+html.has-ticker header.top { top: calc(env(safe-area-inset-top, 0px) + 47px); }
+html.has-ticker { scroll-padding-top: 47px; }
+html.has-ticker .sc-side { top: calc(var(--hdr) + 63px); }
+/* home page: the first screen is the band plus the hero */
+html.has-ticker.v2.site-moses .v2top { min-height: calc(100vh - 47px); min-height: calc(100svh - 47px); }
+/* while the page is pinch-zoomed the moving band is not drawn (see the zoom notes in the home page) */
+html.v2zoom .site-ticker { visibility: hidden; }
+@media print { html.has-ticker .site-ticker { display: none; } }

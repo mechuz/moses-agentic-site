@@ -37,9 +37,6 @@ nav.site { display:flex; gap:1.4rem; flex-wrap:wrap; }
 nav.site a { color:var(--ink); text-decoration:none; font:500 1rem/1.2 var(--f); padding:.4rem 0; border-bottom:2px solid transparent; }
 nav.site a[aria-current="page"] { color:var(--blue); border-bottom-color:var(--lime); }
 nav.site a:hover { color:var(--blue); }
-.tape { border-bottom:1px solid var(--line); background:#fff; height:47px; overflow:hidden; position:relative; }
-.tape:empty { display:none; }
-.tape .ticker-credit { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 .hero .wrap { padding:clamp(2rem, 5vw, 3.6rem) 16px 1.2rem; }
 .kicker { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0 0 1rem; display:flex; align-items:center; gap:.6rem; }
 .kicker i { width:10px; height:10px; border-radius:50%; background:#18B26B; box-shadow:0 0 0 0 rgba(24,178,107,.5); animation:pulse 2s infinite; }
@@ -51,6 +48,7 @@ h1 { font:500 clamp(2.1rem, 5.2vw, 3.6rem)/1.03 var(--f); letter-spacing:-.04em;
 .stats b { display:block; font:600 1.7rem/1.1 var(--f); letter-spacing:-.03em; color:var(--ink); }
 .rule { width:72px; height:6px; background:var(--lime); border-radius:3px; margin:1.4rem 0 0; }
 .bar { position:sticky; top:76px; z-index:15; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); }
+html.has-ticker .bar { top:123px; }
 .bar .wrap { padding-top:.7rem; padding-bottom:.7rem; display:grid; gap:.6rem; }
 .chips { display:flex; gap:.5rem; overflow-x:auto; scrollbar-width:none; padding-bottom:2px; }
 .chips::-webkit-scrollbar { display:none; }
@@ -103,13 +101,16 @@ footer.site .base a:hover { color:var(--blue); }
 @media (max-width:700px) {
   header.top { position:static; } header.top .wrap { flex-direction:column; align-items:flex-start; gap:.3rem; min-height:0; padding:.8rem 16px .5rem; }
   .brand img { height:30px; } nav.site { width:100%; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; gap:1.1rem; } nav.site::-webkit-scrollbar { display:none; } nav.site a { white-space:nowrap; }
-  .bar { top:0; } .find span { display:none; }
+  .bar { top:0; } html.has-ticker .bar { top:47px; } .find span { display:none; }
   .stats { gap:.4rem 1.4rem; } .stats b { font-size:1.35rem; }
   .it { grid-template-columns:1fr; } .it .meta { display:flex; gap:.6rem; padding-top:0; } .it time { display:inline; }
 }
 </style>
+<link rel="stylesheet" href="/vendor/site-ticker.css">
+<script src="/vendor/site-ticker.js" defer></script>
 </head>
 <body>
+<div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div><script>document.documentElement.classList.add("has-ticker")</script>
 <header class="top"><div class="wrap">
   <a class="brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
   <nav class="site" aria-label="Site">
@@ -120,12 +121,11 @@ footer.site .base a:hover { color:var(--blue); }
     <a href="/">Home</a>
   </nav>
 </div></header>
-<div class="tape" id="tape" aria-label="Technology sector stocks"></div>
 <section class="hero"><div class="wrap">
   <p class="kicker"><i aria-hidden="true"></i>AI Newswire</p>
   <h1>Superintelligence and AI safety news.</h1>
   <p class="lead">Superintelligence, AGI timelines, alignment, safety research, governance and policy.</p>
-  <ul class="stats"><li><b>558</b>sources</li><li><b>2,497</b>headlines on the wire</li></ul>
+  <ul class="stats"><li><b>558</b>sources</li><li><b>2,493</b>headlines on the wire</li></ul>
   <div class="rule" aria-hidden="true"></div>
 </div></section>
 <div class="bar"><div class="wrap">
@@ -141,7 +141,6 @@ footer.site .base a:hover { color:var(--blue); }
 <p class="note">Times are Eastern. Headlines and excerpts belong to their publishers, and every link goes to the original story. Stock quotes by <a href="https://www.tradingview.com/" target="_blank" rel="noopener nofollow">TradingView</a>. <a href="/newswire/sources/">See all 558 sources</a>, or <a href="mailto:welcome@mosesagentic.com?subject=Source%20for%20the%20AI%20Newswire">suggest one</a>.</p>
 </div></main>
 <script type="application/json" id="nw">{"bit": 2, "page": 200, "tags": [[4, "Labs and models"], [8, "Research"], [16, "Chips and compute"], [32, "Robotics"], [64, "Business and funding"], [128, "Security"], [256, "Developers"], [512, "Science and space"]], "total": "100 headlines"}</script>
-<script src="/vendor/tech-ticker.js" defer></script>
 <script>document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var C = JSON.parse(document.getElementById("nw").textContent);
@@ -210,7 +209,6 @@ footer.site .base a:hover { color:var(--blue); }
       }).catch(function () { count.textContent = "Search could not load. Try again."; });
     }, 160);
   });
-  if (window.MosesTicker && document.getElementById("tape")) window.MosesTicker.mount(document.getElementById("tape"));
 })();
 });</script>
 <footer class="site"><div class="wrap">

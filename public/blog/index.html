@@ -82,8 +82,11 @@ main .wrap { padding:1rem 16px 2rem; }
 .share { background:var(--soft); border:1px solid var(--line); border-radius:20px; padding:1.4rem 1.5rem; margin-top:2.6rem; color:var(--ink); font-size:1.05rem; }
 .share a { font-weight:600; }
 </style>
+<link rel="stylesheet" href="/vendor/site-ticker.css">
+<script src="/vendor/site-ticker.js" defer></script>
 </head>
 <body>
+<div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div><script>document.documentElement.classList.add("has-ticker")</script>
 <header class="top"><div class="wrap">
   <a class="brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
   <nav class="site" aria-label="Site">

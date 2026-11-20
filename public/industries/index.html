@@ -2370,17 +2370,48 @@ html.v2[dir="rtl"] .v2hl, html.v2[dir="rtl"] .v2rot em, html.v2[dir="rtl"] .v2on
 @keyframes v2letter { from { opacity: 0; transform: translateY(.5em) rotate(6deg); } to { opacity: 1; transform: none; } }
 @keyframes v2swap { from { opacity: 0; transform: translateY(.6em); } to { opacity: 1; transform: none; } }
 @keyframes v2mq { to { transform: translateX(-50%); } }
+/* Front page: the news button. A pill under the hero lines with a blinking "on air" dot and the latest AI Newswire
+   headlines running through it. The whole pill is one link to /newswire/. English in every language (the headlines are). */
+.v2wire { display: flex; align-items: center; gap: .7rem; width: min(100%, 580px); margin: 1.4rem auto 0; padding: .5rem 1.1rem .5rem .55rem; border: 1px solid #E3EAF4; border-radius: 999px; background: rgba(255,255,255,.92); box-shadow: 0 10px 30px -18px rgba(11,37,69,.45); color: #0B2545; text-decoration: none; font: 500 1rem/1.2 var(--f-body); direction: ltr; text-align: start; transition: border-color .2s, transform .2s, box-shadow .2s; }
+.v2wire:hover { border-color: #1F6FFF; transform: translateY(-2px); box-shadow: 0 14px 34px -16px rgba(31,111,255,.55); }
+.v2wire:focus-visible { outline: 3px solid #0B2545; outline-offset: 3px; }
+.v2wire-ic { flex: none; position: relative; width: 36px; height: 36px; border-radius: 50%; background: #1F6FFF; display: grid; place-items: center; }
+.v2wire-ic svg { width: 20px; height: 20px; fill: #FFFFFF; display: block; }
+.v2wire-ic::after { content: ""; position: absolute; top: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #C6F432; border: 2px solid #FFFFFF; animation: v2air 1.6s ease-in-out infinite; }
+@keyframes v2air { 50% { transform: scale(1.3); opacity: .5; } }
+.v2wire b { flex: none; font-weight: 700; color: #1F6FFF; white-space: nowrap; }
+/* the running text is taken out of the layout (absolute), so its length can never widen the hero */
+.v2wire-run { flex: 1 1 0; min-width: 0; position: relative; height: 1.3em; overflow: hidden; white-space: nowrap; -webkit-mask-image: linear-gradient(90deg, transparent, #000 1rem, #000 calc(100% - 1rem), transparent); mask-image: linear-gradient(90deg, transparent, #000 1rem, #000 calc(100% - 1rem), transparent); }
+.v2wire-run > span { position: absolute; left: 0; top: 0; line-height: 1.3em; padding-left: 1rem; }
+.v2top > .v2in { min-width: 0; }
+.v2wire-run.go > span { animation: v2crawl var(--crawl, 80s) linear infinite; }
+.v2wire:hover .v2wire-run.go > span { animation-play-state: paused; }
+@keyframes v2crawl { to { transform: translateX(-50%); } }
+.v2wire .arrow { flex: none; color: #1F6FFF; font-weight: 700; }
+html.v2zoom .v2wire-run.go > span, html.v2zoom .v2wire-ic::after { animation: none !important; }
+@media (prefers-reduced-motion: reduce) { .v2wire-run.go > span, .v2wire-ic::after { animation: none !important; } }
+@media (max-width: 700px) { .v2wire { margin-top: 1.1rem; gap: .55rem; padding-right: .9rem; } }
 /* The brand name is Latin in every language: without this its letters were laid out backwards in Hebrew and Yiddish. */
 .v2name { direction: ltr; unicode-bidi: isolate; }
 /* The four sections are reached from the bottom menu only. The tiles that repeated them in the hero were removed
    (ownership: "it should just be in one place"), so the .v2four rules above are no longer used.
    Phones: the first screen (mark, name, two lines) sits whole above the bottom menu. The script (v2Fit) sets --dockh
    to the menu's real height and scales the block down a little on very short phones. */
+/* Every screen: the hero keeps clear of the bottom menu (--dockh is its real height, set by v2Fit). On a short screen
+   v2Fit first tightens the hero (.snug), then drops the mark (.tight), then scales the block. */
+html.v2.site-moses .v2top { padding-bottom: calc(var(--dockh, 96px) + 1rem); }
+.v2top.tight .v2sage { display: none; }
+@media (min-width: 701px) {
+  html.v2.site-moses .v2top.snug { padding-top: calc(76px + .8rem); }
+  .v2top.snug .v2sage { width: 92px; margin-bottom: .8rem; }
+  .v2top.snug .v2rot { margin-top: 1rem; }
+  .v2top.snug .v2loc { margin-top: 1.4rem; }
+  .v2top.snug .v2wire { margin-top: 1rem; }
+}
 @media (max-width: 700px) {
   html.v2.site-moses .v2top { padding-top: calc(76px + .7rem); padding-bottom: calc(var(--dockh, 96px) + .7rem); }
   .v2top .v2name { font-size: min(3rem, 11.4vw); }
   .v2top .v2rot em { display: block; width: fit-content; max-width: 100%; margin-inline: auto; }
-  .v2top.tight .v2sage { display: none; }
 }
 /* Bottom menu on phones: three whole tiles and Pricing, and a swipe always stops on a whole tile. */
 @media (max-width: 575px) {
@@ -2514,8 +2545,11 @@ html.wbx-on, html.wbx-on body { overflow: hidden !important; }
 .site-chocham .teamlink{display:none}
 @media (max-width:900px){.teamlink{margin-inline-start:auto;padding:.4rem;border:0}.teamlink span{display:none}}
 </style>
+<link rel="stylesheet" href="/vendor/site-ticker.css">
+<script src="/vendor/site-ticker.js" defer></script>
 </head>
 <body>
+<div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div><script>document.documentElement.classList.add("has-ticker")</script>
 
 <div class="trnote" id="trnote" hidden></div>
 <header class="top">
@@ -14793,6 +14827,7 @@ function setView(v, write = true) {
   setPageTitle(v);
   $$(".nav [data-view], #tabstrip [data-view]").forEach(b => b.setAttribute("aria-current", b.dataset.view === v ? "page" : "false"));
   scrollTo(0, 0);
+  if (window.v2Fit) requestAnimationFrame(() => window.v2Fit());   /* the hero may have been hidden when it was last fitted */
   if (write && CONFIG.prettyUrls) { const path = v === "cases" ? "/case-studies/" : v === "industries" ? "/industries/" : "/"; if (location.pathname !== path) history.pushState(null, "", path + (path === "/" ? location.hash : "")); }
   else if (write && location.hash !== "#booked") {
     const h = v === "cases" ? "#case-studies" : v === "industries" ? "#industries" : v === "education" && CONFIG.site !== "chocham" ? "#education" : "#" + (["en", "yi", "he", "es"].includes(lang) ? lang : "lang");
@@ -16433,7 +16468,8 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         <h1 class="v2name" aria-label="Moses Agentic">${[..."Moses"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")} <b>${[..."\u039Bgentic"].map((c, i) => `<span style="--i:${i + 6}">${c}</span>`).join("")}</b></h1>
         <p class="v2tag">${E(t("v2.tag"))}</p>
         <p class="v2rot"><span>${E(t("v2.for"))}</span> <em id="v2rot">${E(((t("v2.fn") || [[0, ""]])[0])[1])}</em></p>
-        <p class="v2loc">${E(t("loc.t"))}</p></div></section>
+        <p class="v2loc">${E(t("loc.t"))}</p>
+        <a class="v2wire" id="v2wire" href="/newswire/" aria-label="AI Newswire: the latest AI and technology headlines"><span class="v2wire-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h9A1.5 1.5 0 0 1 16 5.5V8h2.5A1.5 1.5 0 0 1 20 9.5V17a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zM16 10v7a1 1 0 1 0 2 0v-7zM6.5 7v4h7V7zm0 6v1.5h7V13zm0 3v1.5h5V16z" fill-rule="evenodd"/></svg></span><b>AI Newswire</b><span class="v2wire-run" id="v2wire-run" aria-hidden="true"><span>The latest AI and technology headlines</span></span><span class="arrow" aria-hidden="true">→</span></a></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
         <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>
         <p class="v2k">${E(t("v2.proof_k"))}</p>
@@ -16471,17 +16507,18 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   const vv = window.visualViewport, zoomedNow = () => !!vv && vv.scale > 1.02;
   const zoomSync = () => { document.documentElement.classList.toggle("v2zoom", zoomedNow()); if (fxApi) fxApi.wake(); };
   if (vv) { vv.addEventListener("resize", zoomSync); zoomSync(); }
-  let fitW = innerWidth;
-  addEventListener("resize", () => { clearTimeout(fxT); fxT = setTimeout(() => { if (innerWidth !== fitW) { fitW = innerWidth; v2Fit(); } if (fxApi) fxApi.resize(); }, 180); });
+  let fitW = innerWidth, fitH = innerHeight;
+  addEventListener("resize", () => { clearTimeout(fxT); fxT = setTimeout(() => { if (innerWidth !== fitW || (innerWidth > 700 && innerHeight !== fitH)) { fitW = innerWidth; fitH = innerHeight; v2Fit(); } if (fxApi) fxApi.resize(); }, 180); });
   document.addEventListener("visibilitychange", () => { if (fxApi) fxApi.wake(); });
-  /* Phones: fit the first screen above the bottom menu. Runs after each render and when the width changes, never on
-     the height changes an iPhone reports as its toolbar slides, and never while the page is pinch-zoomed. */
+  /* Fit the first screen above the bottom menu, on every screen size. Runs after each render and when the window
+     changes size (on phones only when the width changes, never on the height changes an iPhone reports as its toolbar
+     slides), and never while the page is pinch-zoomed. */
   function v2Fit() {
     const top = document.getElementById("v2-top"), inn = top && top.querySelector(".v2in"), dock = document.getElementById("v2dock");
     if (!inn || zoomedNow()) return;
     const rot = document.getElementById("v2rot"), line = rot && rot.parentElement;
-    top.classList.remove("tight"); inn.style.zoom = ""; if (line) line.style.minHeight = "";
-    if (innerWidth > 700 || !dock || !dock.offsetHeight) { top.style.removeProperty("--dockh"); return; }
+    top.classList.remove("snug", "tight"); inn.style.zoom = ""; if (line) line.style.minHeight = "";
+    if (!dock || !dock.offsetHeight || !inn.offsetHeight) return;   /* menu hidden, or another view is showing */
     top.style.setProperty("--dockh", dock.offsetHeight + "px");
     /* the changing words: keep room for the tallest one, so nothing moves when they change */
     if (line && typeof t === "function") { const cur = rot.textContent; let h = line.offsetHeight;
@@ -16489,14 +16526,33 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
     /* the height with the browser's bars showing (100svh), which does not change as they slide away */
     let probe = document.getElementById("v2svh");
     if (!probe) { probe = document.createElement("div"); probe.id = "v2svh"; probe.setAttribute("aria-hidden", "true"); probe.style.cssText = "position:fixed;top:0;left:0;width:0;height:100svh;visibility:hidden;pointer-events:none"; document.body.appendChild(probe); }
-    const cs = getComputedStyle(top), room = (probe.offsetHeight || innerHeight) - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
-    let need = inn.offsetHeight;
-    if (need > room * 1.16) { top.classList.add("tight"); need = inn.offsetHeight; }
-    const k = Math.max(.74, Math.min(1, room / need));
+    const tick = (document.getElementById("site-ticker") || {}).offsetHeight || 0; /* the stock ticker band above the header */
+    const svh = probe.offsetHeight || innerHeight;
+    const room = () => { const cs = getComputedStyle(top); return svh - tick - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom); };
+    if (inn.offsetHeight > room()) top.classList.add("snug");
+    if (inn.offsetHeight > room() * 1.16) top.classList.add("tight");
+    const k = Math.max(.74, Math.min(1, room() / inn.offsetHeight));
     if (k < .995) inn.style.zoom = k.toFixed(3);
   }
-  window.v2Fit = v2Fit;
+  window.v2Fit = () => { v2Fit(); if (fxApi) fxApi.resize(); };   /* for callers outside: fit, then size the dot field to the hero */
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { v2Fit(); if (fxApi) fxApi.resize(); });
+  /* front page news button: the latest AI Newswire headlines run through it (a small file written with the newswire) */
+  let wireItems = null;
+  function v2Wire() {
+    const run = document.getElementById("v2wire-run"), sp = run && run.firstElementChild; if (!sp) return;
+    const fill = items => {
+      if (!sp.isConnected || !items.length) return;
+      if (calm) { sp.textContent = String(items[0][1]) + ": " + String(items[0][0]); return; }
+      const line = items.slice(0, 8).map(x => String(x[1]) + ": " + String(x[0])).join("   \u2022   ") + "   \u2022   ";
+      sp.textContent = line + line; run.classList.remove("go");
+      requestAnimationFrame(() => { run.style.setProperty("--crawl", Math.max(40, Math.round(sp.scrollWidth / 2 / 46)) + "s"); run.classList.add("go"); });
+    };
+    if (wireItems) return fill(wireItems);
+    fetch("/newswire/latest.json").then(r => r.ok ? r.json() : null).then(d => {
+      const items = d && Array.isArray(d.items) ? d.items.filter(x => Array.isArray(x) && x[0] && x[1]) : [];
+      if (items.length) { wireItems = items; fill(items); }
+    }).catch(() => {});
+  }
   /* phones: the bottom menu slides so the lit tile is on screen */
   function dockShow() {
     const d = document.getElementById("v2dock"), on = d && d.querySelector("button.on:not(.buy)"); if (!on || d.scrollWidth <= d.clientWidth + 1) return;
@@ -16527,6 +16583,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
     clearInterval(rotTimer);
     const rot = document.getElementById("v2rot"), words = (t("v2.fn") || []).map(x => x[1]);
     if (rot && words.length > 1 && !calm) { let k = 0; rotTimer = setInterval(() => { if (!rot.isConnected) return clearInterval(rotTimer); k = (k + 1) % words.length; rot.classList.remove("swap"); void rot.offsetWidth; rot.textContent = words[k]; rot.classList.add("swap"); }, 1900); }
+    v2Wire();
     v2Fit();
     field();
   }

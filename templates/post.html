@@ -94,8 +94,11 @@ article ul.checklist li::before { content:"✓"; position:absolute; inset-inline
 .source { margin-top:1.4rem; font-size:1rem; }
 @media (max-width:640px) { .cta { border-radius:18px; padding:1.5rem 1.2rem; } }
 </style>
+<link rel="stylesheet" href="/vendor/site-ticker.css">
+<script src="/vendor/site-ticker.js" defer></script>
 </head>
 <body>
+<div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div><script>document.documentElement.classList.add("has-ticker")</script>
 <header class="top"><div class="wrap">
   <a class="brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
   <nav class="site" aria-label="Site">

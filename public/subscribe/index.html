@@ -159,9 +159,24 @@ html.v2 .inits label, html.v2 .kt { color: #0B2545; }
 html.v2 .chk a { color: #1F6FFF; }
 html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { color: #1F6FFF; }
 </style>
+<link rel="stylesheet" href="/vendor/site-header.css">
+<script src="/vendor/site-shell.js" defer></script>
+<style>
+/* the front page's header and moving dots (site-header.css); the dots sit behind the top of the page and fade out */
+.co-fx { position: absolute; left: 0; right: 0; top: 0; height: clamp(440px, 72vh, 660px); overflow: hidden; z-index: 0; pointer-events: none;
+  -webkit-mask-image: linear-gradient(#000 55%, transparent); mask-image: linear-gradient(#000 55%, transparent); }
+#app { position: relative; z-index: 1; }
+html:not(.v2) .co-fx { display: none; }
+#checkout { scroll-margin-top: 84px; }
+</style>
 </head>
 <body>
-<div class="bar"><div class="in"><a href="/" aria-label="Moses Agentic home"><img src="/logo-full-light.png" alt="Moses Agentic" id="brandlogo"><script>if (document.documentElement.classList.contains("v2")) document.getElementById("brandlogo").src = "/logo-full.png";</script></a><a class="back" href="/">Back to site</a></div></div>
+<header class="ms-top"><div class="ms-wrap">
+  <a class="ms-brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
+  <div class="ms-langs" role="group" aria-label="Language"><button type="button" lang="en" aria-pressed="true">EN</button><button type="button" class="globe" data-ms-langs aria-haspopup="true" aria-expanded="false" aria-label="More languages" title="More languages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"></path></svg></button><div class="ms-langmenu" id="ms-langmenu" hidden><a href="#" aria-current="true" onclick="document.getElementById('ms-langmenu').hidden=true;return false">English <span>this page</span></a><a href="/#es" lang="es">Español <span>home</span></a><a href="/#yi" lang="yi" dir="rtl">אידיש <span>home</span></a><a href="/#he" lang="he" dir="rtl">עברית <span>home</span></a></div></div>
+  <a class="ms-team" href="https://airtable.com/appzqMaRLQZQDcAMU" target="_blank" rel="noopener" title="Team prospect tracker" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
+</div></header>
+<div class="ms-fxbox co-fx" aria-hidden="true"><canvas class="ms-fx"></canvas></div>
 <main id="app">
   <section id="pick">
     <h1 id="more">Choose your services.</h1>

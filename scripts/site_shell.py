@@ -1,6 +1,7 @@
 """The front page's header, moving-dot hero, bottom menu and footer, as HTML, for the pages the site's scripts
 generate: Insights and Technology news (scripts/publish_from_airtable.py with templates/) and the Tech Newswire
-(scripts/newswire.py). Styles: /vendor/site-shell.css. Behaviour: /vendor/site-shell.js.
+(scripts/newswire.py). Styles: /vendor/site-header.css (header and moving dots) and /vendor/site-shell.css (the rest).
+Behaviour: /vendor/site-shell.js. The checkout page uses HEADER (no ticker) with site-header.css only.
 
 Ownership, November 20, 2026: "No page on the site should look different from the front page."
 
@@ -17,6 +18,7 @@ HEAD = (
     '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
     '<link rel="stylesheet" href="' + FONTS + '">\n'
+    '<link rel="stylesheet" href="/vendor/site-header.css">\n'
     '<link rel="stylesheet" href="/vendor/site-shell.css">\n'
     '<link rel="stylesheet" href="/vendor/site-ticker.css">\n'
     '<script src="/vendor/site-shell.js" defer></script>\n'
@@ -30,10 +32,14 @@ LOCK = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width
 PIN = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
        '<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>')
 
-# the stock ticker band, the header (logo, EN and globe, Team): the first thing in <body>
-TOP = (
+# the stock ticker band
+TICKER = (
     '<div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div>'
-    '<script>document.documentElement.classList.add("has-ticker")</script>\n'
+    '<script>document.documentElement.classList.add("has-ticker")</script>'
+)
+
+# the header (logo, EN and globe, Team)
+HEADER = (
     '<header class="top ms-top"><div class="ms-wrap">\n'
     '  <a class="ms-brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>\n'
     '  <div class="ms-langs" role="group" aria-label="Language">'
@@ -48,6 +54,9 @@ TOP = (
     '  <a class="ms-team" href="https://airtable.com/appzqMaRLQZQDcAMU" target="_blank" rel="noopener" title="Team prospect tracker" aria-label="Team prospect tracker">' + LOCK + '<span>Team</span></a>\n'
     '</div></header>'
 )
+
+# the first thing in <body> on the content pages
+TOP = TICKER + "\n" + HEADER
 
 # the hero: the front page's moving dots behind the page's title block
 FX = '<canvas class="ms-fx" aria-hidden="true"></canvas>'

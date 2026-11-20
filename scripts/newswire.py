@@ -775,7 +775,7 @@ def write_pages(rows, sources, last_ok, now):
             title = "AI Newswire: AI and superintelligence headlines from %d sources | Moses Agentic" % n_src
             desc = "Live AI and superintelligence headlines from %d sources: the labs, research, safety, chips and the technology press, in one place." % n_src
             h1 = "Every AI and superintelligence headline, in one place."
-            lead = "The labs, the research, the safety debate, the chips and the technology press, gathered around the clock and linked to the source."
+            lead = "The labs, the research, the safety debate, the chips and the technology press, gathered in one place and linked to the source."
         else:
             title = "%s | AI Newswire | Moses Agentic" % ptitle
             desc = "%s Live headlines from %d sources, linked to the source." % (pdesc, n_src)
@@ -791,7 +791,7 @@ def write_pages(rows, sources, last_ok, now):
   <p class="kicker"><i aria-hidden="true"></i>AI Newswire</p>
   <h1>{esc(h1)}</h1>
   <p class="lead">{esc(lead)}</p>
-  <ul class="stats"><li><b>{n_src}</b>sources</li><li><b>{format(total, ",")}</b>headlines on the wire</li><li><b>24/7</b>refreshed about every 30 minutes</li></ul>
+  <ul class="stats"><li><b>{n_src}</b>sources</li><li><b>{format(total, ",")}</b>headlines on the wire</li></ul>
   <div class="rule" aria-hidden="true"></div>
 </div></section>
 <div class="bar"><div class="wrap">

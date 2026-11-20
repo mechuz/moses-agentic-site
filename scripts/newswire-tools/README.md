@@ -6,7 +6,7 @@
 |---|---|
 | `scripts/newswire.py` | The builder. Standard library only. `build` reads every feed; `reuse` re-makes the pages from the items already live. |
 | `scripts/newswire_sources.json` | The source list: name, feed address, site address, category. |
-| `public/newswire/` | The pages. The deploy workflow rebuilds them about every 30 minutes; the copy in the repo is only the fallback. |
+| `public/newswire/` | The pages. The deploy workflow rebuilds them whenever GitHub's schedule fires; the copy in the repo is only the fallback. The schedule asks for twice an hour, but GitHub ran it once in eleven hours on November 20, 2026, so the pages make no promise about how often they refresh. A dependable refresh needs ownership's decision (see the CMO open items). |
 | `public/vendor/tech-ticker.js` | The technology stock ticker shown on the newswire pages (TradingView's free widget). |
 | `scripts/newswire-tools/test_newswire.py` | Offline checks: hostile feed content must come out as plain, escaped text. |
 | `scripts/newswire-tools/candidates.py`, `curate.py` | How the source list was made (below). |

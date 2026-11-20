@@ -75,6 +75,8 @@ label.f input:focus { outline: 0; border-bottom-color: var(--lime); }
 .order li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px; align-items: baseline; padding: .85rem 0; border-top: 1px solid var(--line); font: 800 clamp(1.05rem, 1.9vw, 1.4rem)/1.2 var(--d); letter-spacing: -.02em; }
 .order li:last-child { border-bottom: 1px solid var(--line); }
 .order li span { color: var(--lime); white-space: nowrap; }
+.order li span s { opacity: .55; font-weight: 400; margin-right: .35em; }
+.order li.tot { font-weight: 800; }
 .order li button { border: 0; background: transparent; color: var(--mut); font: 700 1.2rem/1 var(--b); cursor: pointer; padding: 4px 8px; }
 .empty { color: var(--mut); margin: 1.2rem 0 0; }
 #f { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); border-radius: 22px; padding: clamp(1.1rem, 2.6vw, 2rem); gap: 1.1rem; position: sticky; top: 84px; }
@@ -334,7 +336,9 @@ html:not(.v2) .co-fx { display: none; }
   var PRICE = { website: { "24": 149, "12": 199, m2m: 199 }, smm: { "24": 499, "12": 549, m2m: 599 } };
   var FD = { 1: -50, 2: 0, 3: 50, 5: 100, 7: 200 }, FN = { 1: "Starter", 2: "Standard", 3: "Plus", 5: "Pro", 7: "Daily" };
   var TERM = { "24": "24-month plan", "12": "12-month plan", m2m: "month to month" };
-  var BUNDLES = { "bundle-1200-24": ["Website, logo design and full rebrand, and four digital workers (Chief Marketing Officer, Chief Operating Officer, front desk, Chief Financial Officer)", 1200, 24] };
+  var BUNDLES = { "bundle-1200-24": ["Website, logo design and full rebrand, and four digital workers (Chief Marketing Officer, Chief Operating Officer, front desk, Chief Financial Officer)", 1200, 24, 3045,
+    [["Your new website", 149, 59], ["Logo design and full rebrand", 0, 0, "Included"], ["Chief Marketing Officer", 799, 315], ["Chief Operating Officer", 799, 315], ["Front desk", 499, 196], ["Chief Financial Officer", 799, 315]]] };
+  function was(reg, now, label) { return (reg ? "<s>" + fmt(reg) + "</s> " : "") + (label ? E(label) : fmt(now) + "/mo"); }
   var AGENTS = [["coo", "Chief Operating Officer (COO)", "Takes over operations, from the back office to the executive level.", 799, "Executive"], ["cmo", "Chief Marketing Officer (CMO)", "Takes over marketing, from the back office to the executive level.", 799, "Executive"], ["cfo", "Chief Financial Officer (CFO)", "Takes over finance, from the back office to the executive level.", 799, "Executive"], ["cio", "Chief Investment Officer (CIO)", "Takes over investments, from the back office to the executive level.", 799, "Executive"],
     ["cre", "Commercial real estate asset manager", "Runs your portfolio's numbers and reporting.", 599, ""], ["broker", "Commercial mortgage broker", "Packages your deals and finds the right lenders.", 599, ""], ["acq", "Acquisitions director", "Finds, screens and underwrites deals for you.", 599, ""],
     ["analyst", "Commercial real estate analyst", "Your underwriting and financial models, fast.", 499, ""], ["research", "Commercial real estate data and research", "Market data and comps, gathered and organized.", 499, ""], ["staff", "Staffing and payroll manager", "Keeps every shift covered and every paycheck right.", 499, ""],
@@ -364,12 +368,15 @@ html:not(.v2) .co-fx { display: none; }
         if (!on) return; m += p;
         lines.push([k, "Website, " + TERM[term], fmt(p) + "/mo"]);
         if (term === "m2m") one += 1999; items.push("Website, " + TERM[term] + ", " + fmt(p) + "/mo" + (term === "m2m" ? " + $1,999 build" : ""));
-      } else if (on && BUNDLES[k]) { var bd = BUNDLES[k]; m += bd[1]; lines.push([k, bd[0] + ", " + bd[2] + "-month contract", fmt(bd[1]) + "/mo"]); items.push(bd[0] + ", " + bd[2] + "-month contract, billed from signing, " + fmt(bd[1]) + "/mo, no build fee"); hasB = true;
+      } else if (on && BUNDLES[k]) { var bd = BUNDLES[k]; m += bd[1]; hasB = true;
+        (bd[4] || []).forEach(function (x) { lines.push(["", x[0], was(x[1], x[2], x[3]), 1]); items.push(x[0] + ": " + (x[3] || fmt(x[2]) + "/mo") + (x[1] ? " (regular " + fmt(x[1]) + "/mo)" : "")); });
+        lines.push([k, "Package total, " + bd[2] + "-month contract, billed from signing", was(bd[3], bd[1]), 1, "tot"]);
+        items.push("Package total: " + fmt(bd[1]) + "/mo" + (bd[3] ? " (regular " + fmt(bd[3]) + "/mo)" : "") + ", " + bd[2] + "-month contract, billed from signing, no build fee");
       } else if (on) { var pr = +row.dataset.price; m += pr; lines.push([k, row.querySelector("b").textContent.replace(/^Executive/, ""), fmt(pr) + "/mo"]); items.push(row.querySelector("b").textContent.replace(/^Executive/, "") + " agent, " + fmt(pr) + "/mo"); }
     });
     $$(".wbt").forEach(function (e) { e.hidden = hasB; }); $$(".bdt").forEach(function (e) { e.hidden = !hasB; });
     $("#tot").textContent = $("#tot2").textContent = fmt(m); $("#one").textContent = $("#one2").textContent = one ? "+ " + fmt(one) + " one-time build" : "";
-    $("#order").innerHTML = lines.map(function (l) { return "<li>" + E(l[1]) + "<span>" + E(l[2]) + '</span><button type="button" data-rm="' + l[0] + '" aria-label="Remove">×</button></li>'; }).join("");
+    $("#order").innerHTML = lines.map(function (l) { return "<li" + (l[4] ? ' class="' + l[4] + '"' : "") + ">" + E(l[1]) + "<span>" + (l[3] ? l[2] : E(l[2])) + "</span>" + (l[0] ? '<button type="button" data-rm="' + l[0] + '" aria-label="Remove">×</button>' : "<i></i>") + "</li>"; }).join("");
     $("#empty").hidden = !!lines.length;
     return { items: items, m: m, one: one };
   }
@@ -410,7 +417,7 @@ html:not(.v2) .co-fx { display: none; }
   var pcodes = (q.get("p") || "").split(","), bcode = pcodes.map(function (c) { return c.trim().toLowerCase().split("~")[0]; }).filter(function (c) { return BUNDLES[c]; })[0];
   if (bcode) {
     var B = BUNDLES[bcode];
-    $("#agents").insertAdjacentHTML("afterbegin", '<label class="svc" data-svc="' + bcode + '" data-price="' + B[1] + '"><input type="checkbox" checked><b>' + E(B[0]) + '</b><span class="price">' + fmt(B[1]) + '<small>/mo</small></span><p>Your package: one flat price on a ' + B[2] + '-month contract, billed from signing. No build fee.</p></label>');
+    $("#agents").insertAdjacentHTML("afterbegin", '<label class="svc" data-svc="' + bcode + '" data-price="' + B[1] + '"><input type="checkbox" checked><b>' + E(B[0]) + '</b><span class="price">' + fmt(B[1]) + '<small>/mo</small></span><p>Your package: one flat price on a ' + B[2] + '-month contract, billed from signing. No build fee.</p><ul class="inc">' + (B[4] || []).map(function (x) { return "<li>" + E(x[0]) + " <span>" + was(x[1], x[2], x[3]) + "</span></li>"; }).join("") + '</ul></label>');
     pcodes = [];
   }
   pcodes.forEach(function (code) {

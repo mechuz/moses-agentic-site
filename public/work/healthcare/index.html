@@ -2370,6 +2370,29 @@ html.v2[dir="rtl"] .v2hl, html.v2[dir="rtl"] .v2rot em, html.v2[dir="rtl"] .v2on
 @keyframes v2letter { from { opacity: 0; transform: translateY(.5em) rotate(6deg); } to { opacity: 1; transform: none; } }
 @keyframes v2swap { from { opacity: 0; transform: translateY(.6em); } to { opacity: 1; transform: none; } }
 @keyframes v2mq { to { transform: translateX(-50%); } }
+/* The brand name is Latin in every language: without this its letters were laid out backwards in Hebrew and Yiddish. */
+.v2name { direction: ltr; unicode-bidi: isolate; }
+/* Phones: the first screen (mark, name, two lines, four tiles) sits whole above the bottom menu.
+   The script (v2Fit) sets --dockh to the menu's real height and scales the block down a little on shorter phones. */
+@media (max-width: 700px) {
+  html.v2.site-moses .v2top { padding-top: calc(76px + .7rem); padding-bottom: calc(var(--dockh, 96px) + .7rem); }
+  .v2top .v2sage { width: 62px; margin-bottom: .7rem; }
+  .v2top .v2name { font-size: min(3rem, 11.4vw); }
+  .v2top .v2tag { margin-top: .8rem; }
+  .v2top .v2rot { margin-top: .9rem; }
+  .v2top .v2rot em { display: block; width: fit-content; max-width: 100%; margin-inline: auto; font-size: 1.15em; }
+  .v2top .v2four { gap: .5rem .6rem; margin-top: 1.2rem; }
+  .v2top .v2four button { gap: .5rem; padding: .3rem .2rem; font-size: 1rem; }
+  .v2top .v2four .v2ic { width: 48px; height: 48px; }
+  .v2top .v2loc { margin-top: .9rem; }
+  .v2top.tight .v2sage { display: none; }
+}
+/* Bottom menu on phones: three whole tiles and Pricing, and a swipe always stops on a whole tile. */
+@media (max-width: 575px) {
+  html.v2 .v2dock { scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+  html.v2 .v2dock button { flex: 0 0 calc((100vw - 96px) / 3); min-width: 0; padding-inline: .15rem; font-size: clamp(.9rem, 4.1vw, 1rem); scroll-snap-align: start; }
+  html.v2 .v2dock button.buy { flex: 0 0 96px; scroll-snap-align: none; }
+}
 /* While the page is pinch-zoomed, moving layers are redrawn at the magnified size and can run a phone out of memory.
    The script sets html.v2zoom while visualViewport.scale is above 1. */
 html.v2zoom .v2sage, html.v2zoom .v2four .v2ic, html.v2zoom .v2s .v2in > .v2ic, html.v2zoom .v2mq > div, html.v2zoom .v2name span, html.v2zoom .v2rot em.swap { animation: none !important; }
@@ -16454,8 +16477,40 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   const vv = window.visualViewport, zoomedNow = () => !!vv && vv.scale > 1.02;
   const zoomSync = () => { document.documentElement.classList.toggle("v2zoom", zoomedNow()); if (fxApi) fxApi.wake(); };
   if (vv) { vv.addEventListener("resize", zoomSync); zoomSync(); }
-  addEventListener("resize", () => { clearTimeout(fxT); fxT = setTimeout(() => { if (fxApi) fxApi.resize(); }, 180); });
+  let fitW = innerWidth;
+  addEventListener("resize", () => { clearTimeout(fxT); fxT = setTimeout(() => { if (innerWidth !== fitW) { fitW = innerWidth; v2Fit(); } if (fxApi) fxApi.resize(); }, 180); });
   document.addEventListener("visibilitychange", () => { if (fxApi) fxApi.wake(); });
+  /* Phones: fit the first screen above the bottom menu. Runs after each render and when the width changes, never on
+     the height changes an iPhone reports as its toolbar slides, and never while the page is pinch-zoomed. */
+  function v2Fit() {
+    const top = document.getElementById("v2-top"), inn = top && top.querySelector(".v2in"), dock = document.getElementById("v2dock");
+    if (!inn || zoomedNow()) return;
+    const rot = document.getElementById("v2rot"), line = rot && rot.parentElement;
+    top.classList.remove("tight"); inn.style.zoom = ""; if (line) line.style.minHeight = "";
+    if (innerWidth > 700 || !dock || !dock.offsetHeight) { top.style.removeProperty("--dockh"); return; }
+    top.style.setProperty("--dockh", dock.offsetHeight + "px");
+    /* the changing words: keep room for the tallest one, so nothing moves when they change */
+    if (line && typeof t === "function") { const cur = rot.textContent; let h = line.offsetHeight;
+      (t("v2.fn") || []).forEach(x => { rot.textContent = x[1]; h = Math.max(h, line.offsetHeight); }); rot.textContent = cur; line.style.minHeight = h + "px"; }
+    /* the height with the browser's bars showing (100svh), which does not change as they slide away */
+    let probe = document.getElementById("v2svh");
+    if (!probe) { probe = document.createElement("div"); probe.id = "v2svh"; probe.setAttribute("aria-hidden", "true"); probe.style.cssText = "position:fixed;top:0;left:0;width:0;height:100svh;visibility:hidden;pointer-events:none"; document.body.appendChild(probe); }
+    const cs = getComputedStyle(top), room = (probe.offsetHeight || innerHeight) - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    let need = inn.offsetHeight;
+    if (need > room * 1.16) { top.classList.add("tight"); need = inn.offsetHeight; }
+    const k = Math.max(.74, Math.min(1, room / need));
+    if (k < .995) inn.style.zoom = k.toFixed(3);
+  }
+  window.v2Fit = v2Fit;
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { v2Fit(); if (fxApi) fxApi.resize(); });
+  /* phones: the bottom menu slides so the lit tile is on screen */
+  function dockShow() {
+    const d = document.getElementById("v2dock"), on = d && d.querySelector("button.on:not(.buy)"); if (!on || d.scrollWidth <= d.clientWidth + 1) return;
+    const buy = d.querySelector(".buy"), pad = buy ? buy.offsetWidth : 0, rtl = getComputedStyle(d).direction === "rtl";
+    const D = d.getBoundingClientRect(), r = on.getBoundingClientRect(), lo = D.left + (rtl ? pad : 0), hi = D.right - (rtl ? 0 : pad);
+    const dx = r.left < lo - 1 ? r.left - lo : r.right > hi + 1 ? r.right - hi : 0;
+    if (dx) d.scrollBy({ left: dx, behavior: "smooth" });
+  }
   function v2Motion() {
     const home = document.getElementById("v2home"); if (!home) return;
     /* sections and their parts rise in as they come on screen; figures count up once */
@@ -16471,13 +16526,14 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
     /* the icon bar follows the section on screen */
     if (spy) spy.disconnect();
     if ("IntersectionObserver" in window) {
-      spy = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) document.querySelectorAll("#v2dock [data-v2-go]").forEach(b => b.classList.toggle("on", b.dataset.v2Go === en.target.id)); }), { rootMargin: "-45% 0px -50% 0px" });
+      spy = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { document.querySelectorAll("#v2dock [data-v2-go]").forEach(b => b.classList.toggle("on", b.dataset.v2Go === en.target.id)); dockShow(); } }), { rootMargin: "-45% 0px -50% 0px" });
       ["v2-top", "v2-dw", "v2-ms", "v2-sol", "v2-ac"].forEach(id => { const x = document.getElementById(id); if (x) spy.observe(x); });
     }
     /* the rotating role */
     clearInterval(rotTimer);
     const rot = document.getElementById("v2rot"), words = (t("v2.fn") || []).map(x => x[1]);
     if (rot && words.length > 1 && !calm) { let k = 0; rotTimer = setInterval(() => { if (!rot.isConnected) return clearInterval(rotTimer); k = (k + 1) % words.length; rot.classList.remove("swap"); void rot.offsetWidth; rot.textContent = words[k]; rot.classList.add("swap"); }, 1900); }
+    v2Fit();
     field();
   }
   function count(el) {

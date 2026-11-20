@@ -45,6 +45,8 @@ h2 { font: 700 .82rem/1 var(--b); letter-spacing: .22em; text-transform: upperca
 .opt input:checked + span { background: var(--lime); border-color: var(--lime); color: var(--navy); }
 .opt input:focus-visible + span { outline: 2px solid #fff; outline-offset: 2px; }
 .svc ul.inc { grid-column: 2 / -1; list-style: none; margin: .5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem 1.4rem; max-width: 760px; }
+.svc .inch { grid-column: 2 / -1; margin-top: .9rem; font: 800 .78rem/1 var(--b); letter-spacing: .16em; text-transform: uppercase; opacity: .7; }
+.svc .inch + ul.inc { margin-top: .45rem; }
 .svc ul.inc li { position: relative; padding-inline-start: 1.4rem; color: rgba(255,255,255,.84); font-size: .93rem; }
 .svc ul.inc li::before { content: "\2713"; position: absolute; inset-inline-start: 0; color: var(--lime); font-weight: 900; }
 @media (max-width: 700px) { .svc ul.inc { grid-template-columns: minmax(0, 1fr); } }
@@ -167,7 +169,8 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
     <h3>Website</h3>
     <div>
       <label class="svc off" data-svc="website"><input type="checkbox"><b>Website, built and managed</b><span class="price"></span>
-        <p>Your new website, designed in 24 hours: 5 designs made for your business, then up to 5 rounds of edits. The build is free on a 12- or 24-month plan.</p>
+        <p>Your new website, designed in 24 hours, then hosted and managed by us.</p>
+        <span class="inch">How we build it</span><ul class="inc"><li>5 designs made for your business in 24 hours</li><li>You pick the one you like</li><li>Up to 5 rounds of edits</li><li>We launch it on your domain</li></ul><span class="inch">What's included</span><ul class="inc"><li>The full design and build</li><li>Build is free on a 12- or 24-month plan</li><li>You own your domain name</li><li>You own your content</li></ul><span class="inch">What management includes</span><ul class="inc"><li>Hosting</li><li>Updates to keep it running</li><li>Support by email</li><li>Extra work only with your approval, at $150 an hour</li></ul>
         <span class="opts" role="radiogroup" aria-label="Website plan"><label class="opt"><input type="radio" name="t-website" value="24" checked><span>24 months · $149/mo</span></label><label class="opt"><input type="radio" name="t-website" value="12"><span>12 months · $199/mo</span></label><label class="opt"><input type="radio" name="t-website" value="m2m"><span>Month to month · $199/mo + $1,999 build</span></label></span></label>
     </div>
 

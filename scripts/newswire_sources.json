@@ -1,0 +1,3404 @@
+[
+ {
+  "name": "Anthropic: Engineering",
+  "feed": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_engineering.xml",
+  "site": "https://www.anthropic.com/engineering",
+  "cat": "labs"
+ },
+ {
+  "name": "Anthropic: News",
+  "feed": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml",
+  "site": "https://www.anthropic.com/news",
+  "cat": "labs"
+ },
+ {
+  "name": "Anyscale",
+  "feed": "https://www.anyscale.com/rss.xml",
+  "site": "https://anyscale.com",
+  "cat": "labs"
+ },
+ {
+  "name": "AWS Machine Learning Blog",
+  "feed": "https://aws.amazon.com/blogs/machine-learning/feed/",
+  "site": "https://aws.amazon.com/blogs/machine-learning/",
+  "cat": "labs"
+ },
+ {
+  "name": "Databricks",
+  "feed": "https://www.databricks.com/feed",
+  "site": "https://www.databricks.com",
+  "cat": "labs"
+ },
+ {
+  "name": "DataRobot",
+  "feed": "https://www.datarobot.com/blog/feed",
+  "site": "https://www.datarobot.com/blog/",
+  "cat": "labs"
+ },
+ {
+  "name": "ElevenLabs",
+  "feed": "https://elevenlabs.io/blog/rss.xml",
+  "site": "https://elevenlabs.io/blog",
+  "cat": "labs"
+ },
+ {
+  "name": "GitHub: AI and ML",
+  "feed": "https://github.blog/ai-and-ml/feed/",
+  "site": "https://github.blog/ai-and-ml/",
+  "cat": "labs"
+ },
+ {
+  "name": "Google Cloud: AI and machine learning",
+  "feed": "https://cloudblog.withgoogle.com/products/ai-machine-learning/rss/",
+  "site": "https://cloud.google.com/blog/products/ai-machine-learning/",
+  "cat": "labs"
+ },
+ {
+  "name": "Google DeepMind",
+  "feed": "https://deepmind.google/blog/rss.xml",
+  "site": "https://deepmind.google/blog/",
+  "cat": "labs"
+ },
+ {
+  "name": "Google: AI",
+  "feed": "https://blog.google/technology/ai/rss/",
+  "site": "https://blog.google/innovation-and-ai/technology/ai/",
+  "cat": "labs"
+ },
+ {
+  "name": "Google: DeepMind updates",
+  "feed": "https://blog.google/technology/google-deepmind/rss/",
+  "site": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/",
+  "cat": "labs"
+ },
+ {
+  "name": "Hugging Face",
+  "feed": "https://huggingface.co/blog/feed.xml",
+  "site": "https://huggingface.co/blog",
+  "cat": "labs"
+ },
+ {
+  "name": "Microsoft AI",
+  "feed": "https://news.microsoft.com/source/topics/ai/feed/",
+  "site": "https://news.microsoft.com/source/topics/ai/",
+  "cat": "labs"
+ },
+ {
+  "name": "Microsoft Azure: AI and machine learning",
+  "feed": "https://azure.microsoft.com/en-us/blog/category/ai-machine-learning/feed/",
+  "site": "https://azure.microsoft.com/en-us/blog/category/ai-machine-learning/",
+  "cat": "labs"
+ },
+ {
+  "name": "Mistral AI",
+  "feed": "https://mistral.ai/rss.xml",
+  "site": "https://mistral.ai/",
+  "cat": "labs"
+ },
+ {
+  "name": "Ollama",
+  "feed": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_ollama.xml",
+  "site": "https://ollama.com/blog",
+  "cat": "labs"
+ },
+ {
+  "name": "OpenAI",
+  "feed": "https://openai.com/news/rss.xml",
+  "site": "https://openai.com/news",
+  "cat": "labs"
+ },
+ {
+  "name": "PyTorch",
+  "feed": "https://pytorch.org/blog/feed/",
+  "site": "https://pytorch.org/blog/",
+  "cat": "labs"
+ },
+ {
+  "name": "Replicate",
+  "feed": "https://replicate.com/blog/rss",
+  "site": "https://replicate.com/blog",
+  "cat": "labs"
+ },
+ {
+  "name": "Roboflow",
+  "feed": "https://blog.roboflow.com/rss/",
+  "site": "https://roboflow.com/blog",
+  "cat": "labs"
+ },
+ {
+  "name": "Together AI",
+  "feed": "https://www.together.ai/blog/rss.xml",
+  "site": "https://www.together.ai",
+  "cat": "labs"
+ },
+ {
+  "name": "Weaviate",
+  "feed": "https://weaviate.io/blog/rss.xml",
+  "site": "https://weaviate.io/blog",
+  "cat": "labs"
+ },
+ {
+  "name": "Weights and Biases",
+  "feed": "https://wandb.ai/fully-connected/rss.xml",
+  "site": "https://wandb.ai/fully-connected",
+  "cat": "labs"
+ },
+ {
+  "name": "xAI: News",
+  "feed": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_xainews.xml",
+  "site": "https://x.ai/news",
+  "cat": "labs"
+ },
+ {
+  "name": "Amazon Science",
+  "feed": "https://www.amazon.science/index.rss",
+  "site": "https://www.amazon.science/",
+  "cat": "research"
+ },
+ {
+  "name": "Answer.AI",
+  "feed": "https://www.answer.ai/index.xml",
+  "site": "https://www.answer.ai/",
+  "cat": "research"
+ },
+ {
+  "name": "Anthropic: Research",
+  "feed": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_research.xml",
+  "site": "https://www.anthropic.com/research",
+  "cat": "research"
+ },
+ {
+  "name": "Apple Machine Learning Research",
+  "feed": "https://machinelearning.apple.com/rss.xml",
+  "site": "https://machinelearning.apple.com",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Artificial Intelligence",
+  "feed": "https://export.arxiv.org/rss/cs.AI",
+  "site": "http://rss.arxiv.org/rss/cs.AI",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Computation and Language",
+  "feed": "https://export.arxiv.org/rss/cs.CL",
+  "site": "http://rss.arxiv.org/rss/cs.CL",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Computer Vision",
+  "feed": "https://export.arxiv.org/rss/cs.CV",
+  "site": "http://rss.arxiv.org/rss/cs.CV",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Computers and Society",
+  "feed": "https://export.arxiv.org/rss/cs.CY",
+  "site": "http://rss.arxiv.org/rss/cs.CY",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Information Retrieval",
+  "feed": "https://export.arxiv.org/rss/cs.IR",
+  "site": "http://rss.arxiv.org/rss/cs.IR",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Machine Learning",
+  "feed": "https://export.arxiv.org/rss/cs.LG",
+  "site": "http://rss.arxiv.org/rss/cs.LG",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Multiagent Systems",
+  "feed": "https://export.arxiv.org/rss/cs.MA",
+  "site": "http://rss.arxiv.org/rss/cs.MA",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Neural and Evolutionary Computing",
+  "feed": "https://export.arxiv.org/rss/cs.NE",
+  "site": "http://rss.arxiv.org/rss/cs.NE",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Robotics",
+  "feed": "https://export.arxiv.org/rss/cs.RO",
+  "site": "http://rss.arxiv.org/rss/cs.RO",
+  "cat": "research"
+ },
+ {
+  "name": "arXiv: Statistics ML",
+  "feed": "https://export.arxiv.org/rss/stat.ML",
+  "site": "http://rss.arxiv.org/rss/stat.ML",
+  "cat": "research"
+ },
+ {
+  "name": "Berkeley AI Research",
+  "feed": "https://bair.berkeley.edu/blog/feed.xml",
+  "site": "http://bair.berkeley.edu/blog/",
+  "cat": "research"
+ },
+ {
+  "name": "Carnegie Mellon ML Blog",
+  "feed": "https://blog.ml.cmu.edu/feed/",
+  "site": "https://blog.ml.cmu.edu",
+  "cat": "research"
+ },
+ {
+  "name": "Communications of the ACM",
+  "feed": "https://cacm.acm.org/feed/",
+  "site": "https://cacm.acm.org/",
+  "cat": "research"
+ },
+ {
+  "name": "fast.ai",
+  "feed": "https://www.fast.ai/index.xml",
+  "site": "https://www.fast.ai/",
+  "cat": "research"
+ },
+ {
+  "name": "Google Magenta",
+  "feed": "http://magenta.tensorflow.org/feed.xml",
+  "site": "https://magenta.withgoogle.com/",
+  "cat": "research"
+ },
+ {
+  "name": "Google Research",
+  "feed": "https://research.google/blog/rss/",
+  "site": "https://research.google/blog/",
+  "cat": "research"
+ },
+ {
+  "name": "IBM Research",
+  "feed": "https://research.ibm.com/rss",
+  "site": "https://research.ibm.com/",
+  "cat": "research"
+ },
+ {
+  "name": "Microsoft Research",
+  "feed": "https://www.microsoft.com/en-us/research/feed/",
+  "site": "https://www.microsoft.com/en-us/research/",
+  "cat": "research"
+ },
+ {
+  "name": "MIT News: Artificial intelligence",
+  "feed": "https://news.mit.edu/rss/topic/artificial-intelligence2",
+  "site": "https://news.mit.edu/rss/topic/artificial-intelligence2",
+  "cat": "research"
+ },
+ {
+  "name": "MIT News: Computer science",
+  "feed": "https://news.mit.edu/rss/topic/computers",
+  "site": "https://news.mit.edu/rss/topic/computers",
+  "cat": "research"
+ },
+ {
+  "name": "MIT News: Machine learning",
+  "feed": "https://news.mit.edu/rss/topic/machine-learning",
+  "site": "https://news.mit.edu/rss/topic/machine-learning",
+  "cat": "research"
+ },
+ {
+  "name": "MIT News: Research",
+  "feed": "https://news.mit.edu/rss/research",
+  "site": "https://news.mit.edu/rss/research?_=3264",
+  "cat": "research"
+ },
+ {
+  "name": "Nature Machine Intelligence",
+  "feed": "https://www.nature.com/natmachintell.rss",
+  "site": "http://feeds.nature.com/natmachintell/rss/current",
+  "cat": "research"
+ },
+ {
+  "name": "Nature: Machine learning",
+  "feed": "https://www.nature.com/subjects/machine-learning.rss",
+  "site": "https://www.nature.com/subjects/machine-learning",
+  "cat": "research"
+ },
+ {
+  "name": "OpenAI: Research",
+  "feed": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_openai_research.xml",
+  "site": "https://openai.com/news/research/",
+  "cat": "research"
+ },
+ {
+  "name": "Phys.org: Computer sciences",
+  "feed": "https://phys.org/rss-feed/technology-news/computer-sciences/",
+  "site": "https://techxplore.com/rss-feed/computer-sciences-news/",
+  "cat": "research"
+ },
+ {
+  "name": "Salesforce: AI research",
+  "feed": "https://www.salesforce.com/blog/category/ai-research/feed/",
+  "site": "https://www.salesforce.com/blog/category/ai-research/",
+  "cat": "research"
+ },
+ {
+  "name": "ScienceDaily: Artificial intelligence",
+  "feed": "https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml",
+  "site": "https://www.sciencedaily.com/news/computers_math/artificial_intelligence/",
+  "cat": "research"
+ },
+ {
+  "name": "ScienceDaily: Computer science",
+  "feed": "https://www.sciencedaily.com/rss/computers_math/computer_science.xml",
+  "site": "https://www.sciencedaily.com/news/computers_math/computer_science/",
+  "cat": "research"
+ },
+ {
+  "name": "ScienceDaily: Robotics",
+  "feed": "https://www.sciencedaily.com/rss/computers_math/robotics.xml",
+  "site": "https://www.sciencedaily.com/news/computers_math/robotics/",
+  "cat": "research"
+ },
+ {
+  "name": "Tech Xplore",
+  "feed": "https://techxplore.com/rss-feed/",
+  "site": "https://techxplore.com/",
+  "cat": "research"
+ },
+ {
+  "name": "Tech Xplore: Machine learning and AI",
+  "feed": "https://techxplore.com/rss-feed/machine-learning-ai-news/",
+  "site": "https://techxplore.com/rss-feed/machine-learning-ai-news/",
+  "cat": "research"
+ },
+ {
+  "name": "Ahead of AI",
+  "feed": "https://magazine.sebastianraschka.com/feed",
+  "site": "https://magazine.sebastianraschka.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "AI as Normal Technology",
+  "feed": "https://www.normaltech.ai/feed",
+  "site": "https://www.normaltech.ai",
+  "cat": "ainews"
+ },
+ {
+  "name": "AI Business",
+  "feed": "https://aibusiness.com/rss.xml",
+  "site": "https://aibusiness.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "AI News",
+  "feed": "https://www.artificialintelligence-news.com/feed/",
+  "site": "https://www.artificialintelligence-news.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "AI Snake Oil",
+  "feed": "https://www.aisnakeoil.com/feed",
+  "site": "https://www.normaltech.ai",
+  "cat": "ainews"
+ },
+ {
+  "name": "AI Supremacy",
+  "feed": "https://www.ai-supremacy.com/feed",
+  "site": "https://www.ai-supremacy.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "AI Weekly",
+  "feed": "http://aiweekly.co/issues.rss",
+  "site": "https://aiweekly.co",
+  "cat": "ainews"
+ },
+ {
+  "name": "AI Weirdness",
+  "feed": "https://aiweirdness.com/rss",
+  "site": "https://www.aiweirdness.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Air Street Press",
+  "feed": "https://press.airstreet.com/feed",
+  "site": "https://press.airstreet.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "AIwire",
+  "feed": "https://www.aiwire.net/feed/",
+  "site": "https://www.hpcwire.com/aiwire/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Analytics India Magazine",
+  "feed": "https://analyticsindiamag.com/feed/",
+  "site": "https://analyticsindiamag.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Analytics Vidhya",
+  "feed": "https://www.analyticsvidhya.com/feed/",
+  "site": "https://www.analyticsvidhya.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Andrej Karpathy",
+  "feed": "https://karpathy.bearblog.dev/feed/",
+  "site": "https://karpathy.bearblog.dev/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Ars Technica: AI",
+  "feed": "https://arstechnica.com/ai/feed/",
+  "site": "https://arstechnica.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "Artificial Ignorance",
+  "feed": "https://www.ignorance.ai/feed",
+  "site": "https://www.ignorance.ai",
+  "cat": "ainews"
+ },
+ {
+  "name": "Becoming Human",
+  "feed": "https://becominghuman.ai/feed",
+  "site": "https://becominghuman.ai?source=rss----5e5bef33608a---4",
+  "cat": "ainews"
+ },
+ {
+  "name": "Ben's Bites",
+  "feed": "https://www.bensbites.com/feed",
+  "site": "https://www.bensbites.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "BigDATAwire",
+  "feed": "https://www.bigdatawire.com/feed/",
+  "site": "https://www.hpcwire.com/bigdatawire/",
+  "cat": "ainews"
+ },
+ {
+  "name": "DailyAI",
+  "feed": "https://dailyai.com/feed/",
+  "site": "https://dailyai.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Dwarkesh Podcast",
+  "feed": "https://www.dwarkesh.com/feed",
+  "site": "https://www.dwarkesh.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "Emerj",
+  "feed": "https://emerj.com/feed/",
+  "site": "https://emerj.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "Eric Jang",
+  "feed": "https://evjang.com/feed",
+  "site": "https://evjang.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Exponential View",
+  "feed": "https://www.exponentialview.co/feed",
+  "site": "https://www.exponentialview.co",
+  "cat": "ainews"
+ },
+ {
+  "name": "George Hotz",
+  "feed": "https://geohot.github.io/blog/feed.xml",
+  "site": "https://geohot.github.io//blog/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Hackaday: Neural networks",
+  "feed": "https://hackaday.com/tag/neural-network/feed",
+  "site": "https://hackaday.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "Hamel Husain",
+  "feed": "https://hamel.dev/index.xml",
+  "site": "https://hamel.dev/",
+  "cat": "ainews"
+ },
+ {
+  "name": "IEEE Spectrum: Artificial intelligence",
+  "feed": "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss",
+  "site": "https://spectrum.ieee.org/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Import AI",
+  "feed": "https://importai.substack.com/feed",
+  "site": "https://importai.substack.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "InfoQ: AI, ML and data engineering",
+  "feed": "https://feed.infoq.com/ai-ml-data-eng/",
+  "site": "https://www.infoq.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "insideAI News",
+  "feed": "https://insideainews.com/feed/",
+  "site": "https://insideainews.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Interconnects",
+  "feed": "https://www.interconnects.ai/feed",
+  "site": "https://www.interconnects.ai",
+  "cat": "ainews"
+ },
+ {
+  "name": "Jack Clark: Import AI",
+  "feed": "https://jack-clark.net/feed/",
+  "site": "https://jack-clark.net",
+  "cat": "ainews"
+ },
+ {
+  "name": "KDnuggets",
+  "feed": "https://www.kdnuggets.com/feed",
+  "site": "https://www.kdnuggets.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "Last Week in AI",
+  "feed": "https://lastweekin.ai/feed",
+  "site": "https://lastweekin.ai",
+  "cat": "ainews"
+ },
+ {
+  "name": "Latent Space",
+  "feed": "https://www.latent.space/feed",
+  "site": "https://latent.space/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Machine Learning Mastery",
+  "feed": "https://machinelearningmastery.com/feed/",
+  "site": "https://machinelearningmastery.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Marcus on AI",
+  "feed": "https://garymarcus.substack.com/feed",
+  "site": "https://garymarcus.substack.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "Marketing AI Institute",
+  "feed": "http://www.marketingaiinstitute.com/blog/rss.xml",
+  "site": "https://www.marketingaiinstitute.com/blog",
+  "cat": "ainews"
+ },
+ {
+  "name": "MarkTechPost",
+  "feed": "https://www.marktechpost.com/feed/",
+  "site": "https://www.marktechpost.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "MIT Technology Review",
+  "feed": "https://www.technologyreview.com/feed/",
+  "site": "https://www.technologyreview.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "MIT Technology Review: AI",
+  "feed": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+  "site": "https://www.technologyreview.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "One Useful Thing",
+  "feed": "https://www.oneusefulthing.org/feed",
+  "site": "https://www.oneusefulthing.org",
+  "cat": "ainews"
+ },
+ {
+  "name": "Practical AI",
+  "feed": "https://changelog.com/practicalai/feed",
+  "site": "https://practicalai.show/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Simon Willison",
+  "feed": "https://simonwillison.net/atom/everything/",
+  "site": "http://simonwillison.net/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Singularity Hub",
+  "feed": "https://singularityhub.com/feed/",
+  "site": "https://singularityhub.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "State of AI",
+  "feed": "https://nathanbenaich.substack.com/feed",
+  "site": "https://nathanbenaich.substack.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "TechCrunch: AI",
+  "feed": "https://techcrunch.com/category/artificial-intelligence/feed/",
+  "site": "https://techcrunch.com/category/artificial-intelligence/",
+  "cat": "ainews"
+ },
+ {
+  "name": "TestingCatalog",
+  "feed": "https://www.testingcatalog.com/rss/",
+  "site": "https://www.testingcatalog.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "The Algorithmic Bridge",
+  "feed": "https://www.thealgorithmicbridge.com/feed",
+  "site": "https://www.thealgorithmicbridge.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "The Decoder",
+  "feed": "https://the-decoder.com/feed/",
+  "site": "https://the-decoder.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "The Guardian: Artificial intelligence",
+  "feed": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+  "site": "https://www.theguardian.com/technology/artificialintelligenceai",
+  "cat": "ainews"
+ },
+ {
+  "name": "The Register: AI and ML",
+  "feed": "https://www.theregister.com/software/ai_ml/headlines.atom",
+  "site": "https://www.theregister.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "The Rundown AI",
+  "feed": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
+  "site": "https://therundownai.beehiiv.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "The Verge: AI",
+  "feed": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+  "site": "https://www.theverge.com/ai-artificial-intelligence",
+  "cat": "ainews"
+ },
+ {
+  "name": "TheSequence",
+  "feed": "https://thesequence.substack.com/feed",
+  "site": "https://thesequence.substack.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "TLDR AI",
+  "feed": "https://tldr.tech/api/rss/ai",
+  "site": "https://tldr.tech",
+  "cat": "ainews"
+ },
+ {
+  "name": "Towards Data Science",
+  "feed": "https://towardsdatascience.com/feed",
+  "site": "https://towardsdatascience.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Turing Post",
+  "feed": "https://www.turingpost.com/feed",
+  "site": "https://www.turingpost.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "TWIML",
+  "feed": "https://twimlai.com/feed/",
+  "site": "https://twimlai.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "Understanding AI",
+  "feed": "https://www.understandingai.org/feed",
+  "site": "https://www.understandingai.org",
+  "cat": "ainews"
+ },
+ {
+  "name": "Unite.AI",
+  "feed": "https://www.unite.ai/feed/",
+  "site": "https://www.unite.ai/",
+  "cat": "ainews"
+ },
+ {
+  "name": "VentureBeat: AI",
+  "feed": "https://venturebeat.com/category/ai/feed/",
+  "site": "https://venturebeat.com/",
+  "cat": "ainews"
+ },
+ {
+  "name": "Wired: AI",
+  "feed": "https://www.wired.com/feed/tag/ai/latest/rss",
+  "site": "https://www.wired.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "ZDNET: Artificial intelligence",
+  "feed": "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
+  "site": "https://www.zdnet.com",
+  "cat": "ainews"
+ },
+ {
+  "name": "AI Alignment Forum",
+  "feed": "https://www.alignmentforum.org/feed.xml",
+  "site": "https://www.alignmentforum.org",
+  "cat": "safety"
+ },
+ {
+  "name": "AI Futures Project",
+  "feed": "https://blog.ai-futures.org/feed",
+  "site": "https://blog.aifutures.org",
+  "cat": "safety"
+ },
+ {
+  "name": "AI Now Institute",
+  "feed": "https://ainowinstitute.org/feed",
+  "site": "https://ainowinstitute.org/",
+  "cat": "safety"
+ },
+ {
+  "name": "AI Policy Perspectives",
+  "feed": "https://www.aipolicyperspectives.com/feed",
+  "site": "https://www.aipolicyperspectives.com",
+  "cat": "safety"
+ },
+ {
+  "name": "AI Safety Takes",
+  "feed": "https://newsletter.danielpaleka.com/feed",
+  "site": "https://newsletter.danielpaleka.com",
+  "cat": "safety"
+ },
+ {
+  "name": "BlueDot Impact",
+  "feed": "https://blog.bluedot.org/feed",
+  "site": "https://blog.bluedot.org",
+  "cat": "safety"
+ },
+ {
+  "name": "Center for AI Safety: AI Safety Newsletter",
+  "feed": "https://newsletter.safe.ai/feed",
+  "site": "https://newsletter.safe.ai",
+  "cat": "safety"
+ },
+ {
+  "name": "Center for Security and Emerging Technology",
+  "feed": "https://cset.georgetown.edu/feed/",
+  "site": "https://cset.georgetown.edu/",
+  "cat": "safety"
+ },
+ {
+  "name": "ControlAI",
+  "feed": "https://controlai.news/feed",
+  "site": "https://blog.controlai.org",
+  "cat": "safety"
+ },
+ {
+  "name": "Don't Worry About the Vase",
+  "feed": "https://thezvi.substack.com/feed",
+  "site": "https://thezvi.substack.com",
+  "cat": "safety"
+ },
+ {
+  "name": "Epoch AI",
+  "feed": "https://epochai.substack.com/feed",
+  "site": "https://epochai.substack.com",
+  "cat": "safety"
+ },
+ {
+  "name": "Future of Life Institute",
+  "feed": "https://futureoflife.org/feed/",
+  "site": "https://futureoflife.org/",
+  "cat": "safety"
+ },
+ {
+  "name": "Hyperdimensional",
+  "feed": "https://www.hyperdimensional.co/feed",
+  "site": "https://www.hyperdimensional.co",
+  "cat": "safety"
+ },
+ {
+  "name": "LessWrong: Curated",
+  "feed": "https://www.lesswrong.com/feed.xml?view=curated-rss",
+  "site": "https://www.lesswrong.com",
+  "cat": "safety"
+ },
+ {
+  "name": "Machine Intelligence Research Institute",
+  "feed": "https://intelligence.org/feed/",
+  "site": "https://intelligence.org",
+  "cat": "safety"
+ },
+ {
+  "name": "METR",
+  "feed": "https://metr.org/feed.xml",
+  "site": "https://metr.org",
+  "cat": "safety"
+ },
+ {
+  "name": "ML Safety Newsletter",
+  "feed": "https://newsletter.mlsafety.org/feed",
+  "site": "https://newsletter.mlsafety.org",
+  "cat": "safety"
+ },
+ {
+  "name": "Obsolete",
+  "feed": "https://www.obsolete.pub/feed",
+  "site": "https://www.obsolete.pub",
+  "cat": "safety"
+ },
+ {
+  "name": "OpenAI: Alignment",
+  "feed": "https://alignment.openai.com/rss.xml",
+  "site": "https://alignment.openai.com/",
+  "cat": "safety"
+ },
+ {
+  "name": "Redwood Research",
+  "feed": "https://redwoodresearch.substack.com/feed",
+  "site": "https://blog.redwoodresearch.org",
+  "cat": "safety"
+ },
+ {
+  "name": "Second Thoughts",
+  "feed": "https://secondthoughts.ai/feed",
+  "site": "https://secondthoughts.ai",
+  "cat": "safety"
+ },
+ {
+  "name": "Singularity Weblog",
+  "feed": "https://www.singularityweblog.com/blog/feed",
+  "site": "https://www.singularityweblog.com/blog/",
+  "cat": "safety"
+ },
+ {
+  "name": "The Power Law",
+  "feed": "https://peterwildeford.substack.com/feed",
+  "site": "https://blog.peterwildeford.com",
+  "cat": "safety"
+ },
+ {
+  "name": "Threading the Needle",
+  "feed": "https://writing.antonleicht.me/feed",
+  "site": "https://writing.antonleicht.me",
+  "cat": "safety"
+ },
+ {
+  "name": "Transformer",
+  "feed": "https://www.transformernews.ai/feed",
+  "site": "https://www.transformernews.ai",
+  "cat": "safety"
+ },
+ {
+  "name": "Yoshua Bengio",
+  "feed": "https://yoshuabengio.org/feed/",
+  "site": "https://yoshuabengio.org/en",
+  "cat": "safety"
+ },
+ {
+  "name": "80,000 Hours",
+  "feed": "https://80000hours.org/feed/",
+  "site": "https://80000hours.org/",
+  "cat": "policy"
+ },
+ {
+  "name": "Ars Technica: Tech policy",
+  "feed": "https://arstechnica.com/tech-policy/feed/",
+  "site": "https://arstechnica.com",
+  "cat": "policy"
+ },
+ {
+  "name": "Asterisk",
+  "feed": "https://asteriskmag.com/feed",
+  "site": "https://asteriskmag.com",
+  "cat": "policy"
+ },
+ {
+  "name": "Astral Codex Ten",
+  "feed": "https://www.astralcodexten.com/feed",
+  "site": "https://www.astralcodexten.com",
+  "cat": "policy"
+ },
+ {
+  "name": "ChinaTalk",
+  "feed": "https://www.chinatalk.media/feed",
+  "site": "https://www.chinatalk.media",
+  "cat": "policy"
+ },
+ {
+  "name": "Electronic Frontier Foundation",
+  "feed": "https://www.eff.org/rss/updates.xml",
+  "site": "https://www.eff.org/",
+  "cat": "policy"
+ },
+ {
+  "name": "Lawfare",
+  "feed": "https://www.lawfaremedia.org/feeds/articles",
+  "site": "https://www.lawfaremedia.org/",
+  "cat": "policy"
+ },
+ {
+  "name": "LessWrong: Front page",
+  "feed": "https://www.lesswrong.com/feed.xml?view=frontpage-rss&karmaThreshold=75",
+  "site": "https://www.lesswrong.com",
+  "cat": "policy"
+ },
+ {
+  "name": "Lex Fridman Podcast",
+  "feed": "https://lexfridman.com/feed/podcast/",
+  "site": "https://lexfridman.com/",
+  "cat": "policy"
+ },
+ {
+  "name": "Marginal Revolution",
+  "feed": "https://marginalrevolution.com/feed",
+  "site": "https://marginalrevolution.com/",
+  "cat": "policy"
+ },
+ {
+  "name": "MIT News: Science, technology and society",
+  "feed": "https://news.mit.edu/rss/topic/science-technology-and-society",
+  "site": "https://news.mit.edu/rss/topic/science-technology-and-society",
+  "cat": "policy"
+ },
+ {
+  "name": "Noahpinion",
+  "feed": "https://www.noahpinion.blog/feed",
+  "site": "https://www.noahpinion.blog",
+  "cat": "policy"
+ },
+ {
+  "name": "Noema",
+  "feed": "https://www.noemamag.com/feed/",
+  "site": "https://www.noemamag.com",
+  "cat": "policy"
+ },
+ {
+  "name": "Pluralistic",
+  "feed": "https://pluralistic.net/feed/",
+  "site": "https://pluralistic.net",
+  "cat": "policy"
+ },
+ {
+  "name": "Politico: Technology",
+  "feed": "https://rss.politico.com/technology.xml",
+  "site": "https://rss.politico.com/",
+  "cat": "policy"
+ },
+ {
+  "name": "Princeton CITP",
+  "feed": "https://blog.citp.princeton.edu/feed/",
+  "site": "https://blog.citp.princeton.edu/",
+  "cat": "policy"
+ },
+ {
+  "name": "Shtetl-Optimized",
+  "feed": "https://scottaaronson.blog/?feed=rss2",
+  "site": "https://scottaaronson.blog",
+  "cat": "policy"
+ },
+ {
+  "name": "Tech Policy Press",
+  "feed": "https://www.techpolicy.press/rss/feed.xml",
+  "site": "https://techpolicy.press",
+  "cat": "policy"
+ },
+ {
+  "name": "The Hill: Technology",
+  "feed": "https://thehill.com/policy/technology/feed/",
+  "site": "https://thehill.com",
+  "cat": "policy"
+ },
+ {
+  "name": "The Markup",
+  "feed": "https://themarkup.org/feeds/rss.xml",
+  "site": "https://themarkup.org/",
+  "cat": "policy"
+ },
+ {
+  "name": "TIME",
+  "feed": "https://time.com/feed/",
+  "site": "https://time.com/",
+  "cat": "policy"
+ },
+ {
+  "name": "Vox: Future Perfect",
+  "feed": "https://www.vox.com/rss/future-perfect/index.xml",
+  "site": "https://www.vox.com/future-perfect",
+  "cat": "policy"
+ },
+ {
+  "name": "Where's Your Ed At",
+  "feed": "https://www.wheresyoured.at/rss/",
+  "site": "https://www.wheresyoured.at/",
+  "cat": "policy"
+ },
+ {
+  "name": "Data Center Dynamics",
+  "feed": "https://www.datacenterdynamics.com/en/rss/",
+  "site": "https://www.datacenterdynamics.com/en/",
+  "cat": "chips"
+ },
+ {
+  "name": "Data Center Knowledge",
+  "feed": "https://www.datacenterknowledge.com/rss.xml",
+  "site": "https://www.datacenterknowledge.com",
+  "cat": "chips"
+ },
+ {
+  "name": "DroneDJ",
+  "feed": "https://dronedj.com/feed/",
+  "site": "https://dronedj.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "EE Times",
+  "feed": "https://www.eetimes.com/feed/",
+  "site": "https://www.eetimes.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "Electrek",
+  "feed": "https://electrek.co/feed/",
+  "site": "https://electrek.co/",
+  "cat": "chips"
+ },
+ {
+  "name": "HPCwire",
+  "feed": "https://www.hpcwire.com/feed/",
+  "site": "https://www.hpcwire.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "IEEE Spectrum: Robotics",
+  "feed": "https://spectrum.ieee.org/feeds/topic/robotics.rss",
+  "site": "https://spectrum.ieee.org/",
+  "cat": "chips"
+ },
+ {
+  "name": "IEEE Spectrum: Semiconductors",
+  "feed": "https://spectrum.ieee.org/feeds/topic/semiconductors.rss",
+  "site": "https://spectrum.ieee.org/",
+  "cat": "chips"
+ },
+ {
+  "name": "NVIDIA Blog",
+  "feed": "https://blogs.nvidia.com/feed/",
+  "site": "https://blogs.nvidia.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "NVIDIA Developer",
+  "feed": "https://developer.nvidia.com/blog/feed/",
+  "site": "https://developer.nvidia.com/blog",
+  "cat": "chips"
+ },
+ {
+  "name": "Phoronix",
+  "feed": "https://www.phoronix.com/rss.php",
+  "site": "https://www.phoronix.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "Robohub",
+  "feed": "https://robohub.org/feed/",
+  "site": "https://robohub.org",
+  "cat": "chips"
+ },
+ {
+  "name": "Robotics and Automation News",
+  "feed": "https://roboticsandautomationnews.com/feed/",
+  "site": "https://roboticsandautomationnews.com",
+  "cat": "chips"
+ },
+ {
+  "name": "SemiAnalysis",
+  "feed": "https://newsletter.semianalysis.com/feed",
+  "site": "https://newsletter.semianalysis.com",
+  "cat": "chips"
+ },
+ {
+  "name": "Semiconductor Engineering",
+  "feed": "https://semiengineering.com/feed/",
+  "site": "https://semiengineering.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "ServeTheHome",
+  "feed": "https://www.servethehome.com/feed/",
+  "site": "https://www.servethehome.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "Tech Xplore: Robotics",
+  "feed": "https://techxplore.com/rss-feed/robotics-news/",
+  "site": "https://techxplore.com/rss-feed/robotics-news/",
+  "cat": "chips"
+ },
+ {
+  "name": "The Next Platform",
+  "feed": "https://www.nextplatform.com/feed/",
+  "site": "https://www.nextplatform.com",
+  "cat": "chips"
+ },
+ {
+  "name": "The Robot Report",
+  "feed": "https://www.therobotreport.com/feed/",
+  "site": "https://www.therobotreport.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "Tom's Hardware",
+  "feed": "https://www.tomshardware.com/feeds/all",
+  "site": "https://www.tomshardware.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "VideoCardz",
+  "feed": "https://videocardz.com/rss-feed",
+  "site": "https://videocardz.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "Wccftech",
+  "feed": "https://wccftech.com/feed/",
+  "site": "https://wccftech.com/",
+  "cat": "chips"
+ },
+ {
+  "name": "Andreessen Horowitz",
+  "feed": "https://www.a16z.news/feed",
+  "site": "https://www.a16z.news",
+  "cat": "biz"
+ },
+ {
+  "name": "BBC News: Business",
+  "feed": "https://feeds.bbci.co.uk/news/business/rss.xml",
+  "site": "https://www.bbc.co.uk/news/business",
+  "cat": "biz"
+ },
+ {
+  "name": "Benedict Evans",
+  "feed": "https://www.ben-evans.com/benedictevans?format=rss",
+  "site": "https://www.ben-evans.com/benedictevans/",
+  "cat": "biz"
+ },
+ {
+  "name": "Bloomberg: Technology",
+  "feed": "https://feeds.bloomberg.com/technology/news.rss",
+  "site": "http://bloomberg.com/technology/",
+  "cat": "biz"
+ },
+ {
+  "name": "Business Insider",
+  "feed": "https://feeds.businessinsider.com/custom/all",
+  "site": "https://feeds.businessinsider.com/",
+  "cat": "biz"
+ },
+ {
+  "name": "CIO",
+  "feed": "https://www.cio.com/feed/",
+  "site": "https://www.cio.com",
+  "cat": "biz"
+ },
+ {
+  "name": "Commoncog",
+  "feed": "https://commoncog.com/blog/rss/",
+  "site": "https://commoncog.com/",
+  "cat": "biz"
+ },
+ {
+  "name": "Crunchbase News",
+  "feed": "https://news.crunchbase.com/feed/",
+  "site": "https://news.crunchbase.com/",
+  "cat": "biz"
+ },
+ {
+  "name": "EU-Startups",
+  "feed": "https://www.eu-startups.com/feed/",
+  "site": "https://www.eu-startups.com/",
+  "cat": "biz"
+ },
+ {
+  "name": "Feld Thoughts",
+  "feed": "https://feld.com/feed",
+  "site": "https://feld.com/",
+  "cat": "biz"
+ },
+ {
+  "name": "Financial Times: Technology",
+  "feed": "https://www.ft.com/technology?format=rss",
+  "site": "https://www.ft.com/stream/e58e66fe-7cc6-4382-b781-1161bae8b905",
+  "cat": "biz"
+ },
+ {
+  "name": "Forbes: Innovation",
+  "feed": "https://www.forbes.com/innovation/feed2",
+  "site": "https://www.forbes.com/innovation/",
+  "cat": "biz"
+ },
+ {
+  "name": "Fortune",
+  "feed": "https://fortune.com/feed/",
+  "site": "https://fortune.com",
+  "cat": "biz"
+ },
+ {
+  "name": "GeekWire",
+  "feed": "https://www.geekwire.com/feed/",
+  "site": "https://www.geekwire.com/",
+  "cat": "biz"
+ },
+ {
+  "name": "Intercom",
+  "feed": "https://www.intercom.com/blog/feed",
+  "site": "https://www.intercom.com/blog",
+  "cat": "biz"
+ },
+ {
+  "name": "Newcomer",
+  "feed": "https://www.newcomer.co/feed",
+  "site": "https://www.newcomer.co",
+  "cat": "biz"
+ },
+ {
+  "name": "Not Boring",
+  "feed": "https://www.notboring.co/feed",
+  "site": "https://www.notboring.co",
+  "cat": "biz"
+ },
+ {
+  "name": "Product Hunt",
+  "feed": "https://www.producthunt.com/feed",
+  "site": "https://www.producthunt.com",
+  "cat": "biz"
+ },
+ {
+  "name": "PYMNTS: Artificial intelligence",
+  "feed": "https://www.pymnts.com/category/artificial-intelligence-2/feed/",
+  "site": "https://www.pymnts.com/category/news/artificial-intelligence/",
+  "cat": "biz"
+ },
+ {
+  "name": "Quartz",
+  "feed": "https://qz.com/rss",
+  "site": "https://qz.com",
+  "cat": "biz"
+ },
+ {
+  "name": "Sifted",
+  "feed": "https://sifted.eu/feed",
+  "site": "https://sifted.eu/",
+  "cat": "biz"
+ },
+ {
+  "name": "SiliconANGLE",
+  "feed": "https://siliconangle.com/feed/",
+  "site": "https://siliconangle.com/",
+  "cat": "biz"
+ },
+ {
+  "name": "Steve Blank",
+  "feed": "http://steveblank.com/feed/",
+  "site": "https://steveblank.com",
+  "cat": "biz"
+ },
+ {
+  "name": "Stratechery",
+  "feed": "https://stratechery.com/feed/",
+  "site": "https://stratechery.com",
+  "cat": "biz"
+ },
+ {
+  "name": "Tech in Asia",
+  "feed": "https://www.techinasia.com/feed",
+  "site": "https://www.techinasia.com",
+  "cat": "biz"
+ },
+ {
+  "name": "Tech.eu",
+  "feed": "https://tech.eu/feed/",
+  "site": "https://tech.eu",
+  "cat": "biz"
+ },
+ {
+  "name": "TechCrunch: Startups",
+  "feed": "https://techcrunch.com/category/startups/feed/",
+  "site": "https://techcrunch.com/category/startups/",
+  "cat": "biz"
+ },
+ {
+  "name": "TechCrunch: Venture",
+  "feed": "https://techcrunch.com/category/venture/feed/",
+  "site": "https://techcrunch.com/category/venture/",
+  "cat": "biz"
+ },
+ {
+  "name": "The Generalist",
+  "feed": "https://www.generalist.com/feed",
+  "site": "https://www.generalist.com",
+  "cat": "biz"
+ },
+ {
+  "name": "The Information",
+  "feed": "https://www.theinformation.com/feed",
+  "site": "https://www.theinformation.com",
+  "cat": "biz"
+ },
+ {
+  "name": "The New York Times: Business",
+  "feed": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+  "site": "https://www.nytimes.com/section/business",
+  "cat": "biz"
+ },
+ {
+  "name": "The Wall Street Journal: Technology",
+  "feed": "https://feeds.content.dowjones.io/public/rss/RSSWSJD",
+  "site": "https://www.wsj.com/tech",
+  "cat": "biz"
+ },
+ {
+  "name": "Wired: Business",
+  "feed": "https://www.wired.com/feed/category/business/latest/rss",
+  "site": "https://www.wired.com",
+  "cat": "biz"
+ },
+ {
+  "name": "Ars Technica: Security",
+  "feed": "https://arstechnica.com/security/feed/",
+  "site": "https://arstechnica.com",
+  "cat": "sec"
+ },
+ {
+  "name": "BleepingComputer",
+  "feed": "https://www.bleepingcomputer.com/feed/",
+  "site": "https://www.bleepingcomputer.com/",
+  "cat": "sec"
+ },
+ {
+  "name": "CyberScoop",
+  "feed": "https://cyberscoop.com/feed/",
+  "site": "https://cyberscoop.com/",
+  "cat": "sec"
+ },
+ {
+  "name": "Dark Reading",
+  "feed": "https://www.darkreading.com/rss.xml",
+  "site": "https://www.darkreading.com",
+  "cat": "sec"
+ },
+ {
+  "name": "Google: Safety and security",
+  "feed": "https://blog.google/technology/safety-security/rss/",
+  "site": "https://blog.google/innovation-and-ai/technology/safety-security/",
+  "cat": "sec"
+ },
+ {
+  "name": "Help Net Security",
+  "feed": "https://www.helpnetsecurity.com/feed/",
+  "site": "https://www.helpnetsecurity.com/",
+  "cat": "sec"
+ },
+ {
+  "name": "Krebs on Security",
+  "feed": "https://krebsonsecurity.com/feed/",
+  "site": "https://krebsonsecurity.com",
+  "cat": "sec"
+ },
+ {
+  "name": "Microsoft Security Blog",
+  "feed": "https://www.microsoft.com/en-us/security/blog/feed/",
+  "site": "https://www.microsoft.com/en-us/security/blog/",
+  "cat": "sec"
+ },
+ {
+  "name": "Schneier on Security",
+  "feed": "https://www.schneier.com/feed/atom/",
+  "site": "https://www.schneier.com/",
+  "cat": "sec"
+ },
+ {
+  "name": "SecurityWeek",
+  "feed": "https://www.securityweek.com/feed/",
+  "site": "https://www.securityweek.com/",
+  "cat": "sec"
+ },
+ {
+  "name": "TechCrunch: Security",
+  "feed": "https://techcrunch.com/category/security/feed/",
+  "site": "https://techcrunch.com/category/security/",
+  "cat": "sec"
+ },
+ {
+  "name": "The Hacker News",
+  "feed": "https://feeds.feedburner.com/TheHackersNews",
+  "site": "https://thehackernews.com",
+  "cat": "sec"
+ },
+ {
+  "name": "The Record",
+  "feed": "https://therecord.media/feed",
+  "site": "https://therecord.media/",
+  "cat": "sec"
+ },
+ {
+  "name": "Troy Hunt",
+  "feed": "https://www.troyhunt.com/rss/",
+  "site": "https://www.troyhunt.com/",
+  "cat": "sec"
+ },
+ {
+  "name": "Wired: Security",
+  "feed": "https://www.wired.com/feed/category/security/latest/rss",
+  "site": "https://www.wired.com",
+  "cat": "sec"
+ },
+ {
+  "name": ".NET",
+  "feed": "https://devblogs.microsoft.com/dotnet/feed/",
+  "site": "https://devblogs.microsoft.com/dotnet/",
+  "cat": "dev"
+ },
+ {
+  "name": "8th Light",
+  "feed": "https://8thlight.com/insights/feed/rss.xml",
+  "site": "https://8thlight.com/insights",
+  "cat": "dev"
+ },
+ {
+  "name": "Aaron Patterson",
+  "feed": "http://tenderlovemaking.com/atom.xml",
+  "site": "https://tenderlovemaking.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Addy Osmani",
+  "feed": "http://addyosmani.com/rss.xml",
+  "site": "https://addyosmani.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Advanced Web Machinery",
+  "feed": "https://advancedweb.hu/atom.xml",
+  "site": "https://advancedweb.hu",
+  "cat": "dev"
+ },
+ {
+  "name": "Airbnb Engineering",
+  "feed": "https://medium.com/feed/airbnb-engineering",
+  "site": "https://medium.com/airbnb-engineering?source=rss----53c7c27702d5---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Airtable Engineering",
+  "feed": "https://medium.com/feed/airtable-eng",
+  "site": "https://medium.com/airtable-eng?source=rss----103630b30187---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Alberto De Bortoli",
+  "feed": "https://albertodebortoli.com/rss/",
+  "site": "https://albertodebortoli.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Alex Russell",
+  "feed": "https://infrequently.org/feed/",
+  "site": "https://infrequently.org/",
+  "cat": "dev"
+ },
+ {
+  "name": "Amit Merchant",
+  "feed": "https://www.amitmerchant.com/feed.xml",
+  "site": "https://www.amitmerchant.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Android Developers Blog",
+  "feed": "https://android-developers.googleblog.com/feeds/posts/default",
+  "site": "https://developer.android.com/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Antirez",
+  "feed": "http://antirez.com/rss",
+  "site": "http://antirez.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Apple Developer News",
+  "feed": "https://developer.apple.com/news/rss/news.rss",
+  "site": "https://developer.apple.com/news/",
+  "cat": "dev"
+ },
+ {
+  "name": "Arkency",
+  "feed": "https://blog.arkency.com/feed.xml",
+  "site": "https://blog.arkency.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Armin Ronacher",
+  "feed": "http://lucumr.pocoo.org/feed.atom",
+  "site": "https://lucumr.pocoo.org/",
+  "cat": "dev"
+ },
+ {
+  "name": "Artsy",
+  "feed": "http://artsy.github.io/feed",
+  "site": "https://artsy.github.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "Atomic Object",
+  "feed": "https://spin.atomicobject.com/feed/",
+  "site": "https://spin.atomicobject.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Auth0",
+  "feed": "https://auth0.com/blog/rss.xml",
+  "site": "https://auth0.com/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "AWS News Blog",
+  "feed": "https://aws.amazon.com/blogs/aws/feed/",
+  "site": "https://aws.amazon.com/blogs/aws/",
+  "cat": "dev"
+ },
+ {
+  "name": "Bartlomiej Filipek",
+  "feed": "https://www.cppstories.com/index.xml",
+  "site": "https://www.cppstories.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Bazaarvoice",
+  "feed": "https://blog.developer.bazaarvoice.com/feed/",
+  "site": "https://blog.developer.bazaarvoice.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Benchling",
+  "feed": "https://benchling.engineering/feed",
+  "site": "https://benchling.engineering?source=rss----3d4aa8fb07ea---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Blender",
+  "feed": "https://code.blender.org/rss",
+  "site": "https://code.blender.org",
+  "cat": "dev"
+ },
+ {
+  "name": "Blundell's Android Tutorials",
+  "feed": "https://blog.blundellapps.co.uk/feed/",
+  "site": "https://blog.blundellapps.co.uk",
+  "cat": "dev"
+ },
+ {
+  "name": "Bootstrap.com",
+  "feed": "https://blog.getbootstrap.com/feed.xml",
+  "site": "https://blog.getbootstrap.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Brandwatch",
+  "feed": "http://engineering.brandwatch.com/rss",
+  "site": "https://www.brandwatch.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Bruno Rocha",
+  "feed": "https://swiftrocks.com/rss.xml",
+  "site": "https://swiftrocks.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Canva",
+  "feed": "https://www.canva.dev/blog/engineering/feed.xml",
+  "site": "https://www.canva.dev/blog/engineering/",
+  "cat": "dev"
+ },
+ {
+  "name": "Capgemini",
+  "feed": "https://capgemini.github.io/feed.xml",
+  "site": "https://capgemini.github.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "Carlos Becker",
+  "feed": "https://carlosbecker.com/index.xml",
+  "site": "https://carlosbecker.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Chris Wellons",
+  "feed": "http://nullprogram.com/feed/",
+  "site": "https://nullprogram.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Cloudflare",
+  "feed": "https://blog.cloudflare.com/rss/",
+  "site": "https://blog.cloudflare.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Coding Horror",
+  "feed": "https://feeds.feedburner.com/codinghorror",
+  "site": "https://blog.codinghorror.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Confluent",
+  "feed": "https://www.confluent.io/rss.xml",
+  "site": "https://www.confluent.io",
+  "cat": "dev"
+ },
+ {
+  "name": "Criteo",
+  "feed": "https://medium.com/feed/criteo-engineering",
+  "site": "https://medium.com/criteo-engineering?source=rss----fc3ea5a64a12---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Crystal",
+  "feed": "https://crystal-lang.org/feed.xml",
+  "site": "https://crystal-lang.org/",
+  "cat": "dev"
+ },
+ {
+  "name": "CSS-Tricks",
+  "feed": "https://feeds.feedburner.com/CssTricks",
+  "site": "https://css-tricks.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Dan Lew Codes",
+  "feed": "https://blog.danlew.net/rss/",
+  "site": "https://blog.danlew.net/",
+  "cat": "dev"
+ },
+ {
+  "name": "Dan Luu",
+  "feed": "https://danluu.com/atom.xml",
+  "site": "https://danluu.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Daniel Doubrovkine (dB.)",
+  "feed": "https://code.dblock.org/feed.xml",
+  "site": "https://code.dblock.org",
+  "cat": "dev"
+ },
+ {
+  "name": "David Singleton",
+  "feed": "https://blog.singleton.io/index.xml",
+  "site": "https://blog.singleton.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "Dean Hume",
+  "feed": "https://deanhume.com/rss/",
+  "site": "https://deanhume.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Deliveroo",
+  "feed": "https://deliveroo.engineering/feed.xml",
+  "site": "https://deliveroo.engineering/",
+  "cat": "dev"
+ },
+ {
+  "name": "Dennis Felsing",
+  "feed": "https://hookrace.net/blog/feed/",
+  "site": "https://hookrace.net/",
+  "cat": "dev"
+ },
+ {
+  "name": "Dereuromark",
+  "feed": "https://www.dereuromark.de/feed/",
+  "site": "https://www.dereuromark.de",
+  "cat": "dev"
+ },
+ {
+  "name": "DEV Community",
+  "feed": "https://dev.to/feed",
+  "site": "https://dev.to/",
+  "cat": "dev"
+ },
+ {
+  "name": "Discord",
+  "feed": "https://discord.com/blog/rss.xml",
+  "site": "https://discord.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Docker",
+  "feed": "https://www.docker.com/blog/feed/",
+  "site": "https://www.docker.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Drew DeVault",
+  "feed": "https://drewdevault.com/blog/index.xml",
+  "site": "https://drewdevault.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Dropbox Tech",
+  "feed": "https://dropbox.tech/feed",
+  "site": "https://dropbox.tech",
+  "cat": "dev"
+ },
+ {
+  "name": "Ebay",
+  "feed": "https://www.ebayinc.com/stories/news/rss/",
+  "site": "https://www.ebayinc.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "eBay Tech Blog",
+  "feed": "http://www.ebaytechblog.com/feed/",
+  "site": "https://innovation.ebayinc.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Elastic",
+  "feed": "https://www.elastic.co/blog/feed",
+  "site": "https://www.elastic.co",
+  "cat": "dev"
+ },
+ {
+  "name": "Eli Bendersky",
+  "feed": "https://eli.thegreenplace.net/feeds/all.atom.xml",
+  "site": "https://eli.thegreenplace.net/",
+  "cat": "dev"
+ },
+ {
+  "name": "Engineering at Meta",
+  "feed": "https://engineering.fb.com/feed/",
+  "site": "https://engineering.fb.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Eric Lippert",
+  "feed": "https://ericlippert.com/feed/",
+  "site": "https://ericlippert.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Erlang Solutions",
+  "feed": "https://www.erlang-solutions.com/feed/",
+  "site": "https://www.erlang-solutions.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Etsy: Code as Craft",
+  "feed": "https://codeascraft.com/feed/atom/",
+  "site": "http://www.etsy.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Evan Hahn",
+  "feed": "https://evanhahn.com/blog/index.xml",
+  "site": "https://evanhahn.com/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Evil Martians",
+  "feed": "https://evilmartians.com/chronicles.atom",
+  "site": "https://evilmartians.com/chronicles",
+  "cat": "dev"
+ },
+ {
+  "name": "Expedia",
+  "feed": "https://medium.com/feed/expedia-group-tech",
+  "site": "https://medium.com/expedia-group-tech?source=rss----38998a53046f---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Feedzai",
+  "feed": "https://medium.com/feed/feedzaitech",
+  "site": "https://medium.com/feedzaitech?source=rss----e11168e7fe6b---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Filippo Valsorda",
+  "feed": "https://words.filippo.io/rss/",
+  "site": "https://words.filippo.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "Findmypast",
+  "feed": "https://tech.findmypast.com/feed.xml",
+  "site": "https://tech.findmypast.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "freeCodeCamp",
+  "feed": "https://www.freecodecamp.org/news/rss/",
+  "site": "https://www.freecodecamp.org/news/",
+  "cat": "dev"
+ },
+ {
+  "name": "Freek Van der Herten",
+  "feed": "https://freek.dev/feed",
+  "site": "https://freek.dev/",
+  "cat": "dev"
+ },
+ {
+  "name": "GitHub",
+  "feed": "https://github.blog/feed/",
+  "site": "https://github.blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "GitHub Engineering",
+  "feed": "http://githubengineering.com/atom.xml",
+  "site": "https://github.blog/engineering/",
+  "cat": "dev"
+ },
+ {
+  "name": "GitLab",
+  "feed": "https://about.gitlab.com/atom.xml",
+  "site": "https://about.gitlab.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Gleb Bahmutov",
+  "feed": "https://glebbahmutov.com/blog/atom.xml",
+  "site": "https://glebbahmutov.com/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Go",
+  "feed": "https://go.dev/blog/feed.atom",
+  "site": "https://go.dev/",
+  "cat": "dev"
+ },
+ {
+  "name": "GoCardless",
+  "feed": "https://gocardless.com/content-platform/rss/resources.xml",
+  "site": "https://gocardless.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Google Cloud Blog",
+  "feed": "https://cloudblog.withgoogle.com/rss/",
+  "site": "https://cloud.google.com/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Google: Developers",
+  "feed": "https://blog.google/technology/developers/rss/",
+  "site": "https://blog.google/innovation-and-ai/technology/developers-tools/",
+  "cat": "dev"
+ },
+ {
+  "name": "Grab Tech",
+  "feed": "http://engineering.grab.com/feed.xml",
+  "site": "https://engineering.grab.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Grofers",
+  "feed": "https://lambda.blinkit.com/feed",
+  "site": "https://lambda.blinkit.com?source=rss----42df4a1e8725---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Haptik",
+  "feed": "https://www.haptik.ai/tech/rss.xml",
+  "site": "https://www.haptik.ai/tech",
+  "cat": "dev"
+ },
+ {
+  "name": "HashiCorp",
+  "feed": "https://www.hashicorp.com/blog/feed.xml",
+  "site": "https://hashicorp.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Hayden James",
+  "feed": "https://haydenjames.io/feed",
+  "site": "https://linuxblog.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "Henrik Warne",
+  "feed": "https://henrikwarne.com/feed/",
+  "site": "https://henrikwarne.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Hostinger",
+  "feed": "https://www.hostinger.com/blog/feed",
+  "site": "https://www.hostinger.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Housing.com",
+  "feed": "https://medium.com/feed/engineering-housing",
+  "site": "https://medium.com/engineering-housing?source=rss----3a69e32e2594---4",
+  "cat": "dev"
+ },
+ {
+  "name": "HubSpot",
+  "feed": "https://product.hubspot.com/blog/rss.xml",
+  "site": "https://product.hubspot.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Indeed",
+  "feed": "https://engineering.indeedblog.com/feed/",
+  "site": "https://engineering.indeedblog.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "inessential.com",
+  "feed": "https://inessential.com/xml/rss.xml",
+  "site": "https://inessential.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "InfoQ",
+  "feed": "https://feed.infoq.com/",
+  "site": "https://www.infoq.com",
+  "cat": "dev"
+ },
+ {
+  "name": "InfoWorld",
+  "feed": "https://www.infoworld.com/feed/",
+  "site": "https://www.infoworld.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Instacart",
+  "feed": "https://tech.instacart.com/feed",
+  "site": "https://tech.instacart.com?source=rss----587883b5d2ee---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Interaction Design Foundation",
+  "feed": "https://interaction-design.org/rss/site_news.xml",
+  "site": "https://ixdf.org/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "IPFS",
+  "feed": "https://blog.ipfs.tech/index.xml",
+  "site": "https://blog.ipfs.tech",
+  "cat": "dev"
+ },
+ {
+  "name": "Irrational Exuberance",
+  "feed": "https://lethain.com/feeds/",
+  "site": "https://lethain.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Jake Trent",
+  "feed": "https://jaketrent.com/post/feed.xml",
+  "site": "https://jaketrent.com/post",
+  "cat": "dev"
+ },
+ {
+  "name": "Jake Wharton",
+  "feed": "https://jakewharton.com/atom.xml",
+  "site": "https://jakewharton.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Jake Yesbeck",
+  "feed": "http://jakeyesbeck.com/atom.xml",
+  "site": "https://jakeyesbeck.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Jane Street",
+  "feed": "https://blogs.janestreet.com/feed.xml",
+  "site": "https://blog.janestreet.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Jeff Atwood",
+  "feed": "https://blog.codinghorror.com/rss/",
+  "site": "https://blog.codinghorror.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Jeremy Kun",
+  "feed": "https://www.jeremykun.com/index.xml",
+  "site": "https://www.jeremykun.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Jerry Gamblin",
+  "feed": "https://jerrygamblin.com/feed/",
+  "site": "https://jerrygamblin.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Jessie Frazelle",
+  "feed": "https://blog.jessfraz.com/index.xml",
+  "site": "https://blog.jessfraz.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "JetBrains",
+  "feed": "https://blog.jetbrains.com/feed/",
+  "site": "https://blog.jetbrains.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Joe Fabisevich",
+  "feed": "https://www.fabisevi.ch/feed.xml",
+  "site": "https://fabisevi.ch",
+  "cat": "dev"
+ },
+ {
+  "name": "John D. Cook",
+  "feed": "https://www.johndcook.com/blog/feed",
+  "site": "https://www.johndcook.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Jon Skeet",
+  "feed": "https://codeblog.jonskeet.uk/feed/",
+  "site": "https://codeblog.jonskeet.uk",
+  "cat": "dev"
+ },
+ {
+  "name": "Jonathan Snook",
+  "feed": "https://snook.ca/jonathan/index.rdf",
+  "site": "https://snook.ca/",
+  "cat": "dev"
+ },
+ {
+  "name": "Josh Comeau",
+  "feed": "https://joshwcomeau.com/rss.xml",
+  "site": "https://www.joshwcomeau.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Josh Sherman",
+  "feed": "https://joshtronic.com/feed/",
+  "site": "https://joshtronic.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Julia Evans",
+  "feed": "https://jvns.ca/atom.xml",
+  "site": "https://jvns.ca",
+  "cat": "dev"
+ },
+ {
+  "name": "Kogan.com",
+  "feed": "https://devblog.kogan.com/blog?format=rss",
+  "site": "https://devblog.kogan.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Kotlin",
+  "feed": "https://blog.jetbrains.com/kotlin/feed/",
+  "site": "https://blog.jetbrains.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Kubernetes",
+  "feed": "https://kubernetes.io/feed.xml",
+  "site": "https://kubernetes.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "Laravel",
+  "feed": "https://feed.laravel-news.com/",
+  "site": "https://laravel-news.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Lea Verou",
+  "feed": "http://lea.verou.me/feed.xml",
+  "site": "https://lea.verou.me/",
+  "cat": "dev"
+ },
+ {
+  "name": "Lerner Consulting Blog",
+  "feed": "http://blog.lerner.co.il/feed",
+  "site": "https://lernerpython.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Luciano Mammino",
+  "feed": "https://loige.co/rss.xml",
+  "site": "https://loige.co/",
+  "cat": "dev"
+ },
+ {
+  "name": "LWN",
+  "feed": "https://lwn.net/headlines/rss",
+  "site": "https://lwn.net",
+  "cat": "dev"
+ },
+ {
+  "name": "Lyft",
+  "feed": "https://eng.lyft.com/feed",
+  "site": "https://eng.lyft.com?source=rss----25cd379abb8---4",
+  "cat": "dev"
+ },
+ {
+  "name": "MapTiler",
+  "feed": "https://www.maptiler.com/news/feed/posts.xml",
+  "site": "https://www.maptiler.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Marcelo Rinesi",
+  "feed": "https://blog.rinesi.com/feed/",
+  "site": "https://blog.rinesi.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Marco Pivetta",
+  "feed": "https://ocramius.github.io/atom.xml",
+  "site": "https://ocramius.github.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "Martin Fowler",
+  "feed": "https://martinfowler.com/feed.atom",
+  "site": "https://martinfowler.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Martin Kleppmann",
+  "feed": "https://feeds.feedburner.com/martinkl?format=xml",
+  "site": "http://martin.kleppmann.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Matt Aimonetti",
+  "feed": "https://matt.aimonetti.net/posts/index.xml",
+  "site": "https://matt.aimonetti.net/posts/",
+  "cat": "dev"
+ },
+ {
+  "name": "Matthew Green",
+  "feed": "https://blog.cryptographyengineering.com/feed/",
+  "site": "https://blog.cryptographyengineering.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Medium",
+  "feed": "https://medium.engineering/feed",
+  "site": "https://medium.engineering?source=rss----2817475205d3---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Medium Engineering",
+  "feed": "https://medium.com/feed/medium-eng",
+  "site": "https://medium.engineering?source=rss----2817475205d3---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Michael Crump",
+  "feed": "https://www.michaelcrump.net/feed.xml",
+  "site": "https://www.michaelcrump.net/",
+  "cat": "dev"
+ },
+ {
+  "name": "Microsoft Azure Blog",
+  "feed": "https://azure.microsoft.com/en-us/blog/feed/",
+  "site": "https://azure.microsoft.com/en-us/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Microsoft Python Engineering",
+  "feed": "https://devblogs.microsoft.com/python/feed/",
+  "site": "https://devblogs.microsoft.com/python/",
+  "cat": "dev"
+ },
+ {
+  "name": "Mike Fogus",
+  "feed": "http://blog.fogus.me/feed/",
+  "site": "https://blog.fogus.me",
+  "cat": "dev"
+ },
+ {
+  "name": "MongoDB",
+  "feed": "https://www.mongodb.com/blog/rss",
+  "site": "https://www.mongodb.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Monica Dinculescu",
+  "feed": "https://meowni.ca/atom.xml",
+  "site": "https://meowni.ca/",
+  "cat": "dev"
+ },
+ {
+  "name": "Monstermuffin",
+  "feed": "https://blog.monstermuffin.org/index.xml",
+  "site": "https://blog.muffn.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "Mozilla Hacks",
+  "feed": "https://hacks.mozilla.org/feed/",
+  "site": "https://hacks.mozilla.org/",
+  "cat": "dev"
+ },
+ {
+  "name": "Netflix TechBlog",
+  "feed": "https://netflixtechblog.com/feed",
+  "site": "https://netflixtechblog.com?source=rss----2615bd06b42e---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Network World",
+  "feed": "https://www.networkworld.com/feed/",
+  "site": "https://www.networkworld.com",
+  "cat": "dev"
+ },
+ {
+  "name": "New York Times",
+  "feed": "https://open.nytimes.com/feed",
+  "site": "https://open.nytimes.com?source=rss----51e1d1745b32---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Nic Raboy",
+  "feed": "https://www.thepolyglotdeveloper.com/blog/index.xml",
+  "site": "https://www.thepolyglotdeveloper.com/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Nielsen Norman Group",
+  "feed": "https://www.nngroup.com/feed/rss/",
+  "site": "https://www.nngroup.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Nordic APIs",
+  "feed": "https://nordicapis.com/feed/",
+  "site": "https://nordicapis.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Okta",
+  "feed": "https://developer.okta.com/feed.xml",
+  "site": "https://developer.okta.com/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "OLX",
+  "feed": "https://tech.olx.com/feed",
+  "site": "https://tech.olx.com?source=rss----761b019b483f---4",
+  "cat": "dev"
+ },
+ {
+  "name": "OpenDNS",
+  "feed": "https://umbrella.cisco.com/feed",
+  "site": "https://umbrella.cisco.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Overreacted (Dan Abramov)",
+  "feed": "https://overreacted.io/rss.xml",
+  "site": "https://overreacted.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "Palantir",
+  "feed": "https://blog.palantir.com/feed",
+  "site": "https://blog.palantir.com?source=rss----3c87dc14372f---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Pamela Fox",
+  "feed": "http://blog.pamelafox.org/feeds/posts/default",
+  "site": "http://blog.pamelafox.org/",
+  "cat": "dev"
+ },
+ {
+  "name": "Philip Walton",
+  "feed": "https://feeds.feedburner.com/philipwalton",
+  "site": "https://philipwalton.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Pinterest",
+  "feed": "https://medium.com/feed/@Pinterest_Engineering",
+  "site": "https://medium.com/@Pinterest_Engineering?source=rss-ef81ef829bcb------2",
+  "cat": "dev"
+ },
+ {
+  "name": "Postmark",
+  "feed": "https://postmarkapp.com/blog/feed.atom",
+  "site": "https://postmarkapp.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "ProAndroidDev",
+  "feed": "https://proandroiddev.com/feed",
+  "site": "https://proandroiddev.com?source=rss----c72404660798---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Public Object",
+  "feed": "https://publicobject.com/rss/",
+  "site": "https://publicobject.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "PubNub",
+  "feed": "https://www.pubnub.com/feed/blog/",
+  "site": "https://www.pubnub.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Ramon Fried",
+  "feed": "https://nativeguru.wordpress.com/feed/",
+  "site": "https://nativeguru.wordpress.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Ray Wenderlich",
+  "feed": "https://www.raywenderlich.com/feed",
+  "site": "https://www.raywenderlich.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Raymond Chen",
+  "feed": "https://devblogs.microsoft.com/oldnewthing/feed",
+  "site": "https://devblogs.microsoft.com/oldnewthing/",
+  "cat": "dev"
+ },
+ {
+  "name": "REA Group",
+  "feed": "https://www.rea-group.com/category/tech/feed/",
+  "site": "https://www.rea-group.com/category/tech/",
+  "cat": "dev"
+ },
+ {
+  "name": "Real Python",
+  "feed": "https://realpython.com/atom.xml",
+  "site": "https://realpython.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Red",
+  "feed": "https://www.red-lang.org/feeds/posts/default",
+  "site": "https://www.red-lang.org/",
+  "cat": "dev"
+ },
+ {
+  "name": "Red Hat",
+  "feed": "https://www.redhat.com/en/rss/blog",
+  "site": "https://www.redhat.com/en/rss/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Rob Allen",
+  "feed": "https://akrabat.com/feed/",
+  "site": "https://akrabat.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Robin Ward",
+  "feed": "https://eviltrout.com/feed.xml",
+  "site": "https://eviltrout.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Robin Wilson",
+  "feed": "https://blog.rtwilson.com/feed/",
+  "site": "https://blog.rtwilson.com",
+  "cat": "dev"
+ },
+ {
+  "name": "RocksDB",
+  "feed": "http://rocksdb.org/feed.xml",
+  "site": "https://rocksdb.org/",
+  "cat": "dev"
+ },
+ {
+  "name": "RoseHosting",
+  "feed": "https://www.rosehosting.com/blog/feed/",
+  "site": "https://www.rosehosting.com/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Rust",
+  "feed": "https://blog.rust-lang.org/feed.xml",
+  "site": "https://blog.rust-lang.org/",
+  "cat": "dev"
+ },
+ {
+  "name": "Sam Saffron",
+  "feed": "http://samsaffron.com/posts.rss",
+  "site": "https://discuss.samsaffron.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Scott Hanselman",
+  "feed": "http://feeds.hanselman.com/ScottHanselman",
+  "site": "https://www.hanselman.com/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Scripting News",
+  "feed": "http://scripting.com/rss.xml",
+  "site": "http://scripting.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "SD Times",
+  "feed": "https://sdtimes.com/feed/",
+  "site": "https://sdtimes.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Serverless",
+  "feed": "https://www.serverless.com/blog/rss.xml",
+  "site": "https://www.serverless.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Shopify Engineering",
+  "feed": "https://shopify.engineering/blog.atom",
+  "site": "https://shopify.engineering",
+  "cat": "dev"
+ },
+ {
+  "name": "Signal",
+  "feed": "https://signal.org/blog/rss.xml",
+  "site": "https://signal.org/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "SitePoint",
+  "feed": "https://sitepoint.com/sitepoint.rss",
+  "site": "https://www.sitepoint.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Slack Design",
+  "feed": "https://slack.design/feed/",
+  "site": "https://slack.design",
+  "cat": "dev"
+ },
+ {
+  "name": "Smashing Magazine",
+  "feed": "https://www.smashingmagazine.com/feed/",
+  "site": "https://www.smashingmagazine.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Snowflake",
+  "feed": "https://www.snowflake.com/feed/",
+  "site": "https://www.snowflake.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Software Engineering Daily",
+  "feed": "https://softwareengineeringdaily.com/category/podcast/feed",
+  "site": "https://softwareengineeringdaily.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Software Engineering Radio",
+  "feed": "http://feeds.feedburner.com/se-radio",
+  "site": "https://www.se-radio.net",
+  "cat": "dev"
+ },
+ {
+  "name": "SoundCloud Backstage Blog",
+  "feed": "https://developers.soundcloud.com/blog/blog.rss",
+  "site": "https://developers.soundcloud.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Spotify Engineering",
+  "feed": "https://engineering.atspotify.com/feed/",
+  "site": "https://engineering.atspotify.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Squarespace",
+  "feed": "https://engineering.squarespace.com/blog?format=rss",
+  "site": "https://engineering.squarespace.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Stack Abuse",
+  "feed": "https://stackabuse.com/rss/",
+  "site": "https://stackabuse.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Stack Overflow Blog",
+  "feed": "https://stackoverflow.blog/feed/",
+  "site": "https://stackoverflow.blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Stanko Tadić",
+  "feed": "https://muffinman.io/atom.xml",
+  "site": "https://muffinman.io",
+  "cat": "dev"
+ },
+ {
+  "name": "Strava",
+  "feed": "https://medium.com/feed/strava-engineering",
+  "site": "https://medium.com/strava-engineering?source=rss----89d4108ce2a3---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Stripe",
+  "feed": "https://stripe.com/blog/feed.rss",
+  "site": "https://stripe.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "SurveyMonkey",
+  "feed": "https://www.surveymonkey.com/feed/",
+  "site": "https://www.surveymonkey.com/curiosity/",
+  "cat": "dev"
+ },
+ {
+  "name": "Swift by Sundell",
+  "feed": "https://www.swiftbysundell.com/feed.rss",
+  "site": "https://www.swiftbysundell.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Swizec Teller",
+  "feed": "https://swizec.com/rss.xml",
+  "site": "https://swizec.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "T.J. Maher",
+  "feed": "https://www.tjmaher.com/feeds/posts/default",
+  "site": "https://www.tjmaher.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "The Daily WTF",
+  "feed": "https://syndication.thedailywtf.com/TheDailyWtf",
+  "site": "http://thedailywtf.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "The New Stack",
+  "feed": "https://thenewstack.io/feed/",
+  "site": "https://thenewstack.io/",
+  "cat": "dev"
+ },
+ {
+  "name": "The Pragmatic Engineer",
+  "feed": "https://newsletter.pragmaticengineer.com/feed",
+  "site": "https://newsletter.pragmaticengineer.com",
+  "cat": "dev"
+ },
+ {
+  "name": "Thoughtbot",
+  "feed": "https://feeds.feedburner.com/GiantRobotsSmashingIntoOtherGiantRobots",
+  "site": "https://thoughtbot.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Thumbtack",
+  "feed": "https://medium.com/feed/thumbtack-engineering",
+  "site": "https://medium.com/thumbtack-engineering?source=rss----1199c607a13f---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Timescale",
+  "feed": "https://www.timescale.com/blog/rss/",
+  "site": "https://www.tigerdata.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Toptal",
+  "feed": "https://www.toptal.com/blog.rss",
+  "site": "https://www.toptal.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Transferwise",
+  "feed": "https://medium.com/feed/wise-engineering",
+  "site": "https://medium.com/wise-engineering?source=rss----f2565bbe9c46---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Trivago",
+  "feed": "http://tech.trivago.com/rss.xml",
+  "site": "https://tech.trivago.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Tumblr",
+  "feed": "https://engineering.tumblr.com/rss",
+  "site": "https://engineering.tumblr.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Twilio",
+  "feed": "https://www.twilio.com/blog/feed",
+  "site": "https://www.twilio.com/en-us/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Ubuntu",
+  "feed": "https://ubuntu.com/blog/feed",
+  "site": "https://ubuntu.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "UX Collective",
+  "feed": "https://uxdesign.cc/feed",
+  "site": "https://uxdesign.cc?source=rss----138adf9c44c---4",
+  "cat": "dev"
+ },
+ {
+  "name": "UX Planet",
+  "feed": "https://uxplanet.org/feed",
+  "site": "https://uxplanet.org?source=rss----819cc2aaeee0---4",
+  "cat": "dev"
+ },
+ {
+  "name": "Vanilla Java",
+  "feed": "http://blog.vanillajava.blog/feeds/posts/default",
+  "site": "http://blog.vanillajava.blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "Vercel",
+  "feed": "https://vercel.com/atom",
+  "site": "https://vercel.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Vinted",
+  "feed": "https://vinted.engineering//atom.xml",
+  "site": "https://vinted.engineering//",
+  "cat": "dev"
+ },
+ {
+  "name": "Visual Studio Code",
+  "feed": "https://code.visualstudio.com/feed.xml",
+  "site": "https://code.visualstudio.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Vlad Mihalcea",
+  "feed": "https://vladmihalcea.com/feed/",
+  "site": "https://vladmihalcea.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Wealthfront",
+  "feed": "https://eng.wealthfront.com/feed/",
+  "site": "https://eng.wealthfront.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "web.dev",
+  "feed": "https://web.dev/feed.xml",
+  "site": "https://web.dev/blog/",
+  "cat": "dev"
+ },
+ {
+  "name": "WebKit",
+  "feed": "https://webkit.org/feed/",
+  "site": "https://webkit.org",
+  "cat": "dev"
+ },
+ {
+  "name": "Yegor Bugayenko",
+  "feed": "https://www.yegor256.com/rss.xml",
+  "site": "https://www.yegor256.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Zac Sweers",
+  "feed": "https://www.zacsweers.dev/rss/",
+  "site": "https://www.zacsweers.dev/",
+  "cat": "dev"
+ },
+ {
+  "name": "Zach Holman",
+  "feed": "https://zachholman.com/atom.xml",
+  "site": "http://zachholman.com/",
+  "cat": "dev"
+ },
+ {
+  "name": "Zapier",
+  "feed": "https://zapier.com/blog/feeds/latest/",
+  "site": "https://zapier.com/blog",
+  "cat": "dev"
+ },
+ {
+  "name": "Zendesk",
+  "feed": "https://zendesk.engineering/feed",
+  "site": "https://zendesk.engineering?source=rss----a88376ea904a---4",
+  "cat": "dev"
+ },
+ {
+  "name": "404 Media",
+  "feed": "https://www.404media.co/rss/",
+  "site": "https://www.404media.co/",
+  "cat": "tech"
+ },
+ {
+  "name": "9to5Google",
+  "feed": "https://9to5google.com/feed/",
+  "site": "https://9to5google.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "9to5Mac",
+  "feed": "https://9to5mac.com/feed/",
+  "site": "https://9to5mac.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Android Authority",
+  "feed": "https://www.androidauthority.com/feed/",
+  "site": "https://www.androidauthority.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Android Central",
+  "feed": "http://feeds.androidcentral.com/androidcentral",
+  "site": "https://www.androidcentral.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Android Police",
+  "feed": "https://www.androidpolice.com/feed/",
+  "site": "https://www.androidpolice.com",
+  "cat": "tech"
+ },
+ {
+  "name": "AppleInsider",
+  "feed": "https://appleinsider.com/rss/news/",
+  "site": "https://appleinsider.com/rss/news",
+  "cat": "tech"
+ },
+ {
+  "name": "Ars Technica",
+  "feed": "https://feeds.arstechnica.com/arstechnica/index",
+  "site": "https://arstechnica.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Axios",
+  "feed": "https://api.axios.com/feed/",
+  "site": "https://www.axios.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "BBC News: Technology",
+  "feed": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+  "site": "https://www.bbc.co.uk/news/technology",
+  "cat": "tech"
+ },
+ {
+  "name": "Big Technology",
+  "feed": "https://www.bigtechnology.com/feed",
+  "site": "https://www.bigtechnology.com",
+  "cat": "tech"
+ },
+ {
+  "name": "CNBC: Technology",
+  "feed": "https://www.cnbc.com/id/19854910/device/rss/rss.html",
+  "site": "https://www.cnbc.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "CNET",
+  "feed": "https://www.cnet.com/rss/news/",
+  "site": "https://www.cnet.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Computerworld",
+  "feed": "https://www.computerworld.com/feed/",
+  "site": "https://www.computerworld.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Cult of Mac",
+  "feed": "https://www.cultofmac.com/feed",
+  "site": "https://www.cultofmac.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Daring Fireball",
+  "feed": "https://daringfireball.net/feeds/main",
+  "site": "https://daringfireball.net/",
+  "cat": "tech"
+ },
+ {
+  "name": "Digital Trends",
+  "feed": "https://www.digitaltrends.com/feed/",
+  "site": "https://www.digitaltrends.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Droid Life",
+  "feed": "https://www.droid-life.com/feed",
+  "site": "https://www.droid-life.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Engadget",
+  "feed": "https://www.engadget.com/rss.xml",
+  "site": "https://www.engadget.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "ExtremeTech",
+  "feed": "https://www.extremetech.com/feed",
+  "site": "https://www.extremetech.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Fast Company: Technology",
+  "feed": "https://www.fastcompany.com/technology/rss",
+  "site": "https://www.fastcompany.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Futurism",
+  "feed": "https://futurism.com/feed",
+  "site": "https://futurism.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Gizmodo",
+  "feed": "https://gizmodo.com/feed",
+  "site": "https://gizmodo.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "GSMArena",
+  "feed": "https://www.gsmarena.com/rss-news-reviews.php3",
+  "site": "https://www.gsmarena.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "How-To Geek",
+  "feed": "https://www.howtogeek.com/feed/",
+  "site": "https://www.howtogeek.com",
+  "cat": "tech"
+ },
+ {
+  "name": "IEEE Spectrum",
+  "feed": "https://spectrum.ieee.org/feeds/feed.rss",
+  "site": "https://spectrum.ieee.org/",
+  "cat": "tech"
+ },
+ {
+  "name": "IEEE Spectrum: Computing",
+  "feed": "https://spectrum.ieee.org/feeds/topic/computing.rss",
+  "site": "https://spectrum.ieee.org/",
+  "cat": "tech"
+ },
+ {
+  "name": "iMore",
+  "feed": "http://feeds.feedburner.com/TheiPhoneBlog",
+  "site": "https://www.imore.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "MacRumors",
+  "feed": "https://feeds.macrumors.com/MacRumors-All",
+  "site": "https://www.macrumors.com",
+  "cat": "tech"
+ },
+ {
+  "name": "MacStories",
+  "feed": "https://www.macstories.net/feed",
+  "site": "https://www.macstories.net/",
+  "cat": "tech"
+ },
+ {
+  "name": "Macworld",
+  "feed": "https://www.macworld.com/index.rss",
+  "site": "https://www.macworld.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Mashable: Tech",
+  "feed": "https://mashable.com/feeds/rss/tech",
+  "site": "https://mashable.com",
+  "cat": "tech"
+ },
+ {
+  "name": "NPR: Technology",
+  "feed": "https://feeds.npr.org/1019/rss.xml",
+  "site": "https://www.npr.org/templates/story/story.php?storyId=1019",
+  "cat": "tech"
+ },
+ {
+  "name": "PCMag",
+  "feed": "https://www.pcmag.com/feeds/rss/latest",
+  "site": "https://www.pcmag.com/feeds/rss/latest",
+  "cat": "tech"
+ },
+ {
+  "name": "PCWorld",
+  "feed": "https://www.pcworld.com/feed",
+  "site": "https://www.pcworld.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Phandroid",
+  "feed": "http://feeds2.feedburner.com/AndroidPhoneFans",
+  "site": "https://phandroid.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Platformer",
+  "feed": "https://www.platformer.news/rss/",
+  "site": "https://www.platformer.news/",
+  "cat": "tech"
+ },
+ {
+  "name": "ReadWrite",
+  "feed": "https://readwrite.com/feed/",
+  "site": "https://readwrite.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Rest of World",
+  "feed": "https://restofworld.org/feed/latest/",
+  "site": "https://restofworld.org",
+  "cat": "tech"
+ },
+ {
+  "name": "Semafor",
+  "feed": "https://www.semafor.com/rss.xml",
+  "site": "https://www.semafor.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Six Colors",
+  "feed": "https://sixcolors.com/feed/",
+  "site": "https://sixcolors.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Slashdot",
+  "feed": "https://rss.slashdot.org/Slashdot/slashdotMain",
+  "site": "https://slashdot.org/",
+  "cat": "tech"
+ },
+ {
+  "name": "SlashGear",
+  "feed": "https://www.slashgear.com/feed",
+  "site": "https://www.slashgear.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Slate: Technology",
+  "feed": "https://slate.com/feeds/technology.rss",
+  "site": "https://slate.com/technology",
+  "cat": "tech"
+ },
+ {
+  "name": "South China Morning Post: Tech",
+  "feed": "https://www.scmp.com/rss/36/feed",
+  "site": "https://www.scmp.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "TalkAndroid",
+  "feed": "http://feeds.feedburner.com/AndroidNewsGoogleAndroidForums",
+  "site": "https://www.talkandroid.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Tech Monitor",
+  "feed": "https://www.techmonitor.ai/feed",
+  "site": "https://www.techmonitor.ai/",
+  "cat": "tech"
+ },
+ {
+  "name": "TechCrunch",
+  "feed": "https://techcrunch.com/feed/",
+  "site": "https://techcrunch.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Techmeme",
+  "feed": "https://www.techmeme.com/feed.xml",
+  "site": "https://www.techmeme.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "TechRadar",
+  "feed": "https://www.techradar.com/rss",
+  "site": "https://www.techradar.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "TechRepublic",
+  "feed": "https://www.techrepublic.com/rssfeeds/articles/",
+  "site": "https://www.techrepublic.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "TechSpot",
+  "feed": "https://www.techspot.com/backend.xml",
+  "site": "https://www.techspot.com",
+  "cat": "tech"
+ },
+ {
+  "name": "The Atlantic: Technology",
+  "feed": "https://www.theatlantic.com/feed/channel/technology/",
+  "site": "https://www.theatlantic.com/technology/",
+  "cat": "tech"
+ },
+ {
+  "name": "The Conversation: Technology",
+  "feed": "https://theconversation.com/us/technology/articles.atom",
+  "site": "https://theconversation.com",
+  "cat": "tech"
+ },
+ {
+  "name": "The Guardian: Technology",
+  "feed": "https://www.theguardian.com/uk/technology/rss",
+  "site": "https://www.theguardian.com/uk/technology",
+  "cat": "tech"
+ },
+ {
+  "name": "The Loop",
+  "feed": "https://www.loopinsight.com/feed",
+  "site": "https://loopinsight.com",
+  "cat": "tech"
+ },
+ {
+  "name": "The New York Times: Technology",
+  "feed": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+  "site": "https://www.nytimes.com/section/technology",
+  "cat": "tech"
+ },
+ {
+  "name": "The Next Web",
+  "feed": "https://thenextweb.com/feed",
+  "site": "https://thenextweb.com",
+  "cat": "tech"
+ },
+ {
+  "name": "The Register",
+  "feed": "https://www.theregister.com/headlines.atom",
+  "site": "https://www.theregister.com",
+  "cat": "tech"
+ },
+ {
+  "name": "The Verge",
+  "feed": "https://www.theverge.com/rss/index.xml",
+  "site": "https://www.theverge.com",
+  "cat": "tech"
+ },
+ {
+  "name": "The Verge: Tech",
+  "feed": "https://www.theverge.com/rss/tech/index.xml",
+  "site": "https://www.theverge.com/tech",
+  "cat": "tech"
+ },
+ {
+  "name": "The Washington Post: Technology",
+  "feed": "https://feeds.washingtonpost.com/rss/business/technology",
+  "site": "https://www.washingtonpost.com",
+  "cat": "tech"
+ },
+ {
+  "name": "TIME: Tech",
+  "feed": "https://time.com/tech/feed/",
+  "site": "https://time.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "TLDR Tech",
+  "feed": "https://tldr.tech/api/rss/tech",
+  "site": "https://tldr.tech",
+  "cat": "tech"
+ },
+ {
+  "name": "VentureBeat",
+  "feed": "https://venturebeat.com/feed/",
+  "site": "https://venturebeat.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Vox: Technology",
+  "feed": "https://www.vox.com/rss/technology/index.xml",
+  "site": "https://www.vox.com/technology",
+  "cat": "tech"
+ },
+ {
+  "name": "Windows Central",
+  "feed": "https://www.windowscentral.com/rss",
+  "site": "https://www.windowscentral.com/",
+  "cat": "tech"
+ },
+ {
+  "name": "Wired",
+  "feed": "https://www.wired.com/feed/rss",
+  "site": "https://www.wired.com",
+  "cat": "tech"
+ },
+ {
+  "name": "XDA",
+  "feed": "https://www.xda-developers.com/feed/",
+  "site": "https://www.xda-developers.com",
+  "cat": "tech"
+ },
+ {
+  "name": "ZDNET",
+  "feed": "https://www.zdnet.com/news/rss.xml",
+  "site": "https://www.zdnet.com",
+  "cat": "tech"
+ },
+ {
+  "name": "Apple Newsroom",
+  "feed": "https://www.apple.com/newsroom/rss-feed.rss",
+  "site": "https://www.apple.com/",
+  "cat": "bigtech"
+ },
+ {
+  "name": "Google: Android",
+  "feed": "https://blog.google/products/android/rss",
+  "site": "https://blog.google/products-and-platforms/platforms/android/",
+  "cat": "bigtech"
+ },
+ {
+  "name": "Meta Newsroom",
+  "feed": "https://about.fb.com/news/feed/",
+  "site": "https://about.fb.com/news/",
+  "cat": "bigtech"
+ },
+ {
+  "name": "Microsoft 365 Blog",
+  "feed": "https://www.microsoft.com/en-us/microsoft-365/blog/feed/",
+  "site": "https://www.microsoft.com/en-us/copilot/blog/",
+  "cat": "bigtech"
+ },
+ {
+  "name": "Mozilla",
+  "feed": "https://blog.mozilla.org/feed/",
+  "site": "https://blog.mozilla.org/en/",
+  "cat": "bigtech"
+ },
+ {
+  "name": "Salesforce News",
+  "feed": "https://www.salesforce.com/news/feed/",
+  "site": "https://www.salesforce.com/news/",
+  "cat": "bigtech"
+ },
+ {
+  "name": "The Keyword (Google)",
+  "feed": "https://blog.google/rss/",
+  "site": "https://blog.google/",
+  "cat": "bigtech"
+ },
+ {
+  "name": "The Official Microsoft Blog",
+  "feed": "https://blogs.microsoft.com/feed/",
+  "site": "https://blogs.microsoft.com/",
+  "cat": "bigtech"
+ },
+ {
+  "name": "Windows Blog",
+  "feed": "https://blogs.windows.com/feed/",
+  "site": "https://blogs.windows.com/",
+  "cat": "bigtech"
+ },
+ {
+  "name": "Ars Technica: Science",
+  "feed": "https://arstechnica.com/science/feed/",
+  "site": "https://arstechnica.com",
+  "cat": "sci"
+ },
+ {
+  "name": "BBC News: Science",
+  "feed": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+  "site": "https://www.bbc.co.uk/news/science_and_environment",
+  "cat": "sci"
+ },
+ {
+  "name": "FlowingData",
+  "feed": "https://flowingdata.com/feed",
+  "site": "https://flowingdata.com",
+  "cat": "sci"
+ },
+ {
+  "name": "Live Science",
+  "feed": "https://www.livescience.com/feeds/all",
+  "site": "https://www.livescience.com/",
+  "cat": "sci"
+ },
+ {
+  "name": "NASA",
+  "feed": "https://www.nasa.gov/news-release/feed/",
+  "site": "https://www.nasa.gov",
+  "cat": "sci"
+ },
+ {
+  "name": "Nature",
+  "feed": "https://www.nature.com/nature.rss",
+  "site": "http://feeds.nature.com/nature/rss/current",
+  "cat": "sci"
+ },
+ {
+  "name": "New Scientist: Space",
+  "feed": "https://www.newscientist.com/subject/space/feed/",
+  "site": "https://www.newscientist.com/subject/space/",
+  "cat": "sci"
+ },
+ {
+  "name": "New Scientist: Technology",
+  "feed": "https://www.newscientist.com/subject/technology/feed/",
+  "site": "https://www.newscientist.com/subject/technology/",
+  "cat": "sci"
+ },
+ {
+  "name": "Phys.org",
+  "feed": "https://phys.org/rss-feed/",
+  "site": "https://phys.org/",
+  "cat": "sci"
+ },
+ {
+  "name": "Phys.org: Technology",
+  "feed": "https://phys.org/rss-feed/technology-news/",
+  "site": "https://techxplore.com/",
+  "cat": "sci"
+ },
+ {
+  "name": "Popular Science",
+  "feed": "https://www.popsci.com/feed/",
+  "site": "https://www.popsci.com",
+  "cat": "sci"
+ },
+ {
+  "name": "Quanta Magazine",
+  "feed": "https://www.quantamagazine.org/feed/",
+  "site": "https://www.quantamagazine.org",
+  "cat": "sci"
+ },
+ {
+  "name": "Science: News",
+  "feed": "https://www.science.org/rss/news_current.xml",
+  "site": "https://www.science.org",
+  "cat": "sci"
+ },
+ {
+  "name": "ScienceAlert",
+  "feed": "https://www.sciencealert.com/rss",
+  "site": "https://www.sciencealert.com/",
+  "cat": "sci"
+ },
+ {
+  "name": "ScienceDaily",
+  "feed": "https://www.sciencedaily.com/rss/all.xml",
+  "site": "https://www.sciencedaily.com/news/",
+  "cat": "sci"
+ },
+ {
+  "name": "Scientific American",
+  "feed": "https://www.scientificamerican.com/platform/syndication/rss/",
+  "site": "https://www.scientificamerican.com",
+  "cat": "sci"
+ },
+ {
+  "name": "Space.com",
+  "feed": "https://www.space.com/feeds/all",
+  "site": "https://www.space.com/",
+  "cat": "sci"
+ },
+ {
+  "name": "SpaceNews",
+  "feed": "https://spacenews.com/feed/",
+  "site": "https://spacenews.com/",
+  "cat": "sci"
+ },
+ {
+  "name": "The Economist: Science and technology",
+  "feed": "https://www.economist.com/science-and-technology/rss.xml",
+  "site": "https://www.economist.com/science-and-technology",
+  "cat": "sci"
+ },
+ {
+  "name": "The Guardian: Science",
+  "feed": "https://www.theguardian.com/science/rss",
+  "site": "https://www.theguardian.com/science",
+  "cat": "sci"
+ },
+ {
+  "name": "The Guardian: Space",
+  "feed": "https://www.theguardian.com/science/space/rss",
+  "site": "https://www.theguardian.com/science/space",
+  "cat": "sci"
+ },
+ {
+  "name": "The New York Times: Science",
+  "feed": "https://rss.nytimes.com/services/xml/rss/nyt/Science.xml",
+  "site": "https://www.nytimes.com/section/science",
+  "cat": "sci"
+ },
+ {
+  "name": "The Verge: Science",
+  "feed": "https://www.theverge.com/rss/science/index.xml",
+  "site": "https://www.theverge.com/science",
+  "cat": "sci"
+ },
+ {
+  "name": "Wired: Science",
+  "feed": "https://www.wired.com/feed/category/science/latest/rss",
+  "site": "https://www.wired.com",
+  "cat": "sci"
+ },
+ {
+  "name": "Hacker News: Front page",
+  "feed": "https://hnrss.org/frontpage",
+  "site": "https://news.ycombinator.com/",
+  "cat": "community"
+ },
+ {
+  "name": "Hacker News: Launches",
+  "feed": "https://hnrss.org/launches",
+  "site": "https://news.ycombinator.com/launches",
+  "cat": "community"
+ },
+ {
+  "name": "Hacker News: Show HN",
+  "feed": "http://hnrss.org/show",
+  "site": "https://news.ycombinator.com/shownew",
+  "cat": "community"
+ },
+ {
+  "name": "Lobsters",
+  "feed": "https://lobste.rs/rss",
+  "site": "https://lobste.rs/",
+  "cat": "community"
+ }
+]

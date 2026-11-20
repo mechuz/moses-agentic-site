@@ -2370,6 +2370,13 @@ html.v2[dir="rtl"] .v2hl, html.v2[dir="rtl"] .v2rot em, html.v2[dir="rtl"] .v2on
 @keyframes v2letter { from { opacity: 0; transform: translateY(.5em) rotate(6deg); } to { opacity: 1; transform: none; } }
 @keyframes v2swap { from { opacity: 0; transform: translateY(.6em); } to { opacity: 1; transform: none; } }
 @keyframes v2mq { to { transform: translateX(-50%); } }
+/* Stock ticker PREVIEW: shown only when the address ends in ?ticker=top or ?ticker=bottom. Off for every other visit. */
+.tickerband { height: 47px; overflow: hidden; position: relative; }
+.tickerband .ticker-credit { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.v2top > .tickerband { position: absolute; top: 76px; left: 0; right: 0; z-index: 2; border-block: 1px solid rgba(11,37,69,.08); background: rgba(255,255,255,.78); }
+.tickerband.foot { border-block: 1px solid rgba(11,37,69,.12); background: #fff; }
+html.v2zoom .tickerband { display: none; }
+@media (max-width: 700px) { .v2top.has-tick > .v2in { padding-top: 56px; } }
 /* While the page is pinch-zoomed, moving layers are redrawn at the magnified size and can run a phone out of memory.
    The script sets html.v2zoom while visualViewport.scale is above 1. */
 html.v2zoom .v2sage, html.v2zoom .v2four .v2ic, html.v2zoom .v2s .v2in > .v2ic, html.v2zoom .v2mq > div, html.v2zoom .v2name span, html.v2zoom .v2rot em.swap { animation: none !important; }
@@ -2911,7 +2918,7 @@ html.wbx-on, html.wbx-on body { overflow: hidden !important; }
   </div>
 
 <footer>
-  <div class="wrap v2foot"><button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button><a href="/blog/" data-i18n="nav.ins">Insights</a><a href="/news/" data-i18n="v2.news">Technology news</a><a href="https://www.facebook.com/mosesagentic" target="_blank" rel="noopener">Facebook</a><button type="button" data-about data-i18n="nav.about">About</button><button type="button" class="v2disc" data-v2-disc aria-expanded="false" data-i18n="v2.disc">Disclosures</button></div>
+  <div class="wrap v2foot"><button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button><a href="/blog/" data-i18n="nav.ins">Insights</a><a href="/news/" data-i18n="v2.news">Technology news</a><a href="/newswire/">AI Newswire</a><a href="https://www.facebook.com/mosesagentic" target="_blank" rel="noopener">Facebook</a><button type="button" data-about data-i18n="nav.about">About</button><button type="button" class="v2disc" data-v2-disc aria-expanded="false" data-i18n="v2.disc">Disclosures</button></div>
   <div class="wrap disc" id="disc" lang="en" dir="ltr"></div>
   <div class="wrap">
     <div class="brand"><span class="mark sage" aria-hidden="true"></span><span data-brand></span></div>
@@ -16436,6 +16443,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
       <section class="v2s"><div class="v2in"><h2>${E(t("v2.how_k"))}</h2></div>
         <ol class="v2how">${(t("v2.how") || []).map(([h, x], i) => `<li><i>${i + 1}</i><h3>${E(h)}</h3><p>${E(x)}</p></li>`).join("")}</ol>
         <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}</div></section>`;
+    if (window.__tickerPlace) window.__tickerPlace();
     if (end) end.innerHTML = "";
     let dock = document.getElementById("v2dock");
     if (!dock) { dock = document.createElement("nav"); dock.id = "v2dock"; dock.className = "v2dock"; dock.setAttribute("aria-label", "Sections"); document.body.appendChild(dock); }
@@ -16659,6 +16667,25 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   }, true);
   document.addEventListener("submit", e => { if (e.target.id === "wbx-form") { e.preventDefault(); next(); } });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && box && !box.hidden) close(); });
+})();
+</script>
+<script>
+/* Stock ticker PREVIEW. Nothing loads unless the address ends in ?ticker=top (under the header) or ?ticker=bottom (above the footer). */
+(function () {
+  var where = (new URLSearchParams(location.search).get("ticker") || "").toLowerCase();
+  if (where !== "top" && where !== "bottom") return;
+  function place() {
+    var have = document.querySelector(".tickerband");
+    if (have && have.isConnected) return;
+    var band = document.createElement("div");
+    band.className = "tickerband" + (where === "bottom" ? " foot" : "");
+    band.setAttribute("aria-label", "Technology sector stocks");
+    if (where === "top") { var top = document.getElementById("v2-top"); if (!top) return; top.appendChild(band); top.classList.add("has-tick"); }
+    else { var f = document.querySelector("footer"); if (!f) return; f.parentNode.insertBefore(band, f); }
+    window.MosesTicker.mount(band);
+  }
+  window.__tickerPlace = function () { if (window.MosesTicker) place(); };
+  var s = document.createElement("script"); s.src = "/vendor/tech-ticker.js"; s.onload = place; document.head.appendChild(s);
 })();
 </script>
 </body>

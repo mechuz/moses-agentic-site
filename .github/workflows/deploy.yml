@@ -9,7 +9,7 @@ on:
   workflow_run:
     workflows: ["Publish approved articles and news"]
     types: [completed]
-  # The AI Newswire (public/newswire/) is rebuilt from its feeds every 30 minutes: the "Newswire clock"
+  # The Tech Newswire (public/newswire/) is rebuilt from its feeds every 30 minutes: the "Newswire clock"
   # workflow starts this one by workflow_dispatch. (GitHub's own schedule proved undependable here:
   # a twice-an-hour schedule ran once in eleven hours on November 20, 2026.)
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
       # When the Newswire clock (or a person) starts this workflow, every feed is read again. On any other deploy the pages are
       # re-made from the items already live, so a normal push is not slowed down. If this step fails,
       # the copy of public/newswire/ in the repo is published and the rest of the site is unaffected.
-      - name: Build the AI Newswire
+      - name: Build the Tech Newswire
         continue-on-error: true
         timeout-minutes: 10
         env:

@@ -14,110 +14,71 @@
 <meta property="og:url" content="https://mosesagentic.com/news/">
 <meta property="og:image" content="https://mosesagentic.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="Moses Agentic: Insights" href="/feed.xml">
 <link rel="alternate" type="application/rss+xml" title="Moses Agentic: Technology news for business" href="/news/feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Technology news for business", "url": "https://mosesagentic.com/news/", "isPartOf": {"@type": "WebSite", "name": "Moses Agentic", "url": "https://mosesagentic.com/"}}</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Technology news for business", "url": "https://mosesagentic.com/news/", "isPartOf": {"@type": "WebSite", "name": "Moses Agentic", "url": "https://mosesagentic.com/"}}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="/vendor/site-shell.css">
+<link rel="stylesheet" href="/vendor/site-ticker.css">
+<script src="/vendor/site-shell.js" defer></script>
+<script src="/vendor/site-ticker.js" defer></script>
 <style>
-:root { --ink:#0B2545; --mut:#44546B; --blue:#1F6FFF; --lime:#D9F76B; --bg:#FFFFFF; --soft:#F5F9FF; --line:#E3EAF4; --f:"Outfit", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; --fs:"Instrument Serif", Georgia, serif; }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { margin:0; background:var(--bg); color:var(--ink); font:400 17px/1.65 var(--f); -webkit-font-smoothing:antialiased; }
-a { color:var(--blue); }
-a:focus-visible, button:focus-visible { outline:3px solid var(--ink); outline-offset:3px; }
-.wrap { max-width:1120px; margin:0 auto; padding:0 16px; }
-header.top { background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20; }
-header.top .wrap { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:76px; }
-.brand { display:inline-flex; align-items:center; text-decoration:none; }
-.brand img { height:38px; width:auto; display:block; }
-nav.site { display:flex; gap:1.4rem; flex-wrap:wrap; }
-nav.site a { color:var(--ink); text-decoration:none; font:500 1rem/1.2 var(--f); padding:.4rem 0; border-bottom:2px solid transparent; }
-nav.site a[aria-current="page"] { color:var(--blue); border-bottom-color:var(--lime); }
-nav.site a:hover { color:var(--blue); }
-.hero .wrap { padding:clamp(2.4rem, 6vw, 4.5rem) 16px clamp(1.6rem, 3vw, 2.4rem); max-width:900px; }
-.kicker { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0 0 1rem; }
-h1 { font:500 clamp(2.2rem, 5.5vw, 3.8rem)/1.02 var(--f); letter-spacing:-.04em; margin:0 0 1rem; color:var(--ink); text-wrap:balance; position:relative; }
-.lead { font:italic 400 clamp(1.3rem, 2.2vw, 1.6rem)/1.35 var(--fs); color:var(--ink); margin:0; max-width:40ch; letter-spacing:-.01em; }
-[dir="rtl"] .lead { font-style:normal; font-family:var(--f); font-weight:500; }
-.rule { width:72px; height:6px; background:var(--lime); border-radius:3px; margin:1.4rem 0 0; }
-footer.site { border-top:1px solid var(--line); margin-top:4rem; background:#fff; }
-footer.site .links { display:flex; flex-wrap:wrap; gap:.4rem 1.6rem; padding:1.6rem 0; border-bottom:1px solid rgba(11,37,69,.12); }
-footer.site .links a { font:700 1rem var(--f); color:var(--ink); text-decoration:none; padding:.3rem 0; }
-footer.site .links a:hover { color:var(--blue); }
-footer.site .base { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.8rem 1.6rem; padding:1.4rem 0 2.4rem; color:var(--mut); font-size:1rem; }
-footer.site .base .mark { display:inline-flex; align-items:center; gap:.6rem; color:var(--ink); font-weight:600; text-decoration:none; }
-footer.site .base .mark img { height:28px; width:auto; }
-footer.site .base a { color:var(--ink); text-decoration:none; font-weight:500; }
-footer.site .base a:hover { color:var(--blue); }
-.btn { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:0 1.5rem; border-radius:999px; font:600 1rem var(--f); text-decoration:none; transition:background .15s, color .15s; }
-.btn.primary { background:var(--blue); color:#fff; }
-.btn.primary:hover { background:var(--ink); }
-.btn.ghost { border:1.5px solid var(--ink); color:var(--ink); }
-.btn.ghost:hover { background:var(--ink); color:#fff; }
-@media (max-width:700px) { header.top { position:static; } header.top .wrap { flex-direction:column; align-items:flex-start; gap:.3rem; min-height:0; padding:.8rem 16px .5rem; } .brand img { height:30px; } nav.site { width:100%; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; gap:1.1rem; } nav.site::-webkit-scrollbar { display:none; } nav.site a { white-space:nowrap; } }
-
-.chips { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.6rem 0 0; }
-.chips a { background:#fff; border:1px solid var(--line); border-radius:999px; padding:.4rem 1rem; font:500 1rem/1.2 var(--f); color:var(--ink); text-decoration:none; }
-.chips a:hover { border-color:var(--blue); color:var(--blue); }
-.chips a[aria-current="true"] { background:var(--lime); border-color:var(--lime); color:var(--ink); font-weight:600; }
-main .wrap { padding:1rem 16px 2rem; }
-.month { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin:2.2rem 0 .9rem; }
+/* The page's own parts. Header, hero, bottom menu, footer, type and colors: /vendor/site-shell.css (the front page's look). */
+.chips { display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; margin:1.6rem 0 0; }
+.chips a { background:#FFFFFF; border:1px solid var(--ms-line); border-radius:999px; padding:.45rem 1rem; font:500 1rem/1.2 var(--ms-f); color:var(--ms-ink); text-decoration:none; }
+.chips a:hover { border-color:var(--ms-blue); color:var(--ms-blue); }
+.chips a[aria-current="true"] { background:var(--ms-lime); border-color:var(--ms-lime); color:var(--ms-ink); font-weight:600; }
+main .ms-wrap { padding-top:.6rem; padding-bottom:1rem; }
+.month { font:600 1rem/1.3 var(--ms-f); color:var(--ms-ink); margin:2.4rem 0 1rem; text-align:center; }
 .grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); }
-.card { border:1px solid var(--line); border-radius:20px; padding:1.3rem 1.4rem 1.3rem; display:grid; gap:.55rem; background:#fff; align-content:start; transition:border-color .15s, transform .15s; }
-.card:hover { border-color:var(--blue); transform:translateY(-2px); }
-.card .cat { font:600 1rem/1 var(--f); letter-spacing:.06em; text-transform:uppercase; color:var(--blue); }
-.card h2 { font:500 1.3rem/1.25 var(--f); letter-spacing:-.025em; margin:0; color:var(--ink); }
+.card { border:1px solid var(--ms-line); border-radius:20px; padding:1.4rem 1.5rem; display:grid; gap:.6rem; background:#FFFFFF; align-content:start; transition:border-color .15s, transform .15s, box-shadow .15s; }
+.card:hover { border-color:var(--ms-blue); transform:translateY(-2px); box-shadow:0 14px 34px -22px rgba(11,37,69,.45); }
+.card .cat { font:600 .95rem/1.2 var(--ms-f); color:var(--ms-blue); }
+.card h2 { font:600 1.35rem/1.2 var(--ms-f); letter-spacing:-.025em; margin:0; color:var(--ms-ink); }
 .card h2 a { color:inherit; text-decoration:none; }
-.card h2 a:hover { color:var(--blue); }
-.card p { margin:0; color:var(--ink); font-size:1rem; }
-.card .why { color:var(--mut); font-size:1rem; }
-.card .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.4rem; font-size:1rem; color:var(--mut); margin-top:.3rem; }
+.card h2 a:hover { color:var(--ms-blue); }
+.card p { margin:0; color:var(--ms-ink); font-size:1rem; line-height:1.55; }
+.card .why { color:var(--ms-mut); }
+.card .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.4rem; font-size:1rem; color:var(--ms-mut); margin-top:.3rem; }
 .card .foot a { font-weight:600; text-decoration:none; }
 .card .foot a:hover { text-decoration:underline; }
-.empty { color:var(--mut); padding:2rem 0; font:italic 400 1.4rem/1.4 var(--fs); }
-.share { background:var(--soft); border:1px solid var(--line); border-radius:20px; padding:1.4rem 1.5rem; margin-top:2.6rem; color:var(--ink); font-size:1.05rem; }
+.empty { color:var(--ms-mut); padding:2rem 0; font:italic 400 1.5rem/1.4 var(--ms-fs); text-align:center; }
+.share { background:var(--ms-soft); border:1px solid var(--ms-line); border-radius:20px; padding:1.4rem 1.5rem; margin-top:2.6rem; color:var(--ms-ink); font-size:1.05rem; text-align:center; }
 .share a { font-weight:600; }
 </style>
-<link rel="stylesheet" href="/vendor/site-ticker.css">
-<script src="/vendor/site-ticker.js" defer></script>
 </head>
 <body>
 <div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div><script>document.documentElement.classList.add("has-ticker")</script>
-<header class="top"><div class="wrap">
-  <a class="brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
-  <nav class="site" aria-label="Site">
-    <a href="/blog/">Insights</a>
-    <a href="/news/" aria-current="page">Technology news</a>
-    <a href="/newswire/">AI Newswire</a>
-    <a href="/case-studies/">Case studies</a>
-    <a href="/">Home</a>
-  </nav>
+<header class="top ms-top"><div class="ms-wrap">
+  <a class="ms-brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
+  <div class="ms-langs" role="group" aria-label="Language"><button type="button" lang="en" aria-pressed="true">EN</button><button type="button" class="globe" data-ms-langs aria-haspopup="true" aria-expanded="false" aria-label="More languages" title="More languages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"></path></svg></button><div class="ms-langmenu" id="ms-langmenu" hidden><a href="#" aria-current="true" onclick="document.getElementById('ms-langmenu').hidden=true;return false">English <span>this page</span></a><a href="/#es" lang="es">Español <span>home</span></a><a href="/#yi" lang="yi" dir="rtl">אידיש <span>home</span></a><a href="/#he" lang="he" dir="rtl">עברית <span>home</span></a></div></div>
+  <a class="ms-team" href="https://airtable.com/appzqMaRLQZQDcAMU" target="_blank" rel="noopener" title="Team prospect tracker" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
 </div></header>
 
-<section class="hero"><div class="wrap">
-  <p class="kicker">Technology news for business</p>
-  <h1>What changed in technology this week, and why it matters to your business.</h1>
-  <p class="lead">Reputable sources, summarized in plain words for owners and operators. Updated most days.</p>
-  <div class="rule" aria-hidden="true"></div>
+<section class="ms-hero"><canvas class="ms-fx" aria-hidden="true"></canvas><div class="ms-in">
+  <p class="ms-k">Technology news for business</p>
+  <h1 class="ms-h1">What changed in technology this week, and why it matters to your business.</h1>
+  <p class="ms-one">Reputable sources, summarized in plain words for owners and operators. Updated most days.</p>
   <div class="chips"><a href="/news/" aria-current="true">All</a><a href="/news/#ai">AI &amp; automation</a><a href="/news/#smb">Small business tech</a><a href="/news/#industry">Tech by industry</a><a href="/news/#tools">Software &amp; devices</a><a href="/news/#policy">Security, policy &amp; law</a><a href="/news/#work">Work &amp; productivity</a><a href="/news/#company">Company update</a></div>
 </div></section>
 
-<main><div class="wrap">
+<main><div class="ms-wrap">
 <h2 class="month">November 2026</h2><div class="grid"><article class="card" id="2026-11-18-study-of-3-662-property-managers-ai-use-reaches-58-percent-but-under" data-cat="industry"><span class="cat">Tech by industry</span><h2><a href="/news/2026-11-18-study-of-3-662-property-managers-ai-use-reaches-58-percent-but-under/">Study of 3,662 property managers: AI use reaches 58 percent, but under half see it in the bottom line</a></h2><p>AppFolio and the Institute of Real Estate Management released AI Insights 2026 on November 5, 2026, a survey of 3,662 real estate management professionals taken May 7 to June 7, 2026. AI use in the job rose from 21 percent in 2023 to 58 percent, the first time a majority reported using it, and the smallest firms have passed 50 percent. Among users, 85 percent report productivity gains but only 48 percent report a positive effect on net operating income. Only 8 percent of organizations have a written AI policy and 74 percent of professionals have had no formal AI training. Concern is high: 92 percent worry about AI-related cybersecurity and 93 percent about AI-faked applicant documents.</p><p class="why">Why it matters: Property managers who got results put AI into how the whole operation runs, not into one person&#x27;s tasks; a one-page AI policy and basic training are the cheapest first steps.</p><div class="foot"><span>November 18, 2026 · AppFolio and IREM</span><a href="https://www.appfolio.com/newsroom/irem-research-report-2026" rel="noopener" target="_blank">Source</a></div></article><article class="card" id="2026-11-18-microsoft-ignite-2026-copilot-gets-a-long-running-autopilot-agent-sha" data-cat="tools"><span class="cat">Software &amp; devices</span><h2><a href="/news/2026-11-18-microsoft-ignite-2026-copilot-gets-a-long-running-autopilot-agent-sha/">Microsoft Ignite 2026: Copilot gets a long-running Autopilot agent, shared workspaces and a spend dashboard for agents</a></h2><p>At its Ignite conference on November 17, 2026, Microsoft described the next version of Copilot for work: Autopilot, an agent that keeps running recurring tasks on its own; Copilot Code, which builds dashboards, trackers and small apps from plain-language instructions; and Copilot Workspaces, where people and agents share the same files and context. For managers, Agent 365 Business Analytics is meant to show what the company&#x27;s AI is costing and delivering, and Agent 365 policies will be enforced on every Windows device. Microsoft IQ connects agents to company knowledge, with a Salesforce plugin in preview. Microsoft did not give prices or dates for most of these in the announcement.</p><p class="why">Why it matters: If your office already pays for Microsoft 365, the agent features will arrive inside tools you own; the thing to ask your IT person about first is who approves what an agent is allowed to do.</p><div class="foot"><span>November 18, 2026 · Microsoft (Source)</span><a href="https://news.microsoft.com/source/2026/11/17/microsoft-ignite-2026-empowering-human-ambition-intelligence-and-trust/" rel="noopener" target="_blank">Source</a></div></article><article class="card" id="2026-11-18-fbi-poisoned-search-results-and-hacked-wordpress-sites-led-to-more-th" data-cat="policy"><span class="cat">Security, policy &amp; law</span><h2><a href="/news/2026-11-18-fbi-poisoned-search-results-and-hacked-wordpress-sites-led-to-more-th/">FBI: poisoned search results and hacked WordPress sites led to more than $28 million in ransom payments</a></h2><p>The FBI issued an alert on November 16, 2026 about Gootloader, malware that reaches businesses through ordinary web searches. Criminals plant pages on hacked WordPress sites that rank for narrow searches, such as a specific contract clause, and the visitor downloads a file that opens the door for ransomware. As of October 2026 the FBI counted more than 1,000 infected WordPress sites, 216 domains run by the operator, and over $28 million in ransom payments. Recent targeting has focused on lawyers, in-house counsel and legal technology buyers. The alert tells organizations what to do if a staff member downloaded or opened such a file, and recommends reviewing incident response plans.</p><p class="why">Why it matters: If your business runs a WordPress site, make sure it is updated and its XML-RPC access is locked down, and tell staff that a downloaded template or form from a search result is not safe to open.</p><div class="foot"><span>November 18, 2026 · FBI (IC3 FLASH CC-111626-MW)</span><a href="https://www.ic3.gov/CSA/2026/261116.pdf" rel="noopener" target="_blank">Source</a></div></article><article class="card" id="microsoft-365-outage-network-upgrade" data-cat="work"><span class="cat">Work &amp; productivity</span><h2><a href="/news/microsoft-365-outage-network-upgrade/">Microsoft says a network upgrade, not Copilot, caused the Microsoft 365 outage</a></h2><p>Outlook, Teams and Copilot were disrupted for many businesses starting November 12, 2026, and service came back gradually over the following days. Microsoft&#x27;s preliminary explanation points to a hidden bug in the systems that set up secure connections, which surfaced when traffic shifted during network maintenance and upgrades. The company said its Copilot assistant did not cause the outage and that it saw no sign of malicious activity.</p><p class="why">Why it matters: Email and chat can fail together when they share one provider, so agree in advance how staff and customers reach each other during an outage.</p><div class="foot"><span>November 17, 2026 · Windows Latest</span><a href="https://www.windowslatest.com/2026/11/14/microsoft-is-begging-you-not-to-blame-ai-for-the-microsoft-365-outage-insisting-it-was-a-botched-network-upgrade/" rel="noopener" target="_blank">Source</a></div></article><article class="card" id="infoblox-security-incident-vendor" data-cat="policy"><span class="cat">Security, policy &amp; law</span><h2><a href="/news/infoblox-security-incident-vendor/">Infoblox confirms a security incident traced to an outside vendor</a></h2><p>Infoblox, a company that sells network security products, confirmed that someone gained unauthorized access to certain company information. A spokesperson told TechCrunch the access came through a compromised third-party data migration vendor and that the company is investigating. The incident is a reminder that a breach can start with a supplier and not with the company itself.</p><p class="why">Why it matters: Ask the vendors that handle your data how they protect it, and limit what each one can reach.</p><div class="foot"><span>November 17, 2026 · TechCrunch</span><a href="https://techcrunch.com/2026/11/16/cyber-giant-infoblox-confirms-security-incident-after-hackers-access-company-information/" rel="noopener" target="_blank">Source</a></div></article><article class="card" id="apple-services-outage-internal-update" data-cat="work"><span class="cat">Work &amp; productivity</span><h2><a href="/news/apple-services-outage-internal-update/">Apple services including the App Store and Apple Music go down; Apple points to an internal update</a></h2><p>Several Apple services stopped working for part of November 17, 2026. Apple&#x27;s status page listed full outages for Apple Music, the App Store and AppleCare, and reports named iCloud among the services hit. Apple attributed the problem to an internal update and said it was not the result of a cyberattack. The outage followed a Microsoft 365 disruption the week before.</p><p class="why">Why it matters: If your team relies on one provider for email, files and sign-in, keep a backup way to reach customers and key documents.</p><div class="foot"><span>November 17, 2026 · TechCrunch</span><a href="https://techcrunch.com/2026/11/17/apple-services-including-icloud-app-store-and-apple-music-hit-by-outage" rel="noopener" target="_blank">Source</a></div></article></div>
 <div class="share">Saw an article worth sharing with other business owners? <a href="mailto:welcome@mosesagentic.com?subject=Article%20for%20the%20news%20desk">Email it to the desk</a>.</div>
 </div></main>
 
-<footer class="site"><div class="wrap">
-  <div class="links"><a href="/case-studies/">Case Studies</a><a href="/blog/">Insights</a><a href="/news/">Technology news</a><a href="/newswire/">AI Newswire</a><a href="/industries/">Industries</a><a href="/">Home</a></div>
-  <div class="base">
-    <a class="mark" href="/"><img src="/logo-mark.svg" alt="" width="28" height="28">Moses Agentic</a>
-    <span>© 2026 Moses Agentic · New York · Memphis · Miami</span>
-    <span><a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a> · <a href="/news/feed.xml">RSS</a></span>
+<footer class="ms-foot">
+  <div class="ms-wrap ms-links"><a href="/case-studies/">Case Studies</a><a href="/blog/">Insights</a><a href="/news/">Technology news</a><a href="/newswire/">Tech Newswire</a><a href="https://www.facebook.com/mosesagentic" target="_blank" rel="noopener">Facebook</a><a href="/?go=about">About</a><a href="/?go=disclosures">Disclosures</a></div>
+  <div class="ms-wrap ms-base">
+    <div class="ms-name">Moses Agentic</div>
+    <p class="ms-locs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><b>Based in New York</b> <span>Serving businesses worldwide</span> <span>· <a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a></span></p>
+    <small>AI services, agents and education for real businesses. <a href="https://chochamai.com/#en">chochamai.com</a> © 2026</small>
   </div>
-</div></footer>
+</footer>
+<nav class="v2dock" id="v2dock" aria-label="Sections"><a href="/"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="15" cy="24" r="7"/><circle cx="24" cy="24" r="9"/><circle cx="33" cy="24" r="7"/></svg></span>Home</a><a href="/?go=v2-dw"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="17" cy="18" r="9"/><circle cx="31" cy="20" r="7"/><circle cx="24" cy="31" r="10"/><circle class="g" cx="38" cy="34" r="4"/></svg></span>Digital Workforce</a><a href="/?go=v2-ms"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="22" rx="7"/><rect x="18" y="34" width="12" height="5" rx="2.5"/><circle class="g" cx="38" cy="12" r="5"/></svg></span>Managed Services</a><a href="/?go=v2-sol"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="11" r="6"/><circle cx="11" cy="24" r="6"/><circle cx="37" cy="24" r="6"/><circle class="g" cx="24" cy="37" r="6"/></svg></span>Solutions</a><a href="/?go=v2-ac"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 9 44 19 24 29 4 19z"/><path d="M13 25v8c3 4 19 4 22 0v-8l-11 6z"/><circle class="g" cx="42" cy="30" r="3.5"/></svg></span>Academy</a><a href="/?go=pricing" class="buy"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 10h17l15 15a4 4 0 0 1 0 6L30 41a4 4 0 0 1-6 0L8 26z"/><circle class="w" cx="17" cy="19" r="4"/></svg></span>Pricing</a></nav>
 </body>
 </html>

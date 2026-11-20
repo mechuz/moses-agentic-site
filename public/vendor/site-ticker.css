@@ -16,38 +16,33 @@ html.v2zoom .site-ticker { visibility: hidden; }
 @media print { html.has-ticker .site-ticker { display: none; } }
 
 /* Site-wide news strip: technology headlines running along the bottom of every public page.
+   Just the headlines, like a news channel, with one small "Tech news" tag; the whole strip is one link.
    /vendor/site-ticker.js builds it (an <a class="site-news">, one link to the newswire's all-technology page) and
    sets html.has-news. On pages with the bottom menu (#v2dock) the script places it right above the menu.
-   It is not built on the newswire pages, where the headlines are the page. */
+   Every page that loads site-ticker.js has it. */
 html.has-news { --newsh: 44px; }
 /* room, so the footer is never covered: the strip's height, plus whatever the page was short for its bottom menu
    (--newsroom, set by the script) */
 html.has-news body { border-bottom: var(--newsroom, var(--newsh)) solid transparent; }
 /* home page: the hero keeps clear of the menu and the strip above it */
 html.has-news.v2.site-moses .v2top { padding-bottom: calc(var(--dockh, 96px) + var(--newsh) + 1rem); }
-.site-news { position: fixed; left: 0; right: 0; bottom: 0; z-index: 26; box-sizing: content-box; height: 44px; padding-bottom: env(safe-area-inset-bottom, 0px); display: flex; align-items: stretch; background: #0B2545; color: #FFFFFF; text-decoration: none; font: 500 16px/44px "Outfit", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: 0; direction: ltr; text-align: left; overflow: hidden; }
+.site-news { position: fixed; left: 0; right: 0; bottom: 0; z-index: 26; box-sizing: content-box; height: 44px; padding-bottom: env(safe-area-inset-bottom, 0px); display: block; background: #0B2545; color: #FFFFFF; text-decoration: none; font: 500 16px/44px "Outfit", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: 0; direction: ltr; text-align: left; overflow: hidden; }
 .site-news.on-dock { padding-bottom: 0; }
 .site-news:focus-visible { outline: 3px solid #D9F76B; outline-offset: -3px; }
-.site-news .sn-tag { flex: none; display: flex; align-items: center; gap: .5rem; padding: 0 .9rem; background: #D9F76B; color: #0B2545; font-weight: 700; white-space: nowrap; }
-.site-news .sn-tag i { width: 9px; height: 9px; border-radius: 50%; background: #1F6FFF; animation: snair 1.6s ease-in-out infinite; }
-@keyframes snair { 50% { transform: scale(1.4); opacity: .45; } }
-.site-news .sn-run { flex: 1 1 0; min-width: 0; position: relative; overflow: hidden; white-space: nowrap; }
+/* one small tag at the left edge; the headlines run across the full width behind it */
+.site-news .sn-tag { position: absolute; left: 0; top: 0; z-index: 1; height: 44px; display: flex; align-items: center; padding: 0 18px 0 10px; background: linear-gradient(90deg, #0B2545 72%, rgba(11,37,69,0)); }
+.site-news .sn-tag span { display: block; padding: 0 7px; border-radius: 4px; background: #D9F76B; color: #0B2545; font: 700 12px/21px "Outfit", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: .07em; text-transform: uppercase; white-space: nowrap; }
+.site-news .sn-run { position: absolute; left: 0; right: 0; top: 0; height: 44px; overflow: hidden; white-space: nowrap; }
 /* the running text is absolute, so its length can never widen the page */
-.site-news .sn-run > span { position: absolute; left: 0; top: 0; padding-left: 1rem; white-space: nowrap; }
+.site-news .sn-run > span { position: absolute; left: 0; top: 0; padding-left: 104px; white-space: nowrap; }
 .site-news .sn-run.go > span { animation: sncrawl var(--crawl, 120s) linear infinite; }
 .site-news:hover .sn-run.go > span { animation-play-state: paused; }
 @keyframes sncrawl { to { transform: translateX(-50%); } }
 .site-news .sn-run b { font-weight: 700; color: #9CCBFF; margin-right: .45rem; }
 .site-news .sn-run i { font-style: normal; color: #6F86A8; margin: 0 .9rem; }
-.site-news .sn-run em { font-style: normal; font-weight: 700; color: #D9F76B; }
-.site-news .sn-more { flex: none; display: flex; align-items: center; gap: .5rem; padding: 0 1rem; background: #1F6FFF; color: #FFFFFF; font-weight: 600; white-space: nowrap; transition: background .15s; }
-.site-news:hover .sn-more { background: #4DB8FF; color: #0B2545; }
-.site-news .sn-short { display: none; }
-@media (max-width: 1000px) { .site-news .sn-more .sn-long { display: none; } .site-news .sn-more { padding: 0 .9rem; } }
-@media (max-width: 700px) { .site-news .sn-tag .sn-long { display: none; } .site-news .sn-tag .sn-short { display: inline; } .site-news .sn-tag { padding: 0 .7rem; } }
 /* while the page is pinch-zoomed neither moving band is drawn */
 html.v2zoom .site-news, html.sn-zoom .site-news, html.sn-zoom .site-ticker { visibility: hidden; }
-@media (prefers-reduced-motion: reduce) { .site-news .sn-run.go > span, .site-news .sn-tag i { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .site-news .sn-run.go > span { animation: none; } }
 @media print { .site-news { display: none; } html.has-news body { border-bottom: 0; } }
 
 /* Home page: a small window with the technology sector's chart for the last five years. Built by site-ticker.js

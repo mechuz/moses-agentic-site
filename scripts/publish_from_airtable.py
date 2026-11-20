@@ -41,6 +41,9 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import site_shell  # noqa: E402  the front page's header, hero, bottom menu and footer for these pages
+
 PUBLIC = ROOT / "public"
 CONTENT = ROOT / "content"
 BLOG_SRC = CONTENT / "blog"
@@ -368,6 +371,7 @@ def tpl(name):
 
 def render(template, values):
     out = template
+    values = {**site_shell.values(datetime.now(tz()).year), **values}
     for k, v in values.items():
         out = out.replace("{{" + k + "}}", v if v is not None else "")
     return re.sub(r"\{\{[a-z_]+\}\}", "", out)
@@ -466,7 +470,7 @@ def render_blog_index(posts):
         "kicker": "Insights", "headline": "A digital workforce for your business, in plain words.",
         "lead": "What a digital worker can take off your team's plate, how to start safely, and what we have seen work across real estate, healthcare, finance, back office and more.",
         "chips_html": "", "items_html": items_html,
-        "share_html": '<div class="share">Want to talk through any of this for your own business? <a href="/">Book a free consultation</a>.</div>',
+        "share_html": '<div class="share">Want to talk through any of this for your own business? <a href="/#consult">Book a free consultation</a>.</div>',
         "year": str(datetime.now(tz()).year),
     })
     write_page("/blog/", page)

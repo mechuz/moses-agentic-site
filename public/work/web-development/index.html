@@ -2941,7 +2941,7 @@ html.wbx-on, html.wbx-on body { overflow: hidden !important; }
   </div>
 
 <footer>
-  <div class="wrap v2foot"><button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button><a href="/blog/" data-i18n="nav.ins">Insights</a><a href="/news/" data-i18n="v2.news">Technology news</a><a href="/newswire/">AI Newswire</a><a href="https://www.facebook.com/mosesagentic" target="_blank" rel="noopener">Facebook</a><button type="button" data-about data-i18n="nav.about">About</button><button type="button" class="v2disc" data-v2-disc aria-expanded="false" data-i18n="v2.disc">Disclosures</button></div>
+  <div class="wrap v2foot"><button type="button" data-view="cases" data-i18n="nav.cases">Case Studies</button><a href="/blog/" data-i18n="nav.ins">Insights</a><a href="/news/" data-i18n="v2.news">Technology news</a><a href="/newswire/">Tech Newswire</a><a href="https://www.facebook.com/mosesagentic" target="_blank" rel="noopener">Facebook</a><button type="button" data-about data-i18n="nav.about">About</button><button type="button" class="v2disc" data-v2-disc aria-expanded="false" data-i18n="v2.disc">Disclosures</button></div>
   <div class="wrap disc" id="disc" lang="en" dir="ltr"></div>
   <div class="wrap">
     <div class="brand"><span class="mark sage" aria-hidden="true"></span><span data-brand></span></div>
@@ -16725,6 +16725,26 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   }, true);
   document.addEventListener("submit", e => { if (e.target.id === "wbx-form") { e.preventDefault(); next(); } });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && box && !box.hidden) close(); });
+})();
+</script>
+<script>
+/* Links from the other pages (Insights, Technology news, Tech Newswire): their bottom menu and footer open this page at
+   a section or a panel: /?go=v2-dw (v2-ms, v2-sol, v2-ac), /?go=pricing, /?go=about, /?go=disclosures. */
+(function () {
+  var go = new URLSearchParams(location.search).get("go");
+  if (!go || !/^(v2-(dw|ms|sol|ac)|pricing|about|disclosures)$/.test(go)) return;
+  function clean() { var q = new URLSearchParams(location.search); q.delete("go"); var s = q.toString(); history.replaceState(null, "", location.pathname + (s ? "?" + s : "") + location.hash); }
+  function run() {
+    if (/^v2-/.test(go)) {
+      var x = document.getElementById(go); if (x) x.scrollIntoView({ block: "start" });
+      document.querySelectorAll("#v2dock [data-v2-go]").forEach(function (b) { b.classList.toggle("on", b.dataset.v2Go === go); });
+    } else {
+      var b = document.querySelector(go === "pricing" ? "#v2dock [data-pricing], [data-pricing]" : go === "about" ? "[data-about]" : "[data-v2-disc]");
+      if (b) b.click();
+    }
+    clean();
+  }
+  window.addEventListener("load", function () { setTimeout(run, 450); });
 })();
 </script>
 </body>

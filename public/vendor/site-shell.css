@@ -1,0 +1,106 @@
+/* Moses Agentic: the front page's look, for the pages the site's scripts generate (Insights, Technology news,
+   Tech Newswire and their articles). Header (logo, EN, Team), the moving-dot hero, the bottom menu and the footer
+   are copied from the front page's drawn sizes and colors. Markup comes from scripts/site_shell.py; the moving dots,
+   the header's scroll state and the language menu come from /vendor/site-shell.js. */
+:root {
+  --ms-ink: #0B2545; --ms-mut: #44546B; --ms-foot: #4A6384; --ms-blue: #1F6FFF; --ms-blue2: #1A73E8; --ms-sky: #4DB8FF;
+  --ms-lime: #D9F76B; --ms-line: #E3EAF4; --ms-soft: #F5F9FF; --ms-pill: #EEF4FF; --ms-edge: #C9D6E8;
+  --ms-f: "Outfit", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ms-fs: "Instrument Serif", "Heebo", Georgia, serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: #FFFFFF; color: var(--ms-ink); font: 400 17px/1.55 var(--ms-f); letter-spacing: -.011em; -webkit-font-smoothing: antialiased; padding-bottom: 104px; }
+@media (max-width: 900px) { body { padding-bottom: 92px; } }
+a { color: var(--ms-blue); }
+:focus-visible { outline: 3px solid var(--ms-ink); outline-offset: 3px; }
+.ms-wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------------------------------------------------------------- header: logo, EN and globe, Team */
+.ms-top { position: sticky; top: 0; z-index: 30; height: 76px; background: #FFFFFF; border-bottom: 1px solid var(--ms-line); transition: background-color .25s ease, border-color .25s ease; }
+html:not(.ms-scrolled) .ms-top { background: transparent; border-bottom-color: transparent; }
+.ms-top .ms-wrap { display: flex; align-items: center; gap: 1.2rem; height: 64px; }
+.ms-brand { display: flex; align-items: center; text-decoration: none; flex: none; }
+.ms-brand img { display: block; height: 34px; width: auto; }
+.ms-langs { position: relative; display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--ms-pill); margin-inline-start: auto; flex: none; }
+.ms-langs button { border: 0; background: none; color: #3D5170; font: 600 .85rem/1 var(--ms-f); padding: .55rem .7rem; border-radius: 999px; cursor: pointer; transition: background .15s, color .15s; }
+.ms-langs button[aria-pressed="true"] { background: #FFFFFF; color: var(--ms-ink); box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+.ms-langs button.globe { display: inline-flex; align-items: center; gap: .3rem; }
+.ms-langs button.globe svg { width: 16px; height: 16px; }
+.ms-langmenu { position: absolute; top: calc(100% + 8px); right: 0; z-index: 40; min-width: 190px; padding: .4rem; background: #FFFFFF; border: 1px solid var(--ms-line); border-radius: 16px; box-shadow: 0 18px 40px -18px rgba(11,37,69,.45); }
+.ms-langmenu[hidden] { display: none; }
+.ms-langmenu a { display: flex; justify-content: space-between; gap: 1rem; padding: .6rem .8rem; border-radius: 10px; color: var(--ms-ink); text-decoration: none; font: 500 1rem/1.2 var(--ms-f); }
+.ms-langmenu a:hover { background: var(--ms-soft); }
+.ms-langmenu a[aria-current="true"] { font-weight: 700; }
+.ms-langmenu a span { color: var(--ms-mut); font-size: .85rem; }
+.ms-team { display: inline-flex; align-items: center; gap: .35rem; margin-inline-start: 1rem; padding: .35rem .75rem; border: 1px solid var(--ms-edge); border-radius: 999px; background: #FFFFFF; color: var(--ms-ink); font: 600 .85rem var(--ms-f); text-decoration: none; white-space: nowrap; flex: none; }
+.ms-team:hover { background: #EAF5FF; }
+.ms-team svg { width: 15px; height: 15px; }
+@media (max-width: 900px) {
+  .ms-team { margin-inline-start: auto; min-width: 44px; min-height: 44px; justify-content: center; padding: 0; border-radius: 12px; }
+  .ms-team svg { width: 20px; height: 20px; }
+  .ms-team span { display: none; }
+}
+@media (max-width: 860px) { .ms-brand img { height: 28px; } }
+@media (max-width: 420px) { .ms-brand img { height: 19px; } .ms-top .ms-wrap { gap: .5rem; } .ms-langs button { padding: .55rem; } }
+
+/* ---------------------------------------------------------------- hero: the front page's moving dots */
+.ms-hero { position: relative; overflow: hidden; margin-top: -76px; padding: calc(76px + clamp(2.6rem, 7vw, 5.5rem)) 0 clamp(2.6rem, 6vw, 4.5rem); text-align: center; }
+.ms-fx { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.ms-hero::after { content: ""; position: absolute; left: var(--mx, 50%); top: var(--my, 38%); width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%; background: radial-gradient(closest-side, rgba(77,184,255,.22), rgba(217,247,107,.12) 55%, rgba(255,255,255,0)); pointer-events: none; z-index: 0; transition: left .25s ease-out, top .25s ease-out; }
+.ms-in { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 clamp(18px, 5vw, 40px); }
+html.ms-zoom .ms-hero::after, html.sn-zoom .ms-hero::after { display: none; }
+
+/* the front page's type */
+.ms-k { font: 600 1rem/1.3 var(--ms-f); color: var(--ms-ink); margin: 0 0 1.2rem; }
+.ms-h1 { font: 600 clamp(2.2rem, 4.5vw, 3.6rem)/1.05 var(--ms-f); letter-spacing: -.035em; margin: 0; color: var(--ms-ink); text-wrap: balance; }
+.ms-hl { font: italic 400 1.1em/1.2 var(--ms-fs); letter-spacing: -.01em; padding: 0 .25em; border-radius: 4px; background: linear-gradient(transparent 12%, var(--ms-lime) 12%, var(--ms-lime) 92%, transparent 92%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.ms-one { font: italic 400 clamp(1.5rem, 2.5vw, 2rem)/1.3 var(--ms-fs); letter-spacing: -.01em; color: var(--ms-ink); margin: 1.2rem auto 0; max-width: 36ch; }
+.ms-p { font: 400 1.15rem/1.6 var(--ms-f); color: var(--ms-mut); margin: .9rem auto 0; max-width: 39rem; }
+.ms-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-top: 1.6rem; }
+.ms-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .95rem 1.7rem; border-radius: 999px; border: 1px solid var(--ms-blue); background: var(--ms-blue); color: #FFFFFF; font: 600 1.05rem/1.2 var(--ms-f); text-decoration: none; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.ms-btn:hover { background: var(--ms-ink); border-color: var(--ms-ink); }
+.ms-btn.ghost { background: #FFFFFF; color: var(--ms-ink); border-color: var(--ms-edge); }
+.ms-btn.ghost:hover { border-color: var(--ms-ink); background: #FFFFFF; }
+.ms-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin: 1.6rem 0 0; }
+.ms-chips a { background: #FFFFFF; border: 1px solid var(--ms-line); border-radius: 999px; padding: .45rem 1rem; font: 500 1rem/1.2 var(--ms-f); color: var(--ms-ink); text-decoration: none; }
+.ms-chips a:hover { border-color: var(--ms-blue); color: var(--ms-blue); }
+.ms-chips a[aria-current="true"], .ms-chips a[aria-current="page"] { background: var(--ms-lime); border-color: var(--ms-lime); font-weight: 600; color: var(--ms-ink); }
+.ms-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.2rem; margin: 1.4rem 0 0; font-size: 1rem; color: var(--ms-mut); align-items: center; }
+.ms-meta .tag { background: #FFFFFF; border: 1px solid var(--ms-line); border-radius: 999px; padding: .2rem .8rem; color: var(--ms-ink); font-weight: 500; }
+
+/* ---------------------------------------------------------------- the bottom menu, as on the front page */
+.v2dock { display: flex; position: fixed; inset-inline: 0; bottom: 0; z-index: 25; background: #FFFFFF; border-top: 1px solid var(--ms-line); overflow-x: auto; scrollbar-width: none; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.v2dock::-webkit-scrollbar { display: none; }
+.v2dock a { flex: 1 0 112px; display: grid; justify-items: center; align-content: center; gap: .45rem; min-height: 96px; background: #FFFFFF; border-inline-end: 1px solid var(--ms-line); font: 500 1rem/1.15 var(--ms-f); color: var(--ms-ink); text-decoration: none; padding: .5rem .4rem; text-align: center; transition: background .2s, color .2s; }
+.v2dock a:hover { background: var(--ms-soft); }
+.v2dock .v2ic { display: inline-grid; place-items: center; width: 34px; height: 34px; transition: transform .25s; }
+.v2dock a:hover .v2ic { transform: translateY(-3px) scale(1.08); }
+.v2ic svg { width: 100%; height: 100%; fill: #1F6FFF; }
+.v2ic svg .g { fill: #B4E61D; } .v2ic svg .w { fill: #FFFFFF; }
+.v2dock a.buy { position: sticky; inset-inline-end: 0; z-index: 1; background: #1F6FFF; color: #FFFFFF; font-weight: 700; border-inline-end: 0; box-shadow: -10px 0 18px -10px rgba(11,37,69,.35); }
+.v2dock a.buy .v2ic svg { fill: #FFFFFF; } .v2dock a.buy .v2ic svg .w { fill: #1F6FFF; }
+.v2dock a.buy:hover { background: var(--ms-ink); }
+@media (max-width: 900px) { .v2dock a { flex-basis: 96px; min-height: 84px; } }
+@media (max-width: 575px) {
+  .v2dock { scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+  .v2dock a { flex: 0 0 calc((100vw - 96px) / 3); min-width: 0; padding-inline: .15rem; font-size: clamp(.9rem, 4.1vw, 1rem); scroll-snap-align: start; }
+  .v2dock a.buy { flex: 0 0 96px; scroll-snap-align: none; }
+}
+
+/* ---------------------------------------------------------------- footer, as on the front page */
+.ms-foot { margin-top: 4rem; padding: 2.4rem 0; border-top: 1px solid #D3E8FB; color: var(--ms-foot); background: #FFFFFF; }
+.ms-foot .ms-links { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .4rem 1.6rem; padding-top: 1.6rem; padding-bottom: 1.6rem; margin-bottom: 1.4rem; border-bottom: 1px solid rgba(11,37,69,.12); }
+.ms-foot .ms-links a { font: 700 1rem var(--ms-f); color: var(--ms-ink); text-decoration: none; padding: .3rem 0; }
+.ms-foot .ms-links a:hover { color: var(--ms-blue2); }
+.ms-foot .ms-base { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+.ms-foot .ms-name { font: 700 1.2rem var(--ms-f); letter-spacing: -.03em; color: var(--ms-foot); }
+.ms-foot .ms-locs { display: inline-flex; align-items: center; gap: .45rem; flex-wrap: wrap; margin: .2rem 0 .8rem; font: 600 1rem var(--ms-f); opacity: .9; }
+.ms-foot .ms-locs svg { width: 18px; height: 18px; color: var(--ms-blue2); flex: none; }
+.ms-foot .ms-locs b { font-weight: 800; }
+.ms-foot .ms-locs a { color: inherit; font-weight: 700; }
+.ms-foot small { display: block; font-size: .8333em; line-height: 1.55; }
+.ms-foot small a { color: var(--ms-blue2); font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) { .ms-hero::after { transition: none; } .v2dock a, .v2dock .v2ic { transition: none; } }
+@media print { .ms-top, .v2dock, .ms-fx { display: none; } body { padding-bottom: 0; } }

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""AI Newswire for mosesagentic.com: reads hundreds of RSS and Atom feeds and writes public/newswire/.
+"""Tech Newswire for mosesagentic.com: reads hundreds of RSS and Atom feeds and writes public/newswire/.
+The main page (/newswire/) is the whole technology sector; each topic has its own page (/newswire/ai/ and so on).
 
 Standard library only, so it runs on a plain GitHub runner with no install step.
 
@@ -29,6 +30,9 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 import zlib
+from pathlib import Path as _P
+sys.path.insert(0, str(_P(__file__).resolve().parent))
+import site_shell  # noqa: E402  the front page's header, hero, bottom menu and footer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -64,7 +68,7 @@ TOPICS = [  # key, label, page title, one-line description
     ("security", "Security", "Cybersecurity news", "Breaches, vulnerabilities and defenses."),
     ("developers", "Developers", "Software engineering news", "Engineering blogs, tools, languages and infrastructure."),
     ("science", "Science and space", "Science and space news", "Science, space and the frontier beyond software."),
-    ("technology", "All technology", "All technology news", "Everything on the wire, newest first."),
+    ("technology", "All technology", "All technology news", "The whole technology sector, newest first."),
 ]
 TOPIC_KEYS = [t[0] for t in TOPICS]
 BIT = {k: 1 << i for i, k in enumerate(TOPIC_KEYS)}
@@ -530,87 +534,52 @@ def clock(d):
 
 
 CSS = """
-:root { --ink:#0B2545; --mut:#44546B; --blue:#1F6FFF; --lime:#D9F76B; --bg:#FFFFFF; --soft:#F5F9FF; --line:#E3EAF4; --f:"Outfit", system-ui, -apple-system, "Segoe UI", sans-serif; --fs:"Instrument Serif", Georgia, serif; }
-* { box-sizing:border-box; }
+/* The newswire's own parts. Header, moving-dot hero, bottom menu, footer, type and colors: /vendor/site-shell.css
+   (the front page's look, shared with Insights and Technology news). */
 html { scroll-behavior:smooth; }
-body { margin:0; background:var(--bg); color:var(--ink); font:400 17px/1.6 var(--f); -webkit-font-smoothing:antialiased; }
-a { color:var(--blue); }
-a:focus-visible, button:focus-visible, input:focus-visible { outline:3px solid var(--ink); outline-offset:3px; }
-.wrap { max-width:1120px; margin:0 auto; padding:0 16px; }
-header.top { background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20; }
-header.top .wrap { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:76px; }
-.brand { display:inline-flex; align-items:center; text-decoration:none; }
-.brand img { height:38px; width:auto; display:block; }
-nav.site { display:flex; gap:1.4rem; flex-wrap:wrap; }
-nav.site a { color:var(--ink); text-decoration:none; font:500 1rem/1.2 var(--f); padding:.4rem 0; border-bottom:2px solid transparent; }
-nav.site a[aria-current="page"] { color:var(--blue); border-bottom-color:var(--lime); }
-nav.site a:hover { color:var(--blue); }
-.hero .wrap { padding:clamp(2rem, 5vw, 3.6rem) 16px 1.2rem; }
-.kicker { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0 0 1rem; display:flex; align-items:center; gap:.6rem; }
-.kicker i { width:10px; height:10px; border-radius:50%; background:#18B26B; box-shadow:0 0 0 0 rgba(24,178,107,.5); animation:pulse 2s infinite; }
-@keyframes pulse { 70% { box-shadow:0 0 0 10px rgba(24,178,107,0); } 100% { box-shadow:0 0 0 0 rgba(24,178,107,0); } }
-@media (prefers-reduced-motion: reduce) { .kicker i { animation:none; } html { scroll-behavior:auto; } }
-h1 { font:500 clamp(2.1rem, 5.2vw, 3.6rem)/1.03 var(--f); letter-spacing:-.04em; margin:0 0 1rem; color:var(--ink); text-wrap:balance; max-width:20ch; }
-.lead { font:italic 400 clamp(1.25rem, 2.1vw, 1.55rem)/1.35 var(--fs); color:var(--ink); margin:0; max-width:46ch; letter-spacing:-.01em; }
-.stats { display:flex; flex-wrap:wrap; gap:.5rem 2rem; margin:1.4rem 0 0; padding:0; list-style:none; color:var(--mut); font-size:1rem; }
-.stats b { display:block; font:600 1.7rem/1.1 var(--f); letter-spacing:-.03em; color:var(--ink); }
-.rule { width:72px; height:6px; background:var(--lime); border-radius:3px; margin:1.4rem 0 0; }
-.bar { position:sticky; top:76px; z-index:15; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+input:focus-visible { outline:3px solid var(--ms-ink); outline-offset:3px; }
+.stats { display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem 2.4rem; margin:1.6rem 0 0; padding:0; list-style:none; color:var(--ms-mut); font-size:1rem; }
+.stats b { display:block; font:500 clamp(1.9rem, 3.4vw, 3rem)/1.05 var(--ms-f); letter-spacing:-.035em; color:var(--ms-blue); }
+.bar { position:sticky; top:76px; z-index:15; background:#FFFFFF; border-top:1px solid var(--ms-line); border-bottom:1px solid var(--ms-line); }
 html.has-ticker .bar { top:123px; }
-.bar .wrap { padding-top:.7rem; padding-bottom:.7rem; display:grid; gap:.6rem; }
+.bar .ms-wrap { padding-top:.75rem; padding-bottom:.75rem; display:grid; gap:.65rem; }
 .chips { display:flex; gap:.5rem; overflow-x:auto; scrollbar-width:none; padding-bottom:2px; }
 .chips::-webkit-scrollbar { display:none; }
-.chips a { flex:none; background:#fff; border:1px solid var(--line); border-radius:999px; padding:.4rem 1rem; font:500 1rem/1.2 var(--f); color:var(--ink); text-decoration:none; white-space:nowrap; }
-.chips a:hover { border-color:var(--blue); color:var(--blue); }
-.chips a[aria-current="page"] { background:var(--lime); border-color:var(--lime); color:var(--ink); font-weight:600; }
+.chips a { flex:none; background:#FFFFFF; border:1px solid var(--ms-line); border-radius:999px; padding:.45rem 1rem; font:500 1rem/1.2 var(--ms-f); color:var(--ms-ink); text-decoration:none; white-space:nowrap; }
+.chips a:hover { border-color:var(--ms-blue); color:var(--ms-blue); }
+.chips a[aria-current="page"] { background:var(--ms-lime); border-color:var(--ms-lime); color:var(--ms-ink); font-weight:600; }
 .find { display:flex; gap:.6rem; align-items:center; }
-.find input { flex:1; min-width:0; height:46px; border:1px solid var(--line); border-radius:999px; padding:0 1.1rem; font:400 1rem var(--f); color:var(--ink); background:#fff; }
-.find input::placeholder { color:var(--mut); }
-.find span { color:var(--mut); font-size:1rem; white-space:nowrap; }
-main .wrap { padding:.4rem 16px 2rem; }
-.day { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin:2rem 0 .4rem; }
+.find input { flex:1; min-width:0; height:46px; border:1px solid var(--ms-edge); border-radius:999px; padding:0 1.1rem; font:400 1rem var(--ms-f); color:var(--ms-ink); background:#FFFFFF; }
+.find input::placeholder { color:var(--ms-mut); }
+.find span { color:var(--ms-mut); font-size:1rem; white-space:nowrap; }
+main .ms-wrap { padding-top:.4rem; padding-bottom:1rem; }
+.day { font:600 1rem/1.3 var(--ms-f); color:var(--ms-ink); margin:2.2rem 0 .4rem; }
 .feed { list-style:none; margin:0; padding:0; }
-.it { display:grid; grid-template-columns:190px 1fr; gap:.2rem 1.4rem; padding:.85rem 0; border-bottom:1px solid var(--line); }
-.it .meta { color:var(--mut); font-size:1rem; line-height:1.35; padding-top:.15rem; }
+.it { display:grid; grid-template-columns:190px 1fr; gap:.2rem 1.4rem; padding:.9rem 0; border-bottom:1px solid var(--ms-line); }
+.it .meta { color:var(--ms-mut); font-size:1rem; line-height:1.35; padding-top:.15rem; }
 .it time { display:block; }
-.it .src { color:var(--ink); font-weight:600; text-decoration:none; }
-.it .src:hover { color:var(--blue); }
-.it .hl { font:500 1.18rem/1.3 var(--f); letter-spacing:-.02em; color:var(--ink); text-decoration:none; }
-.it .hl:hover { color:var(--blue); }
+.it .src { color:var(--ms-ink); font-weight:600; text-decoration:none; }
+.it .src:hover { color:var(--ms-blue); }
+.it .hl { font:500 1.18rem/1.3 var(--ms-f); letter-spacing:-.02em; color:var(--ms-ink); text-decoration:none; }
+.it .hl:hover { color:var(--ms-blue); }
 .it .hl:visited { color:#5A6B85; }
-.it p { margin:.25rem 0 0; color:var(--mut); font-size:1rem; line-height:1.45; }
+.it p { margin:.25rem 0 0; color:var(--ms-mut); font-size:1rem; line-height:1.45; }
 .it .tgs { display:flex; flex-wrap:wrap; gap:.4rem; margin:.45rem 0 0; }
-.it .tg { background:var(--soft); border:1px solid var(--line); border-radius:999px; padding:.12rem .7rem; font:500 1rem/1.4 var(--f); color:var(--mut); }
+.it .tg { background:var(--ms-soft); border:1px solid var(--ms-line); border-radius:999px; padding:.12rem .7rem; font:500 1rem/1.4 var(--ms-f); color:var(--ms-mut); }
 .more { display:flex; justify-content:center; margin:1.8rem 0 0; }
-.btn { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:0 1.5rem; border-radius:999px; font:600 1rem var(--f); text-decoration:none; border:0; cursor:pointer; transition:background .15s, color .15s; }
-.btn.primary { background:var(--blue); color:#fff; }
-.btn.primary:hover { background:var(--ink); }
-.btn.ghost { border:1.5px solid var(--ink); color:var(--ink); background:#fff; }
-.btn.ghost:hover { background:var(--ink); color:#fff; }
-.empty { color:var(--mut); padding:2rem 0; font:italic 400 1.4rem/1.4 var(--fs); }
-.panel { background:var(--soft); border:1px solid var(--line); border-radius:20px; padding:1.5rem 1.6rem; margin-top:2.4rem; }
-.panel h2 { font:500 1.5rem/1.2 var(--f); letter-spacing:-.03em; margin:0 0 .5rem; }
-.panel p { margin:0 0 1rem; color:var(--ink); max-width:62ch; }
-.panel .row { display:flex; flex-wrap:wrap; gap:.7rem; }
-.note { color:var(--mut); font-size:1rem; margin:1.6rem 0 0; max-width:75ch; }
-.srcs h2 { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin:2.2rem 0 .8rem; }
+.empty { color:var(--ms-mut); padding:2rem 0; font:italic 400 1.5rem/1.4 var(--ms-fs); text-align:center; }
+.panel { background:var(--ms-soft); border:1px solid var(--ms-line); border-radius:24px; padding:2.2rem 1.8rem; margin-top:2.6rem; text-align:center; }
+.panel h2 { font:600 clamp(1.6rem, 3vw, 2.2rem)/1.15 var(--ms-f); letter-spacing:-.03em; margin:0 0 .6rem; color:var(--ms-ink); }
+.panel p { margin:0 auto 1.2rem; color:var(--ms-mut); max-width:58ch; }
+.note { color:var(--ms-mut); font-size:1rem; margin:1.6rem auto 0; max-width:75ch; text-align:center; }
+.srcs h2 { font:600 1.1rem/1.3 var(--ms-f); color:var(--ms-ink); margin:2.4rem 0 .8rem; }
 .srcs ul { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:.35rem 1.4rem; }
-.srcs a { color:var(--ink); text-decoration:none; font-weight:500; }
-.srcs a:hover { color:var(--blue); }
-footer.site { border-top:1px solid var(--line); margin-top:4rem; background:#fff; }
-footer.site .links { display:flex; flex-wrap:wrap; gap:.4rem 1.6rem; padding:1.6rem 0; border-bottom:1px solid rgba(11,37,69,.12); }
-footer.site .links a { font:700 1rem var(--f); color:var(--ink); text-decoration:none; padding:.3rem 0; }
-footer.site .links a:hover { color:var(--blue); }
-footer.site .base { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.8rem 1.6rem; padding:1.4rem 0 2.4rem; color:var(--mut); font-size:1rem; }
-footer.site .base .mark { display:inline-flex; align-items:center; gap:.6rem; color:var(--ink); font-weight:600; text-decoration:none; }
-footer.site .base .mark img { height:28px; width:auto; }
-footer.site .base a { color:var(--ink); text-decoration:none; font-weight:500; }
-footer.site .base a:hover { color:var(--blue); }
+.srcs a { color:var(--ms-ink); text-decoration:none; font-weight:500; }
+.srcs a:hover { color:var(--ms-blue); }
 @media (max-width:700px) {
-  header.top { position:static; } header.top .wrap { flex-direction:column; align-items:flex-start; gap:.3rem; min-height:0; padding:.8rem 16px .5rem; }
-  .brand img { height:30px; } nav.site { width:100%; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; gap:1.1rem; } nav.site::-webkit-scrollbar { display:none; } nav.site a { white-space:nowrap; }
-  .bar { top:0; } html.has-ticker .bar { top:47px; } .find span { display:none; }
-  .stats { gap:.4rem 1.4rem; } .stats b { font-size:1.35rem; }
+  .bar { position:static; } .find span { display:none; }
+  .stats { gap:.4rem 1.6rem; }
   .it { grid-template-columns:1fr; } .it .meta { display:flex; gap:.6rem; padding-top:0; } .it time { display:inline; }
 }
 """
@@ -688,8 +657,8 @@ JS = r"""
 """
 
 
-def shell(title, desc, path, body, extra_head="", ld=None, nav="newswire"):
-    cur = lambda k: ' aria-current="page"' if nav == k else ""
+def shell(title, desc, path, body, extra_head="", ld=None):
+    """A newswire page in the front page's look: the shared header, bottom menu and footer from site_shell."""
     ld_tag = '<script type="application/ld+json">%s</script>\n' % json.dumps(ld).replace("<", "\\u003c") if ld else ""
     return f"""<!doctype html>
 <html lang="en">
@@ -707,44 +676,22 @@ def shell(title, desc, path, body, extra_head="", ld=None, nav="newswire"):
 <meta property="og:url" content="{SITE}{path}">
 <meta property="og:image" content="{SITE}/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="alternate" type="application/rss+xml" title="Moses Agentic: AI Newswire" href="/newswire/feed.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
-{ld_tag}{extra_head}<style>{CSS}</style>
-<link rel="stylesheet" href="/vendor/site-ticker.css">
-<script src="/vendor/site-ticker.js" defer></script>
+<link rel="alternate" type="application/rss+xml" title="Moses Agentic: Tech Newswire" href="/newswire/feed.xml">
+{ld_tag}{extra_head}{site_shell.HEAD}
+<style>{CSS}</style>
 </head>
 <body>
-<div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div><script>document.documentElement.classList.add("has-ticker")</script>
-<header class="top"><div class="wrap">
-  <a class="brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
-  <nav class="site" aria-label="Site">
-    <a href="/newswire/"{cur("newswire")}>AI Newswire</a>
-    <a href="/news/">Technology news</a>
-    <a href="/blog/">Insights</a>
-    <a href="/case-studies/">Case studies</a>
-    <a href="/">Home</a>
-  </nav>
-</div></header>
+{site_shell.TOP}
 {body}
-<footer class="site"><div class="wrap">
-  <div class="links"><a href="/newswire/">AI Newswire</a><a href="/news/">Technology news</a><a href="/blog/">Insights</a><a href="/case-studies/">Case Studies</a><a href="/industries/">Industries</a><a href="/">Home</a></div>
-  <div class="base">
-    <a class="mark" href="/"><img src="/logo-mark.svg" alt="" width="28" height="28">Moses Agentic</a>
-    <span>© {dt.datetime.now(dt.timezone.utc).year} Moses Agentic · New York · Memphis · Miami</span>
-    <span><a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a> · <a href="/newswire/feed.xml">RSS</a></span>
-  </div>
-</div></footer>
+{site_shell.footer(dt.datetime.now(dt.timezone.utc).year)}
+{site_shell.DOCK}
 </body>
 </html>
 """
 
 
 def topic_path(key):
-    return "/newswire/" if key == "ai" else "/newswire/%s/" % key
+    return "/newswire/" if key == "technology" else "/newswire/%s/" % key
 
 
 def pick(rows, bit):
@@ -764,7 +711,7 @@ def pick(rows, bit):
 
 def render_rows(rows, sources, key):
     parts, day = [], None
-    tags = [(BIT[k], lab) for k, lab, _, _ in TOPICS if k not in ("technology", "ai", key)]
+    tags = [(BIT[k], lab) for k, lab, _, _ in TOPICS if k not in ("technology", key)]
     for r in rows:
         d = eastern(r[0])
         label = day_label(d)
@@ -793,55 +740,64 @@ def write_pages(rows, sources, last_ok, now):
     active = [s for s in sources if last_ok.get(s["feed"], 0) >= now - 7 * 86400]
     n_src = len(active)
     total = len(rows)
+    shown = sorted(TOPICS, key=lambda x: x[0] != "technology")   # all technology first; TOPICS' own order must not change
     chips_for = lambda cur: "".join(
-        '<a href="%s"%s>%s</a>' % (topic_path(k), ' aria-current="page"' if k == cur else "", esc(lab)) for k, lab, _, _ in TOPICS)
-    tag_list = [[BIT[k], lab] for k, lab, _, _ in TOPICS if k not in ("technology", "ai")]
+        '<a href="%s"%s>%s</a>' % (topic_path(k), ' aria-current="page"' if k == cur else "", esc(lab)) for k, lab, _, _ in shown)
+    tag_list = [[BIT[k], lab] for k, lab, _, _ in TOPICS if k != "technology"]
 
-    for key, label, ptitle, pdesc in TOPICS:
+    for key, label, ptitle, pdesc in shown:
         bit = BIT[key]
         chosen = pick(rows, bit)
         in_topic = sum(1 for r in rows if r[5] & bit)
         body_rows, last_day = render_rows(chosen, sources, key)
-        if key == "ai":
-            title = "AI Newswire: AI and superintelligence headlines from %d sources | Moses Agentic" % n_src
-            desc = "Live AI and superintelligence headlines from %d sources: the labs, research, safety, chips and the technology press, in one place." % n_src
-            h1 = "Every AI and superintelligence headline, in one place."
-            lead = "The labs, the research, the safety debate, the chips and the technology press, gathered in one place and linked to the source."
+        if key == "technology":
+            title = "Tech Newswire: technology headlines from %d sources | Moses Agentic" % n_src
+            desc = ("Live headlines from across the technology sector, from %d sources: AI, chips, software, security, "
+                    "business and science, in one place and linked to the source." % n_src)
+            h1 = '<span class="ms-hl">Every</span> technology headline, in one place.'
+            lead = "The whole technology sector, from AI and chips to software, security, business and science, linked to the source."
         else:
-            title = "%s | AI Newswire | Moses Agentic" % ptitle
+            title = "%s | Tech Newswire | Moses Agentic" % ptitle
             desc = "%s Live headlines from %d sources, linked to the source." % (pdesc, n_src)
-            h1 = ptitle[0].upper() + ptitle[1:] + "."
+            h1 = esc(ptitle[0].upper() + ptitle[1:] + ".")
             lead = pdesc
         conf = {"bit": bit, "page": PAGE_ITEMS, "tags": [t for t in tag_list if t[0] != bit], "total": "%s headlines" % format(in_topic, ",")}
         ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": title.split(" | ")[0], "url": SITE + topic_path(key), "description": desc,
               "isPartOf": {"@type": "WebSite", "name": "Moses Agentic", "url": SITE + "/"},
               "mainEntity": {"@type": "ItemList", "itemListElement": [
                   {"@type": "ListItem", "position": i + 1, "name": r[2], "url": r[3]} for i, r in enumerate(chosen[:25])]}}
-        body = f"""<section class="hero"><div class="wrap">
-  <p class="kicker"><i aria-hidden="true"></i>AI Newswire</p>
-  <h1>{esc(h1)}</h1>
-  <p class="lead">{esc(lead)}</p>
+        body = site_shell.hero(f"""
+  <p class="ms-k">Tech Newswire</p>
+  <h1 class="ms-h1">{h1}</h1>
+  <p class="ms-one">{esc(lead)}</p>
   <ul class="stats"><li><b>{n_src}</b>sources</li><li><b>{format(total, ",")}</b>headlines on the wire</li></ul>
-  <div class="rule" aria-hidden="true"></div>
-</div></section>
-<div class="bar"><div class="wrap">
+""") + f"""
+<div class="bar"><div class="ms-wrap">
   <nav class="chips" aria-label="Topics">{chips_for(key)}</nav>
   <div class="find"><input type="search" id="q" placeholder="Search every headline on the wire" aria-label="Search headlines" autocomplete="off"><span id="count">{conf["total"]}</span></div>
 </div></div>
-<main><div class="wrap">
+<main><div class="ms-wrap">
 <div id="list" data-last="{chosen[-1][0] if chosen else 0}" data-day0="{esc(last_day)}" data-day="{esc(last_day)}">{body_rows or '<p class="empty">The wire is quiet here. Check back shortly.</p>'}</div>
-<div class="more"><button type="button" class="btn ghost" id="more"{'' if in_topic > len(chosen) else ' hidden'}>Show more headlines</button></div>
+<div class="more"><button type="button" class="ms-btn ghost" id="more"{'' if in_topic > len(chosen) else ' hidden'}>Show more headlines</button></div>
 <div class="panel"><h2>Too much to read? We do the reading for you.</h2>
 <p>Our news desk picks the few stories that matter to a business owner and explains each one in plain words. And if you want this kind of round-the-clock watch pointed at your own company, that is what a digital workforce does.</p>
-<div class="row"><a class="btn primary" href="/news/">Technology news for business</a><a class="btn ghost" href="/">See what Moses Agentic does</a></div></div>
-<p class="note">Times are Eastern. Headlines and excerpts belong to their publishers, and every link goes to the original story. Stock quotes by <a href="https://www.tradingview.com/" target="_blank" rel="noopener nofollow">TradingView</a>. <a href="/newswire/sources/">See all {n_src} sources</a>, or <a href="mailto:welcome@mosesagentic.com?subject=Source%20for%20the%20AI%20Newswire">suggest one</a>.</p>
+<div class="ms-btns"><a class="ms-btn" href="/news/">Technology news for business <span aria-hidden="true">→</span></a><a class="ms-btn ghost" href="/">See what Moses Agentic does</a></div></div>
+<p class="note">Times are Eastern. Headlines and excerpts belong to their publishers, and every link goes to the original story. Stock quotes by <a href="https://www.tradingview.com/" target="_blank" rel="noopener nofollow">TradingView</a>. <a href="/newswire/sources/">See all {n_src} sources</a>, or <a href="mailto:welcome@mosesagentic.com?subject=Source%20for%20the%20Tech%20Newswire">suggest one</a>.</p>
 </div></main>
 <script type="application/json" id="nw">{json.dumps(conf).replace("<", "\\u003c")}</script>
 <script>document.addEventListener("DOMContentLoaded", function () {{{JS}}});</script>"""
         page = shell(title, desc, topic_path(key), body, ld=ld)
-        target = OUT / "index.html" if key == "ai" else OUT / key / "index.html"
+        target = OUT / "index.html" if key == "technology" else OUT / key / "index.html"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(page, encoding="utf-8")
+
+    # the all-technology page used to live at /newswire/technology/; that address now sends visitors to /newswire/
+    (OUT / "technology").mkdir(exist_ok=True)
+    (OUT / "technology" / "index.html").write_text(
+        '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><title>Tech Newswire | Moses Agentic</title>'
+        '<link rel="canonical" href="%s/newswire/"><meta name="robots" content="noindex, follow">'
+        '<meta http-equiv="refresh" content="0; url=/newswire/"></head>'
+        '<body><p><a href="/newswire/">Tech Newswire</a></p></body></html>\n' % SITE, encoding="utf-8")
 
     # the sources page
     groups = []
@@ -850,21 +806,20 @@ def write_pages(rows, sources, last_ok, now):
         if mine:
             groups.append('<h2>%s (%d)</h2><ul>%s</ul>' % (esc(lab), len(mine), "".join(
                 '<li><a href="%s" target="_blank" rel="noopener">%s</a></li>' % (esc(s["site"]), esc(s["name"])) for s in mine)))
-    body = f"""<section class="hero"><div class="wrap">
-  <p class="kicker"><i aria-hidden="true"></i>AI Newswire</p>
-  <h1>The {n_src} sources on the wire.</h1>
-  <p class="lead">Every source publishes its own public feed. We read each one, list the headline and link straight to the publisher.</p>
-  <div class="rule" aria-hidden="true"></div>
-</div></section>
-<main><div class="wrap srcs">
+    body = site_shell.hero(f"""
+  <p class="ms-k">Tech Newswire</p>
+  <h1 class="ms-h1">The {n_src} sources on the wire.</h1>
+  <p class="ms-one">Every source publishes its own public feed. We read each one, list the headline and link straight to the publisher.</p>
+""") + f"""
+<main><div class="ms-wrap srcs">
 {''.join(groups)}
-<div class="panel"><h2>Know a source we should carry?</h2><p>If it publishes a public feed about AI or technology, we will add it.</p>
-<div class="row"><a class="btn primary" href="mailto:welcome@mosesagentic.com?subject=Source%20for%20the%20AI%20Newswire">Suggest a source</a><a class="btn ghost" href="/newswire/">Back to the wire</a></div></div>
+<div class="panel"><h2>Know a source we should carry?</h2><p>If it publishes a public feed about technology, we will add it.</p>
+<div class="ms-btns"><a class="ms-btn" href="mailto:welcome@mosesagentic.com?subject=Source%20for%20the%20Tech%20Newswire">Suggest a source</a><a class="ms-btn ghost" href="/newswire/">Back to the wire</a></div></div>
 </div></main>"""
     (OUT / "sources").mkdir(exist_ok=True)
     (OUT / "sources" / "index.html").write_text(shell(
-        "The %d sources behind the AI Newswire | Moses Agentic" % n_src,
-        "The %d AI and technology sources the Moses Agentic AI Newswire reads: labs, research, safety, chips, security and the technology press." % n_src,
+        "The %d sources behind the Tech Newswire | Moses Agentic" % n_src,
+        "The %d technology sources the Moses Agentic Tech Newswire reads: the technology and business press, AI labs and research, chips, security and science." % n_src,
         "/newswire/sources/", body), encoding="utf-8")
 
     # the data file the page's search and "show more" read
@@ -886,17 +841,17 @@ def write_pages(rows, sources, last_ok, now):
                 break
     (OUT / "latest.json").write_text(json.dumps({"items": latest}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
-    # one combined feed of the AI stream
+    # one combined feed of the whole wire
     def rfc(ts):
         return email.utils.format_datetime(dt.datetime.fromtimestamp(ts, dt.timezone.utc))
     items = "".join(
         "<item><title>%s</title><link>%s</link><guid isPermaLink=\"true\">%s</guid><pubDate>%s</pubDate><source url=\"%s\">%s</source>%s</item>\n"
         % (esc(r[2]), esc(r[3]), esc(r[3]), rfc(r[0]), esc(sources[r[1]]["feed"]), esc(sources[r[1]]["name"]),
            "<description>%s</description>" % esc(r[4]) if r[4] else "")
-        for r in pick(rows, BIT["ai"])[:100])
+        for r in pick(rows, BIT["technology"])[:100])
     (OUT / "feed.xml").write_text(
-        '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Moses Agentic: AI Newswire</title><link>%s/newswire/</link>'
-        "<description>AI and superintelligence headlines from %d sources, linked to the source.</description><language>en-us</language>"
+        '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Moses Agentic: Tech Newswire</title><link>%s/newswire/</link>'
+        "<description>Technology headlines from %d sources, linked to the source.</description><language>en-us</language>"
         "<lastBuildDate>%s</lastBuildDate>\n%s</channel></rss>\n" % (SITE, n_src, rfc(int(time.time())), items), encoding="utf-8")
 
     # the sitemap carries the newswire pages
@@ -905,6 +860,7 @@ def write_pages(rows, sources, last_ok, now):
         text = sm.read_text(encoding="utf-8")
         today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
         add = ""
+        text = re.sub(r"\s*<url><loc>%s/newswire/technology/</loc>.*?</url>" % re.escape(SITE), "", text)
         for path in [topic_path(k) for k in TOPIC_KEYS] + ["/newswire/sources/"]:
             loc = "<loc>%s%s</loc>" % (SITE, path)
             if loc in text:

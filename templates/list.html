@@ -14,110 +14,51 @@
 <meta property="og:url" content="{{url}}">
 <meta property="og:image" content="https://mosesagentic.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="Moses Agentic: Insights" href="/feed.xml">
 <link rel="alternate" type="application/rss+xml" title="Moses Agentic: Technology news for business" href="/news/feed.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
 <script type="application/ld+json">{{schema}}</script>
+{{shell_head}}
 <style>
-:root { --ink:#0B2545; --mut:#44546B; --blue:#1F6FFF; --lime:#D9F76B; --bg:#FFFFFF; --soft:#F5F9FF; --line:#E3EAF4; --f:"Outfit", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; --fs:"Instrument Serif", Georgia, serif; }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { margin:0; background:var(--bg); color:var(--ink); font:400 17px/1.65 var(--f); -webkit-font-smoothing:antialiased; }
-a { color:var(--blue); }
-a:focus-visible, button:focus-visible { outline:3px solid var(--ink); outline-offset:3px; }
-.wrap { max-width:1120px; margin:0 auto; padding:0 16px; }
-header.top { background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20; }
-header.top .wrap { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:76px; }
-.brand { display:inline-flex; align-items:center; text-decoration:none; }
-.brand img { height:38px; width:auto; display:block; }
-nav.site { display:flex; gap:1.4rem; flex-wrap:wrap; }
-nav.site a { color:var(--ink); text-decoration:none; font:500 1rem/1.2 var(--f); padding:.4rem 0; border-bottom:2px solid transparent; }
-nav.site a[aria-current="page"] { color:var(--blue); border-bottom-color:var(--lime); }
-nav.site a:hover { color:var(--blue); }
-.hero .wrap { padding:clamp(2.4rem, 6vw, 4.5rem) 16px clamp(1.6rem, 3vw, 2.4rem); max-width:900px; }
-.kicker { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0 0 1rem; }
-h1 { font:500 clamp(2.2rem, 5.5vw, 3.8rem)/1.02 var(--f); letter-spacing:-.04em; margin:0 0 1rem; color:var(--ink); text-wrap:balance; position:relative; }
-.lead { font:italic 400 clamp(1.3rem, 2.2vw, 1.6rem)/1.35 var(--fs); color:var(--ink); margin:0; max-width:40ch; letter-spacing:-.01em; }
-[dir="rtl"] .lead { font-style:normal; font-family:var(--f); font-weight:500; }
-.rule { width:72px; height:6px; background:var(--lime); border-radius:3px; margin:1.4rem 0 0; }
-footer.site { border-top:1px solid var(--line); margin-top:4rem; background:#fff; }
-footer.site .links { display:flex; flex-wrap:wrap; gap:.4rem 1.6rem; padding:1.6rem 0; border-bottom:1px solid rgba(11,37,69,.12); }
-footer.site .links a { font:700 1rem var(--f); color:var(--ink); text-decoration:none; padding:.3rem 0; }
-footer.site .links a:hover { color:var(--blue); }
-footer.site .base { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.8rem 1.6rem; padding:1.4rem 0 2.4rem; color:var(--mut); font-size:1rem; }
-footer.site .base .mark { display:inline-flex; align-items:center; gap:.6rem; color:var(--ink); font-weight:600; text-decoration:none; }
-footer.site .base .mark img { height:28px; width:auto; }
-footer.site .base a { color:var(--ink); text-decoration:none; font-weight:500; }
-footer.site .base a:hover { color:var(--blue); }
-.btn { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:0 1.5rem; border-radius:999px; font:600 1rem var(--f); text-decoration:none; transition:background .15s, color .15s; }
-.btn.primary { background:var(--blue); color:#fff; }
-.btn.primary:hover { background:var(--ink); }
-.btn.ghost { border:1.5px solid var(--ink); color:var(--ink); }
-.btn.ghost:hover { background:var(--ink); color:#fff; }
-@media (max-width:700px) { header.top { position:static; } header.top .wrap { flex-direction:column; align-items:flex-start; gap:.3rem; min-height:0; padding:.8rem 16px .5rem; } .brand img { height:30px; } nav.site { width:100%; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; gap:1.1rem; } nav.site::-webkit-scrollbar { display:none; } nav.site a { white-space:nowrap; } }
-
-.chips { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.6rem 0 0; }
-.chips a { background:#fff; border:1px solid var(--line); border-radius:999px; padding:.4rem 1rem; font:500 1rem/1.2 var(--f); color:var(--ink); text-decoration:none; }
-.chips a:hover { border-color:var(--blue); color:var(--blue); }
-.chips a[aria-current="true"] { background:var(--lime); border-color:var(--lime); color:var(--ink); font-weight:600; }
-main .wrap { padding:1rem 16px 2rem; }
-.month { font:600 1rem/1 var(--f); letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin:2.2rem 0 .9rem; }
+/* The page's own parts. Header, hero, bottom menu, footer, type and colors: /vendor/site-shell.css (the front page's look). */
+.chips { display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; margin:1.6rem 0 0; }
+.chips a { background:#FFFFFF; border:1px solid var(--ms-line); border-radius:999px; padding:.45rem 1rem; font:500 1rem/1.2 var(--ms-f); color:var(--ms-ink); text-decoration:none; }
+.chips a:hover { border-color:var(--ms-blue); color:var(--ms-blue); }
+.chips a[aria-current="true"] { background:var(--ms-lime); border-color:var(--ms-lime); color:var(--ms-ink); font-weight:600; }
+main .ms-wrap { padding-top:.6rem; padding-bottom:1rem; }
+.month { font:600 1rem/1.3 var(--ms-f); color:var(--ms-ink); margin:2.4rem 0 1rem; text-align:center; }
 .grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); }
-.card { border:1px solid var(--line); border-radius:20px; padding:1.3rem 1.4rem 1.3rem; display:grid; gap:.55rem; background:#fff; align-content:start; transition:border-color .15s, transform .15s; }
-.card:hover { border-color:var(--blue); transform:translateY(-2px); }
-.card .cat { font:600 1rem/1 var(--f); letter-spacing:.06em; text-transform:uppercase; color:var(--blue); }
-.card h2 { font:500 1.3rem/1.25 var(--f); letter-spacing:-.025em; margin:0; color:var(--ink); }
+.card { border:1px solid var(--ms-line); border-radius:20px; padding:1.4rem 1.5rem; display:grid; gap:.6rem; background:#FFFFFF; align-content:start; transition:border-color .15s, transform .15s, box-shadow .15s; }
+.card:hover { border-color:var(--ms-blue); transform:translateY(-2px); box-shadow:0 14px 34px -22px rgba(11,37,69,.45); }
+.card .cat { font:600 .95rem/1.2 var(--ms-f); color:var(--ms-blue); }
+.card h2 { font:600 1.35rem/1.2 var(--ms-f); letter-spacing:-.025em; margin:0; color:var(--ms-ink); }
 .card h2 a { color:inherit; text-decoration:none; }
-.card h2 a:hover { color:var(--blue); }
-.card p { margin:0; color:var(--ink); font-size:1rem; }
-.card .why { color:var(--mut); font-size:1rem; }
-.card .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.4rem; font-size:1rem; color:var(--mut); margin-top:.3rem; }
+.card h2 a:hover { color:var(--ms-blue); }
+.card p { margin:0; color:var(--ms-ink); font-size:1rem; line-height:1.55; }
+.card .why { color:var(--ms-mut); }
+.card .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.4rem; font-size:1rem; color:var(--ms-mut); margin-top:.3rem; }
 .card .foot a { font-weight:600; text-decoration:none; }
 .card .foot a:hover { text-decoration:underline; }
-.empty { color:var(--mut); padding:2rem 0; font:italic 400 1.4rem/1.4 var(--fs); }
-.share { background:var(--soft); border:1px solid var(--line); border-radius:20px; padding:1.4rem 1.5rem; margin-top:2.6rem; color:var(--ink); font-size:1.05rem; }
+.empty { color:var(--ms-mut); padding:2rem 0; font:italic 400 1.5rem/1.4 var(--ms-fs); text-align:center; }
+.share { background:var(--ms-soft); border:1px solid var(--ms-line); border-radius:20px; padding:1.4rem 1.5rem; margin-top:2.6rem; color:var(--ms-ink); font-size:1.05rem; text-align:center; }
 .share a { font-weight:600; }
 </style>
-<link rel="stylesheet" href="/vendor/site-ticker.css">
-<script src="/vendor/site-ticker.js" defer></script>
 </head>
 <body>
-<div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div><script>document.documentElement.classList.add("has-ticker")</script>
-<header class="top"><div class="wrap">
-  <a class="brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
-  <nav class="site" aria-label="Site">
-    <a href="/blog/"{{nav_blog}}>Insights</a>
-    <a href="/news/"{{nav_news}}>Technology news</a>
-    <a href="/newswire/">AI Newswire</a>
-    <a href="/case-studies/">Case studies</a>
-    <a href="/">Home</a>
-  </nav>
-</div></header>
+{{shell_top}}
 
-<section class="hero"><div class="wrap">
-  <p class="kicker">{{kicker}}</p>
-  <h1>{{headline}}</h1>
-  <p class="lead">{{lead}}</p>
-  <div class="rule" aria-hidden="true"></div>
+<section class="ms-hero">{{shell_fx}}<div class="ms-in">
+  <p class="ms-k">{{kicker}}</p>
+  <h1 class="ms-h1">{{headline}}</h1>
+  <p class="ms-one">{{lead}}</p>
   {{chips_html}}
 </div></section>
 
-<main><div class="wrap">
+<main><div class="ms-wrap">
 {{items_html}}
 {{share_html}}
 </div></main>
 
-<footer class="site"><div class="wrap">
-  <div class="links"><a href="/case-studies/">Case Studies</a><a href="/blog/">Insights</a><a href="/news/">Technology news</a><a href="/newswire/">AI Newswire</a><a href="/industries/">Industries</a><a href="/">Home</a></div>
-  <div class="base">
-    <a class="mark" href="/"><img src="/logo-mark.svg" alt="" width="28" height="28">Moses Agentic</a>
-    <span>© {{year}} Moses Agentic · New York · Memphis · Miami</span>
-    <span><a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a> · <a href="{{feed_path}}">RSS</a></span>
-  </div>
-</div></footer>
+{{shell_footer}}
+{{shell_dock}}
 </body>
 </html>

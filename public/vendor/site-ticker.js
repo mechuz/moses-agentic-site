@@ -19,25 +19,23 @@
 })();
 
 /* Site-wide news strip: technology headlines running along the bottom of the page (styles in site-ticker.css).
-   The whole strip is one link to the newswire's all-technology page. It reads /newswire/latest.json, a small file
+   Just the headlines across the full width, like a news channel, with one small "Tech news" tag. The whole strip is
+   one link to the newswire. It reads /newswire/latest.json, a small file
    written with the newswire: [headline, source] pairs from across the technology sector. Everything is written with
-   textContent. Not built on the newswire pages themselves. */
+   textContent. */
 (function () {
   "use strict";
-  if (/^\/newswire(\/|$)/.test(location.pathname) || document.getElementById("site-news") || !document.body) return;
+  if (document.getElementById("site-news") || !document.body) return;
   var root = document.documentElement;
-  var CTA = "Click here for the latest tech news";
   var a = document.createElement("a");
-  a.className = "site-news"; a.id = "site-news"; a.href = "/newswire/technology/";
-  a.setAttribute("aria-label", CTA);
+  a.className = "site-news"; a.id = "site-news"; a.href = "/newswire/";
+  a.setAttribute("aria-label", "Latest tech news: open the newswire");
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   var tag = el("span", "sn-tag"); tag.setAttribute("aria-hidden", "true");
-  tag.appendChild(el("i")); tag.appendChild(el("span", "sn-long", "Latest tech news")); tag.appendChild(el("span", "sn-short", "Tech news"));
+  tag.appendChild(el("span", "", "Tech news"));
   var run = el("span", "sn-run"); run.setAttribute("aria-hidden", "true");
-  var line = el("span", "", CTA); run.appendChild(line);
-  var more = el("span", "sn-more"); more.setAttribute("aria-hidden", "true");
-  more.appendChild(el("span", "sn-long", CTA)); more.appendChild(el("b", "", "→"));
-  a.appendChild(tag); a.appendChild(run); a.appendChild(more);
+  var line = el("span", "", "Latest tech news"); run.appendChild(line);
+  a.appendChild(run); a.appendChild(tag);
 
   /* on pages with the bottom menu, the strip sits right above it */
   var dock = null, ro = null;
@@ -65,7 +63,6 @@
         line.appendChild(el("b", "", String(x[1])));
         line.appendChild(document.createTextNode(String(x[0])));
         line.appendChild(el("i", "", "•"));
-        if (!calm && (i % 5 === 4 || i === items.length - 1)) { line.appendChild(el("em", "", CTA + " →")); line.appendChild(el("i", "", "•")); }
       });
     }
     line.textContent = "";

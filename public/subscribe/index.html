@@ -206,7 +206,7 @@ html:not(.v2) .co-fx { display: none; }
     <h3>Digital workforce, per month</h3>
     <div id="agents"></div>
 
-    <ul class="notes"><li>Billing starts at signing. Leave a website plan early? You pay only the unearned part of the $1,999 build.</li><li>Ad spend is not included. You set your budget and pay Google and Meta directly.</li><li>Content is not included. You supply the photos, videos and copy. Content creation is quoted separately.</li></ul>
+    <ul class="notes"><li class="wbt">Billing starts at signing. Leave a website plan early? You pay only the unearned part of the $1,999 build.</li><li class="bdt" hidden>Billing starts at signing. Your package is one flat monthly price on a 24-month contract, with no build fee.</li><li>Ad spend is not included. You set your budget and pay Google and Meta directly.</li><li>Content is not included. You supply the photos, videos and copy. Content creation is quoted separately.</li></ul>
 
     <div class="top" id="checkout">
       <div>
@@ -280,7 +280,8 @@ html:not(.v2) .co-fx { display: none; }
               <li>Automatic renewal: committed plans continue month to month unless you cancel.</li>
               <li>Missed payments: Day 1 retry, Day 7 late fee and email, Day 15 pause, Day 30 agreement ends.</li>
               <li>Content creation and ad spend are not included.</li>
-              <li>Leaving a website plan early: you pay the unearned part of the $1,999 build value.</li>
+              <li class="wbt">Leaving a website plan early: you pay the unearned part of the $1,999 build value.</li>
+              <li class="bdt" hidden>Your package: one flat monthly price on a 24-month contract, billed from signing. Ending early is covered by the Subscription Agreement.</li>
             </ul>
             <label>Initial here to confirm you have read these key terms.<input id="ini" maxlength="4" autocomplete="off" aria-label="Your initials"></label></div>
           <label class="chk"><input type="checkbox" id="ok"><span>I have read and agree to the <a href="#agbox" id="tc">Terms and Conditions</a> (the Subscription Agreement), and I agree to sign it electronically. Typing my name above is my signature.</span></label>
@@ -333,6 +334,7 @@ html:not(.v2) .co-fx { display: none; }
   var PRICE = { website: { "24": 149, "12": 199, m2m: 199 }, smm: { "24": 499, "12": 549, m2m: 599 } };
   var FD = { 1: -50, 2: 0, 3: 50, 5: 100, 7: 200 }, FN = { 1: "Starter", 2: "Standard", 3: "Plus", 5: "Pro", 7: "Daily" };
   var TERM = { "24": "24-month plan", "12": "12-month plan", m2m: "month to month" };
+  var BUNDLES = { "bundle-1200-24": ["Website, logo design and full rebrand, and four digital workers (Chief Marketing Officer, Chief Operating Officer, front desk, Chief Financial Officer)", 1200, 24] };
   var AGENTS = [["coo", "Chief Operating Officer (COO)", "Takes over operations, from the back office to the executive level.", 799, "Executive"], ["cmo", "Chief Marketing Officer (CMO)", "Takes over marketing, from the back office to the executive level.", 799, "Executive"], ["cfo", "Chief Financial Officer (CFO)", "Takes over finance, from the back office to the executive level.", 799, "Executive"], ["cio", "Chief Investment Officer (CIO)", "Takes over investments, from the back office to the executive level.", 799, "Executive"],
     ["cre", "Commercial real estate asset manager", "Runs your portfolio's numbers and reporting.", 599, ""], ["broker", "Commercial mortgage broker", "Packages your deals and finds the right lenders.", 599, ""], ["acq", "Acquisitions director", "Finds, screens and underwrites deals for you.", 599, ""],
     ["analyst", "Commercial real estate analyst", "Your underwriting and financial models, fast.", 499, ""], ["research", "Commercial real estate data and research", "Market data and comps, gathered and organized.", 499, ""], ["staff", "Staffing and payroll manager", "Keeps every shift covered and every paycheck right.", 499, ""],
@@ -342,7 +344,7 @@ html:not(.v2) .co-fx { display: none; }
   $("#agents").innerHTML = AGENTS.map(function (a) { return '<label class="svc off" data-svc="agent-' + a[0] + '" data-price="' + a[3] + '"><input type="checkbox"><b>' + (a[4] ? '<span class="tag">' + a[4] + '</span>' : "") + E(a[1]) + '</b><span class="price">' + fmt(a[3]) + '<small>/mo</small></span><p>' + E(a[2]) + '</p><ul class="inc">' + (INC[a[0]] || []).map(function (v) { return '<li>' + E(v) + '</li>'; }).join("") + '</ul></label>'; }).join("");
 
   function plan() {
-    var items = [], lines = [], m = 0, one = 0;
+    var items = [], lines = [], m = 0, one = 0, hasB = false;
     $$(".svc").forEach(function (row) {
       var on = row.querySelector("input[type=checkbox]").checked, k = row.dataset.svc; row.classList.toggle("off", !on);
       if (k === "website" || k === "smm") {
@@ -362,8 +364,10 @@ html:not(.v2) .co-fx { display: none; }
         if (!on) return; m += p;
         lines.push([k, "Website, " + TERM[term], fmt(p) + "/mo"]);
         if (term === "m2m") one += 1999; items.push("Website, " + TERM[term] + ", " + fmt(p) + "/mo" + (term === "m2m" ? " + $1,999 build" : ""));
+      } else if (on && BUNDLES[k]) { var bd = BUNDLES[k]; m += bd[1]; lines.push([k, bd[0] + ", " + bd[2] + "-month contract", fmt(bd[1]) + "/mo"]); items.push(bd[0] + ", " + bd[2] + "-month contract, billed from signing, " + fmt(bd[1]) + "/mo, no build fee"); hasB = true;
       } else if (on) { var pr = +row.dataset.price; m += pr; lines.push([k, row.querySelector("b").textContent.replace(/^Executive/, ""), fmt(pr) + "/mo"]); items.push(row.querySelector("b").textContent.replace(/^Executive/, "") + " agent, " + fmt(pr) + "/mo"); }
     });
+    $$(".wbt").forEach(function (e) { e.hidden = hasB; }); $$(".bdt").forEach(function (e) { e.hidden = !hasB; });
     $("#tot").textContent = $("#tot2").textContent = fmt(m); $("#one").textContent = $("#one2").textContent = one ? "+ " + fmt(one) + " one-time build" : "";
     $("#order").innerHTML = lines.map(function (l) { return "<li>" + E(l[1]) + "<span>" + E(l[2]) + '</span><button type="button" data-rm="' + l[0] + '" aria-label="Remove">×</button></li>'; }).join("");
     $("#empty").hidden = !!lines.length;
@@ -403,7 +407,13 @@ html:not(.v2) .co-fx { display: none; }
 
   /* pre-select from the link: ?p=website-24,smm-12,agent-coo  (?c= is a reference carried into the request) */
   var q = new URLSearchParams(location.search), ref = (q.get("c") || "").replace(/[^a-z0-9-]/gi, "").slice(0, 80);
-  (q.get("p") || "").split(",").forEach(function (code) {
+  var pcodes = (q.get("p") || "").split(","), bcode = pcodes.map(function (c) { return c.trim().toLowerCase().split("~")[0]; }).filter(function (c) { return BUNDLES[c]; })[0];
+  if (bcode) {
+    var B = BUNDLES[bcode];
+    $("#agents").insertAdjacentHTML("afterbegin", '<label class="svc" data-svc="' + bcode + '" data-price="' + B[1] + '"><input type="checkbox" checked><b>' + E(B[0]) + '</b><span class="price">' + fmt(B[1]) + '<small>/mo</small></span><p>Your package: one flat price on a ' + B[2] + '-month contract, billed from signing. No build fee.</p></label>');
+    pcodes = [];
+  }
+  pcodes.forEach(function (code) {
     var raw = code.trim(); code = raw.toLowerCase(); if (!code) return;
     var xp = code.match(/^xplat-(\d{1,2})$/);
     if (xp) { $("#xplat").value = Math.max(0, Math.min(10, +xp[1])); $('.svc[data-svc="smm"] input[type=checkbox]').checked = true; return; }

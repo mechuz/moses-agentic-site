@@ -98,7 +98,7 @@ def footer(year):
         '<a href="/?go=about">About</a><a href="/?go=disclosures">Disclosures</a></div>\n'
         '  <div class="ms-wrap ms-base">\n'
         '    <div class="ms-name">Moses Agentic</div>\n'
-        '    <p class="ms-locs">' + PIN + '<b>Based in New York</b> <span>Serving businesses worldwide</span> '
+        '    <p class="ms-locs">' + PIN + '<b>Based in New York</b> <span>Servicing enterprises worldwide</span> '
         '<span>· <a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a></span></p>\n'
         '    <small>AI services, agents and education for real businesses. <a href="https://chochamai.com/#en">chochamai.com</a> © %d</small>\n'
         '  </div>\n'

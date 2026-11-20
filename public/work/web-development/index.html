@@ -2370,6 +2370,11 @@ html.v2[dir="rtl"] .v2hl, html.v2[dir="rtl"] .v2rot em, html.v2[dir="rtl"] .v2on
 @keyframes v2letter { from { opacity: 0; transform: translateY(.5em) rotate(6deg); } to { opacity: 1; transform: none; } }
 @keyframes v2swap { from { opacity: 0; transform: translateY(.6em); } to { opacity: 1; transform: none; } }
 @keyframes v2mq { to { transform: translateX(-50%); } }
+/* While the page is pinch-zoomed, moving layers are redrawn at the magnified size and can run a phone out of memory.
+   The script sets html.v2zoom while visualViewport.scale is above 1. */
+html.v2zoom .v2sage, html.v2zoom .v2four .v2ic, html.v2zoom .v2s .v2in > .v2ic, html.v2zoom .v2mq > div, html.v2zoom .v2name span, html.v2zoom .v2rot em.swap { animation: none !important; }
+html.v2zoom .v2top::after { display: none; }
+html.v2zoom * { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 @media (prefers-reduced-motion: reduce) { .v2sage, .v2four .v2ic, .v2s .v2in > .v2ic, .v2mq > div, .v2name span { animation: none !important; } .v2rise { opacity: 1; transform: none; transition: none; } .v2mark, .v2big .v2hl { background-size: 100% 100%; transition: none; } .v2top::after { display: none; } }
 /* icon bar */
 .v2dock { display: none; }
@@ -15969,6 +15974,7 @@ document.addEventListener("DOMContentLoaded", () => {
 (function () {
   if (CONFIG.site !== "moses") return;
   function fit() {
+    if (window.visualViewport && visualViewport.scale > 1.02) return;
     var h = document.getElementById("hero3"); if (!h || h.classList.contains("parted")) return;
     var w = h.querySelector(".wrap"); if (!w) return;
     w.style.zoom = "";
@@ -16443,6 +16449,13 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   (function () { const r = document.documentElement, f = () => r.classList.toggle("v2scrolled", (window.scrollY || r.scrollTop || 0) > 12); f(); addEventListener("scroll", f, { passive: true }); })();
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let fxRaf = 0, rotTimer = 0, io = null, spy = null;
+  /* phones: while the page is pinch-zoomed the moving parts stop (html.v2zoom in the styles, and the dot field below) */
+  let fxApi = null, fxT = 0;
+  const vv = window.visualViewport, zoomedNow = () => !!vv && vv.scale > 1.02;
+  const zoomSync = () => { document.documentElement.classList.toggle("v2zoom", zoomedNow()); if (fxApi) fxApi.wake(); };
+  if (vv) { vv.addEventListener("resize", zoomSync); zoomSync(); }
+  addEventListener("resize", () => { clearTimeout(fxT); fxT = setTimeout(() => { if (fxApi) fxApi.resize(); }, 180); });
+  document.addEventListener("visibilitychange", () => { if (fxApi) fxApi.wake(); });
   function v2Motion() {
     const home = document.getElementById("v2home"); if (!home) return;
     /* sections and their parts rise in as they come on screen; figures count up once */
@@ -16475,14 +16488,20 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   }
   /* a field of blue and green dots behind the hero: they drift, link up when close, and gather around the pointer */
   function field() {
-    cancelAnimationFrame(fxRaf);
+    cancelAnimationFrame(fxRaf); fxRaf = 0;
     const cv = document.getElementById("v2fx"); if (!cv || !cv.getContext) return;
-    const box = cv.parentElement, ctx = cv.getContext("2d"), dpr = Math.min(2, devicePixelRatio || 1);
+    const box = cv.parentElement, ctx = cv.getContext("2d");
     let W = 0, H = 0, dots = [], mx = -9999, my = -9999;
     const COL = ["#1F6FFF", "#1F6FFF", "#4DB8FF", "#B4E61D"];
-    function size() { W = box.clientWidth; H = box.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    /* The canvas is re-made only when the hero really changes size. iPhone Safari reports a "resize" as its toolbar slides
+       and while pinching; re-making the canvas for each of those ran the page out of memory and crashed the tab. */
+    function size() { const w = box.clientWidth, h = box.clientHeight; if (!w || !h || (w === W && h === H)) return false; W = w; H = h;
+      let dpr = Math.min(2, devicePixelRatio || 1); if (W * H * dpr * dpr > 2.4e6) dpr = Math.max(1, Math.sqrt(2.4e6 / (W * H)));
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const n = Math.round(Math.min(150, Math.max(46, W * H / 9500)));
-      dots = Array.from({ length: n }, (_, i) => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: 1.6 + Math.random() * 3.2, c: COL[i % COL.length] })); }
+      dots = Array.from({ length: n }, (_, i) => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: 1.6 + Math.random() * 3.2, c: COL[i % COL.length] }));
+      return true; }
+    const running = () => !calm && cv.isConnected && !document.hidden && !zoomedNow();
     function draw() {
       ctx.clearRect(0, 0, W, H);
       for (const d of dots) {
@@ -16499,13 +16518,16 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
       }
       for (const d of dots) { ctx.globalAlpha = .75; ctx.fillStyle = d.c; ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, 6.2832); ctx.fill(); }
       ctx.globalAlpha = 1;
-      if (!calm && cv.isConnected) fxRaf = requestAnimationFrame(draw);
+      fxRaf = running() ? requestAnimationFrame(draw) : 0;
     }
     size(); draw();
+    fxApi = {
+      resize() { if (cv.isConnected && !zoomedNow() && size() && !fxRaf) draw(); },
+      wake() { if (cv.isConnected && !fxRaf && running()) draw(); },
+    };
     if (!box.dataset.fx) { box.dataset.fx = "1";
       box.addEventListener("pointermove", e => { const r = box.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; box.style.setProperty("--mx", mx + "px"); box.style.setProperty("--my", my + "px"); });
-      box.addEventListener("pointerleave", () => { mx = my = -9999; });
-      addEventListener("resize", () => { if (cv.isConnected) { size(); if (calm) draw(); } }); }
+      box.addEventListener("pointerleave", () => { mx = my = -9999; }); }
   }
   function openStore() { const go = document.createElement("button"); go.type = "button"; go.hidden = true; go.dataset.folder = "store"; document.body.appendChild(go); go.click(); go.remove(); }
   document.addEventListener("click", e => {

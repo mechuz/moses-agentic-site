@@ -6,7 +6,8 @@
 |---|---|
 | `scripts/newswire.py` | The builder. Standard library only. `build` reads every feed; `reuse` re-makes the pages from the items already live. |
 | `scripts/newswire_sources.json` | The source list: name, feed address, site address, category. |
-| `public/newswire/` | The pages. The deploy workflow rebuilds them whenever GitHub's schedule fires; the copy in the repo is only the fallback. The schedule asks for twice an hour, but GitHub ran it once in eleven hours on November 20, 2026, so the pages make no promise about how often they refresh. A dependable refresh needs ownership's decision (see the CMO open items). |
+| `public/newswire/` | The pages. The deploy workflow rebuilds them; the copy in the repo is only the fallback. |
+| `.github/workflows/newswire-clock.yml` | The clock: one always-running job that starts the deploy workflow every 30 minutes (a full feed read) and replaces itself before GitHub's six-hour job limit. Ownership approved it on November 20, 2026, after GitHub's own schedule ran a twice-an-hour refresh once in eleven hours. Free while the repository is public; delete the file first if the repository is ever made private. |
 | `public/vendor/tech-ticker.js`, `site-ticker.js`, `site-ticker.css` | The technology stock ticker (TradingView's free widget) and the band that shows it at the top of every public page. Not on the subscribe page or the client proposal pages. |
 | `public/newswire/latest.json` | Ten of the newest AI headlines, one per source. The front page's news button reads it. |
 | `scripts/newswire-tools/test_newswire.py` | Offline checks: hostile feed content must come out as plain, escaped text. |

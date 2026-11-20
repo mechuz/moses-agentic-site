@@ -9,9 +9,9 @@ on:
   workflow_run:
     workflows: ["Publish approved articles and news"]
     types: [completed]
-  # The AI Newswire (public/newswire/) is rebuilt from its feeds about every 30 minutes.
-  schedule:
-    - cron: '7,37 * * * *'
+  # The AI Newswire (public/newswire/) is rebuilt from its feeds every 30 minutes: the "Newswire clock"
+  # workflow starts this one by workflow_dispatch. (GitHub's own schedule proved undependable here:
+  # a twice-an-hour schedule ran once in eleven hours on November 20, 2026.)
   workflow_dispatch:
 
 permissions:
@@ -31,7 +31,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      # On the schedule (or a manual run) every feed is read again. On any other deploy the pages are
+      # When the Newswire clock (or a person) starts this workflow, every feed is read again. On any other deploy the pages are
       # re-made from the items already live, so a normal push is not slowed down. If this step fails,
       # the copy of public/newswire/ in the repo is published and the rest of the site is unaffected.
       - name: Build the AI Newswire
@@ -40,7 +40,7 @@ jobs:
         env:
           EVENT: ${{ github.event_name }}
         run: |
-          if [ "$EVENT" = "schedule" ] || [ "$EVENT" = "workflow_dispatch" ]; then
+          if [ "$EVENT" = "workflow_dispatch" ]; then
             python3 scripts/newswire.py build
           else
             python3 scripts/newswire.py reuse

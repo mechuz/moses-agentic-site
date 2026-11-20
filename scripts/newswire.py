@@ -838,7 +838,7 @@ def write_pages(rows, sources, last_ok, now):
 
     # the data file the page's search and "show more" read
     (OUT / "items.json").write_text(json.dumps({
-        "v": 1, "generated": now, "active": n_src,
+        "v": 1, "generated": now, "read": max(last_ok.values(), default=now), "active": n_src,   # "read": when the feeds were last really read
         "topics": [[BIT[k], k, lab] for k, lab, _, _ in TOPICS],
         "src": [[s["name"], s["site"], s["feed"], last_ok.get(s["feed"], 0)] for s in sources],
         "items": rows}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")

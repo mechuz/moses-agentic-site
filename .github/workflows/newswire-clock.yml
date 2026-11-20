@@ -1,0 +1,73 @@
+# Keeps the AI Newswire fresh. Approved by ownership on November 20, 2026.
+#
+# GitHub's own timer (on: schedule) proved undependable for this repository: on November 20, 2026 a
+# twice-an-hour schedule ran once in eleven hours. So this workflow is its own clock. One job asks for
+# a deploy (which reads every feed), waits 30 minutes and repeats. Before GitHub's six-hour job limit
+# it starts its own replacement and ends.
+#
+# Cost: nothing while this repository is public (standard runners are free for public repositories).
+# If the repository is ever made private, DELETE THIS FILE FIRST: a job that is always running would
+# use up the account's included Actions minutes and could stop the site from deploying.
+#
+# To stop the clock: delete this file (or disable "Newswire clock" in the Actions tab) and cancel the
+# running "Newswire clock" run. To start it again: restore the file; a change to it starts a run.
+name: Newswire clock
+
+on:
+  workflow_dispatch:
+    inputs:
+      handoff:
+        description: "Set by the clock itself when it starts its replacement"
+        required: false
+        default: "false"
+  push:
+    branches: [main]
+    paths: ['.github/workflows/newswire-clock.yml']   # starts, or restarts, the clock when this file changes
+  schedule:
+    - cron: '23 */2 * * *'   # safety net only: starts a clock if none is running
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  clock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      EVENT: ${{ github.event_name }}
+      HANDOFF: ${{ github.event.inputs.handoff }}
+      RUN_ID: ${{ github.run_id }}
+    steps:
+      - name: One clock at a time
+        id: gate
+        run: |
+          others=$(gh run list --workflow newswire-clock.yml --limit 30 --json databaseId,status \
+            --jq "[.[] | select(.databaseId != $RUN_ID and (.status == \"in_progress\" or .status == \"queued\")) | .databaseId] | join(\" \")")
+          if [ -n "$others" ] && [ "$EVENT" = "schedule" ]; then
+            echo "A clock is already running ($others). Nothing to do."
+            echo "run=no" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -n "$others" ] && [ "$HANDOFF" != "true" ]; then
+            # this file changed, or a person started a run: this run takes over from the old clock
+            for id in $others; do gh run cancel "$id" || true; done
+          fi
+          echo "run=yes" >> "$GITHUB_OUTPUT"
+
+      - name: Ask for a fresh newswire every 30 minutes
+        if: steps.gate.outputs.run == 'yes'
+        run: |
+          for i in $(seq 1 11); do
+            if [ "$i" -gt 1 ]; then
+              # if two clocks ever run side by side, the newer one stops
+              older=$(gh run list --workflow newswire-clock.yml --limit 30 --json databaseId,status \
+                --jq "[.[] | select(.databaseId < $RUN_ID and .status == \"in_progress\")] | length" || echo 0)
+              if [ "$older" != "0" ]; then echo "An older clock is running. Stopping this one."; exit 0; fi
+            fi
+            for try in 1 2 3; do gh workflow run deploy.yml --ref main && break || sleep 20; done
+            sleep 1800
+          done
+          for try in 1 2 3 4 5; do gh workflow run newswire-clock.yml --ref main -f handoff=true && break || sleep 30; done

@@ -126,6 +126,8 @@ a.book { display: inline-block; text-decoration: none; margin-top: 1rem; }
 .payp strong { font-weight: 800; overflow-wrap: anywhere; }
 .payp a.go { display: inline-block; text-decoration: none; }
 @media (max-width: 520px) { .payp { grid-template-columns: 1fr; justify-items: start; } }
+#copynote { display: block; margin-top: .35rem; }
+.lnk:disabled { opacity: .6; cursor: default; }
 .lnk { background: none; border: 0; padding: 0; font: 600 1rem var(--b); color: inherit; text-decoration: underline; cursor: pointer; }
 @media (max-width: 640px) { .row { grid-template-columns: minmax(0, 1fr); } .svc { grid-template-columns: auto minmax(0, 1fr); } .svc .price { grid-column: 2; text-align: start; } }
 
@@ -276,7 +278,7 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
   <section id="done" class="done" hidden>
     <h1>You're in.</h1>
     <p class="lead" id="donemsg"></p>
-    <p id="copyrow" hidden><button type="button" class="lnk" id="copybtn">Download your signed agreement</button></p>
+    <p id="copyrow" hidden><button type="button" class="lnk" id="copybtn">Download your signed agreement (PDF)</button><span class="fine" id="copynote"></span></p>
     <ol class="nx">
       <li><h2>1. Send your first payment</h2>
         <p class="lead" style="margin-top:0" id="paymsg"></p>
@@ -300,6 +302,7 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
   </section>
 </main>
 <div class="total" id="total"><div class="in"><div><small>Your monthly total</small><strong id="tot">$0</strong> <small id="one"></small></div><button type="button" id="go2">Subscribe and check out →</button></div></div>
+<script src="/subscribe/agreement-pdf.js"></script>
 <script>
 (function () {
   "use strict";
@@ -372,6 +375,7 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
       var er = $("#err"); if (!er.textContent || !$("#done").hidden) return;
       var miss = basics.filter(function (i) { return !val(i); })[0];
       if (!miss && SIGN) miss = val("ini").length < 2 ? "ini" : (!$("#ok").checked ? "ok" : "");
+      if (!miss && $("#pm") && !$("#pm input:checked")) miss = "pm";
       var el = miss ? $("#" + miss) : er;
       if (plan().items.length) { el.scrollIntoView({ behavior: "smooth", block: "center" }); if (miss) el.focus({ preventScroll: true }); }
     }, 60);
@@ -460,7 +464,7 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
       }
       $("#paylist").innerHTML = ""; ["zelle", "cashapp", "venmo"].forEach(function (k) { var b = mk("button", PMN[k]); b.type = "button"; b.dataset.k = k; b.setAttribute("role", "tab"); b.addEventListener("click", function () { showPay(k); }); $("#paylist").appendChild(b); });
       showPay(pm);
-      if (window.__copy) { $("#copyrow").hidden = false; }
+      if (window.__copy) { $("#copyrow").hidden = false; $("#copynote").textContent = "We are also emailing a PDF copy to " + v("em") + "."; pdfReady().catch(function () {}); }
       scrollTo(0, 0); }
     function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n")); setTimeout(done, 600); }
     var payKey = p.items.length === 1 ? ($(".svc:not(.off)").dataset.svc + ($(".svc:not(.off) input[type=radio]:checked") ? "-" + $(".svc:not(.off) input[type=radio]:checked").value : "")) : "";
@@ -469,18 +473,36 @@ html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { colo
     go.disabled = $("#go2").disabled = true;
     if (SIGN) { sha($(".agree").textContent).then(function (h) {
       lines[0] = "SUBSCRIPTION SIGNED ONLINE: agreement signed, payment to collect";
-      lines = lines.concat(["SIGNED ONLINE by " + v("nm") + (v("ti") ? ", " + v("ti") : "") + " for " + v("biz"), "Initials: " + v("ini").toUpperCase() + " (one set, confirming the key terms shown at signing)"].concat($$("#kt li").map(function (li) { return "Key term shown: " + li.textContent.trim(); })).concat(["Terms and Conditions box: ticked", "Signed at: " + new Date().toISOString(), "Agreement version: " + VERSION, "Agreement text SHA-256: " + h, "Device: " + navigator.userAgent]));
+      lines = lines.concat(["SIGNED ONLINE by " + v("nm") + (v("ti") ? ", " + v("ti") : "") + " for " + v("biz")].concat(v("ti") ? ["Title: " + v("ti")] : []).concat(["Initials: " + v("ini").toUpperCase() + " (one set, confirming the key terms shown at signing)"].concat($$("#kt li").map(function (li) { return "Key term shown: " + li.textContent.trim(); })).concat(["Terms and Conditions box: ticked", "Signed at: " + new Date().toISOString(), "Agreement version: " + VERSION, "Agreement text SHA-256: " + h, "Device: " + navigator.userAgent])));
       data.message = lines.join("\n"); data.kind = "subscription-signed";
       window.__copy = ["MOSES AGENTIC SUBSCRIPTION AGREEMENT: SIGNED COPY", ""].concat(lines.slice(1)).concat(["", "AGREEMENT TEXT (version " + VERSION + ")", "", (function () { var d = $(".agbox"), was = d.open; d.open = true; var tx = $(".agree").innerText; d.open = was; return tx.replace(/\n{3,}/g, "\n\n").trim(); })()]).join("\n");
-      data.agreement = window.__copy;
+      data.agreement = window.__copy; data.pay_shown = pm === "zelle" ? !!(HANDLES.zelle_url && HANDLES.zelle_qr) : !!HANDLES[pm];
+      try { window.__signed = { record: data.message, doc: MosesAgreement.modelFromDom($(".agree")) }; data.agreement_doc = window.__signed.doc; } catch (x) { window.__signed = null; }
       fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; after(); }).catch(function () { go.disabled = $("#go2").disabled = false; err.textContent = "We could not record your signature. Please try again."; });
     }); return; }
     if (ENDPOINT) fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; done(); }).catch(function () { go.disabled = $("#go2").disabled = false; mailto(); });
     else mailto();
   });
+  /* signed agreement as a PDF on letterhead: /subscribe/agreement-pdf.js lays it out, /vendor/pdf-lib.min.js writes the file */
+  var pdfP = null;
+  function pdfReady() {
+    if (!pdfP) pdfP = Promise.all([
+      new Promise(function (ok, no) { if (window.PDFLib) { ok(); return; } var s = document.createElement("script"); s.src = "/vendor/pdf-lib.min.js"; s.onload = function () { ok(); }; s.onerror = function () { pdfP = null; no(new Error("pdf library did not load")); }; document.head.appendChild(s); }),
+      fetch("/brand/letterhead-logo.png").then(function (r) { return r.ok ? r.arrayBuffer() : null; }).catch(function () { return null; })
+    ]).then(function (res) { return res[1] ? new Uint8Array(res[1]) : null; });
+    return pdfP;
+  }
   $("#copybtn").addEventListener("click", function () {
-    if (!window.__copy) return; var a = document.createElement("a");
-    a.href = URL.createObjectURL(new Blob([window.__copy], { type: "text/plain;charset=utf-8" })); a.download = "Moses-Agentic-subscription-agreement.txt"; document.body.appendChild(a); a.click(); a.remove();
+    if (!window.__copy) return;
+    var btn = this, was = btn.textContent, sg = window.__signed;
+    var save = function (blob, name) { var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); };
+    var asText = function () { save(new Blob([window.__copy], { type: "text/plain;charset=utf-8" }), "Moses-Agentic-subscription-agreement.txt"); };
+    if (!sg || typeof MosesAgreement === "undefined") { asText(); return; }
+    btn.disabled = true; btn.textContent = "Preparing your PDF\u2026";
+    pdfReady().then(function (logo) {
+      var f = MosesAgreement.fields(sg.record);
+      return MosesAgreement.build(window.PDFLib, f, sg.doc, logo).then(function (pdf) { return pdf.save(); }).then(function (bytes) { save(new Blob([bytes], { type: "application/pdf" }), MosesAgreement.fileName(f.business)); });
+    }).catch(asText).then(function () { btn.disabled = false; btn.textContent = was; });
   });
   $("#intake").addEventListener("submit", function (ev) {
     ev.preventDefault(); var w = window.__who || {}, g = function (i) { return $("#" + i).value.trim(); }, b = $("#go3");

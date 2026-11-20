@@ -15218,8 +15218,9 @@ document.addEventListener("click", e => {
 (async function start() {
   const h = location.hash.slice(1);
   let saved = null; try { saved = JSON.parse(store.get("seminar-lang") || "null"); } catch (e) {}
-  const nav = (navigator.language || "en").slice(0, 2);
-  setLang(LANGS[h] ? h : (saved && LANGS[saved.k]) ? saved.k : LANGS[nav] ? nav : "en", false);
+  /* English unless the visitor picks a language (the address #yi, #he, #es, or an earlier pick). Ownership, November 20, 2026:
+     the other languages are a choice on the site, not shown on their own because of a phone or browser setting. */
+  setLang(LANGS[h] ? h : (saved && LANGS[saved.k]) ? saved.k : "en", false);
   if (CONFIG.site === "chocham") setView("education", false);
   routeFromPath();
   if (CONFIG.site === "moses" && h === "consult") setTimeout(() => goConsult(""), 300);

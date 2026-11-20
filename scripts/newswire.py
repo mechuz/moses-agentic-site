@@ -75,6 +75,37 @@ CAT_TOPICS = {
     "policy": [], "chips": ["chips"], "biz": ["business"], "sec": ["security"], "dev": ["developers"],
     "tech": [], "bigtech": [], "sci": ["science"], "community": [],
 }
+# The site's news strip (the running headlines at the bottom of every page) carries the whole technology sector, as news:
+# the technology and business press, chips and security outlets, and the AI press. Not company blogs, engineering blogs,
+# research papers, forums or personal newsletters; and not reviews, shopping deals, explainers or opinion pieces.
+STRIP_CATS = {"tech", "biz", "chips", "sec"}
+STRIP_AI_PRESS = re.compile(r":|^(The Decoder|AI Business|AI News|Analytics India Magazine|MIT Technology Review|Singularity Hub|MarkTechPost|Unite\.AI|AIwire|BigDATAwire|DailyAI|TestingCatalog|insideAI News)$")
+STRIP_SKIP = re.compile(
+    r"\b(reviews?|reviewed|hands-on|unboxing|steal|bargain|how to|tips|tricks|explained|explainer|vs\.?|versus|podcast|episode|"
+    r"newsletter|opinion|quiz|giveaway|sponsored|webinar|awards?|recap|round-?up|weekly|this week|guide|wallpapers?|rumou?rs?|"
+    r"leak(s|ed)?|interview|q&a|on sale|lowest price|cheapest|buy|my)\b"
+    r"|^(how|why|what|when|where|who|is|are|can|should|do|does|will|here|these|this|the best|my|our|i|we|\d+ )\b", re.I)
+STRIP_PRICE = re.compile(r"\$\d[\d,.]*(?![\d,.])(?!\s?(million|billion|trillion|bn|[mbk]\b))", re.I)   # "$200", not "$200 million"
+TECH_CS = re.compile(r"\b(AI|EVs?|VR|AR|PCs?|IPO|VC|APIs?|SaaS|GPUs?|CPUs?|LLMs?|5G|6G|Arm|AWS|IBM|SAP|AMD|TSMC|ASML|NASA|FTC|FCC)\b")
+TECH_RE = re.compile(
+    r"\b(tech|technology|software|hardware|apps?|cloud|chips?|chipmakers?|semiconductors?|data cent(er|re)s?|cyber\w*|hack\w*|"
+    r"startups?|robots?|robotics?|robotaxis?|quantum|internet|smartphones?|iphones?|ipads?|macbooks?|android|windows|linux|google|"
+    r"alphabet|apple|microsoft|amazon|meta|facebook|instagram|whatsapp|tiktok|youtube|netflix|spotify|nvidia|intel|qualcomm|"
+    r"broadcom|samsung|sony|openai|anthropic|chatgpt|claude|gemini|copilot|deepmind|xai|grok|mistral|tesla|spacex|starlink|waymo|"
+    r"uber|salesforce|oracle|adobe|palantir|snowflake|databricks|stripe|shopify|coinbase|crypto\w*|bitcoin|blockchain|"
+    r"self-driving|autonomous|drones?|satellites?|broadband|browsers?|open[- ]source|developers?|github|ransomware|malware|"
+    r"breach(es|ed)?|vulnerabilit\w+|zero-day|musk|zuckerberg|altman|bezos|nadella|pichai|streaming|xbox|playstation|nintendo|"
+    r"headsets?|wearables?|smartwatch\w*|laptops?|processors?|silicon|foundr(y|ies)|telecoms?|wireless|fintech|e-?commerce|"
+    r"automation|algorithms?|outages?|artificial intelligence|machine learning|compute|servers?|encryption|antitrust)\b", re.I)
+
+
+def strip_ok(title, source, bits):
+    """Is this headline right for the site's news strip?"""
+    if not (source["cat"] in STRIP_CATS or (source["cat"] == "ainews" and STRIP_AI_PRESS.search(source["name"]))):
+        return False
+    if not 30 <= len(title) <= 110 or title.endswith("?") or STRIP_SKIP.search(title) or STRIP_PRICE.search(title):
+        return False
+    return bool(TECH_CS.search(title) or TECH_RE.search(title) or bits & (BIT["ai"] | BIT["chips"] | BIT["robotics"] | BIT["security"]))
 CAT_LABELS = [
     ("labs", "AI labs and model builders"), ("research", "Research"), ("ainews", "AI news and analysis"),
     ("safety", "Superintelligence, safety and governance"), ("policy", "Policy and society"), ("chips", "Chips, compute and robotics"),
@@ -843,13 +874,15 @@ def write_pages(rows, sources, last_ok, now):
         "src": [[s["name"], s["site"], s["feed"], last_ok.get(s["feed"], 0)] for s in sources],
         "items": rows}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
-    # the front page's news button reads this: the newest AI headlines, one per source
+    # The news strip at the bottom of every page reads this: the newest headlines from across the technology sector,
+    # one per source (see strip_ok: news outlets only, about technology, no reviews, deals or explainers).
     seen_src, latest = set(), []
     for r in rows:
-        if r[5] & BIT["ai"] and r[1] not in seen_src and len(r[2]) <= 140:
+        s = sources[r[1]]
+        if r[1] not in seen_src and strip_ok(r[2], s, r[5]):
             seen_src.add(r[1])
-            latest.append([r[2], sources[r[1]]["name"]])
-            if len(latest) >= 10:
+            latest.append([r[2], s["name"]])
+            if len(latest) >= 16:
                 break
     (OUT / "latest.json").write_text(json.dumps({"items": latest}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 

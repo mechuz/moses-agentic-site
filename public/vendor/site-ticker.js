@@ -17,3 +17,79 @@
   function soon() { setTimeout(go, 600); }
   if (document.readyState === "complete") soon(); else window.addEventListener("load", soon);
 })();
+
+/* Site-wide news strip: technology headlines running along the bottom of the page (styles in site-ticker.css).
+   The whole strip is one link to the newswire's all-technology page. It reads /newswire/latest.json, a small file
+   written with the newswire: [headline, source] pairs from across the technology sector. Everything is written with
+   textContent. Not built on the newswire pages themselves. */
+(function () {
+  "use strict";
+  if (/^\/newswire(\/|$)/.test(location.pathname) || document.getElementById("site-news") || !document.body) return;
+  var root = document.documentElement;
+  var CTA = "Click here for the latest tech news";
+  var a = document.createElement("a");
+  a.className = "site-news"; a.id = "site-news"; a.href = "/newswire/technology/";
+  a.setAttribute("aria-label", CTA);
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  var tag = el("span", "sn-tag"); tag.setAttribute("aria-hidden", "true");
+  tag.appendChild(el("i")); tag.appendChild(el("span", "sn-long", "Latest tech news")); tag.appendChild(el("span", "sn-short", "Tech news"));
+  var run = el("span", "sn-run"); run.setAttribute("aria-hidden", "true");
+  var line = el("span", "", CTA); run.appendChild(line);
+  var more = el("span", "sn-more"); more.setAttribute("aria-hidden", "true");
+  more.appendChild(el("span", "sn-long", CTA)); more.appendChild(el("b", "", "→"));
+  a.appendChild(tag); a.appendChild(run); a.appendChild(more);
+
+  /* on pages with the bottom menu, the strip sits right above it */
+  var dock = null, ro = null;
+  function place() {
+    var h = dock && dock.isConnected && getComputedStyle(dock).display !== "none" ? dock.offsetHeight : 0;
+    a.style.bottom = h + "px";
+    a.classList.toggle("on-dock", h > 0);
+    /* reserve room under the page: the strip, plus anything the page was short for its menu */
+    var pad = parseFloat(getComputedStyle(document.body).paddingBottom) || 0;
+    root.style.setProperty("--newsroom", Math.ceil(a.offsetHeight + Math.max(0, h - pad)) + "px");
+  }
+  function findDock() {
+    var d = document.getElementById("v2dock");
+    if (!d || d === dock) return;
+    dock = d;
+    if (window.ResizeObserver) { if (ro) ro.disconnect(); ro = new ResizeObserver(place); ro.observe(dock); }
+    place();
+  }
+
+  function fill(items) {
+    var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (calm) items = items.slice(0, 1);
+    function seq() {
+      items.forEach(function (x, i) {
+        line.appendChild(el("b", "", String(x[1])));
+        line.appendChild(document.createTextNode(String(x[0])));
+        line.appendChild(el("i", "", "•"));
+        if (!calm && (i % 5 === 4 || i === items.length - 1)) { line.appendChild(el("em", "", CTA + " →")); line.appendChild(el("i", "", "•")); }
+      });
+    }
+    line.textContent = "";
+    seq();
+    if (calm) return;
+    seq();   /* twice, so the loop has no seam */
+    requestAnimationFrame(function () {
+      run.style.setProperty("--crawl", Math.max(40, Math.round(line.scrollWidth / 2 / 52)) + "s");
+      run.classList.add("go");
+    });
+  }
+
+  document.body.appendChild(a);
+  root.classList.add("has-news");
+  findDock(); place();
+  if (window.MutationObserver) new MutationObserver(findDock).observe(document.body, { childList: true });
+  window.addEventListener("resize", place);
+  window.addEventListener("load", function () { findDock(); place(); });
+  if (window.v2Fit) window.v2Fit();
+  var vv = window.visualViewport;
+  if (vv) vv.addEventListener("resize", function () { root.classList.toggle("sn-zoom", vv.scale > 1.02); });
+
+  fetch("/newswire/latest.json").then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    var items = d && Array.isArray(d.items) ? d.items.filter(function (x) { return Array.isArray(x) && x[0] && x[1]; }).slice(0, 16) : [];
+    if (items.length) fill(items);
+  }).catch(function () {});
+})();

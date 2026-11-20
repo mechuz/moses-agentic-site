@@ -78,7 +78,7 @@ with tempfile.TemporaryDirectory() as d:
     data = json.loads((nw.OUT / "items.json").read_text())
     check("data file: rows, sources and last-answered times", len(data["items"]) == 3 and data["active"] == 2 and data["src"][0][3] == now)
     latest = json.loads((nw.OUT / "latest.json").read_text())
-    check("front-page file: newest AI headlines as [headline, source], markup already removed", len(latest["items"]) >= 1 and all(len(x) == 2 and "<" not in x[0] for x in latest["items"]), latest)
+    check("news strip file: newest technology headlines as [headline, source], markup already removed", len(latest["items"]) >= 1 and all(len(x) == 2 and "<" not in x[0] for x in latest["items"]), latest)
     check("page: the shared ticker band is first in the body and its loader is in the head", '<body>\n<div class="site-ticker" id="site-ticker"' in page and '/vendor/site-ticker.js' in page.split("</head>")[0] and 'id="tape"' not in page)
     for key in nw.TOPIC_KEYS[1:]:
         if not (nw.OUT / key / "index.html").exists():

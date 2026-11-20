@@ -2370,27 +2370,6 @@ html.v2[dir="rtl"] .v2hl, html.v2[dir="rtl"] .v2rot em, html.v2[dir="rtl"] .v2on
 @keyframes v2letter { from { opacity: 0; transform: translateY(.5em) rotate(6deg); } to { opacity: 1; transform: none; } }
 @keyframes v2swap { from { opacity: 0; transform: translateY(.6em); } to { opacity: 1; transform: none; } }
 @keyframes v2mq { to { transform: translateX(-50%); } }
-/* Front page: the news button. A pill under the hero lines with a blinking "on air" dot and the latest AI Newswire
-   headlines running through it. The whole pill is one link to /newswire/. English in every language (the headlines are). */
-.v2wire { display: flex; align-items: center; gap: .7rem; width: min(100%, 580px); margin: 1.4rem auto 0; padding: .5rem 1.1rem .5rem .55rem; border: 1px solid #E3EAF4; border-radius: 999px; background: rgba(255,255,255,.92); box-shadow: 0 10px 30px -18px rgba(11,37,69,.45); color: #0B2545; text-decoration: none; font: 500 1rem/1.2 var(--f-body); direction: ltr; text-align: start; transition: border-color .2s, transform .2s, box-shadow .2s; }
-.v2wire:hover { border-color: #1F6FFF; transform: translateY(-2px); box-shadow: 0 14px 34px -16px rgba(31,111,255,.55); }
-.v2wire:focus-visible { outline: 3px solid #0B2545; outline-offset: 3px; }
-.v2wire-ic { flex: none; position: relative; width: 36px; height: 36px; border-radius: 50%; background: #1F6FFF; display: grid; place-items: center; }
-.v2wire-ic svg { width: 20px; height: 20px; fill: #FFFFFF; display: block; }
-.v2wire-ic::after { content: ""; position: absolute; top: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #C6F432; border: 2px solid #FFFFFF; animation: v2air 1.6s ease-in-out infinite; }
-@keyframes v2air { 50% { transform: scale(1.3); opacity: .5; } }
-.v2wire b { flex: none; font-weight: 700; color: #1F6FFF; white-space: nowrap; }
-/* the running text is taken out of the layout (absolute), so its length can never widen the hero */
-.v2wire-run { flex: 1 1 0; min-width: 0; position: relative; height: 1.3em; overflow: hidden; white-space: nowrap; -webkit-mask-image: linear-gradient(90deg, transparent, #000 1rem, #000 calc(100% - 1rem), transparent); mask-image: linear-gradient(90deg, transparent, #000 1rem, #000 calc(100% - 1rem), transparent); }
-.v2wire-run > span { position: absolute; left: 0; top: 0; line-height: 1.3em; padding-left: 1rem; }
-.v2top > .v2in { min-width: 0; }
-.v2wire-run.go > span { animation: v2crawl var(--crawl, 80s) linear infinite; }
-.v2wire:hover .v2wire-run.go > span { animation-play-state: paused; }
-@keyframes v2crawl { to { transform: translateX(-50%); } }
-.v2wire .arrow { flex: none; color: #1F6FFF; font-weight: 700; }
-html.v2zoom .v2wire-run.go > span, html.v2zoom .v2wire-ic::after { animation: none !important; }
-@media (prefers-reduced-motion: reduce) { .v2wire-run.go > span, .v2wire-ic::after { animation: none !important; } }
-@media (max-width: 700px) { .v2wire { margin-top: 1.1rem; gap: .55rem; padding-right: .9rem; } }
 /* The brand name is Latin in every language: without this its letters were laid out backwards in Hebrew and Yiddish. */
 .v2name { direction: ltr; unicode-bidi: isolate; }
 /* The four sections are reached from the bottom menu only. The tiles that repeated them in the hero were removed
@@ -2406,7 +2385,6 @@ html.v2.site-moses .v2top { padding-bottom: calc(var(--dockh, 96px) + 1rem); }
   .v2top.snug .v2sage { width: 92px; margin-bottom: .8rem; }
   .v2top.snug .v2rot { margin-top: 1rem; }
   .v2top.snug .v2loc { margin-top: 1.4rem; }
-  .v2top.snug .v2wire { margin-top: 1rem; }
 }
 @media (max-width: 700px) {
   html.v2.site-moses .v2top { padding-top: calc(76px + .7rem); padding-bottom: calc(var(--dockh, 96px) + .7rem); }
@@ -16468,8 +16446,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         <h1 class="v2name" aria-label="Moses Agentic">${[..."Moses"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")} <b>${[..."\u039Bgentic"].map((c, i) => `<span style="--i:${i + 6}">${c}</span>`).join("")}</b></h1>
         <p class="v2tag">${E(t("v2.tag"))}</p>
         <p class="v2rot"><span>${E(t("v2.for"))}</span> <em id="v2rot">${E(((t("v2.fn") || [[0, ""]])[0])[1])}</em></p>
-        <p class="v2loc">${E(t("loc.t"))}</p>
-        <a class="v2wire" id="v2wire" href="/newswire/" aria-label="AI Newswire: the latest AI and technology headlines"><span class="v2wire-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h9A1.5 1.5 0 0 1 16 5.5V8h2.5A1.5 1.5 0 0 1 20 9.5V17a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zM16 10v7a1 1 0 1 0 2 0v-7zM6.5 7v4h7V7zm0 6v1.5h7V13zm0 3v1.5h5V16z" fill-rule="evenodd"/></svg></span><b>AI Newswire</b><span class="v2wire-run" id="v2wire-run" aria-hidden="true"><span>The latest AI and technology headlines</span></span><span class="arrow" aria-hidden="true">→</span></a></div></section>
+        <p class="v2loc">${E(t("loc.t"))}</p></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
         <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>
         <p class="v2k">${E(t("v2.proof_k"))}</p>
@@ -16536,23 +16513,6 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   }
   window.v2Fit = () => { v2Fit(); if (fxApi) fxApi.resize(); };   /* for callers outside: fit, then size the dot field to the hero */
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { v2Fit(); if (fxApi) fxApi.resize(); });
-  /* front page news button: the latest AI Newswire headlines run through it (a small file written with the newswire) */
-  let wireItems = null;
-  function v2Wire() {
-    const run = document.getElementById("v2wire-run"), sp = run && run.firstElementChild; if (!sp) return;
-    const fill = items => {
-      if (!sp.isConnected || !items.length) return;
-      if (calm) { sp.textContent = String(items[0][1]) + ": " + String(items[0][0]); return; }
-      const line = items.slice(0, 8).map(x => String(x[1]) + ": " + String(x[0])).join("   \u2022   ") + "   \u2022   ";
-      sp.textContent = line + line; run.classList.remove("go");
-      requestAnimationFrame(() => { run.style.setProperty("--crawl", Math.max(40, Math.round(sp.scrollWidth / 2 / 46)) + "s"); run.classList.add("go"); });
-    };
-    if (wireItems) return fill(wireItems);
-    fetch("/newswire/latest.json").then(r => r.ok ? r.json() : null).then(d => {
-      const items = d && Array.isArray(d.items) ? d.items.filter(x => Array.isArray(x) && x[0] && x[1]) : [];
-      if (items.length) { wireItems = items; fill(items); }
-    }).catch(() => {});
-  }
   /* phones: the bottom menu slides so the lit tile is on screen */
   function dockShow() {
     const d = document.getElementById("v2dock"), on = d && d.querySelector("button.on:not(.buy)"); if (!on || d.scrollWidth <= d.clientWidth + 1) return;
@@ -16583,7 +16543,6 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
     clearInterval(rotTimer);
     const rot = document.getElementById("v2rot"), words = (t("v2.fn") || []).map(x => x[1]);
     if (rot && words.length > 1 && !calm) { let k = 0; rotTimer = setInterval(() => { if (!rot.isConnected) return clearInterval(rotTimer); k = (k + 1) % words.length; rot.classList.remove("swap"); void rot.offsetWidth; rot.textContent = words[k]; rot.classList.add("swap"); }, 1900); }
-    v2Wire();
     v2Fit();
     field();
   }

@@ -59,5 +59,42 @@
     setTimeout(function () { if (!el.querySelector("iframe")) fail(); }, 9000);
   }
 
-  window.MosesTicker = { mount: mount, symbols: SYMBOLS };
+  /* A small chart of one symbol (TradingView's free mini chart). Defaults: the technology sector fund (XLK), the
+     last five years. Usage: MosesTicker.chart(element)  or  MosesTicker.chart(element, { symbol: "AMEX:XLK", range: "60M" })
+     range is one of 1D, 1M, 3M, 12M, 60M (five years), ALL. */
+  function chart(el, opts) {
+    if (!el) return;
+    opts = opts || {};
+    el.textContent = "";
+    var box = document.createElement("div");
+    box.className = "tradingview-widget-container";
+    box.style.height = "100%";
+    var inner = document.createElement("div");
+    inner.className = "tradingview-widget-container__widget";
+    inner.style.height = "100%";
+    box.appendChild(inner);
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
+    s.text = JSON.stringify({
+      symbol: opts.symbol || "AMEX:XLK",
+      width: "100%",
+      height: "100%",
+      locale: "en",
+      dateRange: opts.range || "60M",
+      colorTheme: "light",
+      isTransparent: true,
+      autosize: true,
+      largeChartUrl: "",
+      chartOnly: false,
+      noTimeScale: false
+    });
+    s.onerror = function () { if (typeof opts.onFail === "function") opts.onFail(); };
+    box.appendChild(s);
+    el.appendChild(box);
+    setTimeout(function () { if (!el.querySelector("iframe") && typeof opts.onFail === "function") opts.onFail(); }, 9000);
+  }
+
+  window.MosesTicker = { mount: mount, chart: chart, symbols: SYMBOLS };
 })();

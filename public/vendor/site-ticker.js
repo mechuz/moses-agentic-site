@@ -93,3 +93,47 @@
     if (items.length) fill(items);
   }).catch(function () {});
 })();
+
+/* Home page: a small window with the technology sector's chart for the last five years (styles in site-ticker.css).
+   It lives in the home hero (#v2-top). The page re-makes the hero when the language changes, so the window is put
+   back whenever it goes missing. Nothing loads until the page has loaded. */
+(function () {
+  "use strict";
+  var home = document.getElementById("v2home");
+  if (!home) return;
+  var card = null, box = null, mode = "", timer = 0;
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function build() {
+    card = el("aside", "site-chart"); card.id = "site-chart";
+    card.setAttribute("aria-label", "Technology sector, last five years");
+    var cap = el("div", "sc-cap"); cap.appendChild(document.createTextNode("Technology sector")); cap.appendChild(el("span", "", "5 years"));
+    box = el("div", "sc-box");
+    card.appendChild(cap); card.appendChild(box);
+  }
+  function draw() {
+    if (!window.MosesTicker || !window.MosesTicker.chart) return;
+    window.MosesTicker.chart(box, { symbol: "AMEX:XLK", range: "60M", onFail: function () { if (card && card.parentNode) card.parentNode.removeChild(card); } });
+  }
+  function place() {
+    var hero = document.getElementById("v2-top");
+    if (!hero) return;
+    /* wide screens: the corner of the hero; otherwise a card right under the first screen */
+    var want = window.innerWidth >= 1264 ? "corner" : "below";
+    var inPlace = card && card.isConnected && mode === want && (want === "corner" ? card.parentNode === hero : card.previousElementSibling === hero);
+    if (inPlace) return;
+    if (!card) build();
+    mode = want;
+    card.className = "site-chart " + want;
+    if (want === "corner") hero.appendChild(card); else hero.parentNode.insertBefore(card, hero.nextSibling);
+    draw();   /* a frame reloads when it is moved, so draw again */
+  }
+  function start() {
+    function go() { place(); }
+    if (window.MosesTicker && window.MosesTicker.chart) go();
+    else { var s = document.createElement("script"); s.src = "/vendor/tech-ticker.js"; s.onload = go; document.head.appendChild(s); }
+    if (window.MutationObserver) new MutationObserver(function () { clearTimeout(timer); timer = setTimeout(place, 60); }).observe(home, { childList: true });
+    window.addEventListener("resize", function () { clearTimeout(timer); timer = setTimeout(place, 200); });
+  }
+  function soon() { setTimeout(start, 900); }
+  if (document.readyState === "complete") soon(); else window.addEventListener("load", soon);
+})();

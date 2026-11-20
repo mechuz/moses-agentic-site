@@ -49,3 +49,15 @@ html.has-news.v2.site-moses .v2top { padding-bottom: calc(var(--dockh, 96px) + v
 html.v2zoom .site-news, html.sn-zoom .site-news, html.sn-zoom .site-ticker { visibility: hidden; }
 @media (prefers-reduced-motion: reduce) { .site-news .sn-run.go > span, .site-news .sn-tag i { animation: none; } }
 @media print { .site-news { display: none; } html.has-news body { border-bottom: 0; } }
+
+/* Home page: a small window with the technology sector's chart for the last five years. Built by site-ticker.js
+   (TradingView's mini chart of XLK, the technology sector fund). On wide screens it sits in the hero's upper right
+   corner, under the header, clear of the name; on narrower screens and phones it is a card right under the first screen. */
+.site-chart { box-sizing: border-box; display: flex; flex-direction: column; background: rgba(255,255,255,.94); border: 1px solid #E3EAF4; border-radius: 16px; box-shadow: 0 14px 34px -20px rgba(11,37,69,.45); overflow: hidden; direction: ltr; text-align: left; font: 500 16px/1.2 "Outfit", "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; color: #0B2545; }
+.site-chart .sc-cap { flex: none; display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; padding: .6rem .85rem 0; font-weight: 600; white-space: nowrap; }
+.site-chart .sc-cap span { color: #44546B; font-weight: 500; }
+.site-chart .sc-box { flex: 1 1 auto; min-height: 0; }
+.site-chart.corner { position: absolute; z-index: 2; top: 92px; right: 28px; width: clamp(220px, calc(50vw - 412px), 300px); height: 196px; }
+.site-chart.below { position: relative; z-index: 1; width: min(calc(100% - 32px), 440px); height: 230px; margin: 18px auto 8px; }
+html.v2zoom .site-chart .sc-box, html.sn-zoom .site-chart .sc-box { visibility: hidden; }
+@media print { .site-chart { display: none; } }

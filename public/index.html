@@ -2379,19 +2379,14 @@ html.v2zoom .tickerband { display: none; }
 @media (max-width: 700px) { .v2top.has-tick > .v2in { padding-top: 56px; } }
 /* The brand name is Latin in every language: without this its letters were laid out backwards in Hebrew and Yiddish. */
 .v2name { direction: ltr; unicode-bidi: isolate; }
-/* Phones: the first screen (mark, name, two lines, four tiles) sits whole above the bottom menu.
-   The script (v2Fit) sets --dockh to the menu's real height and scales the block down a little on shorter phones. */
+/* The four sections are reached from the bottom menu only. The tiles that repeated them in the hero were removed
+   (ownership: "it should just be in one place"), so the .v2four rules above are no longer used.
+   Phones: the first screen (mark, name, two lines) sits whole above the bottom menu. The script (v2Fit) sets --dockh
+   to the menu's real height and scales the block down a little on very short phones. */
 @media (max-width: 700px) {
   html.v2.site-moses .v2top { padding-top: calc(76px + .7rem); padding-bottom: calc(var(--dockh, 96px) + .7rem); }
-  .v2top .v2sage { width: 62px; margin-bottom: .7rem; }
   .v2top .v2name { font-size: min(3rem, 11.4vw); }
-  .v2top .v2tag { margin-top: .8rem; }
-  .v2top .v2rot { margin-top: .9rem; }
-  .v2top .v2rot em { display: block; width: fit-content; max-width: 100%; margin-inline: auto; font-size: 1.15em; }
-  .v2top .v2four { gap: .5rem .6rem; margin-top: 1.2rem; }
-  .v2top .v2four button { gap: .5rem; padding: .3rem .2rem; font-size: 1rem; }
-  .v2top .v2four .v2ic { width: 48px; height: 48px; }
-  .v2top .v2loc { margin-top: .9rem; }
+  .v2top .v2rot em { display: block; width: fit-content; max-width: 100%; margin-inline: auto; }
   .v2top.tight .v2sage { display: none; }
 }
 /* Bottom menu on phones: three whole tiles and Pricing, and a swipe always stops on a whole tile. */
@@ -16445,7 +16440,6 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         <h1 class="v2name" aria-label="Moses Agentic">${[..."Moses"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")} <b>${[..."\u039Bgentic"].map((c, i) => `<span style="--i:${i + 6}">${c}</span>`).join("")}</b></h1>
         <p class="v2tag">${E(t("v2.tag"))}</p>
         <p class="v2rot"><span>${E(t("v2.for"))}</span> <em id="v2rot">${E(((t("v2.fn") || [[0, ""]])[0])[1])}</em></p>
-        <div class="v2four"><button type="button" data-v2-go="v2-dw"><span class="v2ic">${IC.dw}</span>${E(B[0][0])}</button><button type="button" data-v2-go="v2-ms"><span class="v2ic">${IC.ms}</span>${E(B[1][0])}</button><button type="button" data-v2-go="v2-sol"><span class="v2ic">${IC.sol}</span>${E(t("v2.sol"))}</button><button type="button" data-v2-go="v2-ac"><span class="v2ic">${IC.ac}</span>${E(B[2][0])}</button></div>
         <p class="v2loc">${E(t("loc.t"))}</p></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
         <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>

@@ -770,7 +770,7 @@ def write_pages(rows, sources, last_ok, now):
   <p class="ms-k">Tech Newswire</p>
   <h1 class="ms-h1">{h1}</h1>
   <p class="ms-one">{esc(lead)}</p>
-  <ul class="stats"><li><b>{n_src}</b>sources</li><li><b>{format(total, ",")}</b>headlines on the wire</li></ul>
+  <ul class="stats"><li><b>{n_src}</b>sources</li><li><b>{format(total, ",")}</b>headlines on the wire</li><li><b>30 min</b>between refreshes</li></ul>
 """) + f"""
 <div class="bar"><div class="ms-wrap">
   <nav class="chips" aria-label="Topics">{chips_for(key)}</nav>

@@ -2209,9 +2209,13 @@ html.v2 body { padding-bottom: 104px; }
 .v2four button:hover .v2ic { transform: scale(1.08) rotate(-4deg); }
 .v2loc { font: 600 1rem/1.3 var(--f-body); margin: clamp(2.4rem, 6vw, 4rem) 0 0; color: #0B2545; }
 /* the three ways to hire (Max, November 22, 2026): a person, a digital worker, a robot */
-.v2hire { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin: clamp(1.4rem, 3.4vw, 2.2rem) 0 0; }
-.v2hire .v2btn { text-decoration: none; }
-.v2hire small { font: 600 .72rem/1 var(--f-body); background: #C6F432; color: #0B2545; border-radius: 999px; padding: .28rem .5rem; margin-left: .35rem; }
+/* the digital worker is what we sell today, so it leads; a person and a robot follow as smaller "soon" links */
+.v2hire { display: flex; flex-direction: column; align-items: center; gap: .9rem; margin: clamp(1.4rem, 3.4vw, 2.2rem) 0 0; }
+.v2hire .v2main { font-size: clamp(1.1rem, 1.6vw, 1.3rem); padding: 1.05rem 2rem; box-shadow: 0 16px 36px -18px rgba(31,111,255,.7); }
+.v2hire .v2also { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem 1.4rem; }
+.v2hire .v2also a { font: 600 .98rem/1.2 var(--f-body); color: #0B2545; text-decoration: none; display: inline-flex; align-items: center; gap: .4rem; padding: .3rem 0; border-bottom: 1.5px solid rgba(11,37,69,.18); }
+.v2hire .v2also a:hover { color: #1F6FFF; border-bottom-color: #1F6FFF; }
+.v2hire small { font: 600 .7rem/1 var(--f-body); background: #C6F432; color: #0B2545; border-radius: 999px; padding: .26rem .48rem; }
 .v2top.snug .v2hire { margin-top: 1rem; }
 .v2top.snug .v2loc { margin-top: 1rem !important; }
 .v2s { padding: clamp(3.2rem, 8vw, 6.5rem) 0; border-top: 1px solid #EDF1F7; }
@@ -16477,7 +16481,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         <h1 class="v2name" aria-label="Moses Agentic">${[..."Moses"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")} <b>${[..."\u039Bgentic"].map((c, i) => `<span style="--i:${i + 6}">${c}</span>`).join("")}</b></h1>
         <p class="v2tag">${E(t("v2.tag"))}</p>
         <p class="v2rot"><span>${E(t("v2.for"))}</span> <em id="v2rot">${E(((t("v2.fn") || [[0, ""]])[0])[1])}</em></p>
-        <div class="v2hire">${(() => { const H = t("v2.hire") || []; return `<a class="v2btn ghost" href="/people/">${E(H[0] || "")} <small>${E(t("v2.soon") || "")}</small></a><button type="button" class="v2btn" data-v2-go="v2-dw">${E(H[1] || "")}</button><a class="v2btn ghost" href="/robots/">${E(H[2] || "")} <small>${E(t("v2.soon") || "")}</small></a>`; })()}</div>
+        <div class="v2hire">${(() => { const H = t("v2.hire") || []; return `<button type="button" class="v2btn v2main" data-v2-go="v2-dw">${E(H[1] || "")} <span class="arrow">→</span></button><div class="v2also"><a href="/people/">${E(H[0] || "")} <small>${E(t("v2.soon") || "")}</small></a><a href="/robots/">${E(H[2] || "")} <small>${E(t("v2.soon") || "")}</small></a></div>`; })()}</div>
         <p class="v2loc">${E(t("loc.t"))}</p></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
         <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>

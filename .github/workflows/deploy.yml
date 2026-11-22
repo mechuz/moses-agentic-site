@@ -49,5 +49,9 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
+      # On November 22, 2026 the publish step failed five times in a row with "No artifacts named github-pages were found"
+      # although the upload had finished and the artifact was listed on the run: give GitHub a moment to list it.
+      - name: Wait for the upload to be listed
+        run: sleep 45
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -2435,14 +2435,44 @@ html.mvfull-on .v2dock { display: none !important; }
 /* back / forward / swipe: popups (case studies, booking) and form steps are history steps too */
 (function () {
   var ign = false, tok = 0;
-  function copy(s) { var o = {}; s = s || {}; for (var k in s) o[k] = s[k]; delete o.ov; delete o.q; delete o.c; delete o.tk; return o; }
+  function copy(s) { var o = {}; s = s || {}; for (var k in s) o[k] = s[k]; delete o.ov; delete o.q; delete o.c; delete o.tk; delete o.re; delete o.shop; return o; }
+  /* the button that opened a card, kept in the history entry so Forward can open the card again */
+  var opener = null, openerAt = 0;
+  document.addEventListener("click", function (e) { var b = e.target.closest && e.target.closest("button, a, [role=button], [data-ag], [data-case]"); if (b) { opener = b; openerAt = Date.now(); } }, true);
+  function pathOf(el) {
+    if (!el || !el.isConnected) return null;
+    if (el.id) return { s: "#" + CSS.escape(el.id), i: 0 };
+    var s = el.tagName.toLowerCase(), d = el.dataset;
+    for (var k in d) s += "[data-" + k.replace(/[A-Z]/g, function (m) { return "-" + m.toLowerCase(); }) + (d[k] ? '="' + CSS.escape(d[k]) + '"' : "") + "]";
+    var box = el.closest(".fsheet[data-f], #langs, #v2dock, #v2home, footer");
+    if (box) s = (box.id ? "#" + box.id : '.fsheet[data-f="' + box.dataset.f + '"]') + " " + s;
+    var all = document.querySelectorAll(s); return { s: s, i: Math.max(0, Array.prototype.indexOf.call(all, el)) };
+  }
+  /* is the panel on screen the one this history step belongs to? */
+  /* the address the page is showing, so Back and Forward can tell a step within the page from a move to another address */
+  var curPath = location.pathname;
+  ["pushState", "replaceState"].forEach(function (m) { var f = history[m]; history[m] = function () { var r = f.apply(history, arguments); curPath = location.pathname; return r; }; });
+  function same(st) { var f = document.querySelector(".fsheet.open"); return st.mf ? !!f && f.dataset.f === st.mf : !f; }
+  function replay(p) { if (!p) return false; var el; try { el = document.querySelectorAll(p.s)[p.i]; } catch (x) { return false; } if (!el) return false; el.click(); return true; }
   window.__ovBack = function () { ign = true; history.back(); };
   window.__qPush = function (n) { var o = copy(history.state); o.q = n; history.pushState(o, ""); };
   addEventListener("popstate", function (e) {
+    var moved = location.pathname !== curPath; curPath = location.pathname; window.__pathMoved = moved;
     if (ign) { ign = false; e.stopImmediatePropagation(); return; }
     var st = history.state || {}, ov = document.getElementById("overlay");
-    if (ov && !ov.hidden) { e.stopImmediatePropagation(); window.__ovNoPush = true; closeSheet(); setTimeout(function () { window.__ovNoPush = false; }, 0); return; }
-    if (st.ov && st.c != null && typeof openCase === "function" && !document.querySelector(".fsheet.open")) { e.stopImmediatePropagation(); window.__ovNoPush = true; openCase(st.c); setTimeout(function () { window.__ovNoPush = false; }, 0); return; }
+    /* a step inside the same open card (booking or website-order form) */
+    if (ov && !ov.hidden && st.ov && st.tk === tok && window.__shopGo) { e.stopImmediatePropagation(); window.__shopGo(st.shop || 1); return; }
+    if (ov && !ov.hidden) {
+      /* Back out of a card: if it was opened from inside a panel, let the panel's own handler show that panel again */
+      if (same(st) && !moved) e.stopImmediatePropagation();
+      window.__ovNoPush = true; closeSheet(); setTimeout(function () { window.__ovNoPush = false; }, 0); return; }
+    if (st.ov && st.c != null && typeof openCase === "function") { if (same(st) && !moved) e.stopImmediatePropagation();
+      var oc = function () { window.__ovNoPush = true; openCase(st.c); tok = Math.max(tok, st.tk || 0); setTimeout(function () { window.__ovNoPush = false; }, 0); };
+      if (moved) setTimeout(oc, 30); else oc(); return; }   /* a new address: open the card once the page shows that view */
+    /* Forward into a card: open it again from the button that opened it (and, coming back from another page, the panel under it) */
+    if (st.ov && st.re && st.c == null && moved) { setTimeout(function () { window.__ovNoPush = true; if (replay(st.re)) tok = Math.max(tok, st.tk || 0); setTimeout(function () { window.__ovNoPush = false; }, 0); }, 30); return; }
+    if (st.ov && st.re && st.c == null) { var had = same(st); window.__ovNoPush = true; var ok = replay(st.re); setTimeout(function () { window.__ovNoPush = false; }, 0);
+      if (ok) { tok = Math.max(tok, st.tk || 0); if (st.shop) { var o2 = {}; for (var k2 in st) o2[k2] = st[k2]; delete o2.shop; history.replaceState(o2, ""); } if (had) e.stopImmediatePropagation(); return; } }
     var c = document.getElementById("consult"), fs = c && c.closest(".fsheet");
     if (fs && fs.classList.contains("open") && window.__qSet && (st.q || st.mf === fs.dataset.f)) { e.stopImmediatePropagation(); window.__qSet(st.q || 1); return; }
   });
@@ -2454,7 +2484,8 @@ html.mvfull-on .v2dock { display: none !important; }
       if (!h) {
         if (window.__ovNoPush || (history.state && history.state.ov)) return;
         var o = copy(history.state), sh = document.getElementById("sheet");
-        o.ov = 1; o.c = sh && sh.dataset.mode === "case" ? window.__lastCase : null; o.tk = ++tok; history.pushState(o, "");
+        o.ov = 1; o.c = sh && sh.dataset.mode === "case" ? window.__lastCase : null; o.tk = ++tok;
+        o.re = Date.now() - openerAt < 2500 ? pathOf(opener) : null; history.pushState(o, "");
       } else if (!window.__ovNoPush && history.state && history.state.ov && history.state.tk === tok) window.__ovBack();
     }).observe(ov, { attributes: true, attributeFilter: ["hidden"] });
   });
@@ -15170,7 +15201,11 @@ function routeFromPath() {
   if (/^\/industries\/?$/.test(pth)) { setView("industries", false); return true; }
   return false;
 }
-addEventListener("popstate", () => { if (!routeFromPath()) setView("home", false); });
+addEventListener("popstate", () => {
+  /* a step within the same address (a panel, a card) keeps the view and the scroll position */
+  if (window.__pathMoved === false) return;
+  if (!routeFromPath() && view !== "home") setView("home", false);
+});
 /* ---------- analytics (Google Analytics 4, only when CONFIG.ga4Id is set) ---------- */
 function track(name, params) { try { if (window.gtag) gtag("event", name, params || {}); } catch (e) {} }
 (function analytics() {
@@ -15266,7 +15301,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && open) userClose(); });
 
   const hero = document.getElementById("hero3");
-  function partSea() {
+  function partSea(pop) {
     if (!hero) return;
     hero.classList.add("parted"); hero.classList.remove("parting"); hero.removeAttribute("style");
     const mv = document.getElementById("mv"), sec = document.getElementById("mvid"), hh = (document.querySelector(".top") || {}).offsetHeight || 64;
@@ -15277,7 +15312,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
       setTimeout(() => { const x = mv.querySelector(".mv-x"); if (x) x.focus({ preventScroll: true }); }, 50);
     }
     if (window.mvPlayFromStart) window.mvPlayFromStart(true);
-    history.pushState({ parted: true, mvfull: true }, "");
+    if (!pop) history.pushState({ parted: true, mvfull: true }, "");
     try { track("part_the_sea"); } catch (e) {}
   }
   function mvClose(user) {
@@ -15286,7 +15321,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
     if (window.mvPause) window.mvPause();
     if (user && history.state && history.state.mvfull) history.replaceState({ parted: true }, "");
   }
-  addEventListener("popstate", e => { if (!(e.state && e.state.mvfull)) mvClose(false); });
+  addEventListener("popstate", e => { if (!(e.state && e.state.mvfull)) mvClose(false); else if (!document.documentElement.classList.contains("mvfull-on")) partSea(true); });
   /* scrolling down out of the full-window video closes it and stops the sound */
   let ty = null;
   addEventListener("wheel", e => { if (e.deltaY > 12 && document.documentElement.classList.contains("mvfull-on")) mvClose(true); }, { passive: true });
@@ -16017,7 +16052,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function cartHTML() { const c = cartRows(); return `<div class="shop-cart"><h3>${E(t("shop.cart"))}</h3>${c.rows.map(([a, b]) => `<div class="sc-row"><span>${E(a)}</span><b>${E(b)}</b></div>`).join("")}<div class="sc-row sc-tot"><span>${E(t("shop.total"))}</span><b>${E(c.total)}${E(c.per)}</b></div></div>`; }
   function step(n) {
-    st.n = n;
+    const prevN = st.n || 0;
+    st.n = n; st.max = Math.max(st.max || 0, n);
+    /* each step forward is a history step (not the "done" step), so Back and Forward move between steps */
+    const popping = !!window.__shopPop;
+    setTimeout(() => { if (!popping && n > prevN && n > 1 && n < 4 && history.state && history.state.ov) { const o = Object.assign({}, history.state, { shop: n }); history.pushState(o, ""); } }, 0);
     if (P === "consult") {
       if (n === 1) sheet(`<form class="cs2" data-shop="1">${stepTag(1)}<h2 id="sheet-title">${E(t("cs2.s1"))}</h2>
         <label>${E(t("cs2.topic"))}<select id="sp-topic">${t("cs2.topics").map((o, i) => `<option value="${i}"${+st.topic === i ? " selected" : ""}>${E(o)}</option>`).join("")}</select></label>
@@ -16055,11 +16094,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function open(kind) { P = kind; st = {}; step(1); try { track(kind === "consult" ? "consult_open" : "web_order_open"); } catch (x) {} }
   window.consultOpen = () => open("consult"); window.webOrderOpen = () => open("web");
+  /* Back and Forward between steps (never into the "done" step, never placing an order) */
+  window.__shopGo = n => { const sh = document.getElementById("sheet"); if (!P || !st || !sh || sh.dataset.mode !== "shop" || st.n >= 4) return; n = Math.max(1, Math.min(3, n)); if (n === st.n) return;
+    if (n > (st.max || 1)) { const o = Object.assign({}, history.state); delete o.shop; history.replaceState(o, ""); return; }   /* a step this visit has not reached yet */
+    window.__shopPop = true; collect(); step(n); window.__shopPop = false; };
   function err(msg) { const e = document.getElementById("sp-err"); if (e) { e.textContent = msg; e.hidden = false; } }
   document.addEventListener("click", e => {
     if (e.target.closest("[data-consult]")) { e.preventDefault(); e.stopPropagation(); open("consult"); return; }
     if (e.target.closest("[data-weborder]")) { e.preventDefault(); e.stopPropagation(); open("web"); return; }
-    if (e.target.closest("[data-shop-back]")) { e.preventDefault(); collect(); step(Math.max(1, st.n - 1)); }
+    if (e.target.closest("[data-shop-back]")) { e.preventDefault(); if (history.state && history.state.shop > 1) { history.back(); return; } collect(); step(Math.max(1, st.n - 1)); }
   }, true);
   document.addEventListener("change", e => { if (e.target.name === "sp-len") { st.len = e.target.value; const c = document.getElementById("sp-cart"); if (c) c.innerHTML = cartHTML(); } });
   function collect() {
@@ -16424,8 +16467,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         <p class="v2loc">${E(t("loc.t"))}</p></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
         <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button><a class="v2btn ghost" href="/compare/" style="text-decoration:none">${E(t("v2.cmp") || "Compare us")}</a></div>
-        <p class="v2k">${E(t("v2.proof_k"))}</p>
-        <ul class="v2proof">${(t("v2.proof") || []).map(([n, x]) => `<li><b>${E(n)}</b><span>${E(x)}</span></li>`).join("")}</ul></div></section>
+        </div></section>
       <div class="v2mq" aria-hidden="true"><div>${[0, 1].map(() => (t("inds") || []).map(n => `<span>${E(n)}</span>`).join("")).join("")}</div></div>
       <section class="v2s"><div class="v2in"><h2>${E(t("v2.what"))}</h2></div>
         <div class="v2rows">${[[B[0][0], R[0], "v2-dw"], [B[1][0], R[1], "v2-ms"], [t("v2.sol"), R[2], "v2-sol"], [B[2][0], R[3], "v2-ac"]].map(([a, b, id]) => `<button type="button" data-v2-go="${id}"><b>${E(a)}</b><span>${E(b)}</span><i>↓</i></button>`).join("")}</div></section>
@@ -16617,6 +16659,24 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   }
   window.addEventListener("load", function () { setTimeout(run, 450); });
 })();
+</script>
+<script>
+/* Coming back to this page from another one (checkout, an article): open the panel or card you were on, as a back swipe
+   would within the page. A browser that kept the page in memory shows it as it was and needs nothing. Steps that held
+   answers in memory (website builder, booking form, the video) are not reopened. */
+addEventListener("pageshow", function (e) {
+  if (e.persisted) return;
+  var s = history.state; if (!s || typeof s !== "object") return;
+  var o = {}, k, drop = false; for (k in s) o[k] = s[k];
+  ["wbx", "wd", "shop", "mvfull"].forEach(function (x) { if (x in o) { delete o[x]; drop = true; } });
+  if (drop) history.replaceState(o, "");
+  /* panels built on demand (Pricing, About and others) are built first, without a new history step */
+  var PAGES = { pricing: "pricingOpen", about: "aboutOpen", smm: "smmOpen", free: "freeSiteOpen" };
+  if (o.mf || o.ov) setTimeout(function () {
+    if (o.mf && !document.querySelector('.fsheet[data-f="' + o.mf + '"]') && typeof window[PAGES[o.mf]] === "function") window[PAGES[o.mf]]();
+    dispatchEvent(new PopStateEvent("popstate", { state: history.state }));
+  }, 500);
+});
 </script>
 </body>
 </html>

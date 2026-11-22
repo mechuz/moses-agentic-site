@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hire a robot: robotic workforce, coming soon | Moses Agentic</title>
+<meta name="description" content="Humanoid robots trained for your kind of work and leased by the month. Coming soon: reserve your robot now.">
+<link rel="canonical" href="https://mosesagentic.com/robots/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Moses Agentic">
+<meta property="og:title" content="Hire a robot: robotic workforce, coming soon | Moses Agentic">
+<meta property="og:description" content="Humanoid robots trained for your kind of work and leased by the month. Coming soon: reserve your robot now.">
+<meta property="og:url" content="https://mosesagentic.com/robots/">
+<meta property="og:image" content="https://mosesagentic.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="/vendor/site-header.css">
+<link rel="stylesheet" href="/vendor/site-shell.css">
+<link rel="stylesheet" href="/vendor/site-ticker.css">
+<script src="/vendor/site-shell.js" defer></script>
+<script src="/vendor/site-ticker.js" defer></script>
+<style>
+/* The page's own parts. Header, hero, bottom menu, footer, type and colors: /vendor/site-shell.css (the front page's look). */
+.wf-pill { display:inline-block; background:var(--ms-lime); color:var(--ms-ink); font:600 .95rem/1 var(--ms-f); padding:.45rem .9rem; border-radius:999px; margin-bottom:1rem; }
+.wf-sec { padding-block:clamp(2.6rem, 6vw, 4.5rem); }
+.wf-sec h2 { font:600 clamp(1.8rem, 3.6vw, 2.8rem)/1.08 var(--ms-f); letter-spacing:-.035em; margin:0 0 .6rem; color:var(--ms-ink); text-wrap:balance; }
+.wf-sec .lede { font-size:1.12rem; line-height:1.55; color:var(--ms-mut); max-width:62ch; margin:0 0 1.8rem; }
+.wf-three { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); }
+.wf-card { position:relative; border:1px solid var(--ms-line); border-radius:22px; padding:1.5rem 1.5rem 1.4rem; background:#FFFFFF; display:grid; gap:.55rem; align-content:start; transition:border-color .15s, transform .15s, box-shadow .15s; }
+.wf-card:hover { border-color:var(--ms-blue); transform:translateY(-2px); box-shadow:0 18px 40px -26px rgba(11,37,69,.5); }
+.wf-card.on { border-color:var(--ms-ink); box-shadow:inset 0 0 0 1px var(--ms-ink); }
+.wf-card .n { font:italic 400 2.4rem/1 var(--ms-fs); color:var(--ms-blue); }
+.wf-card h3 { font:600 1.35rem/1.2 var(--ms-f); margin:0; color:var(--ms-ink); letter-spacing:-.02em; }
+.wf-card p { margin:0; font-size:1rem; line-height:1.55; color:var(--ms-mut); }
+.wf-card a.go { margin-top:.4rem; font:600 1rem/1.2 var(--ms-f); color:var(--ms-blue); text-decoration:none; }
+.wf-card a.go::after { content:""; position:absolute; inset:0; border-radius:22px; }
+.wf-card .soon { position:absolute; top:1.1rem; right:1.1rem; background:var(--ms-lime); color:var(--ms-ink); font:600 .8rem/1 var(--ms-f); padding:.35rem .6rem; border-radius:999px; }
+.wf-steps { list-style:none; margin:0; padding:0; display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); counter-reset:s; }
+.wf-steps li { border-top:3px solid var(--ms-lime); padding-top:1rem; }
+.wf-steps b { display:block; font:600 1.15rem/1.25 var(--ms-f); color:var(--ms-ink); margin-bottom:.3rem; }
+.wf-steps span { color:var(--ms-mut); font-size:1rem; line-height:1.5; }
+.wf-form { background:var(--ms-soft); border:1px solid var(--ms-line); border-radius:26px; padding:clamp(1.4rem, 4vw, 2.4rem); display:grid; gap:1rem; grid-template-columns:repeat(2, minmax(0, 1fr)); }
+.wf-form .full { grid-column:1 / -1; }
+.wf-form label { display:grid; gap:.35rem; font:600 .95rem/1.2 var(--ms-f); color:var(--ms-ink); }
+.wf-form input, .wf-form select, .wf-form textarea { font:400 1rem/1.4 var(--ms-f); color:var(--ms-ink); background:#FFFFFF; border:1px solid var(--ms-line); border-radius:12px; padding:.75rem .9rem; width:100%; box-sizing:border-box; }
+.wf-form textarea { min-height:7rem; resize:vertical; }
+.wf-form input:focus, .wf-form select:focus, .wf-form textarea:focus { outline:3px solid rgba(31,111,255,.25); border-color:var(--ms-blue); }
+.wf-form .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.wf-form .fine { font-size:.92rem; color:var(--ms-mut); margin:0; line-height:1.5; }
+.wf-form .err { color:#B42318; font-weight:600; min-height:1.2em; margin:0; }
+.wf-form button { justify-self:start; }
+.wf-done { background:var(--ms-soft); border:1px solid var(--ms-line); border-radius:26px; padding:clamp(1.6rem, 4vw, 2.6rem); }
+.wf-done h3 { font:italic 400 clamp(2rem, 4vw, 2.8rem)/1.1 var(--ms-fs); color:var(--ms-blue); margin:0 0 .6rem; }
+.wf-done p { margin:0; font-size:1.1rem; color:var(--ms-ink); }
+@media (max-width:640px) { .wf-form { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="site-ticker" id="site-ticker" aria-label="Technology sector stocks"></div><script>document.documentElement.classList.add("has-ticker")</script>
+<header class="top ms-top"><div class="ms-wrap">
+  <a class="ms-brand" href="/" aria-label="Moses Agentic home"><img src="/logo-full.png" alt="Moses Agentic" width="1088" height="216"></a>
+  <div class="ms-langs" role="group" aria-label="Language"><button type="button" lang="en" aria-pressed="true">EN</button><button type="button" class="globe" data-ms-langs aria-haspopup="true" aria-expanded="false" aria-label="More languages" title="More languages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"></path></svg></button><div class="ms-langmenu" id="ms-langmenu" hidden><a href="#" aria-current="true" onclick="document.getElementById('ms-langmenu').hidden=true;return false">English <span>this page</span></a><a href="/#es" lang="es">Español <span>home</span></a><a href="/#yi" lang="yi" dir="rtl">אידיש <span>home</span></a><a href="/#he" lang="he" dir="rtl">עברית <span>home</span></a></div></div>
+  <a class="ms-team" href="https://airtable.com/appzqMaRLQZQDcAMU" target="_blank" rel="noopener" title="Team prospect tracker" aria-label="Team prospect tracker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Team</span></a>
+</div></header>
+
+<section class="ms-hero"><canvas class="ms-fx" aria-hidden="true"></canvas><div class="ms-in">
+  <p class="ms-k">Robotic workforce</p>
+  <h1 class="ms-h1">Hire a robot. <span class="ms-hl">Coming soon.</span></h1>
+  <p class="ms-one">Humanoid robots, trained by us for your kind of work and leased to you by the month. Reserve yours now and be first in line when the fleet arrives.</p>
+  <div class="ms-btns"><a class="ms-btn" href="#reserve">Reserve my robot</a><a class="ms-btn ghost" href="#workforce">See the three workforces</a></div>
+</div></section>
+
+<main><div class="ms-wrap">
+<section class="wf-sec" id="workforce"><h2>Your workforce, in three parts.</h2><p class="lede">Every business will staff its work three ways: people, digital workers and robots. Moses Agentic brings you all three, under one roof.</p><div class="wf-three"><article class="wf-card"><span class="n">1</span><p class="ms-k" style="margin:0">Human workforce</p><h3>Hire a person</h3><p>Tell us the role. We find, screen and place the right people, and set them up with digital workers.</p><a class="go" href="/people/">Hire a person →</a></article><article class="wf-card"><span class="n">2</span><p class="ms-k" style="margin:0">Digital workforce</p><h3>Hire a digital worker</h3><p>AI workers for operations, marketing, finance, investments and staffing, built and run for you by the month.</p><a class="go" href="/?go=v2-dw">Hire a digital worker →</a></article><article class="wf-card on"><span class="n">3</span><span class="soon">Coming soon</span><p class="ms-k" style="margin:0">Robotic workforce</p><h3>Hire a robot</h3><p>Humanoid robots, trained for your kind of work and leased by the month. Reservations are open.</p><a class="go" href="/robots/">Reserve a robot →</a></article></div></section><section class="wf-sec"><h2>How it will work.</h2><ol class="wf-steps"><li><b>Reserve now</b><span>Tell us the work you have in mind. A reservation is free.</span></li><li><b>We train it for your work</b><span>Each robot is set up and trained for your tasks, your space and your safety rules.</span></li><li><b>Lease it by the month</b><span>We deliver, maintain and support it. You pay a monthly lease, like any other worker.</span></li></ol></section><section class="wf-sec" id="reserve"><h2>Reserve your robot.</h2><p class="lede">Reservations are first come, first served. We will contact you before the fleet is ready, with pricing and lease terms.</p><form class="wf-form" id="wf-form" novalidate data-kind="Robot reservation" data-title="Robot reservation" data-btn="Reserve my robot"><label>Your name<input id="wf-name" data-line="Name" autocomplete="name"></label><label>Company<input id="wf-company" data-line="Company" autocomplete="organization"></label><label>Email<input id="wf-email" data-line="Email" type="email" autocomplete="email"></label><label>Phone<input id="wf-phone" data-line="Phone" type="tel" autocomplete="tel"></label><label>How many robots<select id="wf-count" data-line="Robots wanted"><option>1</option><option>2 to 5</option><option>6 to 10</option><option>11 to 25</option><option>More than 25</option></select></label><label>When would you want them<select id="wf-when" data-line="Wanted by"><option>As soon as they are available</option><option>Within 12 months</option><option>Within 24 months</option><option>Just exploring</option></select></label><label class="full">Where would they work (city and state)<input id="wf-where" data-line="Location" autocomplete="address-level2"></label><label class="full">What work should the robot do<textarea id="wf-work" data-req="what the robot should do" data-line="Work" placeholder="For example: stocking shelves overnight, moving supplies between floors, front-desk greeting"></textarea></label><div class="hp" aria-hidden="true"><input id="wf-hp" tabindex="-1" autocomplete="off"></div><p class="fine full">A reservation is free and does not commit you to anything. Availability, pricing and lease terms are shared with you before anything is signed.</p><p class="err full" id="wf-err" role="alert"></p><button type="submit" class="ms-btn full">Reserve my robot</button></form><div class="wf-done" id="wf-done" hidden><h3>You’re on the list.</h3><p>Thank you. Your robot reservation is in, and our team will be in touch by email.</p></div>
+</div></main>
+
+<footer class="ms-foot">
+  <div class="ms-wrap ms-links"><a href="/case-studies/">Case Studies</a><a href="/blog/">Insights</a><a href="/news/">Technology news</a><a href="/newswire/">Tech Newswire</a><a href="https://www.facebook.com/mosesagentic" target="_blank" rel="noopener">Facebook</a><a href="/?go=about">About</a><a href="/?go=disclosures">Disclosures</a></div>
+  <div class="ms-wrap ms-base">
+    <div class="ms-name">Moses Agentic</div>
+    <p class="ms-locs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><b>Based in New York</b> <span>Servicing enterprises worldwide</span> <span>· <a href="mailto:welcome@mosesagentic.com">welcome@mosesagentic.com</a></span></p>
+    <small>AI services, agents and education for real businesses. <a href="https://chochamai.com/#en">chochamai.com</a> © 2026</small>
+  </div>
+</footer>
+<nav class="v2dock" id="v2dock" aria-label="Sections"><a href="/"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="15" cy="24" r="7"/><circle cx="24" cy="24" r="9"/><circle cx="33" cy="24" r="7"/></svg></span>Home</a><a href="/?go=v2-dw"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="17" cy="18" r="9"/><circle cx="31" cy="20" r="7"/><circle cx="24" cy="31" r="10"/><circle class="g" cx="38" cy="34" r="4"/></svg></span>Digital Workforce</a><a href="/?go=v2-ms"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="22" rx="7"/><rect x="18" y="34" width="12" height="5" rx="2.5"/><circle class="g" cx="38" cy="12" r="5"/></svg></span>Managed Services</a><a href="/?go=v2-sol"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="11" r="6"/><circle cx="11" cy="24" r="6"/><circle cx="37" cy="24" r="6"/><circle class="g" cx="24" cy="37" r="6"/></svg></span>Solutions</a><a href="/?go=v2-ac"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 9 44 19 24 29 4 19z"/><path d="M13 25v8c3 4 19 4 22 0v-8l-11 6z"/><circle class="g" cx="42" cy="30" r="3.5"/></svg></span>Academy</a><a href="/?go=pricing" class="buy"><span class="v2ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 10h17l15 15a4 4 0 0 1 0 6L30 41a4 4 0 0 1-6 0L8 26z"/><circle class="w" cx="17" cy="19" r="4"/></svg></span>Pricing</a></nav>
+
+<script>
+(function () {
+  var ENDPOINT = "https://hooks.zapier.com/hooks/catch/27563206/tHNY93KrYmljtGhD/";
+  var f = document.getElementById("wf-form"); if (!f) return;
+  var $ = function (id) { return document.getElementById(id); }, v = function (id) { var e = $(id); return e ? e.value.trim() : ""; };
+  /* the lead hook drops messages that read like a job seeker's; an employer's request is reworded so it is not */
+  var tidy = function (t) { return t.replace(/\bresume\b/gi, "résumé").replace(/\bcv\b/gi, "C.V.").replace(/\bjob (opening|application|opportunity)/gi, "role $1").replace(/looking for (a )?(job|work|position)/gi, "seeking $1$2").replace(/hire me/gi, "hire").replace(/internship/gi, "intern program").replace(/apply(ing)? for (a|the) (job|position|role)/gi, "fill $2 $3").replace(/recruit(er|ing)/gi, "staffing"); };
+  f.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var err = $("wf-err"), btn = f.querySelector("button[type=submit]");
+    if (!v("wf-name") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("wf-email"))) { err.textContent = "Please add your name and a valid email."; (v("wf-name") ? $("wf-email") : $("wf-name")).focus(); return; }
+    var req = [].slice.call(f.querySelectorAll("[data-req]")).filter(function (e) { return !e.value.trim(); })[0];
+    if (req) { err.textContent = "Please fill in: " + req.getAttribute("data-req") + "."; req.focus(); return; }
+    err.textContent = "";
+    var lines = [f.getAttribute("data-title").toUpperCase()].concat([].slice.call(f.querySelectorAll("[data-line]")).map(function (e) { return e.getAttribute("data-line") + ": " + (e.value.trim() || "-"); }));
+    var data = { kind: f.getAttribute("data-kind"), hp: v("wf-hp"), subject: f.getAttribute("data-title") + ": " + (v("wf-company") || v("wf-name")), name: v("wf-name"), email: v("wf-email"), phone: v("wf-phone"), company: v("wf-company"), message: tidy(lines.join("\n")).slice(0, 2900), language: "en", source: location.hostname };
+    btn.disabled = true; btn.textContent = "Sending…";
+    var done = function () { f.hidden = true; $("wf-done").hidden = false; $("wf-done").scrollIntoView({ behavior: "smooth", block: "center" }); };
+    fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
+      .then(function (r) { if (!r.ok) throw 0; done(); })
+      .catch(function () { btn.disabled = false; btn.textContent = f.getAttribute("data-btn"); err.textContent = "We could not send it. Please try again, or email welcome@mosesagentic.com."; });
+  });
+})();
+</script>
+</body>
+</html>

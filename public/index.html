@@ -2208,6 +2208,12 @@ html.v2 body { padding-bottom: 104px; }
 .v2four .v2ic { width: clamp(64px, 8vw, 96px); height: clamp(64px, 8vw, 96px); transition: transform .25s; }
 .v2four button:hover .v2ic { transform: scale(1.08) rotate(-4deg); }
 .v2loc { font: 600 1rem/1.3 var(--f-body); margin: clamp(2.4rem, 6vw, 4rem) 0 0; color: #0B2545; }
+/* the three ways to hire (Max, November 22, 2026): a person, a digital worker, a robot */
+.v2hire { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin: clamp(1.4rem, 3.4vw, 2.2rem) 0 0; }
+.v2hire .v2btn { text-decoration: none; }
+.v2hire small { font: 600 .72rem/1 var(--f-body); background: #C6F432; color: #0B2545; border-radius: 999px; padding: .28rem .5rem; margin-left: .35rem; }
+.v2top.snug .v2hire { margin-top: 1rem; }
+.v2top.snug .v2loc { margin-top: 1rem !important; }
 .v2s { padding: clamp(3.2rem, 8vw, 6.5rem) 0; border-top: 1px solid #EDF1F7; }
 .v2s h2 { font: 600 clamp(2.2rem, 5vw, 3.6rem)/1.05 var(--f-display); letter-spacing: -.035em; margin: 0; color: #0B2545; }
 .v2s .v2in > .v2ic { width: 56px; height: 56px; margin-bottom: 1rem; }
@@ -5877,8 +5883,14 @@ const T = {
   },
   "nav.managed": "Managed Services",
   "v2.h": "Your [digital workforce], built and run for you.",
-  "v2.tag": "Digital workforce + managed services",
+  "v2.tag": "Business services powered by the latest AI",
   "v2.for": "Digital workers for",
+  "v2.hire": [
+   "Hire a person",
+   "Hire a digital worker",
+   "Hire a robot"
+  ],
+  "v2.soon": "Soon",
   "v2.sent": [
    "I run a business in",
    "and I need help with",
@@ -8670,8 +8682,14 @@ const T = {
   },
   "nav.managed": "מענעדזשד סערוויסעס",
   "v2.h": "אייער [דיגיטאלע ווארקפארס], געבויט און געפירט פאר אייך.",
-  "v2.tag": "דיגיטאלע ווארקפארס + מענעדזשד סערוויסעס",
+  "v2.tag": "ביזנעס סערוויסעס מיט די נייעסטע AI",
   "v2.for": "דיגיטאלע ארבעטער פאר",
+  "v2.hire": [
+   "דינג א מענטש",
+   "דינג א דיגיטאלן ארבעטער",
+   "דינג א ראבאט"
+  ],
+  "v2.soon": "באלד",
   "v2.sent": [
    "איך האב א ביזנעס אין",
    "און איך דארף הילף מיט",
@@ -11463,8 +11481,14 @@ const T = {
   },
   "nav.managed": "שירותים מנוהלים",
   "v2.h": "[כוח העבודה הדיגיטלי] שלכם, נבנה ומופעל בשבילכם.",
-  "v2.tag": "כוח עבודה דיגיטלי + שירותים מנוהלים",
+  "v2.tag": "שירותים עסקיים מבוססי הבינה המלאכותית החדשה ביותר",
   "v2.for": "עובדים דיגיטליים עבור",
+  "v2.hire": [
+   "להעסיק אדם",
+   "להעסיק עובד דיגיטלי",
+   "להעסיק רובוט"
+  ],
+  "v2.soon": "בקרוב",
   "v2.sent": [
    "יש לי עסק בתחום",
    "ואני צריך עזרה עם",
@@ -14256,8 +14280,14 @@ const T = {
   },
   "nav.managed": "Servicios gestionados",
   "v2.h": "Su [fuerza laboral digital], creada y operada para usted.",
-  "v2.tag": "Fuerza laboral digital + servicios gestionados",
+  "v2.tag": "Servicios empresariales impulsados por la IA más reciente",
   "v2.for": "Trabajadores digitales para",
+  "v2.hire": [
+   "Contratar a una persona",
+   "Contratar a un trabajador digital",
+   "Contratar a un robot"
+  ],
+  "v2.soon": "Pronto",
   "v2.sent": [
    "Tengo un negocio de",
    "y necesito ayuda con",
@@ -16447,6 +16477,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         <h1 class="v2name" aria-label="Moses Agentic">${[..."Moses"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")} <b>${[..."\u039Bgentic"].map((c, i) => `<span style="--i:${i + 6}">${c}</span>`).join("")}</b></h1>
         <p class="v2tag">${E(t("v2.tag"))}</p>
         <p class="v2rot"><span>${E(t("v2.for"))}</span> <em id="v2rot">${E(((t("v2.fn") || [[0, ""]])[0])[1])}</em></p>
+        <div class="v2hire">${(() => { const H = t("v2.hire") || []; return `<a class="v2btn ghost" href="/people/">${E(H[0] || "")}</a><button type="button" class="v2btn" data-v2-go="v2-dw">${E(H[1] || "")}</button><a class="v2btn ghost" href="/robots/">${E(H[2] || "")} <small>${E(t("v2.soon") || "")}</small></a>`; })()}</div>
         <p class="v2loc">${E(t("loc.t"))}</p></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
         <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>

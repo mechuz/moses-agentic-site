@@ -438,8 +438,8 @@
  "mo.title": "Your next hire is AI. [From CFO to front desk.]",
  "mo.sub": "Do more with less. A digital workforce for every role in your business.",
  "mo.go": "Book a free consultation",
- "edu.pk": "Chocham AI · Education",
- "edu.pt": "Learn AI with Chocham AI",
+ "edu.pk": "Chocham Academy · Education",
+ "edu.pt": "Learn AI with Chocham Academy",
  "edu.ps": "Our education company: hands-on seminars, team workshops and one-on-one training.",
  "edu.go": "See seminars",
  "why.kicker": "Why Moses",
@@ -658,9 +658,9 @@
    "It goes live with you in charge. We monitor, improve and train your team."
   ]
  ],
- "eduh.kicker": "Chocham AI · Our education company",
+ "eduh.kicker": "Chocham Academy · Our education company",
  "eduh.title": "We teach it, too.",
- "eduh.sub": "Knowing about AI isn't enough. Through Chocham AI, our education company, we show you and your team exactly how to use it in your business.",
+ "eduh.sub": "Knowing about AI isn't enough. Through Chocham Academy, our education company, we show you and your team exactly how to use it in your business.",
  "eduh.list": [
   [
    "Seminars",
@@ -682,7 +682,7 @@
  "eduh.book": "Book training",
  "eduh.dates": "See seminar dates",
  "eduh.msg": "Training for my team",
- "ev.kicker": "Chocham AI · The education company of Moses Agentic",
+ "ev.kicker": "Chocham Academy · The education company of Moses Agentic",
  "mofaq.title": "Questions about our services",
  "mofaq.list": [
   [
@@ -707,7 +707,7 @@
   ],
   [
    "Do you offer training?",
-   "Yes. Our education company, Chocham AI, runs public seminars, on-site workshops for your team, and one-on-one training for owners and leaders. Every agent we build also comes with training."
+   "Yes. Our education company, Chocham Academy, runs public seminars, on-site workshops for your team, and one-on-one training for owners and leaders. Every agent we build also comes with training."
   ]
  ],
  "con.kicker": "Contact",
@@ -724,7 +724,7 @@
  "con.done": "Thank you!",
  "con.doneSub": "We'll be in touch within one business day.",
  "mo.chat": "We build your digital workforce and automation, and we teach AI. Here's what we do:",
- "ev.footer": "Chocham AI is the education company of Moses Agentic.",
+ "ev.footer": "Chocham Academy is the education company of Moses Agentic.",
  "cs.inds": [
   [
    "all",
@@ -971,7 +971,7 @@
   ]
  ],
  "pers.cta": "Talk to us about personal AI",
- "pers.learn": "Prefer to learn it yourself? Seminars at Chocham AI",
+ "pers.learn": "Prefer to learn it yourself? Seminars at Chocham Academy",
  "ch.teamk": "For businesses · Teams",
  "ch.teamt1": "Train your whole team on AI.",
  "ch.teamt2": "On-site or online.",
@@ -990,7 +990,7 @@
  "camp2.a": "STOP",
  "camp2.b": "WORKING!",
  "camp2.s": "Don't get left behind, and don't let AI replace you. AI needs you, and you need AI. Learn to operate it and get more done.",
- "camp2.go": "Learn AI at Chocham AI",
+ "camp2.go": "Learn AI at Chocham Academy",
  "camp.h2": "…for a higher purpose.",
  "camp2.h2": "…the old way. Learn to run AI.",
  "h3.l": "We build it. We deploy it. We teach your people to operate it.",
@@ -1011,7 +1011,7 @@
  "fo.inds": "Industries",
  "fo.indsd": "Where AI fits your business",
  "fo.learn": "Learn AI",
- "fo.learnd": "Seminars at Chocham AI",
+ "fo.learnd": "Seminars at Chocham Academy",
  "fo.con": "Contact",
  "fo.cond": "Book a free consultation",
  "ent.h": "Your people, running AI.",

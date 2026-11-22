@@ -2208,6 +2208,16 @@ html.v2 body { padding-bottom: 104px; }
 .v2four .v2ic { width: clamp(64px, 8vw, 96px); height: clamp(64px, 8vw, 96px); transition: transform .25s; }
 .v2four button:hover .v2ic { transform: scale(1.08) rotate(-4deg); }
 .v2loc { font: 600 1rem/1.3 var(--f-body); margin: clamp(2.4rem, 6vw, 4rem) 0 0; color: #0B2545; }
+/* the three ways to hire (Max, November 22, 2026): a person, a digital worker, a robot */
+/* the digital worker is what we sell today, so it leads; a person and a robot follow as smaller "soon" links */
+.v2hire { display: flex; flex-direction: column; align-items: center; gap: .9rem; margin: clamp(1.4rem, 3.4vw, 2.2rem) 0 0; }
+.v2hire .v2main { font-size: clamp(1.1rem, 1.6vw, 1.3rem); padding: 1.05rem 2rem; box-shadow: 0 16px 36px -18px rgba(31,111,255,.7); }
+.v2hire .v2also { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem 1.4rem; }
+.v2hire .v2also a { font: 600 .98rem/1.2 var(--f-body); color: #0B2545; text-decoration: none; display: inline-flex; align-items: center; gap: .4rem; padding: .3rem 0; border-bottom: 1.5px solid rgba(11,37,69,.18); }
+.v2hire .v2also a:hover { color: #1F6FFF; border-bottom-color: #1F6FFF; }
+.v2hire small { font: 600 .7rem/1 var(--f-body); background: #C6F432; color: #0B2545; border-radius: 999px; padding: .26rem .48rem; }
+.v2top.snug .v2hire { margin-top: 1rem; }
+.v2top.snug .v2loc { margin-top: 1rem !important; }
 .v2s { padding: clamp(3.2rem, 8vw, 6.5rem) 0; border-top: 1px solid #EDF1F7; }
 .v2s h2 { font: 600 clamp(2.2rem, 5vw, 3.6rem)/1.05 var(--f-display); letter-spacing: -.035em; margin: 0; color: #0B2545; }
 .v2s .v2in > .v2ic { width: 56px; height: 56px; margin-bottom: 1rem; }
@@ -2419,71 +2429,6 @@ html.v2 .v2dock { display: flex; position: fixed; inset-inline: 0; bottom: 0; z-
 .v2dock button.buy { position: sticky; inset-inline-end: 0; z-index: 1; box-shadow: -10px 0 18px -10px rgba(11,37,69,.35); }
 html.mvfull-on .v2dock { display: none !important; }
 @media (max-width: 900px) { .v2grid, .v2sol, .v2proof, .v2how { grid-template-columns: minmax(0, 1fr); } .v2four { grid-template-columns: repeat(2, minmax(0, 1fr)); } .v2rows button { grid-template-columns: minmax(0, 1fr) auto; } .v2rows button span { grid-column: 1; grid-row: 2; } .v2rows button i { grid-row: 1 / span 2; grid-column: 2; } .v2grid li, .v2how { text-align: start; } .v2dock button { flex-basis: 96px; min-height: 84px; } html.v2 body { padding-bottom: 92px; } }
-
-/* ===== Website builder ===== */
-html.wbx-on, html.wbx-on body { overflow: hidden !important; }
-.wbx { position: fixed; inset: 0; z-index: 1500; background: #FFFFFF; color: #0B2545; overflow: auto; font-family: "Outfit", "Heebo", system-ui, sans-serif; display: flex; flex-direction: column; }
-.wbx[hidden] { display: none; }
-.wbx-bar { display: flex; align-items: center; justify-content: space-between; padding: 18px clamp(18px, 5vw, 56px); }
-.wbx-bar img { height: 34px; width: auto; }
-.wbx-x { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid #C9D6E8; background: #FFFFFF; color: #0B2545; font: 400 1.7rem/1 system-ui, sans-serif; cursor: pointer; }
-.wbx-x:hover { background: #F2F7FF; border-color: #1F6FFF; }
-.wbx-q { flex: 1; display: grid; align-content: center; gap: 1.2rem; width: min(100%, 860px); margin: 0 auto; padding: 0 clamp(18px, 5vw, 56px) clamp(3rem, 10vh, 7rem); animation: wbxin .45s cubic-bezier(.2,.8,.2,1) both; }
-.wbx-dots { display: flex; gap: 8px; } .wbx-dots i { width: 34px; height: 5px; border-radius: 99px; background: #E3EAF4; } .wbx-dots i.past { background: #1F6FFF; } .wbx-dots i.on { background: #B4E61D; }
-.wbx-hi { font: 500 1.15rem/1.4 "Outfit", sans-serif; color: #1F6FFF; margin: 0; }
-.wbx h2 { font: 300 clamp(2.2rem, 6vw, 4.4rem)/1.05 "Outfit", sans-serif; letter-spacing: -.04em; margin: 0; color: #0B2545; }
-.wbx-sub { font: 400 1.15rem/1.5 "Outfit", sans-serif; color: #44546B; margin: 0; max-width: 40em; }
-.wbx-in { width: 100%; border: 0; border-bottom: 2px solid #C9D6E8; background: transparent; padding: .7rem 0; font: 400 clamp(1.4rem, 3.4vw, 2.2rem) "Outfit", sans-serif; color: #0B2545; border-radius: 0; }
-.wbx-in:focus { outline: 0; border-bottom-color: #1F6FFF; } .wbx-in::placeholder { color: #A9B6C8; }
-.wbx-chips { display: flex; flex-wrap: wrap; gap: .6rem; }
-.wbx-chips button { border: 1.5px solid #C9D6E8; border-radius: 999px; background: #FFFFFF; color: #0B2545; font: 500 1.1rem "Outfit", sans-serif; padding: .8rem 1.25rem; cursor: pointer; transition: transform .15s, background .15s, color .15s, border-color .15s; }
-.wbx-chips button:hover { transform: translateY(-2px); border-color: #1F6FFF; }
-.wbx-chips button[aria-pressed="true"] { background: #1F6FFF; border-color: #1F6FFF; color: #FFFFFF; }
-.wbx-looks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
-.wbx-looks button { display: grid; gap: .7rem; justify-items: start; border: 2px solid #DCE7F5; border-radius: 20px; background: #FFFFFF; padding: .8rem; font: 500 1.05rem "Outfit", sans-serif; color: #0B2545; cursor: pointer; }
-.wbx-looks button span { width: 100%; aspect-ratio: 4 / 3; border-radius: 12px; background: var(--bg); color: var(--ink); display: grid; align-content: center; justify-items: start; gap: .5rem; padding: 0 1rem; border: 1px solid rgba(11,37,69,.08); }
-.wbx-looks button span b { font: 600 1.6rem "Outfit", sans-serif; } .wbx-looks button span i { width: 46%; height: .7rem; border-radius: 99px; background: var(--ac); }
-.wbx-looks button[aria-pressed="true"] { border-color: #1F6FFF; box-shadow: 0 0 0 4px rgba(31,111,255,.15); }
-.wbx-err { color: #C62828; font: 600 1rem "Outfit", sans-serif; margin: 0; min-height: 1.4em; }
-.wbx-foot { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-.wbx-next { display: inline-flex; align-items: center; gap: .5rem; border: 0; border-radius: 999px; background: #1F6FFF; color: #FFFFFF; font: 600 1.1rem "Outfit", sans-serif; padding: 1rem 1.9rem; cursor: pointer; transition: transform .18s, background .18s; }
-.wbx-next:hover { background: #0B2545; transform: translateY(-2px); } .wbx-next:disabled { opacity: .5; cursor: wait; } .wbx-next.big { font-size: 1.25rem; padding: 1.15rem 2.2rem; justify-content: center; }
-.wbx-back { border: 0; background: none; color: #44546B; font: 500 1.05rem "Outfit", sans-serif; cursor: pointer; padding: .6rem .2rem; } .wbx-back:hover { color: #1F6FFF; }
-.wbx-making { flex: 1; display: grid; place-content: center; justify-items: center; gap: 1.4rem; font: 300 clamp(1.6rem, 4vw, 2.6rem) "Outfit", sans-serif; }
-.wbx-making span { width: 64px; height: 64px; border-radius: 50%; border: 5px solid #E3EAF4; border-top-color: #1F6FFF; animation: wbxspin .8s linear infinite; }
-.wbx-result { flex: 1; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(1.4rem, 4vw, 3.5rem); align-items: start; width: min(100%, 1360px); margin: 0 auto; padding: clamp(.6rem, 2vw, 1.4rem) clamp(18px, 5vw, 56px) 3rem; animation: wbxin .5s cubic-bezier(.2,.8,.2,1) both; }
-.wbx-frame { border: 1px solid #DCE7F5; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 70px -40px rgba(11,37,69,.5); background: #FFFFFF; }
-.wbx-chrome { display: flex; align-items: center; gap: 7px; padding: 12px 14px; background: #F2F7FF; border-bottom: 1px solid #DCE7F5; }
-.wbx-chrome i { width: 11px; height: 11px; border-radius: 50%; background: #C9D6E8; } .wbx-chrome span { margin-inline-start: 10px; flex: 1; background: #FFFFFF; border-radius: 99px; padding: 5px 14px; font: 500 16px "Outfit", sans-serif; color: #44546B; direction: ltr; text-align: left; }
-.wbx-screen { max-height: min(68vh, 760px); overflow: auto; }
-.wbx-side { display: grid; gap: 1rem; align-content: start; position: sticky; top: 12px; }
-.wbx-side h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
-.wbx-side h3 { font: 600 1rem "Outfit", sans-serif; color: #1F6FFF; margin: .6rem 0 0; }
-.wbx-plans { display: grid; gap: .5rem; }
-.wbx-plans button { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .1rem 1rem; text-align: start; border: 1.5px solid #DCE7F5; border-radius: 16px; background: #FFFFFF; padding: .85rem 1rem; cursor: pointer; font-family: "Outfit", sans-serif; color: #0B2545; }
-.wbx-plans button b { font-weight: 600; font-size: 1.08rem; } .wbx-plans button strong { font-weight: 500; font-size: 1.15rem; grid-row: span 2; align-self: center; } .wbx-plans button small { font-size: 16px; color: inherit; opacity: .8; } .wbx-plans button span { font-size: 16px; color: #44546B; }
-.wbx-plans button[aria-pressed="true"] { border-color: #1F6FFF; background: #F2F7FF; box-shadow: 0 0 0 3px rgba(31,111,255,.14); }
-.wbx-total strong { font: 300 clamp(2.6rem, 6vw, 4rem)/1 "Outfit", sans-serif; letter-spacing: -.04em; color: #1F6FFF; } .wbx-total span { font: 500 1.1rem "Outfit", sans-serif; color: #44546B; }
-/* the first-look site */
-.wbm { background: var(--bg); color: var(--ink); font-family: "Outfit", system-ui, sans-serif; }
-.wbm-nav { display: flex; align-items: center; gap: 1.1rem; padding: 14px 22px; border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); font-size: 16px; }
-.wbm-nav b { font-weight: 700; font-size: 1.15rem; margin-inline-end: auto; } .wbm-nav span { opacity: .8; }
-.wbm i { font-style: normal; display: inline-block; background: var(--ac); color: #FFFFFF; border-radius: 999px; padding: .5rem 1rem; font-weight: 600; font-size: 16px; }
-.wbm-hero { padding: clamp(2.2rem, 6vw, 4.5rem) 22px; display: grid; gap: 1rem; justify-items: start; background: linear-gradient(135deg, var(--soft), var(--bg)); }
-.wbm-hero h3 { font: 600 clamp(2rem, 5vw, 3.6rem)/1.02 "Outfit", sans-serif; letter-spacing: -.04em; margin: 0; } .wbm-hero p { font-size: clamp(1.1rem, 2vw, 1.4rem); margin: 0; opacity: .85; }
-.wbm-sec { padding: 1.8rem 22px; display: grid; gap: 1rem; justify-items: start; } .wbm-sec.soft { background: var(--soft); }
-.wbm-sec h4 { font: 600 1.5rem "Outfit", sans-serif; letter-spacing: -.02em; margin: 0; } .wbm-sec p { margin: 0; opacity: .85; font-size: 1.05rem; }
-.wbm-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; width: 100%; } .wbm-cards.shop { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.wbm-cards > div { display: grid; gap: .5rem; align-content: start; justify-items: start; padding: .9rem; border-radius: 14px; background: var(--soft); }
-.wbm-cards span { width: 100%; aspect-ratio: 4 / 3; border-radius: 10px; background: linear-gradient(135deg, color-mix(in srgb, var(--ac) 55%, var(--bg)), color-mix(in srgb, var(--ac) 18%, var(--bg))); }
-.wbm-cards b { font-weight: 600; font-size: 1.05rem; } .wbm-cards em { font-style: normal; opacity: .75; font-size: 16px; }
-.wbm-days { display: flex; gap: .5rem; } .wbm-days span { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--bg); font-weight: 600; } .wbm-days span.on { background: var(--ac); color: #FFFFFF; }
-.wbm-form { display: grid; gap: .6rem; width: min(100%, 460px); } .wbm-form span { border: 1.5px solid color-mix(in srgb, var(--ink) 22%, transparent); border-radius: 10px; padding: .7rem .9rem; opacity: .7; font-size: 16px; } .wbm-form span.t { min-height: 5rem; } .wbm-form i { justify-self: start; }
-.wbm-foot { padding: 1.2rem 22px; border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); opacity: .7; font-size: 16px; }
-@keyframes wbxin { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-@keyframes wbxspin { to { transform: rotate(360deg); } }
-@media (max-width: 900px) { .wbx-result { grid-template-columns: minmax(0, 1fr); } .wbx-side { position: static; } .wbx-looks { grid-template-columns: repeat(2, minmax(0, 1fr)); } .wbm-cards, .wbm-cards.shop { grid-template-columns: repeat(2, minmax(0, 1fr)); } .wbm-nav span { display: none; } .wbx-screen { max-height: 60vh; } }
-@media (prefers-reduced-motion: reduce) { .wbx-q, .wbx-result { animation: none; } }
 .mark.sage { background: #FFFFFF url(/sage.png) center / 78% no-repeat !important; border-radius: 9px; font-size: 0; }
 </style>
 <script>
@@ -5877,8 +5822,14 @@ const T = {
   },
   "nav.managed": "Managed Services",
   "v2.h": "Your [digital workforce], built and run for you.",
-  "v2.tag": "Digital workforce + managed services",
+  "v2.tag": "Business services powered by the latest AI",
   "v2.for": "Digital workers for",
+  "v2.hire": [
+   "Hire a person",
+   "Hire a digital worker",
+   "Hire a robot"
+  ],
+  "v2.soon": "Soon",
   "v2.sent": [
    "I run a business in",
    "and I need help with",
@@ -5923,6 +5874,7 @@ const T = {
   ],
   "v2.lead": "Digital workers for every role, plus your website and social media, managed for you on a monthly plan.",
   "v2.cta": "See pricing",
+  "v2.cmp": "Compare us",
   "v2.vid": "Watch the 30-second video",
   "v2.proof_k": "From our case studies",
   "v2.what": "What we do",
@@ -8670,8 +8622,14 @@ const T = {
   },
   "nav.managed": "מענעדזשד סערוויסעס",
   "v2.h": "אייער [דיגיטאלע ווארקפארס], געבויט און געפירט פאר אייך.",
-  "v2.tag": "דיגיטאלע ווארקפארס + מענעדזשד סערוויסעס",
+  "v2.tag": "ביזנעס סערוויסעס מיט די נייעסטע AI",
   "v2.for": "דיגיטאלע ארבעטער פאר",
+  "v2.hire": [
+   "דינג א מענטש",
+   "דינג א דיגיטאלן ארבעטער",
+   "דינג א ראבאט"
+  ],
+  "v2.soon": "באלד",
   "v2.sent": [
    "איך האב א ביזנעס אין",
    "און איך דארף הילף מיט",
@@ -8716,6 +8674,7 @@ const T = {
   ],
   "v2.lead": "דיגיטאלע ארבעטער פאר יעדע פאזיציע, און אויך אייער וועבסייט און סאשעל מידיא, געפירט פאר אייך אויף א חודש'ליכן פלאן.",
   "v2.cta": "זעט די פרייזן",
+  "v2.cmp": "פארגלייכט אונז",
   "v2.vid": "זעט דעם 30-סעקונדע ווידעא",
   "v2.proof_k": "פון אונזערע קעיס סטאדיס",
   "v2.what": "וואס מיר טוען",
@@ -11463,8 +11422,14 @@ const T = {
   },
   "nav.managed": "שירותים מנוהלים",
   "v2.h": "[כוח העבודה הדיגיטלי] שלכם, נבנה ומופעל בשבילכם.",
-  "v2.tag": "כוח עבודה דיגיטלי + שירותים מנוהלים",
+  "v2.tag": "שירותים עסקיים מבוססי הבינה המלאכותית החדשה ביותר",
   "v2.for": "עובדים דיגיטליים עבור",
+  "v2.hire": [
+   "להעסיק אדם",
+   "להעסיק עובד דיגיטלי",
+   "להעסיק רובוט"
+  ],
+  "v2.soon": "בקרוב",
   "v2.sent": [
    "יש לי עסק בתחום",
    "ואני צריך עזרה עם",
@@ -11509,6 +11474,7 @@ const T = {
   ],
   "v2.lead": "עובדים דיגיטליים לכל תפקיד, יחד עם האתר והרשתות החברתיות שלכם, מנוהלים בשבילכם בתוכנית חודשית.",
   "v2.cta": "למחירים",
+  "v2.cmp": "השוו אותנו",
   "v2.vid": "צפו בסרטון של 30 שניות",
   "v2.proof_k": "ממקרי הבוחן שלנו",
   "v2.what": "מה אנחנו עושים",
@@ -14256,8 +14222,14 @@ const T = {
   },
   "nav.managed": "Servicios gestionados",
   "v2.h": "Su [fuerza laboral digital], creada y operada para usted.",
-  "v2.tag": "Fuerza laboral digital + servicios gestionados",
+  "v2.tag": "Servicios empresariales impulsados por la IA más reciente",
   "v2.for": "Trabajadores digitales para",
+  "v2.hire": [
+   "Contratar a una persona",
+   "Contratar a un trabajador digital",
+   "Contratar a un robot"
+  ],
+  "v2.soon": "Pronto",
   "v2.sent": [
    "Tengo un negocio de",
    "y necesito ayuda con",
@@ -14302,6 +14274,7 @@ const T = {
   ],
   "v2.lead": "Trabajadores digitales para cada puesto, además de su sitio web y sus redes sociales, gestionados para usted con un plan mensual.",
   "v2.cta": "Ver precios",
+  "v2.cmp": "Compáranos",
   "v2.vid": "Ver el video de 30 segundos",
   "v2.proof_k": "De nuestros casos de estudio",
   "v2.what": "Lo que hacemos",
@@ -15464,7 +15437,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
   }
   async function submit() {
     const q = Q(), en = EN();
-    if ($("#q-hp").value) { origDraw(true); return; }                      // trap field filled: a bot, pretend it worked
+    if ($("#q-hp").value || performance.now() < 6000) { origDraw(true); return; }   // trap field filled, or sent within 6 seconds of the page opening: a bot, pretend it worked
     st.name = st.name.trim(); st.email = st.email.trim(); st.phone = st.phone.trim();
     if (!st.name || (!st.phone && !st.email)) return fail("err_contact");
     if (st.email && !/^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/.test(st.email)) return fail("err_email");
@@ -16447,16 +16420,17 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         <h1 class="v2name" aria-label="Moses Agentic">${[..."Moses"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")} <b>${[..."\u039Bgentic"].map((c, i) => `<span style="--i:${i + 6}">${c}</span>`).join("")}</b></h1>
         <p class="v2tag">${E(t("v2.tag"))}</p>
         <p class="v2rot"><span>${E(t("v2.for"))}</span> <em id="v2rot">${E(((t("v2.fn") || [[0, ""]])[0])[1])}</em></p>
+        <div class="v2hire">${(() => { const H = t("v2.hire") || []; return `<button type="button" class="v2btn v2main" data-v2-go="v2-dw">${E(H[1] || "")} <span class="arrow">→</span></button><div class="v2also"><a href="/people/">${E(H[0] || "")} <small>${E(t("v2.soon") || "")}</small></a><a href="/robots/">${E(H[2] || "")} <small>${E(t("v2.soon") || "")}</small></a></div>`; })()}</div>
         <p class="v2loc">${E(t("loc.t"))}</p></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
-        <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>
+        <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button><a class="v2btn ghost" href="/compare/" style="text-decoration:none">${E(t("v2.cmp") || "Compare us")}</a></div>
         <p class="v2k">${E(t("v2.proof_k"))}</p>
         <ul class="v2proof">${(t("v2.proof") || []).map(([n, x]) => `<li><b>${E(n)}</b><span>${E(x)}</span></li>`).join("")}</ul></div></section>
       <div class="v2mq" aria-hidden="true"><div>${[0, 1].map(() => (t("inds") || []).map(n => `<span>${E(n)}</span>`).join("")).join("")}</div></div>
       <section class="v2s"><div class="v2in"><h2>${E(t("v2.what"))}</h2></div>
         <div class="v2rows">${[[B[0][0], R[0], "v2-dw"], [B[1][0], R[1], "v2-ms"], [t("v2.sol"), R[2], "v2-sol"], [B[2][0], R[3], "v2-ac"]].map(([a, b, id]) => `<button type="button" data-v2-go="${id}"><b>${E(a)}</b><span>${E(b)}</span><i>↓</i></button>`).join("")}</div></section>
       ${sec("v2-dw", "dw", 0, "", btn(B[0][4][0], 'data-folder="store"'))}
-      ${sec("v2-ms", "ms", 1, "", `<button type="button" class="v2btn" data-wbx>✦ Build my website <span class="arrow">→</span></button>` + btn(B[1][4][0], "data-freesite", true) + btn(B[1][4][1], "data-smm", true))}
+      ${sec("v2-ms", "ms", 1, "", btn(B[1][4][0], "data-freesite") + btn(B[1][4][1], "data-smm"))}
       <section class="v2s" id="v2-sol"><div class="v2in"><span class="v2ic">${IC.sol}</span><h2>${E(t("v2.sol"))}</h2><p class="v2one">${E(R[2] || "")}</p></div>
         <form class="v2say2" id="v2-pick" novalidate><p><span>${E((t("v2.sent") || [])[0])}</span>
           <label><select id="v2-ind" aria-label="${E(t("v2.byind"))}">${(t("inds") || []).map((n, i) => `<option value="${i}">${E(n)}</option>`).join("")}${(t("v2.more") || []).map(n => `<option value="x">${E(n)}</option>`).join("")}<option value="x">${E(t("v2.other"))}</option></select></label>
@@ -16622,110 +16596,6 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
   document.querySelectorAll("a.nav-acad").forEach(a => { a.href = (CONFIG.chochamUrl || "https://chochamai.com/"); });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => window.v2Render()); else window.v2Render();
   addEventListener("load", () => window.v2Render());
-})();
-</script>
-<script>
-(function () {
-  if (CONFIG.site !== "moses") return;
-  const E = x => String(x == null ? "" : x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  const okMail = v => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
-  const S = {
-    hi: "Hi, I'm the Moses Agentic website builder.", q1: "What's your business called?", q1p: "Business name",
-    q2: "What kind of business is it?", other: "Something else",
-    q3: "What should your website do?", q3s: "Pick everything that applies.",
-    feats: [["services", "Show our services"], ["booking", "Take bookings"], ["shop", "Sell online"], ["leads", "Collect leads"]],
-    q4: "Pick a look.", looks: [["bright", "Bright"], ["bold", "Bold"], ["warm", "Warm"], ["fresh", "Fresh"]],
-    q5: "Where should we send your preview?", q5s: "Leave your name and email to see your website.", name: "Your name", email: "Email", see: "Show my website",
-    next: "Next", back: "Back", close: "Close", err1: "Please type your business name.", err3: "Pick at least one.", err5: "Please enter your name and a valid email.",
-    making: "Building your first look…", ready: "Here's a first look,", note: "This is a first look made from your answers. After you subscribe, we design 5 options for your business within 24 hours, then make up to 5 rounds of edits.",
-    plan: "Choose your plan", plans: [["24", "24 months", 149, "Build included"], ["12", "12 months", 199, "Build included"], ["m2m", "Month to month", 199, "+ $1,999 one-time build"]],
-    mo: "a month", out: "Check out", again: "Change my answers", sample: "Sample wording and pictures",
-    tag: ["Homes and properties, managed with care.", "Care you can count on.", "Clear advice. Strong representation.", "Your numbers, in good hands.", "Shop our latest, in store and online.", "Fresh food, made for you.", "Built right, on time.", "Doing good, together.", "Reliable supply, every order.", "Expert help when you need it."],
-    tag0: "Welcome. We're glad you're here.",
-    m: { home: "Home", services: "Services", book: "Book", shop: "Shop", contact: "Contact", cta: "Get in touch", bookNow: "Book now", s: "What we do", s1: "Service one", s2: "Service two", s3: "Service three", sp: "A short line about this service.", shopH: "Shop", item: "Product", add: "Add to cart", bookH: "Book a time", bookP: "Pick a day and time that works for you.", leadH: "Get in touch", send: "Send", nm: "Name", em: "Email", msg: "Message" }
-  };
-  const LOOK = { bright: ["#FFFFFF", "#0B2545", "#1F6FFF", "#EEF4FF"], bold: ["#0E1116", "#FFFFFF", "#FF5A36", "#1B2029"], warm: ["#FBF6EE", "#2B2118", "#C8632B", "#F1E6D6"], fresh: ["#F4FBF4", "#10301B", "#1E9E57", "#E2F3E4"] };
-  let st = null, box = null;
-  const inds = () => (typeof t === "function" && t("inds")) || [];
-  function mock() {
-    const [bg, ink, ac, soft] = LOOK[st.look] || LOOK.bright, m = S.m, f = st.feats, tag = st.ind >= 0 ? S.tag[st.ind] : S.tag0;
-    const nav = [m.home].concat(f.includes("services") ? [m.services] : [], f.includes("booking") ? [m.book] : [], f.includes("shop") ? [m.shop] : [], [m.contact]);
-    return `<div class="wbm" style="--bg:${bg};--ink:${ink};--ac:${ac};--soft:${soft}">
-      <div class="wbm-nav"><b>${E(st.biz)}</b><span>${nav.map(E).join("</span><span>")}</span><i>${E(f.includes("booking") ? m.bookNow : m.cta)}</i></div>
-      <div class="wbm-hero"><h3>${E(st.biz)}</h3><p>${E(tag)}</p><i>${E(f.includes("booking") ? m.bookNow : m.cta)}</i></div>
-      ${f.includes("services") ? `<div class="wbm-sec"><h4>${E(m.s)}</h4><div class="wbm-cards">${[m.s1, m.s2, m.s3].map(x => `<div><span></span><b>${E(x)}</b><em>${E(m.sp)}</em></div>`).join("")}</div></div>` : ""}
-      ${f.includes("shop") ? `<div class="wbm-sec"><h4>${E(m.shopH)}</h4><div class="wbm-cards shop">${[1, 2, 3, 4].map(n => `<div><span></span><b>${E(m.item)} ${n}</b><i>${E(m.add)}</i></div>`).join("")}</div></div>` : ""}
-      ${f.includes("booking") ? `<div class="wbm-sec soft"><h4>${E(m.bookH)}</h4><p>${E(m.bookP)}</p><div class="wbm-days">${["M", "T", "W", "T", "F"].map((d, i) => `<span${i === 2 ? ' class="on"' : ""}>${d}</span>`).join("")}</div><i>${E(m.bookNow)}</i></div>` : ""}
-      ${f.includes("leads") ? `<div class="wbm-sec"><h4>${E(m.leadH)}</h4><div class="wbm-form"><span>${E(m.nm)}</span><span>${E(m.em)}</span><span class="t">${E(m.msg)}</span><i>${E(m.send)}</i></div></div>` : ""}
-      <div class="wbm-foot">${E(st.biz)} · ${E(S.sample)}</div></div>`;
-  }
-  const usd = n => "$" + n.toLocaleString("en-US");
-  function price() { const p = S.plans.find(x => x[0] === st.plan) || S.plans[0]; return p; }
-  function view() {
-    const n = st.n, dots = `<div class="wbx-dots">${[1, 2, 3, 4, 5].map(i => `<i class="${i < n ? "past" : i === n ? "on" : ""}"></i>`).join("")}</div>`;
-    const bar = `<div class="wbx-bar"><img src="/logo-full.png" alt="Moses Agentic"><button type="button" class="wbx-x" data-wbx-close aria-label="${E(S.close)}">×</button></div>`;
-    const foot = (label) => `<p class="wbx-err" id="wbx-err" role="alert"></p><div class="wbx-foot">${n > 1 ? `<button type="button" class="wbx-back" data-wbx-back>← ${E(S.back)}</button>` : ""}<button type="submit" class="wbx-next">${E(label || S.next)} <span>→</span></button></div>`;
-    let body = "";
-    if (n === 1) body = `<p class="wbx-hi">${E(S.hi)}</p><h2>${E(S.q1)}</h2><input class="wbx-in" id="wbx-biz" autocomplete="organization" placeholder="${E(S.q1p)}" value="${E(st.biz || "")}">${foot()}`;
-    if (n === 2) body = `<h2>${E(S.q2)}</h2><div class="wbx-chips one">${inds().map((x, i) => `<button type="button" data-wbx-ind="${i}" aria-pressed="${st.ind === i}">${E(x)}</button>`).join("")}<button type="button" data-wbx-ind="-1" aria-pressed="${st.ind === -1}">${E(S.other)}</button></div>${foot()}`;
-    if (n === 3) body = `<h2>${E(S.q3)}</h2><p class="wbx-sub">${E(S.q3s)}</p><div class="wbx-chips">${S.feats.map(([k, l]) => `<button type="button" data-wbx-feat="${k}" aria-pressed="${st.feats.includes(k)}">${E(l)}</button>`).join("")}</div>${foot()}`;
-    if (n === 4) body = `<h2>${E(S.q4)}</h2><div class="wbx-looks">${S.looks.map(([k, l]) => `<button type="button" data-wbx-look="${k}" aria-pressed="${st.look === k}" style="--bg:${LOOK[k][0]};--ink:${LOOK[k][1]};--ac:${LOOK[k][2]}"><span><b>Aa</b><i></i></span>${E(l)}</button>`).join("")}</div>${foot()}`;
-    if (n === 5) body = `<h2>${E(S.q5)}</h2><p class="wbx-sub">${E(S.q5s)}</p><input class="wbx-in" id="wbx-name" autocomplete="name" placeholder="${E(S.name)}" value="${E(st.name || "")}"><input class="wbx-in" id="wbx-email" type="email" autocomplete="email" placeholder="${E(S.email)}" value="${E(st.email || "")}"><input id="wbx-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">${foot(S.see)}`;
-    if (n === 6) {
-      const p = price();
-      box.innerHTML = `${bar}<div class="wbx-result"><div class="wbx-frame"><div class="wbx-chrome"><i></i><i></i><i></i><span>${E(st.biz.toLowerCase().replace(/[^a-z0-9]+/g, "") || "yourbusiness")}.com</span></div><div class="wbx-screen">${mock()}</div></div>
-        <div class="wbx-side"><p class="wbx-hi">${E(S.ready)}</p><h2>${E(st.biz)}</h2><p class="wbx-sub">${E(S.note)}</p>
-          <h3>${E(S.plan)}</h3><div class="wbx-plans">${S.plans.map(([k, l, a, x]) => `<button type="button" data-wbx-plan="${k}" aria-pressed="${st.plan === k}"><b>${E(l)}</b><strong>${usd(a)} <small>${E(S.mo)}</small></strong><span>${E(x)}</span></button>`).join("")}</div>
-          <div class="wbx-total"><strong>${usd(p[2])}</strong> <span>${E(S.mo)}${p[0] === "m2m" ? " + $1,999" : ""}</span></div>
-          <button type="button" class="wbx-next big" data-wbx-out>${E(S.out)} <span>→</span></button>
-          <button type="button" class="wbx-back" data-wbx-again>← ${E(S.again)}</button></div></div>`;
-      return;
-    }
-    box.innerHTML = `${bar}<form class="wbx-q" id="wbx-form" novalidate>${dots}${body}</form>`;
-    const f = box.querySelector(".wbx-in"); if (f) setTimeout(() => f.focus(), 60);
-  }
-  function open() {
-    st = st || { n: 1, biz: "", ind: null, feats: [], look: "bright", plan: "24" };
-    if (!box) { box = document.createElement("div"); box.className = "wbx"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.setAttribute("aria-label", "Website builder"); document.body.appendChild(box); }
-    box.hidden = false; document.documentElement.classList.add("wbx-on"); view();
-    try { track("website_builder_open"); } catch (x) {}
-  }
-  function close() { if (box) box.hidden = true; document.documentElement.classList.remove("wbx-on"); }
-  window.wbxOpen = open;
-  const err = m => { const e = document.getElementById("wbx-err"); if (e) e.textContent = m || ""; };
-  async function next() {
-    const v = id => { const el = document.getElementById(id); return el ? el.value.trim() : ""; };
-    if (st.n === 1) { st.biz = v("wbx-biz").slice(0, 60); if (!st.biz) return err(S.err1); }
-    if (st.n === 2 && st.ind == null) st.ind = -1;
-    if (st.n === 3 && !st.feats.length) return err(S.err3);
-    if (st.n === 5) {
-      st.name = v("wbx-name").slice(0, 80); st.email = v("wbx-email").slice(0, 120);
-      if (!st.name || !okMail(st.email)) return err(S.err5);
-      const ind = st.ind >= 0 ? (T.en.inds || [])[st.ind] : "Other", feats = S.feats.filter(x => st.feats.includes(x[0])).map(x => x[1]).join(", ");
-      const lines = ["Website builder: first look requested", "Business: " + st.biz, "Industry: " + ind, "Site should: " + feats, "Look: " + st.look, "Name: " + st.name, "Email: " + st.email, "Site language: " + (typeof lang === "string" ? lang : "en")];
-      const data = { kind: "website-builder", hp: v("wbx-hp"), subject: "Moses Agentic website builder: " + st.name + " (" + st.biz + ")", name: st.name, email: st.email, company: st.biz, message: lines.join("\n"), language: typeof lang === "string" ? lang : "en", source: location.hostname || CONFIG.site };
-      box.querySelector(".wbx-next").disabled = true; err("");
-      try { if (CONFIG.contactEndpoint && !data.hp) await fetch(CONFIG.contactEndpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }); } catch (x) {}
-      try { track("generate_lead", { form: "website_builder" }); } catch (x) {}
-      box.innerHTML = `<div class="wbx-making"><span></span><p>${E(S.making)}</p></div>`; st.n = 6; setTimeout(view, 1400); return;
-    }
-    st.n++; view();
-  }
-  document.addEventListener("click", e => {
-    if (e.target.closest("[data-wbx]")) { e.preventDefault(); e.stopPropagation(); open(); return; }
-    if (!box || box.hidden || !box.contains(e.target)) return;
-    const b = e.target.closest("button"); if (!b) return;
-    if (b.dataset.wbxClose != null) return close();
-    if (b.dataset.wbxBack != null) { st.n = Math.max(1, st.n - 1); return view(); }
-    if (b.dataset.wbxAgain != null) { st.n = 1; return view(); }
-    if (b.dataset.wbxInd != null) { st.ind = +b.dataset.wbxInd; box.querySelectorAll("[data-wbx-ind]").forEach(x => x.setAttribute("aria-pressed", String(x === b))); err(""); setTimeout(() => { if (st.n === 2) next(); }, 260); return; }
-    if (b.dataset.wbxFeat) { const k = b.dataset.wbxFeat, i = st.feats.indexOf(k); if (i > -1) st.feats.splice(i, 1); else st.feats.push(k); b.setAttribute("aria-pressed", String(i === -1)); err(""); return; }
-    if (b.dataset.wbxLook) { st.look = b.dataset.wbxLook; box.querySelectorAll("[data-wbx-look]").forEach(x => x.setAttribute("aria-pressed", String(x === b))); return; }
-    if (b.dataset.wbxPlan) { st.plan = b.dataset.wbxPlan; return view(); }
-    if (b.dataset.wbxOut != null) { try { sessionStorage.setItem("wbx", JSON.stringify({ biz: st.biz, nm: st.name, em: st.email })); } catch (x) {} location.href = "/subscribe/?p=website-" + st.plan; }
-  }, true);
-  document.addEventListener("submit", e => { if (e.target.id === "wbx-form") { e.preventDefault(); next(); } });
-  document.addEventListener("keydown", e => { if (e.key === "Escape" && box && !box.hidden) close(); });
 })();
 </script>
 <script>

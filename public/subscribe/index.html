@@ -450,7 +450,6 @@ html:not(.v2) .co-fx { display: none; }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(land);
   }
   plan();
-  try { var wb = JSON.parse(sessionStorage.getItem("wbx") || "null"); if (wb) { ["biz", "nm", "em"].forEach(function (k) { var el = $("#" + k); if (el && !el.value && wb[k]) el.value = String(wb[k]).slice(0, 120); }); } } catch (x) {}
 
 
   if (SIGN) { $("#agr").hidden = false; $("#go").textContent = "Subscribe and check out →"; if (AGREEMENT === "final") { var dr = $(".draft"); if (dr) dr.remove(); } }

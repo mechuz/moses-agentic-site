@@ -15494,7 +15494,7 @@ window.openFor = el => el.scrollIntoView({ block: "start" });
   }
   async function submit() {
     const q = Q(), en = EN();
-    if ($("#q-hp").value) { origDraw(true); return; }                      // trap field filled: a bot, pretend it worked
+    if ($("#q-hp").value || performance.now() < 6000) { origDraw(true); return; }   // trap field filled, or sent within 6 seconds of the page opening: a bot, pretend it worked
     st.name = st.name.trim(); st.email = st.email.trim(); st.phone = st.phone.trim();
     if (!st.name || (!st.phone && !st.email)) return fail("err_contact");
     if (st.email && !/^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/.test(st.email)) return fail("err_email");
@@ -16477,7 +16477,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         <h1 class="v2name" aria-label="Moses Agentic">${[..."Moses"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")} <b>${[..."\u039Bgentic"].map((c, i) => `<span style="--i:${i + 6}">${c}</span>`).join("")}</b></h1>
         <p class="v2tag">${E(t("v2.tag"))}</p>
         <p class="v2rot"><span>${E(t("v2.for"))}</span> <em id="v2rot">${E(((t("v2.fn") || [[0, ""]])[0])[1])}</em></p>
-        <div class="v2hire">${(() => { const H = t("v2.hire") || []; return `<a class="v2btn ghost" href="/people/">${E(H[0] || "")}</a><button type="button" class="v2btn" data-v2-go="v2-dw">${E(H[1] || "")}</button><a class="v2btn ghost" href="/robots/">${E(H[2] || "")} <small>${E(t("v2.soon") || "")}</small></a>`; })()}</div>
+        <div class="v2hire">${(() => { const H = t("v2.hire") || []; return `<a class="v2btn ghost" href="/people/">${E(H[0] || "")} <small>${E(t("v2.soon") || "")}</small></a><button type="button" class="v2btn" data-v2-go="v2-dw">${E(H[1] || "")}</button><a class="v2btn ghost" href="/robots/">${E(H[2] || "")} <small>${E(t("v2.soon") || "")}</small></a>`; })()}</div>
         <p class="v2loc">${E(t("loc.t"))}</p></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
         <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>

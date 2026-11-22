@@ -5939,6 +5939,7 @@ const T = {
   ],
   "v2.lead": "Digital workers for every role, plus your website and social media, managed for you on a monthly plan.",
   "v2.cta": "See pricing",
+  "v2.cmp": "Compare us",
   "v2.vid": "Watch the 30-second video",
   "v2.proof_k": "From our case studies",
   "v2.what": "What we do",
@@ -8738,6 +8739,7 @@ const T = {
   ],
   "v2.lead": "דיגיטאלע ארבעטער פאר יעדע פאזיציע, און אויך אייער וועבסייט און סאשעל מידיא, געפירט פאר אייך אויף א חודש'ליכן פלאן.",
   "v2.cta": "זעט די פרייזן",
+  "v2.cmp": "פארגלייכט אונז",
   "v2.vid": "זעט דעם 30-סעקונדע ווידעא",
   "v2.proof_k": "פון אונזערע קעיס סטאדיס",
   "v2.what": "וואס מיר טוען",
@@ -11537,6 +11539,7 @@ const T = {
   ],
   "v2.lead": "עובדים דיגיטליים לכל תפקיד, יחד עם האתר והרשתות החברתיות שלכם, מנוהלים בשבילכם בתוכנית חודשית.",
   "v2.cta": "למחירים",
+  "v2.cmp": "השוו אותנו",
   "v2.vid": "צפו בסרטון של 30 שניות",
   "v2.proof_k": "ממקרי הבוחן שלנו",
   "v2.what": "מה אנחנו עושים",
@@ -14336,6 +14339,7 @@ const T = {
   ],
   "v2.lead": "Trabajadores digitales para cada puesto, además de su sitio web y sus redes sociales, gestionados para usted con un plan mensual.",
   "v2.cta": "Ver precios",
+  "v2.cmp": "Compáranos",
   "v2.vid": "Ver el video de 30 segundos",
   "v2.proof_k": "De nuestros casos de estudio",
   "v2.what": "Lo que hacemos",
@@ -16484,7 +16488,7 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
         <div class="v2hire">${(() => { const H = t("v2.hire") || []; return `<button type="button" class="v2btn v2main" data-v2-go="v2-dw">${E(H[1] || "")} <span class="arrow">→</span></button><div class="v2also"><a href="/people/">${E(H[0] || "")} <small>${E(t("v2.soon") || "")}</small></a><a href="/robots/">${E(H[2] || "")} <small>${E(t("v2.soon") || "")}</small></a></div>`; })()}</div>
         <p class="v2loc">${E(t("loc.t"))}</p></div></section>
       <section class="v2s v2say"><div class="v2in"><p class="v2big">${hl(t("v2.h"))} ${E(t("v2.lead"))}</p>
-        <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button></div>
+        <div class="v2cta">${btn(t("v2.cta"), "data-pricing")}<button type="button" class="v2btn ghost" data-v2-video>▶ ${E(t("v2.vid"))}</button><a class="v2btn ghost" href="/compare/" style="text-decoration:none">${E(t("v2.cmp") || "Compare us")}</a></div>
         <p class="v2k">${E(t("v2.proof_k"))}</p>
         <ul class="v2proof">${(t("v2.proof") || []).map(([n, x]) => `<li><b>${E(n)}</b><span>${E(x)}</span></li>`).join("")}</ul></div></section>
       <div class="v2mq" aria-hidden="true"><div>${[0, 1].map(() => (t("inds") || []).map(n => `<span>${E(n)}</span>`).join("")).join("")}</div></div>

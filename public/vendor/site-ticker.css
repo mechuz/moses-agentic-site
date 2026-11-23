@@ -52,7 +52,23 @@ html.v2zoom .site-news, html.sn-zoom .site-news, html.sn-zoom .site-ticker { vis
 .site-chart .sc-cap { flex: none; display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; padding: .6rem .85rem 0; font-weight: 600; white-space: nowrap; }
 .site-chart .sc-cap span { color: #44546B; font-weight: 500; }
 .site-chart .sc-box { flex: 1 1 auto; min-height: 0; }
-.site-chart.corner { position: absolute; z-index: 2; top: 92px; right: 28px; width: clamp(220px, calc(50vw - 412px), 300px); height: 196px; }
-.site-chart.below { position: relative; z-index: 1; width: min(calc(100% - 32px), 440px); height: 230px; margin: 18px auto 8px; }
+.site-chart.corner { position: absolute; z-index: 2; top: 92px; right: 28px; width: 176px; height: 124px; border-radius: 10px; font-size: 11px; }
+.site-chart.corner .sc-cap { padding: .3rem .5rem 0; gap: .3rem; }
+.site-chart .sc-box { pointer-events: none; }   /* not a link of its own */
+.site-chart.below { display: none; }
 html.v2zoom .site-chart .sc-box, html.sn-zoom .site-chart .sc-box { visibility: hidden; }
 @media print { .site-chart { display: none; } }
+
+/* Bottom menu (#v2dock), November 23, 2026 (ownership): smaller, and on a phone every item shows at once in one row
+   instead of a sideways scroll nobody noticed. The menu itself is built by the home page; these rules sit here so a
+   rebuild of the page does not undo them. */
+html.v2 #v2dock { overflow-x: visible; scroll-snap-type: none; }
+html.v2 #v2dock button { flex: 1 1 0; min-width: 0; min-height: 62px; gap: .25rem; padding: .35rem .2rem; font-size: .82rem; line-height: 1.1; scroll-snap-align: none; }
+html.v2 #v2dock button.buy { flex: 1 1 0; position: static; box-shadow: none; }
+html.v2 #v2dock .v2ic { width: 24px; height: 24px; }
+html.v2 #v2dock .v2soon { font-size: .55rem; padding: .15rem .35rem; }
+@media (max-width: 760px) {
+  html.v2 #v2dock button { min-height: 56px; padding: .3rem .1rem; font-size: clamp(.58rem, 2.6vw, .72rem); gap: .2rem; hyphens: auto; overflow-wrap: anywhere; }
+  html.v2 #v2dock .v2ic { width: 20px; height: 20px; }
+  html.v2 #v2dock .v2soon { font-size: .5rem; padding: .1rem .28rem; }
+}

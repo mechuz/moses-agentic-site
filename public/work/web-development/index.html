@@ -5973,7 +5973,7 @@ const T = {
      [
       "",
       0,
-      "Deal Desk",
+      "The Deal Desk",
       "Research, underwriting, lender packages, outreach and closing, in one digital worker."
      ]
     ]
@@ -6153,7 +6153,7 @@ const T = {
   "v2.dwc": "We learn how your business runs, find where time and money are lost, and build the digital workers for it. You review the results before anything goes live.",
   "v2.deal": {
    "h": "A full deal team, working every deal you have.",
-   "lead": "Deal Desk does the work behind every commercial real estate financing and acquisition: research, underwriting, document abstraction, lender packages, lender outreach, pipeline tracking and closing. You keep every decision and every relationship.",
+   "lead": "The Deal Desk does the work behind every commercial real estate financing and acquisition: research, underwriting, document abstraction, lender packages, lender outreach, pipeline tracking and closing. You keep every decision and every relationship.",
    "roles_h": "Covers the work of eight roles",
    "roles": [
     "Underwriting analyst",
@@ -9034,7 +9034,7 @@ const T = {
      [
       "",
       0,
-      "Deal Desk",
+      "The Deal Desk",
       "ריסוירטש, אנדעררייטינג, לענדער פעקלעך, אויסרייכן צו לענדערס און קלאוזינג, אין איין דיגיטאלן ארבעטער."
      ]
     ]
@@ -11977,7 +11977,7 @@ const T = {
      [
       "",
       0,
-      "Deal Desk",
+      "The Deal Desk",
       "מחקר, חיתום, תיקים למממנים, פנייה למממנים וסגירה, בעובד דיגיטלי אחד."
      ]
     ]
@@ -14920,7 +14920,7 @@ const T = {
      [
       "",
       0,
-      "Deal Desk",
+      "The Deal Desk",
       "Investigación, análisis, paquetes para prestamistas, contacto con prestamistas y cierre, en un solo trabajador digital."
      ]
     ]
@@ -17156,11 +17156,11 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
       document.querySelectorAll(".v2tile").forEach(b => { const on = b.dataset.dwi === id; b.classList.toggle("on", on); b.setAttribute("aria-expanded", String(on)); });
       const money = n => "$" + n.toLocaleString("en-US");
       const deal = ag => { const d = t("v2.deal"); if (!d) return ""; const ul = x => `<ul>${x.map(y => `<li>${E(y)}</li>`).join("")}</ul>`;
-        return `<div class="v2deal" id="v2deal" hidden><div class="v2dlh"><p class="v2dlk">${E(ag[2] || "Deal Desk")}</p><h4>${E(d.h)}</h4><p>${E(d.lead)}</p></div>
+        return `<div class="v2deal" id="v2deal" hidden><div class="v2dlh"><p class="v2dlk">${E(ag[2] || "The Deal Desk")}</p><h4>${E(d.h)}</h4><p>${E(d.lead)}</p></div>
           <p class="v2dlr">${E(d.roles_h)}</p><div class="v2chips2">${d.roles.map(r => `<span>${E(r)}</span>`).join("")}</div>
           <div class="v2caps">${d.caps.map(([h, x]) => `<div><h5>${E(h)}</h5>${ul(x)}</div>`).join("")}</div>
           <div class="v2trio"><div><h5>${E(d.how_h)}</h5>${ul(d.how)}</div><div><h5>${E(d.safe_h)}</h5>${ul(d.safe)}</div><div class="lim"><h5>${E(d.lim_h)}</h5>${ul(d.lim)}</div></div>
-          <div class="v2cta"><button type="button" class="v2btn" data-contact data-agentname="${E(ag[2] || "Deal Desk")}">${E(U.ask || "Ask for pricing")} <span class="arrow">→</span></button></div></div>`; };
+          <div class="v2cta"><button type="button" class="v2btn" data-contact data-agentname="${E(ag[2] || "The Deal Desk")}">${E(U.ask || "Ask for pricing")} <span class="arrow">→</span></button></div></div>`; };
       p.innerHTML = `<div class="v2dwph"><h3>${E(row[2])}</h3><button type="button" class="v2dwx" data-dwx aria-label="${E(U.close || "Close")}">×</button></div>` + (row[4].length
         ? `<ul class="v2ags">${row[4].map(([code, price, nm, d]) => `<li><b>${E(nm)}</b><p>${E(d)}</p><div class="v2agf">${price ? `<span class="v2agp">${money(price)}<small>${E(U.mo || "/mo")}</small></span><a class="v2btn" href="/subscribe/?p=${encodeURIComponent(code)}">${E(U.hire || "Hire")} <span class="arrow">→</span></a>` : `<span class="v2agp ask"></span><button type="button" class="v2btn" data-contact data-agentname="${E(nm)}">${E(U.ask || "Ask for pricing")} <span class="arrow">→</span></button>`}</div>${id === "cre" && !code ? `<button type="button" class="v2more" data-dwmore aria-expanded="false" aria-controls="v2deal">${E(U.more || "")} <span aria-hidden="true">↓</span></button>` : ""}</li>`).join("")}</ul>${id === "cre" ? deal(row[4].find(r => !r[0]) || []) : ""}`
         : `<div class="v2cust"><p>${E(t("v2.dwc") || "")}</p><button type="button" class="v2btn" data-contact data-agentname="${E(row[2])}">${E(U.cust_b || "")} <span class="arrow">→</span></button></div>`);

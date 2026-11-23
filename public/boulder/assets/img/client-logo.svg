@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 47 152 43" width="1520" height="430">
+  <!-- Boulder Builders logo, redrawn from the 170 x 130 directory crop: two-block outline mark + wordmark -->
+  <g fill="#F7C115">
+    <!-- tall block outline: x 9..29, y 48..88, stroke 3.5 -->
+    <path fill-rule="evenodd" d="M9 48h21v41H9z M12.8 51.2v34.6h13.4V51.2z"/>
+    <!-- short block: top bar, right side, bottom bar (open toward the tall block) -->
+    <path d="M31 60h13v29H31v-3.2h9.2V63.2H31z"/>
+  </g>
+  <text x="62" y="67.6" font-family="Montserrat" font-weight="700" font-size="21.2" fill="#2A292A" textLength="97" lengthAdjust="spacingAndGlyphs">BOULDER</text>
+  <text x="62.3" y="83.6" font-family="Montserrat" font-weight="400" font-size="9.6" fill="#2A292A" textLength="96.6" lengthAdjust="spacing">BUILDERS</text>
+</svg>

@@ -5971,8 +5971,8 @@ const T = {
       "Finds, screens and underwrites deals for you."
      ],
      [
-      "",
-      0,
+      "agent-dealdesk",
+      199,
       "The Deal Desk",
       "Research, underwriting, lender packages, outreach and closing, in one digital worker."
      ]
@@ -9032,8 +9032,8 @@ const T = {
       "טרעפט, זיפט אויס און אנאליזירט דילס פאר אייך."
      ],
      [
-      "",
-      0,
+      "agent-dealdesk",
+      199,
       "The Deal Desk",
       "ריסוירטש, אנדעררייטינג, לענדער פעקלעך, אויסרייכן צו לענדערס און קלאוזינג, אין איין דיגיטאלן ארבעטער."
      ]
@@ -11975,8 +11975,8 @@ const T = {
       "מאתר, מסנן ומנתח עסקאות עבורכם."
      ],
      [
-      "",
-      0,
+      "agent-dealdesk",
+      199,
       "The Deal Desk",
       "מחקר, חיתום, תיקים למממנים, פנייה למממנים וסגירה, בעובד דיגיטלי אחד."
      ]
@@ -14918,8 +14918,8 @@ const T = {
       "Encuentra, filtra y analiza operaciones para usted."
      ],
      [
-      "",
-      0,
+      "agent-dealdesk",
+      199,
       "The Deal Desk",
       "Investigación, análisis, paquetes para prestamistas, contacto con prestamistas y cierre, en un solo trabajador digital."
      ]
@@ -17160,9 +17160,9 @@ document.addEventListener("click", e => { if (e.target.closest(".s-page [data-co
           <p class="v2dlr">${E(d.roles_h)}</p><div class="v2chips2">${d.roles.map(r => `<span>${E(r)}</span>`).join("")}</div>
           <div class="v2caps">${d.caps.map(([h, x]) => `<div><h5>${E(h)}</h5>${ul(x)}</div>`).join("")}</div>
           <div class="v2trio"><div><h5>${E(d.how_h)}</h5>${ul(d.how)}</div><div><h5>${E(d.safe_h)}</h5>${ul(d.safe)}</div><div class="lim"><h5>${E(d.lim_h)}</h5>${ul(d.lim)}</div></div>
-          <div class="v2cta"><button type="button" class="v2btn" data-contact data-agentname="${E(ag[2] || "The Deal Desk")}">${E(U.ask || "Ask for pricing")} <span class="arrow">→</span></button></div></div>`; };
+          <div class="v2cta"><a class="v2btn" href="/subscribe/?p=agent-dealdesk" style="text-decoration:none">${E(U.hire || "Hire")} · $199${E(U.mo || "/mo")} <span class="arrow">→</span></a></div></div>`; };
       p.innerHTML = `<div class="v2dwph"><h3>${E(row[2])}</h3><button type="button" class="v2dwx" data-dwx aria-label="${E(U.close || "Close")}">×</button></div>` + (row[4].length
-        ? `<ul class="v2ags">${row[4].map(([code, price, nm, d]) => `<li><b>${E(nm)}</b><p>${E(d)}</p><div class="v2agf">${price ? `<span class="v2agp">${money(price)}<small>${E(U.mo || "/mo")}</small></span><a class="v2btn" href="/subscribe/?p=${encodeURIComponent(code)}">${E(U.hire || "Hire")} <span class="arrow">→</span></a>` : `<span class="v2agp ask"></span><button type="button" class="v2btn" data-contact data-agentname="${E(nm)}">${E(U.ask || "Ask for pricing")} <span class="arrow">→</span></button>`}</div>${id === "cre" && !code ? `<button type="button" class="v2more" data-dwmore aria-expanded="false" aria-controls="v2deal">${E(U.more || "")} <span aria-hidden="true">↓</span></button>` : ""}</li>`).join("")}</ul>${id === "cre" ? deal(row[4].find(r => !r[0]) || []) : ""}`
+        ? `<ul class="v2ags">${row[4].map(([code, price, nm, d]) => `<li><b>${E(nm)}</b><p>${E(d)}</p><div class="v2agf">${price ? `<span class="v2agp">${money(price)}<small>${E(U.mo || "/mo")}</small></span><a class="v2btn" href="/subscribe/?p=${encodeURIComponent(code)}">${E(U.hire || "Hire")} <span class="arrow">→</span></a>` : `<span class="v2agp ask"></span><button type="button" class="v2btn" data-contact data-agentname="${E(nm)}">${E(U.ask || "Ask for pricing")} <span class="arrow">→</span></button>`}</div>${code === "agent-dealdesk" ? `<button type="button" class="v2more" data-dwmore aria-expanded="false" aria-controls="v2deal">${E(U.more || "")} <span aria-hidden="true">↓</span></button>` : ""}</li>`).join("")}</ul>${id === "cre" ? deal(row[4].find(r => r[0] === "agent-dealdesk") || []) : ""}`
         : `<div class="v2cust"><p>${E(t("v2.dwc") || "")}</p><button type="button" class="v2btn" data-contact data-agentname="${E(row[2])}">${E(U.cust_b || "")} <span class="arrow">→</span></button></div>`);
       p.hidden = false; requestAnimationFrame(() => p.scrollIntoView({ behavior: "smooth", block: "nearest" }));
       try { track("dw_industry", { industry: id }); } catch (x) {} };

@@ -1,0 +1,13 @@
+{
+ "slug": "2026-11-24-new-york-s-ai-safety-law-starts-putting-large-ai",
+ "title": "New York's AI safety law starts putting large AI developers under state oversight",
+ "source": "TechCrunch",
+ "source_url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+ "date": "2026-11-24",
+ "article_date": "2026-11-10",
+ "category_name": "Policy, law & data",
+ "summary": "New York's RAISE Act, which covers the largest AI model developers such as OpenAI and Anthropic, is moving into effect, with developers required to register with the state by January 1, 2027. The law asks these companies to publish safety plans and report serious incidents, and it allows large penalties for violations. TechCrunch notes that California and Illinois have similar rules, while federal officials are pushing to limit how far states can regulate AI development.",
+ "why": "The law targets the big model makers, not small businesses that use their tools, but it means more public safety information about the AI products you rely on.",
+ "status": "published",
+ "airtable_id": "recSxvLYR1uXYTbOV"
+}

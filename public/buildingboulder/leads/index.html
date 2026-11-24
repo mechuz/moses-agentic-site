@@ -101,6 +101,9 @@ a{color:var(--accent)}
 .gate-row button{font:600 15px var(--body);padding:10px 16px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--panel);cursor:pointer}
 .gate-msg{min-height:1.4em;margin:10px 0 0!important}
 .gate-msg.err{color:var(--bad)!important}
+.row.locked{background:var(--chip)}
+.row.locked .who b{color:var(--muted)}
+.row.locked .blur{color:var(--muted);font-style:italic}
 #wm{position:fixed;inset:0;pointer-events:none;z-index:4;background-repeat:repeat}
 #app{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 #app input,#app select{-webkit-user-select:text;user-select:text}
@@ -155,6 +158,7 @@ footer{margin-top:28px;font-size:12.5px;color:var(--muted);max-width:80ch}
       <select id="f-prio" aria-label="Priority"><option value="">All priorities</option><option>A</option><option>B</option><option>C</option></select>
       <select id="f-boro" aria-label="Borough"><option value="">Both boroughs</option><option>Brooklyn</option><option>Manhattan</option></select>
       <label class="chk"><input type="checkbox" id="f-contact"> Has phone or email</label>
+      <label class="chk" id="unlocked-wrap" hidden><input type="checkbox" id="f-unlocked"> Unlocked only</label>
     </div>
     <div class="count" id="count">Loading leads…</div>
     <div class="list" id="list"></div>
@@ -189,10 +193,27 @@ function stats(){
   const c=t=>LEADS.filter(l=>!t||l.type===t).length;
   const items=[["",LEADS.length,"All leads"],...ORDER.map(t=>[t,c(t),t.replace("Active developer - ","Developers: ")])];
   s.innerHTML=items.map(([t,n,l])=>`<button class="stat" data-type="${esc(t)}" aria-pressed="${t===typeFilter}"><div class="n">${n}</div><div class="l">${esc(l)}</div></button>`).join("")+
-   `<div class="stat" style="cursor:default"><div class="n">${LEADS.filter(l=>l.phone||l.email).length}</div><div class="l">With phone or email</div></div>`;
+   `<div class="stat" style="cursor:default"><div class="n">${LEADS.filter(l=>l.phone||l.email||l.hasContact).length}</div><div class="l">With phone or email</div></div>`+
+   (LEADS.some(l=>l.locked)?`<div class="stat" style="cursor:default"><div class="n">${LEADS.filter(l=>!l.locked).length}</div><div class="l">Unlocked for you</div></div>`:"");
   s.querySelectorAll("button.stat").forEach(b=>b.onclick=()=>{typeFilter=b.dataset.type;$("#f-type").value=typeFilter;shown=50;render()});
 }
+function lockedHTML(l){
+  const kv=[["Area",[l.nbhd,l.boro].filter(Boolean).join(", ")],["Zoning",l.zoning],["Est. buildable",l.bsf&&fmt(l.bsf)+" sq ft"],["Status",l.status],["Projects in pipeline",l.nproj],["Contact on file",l.hasContact?"Yes":"Mailing address only"]].filter(x=>x[1]);
+  return `<div class="row locked" data-id="${l.id}">
+  <button aria-expanded="false">
+    <span class="prio ${l.prio}" title="Priority ${l.prio}">${l.prio}</span>
+    <span class="who"><b>${esc(l.lead)}</b><small>Owner and contact locked</small></span>
+    <span class="site"><span class="blur">Address locked</span><small>${esc([l.nbhd,l.boro].filter(Boolean).join(" · "))}</small></span>
+    <span class="typecol"><span class="pill ${TYPES[l.type]||""}">${esc(l.type.replace("Active developer - ","Developer: "))}</span></span>
+    <span class="contact none">🔒 Locked</span>
+  </button>
+  <div class="detail" hidden>
+    <div><h4>What we know</h4><dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl></div>
+    <div><h4>Locked</h4><p>The owner, contact person, phone, email, exact address, project list and research notes for this lead are held by Moses Agentic. Ask Max to release it to your account.</p></div>
+  </div></div>`;
+}
 function rowHTML(l){
+  if(l.locked)return lockedHTML(l);
   const contact=l.phone||l.email;
   const kv=[["Owner / entity",l.owner],["Mailing address",l.mail],["Zoning",l.zoning],["Lot",l.lot&&fmt(l.lot)+" sq ft"],["Est. buildable",l.bsf&&fmt(l.bsf)+" sq ft"],["Projects in pipeline",l.nproj],["Status",l.status],["Last sale",[l.sdate,money(l.sprice)].filter(Boolean).join(" · ")],["Asking",l.ask],["Broker",l.broker],["Architect / engineer",l.arch]].filter(x=>x[1]);
   return `<div class="row" data-id="${l.id}">
@@ -221,7 +242,8 @@ function rowHTML(l){
 }
 function filtered(){
   const q=$("#q").value.trim().toLowerCase(),p=$("#f-prio").value,b=$("#f-boro").value,c=$("#f-contact").checked;
-  return LEADS.filter(l=>(!typeFilter||l.type===typeFilter)&&(!p||l.prio===p)&&(!b||l.boro===b)&&(!c||l.phone||l.email)&&
+  const u=$("#f-unlocked")&&$("#f-unlocked").checked;
+  return LEADS.filter(l=>(!typeFilter||l.type===typeFilter)&&(!p||l.prio===p)&&(!b||l.boro===b)&&(!c||l.phone||l.email||l.hasContact)&&(!u||!l.locked)&&
     (!q||[l.lead,l.person,l.owner,l.addr,l.nbhd,l.broker,l.arch].join(" ").toLowerCase().includes(q)));
 }
 function render(){
@@ -236,7 +258,7 @@ $("#list").addEventListener("click",e=>{
   const btn=e.target.closest(".row>button");if(!btn)return;
   const d=btn.nextElementSibling;d.hidden=!d.hidden;btn.setAttribute("aria-expanded",!d.hidden);
 });
-["#q","#f-prio","#f-boro","#f-contact"].forEach(s=>$(s).addEventListener("input",()=>{shown=50;render()}));
+["#q","#f-prio","#f-boro","#f-contact","#f-unlocked"].forEach(s=>$(s).addEventListener("input",()=>{shown=50;render()}));
 $("#f-type").addEventListener("input",e=>{typeFilter=e.target.value;shown=50;render()});
 $("#more").onclick=()=>{shown+=50;render()};
 function tab(which){
@@ -278,7 +300,8 @@ function watermark(user){
 }
 function start(d){
   $("#gate").hidden=true;$("#app").hidden=false;watermark(d.user);
-  $("#scope").textContent=d.full?`Admin view: all ${d.leads.length} leads.`:`${d.leads.length} of ${d.total} leads released to your account. More are released as you work these.`;
+  $("#scope").textContent=d.full?`Admin view: all ${d.leads.length} leads unlocked.`:`${d.released} of ${d.total} leads unlocked for your account. Locked leads show area and size only; ask Max to release more.`;
+  $("#unlocked-wrap").hidden=d.full;
   LEADS=d.leads.sort((a,b)=>b.score-a.score);stats();render();partners(d.partners);
 }
 ["copy","cut","contextmenu","dragstart"].forEach(ev=>document.addEventListener(ev,e=>{if(!$("#app").hidden&&!e.target.closest("input"))e.preventDefault()}));

@@ -1,5 +1,4 @@
-# Live at www.buildingboulder.com, unlisted for now: the page carries <meta name="robots" content="noindex, nofollow">.
-# When Boulder approves: flip that tag to "index, follow" and send the sitemap to Google.
+# Public at www.buildingboulder.com (approved November 24, 2026). /leads/ is the team login page and stays out of search.
 User-agent: *
 Disallow: /leads/
 Allow: /

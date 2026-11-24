@@ -382,7 +382,7 @@ html:not(.v2) .co-fx { display: none; }
         (bd[4] || []).forEach(function (x) { lines.push(["", x[0], was(x[1], x[2], x[3]), 1]); items.push(x[0] + ": " + (x[3] || fmt(x[2]) + "/mo") + (x[1] ? " (regular " + fmt(x[1]) + "/mo)" : "")); });
         lines.push([k, "Package total, " + bd[2] + "-month contract, billed from signing", was(bd[3], bd[1]), 1, "tot"]);
         items.push("Package total: " + fmt(bd[1]) + "/mo" + (bd[3] ? " (regular " + fmt(bd[3]) + "/mo)" : "") + ", " + bd[2] + "-month contract, billed from signing, no build fee");
-      } else if (on) { var pr = +row.dataset.price; m += pr; lines.push([k, row.querySelector("b").textContent.replace(/^Executive/, ""), fmt(pr) + "/mo"]); items.push(row.querySelector("b").textContent.replace(/^Executive/, "") + " agent, " + fmt(pr) + "/mo"); }
+      } else if (on) { var pr = +row.dataset.price; m += pr; lines.push([k, row.querySelector("b").textContent.replace(/^Executive/, ""), fmt(pr) + "/mo"]); items.push(row.dataset.module ? row.querySelector("b").textContent + " (module), month to month, " + fmt(pr) + "/mo" : row.querySelector("b").textContent.replace(/^Executive/, "") + " agent, " + fmt(pr) + "/mo"); }
     });
     $$(".wbt").forEach(function (e) { e.hidden = hasB; }); $$(".bdt").forEach(function (e) { e.hidden = !hasB; });
     $("#tot").textContent = $("#tot2").textContent = fmt(m); $("#one").textContent = $("#one2").textContent = one ? "+ " + fmt(one) + " one-time build" : "";
@@ -430,7 +430,8 @@ html:not(.v2) .co-fx { display: none; }
   if (bcode) {
     var B = BUNDLES[bcode];
     $("#agents").insertAdjacentHTML("afterbegin", '<label class="svc" data-svc="' + bcode + '" data-price="' + B[1] + '"><input type="checkbox" checked><b>' + E(B[0]) + '</b><span class="price">' + fmt(B[1]) + '<small>/mo</small></span><p>Your package: one flat price on a ' + B[2] + '-month contract, billed from signing. No build fee.</p><ul class="inc">' + (B[4] || []).map(function (x) { return "<li>" + E(x[0]) + " <span>" + was(x[1], x[2], x[3]) + "</span></li>"; }).join("") + '</ul></label>');
-    pcodes = [];
+    /* keep the other codes in the link (e.g. an optional module after the package); only the package code itself is done */
+    pcodes = pcodes.filter(function (c) { return c.trim().toLowerCase().split("~")[0] !== bcode; });
   }
   pcodes.forEach(function (code) {
     var raw = code.trim(); code = raw.toLowerCase(); if (!code) return;
@@ -440,6 +441,15 @@ html:not(.v2) .co-fx { display: none; }
     if (fqc) { var fr = $('input[name="f-smm"][value="' + fqc[1] + '"]'); if (fr) fr.checked = true; $('.svc[data-svc="smm"] input[type=checkbox]').checked = true; return; }
     var chc = code.match(/^smmch-([a-z.]{1,60})$/);
     if (chc) { var want = chc[1].split("."), all = $$("#chs .ch"), okc = all.filter(function (c) { return want.indexOf(c.value) > -1; }); if (okc.length >= 3) all.forEach(function (c) { c.checked = want.indexOf(c.value) > -1; }); $('.svc[data-svc="smm"] input[type=checkbox]').checked = true; return; }
+    var md = raw.match(/^module-(\d{2,4})~(.+)$/i);
+    if (md) {
+      var mp = +md[1]; if ([249].indexOf(mp) < 0) return;   /* module prices we offer (Max, November 24, 2026) */
+      var mn = ""; try { mn = decodeURIComponent(md[2]); } catch (e) { mn = md[2]; }
+      mn = mn.replace(/[^A-Za-z0-9 &,.'-]/g, "").replace(/\s+/g, " ").trim().slice(0, 60); if (!mn) return;
+      var mi = $$('.svc[data-svc^="module-"]').length; if (mi >= 6) return;
+      $("#agents").insertAdjacentHTML("afterbegin", '<label class="svc" data-svc="module-' + mi + '" data-price="' + mp + '" data-module="1"><input type="checkbox" checked><b>' + E(mn) + '</b><span class="price">' + fmt(mp) + '<small>/mo</small></span><p>From your proposal. Month to month.</p></label>');
+      return;
+    }
     var cu = raw.match(/^agent-(tool|specialist|advanced|executive)~(.+)$/i);
     if (cu) {
       var nm = ""; try { nm = decodeURIComponent(cu[2]); } catch (e) { nm = cu[2]; }

@@ -160,6 +160,7 @@ html.v2 #intake { background: none; }
 html.v2 .inits label, html.v2 .kt { color: #0B2545; }
 html.v2 .chk a { color: #1F6FFF; }
 html.v2 .svc ul.inc li { color: #0B2545; } html.v2 .svc ul.inc li::before { color: #1F6FFF; }
+.pmnote { margin: .4rem 0 .2rem; color: #51607A; font-size: .95rem; } .pmnote strong { color: #0B2545; }
 </style>
 <link rel="stylesheet" href="/vendor/site-header.css">
 <script src="/vendor/site-shell.js" defer></script>
@@ -221,11 +222,7 @@ html:not(.v2) .co-fx { display: none; }
         <label class="f">Business name<input id="biz" autocomplete="organization"></label>
         <label class="f">Your name<input id="nm" autocomplete="name"></label>
         <label class="f">Email<input id="em" type="email" autocomplete="email"></label>
-        <fieldset class="pm" id="pm"><legend>How will you pay?</legend>
-          <label><input type="radio" name="pm" value="zelle"><span>Zelle</span></label>
-          <label><input type="radio" name="pm" value="cashapp"><span>Cash App</span></label>
-          <label><input type="radio" name="pm" value="venmo"><span>Venmo</span></label>
-        </fieldset>
+        <p class="pmnote">Secure payment by <strong>Stripe</strong>: card, bank transfer (ACH), Apple Pay or Google Pay.</p>
         <div id="agr" hidden>
           <label class="f">Your title<input id="ti" autocomplete="organization-title" placeholder="Owner"></label>
           <p class="draft">Draft agreement, pending counsel review. Preview only: nothing is signed or charged.</p>
@@ -301,7 +298,7 @@ html:not(.v2) .co-fx { display: none; }
     <p class="lead" id="donemsg"></p>
     <p id="copyrow" hidden><button type="button" class="lnk" id="copybtn">Download your signed agreement (PDF)</button><span class="fine" id="copynote"></span></p>
     <ol class="nx">
-      <li><h2>1. Send your first payment</h2>
+      <li><h2>1. Pay securely with Stripe</h2>
         <p class="lead" style="margin-top:0" id="paymsg"></p>
         <div class="pay" id="paylist" role="tablist" aria-label="Payment method"></div>
         <div class="payp" id="paypanel" role="tabpanel"></div>
@@ -329,7 +326,7 @@ html:not(.v2) .co-fx { display: none; }
   "use strict";
   var ENDPOINT = "https://hooks.zapier.com/hooks/catch/27563206/tHNY93KrYmljtGhD/", MAIL = "welcome@mosesagentic.com";
   /* AGREEMENT: "off" until counsel approves; "final" turns on signing for everyone. ?preview=1 shows the signing step as a preview (nothing is sent). */
-  var AGREEMENT = "final", VERSION = "short-2p-2026-11-19", PAY = {}, HANDLES = {"zelle": "Edward Beylin", "zelle_url": "https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiRURXQVJEIiwidG9rZW4iOiI3MTg3NzI4ODM4In0=", "zelle_qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAACdklEQVR42u1aMYojQQystgY2lH/gp8g/M/sz+Sn7A01o0FAXSOMLLtjoYAXbGIPbHYwoqaqknkV8s44Lvl2/R/7nETAAQEgoU5lAAkIXFnqW8yIykkJnmAQYljAAEiYkY1xEFwBr3QFAHQD084Mu9ASwr21yYh7rXkEda72udlynl5pteL7W/bgildt+F/pYZjCSEkZ6RSH0VEI5s45Orgv79zOV686VMKgzIGSqS1jvD8y6en4JgzLVGZWKnjoxoguADZbA64rc7xK1/8T+kHhu+30iMwgdSqBhkkDtSGXgvDryLP+jzii3gEQbBomhzOAnGyBhqQ51wISeI30dGMYAlMV1qSyiIH0oRnJqK7QcuFcFSQzVI4dWKbnQJfA368JG6lFrK9/pJ2RXkE51QUImLIsK1BnGsFQWUiM7vrBKPKiTlABP6h6KUSVeqieMdNITeCvUSIUFoCQJNHVDPdXr50inChQ62c2FnRQxU2FZeto0fjZ6FSNHYsRuH6T4DW1Ti7qHKmyeViHPsmJ0+mFkHQHoUQOUiRZZKGvgMBEjYTVHQBNdl1IFOJHrcIpReYZqkSTQfdPMHlaaq1uP8q28Q7Ouxt3aBlXiNHic6usAA1AAsWvKhJwaEcmChj0z6VkKkOpD53XdwypJ5xua+ntkHZHF1U1xloCElbsbyN4X7GuttSkZOG48bp8fPYTEBmzqA29bjCT2+7qi0HndPHtqB/kaOVOt0ZyQZfC6jY2hdXQe2R+JpwSA57YvvJ3DPIzOI/p5XAE85etx3Dz3x7oxYcd17B3fObVjoF4AqJFXTu0mIP3d9/7VBgI2MKL1+xbNjz/yB2MSr5doJy8UAAAAAElFTkSuQmCC", "cashapp": "$EdzBee", "cashapp_qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAABtUlEQVR42u2aMW6EMBBF/8BKjpTCvgG5CckJciSTm8FNsmU66Ixk+CnsJaSI2SgUKWYaw+hXT+Ox/4AQB7FUOAyVqORkCcj3/GQZQXJETfg+JxtGRfezxJIke8yGeJMmZJApqVVXlMwi0uVEO5qIb0lFd55kcFhEufxSYiIktUN2yuUwLgBgCGAAlgswvH48xn1S0RXQTWmD2vmReauKf8nJRtH9jW5zu37PWx8kQEV3LLm62xFSE8D0sIiIOCwi8qzoSpLmKhWka0cAlGcbAJJXuWjVnWBbOBoSgA0Au7SwByDs1LaU0TEA7Np8t7FkWqKQvaIrSia7AhiagHQ7XAS+nx7qVTfsCaOIZJ3JsJtBtKMh2bXUwjz00yJu56f9m5ulAoYnrbpi1YWNGdnbUHMjqO3wBFO4VvAvLvlAYBFgcDBrhfZd0RXP6a92mAP+600Ls2BbJIUzEcDg5ksyMYC2wxMk24h7ERE/mlmAdlQu9x42vreM2M8V6xVe9/T9Et/bUG+2RUT39P2SdsTmXkQ/VJ1xxbmNuHcxuZo69z5qh/nJ3j6dxrzoKKIYoj+UqOQ/Sj4BblMPqyvhjV4AAAAASUVORK5CYII=", "venmo": "Moses Agentic", "venmo_url": "https://venmo.com/code?user_id=1624250733559808878&created=1795105332.922532", "venmo_qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAAC2klEQVR42u2aQc6sNhCEvx4jeaQsjJQDMDfxJBfIjcaQm+QmcBPmBmYRCRRDZeF5//a9XQR5XiHwpunuquqyTXxn7Te+u35u+Y+3oBWATgdhBp/jAWDSDEAql/wvQdIKuAy2tJikUQ0kSeMpMz1ZA9Ntt9gr5CmZWWJvway9ZO02X0/2z6/T47i10ZVf1unp8vt/0NMHywO3hmH3ywNt7YkjiirAjTAnIA7Fz9EaQMpXTeNiZnfY/TvaHt7PP/f7+2kFBjN7npBJPmtUCXM6APCSfXuvckn6DCPQqXKolwZJ4+E0A+F8QSNJvdMcVeh6U+YFYCWoLxB1TUGwPNNmj+lGmKR70A0vqVlMjc9Tf0kI2lqGxs8VgmxdrDYtQVYIZ1RBXoPKFgVhkqyNrsB0uLf1fjkhqP6ggo+S5miSeknjCzqpBPVSjieEoDVIhe6DrD7HQZIqqHqN6ZJMokwqXlKh62u8aycrdL1TvuQg1gDR2Aw7xHA7lj9+LxvTQW7F1ul0JkJVQcXPlTDxGl9uBSt0Kj5HXbZ2v+ZprcRBmsFlUvGnrN2tBWoa56SQUQORvYXmnNz4Q7bIiNkjHizR2FrY792Ay+CWNvbn5Eb8HE2ak9YwpgLx06RX7cYaZidcJkHQULxGqsF3Vfpcw0jxkpVP3nsnyUrQOemzAUj+78dfxx7yYF7TbwdMx74YbrumpYdWSE4aTZlkyqQC0UqQyjnn6TWoh05Wav9JxWs8oOvx19R1X91YFbxJ4ws/R5zUlwtDkHroRpVqCMWh+Ll+cyvxnF5QtfSkGUlj0tqNB0HiuvQJfCbouZ6IVTsszMmt4Xy1W+fpr8QdXurxlRt1VQj6OhHDKTO4dXmaVqa9Wczccmr6lNkj6R6GYzd7OmXSfr/mTFKZxK3daN/8rMNJYxUEF6ZPSetHMxw+88JLAOmsCr4ed00HkNjaOBTeZsrgLurM2s8rMlfY8i+FPT9TX09k6wAAAABJRU5ErkJggg=="};
+  var AGREEMENT = "final", VERSION = "short-2p-2026-11-19", PAY = {"agent-dealdesk": "https://buy.stripe.com/7sYeVc79x4n1een4GX0co00", "agent-cmo": "https://buy.stripe.com/eVq4gy2Th06L9Y73CT0co01", "agent-cfo": "https://buy.stripe.com/aFaaEW51pf1F3zJ3CT0co02", "agent-cre": "https://buy.stripe.com/4gM28q8dBdXB5HR7T90co03", "agent-acq": "https://buy.stripe.com/3cI6oGbpNaLp1rB1uL0co04", "agent-senior": "https://buy.stripe.com/14A5kC8dBdXBeen0qH0co05", "website-24": "https://buy.stripe.com/7sY14m79x4n1gmv1uL0co06", "website-12": "https://buy.stripe.com/fZu3cufG3bPt1rB7T90co07", "website-m2m": "https://buy.stripe.com/bJe7sK0L9g5J6LVehx0co08"}, HANDLES = {"zelle": "Edward Beylin", "zelle_url": "https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiRURXQVJEIiwidG9rZW4iOiI3MTg3NzI4ODM4In0=", "zelle_qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAACdklEQVR42u1aMYojQQystgY2lH/gp8g/M/sz+Sn7A01o0FAXSOMLLtjoYAXbGIPbHYwoqaqknkV8s44Lvl2/R/7nETAAQEgoU5lAAkIXFnqW8yIykkJnmAQYljAAEiYkY1xEFwBr3QFAHQD084Mu9ASwr21yYh7rXkEda72udlynl5pteL7W/bgildt+F/pYZjCSEkZ6RSH0VEI5s45Orgv79zOV686VMKgzIGSqS1jvD8y6en4JgzLVGZWKnjoxoguADZbA64rc7xK1/8T+kHhu+30iMwgdSqBhkkDtSGXgvDryLP+jzii3gEQbBomhzOAnGyBhqQ51wISeI30dGMYAlMV1qSyiIH0oRnJqK7QcuFcFSQzVI4dWKbnQJfA368JG6lFrK9/pJ2RXkE51QUImLIsK1BnGsFQWUiM7vrBKPKiTlABP6h6KUSVeqieMdNITeCvUSIUFoCQJNHVDPdXr50inChQ62c2FnRQxU2FZeto0fjZ6FSNHYsRuH6T4DW1Ti7qHKmyeViHPsmJ0+mFkHQHoUQOUiRZZKGvgMBEjYTVHQBNdl1IFOJHrcIpReYZqkSTQfdPMHlaaq1uP8q28Q7Ouxt3aBlXiNHic6usAA1AAsWvKhJwaEcmChj0z6VkKkOpD53XdwypJ5xua+ntkHZHF1U1xloCElbsbyN4X7GuttSkZOG48bp8fPYTEBmzqA29bjCT2+7qi0HndPHtqB/kaOVOt0ZyQZfC6jY2hdXQe2R+JpwSA57YvvJ3DPIzOI/p5XAE85etx3Dz3x7oxYcd17B3fObVjoF4AqJFXTu0mIP3d9/7VBgI2MKL1+xbNjz/yB2MSr5doJy8UAAAAAElFTkSuQmCC", "cashapp": "$EdzBee", "cashapp_qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAABtUlEQVR42u2aMW6EMBBF/8BKjpTCvgG5CckJciSTm8FNsmU66Ixk+CnsJaSI2SgUKWYaw+hXT+Ox/4AQB7FUOAyVqORkCcj3/GQZQXJETfg+JxtGRfezxJIke8yGeJMmZJApqVVXlMwi0uVEO5qIb0lFd55kcFhEufxSYiIktUN2yuUwLgBgCGAAlgswvH48xn1S0RXQTWmD2vmReauKf8nJRtH9jW5zu37PWx8kQEV3LLm62xFSE8D0sIiIOCwi8qzoSpLmKhWka0cAlGcbAJJXuWjVnWBbOBoSgA0Au7SwByDs1LaU0TEA7Np8t7FkWqKQvaIrSia7AhiagHQ7XAS+nx7qVTfsCaOIZJ3JsJtBtKMh2bXUwjz00yJu56f9m5ulAoYnrbpi1YWNGdnbUHMjqO3wBFO4VvAvLvlAYBFgcDBrhfZd0RXP6a92mAP+600Ls2BbJIUzEcDg5ksyMYC2wxMk24h7ERE/mlmAdlQu9x42vreM2M8V6xVe9/T9Et/bUG+2RUT39P2SdsTmXkQ/VJ1xxbmNuHcxuZo69z5qh/nJ3j6dxrzoKKIYoj+UqOQ/Sj4BblMPqyvhjV4AAAAASUVORK5CYII=", "venmo": "Moses Agentic", "venmo_url": "https://venmo.com/code?user_id=1624250733559808878&created=1795105332.922532", "venmo_qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAAC2klEQVR42u2aQc6sNhCEvx4jeaQsjJQDMDfxJBfIjcaQm+QmcBPmBmYRCRRDZeF5//a9XQR5XiHwpunuquqyTXxn7Te+u35u+Y+3oBWATgdhBp/jAWDSDEAql/wvQdIKuAy2tJikUQ0kSeMpMz1ZA9Ntt9gr5CmZWWJvway9ZO02X0/2z6/T47i10ZVf1unp8vt/0NMHywO3hmH3ywNt7YkjiirAjTAnIA7Fz9EaQMpXTeNiZnfY/TvaHt7PP/f7+2kFBjN7npBJPmtUCXM6APCSfXuvckn6DCPQqXKolwZJ4+E0A+F8QSNJvdMcVeh6U+YFYCWoLxB1TUGwPNNmj+lGmKR70A0vqVlMjc9Tf0kI2lqGxs8VgmxdrDYtQVYIZ1RBXoPKFgVhkqyNrsB0uLf1fjkhqP6ggo+S5miSeknjCzqpBPVSjieEoDVIhe6DrD7HQZIqqHqN6ZJMokwqXlKh62u8aycrdL1TvuQg1gDR2Aw7xHA7lj9+LxvTQW7F1ul0JkJVQcXPlTDxGl9uBSt0Kj5HXbZ2v+ZprcRBmsFlUvGnrN2tBWoa56SQUQORvYXmnNz4Q7bIiNkjHizR2FrY792Ay+CWNvbn5Eb8HE2ak9YwpgLx06RX7cYaZidcJkHQULxGqsF3Vfpcw0jxkpVP3nsnyUrQOemzAUj+78dfxx7yYF7TbwdMx74YbrumpYdWSE4aTZlkyqQC0UqQyjnn6TWoh05Wav9JxWs8oOvx19R1X91YFbxJ4ws/R5zUlwtDkHroRpVqCMWh+Ll+cyvxnF5QtfSkGUlj0tqNB0HiuvQJfCbouZ6IVTsszMmt4Xy1W+fpr8QdXurxlRt1VQj6OhHDKTO4dXmaVqa9Wczccmr6lNkj6R6GYzd7OmXSfr/mTFKZxK3daN/8rMNJYxUEF6ZPSetHMxw+88JLAOmsCr4ed00HkNjaOBTeZsrgLurM2s8rMlfY8i+FPT9TX09k6wAAAABJRU5ErkJggg=="};
   var PREVIEW = AGREEMENT !== "final" && /[?&]preview=1/.test(location.search), SIGN = AGREEMENT === "final" || PREVIEW;
   var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
   var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
@@ -490,44 +487,27 @@ html:not(.v2) .co-fx { display: none; }
       if (!$("#ok").checked) { err.textContent = "Tick the box to agree to the Terms and Conditions."; return; }
     }
     if (v("hp") || performance.now() < 5000) { err.textContent = ""; return; }   /* spam: a filled trap field, or a send within five seconds of the page opening */
-    var pmEl = $('#pm input:checked'), pm = pmEl ? pmEl.value : "", PMN = { zelle: "Zelle", cashapp: "Cash App", venmo: "Venmo" };
-    if (!pm) { err.textContent = "Choose how you will pay: Zelle, Cash App or Venmo."; $("#pm").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
+    var pm = "stripe";
     err.textContent = "";
     var subject = "Moses Agentic subscription: " + v("biz") + ", " + fmt(p.m) + " a month";
-    var lines = ["SUBSCRIPTION ORDER", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-"), "Payment method: " + PMN[pm], "Due at signing: " + fmt(p.m + (p.one || 0))]);
+    var lines = ["SUBSCRIPTION ORDER", "Business: " + v("biz"), "Name: " + v("nm"), "Email: " + v("em")].concat(p.items.map(function (x) { return "• " + x; })).concat(["Monthly total: " + fmt(p.m), "One-time: " + (p.one ? fmt(p.one) + " build" : "none"), "Reference: " + (ref || "-"), "Payment method: Stripe", "Due at signing: " + fmt(p.m + (p.one || 0))]);
     var data = { kind: "subscription", hp: v("hp"), subject: subject, name: v("nm"), email: v("em"), phone: "", company: v("biz"), message: lines.join("\n"), language: "en", source: location.hostname, pay_method: pm, monthly: p.m, due: p.m + (p.one || 0) };
+    var payKey = p.items.length === 1 ? ($(".svc:not(.off)").dataset.svc + ($(".svc:not(.off) input[type=radio]:checked") ? "-" + $(".svc:not(.off) input[type=radio]:checked").value : "")) : "";
+    /* the CMO alone: its website is included, so the order goes to the CMO's own payment link (Max, November 24, 2026) */
+    var onRows = $$(".svc:not(.off)").map(function (r) { return r.dataset.svc; });
+    if (onRows.length === 2 && onRows.indexOf("agent-cmo") > -1 && onRows.indexOf("website") > -1) payKey = "agent-cmo";
     function done() { $("#pick").hidden = true; $("#total").hidden = true; $("#done").hidden = false; $("#donemsg").textContent = "Thank you, " + v("nm") + ". Your plan is " + fmt(p.m) + " a month" + (p.one ? ", plus a " + fmt(p.one) + " one-time build" : "") + "." + (PREVIEW ? " (Preview: nothing was signed or charged.)" : ""); window.__who = { name: v("nm"), email: v("em"), biz: v("biz") };
       var due = p.m + (p.one || 0), mk = function (t, x) { var e = document.createElement(t); if (x) e.textContent = x; return e; };
       $("#paymsg").textContent = "Due now: " + fmt(due) + (p.one ? " (first month " + fmt(p.m) + " plus the " + fmt(p.one) + " build)" : " for your first month") + ".";
-      function showPay(k) {
-        [].forEach.call($("#paylist").children, function (b) { b.setAttribute("aria-selected", b.dataset.k === k ? "true" : "false"); });
-        var box = $("#paypanel"); box.innerHTML = ""; box.className = "payp one";
-        var pay = function (href, label) { var a = mk("a", label); a.className = "go"; a.href = href; a.target = "_blank"; a.rel = "noopener"; return a; };
-        if (k === "zelle" && HANDLES.zelle_url && HANDLES.zelle_qr) {
-          box.className = "payp"; var im = mk("img"); im.src = HANDLES.zelle_qr; im.alt = "Zelle QR code"; im.width = 190; im.height = 190; box.appendChild(im);
-          var d = mk("div"), p1 = mk("p", "Send " + fmt(due) + " by Zelle to "); p1.appendChild(mk("strong", HANDLES.zelle || "Moses Agentic")); p1.appendChild(document.createTextNode("."));
-          d.appendChild(p1); d.appendChild(mk("p", "On a computer, scan this code with your bank app. On your phone, tap the button.")); d.appendChild(pay(HANDLES.zelle_url, "Pay " + fmt(due) + " with Zelle \u2192")); box.appendChild(d);
-        } else if (k === "cashapp" && HANDLES.cashapp) {
-          var cd = box; if (HANDLES.cashapp_qr) { box.className = "payp"; var ci = mk("img"); ci.src = HANDLES.cashapp_qr; ci.alt = "Cash App QR code"; ci.width = 190; ci.height = 190; box.appendChild(ci); cd = mk("div"); box.appendChild(cd); }
-          var c1 = mk("p", "Send " + fmt(due) + " on Cash App to "); c1.appendChild(mk("strong", HANDLES.cashapp)); c1.appendChild(document.createTextNode(".")); cd.appendChild(c1);
-          if (HANDLES.cashapp_qr) cd.appendChild(mk("p", "On a computer, scan this code with your phone. On your phone, tap the button."));
-          cd.appendChild(pay("https://cash.app/" + encodeURIComponent(HANDLES.cashapp).replace("%24", "$") + "/" + due, "Pay " + fmt(due) + " with Cash App \u2192"));
-        } else if (k === "venmo" && HANDLES.venmo) {
-          var vd = box; if (HANDLES.venmo_qr) { box.className = "payp"; var vi = mk("img"); vi.src = HANDLES.venmo_qr; vi.alt = "Venmo QR code"; vi.width = 190; vi.height = 190; box.appendChild(vi); vd = mk("div"); box.appendChild(vd); }
-          var v1 = mk("p", "Send " + fmt(due) + " on Venmo to "); v1.appendChild(mk("strong", HANDLES.venmo)); v1.appendChild(document.createTextNode(".")); vd.appendChild(v1);
-          if (HANDLES.venmo_qr) vd.appendChild(mk("p", "On a computer, scan this code with your phone. On your phone, tap the button."));
-          vd.appendChild(pay(HANDLES.venmo_url || "https://venmo.com/u/" + encodeURIComponent(HANDLES.venmo.replace(/^@/, "")), "Pay " + fmt(due) + " with Venmo \u2192"));
-        } else {
-          box.appendChild(mk("p", "We will email your " + PMN[k] + " payment details to " + v("em") + " today."));
-        }
-        $("#paynote").textContent = "Put \u201c" + v("biz") + "\u201d in the payment note so we can match it.";
-      }
-      $("#paylist").innerHTML = ""; ["zelle", "cashapp", "venmo"].forEach(function (k) { var b = mk("button", PMN[k]); b.type = "button"; b.dataset.k = k; b.setAttribute("role", "tab"); b.addEventListener("click", function () { showPay(k); }); $("#paylist").appendChild(b); });
-      showPay(pm);
+      var box = $("#paypanel"); box.innerHTML = ""; box.className = "payp one"; $("#paylist").innerHTML = "";
+      var lk = PAY[payKey];
+      if (lk) { var a = mk("a", "Pay " + fmt(due) + " securely with Stripe \u2192"); a.className = "go"; a.href = lk + (lk.indexOf("?") > -1 ? "&" : "?") + "prefilled_email=" + encodeURIComponent(v("em")); box.appendChild(a); }
+      else box.appendChild(mk("p", "We will email a secure Stripe payment link for your plan to " + v("em") + ". Pay by card, bank transfer (ACH), Apple Pay or Google Pay."));
+      $("#paynote").textContent = "";
       if (window.__copy) { $("#copyrow").hidden = false; $("#copynote").textContent = "We are also emailing a PDF copy to " + v("em") + "."; pdfReady().catch(function () {}); }
       scrollTo(0, 0); }
     function mailto() { location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n")); setTimeout(done, 600); }
-    var payKey = p.items.length === 1 ? ($(".svc:not(.off)").dataset.svc + ($(".svc:not(.off) input[type=radio]:checked") ? "-" + $(".svc:not(.off) input[type=radio]:checked").value : "")) : "";
+
     var after = function () { var l = PAY[payKey]; if (l && AGREEMENT === "final") location.href = l + (l.indexOf("?") > -1 ? "&" : "?") + "prefilled_email=" + encodeURIComponent(v("em")); else done(); };
     if (PREVIEW) { done(); return; }
     go.disabled = $("#go2").disabled = true;
@@ -536,7 +516,7 @@ html:not(.v2) .co-fx { display: none; }
       lines = lines.concat(["SIGNED ONLINE by " + v("nm") + (v("ti") ? ", " + v("ti") : "") + " for " + v("biz")].concat(v("ti") ? ["Title: " + v("ti")] : []).concat(["Initials: " + v("ini").toUpperCase() + " (one set, confirming the key terms shown at signing)"].concat($$("#kt li").map(function (li) { return "Key term shown: " + li.textContent.trim(); })).concat(["Terms and Conditions box: ticked", "Signed at: " + new Date().toISOString(), "Agreement version: " + VERSION, "Agreement text SHA-256: " + h, "Device: " + navigator.userAgent])));
       data.message = lines.join("\n"); data.kind = "subscription-signed";
       window.__copy = ["MOSES AGENTIC SUBSCRIPTION AGREEMENT: SIGNED COPY", ""].concat(lines.slice(1)).concat(["", "AGREEMENT TEXT (version " + VERSION + ")", "", (function () { var d = $(".agbox"), was = d.open; d.open = true; var tx = $(".agree").innerText; d.open = was; return tx.replace(/\n{3,}/g, "\n\n").trim(); })()]).join("\n");
-      data.agreement = window.__copy; data.pay_shown = pm === "zelle" ? !!(HANDLES.zelle_url && HANDLES.zelle_qr) : !!HANDLES[pm];
+      data.agreement = window.__copy; data.pay_shown = !!PAY[payKey];
       try { window.__signed = { record: data.message, doc: MosesAgreement.modelFromDom($(".agree")) }; data.agreement_doc = window.__signed.doc; } catch (x) { window.__signed = null; }
       fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).then(function (r) { if (!r.ok) throw 0; after(); }).catch(function () { go.disabled = $("#go2").disabled = false; err.textContent = "We could not record your signature. Please try again."; });
     }); return; }

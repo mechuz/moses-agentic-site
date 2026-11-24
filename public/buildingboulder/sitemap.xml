@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Project views are anchors (#project/<slug>) on the home page and are described in the page's structured data. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.buildingboulder.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://www.buildingboulder.com/assets/projects/34-16-38th-street/exterior-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.buildingboulder.com/assets/projects/27-16-21st-street/exterior-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.buildingboulder.com/assets/projects/3116-clarendon-road/exterior-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.buildingboulder.com/assets/projects/2913-snyder-avenue/exterior-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.buildingboulder.com/assets/projects/250-lenox-road/exterior-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.buildingboulder.com/assets/projects/633-east-230th-street/exterior-01.webp</image:loc></image:image>
+  </url>
+</urlset>

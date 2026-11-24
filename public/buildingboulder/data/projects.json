@@ -1,0 +1,887 @@
+{
+ "source": "New York City Department of Buildings records (new-building permits held by general contractor registration 0616195; final certificates of occupancy)",
+ "summary": {
+  "completed": 24,
+  "completed_apartments": 339,
+  "in_construction": 6,
+  "first_completed_year": 2017,
+  "first_permit_year": 2016,
+  "boroughs": [
+   "Bronx",
+   "Brooklyn",
+   "Queens"
+  ]
+ },
+ "representative_interior": [
+  {
+   "src": "assets/interiors/interior-01.webp",
+   "sm": "assets/interiors/interior-01-sm.webp",
+   "w": 2358,
+   "h": 1569,
+   "alt": "Representative interior: an empty new apartment with tall windows and wood floors",
+   "caption": "Representative interior \u00b7 not this building"
+  },
+  {
+   "src": "assets/interiors/interior-02.webp",
+   "sm": "assets/interiors/interior-02-sm.webp",
+   "w": 2282,
+   "h": 1622,
+   "alt": "Representative interior: a kitchen and dining room beside floor-to-ceiling windows",
+   "caption": "Representative interior \u00b7 not this building"
+  },
+  {
+   "src": "assets/interiors/interior-03.webp",
+   "sm": "assets/interiors/interior-03-sm.webp",
+   "w": 2388,
+   "h": 1549,
+   "alt": "Representative interior: a white kitchen with an island",
+   "caption": "Representative interior \u00b7 not this building"
+  },
+  {
+   "src": "assets/interiors/interior-04.webp",
+   "sm": "assets/interiors/interior-04-sm.webp",
+   "w": 2356,
+   "h": 1571,
+   "alt": "Representative interior: a new bathroom with a glass shower",
+   "caption": "Representative interior \u00b7 not this building"
+  },
+  {
+   "src": "assets/interiors/interior-05.webp",
+   "sm": "assets/interiors/interior-05-sm.webp",
+   "w": 2356,
+   "h": 1571,
+   "alt": "Representative interior: a bright hallway with an elevator and stair",
+   "caption": "Representative interior \u00b7 not this building"
+  },
+  {
+   "src": "assets/interiors/interior-06.webp",
+   "sm": "assets/interiors/interior-06-sm.webp",
+   "w": 2356,
+   "h": 1571,
+   "alt": "Representative interior: an empty apartment with a city view at dusk",
+   "caption": "Representative interior \u00b7 not this building"
+  }
+ ],
+ "projects": [
+  {
+   "slug": "102-east-53rd-street",
+   "address": "102 East 53rd Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Flatbush",
+   "stories": 7,
+   "apartments": 25,
+   "status": "completed",
+   "year": 2026,
+   "featured": true,
+   "lat": 40.65764,
+   "lng": -73.9284,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/102-east-53rd-street-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "102 East 53rd Street is a seven-story apartment building in East Flatbush, Brooklyn, with 25 apartments. Its final certificate of occupancy was issued in 2026.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "109-devoe-street",
+   "address": "109 Devoe Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Williamsburg",
+   "stories": 5,
+   "apartments": 8,
+   "status": "completed",
+   "year": 2026,
+   "featured": false,
+   "lat": 40.713767,
+   "lng": -73.946532,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/109-devoe-street-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "109 Devoe Street is a five-story apartment building in East Williamsburg, Brooklyn, with 8 apartments. Its final certificate of occupancy was issued in 2026.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "173-tompkins-avenue",
+   "address": "173 Tompkins Avenue",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Bedford-Stuyvesant",
+   "stories": 4,
+   "apartments": 8,
+   "status": "completed",
+   "year": 2026,
+   "featured": false,
+   "lat": 40.693341,
+   "lng": -73.945683,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/173-tompkins-avenue-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "173 Tompkins Avenue is a four-story apartment building in Bedford-Stuyvesant, Brooklyn, with 8 apartments. Its final certificate of occupancy was issued in 2026.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "74-palmetto-street",
+   "address": "74 Palmetto Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Bushwick",
+   "stories": 4,
+   "apartments": 8,
+   "status": "completed",
+   "year": 2026,
+   "featured": false,
+   "lat": 40.69114,
+   "lng": -73.91892,
+   "link": {
+    "source": "Zillow",
+    "url": "https://www.zillow.com/b/74-palmetto-st-brooklyn-ny-C6Zgsk"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "74 Palmetto Street is a four-story apartment building in Bushwick, Brooklyn, with 8 apartments. Its final certificate of occupancy was issued in 2026.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "948-bergen-street",
+   "address": "948 Bergen Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Crown Heights",
+   "stories": 6,
+   "apartments": 14,
+   "status": "completed",
+   "year": 2025,
+   "featured": false,
+   "lat": 40.67655,
+   "lng": -73.95567,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/948-bergen-street-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "948 Bergen Street is a six-story apartment building in Crown Heights, Brooklyn, with 14 apartments. Its final certificate of occupancy was issued in 2025.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "38-03-31st-street",
+   "address": "38-03 31st Street",
+   "name": null,
+   "borough": "Queens",
+   "neighborhood": "Long Island City (Dutch Kills)",
+   "stories": 5,
+   "apartments": 9,
+   "status": "completed",
+   "year": 2025,
+   "featured": false,
+   "lat": 40.75351,
+   "lng": -73.931942,
+   "link": {
+    "source": "Zillow",
+    "url": "https://www.zillow.com/b/38-03-31st-st-long-island-city-ny-CJG83D"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "38-03 31st Street is a five-story apartment building in Long Island City (Dutch Kills), Queens, with 9 apartments. Its final certificate of occupancy was issued in 2025.",
+    "Boulder Builders managed the build through to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "177-greenpoint-avenue",
+   "address": "177 Greenpoint Avenue",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Greenpoint",
+   "stories": 5,
+   "apartments": 8,
+   "status": "completed",
+   "year": 2025,
+   "featured": false,
+   "lat": 40.73057,
+   "lng": -73.95263,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/177-greenpoint-avenue-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "177 Greenpoint Avenue is a five-story apartment building in Greenpoint, Brooklyn, with 8 apartments. Its final certificate of occupancy was issued in 2025.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "633-east-230th-street",
+   "address": "633 East 230th Street",
+   "name": null,
+   "borough": "Bronx",
+   "neighborhood": "Wakefield",
+   "stories": 7,
+   "apartments": 25,
+   "status": "completed",
+   "year": 2024,
+   "featured": true,
+   "lat": 40.89229,
+   "lng": -73.86076,
+   "link": {
+    "source": "Zillow",
+    "url": "https://www.zillow.com/b/633-e-230th-st-bronx-ny-CnNyXJ/"
+   },
+   "exterior": [
+    {
+     "src": "assets/projects/633-east-230th-street/exterior-01.webp",
+     "sm": "assets/projects/633-east-230th-street/exterior-01-sm.webp",
+     "w": 1126,
+     "h": 1397,
+     "alt": "633 East 230th Street, Wakefield, the Bronx: a seven-story apartment building seen from the corner, with a red panel bay between cream and gray wings",
+     "caption": "633 East 230th Street"
+    },
+    {
+     "src": "assets/projects/633-east-230th-street/rendering-01.webp",
+     "sm": "assets/projects/633-east-230th-street/rendering-01-sm.webp",
+     "w": 999,
+     "h": 1398,
+     "alt": "Rendering of 633 East 230th Street, Wakefield, the Bronx: a seven-story apartment building with a salmon-colored bay and black balconies",
+     "caption": "Rendering",
+     "kind": "rendering"
+    }
+   ],
+   "interior": [],
+   "description": [
+    "633 East 230th Street is a seven-story apartment building in Wakefield, Bronx, with 25 apartments. Its final certificate of occupancy was issued in 2024.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner.",
+    "Seen from the corner, the finished building sets a red panel bay between cream and gray wings, with a railing around the roof. The architect's rendering is in the photos below."
+   ]
+  },
+  {
+   "slug": "25-63-36th-street",
+   "address": "25-63 36th Street",
+   "name": null,
+   "borough": "Queens",
+   "neighborhood": "Astoria",
+   "stories": 4,
+   "apartments": 7,
+   "status": "completed",
+   "year": 2024,
+   "featured": false,
+   "lat": 40.76749,
+   "lng": -73.91504,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/25_63-36-street-astoria"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "25-63 36th Street is a four-story apartment building in Astoria, Queens, with 7 apartments. Its final certificate of occupancy was issued in 2024.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "318-east-32nd-street",
+   "address": "318 East 32nd Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Flatbush",
+   "stories": 4,
+   "apartments": 6,
+   "status": "completed",
+   "year": 2024,
+   "featured": false,
+   "lat": 40.6428,
+   "lng": -73.94708,
+   "link": null,
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "318 East 32nd Street is a four-story apartment building in East Flatbush, Brooklyn, with 6 apartments. Its final certificate of occupancy was issued in 2024.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "322-east-32nd-street",
+   "address": "322 East 32nd Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Flatbush",
+   "stories": 4,
+   "apartments": 6,
+   "status": "completed",
+   "year": 2024,
+   "featured": false,
+   "lat": 40.64274,
+   "lng": -73.94707,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/322-east-32-street-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "322 East 32nd Street is a four-story apartment building in East Flatbush, Brooklyn, with 6 apartments. Its final certificate of occupancy was issued in 2024.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "27-16-21st-street",
+   "address": "27-16 21st Street",
+   "name": null,
+   "borough": "Queens",
+   "neighborhood": "Astoria",
+   "stories": 8,
+   "apartments": 49,
+   "status": "completed",
+   "year": 2023,
+   "featured": true,
+   "lat": 40.7719,
+   "lng": -73.92658,
+   "link": null,
+   "exterior": [
+    {
+     "src": "assets/projects/27-16-21st-street/exterior-01.webp",
+     "sm": "assets/projects/27-16-21st-street/exterior-01-sm.webp",
+     "w": 1174,
+     "h": 1138,
+     "alt": "27-16 21st Street, Astoria, Queens: an eight-story apartment building with a pale green center bay between dark gray wings",
+     "caption": "Street view",
+     "card_img": "assets/projects/27-16-21st-street/exterior-02-sm.webp",
+     "wide": {
+      "src": "assets/projects/27-16-21st-street/exterior-wide.webp",
+      "w": 1174,
+      "h": 660
+     }
+    },
+    {
+     "src": "assets/projects/27-16-21st-street/exterior-full.webp",
+     "sm": "assets/projects/27-16-21st-street/exterior-full-sm.webp",
+     "w": 1174,
+     "h": 1340,
+     "alt": "27-16 21st Street, Astoria, Queens: an eight-story apartment building with a pale green center bay between dark gray wings, with cars parked in front",
+     "caption": "Street view \u00b7 full frame"
+    },
+    {
+     "src": "assets/projects/27-16-21st-street/exterior-wide.webp",
+     "sm": "assets/projects/27-16-21st-street/exterior-wide-sm.webp",
+     "w": 1174,
+     "h": 660,
+     "alt": "27-16 21st Street, Astoria, Queens: an eight-story apartment building with a pale green center bay between dark gray wings (upper floors)",
+     "caption": "Street view \u00b7 upper floors"
+    }
+   ],
+   "interior": [],
+   "description": [
+    "27-16 21st Street is an eight-story apartment building in Astoria, Queens, with 49 apartments. Its final certificate of occupancy was issued in 2023.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner.",
+    "The street front sets a pale green center bay between dark gray wings, with rows of tall windows, small balconies and a glazed ground floor."
+   ]
+  },
+  {
+   "slug": "2913-snyder-avenue",
+   "address": "2913 Snyder Avenue",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Flatbush",
+   "stories": 6,
+   "apartments": 41,
+   "status": "completed",
+   "year": 2022,
+   "featured": true,
+   "lat": 40.64915,
+   "lng": -73.94976,
+   "link": null,
+   "exterior": [
+    {
+     "src": "assets/projects/2913-snyder-avenue/exterior-01.webp",
+     "sm": "assets/projects/2913-snyder-avenue/exterior-01-sm.webp",
+     "w": 1119,
+     "h": 1405,
+     "alt": "2913 Snyder Avenue, Brooklyn: a six-story apartment building with a light panel facade and dark window bays",
+     "caption": "2913 Snyder Avenue",
+     "photo_building_confirmed": false
+    }
+   ],
+   "interior": [],
+   "description": [
+    "2913 Snyder Avenue is a six-story apartment building in East Flatbush, Brooklyn, with 41 apartments. Its final certificate of occupancy was issued in 2022.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "3116-clarendon-road",
+   "address": "3116 Clarendon Road",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Flatbush",
+   "stories": 7,
+   "apartments": 22,
+   "status": "completed",
+   "year": 2022,
+   "featured": true,
+   "lat": 40.643009,
+   "lng": -73.947205,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/3116-clarendon-road-brooklyn"
+   },
+   "exterior": [
+    {
+     "src": "assets/projects/3116-clarendon-road/exterior-01.webp",
+     "sm": "assets/projects/3116-clarendon-road/exterior-01-sm.webp",
+     "w": 960,
+     "h": 960,
+     "alt": "3116 Clarendon Road, Brooklyn: a dark apartment building with stacked balconies and a roof terrace, seen from above",
+     "caption": "Photo courtesy of the developer",
+     "card_img": "assets/projects/3116-clarendon-road/exterior-02-sm.webp"
+    }
+   ],
+   "interior": [],
+   "description": [
+    "3116 Clarendon Road is a seven-story apartment building in East Flatbush, Brooklyn, with 22 apartments. Its final certificate of occupancy was issued in 2022.",
+    "Boulder Builders managed the build through to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner.",
+    "A dark facade with stacked balconies rises above the neighboring houses, with a terrace and an open stair at the roof."
+   ]
+  },
+  {
+   "slug": "730-east-32nd-street",
+   "address": "730 East 32nd Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Flatbush",
+   "stories": 7,
+   "apartments": 16,
+   "status": "completed",
+   "year": 2021,
+   "featured": false,
+   "lat": 40.633209,
+   "lng": -73.946023,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/730-east-32-street-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "730 East 32nd Street is a seven-story apartment building in Flatbush, Brooklyn, with 16 apartments. Its final certificate of occupancy was issued in 2021.",
+    "Boulder Builders managed the build through to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "37-wilson-avenue",
+   "address": "37 Wilson Avenue",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Bushwick",
+   "stories": 4,
+   "apartments": 8,
+   "status": "completed",
+   "year": 2021,
+   "featured": false,
+   "lat": 40.702958,
+   "lng": -73.929297,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/37-wilson-avenue-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "37 Wilson Avenue is a four-story apartment building in Bushwick, Brooklyn, with 8 apartments. Its final certificate of occupancy was issued in 2021.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "250-lenox-road",
+   "address": "250 Lenox Road",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Flatbush / Prospect Lefferts Gardens",
+   "stories": 7,
+   "apartments": 24,
+   "status": "completed",
+   "year": 2020,
+   "featured": true,
+   "lat": 40.653795,
+   "lng": -73.951139,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/250-lenox-road-brooklyn"
+   },
+   "exterior": [
+    {
+     "src": "assets/projects/250-lenox-road/exterior-01.webp",
+     "sm": "assets/projects/250-lenox-road/exterior-01-sm.webp",
+     "w": 1118,
+     "h": 1407,
+     "alt": "Rendering of 250 Lenox Road, Brooklyn: a seven-story brick apartment building with two columns of black balconies, an entrance and a garage",
+     "caption": "Rendering",
+     "kind": "rendering"
+    }
+   ],
+   "interior": [],
+   "description": [
+    "250 Lenox Road is a seven-story apartment building in East Flatbush, Brooklyn, with 24 apartments. Its final certificate of occupancy was issued in 2020.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner.",
+    "The architect's rendering shows a brick front in two tones with two columns of black balconies, and the entrance beside a garage at street level."
+   ]
+  },
+  {
+   "slug": "217-boerum-street",
+   "address": "217 Boerum Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Williamsburg",
+   "stories": 4,
+   "apartments": 10,
+   "status": "completed",
+   "year": 2020,
+   "featured": false,
+   "lat": 40.706414,
+   "lng": -73.939177,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/217-boerum-street-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "217 Boerum Street is a four-story apartment building in East Williamsburg, Brooklyn, with 10 apartments. Its final certificate of occupancy was issued in 2020.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "741-fenimore-street",
+   "address": "741 Fenimore Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Prospect Lefferts Gardens",
+   "stories": 4,
+   "apartments": 7,
+   "status": "completed",
+   "year": 2020,
+   "featured": false,
+   "lat": 40.659671,
+   "lng": -73.93788,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/741-fenimore-street-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "741 Fenimore Street is a four-story apartment building in Prospect Lefferts Gardens, Brooklyn, with 7 apartments. Its final certificate of occupancy was issued in 2020.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "739-fenimore-street",
+   "address": "739 Fenimore Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Prospect Lefferts Gardens",
+   "stories": 4,
+   "apartments": 6,
+   "status": "completed",
+   "year": 2020,
+   "featured": false,
+   "lat": 40.659666,
+   "lng": -73.93795,
+   "link": {
+    "source": "CityRealty",
+    "url": "https://www.cityrealty.com/nyc/east-flatbush/739-fenimore-street/181612"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "739 Fenimore Street is a four-story apartment building in Prospect Lefferts Gardens, Brooklyn, with 6 apartments. Its final certificate of occupancy was issued in 2020.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "1603-new-york-avenue",
+   "address": "1603 New York Avenue",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Flatbush",
+   "stories": 4,
+   "apartments": 8,
+   "status": "completed",
+   "year": 2018,
+   "featured": false,
+   "lat": 40.633551,
+   "lng": -73.944537,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/1603-new-york-avenue-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "1603 New York Avenue is a four-story apartment building in East Flatbush, Brooklyn, with 8 apartments. Its final certificate of occupancy was issued in 2018.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "1605-new-york-avenue",
+   "address": "1605 New York Avenue",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Flatbush",
+   "stories": 4,
+   "apartments": 8,
+   "status": "completed",
+   "year": 2018,
+   "featured": false,
+   "lat": 40.633498,
+   "lng": -73.944531,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/1605-new-york-avenue-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "1605 New York Avenue is a four-story apartment building in East Flatbush, Brooklyn, with 8 apartments. Its final certificate of occupancy was issued in 2018.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "664-rutland-road",
+   "address": "664 Rutland Road",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Prospect Lefferts Gardens",
+   "stories": 4,
+   "apartments": 8,
+   "status": "completed",
+   "year": 2017,
+   "featured": false,
+   "lat": 40.659945,
+   "lng": -73.938652,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/664-rutland-road-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "664 Rutland Road is a four-story apartment building in Prospect Lefferts Gardens, Brooklyn, with 8 apartments. Its final certificate of occupancy was issued in 2017.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "668-rutland-road",
+   "address": "668 Rutland Road",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Prospect Lefferts Gardens",
+   "stories": 4,
+   "apartments": 8,
+   "status": "completed",
+   "year": 2017,
+   "featured": false,
+   "lat": 40.659949,
+   "lng": -73.938563,
+   "link": {
+    "source": "StreetEasy",
+    "url": "https://streeteasy.com/building/668-rutland-road-brooklyn"
+   },
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "668 Rutland Road is a four-story apartment building in Prospect Lefferts Gardens, Brooklyn, with 8 apartments. Its final certificate of occupancy was issued in 2017.",
+    "Boulder Builders managed the build from the new-building permits to the final certificate of occupancy, working on the owner's side: the trades bid out and the numbers brought to the owner."
+   ]
+  },
+  {
+   "slug": "34-16-38th-street",
+   "address": "34-16 38th Street",
+   "name": null,
+   "borough": "Queens",
+   "neighborhood": "Astoria / Long Island City",
+   "stories": 9,
+   "apartments": 89,
+   "status": "in-construction",
+   "year": null,
+   "featured": true,
+   "lat": 40.75669,
+   "lng": -73.92229,
+   "link": null,
+   "exterior": [
+    {
+     "src": "assets/projects/34-16-38th-street/exterior-01.webp",
+     "sm": "assets/projects/34-16-38th-street/exterior-01-sm.webp",
+     "w": 1380,
+     "h": 890,
+     "alt": "34-16 38th Street, Astoria, Queens: a nine-story brick and dark-metal apartment building seen from above, with the Manhattan skyline beyond",
+     "caption": "Aerial view",
+     "wide": {
+      "src": "assets/projects/34-16-38th-street/exterior-wide.webp",
+      "w": 1380,
+      "h": 776
+     }
+    },
+    {
+     "src": "assets/projects/34-16-38th-street/exterior-wide.webp",
+     "sm": "assets/projects/34-16-38th-street/exterior-wide-sm.webp",
+     "w": 1380,
+     "h": 776,
+     "alt": "34-16 38th Street, Astoria, Queens: a nine-story brick and dark-metal apartment building seen from above, with the Manhattan skyline beyond (upper floors)",
+     "caption": "Aerial view \u00b7 upper floors"
+    }
+   ],
+   "interior": [],
+   "description": [
+    "34-16 38th Street is a nine-story apartment building with 89 apartments in Astoria, Queens. It is in construction now.",
+    "City records show Boulder Builders as general contractor on the new-building permits. A temporary certificate of occupancy has been issued; the final certificate is still to come.",
+    "Seen from above, the building pairs warm brick with dark metal panels, steps back at the upper floors and carries terraces at the top. The aerial looks west across Astoria to the Manhattan skyline."
+   ]
+  },
+  {
+   "slug": "161-veronica-place",
+   "address": "161 Veronica Place",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "East Flatbush",
+   "stories": 7,
+   "apartments": 46,
+   "status": "in-construction",
+   "year": null,
+   "featured": true,
+   "lat": 40.64621,
+   "lng": -73.95243,
+   "link": null,
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "161 Veronica Place is a seven-story apartment building with 46 apartments in East Flatbush, Brooklyn. It is in construction now.",
+    "City records show Boulder Builders as general contractor on the new-building permits."
+   ]
+  },
+  {
+   "slug": "23-42-31st-drive",
+   "address": "23-42 31st Drive",
+   "name": null,
+   "borough": "Queens",
+   "neighborhood": "Astoria",
+   "stories": 5,
+   "apartments": 22,
+   "status": "in-construction",
+   "year": null,
+   "featured": true,
+   "lat": 40.76444,
+   "lng": -73.92861,
+   "link": null,
+   "exterior": [
+    {
+     "src": "assets/projects/23-42-31st-drive/exterior-01.webp",
+     "sm": "assets/projects/23-42-31st-drive/exterior-01-sm.webp",
+     "w": 1536,
+     "h": 1024,
+     "alt": "23-42 31st Drive, Astoria, Queens: a five-story brick apartment building around a glazed center with glass balconies, in construction",
+     "caption": "In construction"
+    }
+   ],
+   "interior": [],
+   "description": [
+    "23-42 31st Drive is a five-story apartment building with 22 apartments in Astoria, Queens. It is in construction now.",
+    "City records show Boulder Builders as general contractor on the new-building permits.",
+    "The photo shows a brick facade around a glazed center with glass balconies. The building is still in construction."
+   ]
+  },
+  {
+   "slug": "195-east-163rd-street",
+   "address": "195 East 163rd Street",
+   "name": null,
+   "borough": "Bronx",
+   "neighborhood": "Concourse",
+   "stories": 6,
+   "apartments": 18,
+   "status": "in-construction",
+   "year": null,
+   "featured": false,
+   "lat": 40.82828,
+   "lng": -73.92035,
+   "link": null,
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "195 East 163rd Street is a six-story apartment building with 18 apartments in Concourse, Bronx. It is in construction now.",
+    "City records show Boulder Builders as general contractor on the new-building permits. A temporary certificate of occupancy has been issued; the final certificate is still to come."
+   ]
+  },
+  {
+   "slug": "55-bartlett-street",
+   "address": "55 Bartlett Street",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Williamsburg",
+   "stories": 6,
+   "apartments": 12,
+   "status": "in-construction",
+   "year": null,
+   "featured": false,
+   "lat": 40.70144,
+   "lng": -73.94645,
+   "link": null,
+   "exterior": [],
+   "interior": [],
+   "description": [
+    "55 Bartlett Street is a six-story apartment building with 12 apartments in Williamsburg, Brooklyn. It is in construction now.",
+    "City records show Boulder Builders as general contractor on the new-building permits."
+   ]
+  },
+  {
+   "slug": "656-myrtle-avenue",
+   "address": "656 Myrtle Avenue",
+   "name": null,
+   "borough": "Brooklyn",
+   "neighborhood": "Bedford-Stuyvesant",
+   "stories": 4,
+   "apartments": 2,
+   "status": "in-construction",
+   "year": null,
+   "featured": false,
+   "lat": 40.69421,
+   "lng": -73.95764,
+   "link": null,
+   "exterior": [
+    {
+     "src": "assets/projects/656-myrtle-avenue/exterior-01.webp",
+     "sm": "assets/projects/656-myrtle-avenue/exterior-01-sm.webp",
+     "w": 725,
+     "h": 2170,
+     "alt": "Rendering of 656 Myrtle Avenue, Brooklyn: a narrow pale brick facade with an arched entry, iron balconies and wall lanterns",
+     "caption": "Rendering",
+     "kind": "rendering"
+    }
+   ],
+   "interior": [],
+   "description": [
+    "656 Myrtle Avenue is a four-story apartment building with 2 apartments in Bedford-Stuyvesant, Brooklyn. It is in construction now.",
+    "City records show Boulder Builders as general contractor on the new-building permits.",
+    "The architect's rendering shows a narrow pale brick front with an arched entry, iron balconies and wall lanterns."
+   ]
+  }
+ ]
+}

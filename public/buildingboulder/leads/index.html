@@ -132,8 +132,8 @@ footer{margin-top:28px;font-size:12.5px;color:var(--muted);max-width:80ch}
     <h2>Sign in</h2>
     <p>The lead book is private to the Boulder Builders team. Sign in with the username and password you were given.</p>
     <div class="gate-row">
-      <input type="text" id="user" placeholder="Username" aria-label="Username" autocapitalize="off" autocomplete="username" spellcheck="false">
-      <input type="password" id="code" placeholder="Password" aria-label="Password" autocomplete="current-password">
+      <input type="text" id="user" placeholder="Username" aria-label="Username" autocapitalize="off" autocorrect="off" autocomplete="username" spellcheck="false">
+      <input type="text" id="code" placeholder="Password (four words with dashes)" aria-label="Password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
       <button type="submit" id="unlock">Sign in</button>
     </div>
     <p class="gate-msg" id="gate-msg" role="status"></p>
@@ -253,7 +253,8 @@ ORDER.forEach(t=>{const o=document.createElement("option");o.value=t;o.textConte
 const USE={"Referral partner":"rp","Avoid":"av","Owner-builder":"ob","Competitor":""};
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 let ENC=null;
-const encReady=fetch("book.enc.json").then(r=>r.json()).then(j=>ENC=j);
+const encReady=fetch("book.enc.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(j=>ENC=j);
+const clean=s=>s.normalize("NFKC").toLowerCase().replace(/[‐-―−_.]/g,"-").replace(/["'‘’“”]/g,"").trim().replace(/\s+/g,"-").replace(/-+/g,"-").replace(/^-|-$/g,"");
 const hex=buf=>[...new Uint8Array(buf)].map(x=>x.toString(16).padStart(2,"0")).join("");
 async function unlock(user,code){
   await encReady;
@@ -284,7 +285,7 @@ function start(d){
 document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&["p","s","a"].includes(e.key.toLowerCase())&&!$("#app").hidden&&!e.target.closest("input"))e.preventDefault()});
 $("#gate").addEventListener("submit",async e=>{
   e.preventDefault();
-  const user=$("#user").value.trim().toLowerCase(),code=$("#code").value.trim().toLowerCase(),m=$("#gate-msg");
+  const user=clean($("#user").value),code=clean($("#code").value),m=$("#gate-msg");
   if(!user||!code){m.textContent="Enter your username and password.";m.className="gate-msg err";return}
   m.textContent="Signing in…";m.className="gate-msg";$("#unlock").disabled=true;
   try{const d=await unlock(user,code);try{sessionStorage.setItem("lb-auth",JSON.stringify([user,code]))}catch(_){}start(d)}

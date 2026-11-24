@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /buildingboulder/leads/
 Allow: /
 
 Sitemap: https://mosesagentic.com/sitemap.xml

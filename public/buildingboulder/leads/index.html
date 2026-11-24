@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Boulder Builders Lead Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working ledger — summary strip, filter bar, then one dense row per lead that opens into a site card. */
+:root{
+  --bg:#F3F4F1; --panel:#FFFFFF; --fg:#1B2024; --muted:#5D666D; --line:#D9DDD8;
+  --accent:#1F5AA6; --accent-soft:#E3ECF8; --hi:#E9B10A; --hi-soft:#FBF1CF;
+  --good:#2E7D4F; --warn:#B26A00; --bad:#B23A2E; --chip:#ECEEEA;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#13171A; --panel:#1B2025; --fg:#E7EAEC; --muted:#9AA4AB; --line:#2E363C;
+  --accent:#7FB0F0; --accent-soft:#1F2E42; --hi:#F2C94C; --hi-soft:#3A3115;
+  --good:#6CC793; --warn:#E6A445; --bad:#EF7E70; --chip:#252C31; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#13171A; --panel:#1B2025; --fg:#E7EAEC; --muted:#9AA4AB; --line:#2E363C;
+  --accent:#7FB0F0; --accent-soft:#1F2E42; --hi:#F2C94C; --hi-soft:#3A3115;
+  --good:#6CC793; --warn:#E6A445; --bad:#EF7E70; --chip:#252C31; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:1180px;margin:0 auto}
+header.top{padding-block:28px 18px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;border-bottom:3px solid var(--fg)}
+h1{font:800 clamp(28px,4.4vw,44px)/1.02 var(--display);letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1 span{color:var(--accent)}
+.sub{color:var(--muted);margin:6px 0 0;max-width:62ch}
+.stamp{font:500 12px/1.4 var(--mono);color:var(--muted);text-align:right}
+.stamp b{color:var(--fg);font-weight:500}
+.tabs{display:flex;gap:4px;margin-top:18px}
+.tab{font:600 14px var(--body);padding:9px 16px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:6px 6px 0 0;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tab:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;cursor:pointer;text-align:left;color:var(--fg);font:inherit}
+.stat[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.stat .n{font:700 26px/1 var(--display);font-variant-numeric:tabular-nums}
+.stat .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.bar input[type=search]{flex:1 1 220px;min-width:0;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+.bar select{font:inherit;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);max-width:100%}
+.bar label.chk{display:flex;gap:6px;align-items:center;font-size:14px;white-space:nowrap}
+.count{font:500 13px var(--mono);color:var(--muted);margin:12px 2px 8px}
+.list{display:flex;flex-direction:column;gap:6px}
+.row{background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.row>button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:34px minmax(0,2.3fr) minmax(0,1.6fr) minmax(0,1.3fr) 84px;gap:12px;align-items:center;padding:11px 14px}
+.row>button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:8px}
+.prio{font:700 13px var(--display);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line);color:var(--muted)}
+.prio.A{background:var(--hi);border-color:var(--hi);color:#1B2024}
+.prio.B{border-color:var(--accent);color:var(--accent)}
+.who{min-width:0}
+.who b{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.who small,.site small{color:var(--muted);font-size:12.5px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site{min-width:0}
+.site span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pill{display:inline-block;font:600 11.5px/1 var(--body);padding:5px 8px;border-radius:999px;background:var(--chip);color:var(--fg);white-space:nowrap}
+.pill.t-sale{background:#F6D9D4;color:#7A2418}.pill.t-plan{background:var(--hi-soft);color:var(--fg)}.pill.t-build{background:var(--accent-soft);color:var(--fg)}.pill.t-acq{background:#D9EEDF;color:#1D5634}.pill.t-site{background:var(--chip)}
+:root[data-theme="dark"] .pill.t-sale{background:#43231F;color:#F3B7AD}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pill.t-sale{background:#43231F;color:#F3B7AD}:root:not([data-theme="light"]) .pill.t-acq{background:#1C3A28;color:#A6E2BE}}
+:root[data-theme="dark"] .pill.t-acq{background:#1C3A28;color:#A6E2BE}
+.contact{font:500 12.5px var(--mono);text-align:right;color:var(--good)}
+.contact.none{color:var(--muted)}
+.detail{border-top:1px dashed var(--line);padding:14px 14px 16px 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 24px}
+.detail h4{font:700 11px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.detail p{margin:0;font-size:14px;overflow-wrap:anywhere}
+.detail .wide{grid-column:1/-1}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:14px}
+.kv dt{color:var(--muted)}.kv dd{margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.mono{font-family:var(--mono);font-size:13px}
+.copy{font:500 12px var(--body);border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:5px;padding:2px 7px;cursor:pointer;margin-left:6px}
+.flags{display:flex;flex-wrap:wrap;gap:6px}
+.flag{font-size:12px;padding:3px 8px;border-radius:5px;background:var(--chip)}
+.flag.bad{background:#F6D9D4;color:#7A2418}
+pre.proj{white-space:pre-wrap;margin:0;font:13px/1.55 var(--mono);color:var(--fg)}
+a{color:var(--accent)}
+.more{margin:14px auto 0;display:block;font:600 14px var(--body);padding:10px 18px;border-radius:6px;border:1px solid var(--fg);background:var(--fg);color:var(--bg);cursor:pointer}
+.empty{padding:28px;text-align:center;color:var(--muted);background:var(--panel);border:1px dashed var(--line);border-radius:8px}
+.partners{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:14px}
+.pcard{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pcard h3{font:700 16px/1.2 var(--display);margin:0}
+.pcard .meta{font-size:13px;color:var(--muted)}
+.pcard .nums{font:500 13px var(--mono)}
+.use{align-self:flex-start}
+.use.rp{background:#D9EEDF;color:#1D5634}.use.av{background:#F6D9D4;color:#7A2418}.use.ob{background:var(--hi-soft);color:var(--fg)}
+:root[data-theme="dark"] .use.rp{background:#1C3A28;color:#A6E2BE}:root[data-theme="dark"] .use.av{background:#43231F;color:#F3B7AD}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .use.rp{background:#1C3A28;color:#A6E2BE}:root:not([data-theme="light"]) .use.av{background:#43231F;color:#F3B7AD}:root:not([data-theme="light"]) .flag.bad{background:#43231F;color:#F3B7AD}}
+.gate{margin:28px 0 8px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px;max-width:560px}
+.gate h2{font:700 22px/1.2 var(--display);margin:0 0 6px}
+.gate p{margin:0 0 12px;color:var(--muted)}
+.gate-row{display:flex;flex-wrap:wrap;gap:8px}
+.gate-row input{flex:1 1 220px;min-width:0;font:500 16px var(--mono);padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+.gate-row button{font:600 15px var(--body);padding:10px 16px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--panel);cursor:pointer}
+.gate-msg{min-height:1.4em;margin:10px 0 0!important}
+.gate-msg.err{color:var(--bad)!important}
+footer{margin-top:28px;font-size:12.5px;color:var(--muted);max-width:80ch}
+@media (max-width:760px){
+  .row>button{grid-template-columns:32px minmax(0,1fr);row-gap:6px}
+  .row>button .site,.row>button .typecol,.row>button .contact{grid-column:2;text-align:left}
+  .detail{padding-left:14px}
+  .stamp{text-align:left}
+}
+@media (prefers-reduced-motion:no-preference){.row{transition:border-color .15s}.row:hover{border-color:var(--accent)}}
+</style>
+
+<style>html,body{margin:0}body{font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Boulder Builders <span>Lead Book</span></h1>
+      <p class="sub">Brooklyn and Manhattan development opportunities on R6+ zoning, sized to the buildings Boulder already delivers: 15,000–75,000 sq ft, 20–90 units.</p>
+    </div>
+    <div class="stamp">Built <b>Nov 24, 2026</b><br>Sources: NYC DOB filings &amp; permits,<br>PLUTO zoning, ACRIS deeds, broker listings</div>
+  </header>
+
+  <form class="gate" id="gate" autocomplete="off">
+    <h2>Sign in</h2>
+    <p>The lead book is private to the Boulder Builders team. Sign in with the username and password you were given.</p>
+    <div class="gate-row">
+      <input type="text" id="user" placeholder="Username" aria-label="Username" autocapitalize="off" autocomplete="username" spellcheck="false">
+      <input type="password" id="code" placeholder="Password" aria-label="Password" autocomplete="current-password">
+      <button type="submit" id="unlock">Sign in</button>
+    </div>
+    <p class="gate-msg" id="gate-msg" role="status"></p>
+  </form>
+
+  <div id="app" hidden>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-leads" aria-selected="true">Leads</button>
+    <button class="tab" role="tab" id="tab-partners" aria-selected="false">Referral partners</button>
+  </div>
+
+  <section id="view-leads">
+    <div class="strip" id="strip"></div>
+    <div class="bar">
+      <input type="search" id="q" placeholder="Search name, company, address, neighborhood…" aria-label="Search leads">
+      <select id="f-type" aria-label="Lead type"><option value="">All lead types</option></select>
+      <select id="f-prio" aria-label="Priority"><option value="">All priorities</option><option>A</option><option>B</option><option>C</option></select>
+      <select id="f-boro" aria-label="Borough"><option value="">Both boroughs</option><option>Brooklyn</option><option>Manhattan</option></select>
+      <label class="chk"><input type="checkbox" id="f-contact"> Has phone or email</label>
+    </div>
+    <div class="count" id="count">Loading leads…</div>
+    <div class="list" id="list"></div>
+    <button class="more" id="more" hidden>Show 50 more</button>
+  </section>
+
+  <section id="view-partners" hidden>
+    <p class="sub" style="margin-top:16px">Architects, engineers and demolition firms that file permits for many of the developers in this book. One relationship reaches several owners. Firms marked <b>Avoid</b> have recent enforcement problems; <b>Competitor</b> firms are other CMs and GCs.</p>
+    <div class="partners" id="partners"></div>
+  </section>
+  </div>
+
+  <footer>Contacts are published business contacts (broker pages, company sites, the NYC DOB license registry). Buildable square footage is an estimate using City of Yes UAP floor area and needs an architect's check. Confirm owner identity before pitching on rows noted "low match".</footer>
+</div>
+
+<script>
+const TYPES={"Listed for sale":"t-sale","Active developer - planning":"t-plan","Active developer - building":"t-build","Recent acquisition":"t-acq","Underbuilt R6+ site":"t-site"};
+const ORDER=Object.keys(TYPES);
+let LEADS=[],shown=50,typeFilter="";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=n=>n?Number(n).toLocaleString("en-US"):"";
+const money=n=>n?"$"+Number(n).toLocaleString("en-US"):"";
+function copyBtn(v){return `<button class="copy" data-copy="${esc(v)}">Copy</button>`}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-copy]");if(!b)return;e.stopPropagation();
+  const v=b.dataset.copy;
+  (navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1200)}).catch(()=>{const r=document.createRange();const t=b.previousSibling;if(t){r.selectNodeContents(t.parentNode);getSelection().removeAllRanges();getSelection().addRange(r)}});
+});
+function stats(){
+  const s=$("#strip");
+  const c=t=>LEADS.filter(l=>!t||l.type===t).length;
+  const items=[["",LEADS.length,"All leads"],...ORDER.map(t=>[t,c(t),t.replace("Active developer - ","Developers: ")])];
+  s.innerHTML=items.map(([t,n,l])=>`<button class="stat" data-type="${esc(t)}" aria-pressed="${t===typeFilter}"><div class="n">${n}</div><div class="l">${esc(l)}</div></button>`).join("")+
+   `<div class="stat" style="cursor:default"><div class="n">${LEADS.filter(l=>l.phone||l.email).length}</div><div class="l">With phone or email</div></div>`;
+  s.querySelectorAll("button.stat").forEach(b=>b.onclick=()=>{typeFilter=b.dataset.type;$("#f-type").value=typeFilter;shown=50;render()});
+}
+function rowHTML(l){
+  const contact=l.phone||l.email;
+  const kv=[["Owner / entity",l.owner],["Mailing address",l.mail],["Zoning",l.zoning],["Lot",l.lot&&fmt(l.lot)+" sq ft"],["Est. buildable",l.bsf&&fmt(l.bsf)+" sq ft"],["Projects in pipeline",l.nproj],["Status",l.status],["Last sale",[l.sdate,money(l.sprice)].filter(Boolean).join(" · ")],["Asking",l.ask],["Broker",l.broker],["Architect / engineer",l.arch]].filter(x=>x[1]);
+  return `<div class="row" data-id="${l.id}">
+  <button aria-expanded="false">
+    <span class="prio ${l.prio}" title="Priority ${l.prio}">${l.prio}</span>
+    <span class="who"><b>${esc(l.lead)}</b><small>${esc(l.person||l.owner||"")}</small></span>
+    <span class="site"><span>${esc(l.addr||"")}</span><small>${esc([l.nbhd,l.boro].filter(Boolean).join(" · "))}</small></span>
+    <span class="typecol"><span class="pill ${TYPES[l.type]||""}">${esc(l.type.replace("Active developer - ","Developer: "))}</span></span>
+    <span class="contact ${contact?"":"none"}">${contact?(l.phone?"☎ phone":"✉ email"):"no contact"}</span>
+  </button>
+  <div class="detail" hidden>
+    <div><h4>Contact</h4>
+      <p>${esc(l.person||"—")}</p>
+      ${l.phone?`<p class="mono"><span>${esc(l.phone)}</span>${copyBtn(l.phone)}</p>`:""}
+      ${l.email?`<p class="mono"><span>${esc(l.email)}</span>${copyBtn(l.email)}</p>`:""}
+      ${!contact?`<p style="color:var(--muted)">No published phone or email. Use the mailing address.</p>`:""}
+    </div>
+    <div><h4>Site</h4><dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl></div>
+    ${l.why?`<div><h4>Why this lead</h4><p>${esc(l.why)}</p></div>`:""}
+    ${l.next?`<div><h4>Next step</h4><p>${esc(l.next)}</p></div>`:""}
+    ${l.plist?`<div class="wide"><h4>Projects on file</h4><pre class="proj">${esc(l.plist)}</pre></div>`:""}
+    ${l.notes?`<div class="wide"><h4>Research notes</h4><p>${esc(l.notes)}</p></div>`:""}
+    <div class="wide flags">${(l.flags||[]).map(f=>`<span class="flag ${/competitor|Historic/i.test(f)?"bad":""}">${esc(f)}</span>`).join("")}
+      ${l.zola?`<a href="${l.zola}" target="_blank" rel="noopener">Zoning map ↗</a>`:""}${l.url?` <a href="${esc(l.url)}" target="_blank" rel="noopener">Listing ↗</a>`:""}</div>
+  </div></div>`;
+}
+function filtered(){
+  const q=$("#q").value.trim().toLowerCase(),p=$("#f-prio").value,b=$("#f-boro").value,c=$("#f-contact").checked;
+  return LEADS.filter(l=>(!typeFilter||l.type===typeFilter)&&(!p||l.prio===p)&&(!b||l.boro===b)&&(!c||l.phone||l.email)&&
+    (!q||[l.lead,l.person,l.owner,l.addr,l.nbhd,l.broker,l.arch].join(" ").toLowerCase().includes(q)));
+}
+function render(){
+  const f=filtered();
+  $("#count").textContent=`${f.length.toLocaleString()} of ${LEADS.length.toLocaleString()} leads · sorted by priority score`;
+  $("#list").innerHTML=f.length?f.slice(0,shown).map(rowHTML).join(""):`<div class="empty">No leads match these filters. Clear the search or pick another type.</div>`;
+  $("#more").hidden=f.length<=shown;
+  $("#more").textContent=`Show ${Math.min(50,f.length-shown)} more`;
+  document.querySelectorAll("#strip button.stat").forEach(x=>x.setAttribute("aria-pressed",x.dataset.type===typeFilter));
+}
+$("#list").addEventListener("click",e=>{
+  const btn=e.target.closest(".row>button");if(!btn)return;
+  const d=btn.nextElementSibling;d.hidden=!d.hidden;btn.setAttribute("aria-expanded",!d.hidden);
+});
+["#q","#f-prio","#f-boro","#f-contact"].forEach(s=>$(s).addEventListener("input",()=>{shown=50;render()}));
+$("#f-type").addEventListener("input",e=>{typeFilter=e.target.value;shown=50;render()});
+$("#more").onclick=()=>{shown+=50;render()};
+function tab(which){
+  const leads=which==="leads";
+  $("#view-leads").hidden=!leads;$("#view-partners").hidden=leads;
+  $("#tab-leads").setAttribute("aria-selected",leads);$("#tab-partners").setAttribute("aria-selected",!leads);
+}
+$("#tab-leads").onclick=()=>{tab("leads");history.replaceState(null,"","#leads")};
+$("#tab-partners").onclick=()=>{tab("partners");history.replaceState(null,"","#partners")};
+window.addEventListener("hashchange",()=>tab(location.hash==="#partners"?"partners":"leads"));
+tab(location.hash==="#partners"?"partners":"leads");
+ORDER.forEach(t=>{const o=document.createElement("option");o.value=t;o.textContent=t;$("#f-type").appendChild(o)});
+
+const USE={"Referral partner":"rp","Avoid":"av","Owner-builder":"ob","Competitor":""};
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+let ENC=null;
+const encReady=fetch("book.enc.json").then(r=>r.json()).then(j=>ENC=j);
+const hex=buf=>[...new Uint8Array(buf)].map(x=>x.toString(16).padStart(2,"0")).join("");
+async function unlock(user,code){
+  await encReady;
+  const id=hex(await crypto.subtle.digest("SHA-256",new TextEncoder().encode("boulder-leads:"+user)));
+  const slot=ENC.users[id];if(!slot)throw new Error("no user");
+  const base=await crypto.subtle.importKey("raw",new TextEncoder().encode(user+":"+code),"PBKDF2",false,["deriveKey"]);
+  const kek=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b64(slot.salt),iterations:ENC.it,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["decrypt"]);
+  const raw=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64(slot.iv)},kek,b64(slot.key));
+  const dek=await crypto.subtle.importKey("raw",raw,"AES-GCM",false,["decrypt"]);
+  const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64(ENC.iv)},dek,b64(ENC.ct));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+function start(d){
+  $("#gate").hidden=true;$("#app").hidden=false;
+  LEADS=d.leads.sort((a,b)=>b.score-a.score);stats();render();partners(d.partners);
+}
+$("#gate").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const user=$("#user").value.trim().toLowerCase(),code=$("#code").value.trim().toLowerCase(),m=$("#gate-msg");
+  if(!user||!code){m.textContent="Enter your username and password.";m.className="gate-msg err";return}
+  m.textContent="Signing in…";m.className="gate-msg";$("#unlock").disabled=true;
+  try{const d=await unlock(user,code);try{sessionStorage.setItem("lb-auth",JSON.stringify([user,code]))}catch(_){}start(d)}
+  catch(_){m.textContent="That username and password don't match. Check both and try again.";m.className="gate-msg err"}
+  finally{$("#unlock").disabled=false}
+});
+(async()=>{let a=null;try{a=JSON.parse(sessionStorage.getItem("lb-auth")||"null")}catch(_){}if(a){try{start(await unlock(a[0],a[1]))}catch(_){}}})();
+
+function partners(P){
+  const rank={"Referral partner":0,"Owner-builder":1,"Competitor":2,"Avoid":3};
+  P.sort((a,b)=>rank[a.use]-rank[b.use]||b.devs-a.devs);
+  $("#partners").innerHTML=P.map(p=>`<article class="pcard">
+    <span class="pill use ${USE[p.use]}">${esc(p.use)}</span>
+    <h3>${esc(p.firm)}</h3>
+    <div class="meta">${esc(p.type||"")}${p.person?" · "+esc(p.person):""}</div>
+    <div class="nums">${p.devs} developers · ${p.proj} filings</div>
+    ${p.phone?`<div class="mono"><span>${esc(p.phone)}</span>${copyBtn(p.phone)}</div>`:""}
+    ${p.email?`<div class="mono" style="overflow-wrap:anywhere"><span>${esc(p.email)}</span>${copyBtn(p.email)}</div>`:""}
+    ${p.web?`<div class="meta">${esc(p.web)}</div>`:""}
+    ${p.notes?`<div class="meta">${esc(p.notes)}</div>`:""}
+  </article>`).join("");
+}
+</script>
+
+</body>
+</html>

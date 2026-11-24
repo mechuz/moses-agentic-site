@@ -1,5 +1,6 @@
 # Live at www.buildingboulder.com, unlisted for now: the page carries <meta name="robots" content="noindex, nofollow">.
 # When Boulder approves: flip that tag to "index, follow" and send the sitemap to Google.
 User-agent: *
+Disallow: /leads/
 Allow: /
 Sitemap: https://www.buildingboulder.com/sitemap.xml

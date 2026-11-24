@@ -46,7 +46,9 @@
     var cfg = window.BB_CONFIG || {};
     if (!cfg.endpoint) return Promise.reject(new Error('no endpoint'));
     var body = new URLSearchParams();
-    Object.keys(fields).forEach(function (k) { body.append(k, fields[k] == null ? '' : String(fields[k])); });
+    // every post carries the same keys, so the CRM's saved field list always matches
+    var KEYS = ['form', 'source', 'name', 'company', 'role', 'email', 'phone', 'message', 'borough', 'neighborhood', 'place', 'type', 'stories', 'units', 'due', 'drawings', 'estimate', 'summary'];
+    KEYS.forEach(function (k) { body.append(k, fields[k] == null ? '' : String(fields[k])); });
     body.append('page', location.href.split('#')[0]);
     return fetch(cfg.endpoint, { method: 'POST', mode: 'no-cors', body: body });
   };
@@ -57,8 +59,18 @@
 <script src="assets/js/portfolio.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/estimator.js" defer></script>
+<script>/* opening animation: once per visit, never for reduced motion */
+try{if(!sessionStorage.getItem('bbIntro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('bb-intro-on')}catch(e){}</script>
 </head>
 <body>
+<div class="bb-intro" id="bbIntro" aria-hidden="true">
+  <div class="bb-intro__site"><i class="bb-intro__fl" style="--i:0"></i><i class="bb-intro__fl" style="--i:1"></i><i class="bb-intro__fl" style="--i:2"></i><i class="bb-intro__fl" style="--i:3"></i><i class="bb-intro__fl" style="--i:4"></i><i class="bb-intro__fl" style="--i:5"></i><i class="bb-intro__fl" style="--i:6"></i><i class="bb-intro__fl" style="--i:7"></i><i class="bb-intro__fl" style="--i:8"></i><i class="bb-intro__fl" style="--i:9"></i><i class="bb-intro__fl bb-intro__fl--roof" style="--i:10"><span class="bb-intro__crane"></span></i></div>
+  <img class="bb-intro__logo" src="assets/img/logo-rev-720.png" width="1495" height="410" alt="">
+  <p class="bb-intro__tag">Building a bold world.</p>
+  <span class="bb-intro__skip">Tap to skip</span>
+</div>
+<script>(function(){var h=document.documentElement,el=document.getElementById('bbIntro');if(!h.classList.contains('bb-intro-on')||!el)return;var done=false;function end(){if(done)return;done=true;try{sessionStorage.setItem('bbIntro','1')}catch(e){}el.classList.add('is-done');window.dispatchEvent(new Event('bb:introdone'));setTimeout(function(){h.classList.remove('bb-intro-on');el.remove()},1000)}el.addEventListener('click',end);setTimeout(end,3000)})();</script>
+
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -78,13 +90,14 @@
 
 <header class="nav is-over" id="nav">
   <a class="lockup" href="#top" aria-label="Boulder Builders, back to top">
-    <img class="lockup__img lockup__img--rev" src="assets/img/logo-rev-480.png" srcset="assets/img/logo-rev-240.png 240w, assets/img/logo-rev-480.png 480w, assets/img/logo-rev-720.png 720w" sizes="117px" width="1495" height="410" alt="Boulder Builders">
-    <img class="lockup__img lockup__img--ink" src="assets/img/logo-ink-480.png" srcset="assets/img/logo-ink-240.png 240w, assets/img/logo-ink-480.png 480w, assets/img/logo-ink-720.png 720w" sizes="117px" width="1495" height="410" alt="" aria-hidden="true">
+    <img class="lockup__img lockup__img--rev" src="assets/img/logo-rev-480.png" srcset="assets/img/logo-rev-240.png 240w, assets/img/logo-rev-480.png 480w, assets/img/logo-rev-720.png 720w" sizes="168px" width="1495" height="410" alt="Boulder Builders">
+    <img class="lockup__img lockup__img--ink" src="assets/img/logo-ink-480.png" srcset="assets/img/logo-ink-240.png 240w, assets/img/logo-ink-480.png 480w, assets/img/logo-ink-720.png 720w" sizes="168px" width="1495" height="410" alt="" aria-hidden="true">
   </a>
   <nav class="nav__links" aria-label="Main">
     <a href="#work">Buildings</a><a href="#map">Map</a><a href="#team">Team</a><a href="#process">How we work</a><a href="#estimator">Estimate</a>
   </nav>
   <div class="nav__end">
+    <a class="nav__talk nav__login" href="https://airtable.com/appSz6CQdoZlTjrhg" target="_blank" rel="noopener">Team login</a>
     <button class="nav__talk" id="talkBtn" data-talk aria-expanded="false" aria-controls="talk"><svg aria-hidden="true"><use href="#ic-talk"/></svg><span>Talk to us</span></button>
     <a class="btn btn--y btn--sm nav__cta" href="#bid">Request a bid</a>
     <button class="nav__menu" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><i></i><i></i></button>
@@ -99,6 +112,7 @@
     <a href="#process"><span>04</span>How we work</a>
     <a href="#estimator"><span>05</span>Estimate</a>
     <a href="#bid"><span>06</span>Request a bid</a>
+    <a href="https://airtable.com/appSz6CQdoZlTjrhg" target="_blank" rel="noopener"><span>07</span>Team login</a>
   </nav>
   <button class="btn btn--o menu__talk" data-talk aria-controls="talk"><svg aria-hidden="true"><use href="#ic-talk"/></svg>Talk to us</button>
 </div>
@@ -605,7 +619,7 @@
     <div class="foot__grid">
       <div>
         <a class="lockup lockup--lg" href="#top" aria-label="Boulder Builders, back to top">
-          <img class="lockup__img" src="assets/img/logo-rev-480.png" srcset="assets/img/logo-rev-240.png 240w, assets/img/logo-rev-480.png 480w, assets/img/logo-rev-720.png 720w" sizes="175px" width="1495" height="410" alt="Boulder Builders" loading="lazy">
+          <img class="lockup__img" src="assets/img/logo-rev-480.png" srcset="assets/img/logo-rev-240.png 240w, assets/img/logo-rev-480.png 480w, assets/img/logo-rev-720.png 720w" sizes="234px" width="1495" height="410" alt="Boulder Builders" loading="lazy">
         </a>
       </div>
       <div><p class="foot__h">What we do</p><p>Construction management for ground-up apartment buildings, low-rise to high-rise.</p></div>

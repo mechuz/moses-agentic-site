@@ -121,15 +121,18 @@
     const hero = $('#hero'); if (!hero) return;
     const heads = $$('.hero [data-split]');
     if (!MOTION) { heads.forEach(h => h.classList.add('is-in')); return; }
-    gsap.from('.hero__pan img', { scale: MOBILE ? 1.18 : 1.1, duration: 2.4, ease: 'expo.out' });
-    if (!MOBILE) gsap.from('.hero__media', { clipPath: 'inset(0% 0% 0% 100%)', duration: 1.5, ease: 'expo.inOut', clearProps: 'clipPath' });
-    gsap.from('.hero__shade', { opacity: 0, duration: 1.6, ease: 'power2.out' });
-    gsap.from('.hero__k', { y: 16, opacity: 0, duration: 1, ease: 'expo.out', delay: .25 });
-    setTimeout(() => heads[0] && heads[0].classList.add('is-in'), 380);
-    setTimeout(() => heads[1] && heads[1].classList.add('is-in'), 620);
-    gsap.from('.hero__cta > *', { y: 20, opacity: 0, duration: 1, ease: 'expo.out', stagger: .08, delay: 1.0 });
-    gsap.from('.hero__cap, .hero__cue', { opacity: 0, duration: 1.2, ease: 'power2.out', delay: 1.3 });
-    gsap.from(nav, { y: -20, opacity: 0, duration: 1, ease: 'expo.out', delay: .2, clearProps: 'transform,opacity' });
+    const play = () => {
+      gsap.from('.hero__pan img', { scale: MOBILE ? 1.18 : 1.1, duration: 2.4, ease: 'expo.out' });
+      gsap.from('.hero__media', { clipPath: 'inset(100% 0% 0% 0%)', duration: 1.5, ease: 'expo.inOut', clearProps: 'clipPath' });
+      gsap.from('.hero__shade', { opacity: 0, duration: 1.6, ease: 'power2.out' });
+      gsap.from('.hero__k', { y: 16, opacity: 0, duration: 1, ease: 'expo.out', delay: .25 });
+      setTimeout(() => heads[0] && heads[0].classList.add('is-in'), 380);
+      setTimeout(() => heads[1] && heads[1].classList.add('is-in'), 620);
+      gsap.from('.hero__cta > *', { y: 20, opacity: 0, duration: 1, ease: 'expo.out', stagger: .08, delay: 1.0 });
+      gsap.from('.hero__cap, .hero__cue', { opacity: 0, duration: 1.2, ease: 'power2.out', delay: 1.3 });
+      gsap.from(nav, { y: -20, opacity: 0, duration: 1, ease: 'expo.out', delay: .2, clearProps: 'transform,opacity' });
+    };
+    if (document.documentElement.classList.contains('bb-intro-on')) addEventListener('bb:introdone', play, { once: true }); else play();
     gsap.to('.hero__pan', { yPercent: 14, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
     gsap.to('.hero__in', { y: -80, opacity: 0, ease: 'none', scrollTrigger: { trigger: hero, start: '25% top', end: '85% top', scrub: true } });
   }

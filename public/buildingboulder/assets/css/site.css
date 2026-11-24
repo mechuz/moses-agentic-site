@@ -172,10 +172,10 @@ html.menu-open .nav{background:#fff;color:var(--ink);border-color:var(--line);tr
 
 /* ---------- featured carousel ---------- */
 .carousel{margin-top:clamp(48px,6vw,80px)}
-.carousel__view{overflow:hidden;cursor:grab;touch-action:pan-y;padding:0 0 36px max(var(--gut),calc((100vw - var(--max)) / 2 + var(--gut)))}
+.carousel__view{overflow:hidden;cursor:grab;touch-action:pan-y;width:calc(100% - 2 * var(--gut));max-width:calc(var(--max) - 2 * var(--gut));margin:0 auto;padding:0 0 36px}
 .carousel__view.is-drag{cursor:grabbing}
 .carousel__view.is-drag a{pointer-events:none}
-.carousel__track{display:flex;gap:clamp(16px,2vw,28px);width:max-content;padding-right:var(--gut);will-change:transform}
+.carousel__track{position:relative;display:flex;gap:clamp(16px,2vw,28px);width:max-content;will-change:transform}
 .carousel__bar{display:flex;align-items:center;gap:24px}
 .carousel__prog{flex:1;height:1px;background:var(--line-2);position:relative}
 .carousel__prog i{position:absolute;left:0;right:0;top:-1px;height:3px;background:var(--ink);transform-origin:left;transform:scaleX(.1)}

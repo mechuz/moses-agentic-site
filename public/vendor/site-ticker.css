@@ -72,3 +72,7 @@ html.v2 #v2dock .v2soon { font-size: .55rem; padding: .15rem .35rem; }
   html.v2 #v2dock .v2ic { width: 20px; height: 20px; }
   html.v2 #v2dock .v2soon { font-size: .5rem; padding: .1rem .28rem; }
 }
+
+/* Hidden for now (ownership, November 24, 2026): robotic services are not shown, and websites are simply built for the client (no page-count order builder). Delete these two lines to bring them back. */
+html.v2 #v2dock button.rb { display: none !important; }
+.scard[data-ag="web"] { display: none !important; }

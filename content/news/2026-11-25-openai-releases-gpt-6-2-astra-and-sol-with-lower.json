@@ -1,0 +1,13 @@
+{
+ "slug": "2026-11-25-openai-releases-gpt-6-2-astra-and-sol-with-lower",
+ "title": "OpenAI releases GPT-6.2 Astra and Sol, with lower costs per task for heavy and everyday work",
+ "source": "OpenAI Developer Community (announcement)",
+ "source_url": "https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531",
+ "date": "2026-11-25",
+ "article_date": "2026-11-17",
+ "category_name": "AI & automation",
+ "summary": "OpenAI released two new models on November 17, 2026. GPT-6.2 Astra is built for demanding professional work such as documents, spreadsheets, code and research; GPT-6.2 Sol is a cheaper model for everyday tasks and multistep workflows. Both are available in ChatGPT Work and Codex on paid plans and in the API, priced at $8 and $40 per million input and output tokens for Astra and $2 and $10 for Sol. OpenAI says Astra completes a typical task for under a third of what its predecessor cost. On November 23, a Sol-based version began rolling out to the regular Chat tab, including Business plans.",
+ "why": "The cost of a finished task keeps falling, so a team already paying for ChatGPT may get more work done on the same plan; check which model your workspace is set to use.",
+ "status": "published",
+ "airtable_id": "rechndN52IHC6Musj"
+}

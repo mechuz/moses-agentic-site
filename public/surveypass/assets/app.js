@@ -121,7 +121,17 @@ const DEPTS = [
     "Missing admissions-file elements identified and assigned for completion."]},
 ];
 const DEPT = Object.fromEntries(DEPTS.map(d => [d.id, d]));
-const TOTAL_ITEMS = DEPTS.reduce((n, d) => n + d.items.length, 0);
+let TOTAL_ITEMS = DEPTS.reduce((n, d) => n + d.items.length, 0);
+/* Department heads see only their own department(s); leadership and view-only accounts see
+   every department. The database enforces the same rule; this keeps the screens consistent. */
+const ALL_DEPTS = DEPTS.slice();
+const canSeeDept = id => DEPTS.some(d => d.id === id);
+function applyVisibility(p){
+  const own = p && p.role === "director" ? ALL_DEPTS.filter(d => (p.depts || []).includes(d.id)) : ALL_DEPTS;
+  DEPTS.splice(0, DEPTS.length, ...own);
+  TOTAL_ITEMS = DEPTS.reduce((n, d) => n + d.items.length, 0);
+}
+const visibleAudits = () => AUDITS.filter(a => canSeeDept(a.dept));
 
 /* Additional compliance checks by frequency (page 6 of the scan). */
 const AUDITS = [
@@ -344,6 +354,7 @@ function applyRows(coll, rows, full){
   const map = COLL[coll], seen = new Set();
   for (const r of rows) {
     if (!r || !r.id) continue;
+    if (r.data && r.data.dept && !canSeeDept(r.data.dept)) continue;   // another department's record
     seen.add(r.id);
     const w = W[coll + "/" + r.id];
     if (w && w.busy) continue;              // the save result will land in a moment
@@ -440,7 +451,7 @@ function renderTabs(){
   const hot = active.some(a => a.urgent) || active.some(isOverdue);
   const defs = [["dashboard","Dashboard","Home"],["checklists","Daily checklists","Checklist"],["actions","Corrective actions","Actions", active.length, hot],["audits","Scheduled audits","Audits", auditsDueCount()],["binder","Survey binder","Binder"]];
   for (const [id, long, short, n, isHot] of defs) {
-    tabs.append(h("a", {href:"#" + id, "aria-current": S.view === id ? "page" : null}, h("span", {class:"lf"}, long), h("span", {class:"ls"}, short), n ? h("span", {class:"count" + (isHot ? " hot" : "")}, n) : null));
+    tabs.append(h("a", {href:"#" + id, "aria-current": S.view === id ? "page" : null}, h("span", {class:"ico ico-" + id, "aria-hidden":"true"}), h("span", {class:"lf"}, long), h("span", {class:"ls"}, short), n ? h("span", {class:"count" + (isHot ? " hot" : "")}, n) : null));
   }
   requestAnimationFrame(() => { const b = document.getElementById("band"); document.documentElement.style.setProperty("--band-h", b.offsetHeight + "px"); });
 }
@@ -497,7 +508,7 @@ function viewDashboard(){
         h("span", {}, h("i", {style:"background:var(--na)"}), tot.NA + " not applicable"),
         h("span", {}, h("i", {style:"background:var(--empty)"}), (TOTAL_ITEMS - tot.answered) + " not checked")),
       h("div", {class:"row"}, h("span", {class:"chip " + (dl.over && pendingN ? "bad" : "plain")}, dl.text),
-        h("span", {class:"note"}, pendingN ? pendingN + " of " + DEPTS.length + " checklists not submitted yet" : "All " + DEPTS.length + " checklists submitted"))),
+        h("span", {class:"note"}, pendingN ? pendingN + " of " + DEPTS.length + " checklists not submitted yet" : (DEPTS.length === 1 ? "Checklist submitted" : "All " + DEPTS.length + " checklists submitted")))),
     h("div", {class:"kpis"},
       kpi(tot.submitted + "/" + DEPTS.length, "Departments submitted today"),
       kpi(tot.C + tot.NC ? pct(tot.C, tot.C + tot.NC) + "%" : "—", "Compliance rate of checked items"),
@@ -589,7 +600,7 @@ function meetingPanel(y, active, overdue){
     h("div", {class:"section-h"}, h("h2", {}, "For the 9:00 AM meeting"), h("span", {class:"sub"}, "Yesterday, " + fmtDay(y))),
     h("div", {class:"panel stack", style:"gap:14px"},
       h("div", {}, h("div", {class:"lbl"}, "Checklists not submitted yesterday"),
-        missing.length ? h("div", {class:"row", style:"margin-top:6px"}, missing.map(d => h("span", {class:"chip bad"}, d.short))) : h("div", {class:"chip ok", style:"margin-top:6px"}, "All " + DEPTS.length + " submitted")),
+        missing.length ? h("div", {class:"row", style:"margin-top:6px"}, missing.map(d => h("span", {class:"chip bad"}, d.short))) : h("div", {class:"chip ok", style:"margin-top:6px"}, (DEPTS.length === 1 ? "Submitted" : "All " + DEPTS.length + " submitted"))),
       h("div", {}, h("div", {class:"lbl"}, "Submitted after the 2:30 PM deadline yesterday"),
         lateY.length ? h("div", {class:"row", style:"margin-top:6px"}, lateY.map(d => h("span", {class:"chip warn"}, d.short))) : h("div", {class:"chip ok", style:"margin-top:6px"}, "None")),
       listBlock("Findings logged yesterday", yFindings),
@@ -628,7 +639,7 @@ function viewChecklists(){
 
   const head = h("section", {class:"ck-head"},
     h("div", {class:"stack", style:"gap:4px"},
-      h("a", {href:"#checklists", class:"note"}, "‹ All departments"),
+      h("a", {href:"#checklists", class:"btn back"}, "‹ All departments"),
       h("h2", {}, dept.name),
       h("div", {class:"sub"}, "Responsible lead: " + dept.lead)),
     h("div", {class:"datenav"},
@@ -641,7 +652,7 @@ function viewChecklists(){
     h("div", {class:"field"}, h("label", {for:"ck-reviewer"}, "Reviewer"),
       h("input", {class:"input", id:"ck-reviewer", value:c.reviewer || "", placeholder:"Name of the person doing the rounds", disabled:locked, autocomplete:"name",
         onchange:e => writeDoc("checks", id, baseFields(date, dept.id, {reviewer:e.target.value.trim()}))})),
-    h("div", {class:"note", style:"align-self:end"}, "Mark each item: C = compliant · NC = needs correction · NA = not applicable. Every NC is documented as a finding and goes to the corrective-action log."));
+    h("div", {class:"note", style:"align-self:end"}, "Tap one answer for each item: Compliant, Needs fix (NC) or N/A. Every \"Needs fix\" asks you to write down what you found and goes to the corrective-action list."));
 
   const prog = h("div", {class:"progress"},
     h("div", {class:"row"}, h("strong", {class:"num"}, x.answered + " of " + x.total + " checked"),
@@ -674,7 +685,7 @@ function itemRow(dept, date, cid, n, text, mark, locked){
     h("div", {class:"item-top"},
       h("div", {class:"item-text"}, h("span", {class:"n num"}, n + "."), h("span", {}, text)),
       h("div", {class:"seg", role:"group", "aria-label":"Item " + n + " result"},
-        ["C","NC","NA"].map(m => h("button", {type:"button", class:m, "aria-pressed": mark === m ? "true" : "false", disabled:locked && mark !== m, onclick:() => setMark(m), title:{C:"Compliant", NC:"Needs correction", NA:"Not applicable"}[m]}, m)))));
+        ["C","NC","NA"].map(m => h("button", {type:"button", class:m, "aria-pressed": mark === m ? "true" : "false", disabled:locked && mark !== m, onclick:() => setMark(m), title:{C:"Compliant", NC:"Needs correction", NA:"Not applicable"}[m]}, {C:"Compliant", NC:"Needs fix", NA:"N/A"}[m])))));
   if (mark === "NC" || act) row.append(findingBlock(dept, date, n, text, aid, act, locked && !canEditData(dept.id)));
   return row;
 }
@@ -762,7 +773,7 @@ function signoff(dept, date, id, x, c, locked){
 function deptPicker(){
   const t = today();
   return h("div", {class:"stack"}, noDbNotice(),
-    h("div", {class:"section-h"}, h("h2", {}, "Daily departmental compliance checklists"), h("span", {class:"sub"}, fmtDay(t, {year:"numeric"}) + " · " + TOTAL_ITEMS + " line items across " + DEPTS.length + " departments")),
+    h("div", {class:"section-h"}, h("h2", {}, "Daily departmental compliance checklists"), h("span", {class:"sub"}, fmtDay(t, {year:"numeric"}) + " · " + TOTAL_ITEMS + " line items across " + DEPTS.length + (DEPTS.length === 1 ? " department" : " departments"))),
     h("div", {class:"dept-pick"}, DEPTS.map(d => { const x = countFor(d, t);
       return h("button", {class:"dept", type:"button", onclick:() => { S.date = t; go("dept-" + d.id); }},
         h("h3", {}, d.short), h("span", {class:"lead"}, d.items.length + " items · " + d.lead),
@@ -879,7 +890,7 @@ function auditState(a){
 }
 function auditsDueCount(){
   let n = 0;
-  for (const a of AUDITS) {
+  for (const a of visibleAudits()) {
     if (a.freq === "shift") { n += shiftSlots(a).filter(s => !s.doc && s.started).length; continue; }
     const st = auditState(a); if (!st.doc) n++;
   }
@@ -887,7 +898,7 @@ function auditsDueCount(){
 }
 function auditsOverdueCount(){
   let n = 0;
-  for (const a of AUDITS) {
+  for (const a of visibleAudits()) {
     if (a.freq === "shift") { n += shiftSlots(a).filter(s => !s.doc && s.ended).length; continue; }
     if (auditState(a).overdue) n++;
   }
@@ -908,7 +919,7 @@ function shiftSlots(a){
 function viewAudits(){
   return h("div", {class:"stack"}, noDbNotice(),
     h("div", {class:"section-h"}, h("h2", {}, "Additional compliance checks by frequency"), h("span", {class:"sub"}, "Scheduled audits that supplement the daily checklists so responsibilities do not get overlooked.")),
-    h("div", {class:"audits"}, AUDITS.map(auditCard)),
+    h("div", {class:"audits"}, visibleAudits().map(auditCard)),
     h("p", {class:"note"}, "These are a combination of regulatory obligations, documentation reviews, and the community's internal quality expectations. Not every item is required by state law at the listed frequency."));
 }
 function auditCard(a){
@@ -1222,6 +1233,7 @@ async function loadProfile(){
   }
   const d = res.data;
   S.profile = {id:d.id, username:d.username, name:d.name || d.username, role:d.role, depts:d.depts || [], mustChangePassword:!!d.mustChangePassword};
+  applyVisibility(S.profile);
   S.meId = d.id; S.meName = S.profile.name; S.readOnly = d.role === "viewer";
   route(); renderStatus();
   if (!S.profile.mustChangePassword) startSync();

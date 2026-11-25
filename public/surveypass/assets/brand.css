@@ -13,8 +13,16 @@
 /* Navy header band in both modes; tokens re-scoped so pills and tabs read on navy. */
 .band{background:rgba(13,27,46,.94);border-bottom-color:rgba(255,255,255,.08);
   --band-ink:#f3f7fd; --band-muted:#9fb1cc; --ink:#f3f7fd; --fill:rgba(255,255,255,.12); --surface:#1d5fd1; --line-strong:rgba(255,255,255,.22)}
-.band .tabs a[aria-current="page"]{color:#fff;box-shadow:none}
-.band .tabs a:hover{background:rgba(255,255,255,.1)}
+@media (min-width:601px){
+  .band .tabs a[aria-current="page"]{color:#fff;box-shadow:none}
+  .band .tabs a:hover{background:rgba(255,255,255,.1)}
+}
+/* Phone: the tab bar sits at the bottom on a light/dark bar, so it goes back to the page colors. */
+@media (max-width:600px){
+  .band .tabs{--ink:#1d1d1f; --line-strong:rgba(0,0,0,.16)}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .band .tabs{--ink:#f5f5f7; --line-strong:rgba(255,255,255,.18)}}
+  :root[data-theme="dark"] .band .tabs{--ink:#f5f5f7; --line-strong:rgba(255,255,255,.18)}
+}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .band{background:rgba(7,14,25,.92)}}
 :root[data-theme="dark"] .band{background:rgba(7,14,25,.92)}
 .demo-banner{background:var(--accent-soft);color:var(--accent);font-weight:600}

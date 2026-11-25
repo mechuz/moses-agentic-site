@@ -1,0 +1,22 @@
+/* SurveyPass brand layer on top of app.css: blue accent, navy header band. */
+:root{
+  --accent:#1d5fd1; --accent-hover:#174fb0; --accent-ink:#ffffff; --accent-soft:#e6eefb; --focus:#1d5fd1;
+  --bg:#f3f6fb; --band-solid:#0d1b2e;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --accent:#5b95ff; --accent-hover:#76a8ff; --accent-ink:#06101f; --accent-soft:#132544; --focus:#76a8ff;
+  --bg:#070b12; --surface:#121a27; --surface-2:#1a2434; --fill:#243042; --band-solid:#070e19}}
+:root[data-theme="dark"]{
+  --accent:#5b95ff; --accent-hover:#76a8ff; --accent-ink:#06101f; --accent-soft:#132544; --focus:#76a8ff;
+  --bg:#070b12; --surface:#121a27; --surface-2:#1a2434; --fill:#243042; --band-solid:#070e19}
+
+/* Navy header band in both modes; tokens re-scoped so pills and tabs read on navy. */
+.band{background:rgba(13,27,46,.94);border-bottom-color:rgba(255,255,255,.08);
+  --band-ink:#f3f7fd; --band-muted:#9fb1cc; --ink:#f3f7fd; --fill:rgba(255,255,255,.12); --surface:#1d5fd1; --line-strong:rgba(255,255,255,.22)}
+.band .tabs a[aria-current="page"]{color:#fff;box-shadow:none}
+.band .tabs a:hover{background:rgba(255,255,255,.1)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .band{background:rgba(7,14,25,.92)}}
+:root[data-theme="dark"] .band{background:rgba(7,14,25,.92)}
+.demo-banner{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.band .sp-mark{display:inline-flex;align-items:center;gap:9px}
+.band .sp-mark svg{flex:none}

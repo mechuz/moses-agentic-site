@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0d1b2e">
+  <title>SurveyPass Demo</title>
+  <meta name="description" content="Try SurveyPass with sample data. Nothing you do here is saved anywhere but your own device.">
+  <link rel="icon" type="image/svg+xml" href="/surveypass/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/surveypass/icon-32.png">
+  <link rel="apple-touch-icon" href="/surveypass/icon-180.png">
+  <link rel="stylesheet" href="/surveypass/assets/app.css?v=1">
+  <link rel="stylesheet" href="/surveypass/assets/brand.css?v=1">
+</head>
+<body data-page="surveypass-demo">
+<div class="demo-banner">Demo with sample data for a fictional community. Nothing you do here is saved anywhere but this device. <a href="/surveypass/" style="color:inherit">About SurveyPass</a></div>
+<header class="band" id="band">
+  <div class="wrap">
+    <div class="brand">
+      <span class="fac">Sample Senior Living</span>
+      <h1><span class="sp-mark"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1d5fd1"/><path d="M9 16.5l4.5 4.5L23 11.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>SurveyPass</span></h1>
+    </div>
+    <div class="status-row" id="statusRow"></div>
+    <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+  </div>
+</header>
+<main class="wrap" id="main" tabindex="-1">
+  <noscript><p class="panel">Turn on JavaScript to use SurveyPass.</p></noscript>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+<script src="/surveypass/assets/brand.js?v=1"></script>
+<script src="/surveypass/assets/demo-backend.js?v=1"></script>
+<script src="/surveypass/assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* SurveyPass product page. System fonts only; no external requests. */
+:root{
+  --band:#0d1b2e; --band-ink:#eef3fb; --band-muted:#a7b8d1;
+  --accent:#1d5fd1; --accent-hover:#174fb0; --bg:#f3f6fb; --surface:#ffffff; --surface-2:#e6edf8;
+  --line:#d6deeb; --muted:#55657d; --ink:#111c2d;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --band:#070e19; --band-ink:#e6edf8; --band-muted:#8fa2bf; --accent:#3d7bf0; --accent-hover:#5a90f5;
+  --bg:#0a111c; --surface:#121b2a; --surface-2:#172235; --line:#233148; --muted:#9aaac3; --ink:#e4ebf6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --band:#070e19; --band-ink:#e6edf8; --band-muted:#8fa2bf; --accent:#3d7bf0; --accent-hover:#5a90f5;
+  --bg:#0a111c; --surface:#121b2a; --surface-2:#172235; --line:#233148; --muted:#9aaac3; --ink:#e4ebf6; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--font);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+h1,h2,h3{font-family:var(--font-display);margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 55%,transparent);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){.wrap{padding-inline:28px}}
+.sp-top{background:var(--band);color:var(--band-ink)}
+.sp-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:16px}
+.sp-logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:21px;color:var(--band-ink);text-decoration:none;letter-spacing:-.015em}
+.sp-logo svg{flex:none}
+.sp-btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:11px;background:var(--accent);color:#fff;font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap}
+.sp-btn:hover,.sp-cta:hover{background:var(--accent-hover)}
+.sp-hero .wrap{padding-block:36px 64px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center}
+.sp-eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8fb4ff;margin-bottom:14px}
+.sp-hero h1{font-size:clamp(38px,6.2vw,62px);font-weight:800;line-height:1.02;letter-spacing:-.035em;color:var(--band-ink)}
+.sp-hero .lead{font-size:18px;color:var(--band-muted);max-width:34em;margin:20px 0 28px}
+.sp-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 30px;border-radius:14px;background:var(--accent);color:#fff;font-weight:800;font-size:18px;text-decoration:none;box-shadow:0 8px 24px rgba(29,95,209,.35)}
+.sp-cta svg{flex:none}
+.sp-sub{font-size:13.5px;color:var(--band-muted);margin-top:14px}
+.sp-phone{background:#0a1424;border:1px solid #23324a;border-radius:24px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.4);color:#dbe4f2}
+.sp-phone .row1{display:flex;justify-content:space-between;gap:10px;color:#9fb1cc;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:6px}
+.sp-phone .big{font-family:var(--font-display);font-size:50px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.1}
+.sp-phone .big small{font-size:14px;font-weight:600;color:#5cc26c;letter-spacing:0;margin-left:8px}
+.sp-phone .bar{display:flex;gap:2px;height:12px;border-radius:4px;overflow:hidden;margin:12px 0 14px}
+.sp-phone .bar i{flex:1;background:#2f8f4a}.sp-phone .bar i.n{background:#e06a2c}.sp-phone .bar i.e{background:#26354c}
+.sp-phone .dept{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-top:1px solid #1d2a40;font-size:14px}
+.sp-phone .alert{margin-top:10px;background:#3a1414;color:#ff8a80;border-radius:12px;padding:10px 12px;font-size:13px;font-weight:600}
+.sp-chip{font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.sp-chip.ok{background:#173322;color:#5cc26c}.sp-chip.late{background:#30270e;color:#e2b53e}.sp-chip.due{background:#2a3446;color:#c9d6ea}
+.sp-section{padding-block:64px 0}
+.sp-section h2{font-size:clamp(26px,3.6vw,34px);font-weight:800;letter-spacing:-.025em;margin-bottom:10px}
+.sp-section .intro{color:var(--muted);max-width:44em;margin-bottom:26px;font-size:17px}
+.sp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.sp-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.sp-card h3{font-size:17px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.sp-card p{color:var(--muted);font-size:15px}
+.sp-ic{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);margin-bottom:12px}
+.sp-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:st}
+.sp-steps .sp-card h3{display:flex;align-items:center;gap:10px}
+.sp-steps .sp-card h3::before{counter-increment:st;content:counter(st);display:inline-grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-size:14px}
+.sp-band2{background:var(--band);color:var(--band-ink);border-radius:22px;padding:44px 24px;margin:72px 0 40px;text-align:center}
+.sp-band2 h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;letter-spacing:-.025em;margin-bottom:10px}
+.sp-band2 p{color:var(--band-muted);max-width:36em;margin:0 auto 24px}
+.sp-foot{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--muted);font-size:13.5px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+.sp-foot a{color:var(--muted)}
+@media (max-width:900px){.sp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.sp-hero .wrap{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:20px 48px}.sp-steps{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){.sp-grid{grid-template-columns:minmax(0,1fr)}.sp-cta{width:100%}.sp-hero .lead{font-size:17px}.sp-section{padding-block:48px 0}.sp-nav .sp-btn{min-height:38px;padding:0 14px;font-size:14px}}

@@ -1,0 +1,13 @@
+{
+ "slug": "2026-11-27-jpmorgan-and-hyundai-card-test-ai-agents-that",
+ "title": "JPMorgan and Hyundai Card test AI agents that transact with each other inside fixed spending limits",
+ "source": "CNBC",
+ "source_url": "https://www.cnbc.com/2026/11/18/jpmorgan-hyundai-card-ai-agents-payments.html",
+ "date": "2026-11-27",
+ "article_date": "2026-11-17",
+ "category_name": "AI by industry",
+ "summary": "JPMorgan Chase and South Korea's Hyundai Card ran a proof of concept in which a Hyundai Card AI agent requested a simulated foreign exchange trade and a JPMorgan agent handled it on the bank's Kinexys blockchain network, with little human involvement. The companies plan a more complex phase with several interacting agents in the first half of 2027 and have set no date for a commercial product. JPMorgan says the hardest problems are accountability, governance and internal controls rather than the technology. Its framework keeps each agent inside preset transaction limits and automatically rejects requests above them.",
+ "why": "Even large banks start agents with hard limits and clear human accountability, a sensible pattern for any business that lets software move money.",
+ "status": "published",
+ "airtable_id": "rece5a3lEDbIGyAhf"
+}
